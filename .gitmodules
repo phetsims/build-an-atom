@@ -1,0 +1,3 @@
+[submodule "common/phetcommon"]
+	path = common/phetcommon
+	url = https://github.com/phetsims/phetcommon.git
