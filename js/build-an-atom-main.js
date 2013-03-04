@@ -1,15 +1,14 @@
 // Copyright 2002-2012, University of Colorado
 require( [
-             'underscore',
+             'lodash',
              'easel',
-             'phetcommon/view/PrototypeDialog',
              'view/BuildAnAtomStage',
              'model/BuildAnAtomModel',
              'view/SymbolView',
              'view/MassNumberView',
              'view/PeriodicTableView',
              'view/NetChargeView'
-         ], function ( _, Easel, PrototypeDialog, BuildAnAtomStage, BuildAnAtomModel, SymbolView, MassNumberView, PeriodicTableView, NetChargeView ) {
+         ], function ( _, Easel, BuildAnAtomStage, BuildAnAtomModel, SymbolView, MassNumberView, PeriodicTableView, NetChargeView ) {
 
     // Create the model.
     var buildAnAtomModel = new BuildAnAtomModel();
@@ -25,7 +24,4 @@ require( [
         var massNumberWidget = new MassNumberView( atom );
         var netChargeWidget = new NetChargeView( atom );
     } );
-
-    // Display the "prototype" dialog.  TODO: This is temporary.
-    PrototypeDialog.init( "Build an Atom" );
 } );

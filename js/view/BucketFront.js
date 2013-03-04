@@ -1,5 +1,5 @@
 // Copyright 2002-2012, University of Colorado
-define( [ 'underscore', 'easel', 'common/Point2D' ], function ( _, Easel, Point2D ) {
+define( [ 'lodash', 'easel', 'common/Point2D' ], function ( _, Easel, Point2D ) {
 
     /**
      * @class BucketFront

@@ -1,6 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 define([
-  'underscore',
+  'lodash',
   'easel',
   'common/Point2D'
 ], function ( _, Easel, Point2D ) {

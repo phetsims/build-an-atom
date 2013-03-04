@@ -1,5 +1,5 @@
 define([
-  'underscore',
+  'lodash',
   'common/AtomIdentifier',
   'tpl!templates/detailed-element-symbol.html'
 ], function( _, AtomIdentifier, symbolTemplate ){

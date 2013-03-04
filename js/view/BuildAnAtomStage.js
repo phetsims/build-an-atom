@@ -1,5 +1,5 @@
 define( [
-            'underscore',
+            'lodash',
             'easel',
             'common/ModelViewTransform2D',
             'common/Utils',

@@ -1,6 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 define( [
-            'underscore',
+            'lodash',
             'common/SharedConstants',
             'common/Utils'
         ], function ( _, SharedConstants, Utils ) {

@@ -1,6 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 define( [
-            'underscore',
+            'lodash',
             'tpl!templates/net-charge.html'
         ], function ( _, netChargeTemplate ) {
 
