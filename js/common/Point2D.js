@@ -7,20 +7,20 @@
 define( [],
         function () {
 
-            /**
-             * @param {Number} x
-             * @param {Number} y
-             * @constructor
-             */
-            function Point2D( x, y ) {
-                this.x = x;
-                this.y = y;
-            }
+          /**
+           * @param {Number} x
+           * @param {Number} y
+           * @constructor
+           */
+          function Point2D( x, y ) {
+            this.x = x;
+            this.y = y;
+          }
 
-            // @return {String}
-            Point2D.prototype.toString = function () {
-                return "[Point2D (x=" + this.x + " y=" + this.y + ")]";
-            };
+          // @return {String}
+          Point2D.prototype.toString = function () {
+            return "[Point2D (x=" + this.x + " y=" + this.y + ")]";
+          };
 
-            return Point2D;
+          return Point2D;
         } );

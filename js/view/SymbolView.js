@@ -1,29 +1,29 @@
-define([
-  'lodash',
-  'common/AtomIdentifier',
-  'tpl!templates/detailed-element-symbol.html'
-], function( _, AtomIdentifier, symbolTemplate ){
+define( [
+          'lodash',
+          'common/AtomIdentifier',
+          'tpl!templates/detailed-element-symbol.html'
+        ], function ( _, AtomIdentifier, symbolTemplate ) {
 
-  function SymbolView( atom ){
+  function SymbolView( atom ) {
     this.atom = atom;
 
-    if( !this.atom ){
-      throw new Error('I need an atom!');
+    if ( !this.atom ) {
+      throw new Error( 'I need an atom!' );
     }
 
     var self = this;
 
-    this.atom.events.on('configurationChanged', function(){
+    this.atom.events.on( 'configurationChanged', function () {
       self.render();
-    });
+    } );
 
-    this.$el = $('#detailed-element-symbol');
+    this.$el = $( '#detailed-element-symbol' );
     this.el = this.$el[0];
 
     this.render();
   }
 
-  SymbolView.prototype.render = function(){
+  SymbolView.prototype.render = function () {
 
     // TODO: present atom data
     var atomData = {
@@ -41,4 +41,4 @@ define([
 
   return SymbolView;
 
-});
+} );
