@@ -9,68 +9,98 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="">
-    <meta name="viewport"
-          content="width=960, height=480, initial-scale=1.0, maximum-scale=1.0"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport"
+        content="width=960, height=480, initial-scale=1.0, maximum-scale=1.0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
-    <title>Build an Atom</title>
+  <title>Build an Atom</title>
 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css"/>
-    <link rel="stylesheet" href="../../common/phetcommon/css/phetcommon.css"/>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="common/phetcommon/css/phetcommon.css"/>
+  <link rel="stylesheet" href="contrib/bootstrap-2.2.1/css/bootstrap.css"/>
+  <link rel="stylesheet" href="contrib/bootstrap-2.2.1/css/bootstrap-responsive.css"/>
 
-    <!--These seem to need to be here rather than at the end of the body, or a
-    weird error is seen on load.-->
-    <script src="/contrib/jquery-1.9.1.js"></script>
-    <script src="/contrib/jquery.mobile-1.2.0/jquery.mobile-1.2.0-phet.js"></script>
+  <link rel="stylesheet" href="css/main-bootstrap.css">
 
-    <!-- Prototype analytics code.  TODO: Should be removed at some point -->
-    <script src='../../common/phetcommon/js/analytics/google-analytics.js'></script>
-    <script src='../../contrib/modernizr-2.6.2.js'></script>
+  <!--These seem to need to be here rather than at the end of the body, or a
+  weird error is seen on load.-->
+  <script src="contrib/jquery-1.9.1.js"></script>
+  <script src="contrib/bootstrap-2.2.1/js/bootstrap.js"></script>
+  <script src='contrib/modernizr-2.6.2.min.js'></script>
 
 </head>
 
 <body>
 
-<div class=phet-container>
-    <!--Make the canvas be roughly the expected size on the nominal screen, which is 1024x768.-->
-    <div id="canvas-container">
-        <canvas id="atom-construction-canvas" width="614" height="768"></canvas>
+<div class="container phet-container">
+  <!--Make the canvas be roughly the expected size on the nominal screen, which is 1024x768.-->
+  <div id="canvas-container">
+    <canvas id="atom-construction-canvas" width="614" height="768"></canvas>
+  </div>
+
+  <div id="control-panel" class="accordion">
+
+    <div class="widget-box accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-target="#periodic-table-container" href="javascript: void(0)">
+          <i class="icon-plus"></i><i class="icon-minus"></i> Periodic Table
+        </a>
+      </div>
+
+      <div class="accordion-body in" id="periodic-table-container">
+        <div id="periodic-table" class="accordion-inner"></div>
+      </div>
     </div>
-    <div id="control-panel">
-        <div id="periodic-table-box" data-role="collapsible" class=widget-box>
-            <h2>Periodic Table</h2>
 
-            <div id="periodic-table"></div>
-        </div>
-        <div id="symbol" data-role="collapsible" class=widget-box>
-            <h2>Symbol</h2>
+    <div class="widget-box accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#detailed-element-symbol-container" href="javascript: void(0)">
+          <i class="icon-plus"></i><i class="icon-minus"></i> Symbol
+        </a>
+      </div>
 
-            <div id="detailed-element-symbol"></div>
-        </div>
-        <div id="mass-number" data-role="collapsible" class=widget-box>
-            <h2>Mass Number</h2>
-
-            <div id="mass-number-container"></div>
-        </div>
-        <div id="net-charge" data-role="collapsible" class=widget-box>
-            <h2>Net Charge</h2>
-
-            <div id="net-charge-container">
-                <div class="net-charge">0</div>
-            </div>
-        </div>
+      <div class="accordion-body collapse" id="detailed-element-symbol-container">
+        <div id="detailed-element-symbol" class="accordion-inner"></div>
+      </div>
     </div>
+
+    <div class="widget-box accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#mass-number-accordion-container" href="javascript: void(0)">
+          <i class="icon-plus"></i><i class="icon-minus"></i> Mass Number
+        </a>
+      </div>
+
+      <div class="accordion-body collapse" id="mass-number-accordion-container">
+        <div id="mass-number-container" class="accordion-inner">
+          <div id="mass-number"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="widget-box accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#net-charge-accordion-container" href="javascript: void(0)">
+          <i class="icon-plus"></i><i class="icon-minus"></i> Charge Meter
+        </a>
+      </div>
+
+      <div class="accordion-body collapse" id="net-charge-accordion-container">
+        <div id="net-charge-container">
+          <div id="net-charge" class="accordion-inner"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 <script data-main="js/build-an-atom-config.js"
-        src="../../contrib/require-2.1.2.js"></script>
+        src="contrib/require-2.1.4.js"></script>
 
 </body>
 </html>
-
