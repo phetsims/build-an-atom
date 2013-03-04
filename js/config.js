@@ -3,7 +3,7 @@
 // RequireJS configuration file for BAA-Easel.
 require.config(
     {
-      deps: ["build-an-atom-main"],
+      deps: ["main"],
 
       paths: {
         // local contrib dependencies
