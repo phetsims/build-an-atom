@@ -14,7 +14,12 @@ require.config(
 
         // common directories, uppercase names to identify them in require imports
         PHETCOMMON: "../common/phetcommon/js",
-        'EASEL-PHET': "../common/easel-phet/js"
+        'EASEL-PHET': "../common/easel-phet/js",
+
+        // Scenery and its dependencies
+        ASSERT: '../../scenery/common/assert/js',
+        DOT: '../../scenery/common/dot/js',
+        SCENERY: '../../scenery/js'
       },
 
       shim: {
