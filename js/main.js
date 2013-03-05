@@ -2,16 +2,19 @@
 require( [
            'lodash',
            'SCENERY/main',
-           'model/BuildAnAtomModel'
-         ], function ( _, scenery, BuildAnAtomModel ) {
+           'model/BuildAnAtomModel',
+           'view/BucketFront',
+           'common/ModelViewTransform2D'
+         ], function ( _, scenery, BuildAnAtomModel, BucketFront, ModelViewTransform2D ) {
 
   // Create the model.
   var buildAnAtomModel = new BuildAnAtomModel();
 
-  // Create the canvas where the user will construct the atoms.
+  // TODO: Pull the scnee out into its own file.
+  // Create the scene where the user will construct the atoms.
   var sceneGraphDiv = $( '#scene-graph' );
 
-  // initialize our scene
+  // Initialize our scene
   var scene = new scenery.Scene( sceneGraphDiv );
   scene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
   scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
@@ -66,6 +69,14 @@ require( [
                                                             } ) );
     })();
   }
+
+  // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
+  var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
+
+  // Add the buckets to the scene.
+  rootNode.addChild( new BucketFront( buildAnAtomModel.buckets.protonBucket, mvt ) );
+  rootNode.addChild( new BucketFront( buildAnAtomModel.buckets.neutronBucket, mvt ) );
+  rootNode.addChild( new BucketFront( buildAnAtomModel.buckets.electronBucket, mvt ) );
 
   /*---------------------------------------------------------------------------*
    * FPS meter
