@@ -25,17 +25,118 @@
 
   <link rel="stylesheet" href="css/main-bootstrap.css">
 
-  <!--These seem to need to be here rather than at the end of the body, or a
-  weird error is seen on load.-->
+  <!--JavaScript dependencies -->
   <script src="contrib/jquery-1.9.1.js"></script>
   <script src="contrib/bootstrap-2.2.1/js/bootstrap.js"></script>
   <script src='contrib/modernizr-2.6.2.min.js'></script>
+  <script src='contrib/lodash-1.0.1.js'></script>
+
+  <!-- Our code, in either the concatenated 'with comments' version or the minified version -->
+  <script src="../scenery/dist/standalone/scenery.js"></script>
+  <!-- <script src="../dist/standalone/scenery.min.js"></script> -->
 
 </head>
 
 <body>
 
+<!-- The scene graph will be in this div -->
+<div id="scene-graph">
+</div>
+
+<script>
+
+  var sceneGraphDiv = $( '#scene-graph' );
+
+  // initialize our scene
+  var scene = new scenery.Scene( sceneGraphDiv );
+  scene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
+  scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
+
+  var rootNode = new scenery.Node( {
+                                     x: scene.sceneBounds.width() / 3,
+                                     y: scene.sceneBounds.centerY(),
+                                     scale: 0.4 / 0.707,
+                                     layerSplit: true
+                                   } );
+  scene.addChild( rootNode );
+
+  var group = new scenery.Node();
+  rootNode.addChild( group );
+
+  // keep the container centered
+  function layout() {
+    rootNode.x = scene.sceneBounds.width() / 3;
+    rootNode.y = scene.sceneBounds.centerY();
+  }
+  $( window ).resize( layout );
+
+  // our paths node for the shape
+  var protonView = new scenery.Path( {
+                                       shape: scenery.Shape.circle( 0, 0, 40 ),
+                                       fill: 'red',
+                                       stroke: '#000000',
+                                       cursor: 'pointer'
+                                     } );
+
+  var neutronView = new scenery.Path( {
+                                        shape: scenery.Shape.circle( 0, 0, 40 ),
+                                        fill: 'gray',
+                                        stroke: '#000000',
+                                        cursor: 'pointer'
+                                      } );
+  var count = 20;
+  for ( var i = 0; i < count; i++ ) {
+    // anonymous function so the closure variables aren't shared between iterations
+    (function () {
+      var node = new scenery.Node( {
+                                     x: ( Math.random() - 0.5 ) * 300,
+                                     y: ( Math.random() - 0.5 ) * 300
+                                   } );
+
+      // point each node to the same path (DAG)
+      node.addChild( Math.random() < 0.5 ? protonView : neutronView );
+      group.addChild( node );
+
+      // add a drag handler to each node
+      node.addInputListener( new scenery.SimpleDragHandler( {
+                                                              // allow moving a finger (touch) across a node to pick it up
+                                                              allowTouchSnag: true
+                                                            } ) );
+    })();
+  }
+
+  /*---------------------------------------------------------------------------*
+   * FPS meter
+   *----------------------------------------------------------------------------*/
+
+  //    var stats = new Stats();
+  //    stats.setMode( 0 ); // 0: fps, 1: ms
+  //    stats.domElement.style.position = 'absolute';
+  //    stats.domElement.style.right = '0';
+  //    stats.domElement.style.top = '0';
+  //    document.body.appendChild( stats.domElement );
+
+
+  /*---------------------------------------------------------------------------*
+   * main loop
+   *----------------------------------------------------------------------------*/
+
+  var lastTime = 0;
+  var timeElapsed = 0;
+  function tick() {
+    window.requestAnimationFrame( tick, sceneGraphDiv[0] );
+
+//      stats.begin();
+    scene.updateScene(); // repaints dirty regions. use renderScene() to render everything
+//      stats.end();
+  }
+  window.requestAnimationFrame( tick, sceneGraphDiv[0] );
+
+</script>
+
 <div class="container phet-container">
+
+
   <!--Make the canvas be roughly the expected size on the nominal screen, which is 1024x768.-->
   <div id="canvas-container">
     <canvas id="atom-construction-canvas" width="614" height="768"></canvas>
