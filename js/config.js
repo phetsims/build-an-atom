@@ -3,34 +3,25 @@
 // RequireJS configuration file for BAA-Easel.
 require.config(
     {
-      deps: ["main"],
+      deps: ['main'],
 
       paths: {
         // local contrib dependencies
-        easel: "../contrib/easeljs-0.6.0.min",
         i18n: "../contrib/i18n-2.0.2",
         tpl: "../contrib/tpl-0.2",
         lodash: "../contrib/lodash-1.0.1",
 
-        // common directories, uppercase names to identify them in require imports
+        // PhET's common code, uppercase names to identify them in require imports
         PHETCOMMON: "../common/phetcommon/js",
-        'EASEL-PHET': "../common/easel-phet/js",
 
         // Scenery and its dependencies
-        ASSERT: '../../scenery/common/assert/js',
-        DOT: '../../scenery/common/dot/js',
+        ASSERT: '../../assert/js',
+        DOT: '../../dot/js',
         SCENERY: '../../scenery/js'
       },
 
       shim: {
-
-        lodash: {
-          exports: "_"
-        },
-
-        easel: {
-          exports: "createjs"
-        }
+        lodash: { exports: "_" }
       },
 
       urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
