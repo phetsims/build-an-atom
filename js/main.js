@@ -10,7 +10,7 @@ require( [
   // Create the model.
   var buildAnAtomModel = new BuildAnAtomModel();
 
-  // TODO: Pull the scnee out into its own file.
+  // TODO: Pull the scene out into its own file.
   // Create the scene where the user will construct the atoms.
   var sceneGraphDiv = $( '#scene-graph' );
 
@@ -20,8 +20,8 @@ require( [
   scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
 
   var rootNode = new scenery.Node( {
-                                     x: scene.sceneBounds.width() / 3,
-                                     y: scene.sceneBounds.centerY(),
+                                     x: scene.sceneBounds.width / 3,
+                                     y: scene.sceneBounds.centerY,
                                      scale: 0.4 / 0.707,
                                      layerSplit: true
                                    } );
@@ -73,7 +73,12 @@ require( [
   // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
   var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
 
-  // Add the buckets to the scene.
+  // Add the bucket holes to the scene.
+//  rootNode.addChild( new BucketHole( buildAnAtomModel.buckets.protonBucket, mvt ) );
+//  rootNode.addChild( new BucketHole( buildAnAtomModel.buckets.neutronBucket, mvt ) );
+//  rootNode.addChild( new BucketHole( buildAnAtomModel.buckets.electronBucket, mvt ) );
+
+  // Add the bucket fronts to the scene.
   rootNode.addChild( new BucketFront( buildAnAtomModel.buckets.protonBucket, mvt ) );
   rootNode.addChild( new BucketFront( buildAnAtomModel.buckets.neutronBucket, mvt ) );
   rootNode.addChild( new BucketFront( buildAnAtomModel.buckets.electronBucket, mvt ) );
