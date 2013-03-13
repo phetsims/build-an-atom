@@ -12,11 +12,12 @@ require.config(
         lodash: "../contrib/lodash-1.0.1",
 
         // PhET's common code, uppercase names to identify them in require imports
-        PHETCOMMON: "../common/phetcommon/js",
+        PHETCOMMON: "../../phetcommon/js",
 
         // Scenery and its dependencies
         ASSERT: '../../assert/js',
         DOT: '../../dot/js',
+        KITE: '../../kite/js',
         SCENERY: '../../scenery/js'
       },
 
