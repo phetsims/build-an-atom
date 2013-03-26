@@ -1,5 +1,10 @@
 // Copyright 2002-2012, University of Colorado
-define( [ 'lodash', 'SCENERY/main', 'common/Point2D' ], function ( _, scenery, Point2D ) {
+define(
+    [ 'lodash', 'SCENERY/main', 'common/Point2D' ],
+        function ( _, scenery, Point2D ) {
+
+  var _ = require("lodash");
+  var scenery = require("SCENERY/main");
 
   /**
    * @class BucketFront

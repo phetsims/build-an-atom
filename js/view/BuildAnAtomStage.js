@@ -1,15 +1,20 @@
 define( [
           'lodash',
-          'easel',
+          'SCENERY/main',
           'common/ModelViewTransform2D',
           'common/Utils',
           'model/Atom',
           'view/ParticleView',
           'view/AtomView',
           'view/BucketHole',
-          'view/BucketFront',
+          'SCENERY_PHET/BucketFront',
           'view/ElectronShellView'
         ], function ( _, Easel, ModelViewTransform2D, Utils, Atom, ParticleView, AtomView, BucketHole, BucketFront, ElectronShellView ) {
+
+  var _ = require("lodash");
+  var scenery = require("SCENERY/main");
+
+
 
   function BuildAnAtomStage( canvas, model ) {
 
@@ -20,6 +25,7 @@ define( [
     this.stage = new Easel.Stage( canvas );
     var stageWidth = canvas.width;
     var stageHeight = canvas.height;
+    debugger;
 
     // Set up the model-view transform. The center of the nucleus is at the
     // the point (0, 0) in model space, so this is set up to make that
