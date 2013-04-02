@@ -1,6 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 
-// RequireJS configuration file for BAA-Easel.
+// RequireJS configuration file for Build an Atom.
 require.config(
     {
       deps: ['build-an-atom-main'],
@@ -20,7 +20,8 @@ require.config(
         KITE: '../../kite/js',
         PHET_CORE: '../../phet-core/js',
         SCENERY: '../../scenery/js',
-        SCENERY_PHET: '../../scenery-phet/js'
+        SCENERY_PHET: '../../scenery-phet/js',
+        FORT: '../../fort/js'
       },
 
       shim: {

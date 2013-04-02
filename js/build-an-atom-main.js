@@ -8,14 +8,17 @@ require(
       'SCENERY/input/SimpleDragHandler',
       'KITE/Shape',
       'model/BuildAnAtomModel',
+      'model/Particle',
+      'view/ParticleView',
       'SCENERY_PHET/bucket/BucketFront',
-      'common/ModelViewTransform2D'
+      'PHETCOMMON/view/ModelViewTransform2D',
+      'DOT/Vector2'
     ],
-    function ( _, Scene, Node, Path, SimpleDragHandler, Shape, BuildAnAtomModel, BucketFront, ModelViewTransform2D ) {
+    function ( _, Scene, Node, Path, SimpleDragHandler, Shape, BuildAnAtomModel, Particle, ParticleView, BucketFront, ModelViewTransform2D, Vector2 ) {
       "use strict";
 
       // Create the model.
-      var buildAnAtomModel = new BuildAnAtomModel();
+//      var buildAnAtomModel = new BuildAnAtomModel();
 
       // TODO: Pull the scene out into its own file.
       // Create the scene where the user will construct the atoms.
@@ -42,6 +45,15 @@ require(
 
       $( window ).resize( layout );
 
+      // Create a particle.
+      var testParticle = new Particle();
+
+      // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
+      var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
+
+      // Create a particle view.
+      rootNode.addChild( new ParticleView( testParticle, mvt ) );
+
       // our paths node for the shape
       var protonView = new Path( {
                                    shape: Shape.circle( 0, 0, 40 ),
@@ -56,7 +68,7 @@ require(
                                     stroke: '#000000',
                                     cursor: 'pointer'
                                   } );
-      var count = 20;
+      var count = 0;
       for ( var i = 0; i < count; i++ ) {
         // anonymous function so the closure variables aren't shared between iterations
         (function () {
@@ -76,9 +88,6 @@ require(
                                                         } ) );
         })();
       }
-
-      // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
-      var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
 
       // Add the bucket holes to the scene.
 //  rootNode.addChild( new BucketHole( buildAnAtomModel.buckets.protonBucket, mvt ) );

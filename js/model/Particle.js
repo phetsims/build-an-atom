@@ -1,51 +1,18 @@
 // Copyright 2002-2012, University of Colorado
-define( [
-        ], function () {
+define( function ( require ) {
+  'use strict';
+  var Fort = require( 'FORT/Fort' );
+  var Vector2 = require( 'DOT/Vector2' );
 
-  //-------------------------------------------------------------------------
-  // Constructor
-  //-------------------------------------------------------------------------
-
-  /**
-   * @param x
-   * @param y
-   * @param color
-   * @param radius
-   * @param type
-   * @constructor
-   */
-  function Particle( x, y, color, radius, type ) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.radius = radius;
-    this.type = type;
-    this.events = $( {} );
-    this.userControlled = false;
-  }
-
-  //-------------------------------------------------------------------------
-  // Methods
-  //-------------------------------------------------------------------------
-
-  Particle.prototype.setLocation = function ( point ) {
-    this.x = point.x;
-    this.y = point.y;
-    this.events.trigger( 'locationChange' );
-  };
-
-  // Use this when setting user controlled so that event is triggered.
-  Particle.prototype.setUserControlled = function ( userControlled, event ) {
-    var isTouchEvent = !(event.nativeEvent instanceof window.MouseEvent);
-
-    if ( userControlled && !this.userControlled ) {
-      this.events.trigger( 'userGrabbed', [ isTouchEvent ] );
-    }
-    else if ( this.userControlled ) {
-      this.events.trigger( 'userReleased', [ isTouchEvent ] );
-    }
-    this.userControlled = userControlled;
-  }
+  var Particle = Fort.Model.extend(
+      {
+        defaults: {
+          position : Vector2.ZERO,
+          radius : 50,
+          userControlled: false
+        }
+      }
+  );
 
   return Particle;
 } );

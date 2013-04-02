@@ -1,10 +1,13 @@
 // Copyright 2002-2012, University of Colorado
 define( [
           'lodash',
-          'easel',
+          'SCENERY/nodes/Node',
+          'SCENERY/nodes/Circle',
+          'SCENERY/input/SimpleDragHandler',
+          'PHET_CORE/inherit',
           'common/Point2D',
           'common/DragHandler'
-        ], function ( _, Easel, Point2D, DragHandler ) {
+        ], function ( _, Node, Circle, SimpleDragHandler, inherit, Point2D, DragHandler ) {
 
   //-------------------------------------------------------------------------
   // Constants
@@ -17,85 +20,72 @@ define( [
   // Constructor(s)
   //-------------------------------------------------------------------------
 
-  function ParticleView() {
-    this.initialize.apply( this, arguments );
-  }
+  function ParticleView( particle, mvt ) {
 
-  _.extend( ParticleView.prototype, Easel.Shape.prototype );
-
-  ParticleView.prototype.initialize = function ( particle, mvt ) {
-
-    // Call super constructor.
-    Easel.Shape.prototype.initialize.call( this );
+    Node.call( this ); // Call super constructor.
+    var particleView = this;
 
     // Set up fields.
     this.particle = particle;
     this.mvt = mvt;
     this.drawRadius = mvt.modelToView( particle.radius );
 
-    // Perform initial creation of the shape.
-    this.render();
+    // Create the basic shape.
+    this.addChild( new Circle( this.drawRadius, { fill: 'red' } ) );
 
-    // Position the shape.
-    var centerInViewSpace = mvt.modelToView( new Point2D( particle.x, particle.y ) );
-    this.x = centerInViewSpace.x;
-    this.y = centerInViewSpace.y;
+    // Listen to the model position and update.
+    particle.link( 'position', function ( m, position ) {
+      particleView.translation = mvt.modelToView( position );
+    } );
+
+    // Add a drag handler to each node
+    this.addInputListener( new SimpleDragHandler( {
+                                                    // allow moving a finger (touch) across a node to pick it up
+                                                    allowTouchSnag: true
+                                                  } ) );
+
 
     // Set up event handlers.
-    var self = this;
-    DragHandler.register( this,
-                          function ( point ) {
-                            particle.setLocation( mvt.viewToModel( point ) );
-                          },
-                          function ( pressEvent ) {
+//    var self = this;
+//    DragHandler.register( this,
+//                          function ( point ) {
+//                            particle.setLocation( mvt.viewToModel( point ) );
+//                          },
+//                          function ( pressEvent ) {
+//
+//                            pressEvent.onMouseUp = function ( mouseUpEvent ) {
+//                              particle.setUserControlled( false, mouseUpEvent );
+//                            };
+//
+//                            particle.setUserControlled( true, pressEvent );
+//                          } );
 
-                            pressEvent.onMouseUp = function ( mouseUpEvent ) {
-                              particle.setUserControlled( false, mouseUpEvent );
-                            };
-
-                            particle.setUserControlled( true, pressEvent );
-                          } );
-
-    particle.events.on( 'locationChange', function () {
-      var newLocation = mvt.modelToView( new Point2D( particle.x, particle.y ) );
-      self.x = newLocation.x;
-      self.y = newLocation.y;
-    } );
-
-    particle.events.on( 'userGrabbed', function ( e, isTouchEvent ) {
-      if ( isTouchEvent ) {
-        self.drawRadius = self.mvt.modelToView( self.particle.radius ) * TOUCH_INFLATION_MULTIPLIER;
-        self.regY = TOUCH_INFLATION_OFFSET;
-      }
-
-      self.render();
-    } );
-
-    particle.events.on( 'userReleased', function ( e, isTouchEvent ) {
-      if ( isTouchEvent ) {
-        self.drawRadius = self.mvt.modelToView( self.particle.radius );
-        self.regY = 0;
-      }
-      self.render();
-    } );
-  };
-
-  ParticleView.prototype.render = function () {
-    this.graphics.clear();
-    this.graphics
-        .beginStroke( "black" )
-        .beginRadialGradientFill( [this.particle.color, "white"],
-                                  [0.5, 1],
-                                  0,
-                                  0,
-                                  this.drawRadius * 2,
-                                  -this.drawRadius / 3,
-                                  -this.drawRadius / 3,
-                                  this.drawRadius / 8 )
-        .setStrokeStyle( 1 )
-        .drawCircle( 0, 0, this.drawRadius )
-        .endFill();
+//    particle.events.on( 'locationChange', function () {
+//      var newLocation = mvt.modelToView( new Point2D( particle.x, particle.y ) );
+//      self.x = newLocation.x;
+//      self.y = newLocation.y;
+//    } );
+//
+//    particle.events.on( 'userGrabbed', function ( e, isTouchEvent ) {
+//      if ( isTouchEvent ) {
+//        self.drawRadius = self.mvt.modelToView( self.particle.radius ) * TOUCH_INFLATION_MULTIPLIER;
+//        self.regY = TOUCH_INFLATION_OFFSET;
+//      }
+//
+//      self.render();
+//    } );
+//
+//    particle.events.on( 'userReleased', function ( e, isTouchEvent ) {
+//      if ( isTouchEvent ) {
+//        self.drawRadius = self.mvt.modelToView( self.particle.radius );
+//        self.regY = 0;
+//      }
+//      self.render();
+//    } );
   }
+
+  // Inherit from Node.
+  inherit( ParticleView, Node );
 
   return ParticleView;
 } );
