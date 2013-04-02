@@ -1,24 +1,16 @@
-// Copyright 2002-2012, University of Colorado
-define( [
-          'lodash',
-          'SCENERY/nodes/Node',
-          'SCENERY/nodes/Circle',
-          'SCENERY/input/SimpleDragHandler',
-          'PHET_CORE/inherit',
-          'common/Point2D',
-          'common/DragHandler'
-        ], function ( _, Node, Circle, SimpleDragHandler, inherit, Point2D, DragHandler ) {
+// Copyright 2002-2013, University of Colorado
 
-  //-------------------------------------------------------------------------
-  // Constants
-  //-------------------------------------------------------------------------
+/**
+ * Type that represents a sub-atomic particle in the view.
+ */
+define( function ( require ) {
+  'use strict';
 
-  var TOUCH_INFLATION_MULTIPLIER = 4;
-  var TOUCH_INFLATION_OFFSET = 45; // In pixels.
-
-  //-------------------------------------------------------------------------
-  // Constructor(s)
-  //-------------------------------------------------------------------------
+  var _ = require( 'lodash' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Circle = require( 'SCENERY/nodes/Circle' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   function ParticleView( particle, mvt ) {
 
@@ -38,50 +30,24 @@ define( [
       particleView.translation = mvt.modelToView( position );
     } );
 
-    // Add a drag handler to each node
-    this.addInputListener( new SimpleDragHandler( {
-                                                    // allow moving a finger (touch) across a node to pick it up
-                                                    allowTouchSnag: true
-                                                  } ) );
+    // Add a drag handler
+    this.addInputListener(
+        new SimpleDragHandler( {
+                                 // Allow moving a finger (touch) across a node to pick it up.
+                                 allowTouchSnag: true
+                               } ) );
 
-
-    // Set up event handlers.
-//    var self = this;
-//    DragHandler.register( this,
-//                          function ( point ) {
-//                            particle.setLocation( mvt.viewToModel( point ) );
-//                          },
-//                          function ( pressEvent ) {
-//
-//                            pressEvent.onMouseUp = function ( mouseUpEvent ) {
-//                              particle.setUserControlled( false, mouseUpEvent );
-//                            };
-//
-//                            particle.setUserControlled( true, pressEvent );
-//                          } );
-
-//    particle.events.on( 'locationChange', function () {
-//      var newLocation = mvt.modelToView( new Point2D( particle.x, particle.y ) );
-//      self.x = newLocation.x;
-//      self.y = newLocation.y;
-//    } );
-//
-//    particle.events.on( 'userGrabbed', function ( e, isTouchEvent ) {
-//      if ( isTouchEvent ) {
-//        self.drawRadius = self.mvt.modelToView( self.particle.radius ) * TOUCH_INFLATION_MULTIPLIER;
-//        self.regY = TOUCH_INFLATION_OFFSET;
-//      }
-//
-//      self.render();
-//    } );
-//
-//    particle.events.on( 'userReleased', function ( e, isTouchEvent ) {
-//      if ( isTouchEvent ) {
-//        self.drawRadius = self.mvt.modelToView( self.particle.radius );
-//        self.regY = 0;
-//      }
-//      self.render();
-//    } );
+    // Add a handler for setting/clearing the "user controlled" state.
+    this.addInputListener(
+        {
+          down: function () {
+            particleView.particle.userControlled = true;
+          },
+          up: function () {
+            particleView.particle.userControlled = false;
+          }
+        }
+    );
   }
 
   // Inherit from Node.
