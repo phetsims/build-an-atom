@@ -9,6 +9,7 @@ define( function ( require ) {
   var _ = require( 'lodash' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
+  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
 
@@ -22,8 +23,32 @@ define( function ( require ) {
     this.mvt = mvt;
     this.drawRadius = mvt.modelToView( particle.radius );
 
+    // Set up the color based on the particle type.
+    var baseColor;
+    switch( particle.type ) {
+      case 'proton':
+        baseColor = 'red';
+        break;
+      case 'neutron':
+        baseColor = 'gray';
+        break;
+      case 'electron':
+        baseColor = 'blue';
+        break;
+      default:
+        console.error( 'Unrecognized particle type.' );
+        baseColor = 'black';
+        break;
+    }
+
     // Create the basic shape.
-    this.addChild( new Circle( this.drawRadius, { fill: 'red' } ) );
+    this.addChild( new Circle( this.drawRadius,
+                               {
+                                 fill: new RadialGradient( -this.drawRadius * 0.4, -this.drawRadius * 0.4, 0, -this.drawRadius * 0.4, -this.drawRadius * 0.4, this.drawRadius * 1.6 )
+                                     .addColorStop( 0, 'white' )
+                                     .addColorStop( 1, baseColor )
+                               }
+    ) );
 
     // Listen to the model position and update.
     particle.link( 'position', function ( m, position ) {
