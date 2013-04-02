@@ -46,7 +46,9 @@ require(
       $( window ).resize( layout );
 
       // Create a particle.
-      var testParticle = new Particle();
+//      var testParticle = new Particle();
+//      var testParticle = Particle.createProton();
+      var testParticle = Particle.createNeutron();
 
       // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
       var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
