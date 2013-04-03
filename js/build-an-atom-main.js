@@ -1,7 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 require(
     [
-      'lodash',
       'SCENERY/Scene',
       'SCENERY/nodes/Node',
       'SCENERY/nodes/Path',
@@ -12,9 +11,10 @@ require(
       'view/ParticleView',
       'SCENERY_PHET/bucket/BucketFront',
       'PHETCOMMON/view/ModelViewTransform2D',
+      'PHETCOMMON/model/Bucket',
       'DOT/Vector2'
     ],
-    function ( _, Scene, Node, Path, SimpleDragHandler, Shape, BuildAnAtomModel, Particle, ParticleView, BucketFront, ModelViewTransform2D, Vector2 ) {
+    function ( Scene, Node, Path, SimpleDragHandler, Shape, BuildAnAtomModel, Particle, ParticleView, BucketFront, ModelViewTransform2D, Bucket, Vector2 ) {
       "use strict";
 
       // Create the model.
@@ -55,6 +55,15 @@ require(
 
       // Create a particle view.
       rootNode.addChild( new ParticleView( testParticle, mvt ) );
+
+      // Create a bucket and a view.
+      var bucket = new Bucket( {
+                                 x: 0,
+                                 y: 0,
+                                 caption: 'Protons',
+                                 captionColor: 'white'
+                               } );
+      rootNode.addChild( new BucketFront( bucket ) );
 
       // our paths node for the shape
       var protonView = new Path( {
