@@ -10,6 +10,7 @@ define( function ( require ) {
   var Atom = require( 'model/Atom' );
   var Particle = require( 'model/Particle' );
   var Bucket = require( 'PHETCOMMON/model/Bucket' );
+  var Dimension2 = require( 'DOT/Dimension2' );
 
   var NUM_PROTONS = 10;
   var PROTON_COLOR = "red";
@@ -20,6 +21,7 @@ define( function ( require ) {
   var NUCLEON_CAPTURE_RADIUS = 100;
   var ELECTRON_CAPTURE_RADIUS = Atom.OUTER_ELECTRON_SHELL_RADIUS * 1.1;
   var BUCKET_WIDTH = 150;
+  var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
 
   /**
    * Constructor for main model object.
@@ -31,13 +33,11 @@ define( function ( require ) {
     this.atom = new Atom( 0, 0 );
 
     this.buckets = {
-//      protonBucket: new Bucket( -200, 300, BUCKET_WIDTH, SharedConstants.NUCLEON_RADIUS, PROTON_COLOR, "Protons" ),
-//      neutronBucket: new Bucket( 0, 300, BUCKET_WIDTH, SharedConstants.NUCLEON_RADIUS, NEUTRON_COLOR, "Neutrons" ),
-//      electronBucket: new Bucket( 200, 300, BUCKET_WIDTH, SharedConstants.ELECTRON_RADIUS, ELECTRON_COLOR, "Electrons" )
       protonBucket: new Bucket(
           {
             x: -200,
             y: 300,
+            size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             baseColor : 'red',
             caption: 'Protons',
             captionColor: 'white'
@@ -47,6 +47,7 @@ define( function ( require ) {
           {
             x: 0,
             y: 300,
+            size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             baseColor : '#e0e0e0',
             caption: 'Neutrons',
             captionColor: 'white'
@@ -56,6 +57,7 @@ define( function ( require ) {
           {
             x: 200,
             y: 300,
+            size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             baseColor : 'blue',
             caption: 'Electrons',
             captionColor: 'white'

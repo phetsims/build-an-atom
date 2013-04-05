@@ -52,6 +52,11 @@ define( function ( require ) {
       rootNode.addChild( new ParticleView( nucleon, mvt ) );
     });
 
+    // Add the bucket holes.  Done separately from the bucket front for layering.
+    _.each( model.buckets, function( bucket ){
+      rootNode.addChild( new BucketHole( bucket ) );
+    });
+
     // Set up a callback that will keep the scene centered.
     function layout() {
       rootNode.x = scene.sceneBounds.width / 3;
