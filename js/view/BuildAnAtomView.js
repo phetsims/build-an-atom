@@ -8,16 +8,10 @@ define( function ( require ) {
 
   var Scene = require( 'SCENERY/scene' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
-  var Shape = require( 'KITE/Shape' );
-  var Particle = require( 'model/Particle' ); // TODO: Only needed temporarily, I think.
   var ParticleView = require( 'view/ParticleView' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2D = require( 'PHETCOMMON/view/ModelViewTransform2D' );
-  var Bucket = require( 'PHETCOMMON/model/Bucket' ); // TODO: Only needed temporarily, I think.
-  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * Constructor.
@@ -26,7 +20,6 @@ define( function ( require ) {
    * @constructor
    */
   function BuildAnAtomView( model ) {
-    var view = this;
 
     // Create the scene where the user will construct the atoms.
     var sceneGraphDiv = $( '#scene-graph' );
