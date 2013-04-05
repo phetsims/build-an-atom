@@ -36,8 +36,8 @@ define( function ( require ) {
 //      electronBucket: new Bucket( 200, 300, BUCKET_WIDTH, SharedConstants.ELECTRON_RADIUS, ELECTRON_COLOR, "Electrons" )
       protonBucket: new Bucket(
           {
-            x: 0,
-            y: 0,
+            x: -200,
+            y: 300,
             baseColor : 'red',
             caption: 'Protons',
             captionColor: 'white'
@@ -45,8 +45,8 @@ define( function ( require ) {
       ),
       neutronBucket: new Bucket(
           {
-            x: 10,
-            y: 0,
+            x: 0,
+            y: 300,
             baseColor : '#e0e0e0',
             caption: 'Neutrons',
             captionColor: 'white'
@@ -54,8 +54,8 @@ define( function ( require ) {
       ),
       electronBucket: new Bucket(
           {
-            x: 20,
-            y: 0,
+            x: 200,
+            y: 300,
             baseColor : 'blue',
             caption: 'Electrons',
             captionColor: 'white'
