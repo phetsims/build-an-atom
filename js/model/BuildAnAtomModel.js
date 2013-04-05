@@ -71,21 +71,21 @@ define( function ( require ) {
 
     // Add the protons.
     _.times( NUM_PROTONS, function () {
-      var proton = new Particle( model.buckets.protonBucket.x, model.buckets.protonBucket.y, PROTON_COLOR, SharedConstants.NUCLEON_RADIUS, "proton" );
+      var proton = Particle.createProton();
       model.nucleons.push( proton );
 //      model.buckets.protonBucket.addParticleFirstOpen( proton );
     } );
 
     // Add the neutrons.
     _.times( NUM_NEUTRONS, function () {
-      var neutron = new Particle( model.buckets.neutronBucket.x, model.buckets.protonBucket.y, NEUTRON_COLOR, SharedConstants.NUCLEON_RADIUS, "neutron" );
+      var neutron = Particle.createNeutron();
       model.nucleons.push( neutron );
 //      model.buckets.neutronBucket.addParticleFirstOpen( neutron );
     } );
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function () {
-      var electron = new Particle( model.buckets.electronBucket.x, model.buckets.electronBucket.y, ELECTRON_COLOR, SharedConstants.ELECTRON_RADIUS, "electron" );
+      var electron = Particle.createElectron();
       model.electrons.push( electron );
 //      model.buckets.electronBucket.addParticleFirstOpen( electron );
     } );
