@@ -17,7 +17,7 @@ define( function ( require ) {
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2D = require( 'PHETCOMMON/view/ModelViewTransform2D' );
-  var Bucket = require( 'PHETCOMMON/model/Bucket' );
+  var Bucket = require( 'PHETCOMMON/model/Bucket' ); // TODO: Only needed temporarily, I think.
   var Vector2 = require( 'DOT/Vector2' );
 
   function BuildAnAtomView( model ) {
@@ -58,14 +58,17 @@ define( function ( require ) {
     // Create a particle view.
     rootNode.addChild( new ParticleView( testParticle, mvt ) );
 
-    // Create a bucket and a view.
-    var bucket = new Bucket( {
-                               x: 0,
-                               y: 0,
-                               caption: 'Protons',
-                               captionColor: 'white'
-                             } );
-    rootNode.addChild( new BucketFront( bucket ) );
+    // Add the front portion of the buckets.  Done separately from the bucket
+    // holes for layering purposes.
+    _.each( model.buckets, function( bucket ){
+      rootNode.addChild( new BucketFront( bucket ) );
+    });
+
+    // Add the particles.
+    _.each( model.nucleons, function( nucleon ){
+      rootNode.addChild( new ParticleView( nucleon, mvt ) );
+    });
+
 
     // our paths node for the shape
     var protonView = new Path( {

@@ -1,12 +1,15 @@
-// Copyright 2002-2012, University of Colorado
-define( [
-          'lodash',
-          'common/SharedConstants',
-          'common/Utils',
-          'model/Atom',
-          'model/Bucket',
-          'model/Particle'
-        ], function ( _, SharedConstants, Utils, Atom, Bucket, Particle ) {
+// Copyright 2002-2013, University of Colorado
+
+/**
+ * Main model class for the first tab of the Build an Atom simulation.
+ */
+define( function ( require ) {
+
+  var SharedConstants = require( 'common/SharedConstants' );
+  var Utils = require( 'common/Utils' );
+  var Atom = require( 'model/Atom' );
+  var Particle = require( 'model/Particle' );
+  var Bucket = require( 'PHETCOMMON/model/Bucket' );
 
   var NUM_PROTONS = 10;
   var PROTON_COLOR = "red";
@@ -28,58 +31,61 @@ define( [
     this.atom = new Atom( 0, 0 );
 
     this.buckets = {
-      protonBucket: new Bucket( -200, 300, BUCKET_WIDTH, SharedConstants.NUCLEON_RADIUS, PROTON_COLOR, "Protons" ),
-      neutronBucket: new Bucket( 0, 300, BUCKET_WIDTH, SharedConstants.NUCLEON_RADIUS, NEUTRON_COLOR, "Neutrons" ),
-      electronBucket: new Bucket( 200, 300, BUCKET_WIDTH, SharedConstants.ELECTRON_RADIUS, ELECTRON_COLOR, "Electrons" )
+//      protonBucket: new Bucket( -200, 300, BUCKET_WIDTH, SharedConstants.NUCLEON_RADIUS, PROTON_COLOR, "Protons" ),
+//      neutronBucket: new Bucket( 0, 300, BUCKET_WIDTH, SharedConstants.NUCLEON_RADIUS, NEUTRON_COLOR, "Neutrons" ),
+//      electronBucket: new Bucket( 200, 300, BUCKET_WIDTH, SharedConstants.ELECTRON_RADIUS, ELECTRON_COLOR, "Electrons" )
+      protonBucket: new Bucket(
+          {
+            x: 0,
+            y: 0,
+            baseColor : 'red',
+            caption: 'Protons',
+            captionColor: 'white'
+          }
+      ),
+      neutronBucket: new Bucket(
+          {
+            x: 10,
+            y: 0,
+            baseColor : '#e0e0e0',
+            caption: 'Neutrons',
+            captionColor: 'white'
+          }
+      ),
+      electronBucket: new Bucket(
+          {
+            x: 20,
+            y: 0,
+            baseColor : 'blue',
+            caption: 'Electrons',
+            captionColor: 'white'
+          }
+      )
     };
 
     this.nucleons = [];
     this.electrons = [];
-    var self = this;
+    var model = this;
 
     // Add the protons.
     _.times( NUM_PROTONS, function () {
-      var proton = new Particle( self.buckets.protonBucket.x, self.buckets.protonBucket.y, PROTON_COLOR, SharedConstants.NUCLEON_RADIUS, "proton" );
-      self.nucleons.push( proton );
-      self.buckets.protonBucket.addParticleFirstOpen( proton );
-      proton.events.on( 'userReleased', function () {
-        if ( Utils.distanceBetweenPoints( self.atom.xPos, self.atom.yPos, proton.x, proton.y ) < NUCLEON_CAPTURE_RADIUS ) {
-          self.atom.addParticle( proton );
-        }
-        else {
-          self.buckets.protonBucket.addParticleNearestOpen( proton );
-        }
-      } );
+      var proton = new Particle( model.buckets.protonBucket.x, model.buckets.protonBucket.y, PROTON_COLOR, SharedConstants.NUCLEON_RADIUS, "proton" );
+      model.nucleons.push( proton );
+//      model.buckets.protonBucket.addParticleFirstOpen( proton );
     } );
 
     // Add the neutrons.
     _.times( NUM_NEUTRONS, function () {
-      var neutron = new Particle( self.buckets.neutronBucket.x, self.buckets.protonBucket.y, NEUTRON_COLOR, SharedConstants.NUCLEON_RADIUS, "neutron" );
-      self.nucleons.push( neutron );
-      self.buckets.neutronBucket.addParticleFirstOpen( neutron );
-      neutron.events.on( 'userReleased', function () {
-        if ( Utils.distanceBetweenPoints( self.atom.xPos, self.atom.yPos, neutron.x, neutron.y ) < NUCLEON_CAPTURE_RADIUS ) {
-          self.atom.addParticle( neutron );
-        }
-        else {
-          self.buckets.neutronBucket.addParticleNearestOpen( neutron );
-        }
-      } );
+      var neutron = new Particle( model.buckets.neutronBucket.x, model.buckets.protonBucket.y, NEUTRON_COLOR, SharedConstants.NUCLEON_RADIUS, "neutron" );
+      model.nucleons.push( neutron );
+//      model.buckets.neutronBucket.addParticleFirstOpen( neutron );
     } );
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function () {
-      var electron = new Particle( self.buckets.electronBucket.x, self.buckets.electronBucket.y, ELECTRON_COLOR, SharedConstants.ELECTRON_RADIUS, "electron" );
-      self.electrons.push( electron );
-      self.buckets.electronBucket.addParticleFirstOpen( electron );
-      electron.events.on( 'userReleased', function () {
-        if ( Utils.distanceBetweenPoints( self.atom.xPos, self.atom.yPos, electron.x, electron.y ) < ELECTRON_CAPTURE_RADIUS ) {
-          self.atom.addParticle( electron );
-        }
-        else {
-          self.buckets.electronBucket.addParticleNearestOpen( electron );
-        }
-      } );
+      var electron = new Particle( model.buckets.electronBucket.x, model.buckets.electronBucket.y, ELECTRON_COLOR, SharedConstants.ELECTRON_RADIUS, "electron" );
+      model.electrons.push( electron );
+//      model.buckets.electronBucket.addParticleFirstOpen( electron );
     } );
   }
 
