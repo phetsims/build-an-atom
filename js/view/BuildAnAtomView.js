@@ -41,10 +41,9 @@ define( function ( require ) {
     // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
     var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
 
-    // Add the front portion of the buckets.  Done separately from the bucket
-    // holes for layering purposes.
+    // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ){
-      rootNode.addChild( new BucketFront( bucket ) );
+      rootNode.addChild( new BucketHole( bucket ) );
     });
 
     // Add the particles.
@@ -52,9 +51,10 @@ define( function ( require ) {
       rootNode.addChild( new ParticleView( nucleon, mvt ) );
     });
 
-    // Add the bucket holes.  Done separately from the bucket front for layering.
+    // Add the front portion of the buckets.  Done separately from the bucket
+    // holes for layering purposes.
     _.each( model.buckets, function( bucket ){
-      rootNode.addChild( new BucketHole( bucket ) );
+      rootNode.addChild( new BucketFront( bucket ) );
     });
 
     // Set up a callback that will keep the scene centered.
