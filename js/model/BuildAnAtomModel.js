@@ -9,15 +9,12 @@ define( function ( require ) {
   var Utils = require( 'common/Utils' );
   var Atom = require( 'model/Atom' );
   var Particle = require( 'model/Particle' );
-  var Bucket = require( 'PHETCOMMON/model/Bucket' );
+  var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Dimension2 = require( 'DOT/Dimension2' );
 
   var NUM_PROTONS = 10;
-  var PROTON_COLOR = "red";
   var NUM_NEUTRONS = 13;
-  var NEUTRON_COLOR = "gray";
   var NUM_ELECTRONS = 10;
-  var ELECTRON_COLOR = "blue";
   var NUCLEON_CAPTURE_RADIUS = 100;
   var ELECTRON_CAPTURE_RADIUS = Atom.OUTER_ELECTRON_SHELL_RADIUS * 1.1;
   var BUCKET_WIDTH = 150;
@@ -33,7 +30,7 @@ define( function ( require ) {
     this.atom = new Atom( 0, 0 );
 
     this.buckets = {
-      protonBucket: new Bucket(
+      protonBucket: new SphereBucket(
           {
             x: -200,
             y: 300,
@@ -43,7 +40,7 @@ define( function ( require ) {
             captionColor: 'white'
           }
       ),
-      neutronBucket: new Bucket(
+      neutronBucket: new SphereBucket(
           {
             x: 0,
             y: 300,
@@ -53,7 +50,7 @@ define( function ( require ) {
             captionColor: 'white'
           }
       ),
-      electronBucket: new Bucket(
+      electronBucket: new SphereBucket(
           {
             x: 200,
             y: 300,
@@ -73,7 +70,7 @@ define( function ( require ) {
     _.times( NUM_PROTONS, function () {
       var proton = Particle.createProton();
       model.nucleons.push( proton );
-//      model.buckets.protonBucket.addParticleFirstOpen( proton );
+      model.buckets.protonBucket.addParticleFirstOpen( proton );
     } );
 
     // Add the neutrons.
