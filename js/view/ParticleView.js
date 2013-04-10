@@ -51,9 +51,8 @@ define( function ( require ) {
     ) );
 
     this.translation = mvt.modelToViewPosition( particle.position );
-      console.log( "particleView.translation = " + particleView.translation );
 
-    // Listen to the model position and update.
+    // Listen to the model position and update. TODO: Why did commenting this out have no effect?
 //    particle.link( 'position', function ( m, position ) {
 //      particleView.translation = particleView.mvt.modelToViewPosition( position );
 //      console.log( "particleView.translation = " + particleView.translation );

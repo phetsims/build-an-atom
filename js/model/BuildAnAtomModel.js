@@ -47,6 +47,7 @@ define( function ( require ) {
             x: 0,
             y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
+            particleRadius: SharedConstants.NUCLEON_RADIUS,
             baseColor : '#e0e0e0',
             caption: 'Neutrons',
             captionColor: 'white'
@@ -57,6 +58,7 @@ define( function ( require ) {
             x: BUCKET_WIDTH * 1.5,
             y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
+            particleRadius: SharedConstants.ELECTRON_RADIUS,
             baseColor : 'blue',
             caption: 'Electrons',
             captionColor: 'white'
@@ -79,14 +81,14 @@ define( function ( require ) {
     _.times( NUM_NEUTRONS, function () {
       var neutron = Particle.createNeutron();
       model.nucleons.push( neutron );
-//      model.buckets.neutronBucket.addParticleFirstOpen( neutron );
+      model.buckets.neutronBucket.addParticleFirstOpen( neutron );
     } );
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function () {
       var electron = Particle.createElectron();
       model.electrons.push( electron );
-//      model.buckets.electronBucket.addParticleFirstOpen( electron );
+      model.buckets.electronBucket.addParticleFirstOpen( electron );
     } );
   }
 

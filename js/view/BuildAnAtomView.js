@@ -52,6 +52,9 @@ define( function ( require ) {
     _.each( model.nucleons, function( nucleon ){
       rootNode.addChild( new ParticleView( nucleon, mvt ) );
     });
+    _.each( model.electrons, function( electron ){
+      rootNode.addChild( new ParticleView( electron, mvt ) );
+    });
 
     // Add the front portion of the buckets.  Done separately from the bucket
     // holes for layering purposes.
