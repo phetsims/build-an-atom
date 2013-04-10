@@ -36,6 +36,7 @@ define( function ( require ) {
             x: -BUCKET_WIDTH * 1.5,
             y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
+            particleRadius: SharedConstants.NUCLEON_RADIUS,
             baseColor : 'red',
             caption: 'Protons',
             captionColor: 'white'

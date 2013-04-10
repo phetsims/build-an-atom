@@ -10,7 +10,7 @@ define( function ( require ) {
         defaults: {
           type: 'proton',
           position: Vector2.ZERO,
-          radius: 50,
+          radius: SharedConstants.NUCLEON_RADIUS,
           userControlled: false
         }
       }
