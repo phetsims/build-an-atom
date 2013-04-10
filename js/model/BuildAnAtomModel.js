@@ -19,6 +19,7 @@ define( function ( require ) {
   var ELECTRON_CAPTURE_RADIUS = Atom.OUTER_ELECTRON_SHELL_RADIUS * 1.1;
   var BUCKET_WIDTH = 150;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
+  var BUCKET_Y_OFFSET = -300;
 
   /**
    * Constructor for main model object.
@@ -32,8 +33,8 @@ define( function ( require ) {
     this.buckets = {
       protonBucket: new SphereBucket(
           {
-            x: -200,
-            y: 300,
+            x: -BUCKET_WIDTH * 1.5,
+            y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             baseColor : 'red',
             caption: 'Protons',
@@ -43,7 +44,7 @@ define( function ( require ) {
       neutronBucket: new SphereBucket(
           {
             x: 0,
-            y: 300,
+            y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             baseColor : '#e0e0e0',
             caption: 'Neutrons',
@@ -52,8 +53,8 @@ define( function ( require ) {
       ),
       electronBucket: new SphereBucket(
           {
-            x: 200,
-            y: 300,
+            x: BUCKET_WIDTH * 1.5,
+            y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             baseColor : 'blue',
             caption: 'Electrons',
