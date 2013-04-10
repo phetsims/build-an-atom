@@ -21,7 +21,7 @@ define( function ( require ) {
     // Set up fields.
     this.particle = particle;
     this.mvt = mvt;
-    this.drawRadius = mvt.modelToView( particle.radius );
+    this.drawRadius = mvt.modelToViewDeltaX( particle.radius );
 
     // Set up the color based on the particle type.
     var baseColor;
@@ -52,7 +52,7 @@ define( function ( require ) {
 
     // Listen to the model position and update.
     particle.link( 'position', function ( m, position ) {
-      particleView.translation = mvt.modelToView( position );
+      particleView.translation = mvt.modelToViewPosition( position );
     } );
 
     // Add a drag handler
