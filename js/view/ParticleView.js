@@ -50,10 +50,14 @@ define( function ( require ) {
                                }
     ) );
 
+    this.translation = mvt.modelToViewPosition( particle.position );
+      console.log( "particleView.translation = " + particleView.translation );
+
     // Listen to the model position and update.
-    particle.link( 'position', function ( m, position ) {
-      particleView.translation = mvt.modelToViewPosition( position );
-    } );
+//    particle.link( 'position', function ( m, position ) {
+//      particleView.translation = particleView.mvt.modelToViewPosition( position );
+//      console.log( "particleView.translation = " + particleView.translation );
+//    } );
 
     // Add a drag handler
     this.addInputListener(

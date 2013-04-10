@@ -11,7 +11,7 @@ define( function ( require ) {
   var ParticleView = require( 'view/ParticleView' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
-  var ModelViewTransform2D = require( 'PHETCOMMON/view/ModelViewTransform2D' );
+  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
 
   /**
    * Constructor.
@@ -30,20 +30,22 @@ define( function ( require ) {
     scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
 
     // Add a root node.  TODO: Review with JO - Do I want or need this? Where did option values come from and are they correct?
-    var rootNode = new Node( {
-                               x: scene.sceneBounds.width / 3,
-                               y: scene.sceneBounds.centerY,
-                               scale: 0.4 / 0.707,
-                               layerSplit: true
-                             } );
+//    var rootNode = new Node( {
+//                               x: scene.sceneBounds.width / 3,
+//                               y: scene.sceneBounds.centerY,
+//                               scale: 0.4 / 0.707,
+//                               layerSplit: true
+//                             } );
+    var rootNode = new Node();
     scene.addChild( rootNode );
 
     // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
-    var mvt = new ModelViewTransform2D( 1, { x: 200, y: 200 } );
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 400, y: 300 }, 1.0 );
+//    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 0, y: 0 }, 1.0 );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ){
-      rootNode.addChild( new BucketHole( bucket ) );
+      rootNode.addChild( new BucketHole( bucket, mvt ) );
     });
 
     // Add the particles.
@@ -54,7 +56,7 @@ define( function ( require ) {
     // Add the front portion of the buckets.  Done separately from the bucket
     // holes for layering purposes.
     _.each( model.buckets, function( bucket ){
-      rootNode.addChild( new BucketFront( bucket ) );
+      rootNode.addChild( new BucketFront( bucket, mvt ) );
     });
 
     // Set up a callback that will keep the scene centered.
