@@ -11,6 +11,9 @@ define( [ ], function () {
   SharedConstants.NUCLEON_RADIUS = 12; // In screen coordinates, which are roughly pixels.
   SharedConstants.ELECTRON_RADIUS = 10; // In screen coordinates, which are roughly pixels.
 
+  SharedConstants.INNER_ELECTRON_SHELL_RADIUS = 100; // In screen coordinates, which are roughly pixels.
+  SharedConstants.OUTER_ELECTRON_SHELL_RADIUS = 200; // In screen coordinates, which are roughly pixels.
+
   return SharedConstants;
 
 } );
