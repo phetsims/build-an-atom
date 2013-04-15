@@ -15,8 +15,9 @@ define( function ( require ) {
     var outerRing = new Circle( outerRadiusInView,
         // Options
                                 {
-                                  stroke: 1,
-                                  color: 'blue',
+                                  stroke: 'blue',
+                                  lineWidth: 1.5,
+                                  lineDash: [ 10, 15 ],
                                   translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
                                 }
     );
@@ -26,12 +27,17 @@ define( function ( require ) {
     var innerRing = new Circle( innerRadiusInView,
         // Options
                                 {
-                                  stroke: 1,
+                                  stroke: 'blue',
+                                  lineWidth: 1.5,
+                                  lineDash: [ 10, 15 ],
                                   translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
                                 }
     );
     this.addChild( innerRing );
   };
+
+  // Inherit from Node.
+  inherit( ElectronShellView, Node );
 
   return ElectronShellView;
 } );
