@@ -40,7 +40,7 @@ define( function ( require ) {
     scene.addChild( rootNode );
 
     // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 400, y: 300 }, 1.0 );
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 350, y: 200 }, 1.0 );
 //    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 0, y: 0 }, 1.0 );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
