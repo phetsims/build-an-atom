@@ -5,17 +5,17 @@ define( function ( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var SharedConstants = require( 'common/SharedConstants' );
 
-  var Particle = Fort.Model.extend(
-      {
-        defaults: {
-          type: 'proton',
-          position: Vector2.ZERO,
-          radius: SharedConstants.NUCLEON_RADIUS,
-          userControlled: false
-        }
-      }
+  var Particle = Fort.Model.extend( {
+                                      defaults: {
+                                        type: 'proton',
+                                        position: Vector2.ZERO,
+                                        radius: SharedConstants.NUCLEON_RADIUS,
+                                        userControlled: false
+                                      }
+                                    }
   );
 
+  //------- Factory methods for creating particle instances ------------------
   Particle.createProton = function () {
     return new Particle( { type: 'proton', radius: SharedConstants.NUCLEON_RADIUS } );
   }
