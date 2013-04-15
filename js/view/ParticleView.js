@@ -50,19 +50,22 @@ define( function ( require ) {
                                }
     ) );
 
-    this.translation = mvt.modelToViewPosition( particle.position );
-
-    // Listen to the model position and update. TODO: Why did commenting this out have no effect?
-//    particle.link( 'position', function ( m, position ) {
-//      particleView.translation = particleView.mvt.modelToViewPosition( position );
-//      console.log( "particleView.translation = " + particleView.translation );
-//    } );
+    // Listen to the model position and update.
+    particle.link( 'position', function ( position ) {
+      particleView.translation = particleView.mvt.modelToViewPosition( position );
+    } );
 
     // Add a drag handler
     this.addInputListener(
         new SimpleDragHandler( {
                                  // Allow moving a finger (touch) across a node to pick it up.
-                                 allowTouchSnag: true
+                                 allowTouchSnag: true,
+
+                                 // Handler that moves the particle in model space.
+                                 translate: function ( translationParams ) {
+                                   particle.position = particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) );
+                                   return translationParams.position;
+                                 }
                                } ) );
 
     // Add a handler for setting/clearing the "user controlled" state.
