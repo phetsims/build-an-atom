@@ -111,6 +111,16 @@ define( function ( require ) {
       var electron = Particle.createElectron();
       model.electrons.push( electron );
       model.buckets.electronBucket.addParticleFirstOpen( electron );
+      electron.link( 'userControlled', function ( userControlled ) {
+        if ( !userControlled && !model.buckets.electronBucket.containsParticle( electron )) {
+          if ( electron.position.distance( Vector2.ZERO ) < ELECTRON_CAPTURE_RADIUS ) {
+            model.atom.addParticle( electron );
+          }
+          else {
+            model.buckets.electronBucket.addParticleNearestOpen( electron );
+          }
+        }
+      } );
     } );
   }
 

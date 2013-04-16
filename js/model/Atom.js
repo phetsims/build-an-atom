@@ -55,9 +55,6 @@ define( function ( require ) {
           console.log( "Unexpected value from userControlled, = " + userControlled );
         }
       } );
-//        thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
-//      } );
-//      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
     }
     else if ( particle.type === 'electron' ) {
 
@@ -82,17 +79,23 @@ define( function ( require ) {
         return;
       }
       sortedOpenPositions[0].electron = particle;
-      particle.position = ( { x: sortedOpenPositions[ 0 ].x, y: sortedOpenPositions[ 0 ].y } );
-      particle.events.one( 'userGrabbed', function () {
-        thisAtom.electrons = _.without( thisAtom.electrons, particle );
-        _.each( thisAtom.electronPositions, function ( electronPosition ) {
-          if ( electronPosition.electron === particle ) {
-            electronPosition.electron = null;
-          }
-        } );
-        thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+      particle.position = new Vector2( sortedOpenPositions[ 0 ].x, sortedOpenPositions[ 0 ].y );
+      particle.once( 'change:userControlled', function ( particle, userControlled ) {
+        if ( userControlled ) {
+          console.log( "Removing electron from atom" );
+          thisAtom.electrons = _.without( thisAtom.electrons, particle );
+          _.each( thisAtom.electronPositions, function ( electronPosition ) {
+            if ( electronPosition.electron === particle ) {
+              electronPosition.electron = null;
+            }
+          } );
+        }
+        else {
+          console.log( "Warning: Unexpected value from userControlled from electron in atom, = " + userControlled );
+        }
       } );
-      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+
+//      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
     }
   };
 
