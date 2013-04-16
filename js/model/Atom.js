@@ -44,12 +44,19 @@ define( function ( require ) {
 
       // Add this nucleon to the nucleus.
       this.nucleons.push( particle );
-//      particle.events.one( 'userGrabbed', function () {
-//        thisAtom.nucleons = _.without( thisAtom.nucleons, particle );
-//        thisAtom.reconfigureNucleus( true );
+      thisAtom.reconfigureNucleus( true );
+      particle.once( 'change:userControlled', function ( particle, userControlled ) {
+        if ( userControlled ) {
+          console.log( "Removing particle from nucleus" );
+          thisAtom.nucleons = _.without( thisAtom.nucleons, particle );
+          thisAtom.reconfigureNucleus( true );
+        }
+        else {
+          console.log( "Unexpected value from userControlled, = " + userControlled );
+        }
+      } );
 //        thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
 //      } );
-      thisAtom.reconfigureNucleus( true );
 //      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
     }
     else if ( particle.type === 'electron' ) {

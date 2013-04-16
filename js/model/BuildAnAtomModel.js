@@ -83,9 +83,11 @@ define( function ( require ) {
           // Decide where to put particle.
           if ( proton.position.distance( Vector2.ZERO ) < NUCLEON_CAPTURE_RADIUS ){
             model.atom.addParticle( proton );
+            console.log("Added particle to atom")
           }
           else{
-            model.buckets.protonBucket.addNearestOpen( proton );
+            model.buckets.protonBucket.addParticleNearestOpen( proton );
+            console.log("Added particle to bucket")
           }
         }
       })
