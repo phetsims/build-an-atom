@@ -22,6 +22,17 @@ define( function ( require ) {
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
   var BUCKET_Y_OFFSET = -300;
 
+  var placeNucleon = function ( particle, bucket, atom ) {
+    if ( particle.position.distance( Vector2.ZERO ) < NUCLEON_CAPTURE_RADIUS ) {
+      atom.addParticle( particle );
+      console.log( "Method - Added particle to atom" )
+    }
+    else {
+      bucket.addParticleNearestOpen( particle );
+      console.log( "Method - Added particle to bucket" )
+    }
+  }
+
   /**
    * Constructor for main model object.
    *
@@ -39,7 +50,7 @@ define( function ( require ) {
             y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             particleRadius: SharedConstants.NUCLEON_RADIUS,
-            baseColor : 'red',
+            baseColor: 'red',
             caption: 'Protons',
             captionColor: 'white'
           }
@@ -50,7 +61,7 @@ define( function ( require ) {
             y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             particleRadius: SharedConstants.NUCLEON_RADIUS,
-            baseColor : '#e0e0e0',
+            baseColor: '#e0e0e0',
             caption: 'Neutrons',
             captionColor: 'white'
           }
@@ -61,7 +72,7 @@ define( function ( require ) {
             y: BUCKET_Y_OFFSET,
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             particleRadius: SharedConstants.ELECTRON_RADIUS,
-            baseColor : 'blue',
+            baseColor: 'blue',
             caption: 'Electrons',
             captionColor: 'white'
           }
@@ -78,19 +89,11 @@ define( function ( require ) {
       var proton = Particle.createProton();
       model.nucleons.push( proton );
       model.buckets.protonBucket.addParticleFirstOpen( proton );
-      proton.link( 'userControlled', function ( userControlled ){
-        if ( !userControlled && !model.buckets.protonBucket.containsParticle( proton ) ){
-          // Decide where to put particle.
-          if ( proton.position.distance( Vector2.ZERO ) < NUCLEON_CAPTURE_RADIUS ){
-            model.atom.addParticle( proton );
-            console.log("Added particle to atom")
-          }
-          else{
-            model.buckets.protonBucket.addParticleNearestOpen( proton );
-            console.log("Added particle to bucket")
-          }
+      proton.link( 'userControlled', function ( userControlled ) {
+        if ( !userControlled && !model.buckets.protonBucket.containsParticle( proton )) {
+          placeNucleon( proton, model.buckets.protonBucket, model.atom );
         }
-      })
+      } );
     } );
 
     // Add the neutrons.
@@ -98,6 +101,11 @@ define( function ( require ) {
       var neutron = Particle.createNeutron();
       model.nucleons.push( neutron );
       model.buckets.neutronBucket.addParticleFirstOpen( neutron );
+      neutron.link( 'userControlled', function ( userControlled ) {
+        if ( !userControlled && !model.buckets.neutronBucket.containsParticle( neutron )) {
+          placeNucleon( neutron, model.buckets.neutronBucket, model.atom );
+        }
+      } );
     } );
 
     // Add the electrons.
