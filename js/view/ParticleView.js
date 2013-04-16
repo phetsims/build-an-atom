@@ -47,7 +47,8 @@ define( function ( require ) {
                                  fill: new RadialGradient( -this.drawRadius * 0.4, -this.drawRadius * 0.4, 0, -this.drawRadius * 0.4, -this.drawRadius * 0.4, this.drawRadius * 1.6 )
                                      .addColorStop( 0, 'white' )
                                      .addColorStop( 1, baseColor ),
-                                 cursor: 'pointer'
+                                 cursor: 'pointer',
+                                 renderer: 'svg'
                                }
     ) );
 

@@ -11,6 +11,7 @@ define( function ( require ) {
   var Particle = require( 'model/Particle' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Dimension2 = require( 'DOT/Dimension2' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 13;
@@ -30,6 +31,7 @@ define( function ( require ) {
 
     this.atom = new Atom( 0, 0 );
 
+    // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
       protonBucket: new SphereBucket(
           {
@@ -66,6 +68,7 @@ define( function ( require ) {
       )
     };
 
+    // Add the subatomic particles to the model.
     this.nucleons = [];
     this.electrons = [];
     var model = this;
@@ -75,6 +78,17 @@ define( function ( require ) {
       var proton = Particle.createProton();
       model.nucleons.push( proton );
       model.buckets.protonBucket.addParticleFirstOpen( proton );
+      proton.link( 'userControlled', function ( userControlled ){
+        if ( !userControlled && !model.buckets.protonBucket.containsParticle( proton ) ){
+          // Decide where to put particle.
+          if ( proton.position.distance( Vector2.ZERO ) < NUCLEON_CAPTURE_RADIUS ){
+            model.atom.addParticle( proton );
+          }
+          else{
+            model.buckets.protonBucket.addNearestOpen( proton );
+          }
+        }
+      })
     } );
 
     // Add the neutrons.

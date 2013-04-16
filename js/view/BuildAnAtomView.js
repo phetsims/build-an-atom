@@ -13,7 +13,7 @@ define( function ( require ) {
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ElectronShellView = require( 'view/ElectronShellView' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var Atom = require( 'model/Atom' );
 
   /**
    * Constructor.
@@ -46,7 +46,7 @@ define( function ( require ) {
 //    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 0, y: 0 }, 1.0 );
 
     // Add the electron shells.
-    rootNode.addChild( new ElectronShellView( model.atom, SharedConstants.INNER_ELECTRON_SHELL_RADIUS, SharedConstants.OUTER_ELECTRON_SHELL_RADIUS, mvt ));
+    rootNode.addChild( new ElectronShellView( model.atom, Atom.INNER_ELECTRON_SHELL_RADIUS, Atom.OUTER_ELECTRON_SHELL_RADIUS, mvt ));
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ){

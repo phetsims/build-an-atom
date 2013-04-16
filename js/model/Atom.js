@@ -1,9 +1,10 @@
 // Copyright 2002-2012, University of Colorado
-define( [
-          'lodash',
-          'common/SharedConstants',
-          'common/Utils'
-        ], function ( _, SharedConstants, Utils ) {
+define( function ( require ) {
+
+  var _ = require( 'lodash' );
+  var SharedConstants = require( 'common/SharedConstants' );
+  var Utils = require( 'common/Utils' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   Atom.CONFIG_CHANGE_EVENT = 'configurationChanged';
   Atom.INNER_ELECTRON_SHELL_RADIUS = 80;
@@ -36,20 +37,20 @@ define( [
 
   Atom.prototype.addParticle = function ( particle ) {
 
-    var self = this;
+    var thisAtom = this;
 
     // Distinguish nucleons from electrons.
     if ( particle.type === 'proton' || particle.type === 'neutron' ) {
 
       // Add this nucleon to the nucleus.
       this.nucleons.push( particle );
-      particle.events.one( 'userGrabbed', function () {
-        self.nucleons = _.without( self.nucleons, particle );
-        self.reconfigureNucleus( true );
-        self.events.trigger( Atom.CONFIG_CHANGE_EVENT );
-      } );
-      self.reconfigureNucleus( true );
-      self.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+//      particle.events.one( 'userGrabbed', function () {
+//        thisAtom.nucleons = _.without( thisAtom.nucleons, particle );
+//        thisAtom.reconfigureNucleus( true );
+//        thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+//      } );
+      thisAtom.reconfigureNucleus( true );
+//      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
     }
     else if ( particle.type === 'electron' ) {
 
@@ -74,17 +75,17 @@ define( [
         return;
       }
       sortedOpenPositions[0].electron = particle;
-      particle.setLocation( { x: sortedOpenPositions[ 0 ].x, y: sortedOpenPositions[ 0 ].y } );
+      particle.position = ( { x: sortedOpenPositions[ 0 ].x, y: sortedOpenPositions[ 0 ].y } );
       particle.events.one( 'userGrabbed', function () {
-        self.electrons = _.without( self.electrons, particle );
-        _.each( self.electronPositions, function ( electronPosition ) {
+        thisAtom.electrons = _.without( thisAtom.electrons, particle );
+        _.each( thisAtom.electronPositions, function ( electronPosition ) {
           if ( electronPosition.electron === particle ) {
             electronPosition.electron = null;
           }
         } );
-        self.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+        thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
       } );
-      self.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
     }
   };
 
@@ -141,41 +142,35 @@ define( [
     else if ( this.nucleons.length === 1 ) {
       // There is only one nucleon present, so place it in the center
       // of the atom.
-      this.nucleons[0].setLocation( {x: centerX, y: centerY} );
+      this.nucleons[0].position = new Vector2( centerX, centerY );
     }
     else if ( this.nucleons.length === 2 ) {
       // Two nucleons - place them side by side with their meeting point in the center.
       angle = Math.random() * 2 * Math.PI;
-      this.nucleons[0].setLocation( { x: centerX + nucleonRadius * Math.cos( angle ), y: centerY + nucleonRadius * Math.sin( angle ) } );
-      this.nucleons[1].setLocation( { x: centerX - nucleonRadius * Math.cos( angle ), y: centerY - nucleonRadius * Math.sin( angle ) } );
+      this.nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+      this.nucleons[1].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
     }
     else if ( this.nucleons.length === 3 ) {
       // Three nucleons - form a triangle where they all touch.
       angle = Math.random() * 2 * Math.PI;
       distFromCenter = nucleonRadius * 1.155;
-      this.nucleons[0].setLocation( { x: centerX + distFromCenter * Math.cos( angle ),
-                                      y: centerY + distFromCenter * Math.sin( angle ) } );
-      this.nucleons[1].setLocation( { x: centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
-                                      y: centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) } );
-      this.nucleons[2].setLocation( { x: centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
-                                      y: centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) } );
+      this.nucleons[0].position = new Vector2( centerX + distFromCenter * Math.cos( angle ),
+                                               centerY + distFromCenter * Math.sin( angle ) );
+      this.nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
+                                               centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
+      this.nucleons[2].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
+                                               centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
     }
     else if ( this.nucleons.length === 4 ) {
       // Four nucleons - make a sort of diamond shape with some overlap.
       angle = Math.random() * 2 * Math.PI;
-      this.nucleons[0].setLocation( {
-                                      x: centerX + nucleonRadius * Math.cos( angle ),
-                                      y: centerY + nucleonRadius * Math.sin( angle )} );
-      this.nucleons[2].setLocation( {
-                                      x: centerX - nucleonRadius * Math.cos( angle ),
-                                      y: centerY - nucleonRadius * Math.sin( angle ) } );
+      this.nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+      this.nucleons[2].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
       distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
-      this.nucleons[1].setLocation( {
-                                      x: centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                      y: centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) } );
-      this.nucleons[3].setLocation( {
-                                      x: centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                      y: centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) } );
+      this.nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
+                                               centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+      this.nucleons[3].position = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
+                                               centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
     }
     else if ( this.nucleons.length >= 5 ) {
       // This is a generalized algorithm that should work for five or
@@ -186,9 +181,8 @@ define( [
       var placementAngle = 0;
       var placementAngleDelta = 0;
       for ( var i = 0; i < this.nucleons.length; i++ ) {
-        this.nucleons[i].setLocation( {
-                                        x: centerX + placementRadius * Math.cos( placementAngle ),
-                                        y: centerY + placementRadius * Math.sin( placementAngle )} );
+        this.nucleons[i].position = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
+                                                 centerY + placementRadius * Math.sin( placementAngle ) );
         numAtThisRadius--;
         if ( numAtThisRadius > 0 ) {
           // Stay at the same radius and update the placement angle.
