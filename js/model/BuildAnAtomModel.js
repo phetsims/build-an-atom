@@ -25,11 +25,9 @@ define( function ( require ) {
   var placeNucleon = function ( particle, bucket, atom ) {
     if ( particle.position.distance( Vector2.ZERO ) < NUCLEON_CAPTURE_RADIUS ) {
       atom.addParticle( particle );
-      console.log( "Method - Added particle to atom" )
     }
     else {
       bucket.addParticleNearestOpen( particle );
-      console.log( "Method - Added particle to bucket" )
     }
   }
 
