@@ -14,6 +14,7 @@ define( function ( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ElectronShellView = require( 'view/ElectronShellView' );
   var Atom = require( 'model/Atom' );
+  var AtomView = require( 'view/AtomView' );
 
   /**
    * Constructor.
@@ -45,33 +46,37 @@ define( function ( require ) {
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 350, y: 200 }, 1.0 );
 //    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 0, y: 0 }, 1.0 );
 
+    // Add the node that shows the 'x' center marker and all the textual labels.
+    rootNode.addChild( new AtomView( model.atom, mvt ) );
+
     // Add the electron shells.
-    rootNode.addChild( new ElectronShellView( model.atom, Atom.INNER_ELECTRON_SHELL_RADIUS, Atom.OUTER_ELECTRON_SHELL_RADIUS, mvt ));
+    rootNode.addChild( new ElectronShellView( model.atom, Atom.INNER_ELECTRON_SHELL_RADIUS, Atom.OUTER_ELECTRON_SHELL_RADIUS, mvt ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
-    _.each( model.buckets, function( bucket ){
+    _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketHole( bucket, mvt ) );
-    });
+    } );
 
     // Add the particles.
-    _.each( model.nucleons, function( nucleon ){
+    _.each( model.nucleons, function ( nucleon ) {
       rootNode.addChild( new ParticleView( nucleon, mvt ) );
-    });
-    _.each( model.electrons, function( electron ){
+    } );
+    _.each( model.electrons, function ( electron ) {
       rootNode.addChild( new ParticleView( electron, mvt ) );
-    });
+    } );
 
     // Add the front portion of the buckets.  Done separately from the bucket
     // holes for layering purposes.
-    _.each( model.buckets, function( bucket ){
+    _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketFront( bucket, mvt ) );
-    });
+    } );
 
     // Set up a callback that will keep the scene centered.
     function layout() {
       rootNode.x = scene.sceneBounds.width / 3;
       rootNode.y = scene.sceneBounds.centerY;
     }
+
     $( window ).resize( layout );
 
     // Create tick function for animation.

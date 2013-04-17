@@ -5,44 +5,61 @@
  *
  * @author John Blanco
  */
-define( [
-          'easel',
-          'common/Point2D',
-          'common/AtomIdentifier',
-          'model/Atom'
-        ], function ( Easel, Point2D, AtomIdentifier, Atom ) {
+define( function ( require ) {
+
+  var Vector2 = require( 'DOT/Vector2' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var Atom = require( 'model/Atom' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Shape = require( 'KITE/Shape' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
-   * @param xPos
-   * @param yPos
-   * @param mvt
+   * @param atom Model representation of the atom
+   * @param mvt Model-View transform
    * @constructor
    */
   var AtomView = function ( atom, mvt ) {
-    this.initialize( atom, mvt );
-  };
 
-  var p = AtomView.prototype = new Easel.Container(); // inherit from Container
+    Node.call( this ); // Call super constructor.
+    var atomView = this;
 
-  p.Container_initialize = p.initialize;
-
-  p.initialize = function ( atom, mvt ) {
-    this.Container_initialize();
     this.atom = atom;
     this.mvt = mvt;
 
     // Create the X where the nucleus goes.
-    var x = new Easel.Shape();
-    var sizeInPixels = mvt.modelToView( 20 );
-    var center = mvt.modelToView( new Point2D( atom.xPos, atom.yPos ) );
-    x.graphics.beginStroke( "orange" )
-        .setStrokeStyle( 5 )
-        .moveTo( center.x - sizeInPixels / 2, center.y - sizeInPixels / 2 )
-        .lineTo( center.x + sizeInPixels / 2, center.y + sizeInPixels / 2 )
-        .moveTo( center.x - sizeInPixels / 2, center.y + sizeInPixels / 2 )
-        .lineTo( center.x + sizeInPixels / 2, center.y - sizeInPixels / 2 )
-        .endStroke();
-    this.addChild( x );
+    var sizeInPixels = mvt.modelToViewDeltaX( 20 );
+    var center = mvt.modelToViewPosition( atom.position );
+    var centerMarker = new Shape();
+    centerMarker.moveTo( center.x - sizeInPixels / 2, center.y - sizeInPixels / 2 );
+    centerMarker.lineTo( center.x + sizeInPixels / 2, center.y + sizeInPixels / 2 );
+    centerMarker.moveTo( center.x - sizeInPixels / 2, center.y + sizeInPixels / 2 );
+    centerMarker.lineTo( center.x + sizeInPixels / 2, center.y - sizeInPixels / 2 );
+
+    this.addChild( new Path( {
+                               shape: centerMarker,
+                               stroke: 'orange',
+                               lineWidth: 5
+                             } ) );
+
+    // Create the textual readouts for element name, stability, and charge.
+    this.elementName = new Text( "Hydrogen",
+                                 {
+                                   font: "24px Arial",
+                                   fill: "red",
+                                   center: mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ))
+                                 } );
+    this.addChild( this.elementName );
+  };
+
+  // Inherit from Node.
+  inherit( AtomView, Node );
+
+  var initialize = function ( atom, mvt ) {
+    this.atom = atom;
+    this.mvt = mvt;
 
     // Create the textual readouts for element name, stability, and charge.
     this.elementName = new Easel.Text( "", 'bold 36px Arial', 'red' );

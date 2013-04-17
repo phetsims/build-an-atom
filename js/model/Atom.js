@@ -11,8 +11,7 @@ define( function ( require ) {
   Atom.OUTER_ELECTRON_SHELL_RADIUS = 180;
 
   function Atom( xPos, yPos ) {
-    this.xPos = xPos;
-    this.yPos = yPos;
+    this.position = new Vector2( xPos, yPos );
     this.nucleons = [];
     this.electrons = [];
     this.events = $( {} );
