@@ -139,8 +139,8 @@ define( function ( require ) {
   Atom.prototype.reconfigureNucleus = function ( moveImmediately ) {
 
     // Convenience variables.
-    var centerX = this.xPos;
-    var centerY = this.yPos;
+    var centerX = this.position.x;
+    var centerY = this.position.y;
     var nucleonRadius = SharedConstants.NUCLEON_RADIUS;
     var angle, distFromCenter;
 
