@@ -2,65 +2,72 @@
 define( function ( require ) {
 
   var _ = require( 'lodash' );
+  var Fort = require( 'FORT/Fort' );
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Particle = require( 'model/Particle' );
 
-  Atom.CONFIG_CHANGE_EVENT = 'configurationChanged';
+  var ParticleCollection = Backbone.Collection.extend( {
+                                                         model: Particle
+                                                       } );
+
+  var Atom = Fort.Model.extend( {
+                                  defaults: {
+                                    position: Vector2.ZERO,
+                                    protons: new ParticleCollection,
+                                    neutrons: new ParticleCollection,
+                                    electrons: new ParticleCollection
+                                  },
+
+                                  constructor: function () {
+                                    Fort.Model.apply( this );
+
+                                    // Initialize the positions where an electron can be placed.
+                                    this.electronPositions = new Array( 10 );
+                                    var angle = 0;
+                                    this.electronPositions[ 0 ] = { electron: null, x: Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
+                                    angle += Math.PI;
+                                    this.electronPositions[ 1 ] = { electron: null, x: -Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
+                                    var numSlotsInOuterShell = 8;
+                                    angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
+                                    for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
+                                      this.electronPositions[ i + 2 ] = {
+                                        electron: null,
+                                        x: Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
+                                        y: Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS
+                                      }
+                                      angle += Math.PI / numSlotsInOuterShell * 2;
+                                    }
+                                  }
+                                } );
+
   Atom.INNER_ELECTRON_SHELL_RADIUS = 80;
   Atom.OUTER_ELECTRON_SHELL_RADIUS = 180;
-
-  function Atom( xPos, yPos ) {
-    this.position = new Vector2( xPos, yPos );
-    this.nucleons = [];
-    this.electrons = [];
-    this.events = $( {} );
-
-    // Initialize the positions where an electron can be placed.
-    this.electronPositions = new Array( 10 );
-    var angle = 0;
-    this.electronPositions[ 0 ] = { electron: null, x: Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
-    angle += Math.PI;
-    this.electronPositions[ 1 ] = { electron: null, x: -Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
-    var numSlotsInOuterShell = 8;
-    angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
-    for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
-      this.electronPositions[ i + 2 ] = {
-        electron: null,
-        x: Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
-        y: Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS
-      }
-      angle += Math.PI / numSlotsInOuterShell * 2;
-    }
-  }
 
   Atom.prototype.addParticle = function ( particle ) {
 
     var thisAtom = this;
 
-    // Distinguish nucleons from electrons.
-    if ( particle.type === 'proton' || particle.type === 'neutron' ) {
-
-      // Add this nucleon to the nucleus.
-      this.nucleons.push( particle );
-      thisAtom.reconfigureNucleus( true );
-      particle.once( 'change:userControlled', function ( particle, userControlled ) {
-        if ( userControlled ) {
-          console.log( "Removing particle from nucleus" );
-          thisAtom.nucleons = _.without( thisAtom.nucleons, particle );
-          thisAtom.reconfigureNucleus( true );
-        }
-        else {
-          console.log( "Unexpected value from userControlled, = " + userControlled );
-        }
+    if ( particle.type === 'proton' ) {
+      this.protons.add( particle );
+      this.reconfigureNucleus( true );
+      particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
+        thisAtom.protons.remove( userControlledParticle );
+        thisAtom.reconfigureNucleus( true );
+      } );
+    }
+    else if ( particle.type === 'neutron' ) {
+      this.neutrons.add( particle );
+      this.reconfigureNucleus( true );
+      particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
+        thisAtom.neutrons.remove( userControlledParticle );
+        thisAtom.reconfigureNucleus( true );
       } );
     }
     else if ( particle.type === 'electron' ) {
-
-      // Add to list of electrons.
-      this.electrons.push( particle );
-
-      // Add this electron to the electron shell.
+      this.electrons.add( particle );
+      // Find an open position in the electron shell.
       var openPositions = this.electronPositions.filter( function ( pos ) {
         return ( pos.electron === null )
       } );
@@ -75,29 +82,24 @@ define( function ( require ) {
 
       if ( sortedOpenPositions.length === 0 ) {
         console.log( "Error: No open electron positions." );
-        return;
       }
       sortedOpenPositions[0].electron = particle;
       particle.position = new Vector2( sortedOpenPositions[ 0 ].x, sortedOpenPositions[ 0 ].y );
-      particle.once( 'change:userControlled', function ( particle, userControlled ) {
-        if ( userControlled ) {
-          console.log( "Removing electron from atom" );
-          thisAtom.electrons = _.without( thisAtom.electrons, particle );
-          _.each( thisAtom.electronPositions, function ( electronPosition ) {
-            if ( electronPosition.electron === particle ) {
-              electronPosition.electron = null;
-            }
-          } );
-        }
-        else {
-          console.log( "Warning: Unexpected value from userControlled from electron in atom, = " + userControlled );
-        }
+      particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
+        thisAtom.electrons.remove( userControlledParticle );
+        _.each( thisAtom.electronPositions, function ( electronPosition ) {
+          if ( electronPosition.electron === userControlledParticle ) {
+            electronPosition.electron = null;
+          }
+        } );
       } );
-
-//      thisAtom.events.trigger( Atom.CONFIG_CHANGE_EVENT );
+    }
+    else {
+      console.log( "Error: Ignoring unexpected particle type." );
     }
   };
 
+  // TODO: Are these functions still needed?  If so, they need to be fixed.
   Atom.prototype.getNumProtons = function () {
     var numProtons = 0;
     _.each( this.nucleons, function ( nucleon ) {
@@ -129,11 +131,11 @@ define( function ( require ) {
   };
 
   Atom.prototype.getWeight = function () {
-    return this.nucleons.length;
+    return this.protons.length + this.neutrons.length;
   };
 
   Atom.prototype.getCharge = function () {
-    return this.getNumProtons() - this.getNumElectrons();
+    return this.protons.length - this.electrons.length;
   };
 
   Atom.prototype.reconfigureNucleus = function ( moveImmediately ) {
@@ -144,44 +146,52 @@ define( function ( require ) {
     var nucleonRadius = SharedConstants.NUCLEON_RADIUS;
     var angle, distFromCenter;
 
-    if ( this.nucleons.length === 0 ) {
+    var nucleons = [];
+    for( var i = 0; i < this.protons.length; i++){
+      nucleons.push( this.protons.at( i ) );
+    }
+    for( i = 0; i < this.neutrons.length; i++){
+      nucleons.push( this.neutrons.at( i ) );
+    }
+
+    if ( nucleons.length === 0 ) {
       // Nothing to do.
       return;
     }
-    else if ( this.nucleons.length === 1 ) {
+    else if ( nucleons.length === 1 ) {
       // There is only one nucleon present, so place it in the center
       // of the atom.
-      this.nucleons[0].position = new Vector2( centerX, centerY );
+      nucleons[0].position = new Vector2( centerX, centerY );
     }
-    else if ( this.nucleons.length === 2 ) {
+    else if ( nucleons.length === 2 ) {
       // Two nucleons - place them side by side with their meeting point in the center.
       angle = Math.random() * 2 * Math.PI;
-      this.nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
-      this.nucleons[1].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+      nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+      nucleons[1].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
     }
-    else if ( this.nucleons.length === 3 ) {
+    else if ( nucleons.length === 3 ) {
       // Three nucleons - form a triangle where they all touch.
       angle = Math.random() * 2 * Math.PI;
       distFromCenter = nucleonRadius * 1.155;
-      this.nucleons[0].position = new Vector2( centerX + distFromCenter * Math.cos( angle ),
+      nucleons[0].position = new Vector2( centerX + distFromCenter * Math.cos( angle ),
                                                centerY + distFromCenter * Math.sin( angle ) );
-      this.nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
+      nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
                                                centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
-      this.nucleons[2].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
+      nucleons[2].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
                                                centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
     }
-    else if ( this.nucleons.length === 4 ) {
+    else if ( nucleons.length === 4 ) {
       // Four nucleons - make a sort of diamond shape with some overlap.
       angle = Math.random() * 2 * Math.PI;
-      this.nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
-      this.nucleons[2].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+      nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+      nucleons[2].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
       distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
-      this.nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
+      nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
                                                centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
-      this.nucleons[3].position = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
+      nucleons[3].position = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
                                                centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
     }
-    else if ( this.nucleons.length >= 5 ) {
+    else if ( nucleons.length >= 5 ) {
       // This is a generalized algorithm that should work for five or
       // more nucleons.
       var placementRadius = 0;
@@ -189,8 +199,8 @@ define( function ( require ) {
       var level = 0;
       var placementAngle = 0;
       var placementAngleDelta = 0;
-      for ( var i = 0; i < this.nucleons.length; i++ ) {
-        this.nucleons[i].position = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
+      for ( var i = 0; i < nucleons.length; i++ ) {
+        nucleons[i].position = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
                                                  centerY + placementRadius * Math.sin( placementAngle ) );
         numAtThisRadius--;
         if ( numAtThisRadius > 0 ) {

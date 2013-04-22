@@ -48,7 +48,7 @@ define( function ( require ) {
                                      .addColorStop( 0, 'white' )
                                      .addColorStop( 1, baseColor ),
                                  cursor: 'pointer',
-                                 renderer: 'svg'
+                                 renderer: 'canvas'
                                }
     ) );
 

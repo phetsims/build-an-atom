@@ -49,14 +49,22 @@ define( function ( require ) {
                                  {
                                    font: "24px Arial",
                                    fill: "red",
-                                   center: mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ))
+                                   center: mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) )
                                  } );
     this.addChild( this.elementName );
+
+    atom.protons.bind('add', function( proton ){
+      console.log("Proton added!")
+    })
+    atom.protons.bind('remove', function( proton ){
+      console.log("Proton removed!")
+    })
   };
 
   // Inherit from Node.
   inherit( AtomView, Node );
 
+  // TODO: This is old, but keep until the atom view is fully working, since there is code in here that will be useful.
   var initialize = function ( atom, mvt ) {
     this.atom = atom;
     this.mvt = mvt;
@@ -76,6 +84,7 @@ define( function ( require ) {
     // Update the textual indicators.
     var self = this;
     atom.events.on( Atom.CONFIG_CHANGE_EVENT, function () {
+      debugger;
 
       // Update element name.
       self.elementName.text = AtomIdentifier.getName( self.atom.getNumProtons() );
