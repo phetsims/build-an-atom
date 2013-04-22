@@ -45,7 +45,7 @@ define( function ( require ) {
                              } ) );
 
     // Create the textual readouts for element name, stability, and charge.
-    this.elementName = new Text( "Hydrogen",
+    this.elementName = new Text( "-",
                                  {
                                    font: "24px Arial",
                                    fill: "red",
@@ -53,11 +53,20 @@ define( function ( require ) {
                                  } );
     this.addChild( this.elementName );
 
+    var updateElementName = function(){
+      var name = AtomIdentifier.getName( atomView.atom.protons.length );
+      if ( name.length === 0 ){
+        name = 'Nuthin\'';
+      }
+      atomView.elementName.text = name;
+      atomView.elementName.center = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
+    }
+
     atom.protons.bind('add', function( proton ){
-      console.log("Proton added!")
+      updateElementName();
     })
     atom.protons.bind('remove', function( proton ){
-      console.log("Proton removed!")
+      updateElementName();
     })
   };
 
