@@ -15,6 +15,8 @@ define( function ( require ) {
   var ElectronShellView = require( 'view/ElectronShellView' );
   var Atom = require( 'model/Atom' );
   var AtomView = require( 'view/AtomView' );
+  var Dimension2 = require( "DOT/Dimension2" );
+  var Vector2 = require( "DOT/Vector2" );
 
   /**
    * Constructor.
@@ -42,9 +44,8 @@ define( function ( require ) {
     var rootNode = new Node();
     scene.addChild( rootNode );
 
-    // Create the model-view transform. TODO: This is just using numbers for now, will need to make this more dynamic.  Or something.  Not at all sure.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 350, y: 200 }, 1.0 );
-//    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 0, y: 0 }, 1.0 );
+    // Create the model-view transform.
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 384, y: 200 }, 1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
     rootNode.addChild( new AtomView( model.atom, mvt ) );
@@ -71,13 +72,17 @@ define( function ( require ) {
       rootNode.addChild( new BucketFront( bucket, mvt ) );
     } );
 
-    // Set up a callback that will keep the scene centered.
-    function layout() {
-      rootNode.x = scene.sceneBounds.width / 3;
-      rootNode.y = scene.sceneBounds.centerY;
-    }
-
-    $( window ).resize( layout );
+    // Scale the scene when the browser window is resized.
+    var handleResize = function () {
+      var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
+      var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
+      var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
+      scene.setScaleMagnitude( scale );
+      scene.translation = new Vector2( ( windowSize.width - ( UNITY_WINDOW_SIZE.width * scale ) / 2, 0 ) );
+      console.log( "scene.translation.x = " + scene.translation.x );
+    };
+    $( window ).resize( handleResize );
+    handleResize(); // initial size
 
     // Create tick function for animation.
     function tick() {
