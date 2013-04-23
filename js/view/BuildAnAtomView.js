@@ -81,11 +81,8 @@ define( function ( require ) {
       var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
       var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
       scene.setScaleMagnitude( scale );
-      scene.translation = new Vector2( ( ( windowSize.width - ( UNITY_WINDOW_SIZE.width * scale ) ) / 2, 0 ) );
-      console.log( "-----------------------------------" );
-      console.log( "scale = " + scale );
-      console.log( "windowSize = " + windowSize );
-      console.log( "scene.translation.x = " + scene.translation.x );
+      scene.centerX = windowSize.width / 2;
+      scene.centerY = windowSize.height / 2;
     };
     $( window ).resize( handleResize );
     handleResize(); // initial size
