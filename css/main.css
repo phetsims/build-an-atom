@@ -20,10 +20,6 @@ body {
     line-height: 1.4;
 }
 
-.ui-page {
-    background: rgb(255, 255, 153);
-}
-
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate.
