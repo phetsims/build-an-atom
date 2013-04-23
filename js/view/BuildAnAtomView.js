@@ -19,6 +19,10 @@ define( function ( require ) {
   var TabView = require( "JOIST/TabView" );
   var Bounds2 = require( 'DOT/Bounds2' );
 
+  // Size of the stage, in screen coordinates.  This was obtained by setting
+  // a Chrome window to 1024 x 768 and measuring the actual display region.
+  var STAGE_SIZE = new Bounds2(0, 0, 1010, 655 );
+
   /**
    * Constructor.
    *
@@ -26,9 +30,6 @@ define( function ( require ) {
    * @constructor
    */
   function BuildAnAtomView( model ) {
-
-    // Size of the "stage" where graphics will be displayed.
-    var STAGE_SIZE = new Bounds2( 0, 0, 1024, 768 );
 
     // Initialize the scene.
     var scene = new TabView();
@@ -40,7 +41,9 @@ define( function ( require ) {
     scene.addChild( rootNode );
 
     // Create the model-view transform.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: STAGE_SIZE.width / 2, y: STAGE_SIZE.height * 0.3 }, 1.0 );
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
+                                                                          { x: STAGE_SIZE.width / 2, y: STAGE_SIZE.height * 0.35 },
+                                                                          1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
     rootNode.addChild( new AtomView( model.atom, mvt ) );

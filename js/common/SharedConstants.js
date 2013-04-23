@@ -1,13 +1,10 @@
 // Copyright 2002-2012, University of Colorado
-define( [ ], function () {
+define( function ( require ) {
 
   // Not meant to be instantiated.
   var SharedConstants = {};
 
-  // Size of the stage, in screen coordinates.  This was obtained by setting
-  // a Chrome window to 1024 x 768 and measuring the actual display region.
-  SharedConstants.STAGE_SIZE = { width : 1010, height: 655 };
-
+  // Sizes of the various particles.
   SharedConstants.NUCLEON_RADIUS = 12; // In screen coordinates, which are roughly pixels.
   SharedConstants.ELECTRON_RADIUS = 10; // In screen coordinates, which are roughly pixels.
 

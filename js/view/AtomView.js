@@ -58,7 +58,7 @@ define( function ( require ) {
     var updateElementName = function () {
       var name = AtomIdentifier.getName( thisAtomView.atom.protons.length );
       if ( name.length === 0 ) {
-        name = 'Nuthin\'';
+        name = '--';
       }
       thisAtomView.elementName.text = name;
       thisAtomView.elementName.center = elementNameCenterPos;
