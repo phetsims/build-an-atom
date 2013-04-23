@@ -44,8 +44,12 @@ define( function ( require ) {
     var rootNode = new Node();
     scene.addChild( rootNode );
 
+    // Size of the "stage" where graphics will be displayed.
+    var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
+
     // Create the model-view transform.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: 384, y: 200 }, 1.0 );
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: UNITY_WINDOW_SIZE.width / 2, y: UNITY_WINDOW_SIZE.height * 0.3 }, 1.0 );
+
 
     // Add the node that shows the 'x' center marker and all the textual labels.
     rootNode.addChild( new AtomView( model.atom, mvt ) );
@@ -72,13 +76,15 @@ define( function ( require ) {
       rootNode.addChild( new BucketFront( bucket, mvt ) );
     } );
 
-    // Scale the scene when the browser window is resized.
+    // Scale and center the scene when the browser window is resized.
     var handleResize = function () {
-      var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
       var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
       var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
       scene.setScaleMagnitude( scale );
-      scene.translation = new Vector2( ( windowSize.width - ( UNITY_WINDOW_SIZE.width * scale ) / 2, 0 ) );
+      scene.translation = new Vector2( ( ( windowSize.width - ( UNITY_WINDOW_SIZE.width * scale ) ) / 2, 0 ) );
+      console.log( "-----------------------------------" );
+      console.log( "scale = " + scale );
+      console.log( "windowSize = " + windowSize );
       console.log( "scene.translation.x = " + scene.translation.x );
     };
     $( window ).resize( handleResize );
