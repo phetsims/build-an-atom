@@ -24,7 +24,7 @@ define( function ( require ) {
   var AtomView = function ( atom, mvt ) {
 
     Node.call( this ); // Call super constructor.
-    var atomView = this;
+    var thisAtomView = this;
 
     this.atom = atom;
     this.mvt = mvt;
@@ -44,36 +44,82 @@ define( function ( require ) {
                                lineWidth: 5
                              } ) );
 
-    // Create the textual readouts for element name, stability, and charge.
+    // Create the textual readout for the element name.
+    var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
     this.elementName = new Text( "-",
                                  {
                                    font: "24px Arial",
                                    fill: "red",
-                                   center: mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) )
+                                   center: elementNameCenterPos
                                  } );
     this.addChild( this.elementName );
 
-    var updateElementName = function(){
-      var name = AtomIdentifier.getName( atomView.atom.protons.length );
-      if ( name.length === 0 ){
+    // Define the update function for the element name.
+    var updateElementName = function () {
+      var name = AtomIdentifier.getName( thisAtomView.atom.protons.length );
+      if ( name.length === 0 ) {
         name = 'Nuthin\'';
       }
-      atomView.elementName.text = name;
-      atomView.elementName.center = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
+      thisAtomView.elementName.text = name;
+      thisAtomView.elementName.center = elementNameCenterPos;
+    };
+
+    // Create the textual readout for the ion indicator.
+    var ionIndicatorTranslation = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 140, -140 ) );
+    this.ionIndicator = new Text( "-",
+                                  {
+                                    font: "24px Arial",
+                                    fill: "black",
+                                    translation: ionIndicatorTranslation
+                                  } );
+    this.addChild( this.ionIndicator );
+
+    // Define the update function for the ion indicator.
+    var updateIonIndicator = function () {
+      if ( thisAtomView.atom.protons.length > 1 ){
+        var charge = thisAtomView.atom.getCharge();
+        // TODO: i18n of all labels below
+        if ( charge < 0 ){
+          thisAtomView.ionIndicator.text = '- Ion';
+          thisAtomView.ionIndicator.fill = "blue";
+        }
+        else if ( charge > 0 ){
+          thisAtomView.ionIndicator.text = '+ Ion';
+          thisAtomView.ionIndicator.fill = "red";
+        }
+        else{
+          thisAtomView.ionIndicator.text = 'Neutral Atom';
+          thisAtomView.ionIndicator.fill = "black";
+        }
+      }
+      else{
+        // TODO: Make the text a zero-length string once supported.
+        thisAtomView.ionIndicator.text = '-';
+        thisAtomView.ionIndicator.fill = "black";
+      }
     }
 
-    atom.protons.bind('add', function( proton ){
+    // Bind the update functions to atom events.
+    atom.protons.bind( 'add', function ( proton ) {
       updateElementName();
-    })
-    atom.protons.bind('remove', function( proton ){
+      updateIonIndicator();
+    } );
+    atom.protons.bind( 'remove', function ( proton ) {
       updateElementName();
-    })
+      updateIonIndicator();
+    } );
+    atom.electrons.bind( 'add', function ( proton ) {
+      updateIonIndicator();
+    } );
+    atom.electrons.bind( 'remove', function ( proton ) {
+      updateIonIndicator();
+    } );
   };
 
-  // Inherit from Node.
+// Inherit from Node.
   inherit( AtomView, Node );
 
-  // TODO: This is old, but keep until the atom view is fully working, since there is code in here that will be useful.
+// TODO: This is old, but keep until the atom view is fully working, since there is code in here that will be useful.
   var initialize = function ( atom, mvt ) {
     this.atom = atom;
     this.mvt = mvt;
@@ -132,4 +178,5 @@ define( function ( require ) {
   };
 
   return AtomView;
-} );
+} )
+;
