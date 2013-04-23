@@ -17,12 +17,6 @@ require(
           icon: new Rectangle( 0, 0, 50, 50, {fill: 'blue'} ),
           createModel: function () {return new BuildAnAtomModel();},
           createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
-        },
-
-        { name: "Build an Atom",
-          icon: new Rectangle( 0, 0, 50, 50, {fill: 'red'} ),
-          createModel: function () {return new BuildAnAtomModel();},
-          createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
     } );
