@@ -37,12 +37,17 @@ define( function ( require ) {
     centerMarker.lineTo( center.x + sizeInPixels / 2, center.y + sizeInPixels / 2 );
     centerMarker.moveTo( center.x - sizeInPixels / 2, center.y + sizeInPixels / 2 );
     centerMarker.lineTo( center.x + sizeInPixels / 2, center.y - sizeInPixels / 2 );
+    var atomCenterMarker = new Path( {
+                                       shape: centerMarker,
+                                       stroke: 'orange',
+                                       lineWidth: 5
+                                     } );
+    this.addChild( atomCenterMarker );
 
-    this.addChild( new Path( {
-                               shape: centerMarker,
-                               stroke: 'orange',
-                               lineWidth: 5
-                             } ) );
+    // Make the marker invisible if any nucleons are present.
+    atom.on( "reconfigureNucleus", function(){
+      atomCenterMarker.visible = atom.getWeight() === 0;
+    })
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );

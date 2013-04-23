@@ -12,35 +12,37 @@ define( function ( require ) {
                                                          model: Particle
                                                        } );
 
-  var Atom = Fort.Model.extend( {
-                                  defaults: {
-                                    position: Vector2.ZERO,
-                                    protons: new ParticleCollection,
-                                    neutrons: new ParticleCollection,
-                                    electrons: new ParticleCollection
-                                  },
+  var Atom = Fort.Model.extend(
+      {
+        defaults: {
+          position: Vector2.ZERO,
+          protons: new ParticleCollection,
+          neutrons: new ParticleCollection,
+          electrons: new ParticleCollection
+        },
 
-                                  constructor: function () {
-                                    Fort.Model.apply( this );
+        constructor: function () {
+          Fort.Model.apply( this );
 
-                                    // Initialize the positions where an electron can be placed.
-                                    this.electronPositions = new Array( 10 );
-                                    var angle = 0;
-                                    this.electronPositions[ 0 ] = { electron: null, x: Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
-                                    angle += Math.PI;
-                                    this.electronPositions[ 1 ] = { electron: null, x: -Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
-                                    var numSlotsInOuterShell = 8;
-                                    angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
-                                    for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
-                                      this.electronPositions[ i + 2 ] = {
-                                        electron: null,
-                                        x: Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
-                                        y: Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS
-                                      }
-                                      angle += Math.PI / numSlotsInOuterShell * 2;
-                                    }
-                                  }
-                                } );
+          // Initialize the positions where an electron can be placed.
+          this.electronPositions = new Array( 10 );
+          var angle = 0;
+          this.electronPositions[ 0 ] = { electron: null, x: Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
+          angle += Math.PI;
+          this.electronPositions[ 1 ] = { electron: null, x: -Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
+          var numSlotsInOuterShell = 8;
+          angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
+          for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
+            this.electronPositions[ i + 2 ] = {
+              electron: null,
+              x: Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
+              y: Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS
+            }
+            angle += Math.PI / numSlotsInOuterShell * 2;
+          }
+        }
+      }
+  );
 
   Atom.INNER_ELECTRON_SHELL_RADIUS = 80;
   Atom.OUTER_ELECTRON_SHELL_RADIUS = 180;
@@ -99,37 +101,6 @@ define( function ( require ) {
     }
   };
 
-  // TODO: Are these functions still needed?  If so, they need to be fixed.
-  Atom.prototype.getNumProtons = function () {
-    var numProtons = 0;
-    _.each( this.nucleons, function ( nucleon ) {
-      if ( nucleon.type === 'proton' ) {
-        numProtons++;
-      }
-    } );
-    return numProtons;
-  };
-
-  Atom.prototype.getNumNeutrons = function () {
-    var numNeutrons = 0;
-    _.each( this.nucleons, function ( nucleon ) {
-      if ( nucleon.type === 'neutron' ) {
-        numNeutrons++;
-      }
-    } );
-    return numNeutrons;
-  };
-
-  Atom.prototype.getNumElectrons = function () {
-    var numElectrons = 0;
-    _.each( this.electrons, function ( electron ) {
-      if ( electron.type === 'electron' ) {
-        numElectrons++;
-      }
-    } );
-    return numElectrons;
-  };
-
   Atom.prototype.getWeight = function () {
     return this.protons.length + this.neutrons.length;
   };
@@ -154,11 +125,7 @@ define( function ( require ) {
       nucleons.push( this.neutrons.at( i ) );
     }
 
-    if ( nucleons.length === 0 ) {
-      // Nothing to do.
-      return;
-    }
-    else if ( nucleons.length === 1 ) {
+    if ( nucleons.length === 1 ) {
       // There is only one nucleon present, so place it in the center
       // of the atom.
       nucleons[0].position = new Vector2( centerX, centerY );
@@ -217,7 +184,6 @@ define( function ( require ) {
         }
       }
 
-      this.trigger( 'reconfigureNucleus' );
 
       //WARNING: THIS IS A SPECIAL CASE FOR HANDLING A CERTAIN ISOTOPE OF LITHIUM
       //Make this isotope of lithium look better, some of the neutrons overlap
@@ -230,6 +196,7 @@ define( function ( require ) {
 //                        neutron.getDestination().getY() - 3 );
 //            }
     }
+    this.trigger( 'reconfigureNucleus' );
 
     //If the particles shouldn't be animating, they should immediately move to their destination
 //        if ( moveImmediately ) {
