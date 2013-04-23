@@ -15,9 +15,9 @@ define( function ( require ) {
   var ElectronShellView = require( 'view/ElectronShellView' );
   var Atom = require( 'model/Atom' );
   var AtomView = require( 'view/AtomView' );
-  var Dimension2 = require( "DOT/Dimension2" );
   var Vector2 = require( "DOT/Vector2" );
   var TabView = require( "JOIST/TabView" );
+  var Bounds2 = require( 'DOT/Bounds2' );
 
   /**
    * Constructor.
@@ -27,28 +27,20 @@ define( function ( require ) {
    */
   function BuildAnAtomView( model ) {
 
+    // Size of the "stage" where graphics will be displayed.
+    var STAGE_SIZE = new Bounds2( 0, 0, 1024, 768 );
+
     // Initialize the scene.
     var scene = new TabView();
+    scene.layoutBounds = STAGE_SIZE;
     this.scene = scene;
 
-    // Add a root node.  TODO: Review with JO - Do I want or need this? Where did option values come from and are they correct?
-//    var rootNode = new Node( {
-//                               x: scene.sceneBounds.width / 3,
-//                               y: scene.sceneBounds.centerY,
-//                               scale: 0.4 / 0.707,
-//                               layerSplit: true
-//                             } );
+    // Add a root node.  TODO: Get rid of this - no longer needed.
     var rootNode = new Node();
     scene.addChild( rootNode );
 
-    var nucleonLayer = new Node();
-
-    // Size of the "stage" where graphics will be displayed.
-    var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
-
     // Create the model-view transform.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: UNITY_WINDOW_SIZE.width / 2, y: UNITY_WINDOW_SIZE.height * 0.3 }, 1.0 );
-
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 }, { x: STAGE_SIZE.width / 2, y: STAGE_SIZE.height * 0.3 }, 1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
     rootNode.addChild( new AtomView( model.atom, mvt ) );
@@ -60,6 +52,9 @@ define( function ( require ) {
     _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketHole( bucket, mvt ) );
     } );
+
+    // Add the layer where the nucleons will be maintained.
+    var nucleonLayer = new Node();
     rootNode.addChild( nucleonLayer );
 
     // Add the particles.
@@ -70,7 +65,9 @@ define( function ( require ) {
       rootNode.addChild( new ParticleView( electron, mvt ) );
     } );
 
-    //Note: this sorts all of the nucleons, even though we technically only need to sort the ones in the nucleus
+    // Layer the particles views so that the nucleus looks reasonable. Note
+    // that this sorts all of the nucleons, even though we technically only
+    // need to sort the ones in the nucleus.
     model.atom.on( 'reconfigureNucleus', function () {
       nucleonLayer.children = _.sortBy( nucleonLayer.children, function ( child ) {
         //Central things should be in front
@@ -83,17 +80,6 @@ define( function ( require ) {
     _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketFront( bucket, mvt ) );
     } );
-
-    // Scale and center the scene when the browser window is resized.
-    var handleResize = function () {
-      var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
-      var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
-      scene.setScaleMagnitude( scale );
-      scene.centerX = windowSize.width / 2;
-      scene.centerY = windowSize.height / 2;
-    };
-    $( window ).resize( handleResize );
-    handleResize(); // initial size
   }
 
   return BuildAnAtomView;
