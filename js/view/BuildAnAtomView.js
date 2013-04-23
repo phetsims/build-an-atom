@@ -17,6 +17,7 @@ define( function ( require ) {
   var AtomView = require( 'view/AtomView' );
   var Dimension2 = require( "DOT/Dimension2" );
   var Vector2 = require( "DOT/Vector2" );
+  var TabView = require( "JOIST/TabView" );
 
   /**
    * Constructor.
@@ -26,13 +27,9 @@ define( function ( require ) {
    */
   function BuildAnAtomView( model ) {
 
-    // Create the scene where the user will construct the atoms.
-    var sceneGraphDiv = $( '#scene-graph' );
-
     // Initialize the scene.
-    var scene = new Scene( sceneGraphDiv );
-    scene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
-    scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
+    var scene = new TabView();
+    this.scene = scene;
 
     // Add a root node.  TODO: Review with JO - Do I want or need this? Where did option values come from and are they correct?
 //    var rootNode = new Node( {
@@ -97,30 +94,7 @@ define( function ( require ) {
     };
     $( window ).resize( handleResize );
     handleResize(); // initial size
-
-    // Create tick function for animation.
-    function tick() {
-      window.requestAnimationFrame( tick, sceneGraphDiv[0] );
-
-//      stats.begin();
-      scene.updateScene(); // repaints dirty regions. use renderScene() to render everything
-//      stats.end();
-    }
-
-    window.requestAnimationFrame( tick, sceneGraphDiv[0] );
   }
-
-
-  // TODO: Is this needed?
-  BuildAnAtomView.prototype = {
-    resetAll: function () {
-      // TODO
-    },
-    step: function () {
-      this.model.step();
-      this.scenery.scene.updateScene();
-    }
-  };
 
   return BuildAnAtomView;
 } );

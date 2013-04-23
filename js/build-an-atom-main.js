@@ -2,12 +2,27 @@
 require(
     [
       'model/BuildAnAtomModel',
-      'view/BuildAnAtomView'
+      'view/BuildAnAtomView',
+      'SCENERY/nodes/Rectangle' ,
+      'JOIST/Sim'
     ],
-    function ( BuildAnAtomModel, BuildAnAtomView ) {
+    function ( BuildAnAtomModel, BuildAnAtomView, Rectangle, Sim ) {
       "use strict";
 
-      // First tab.
-      var model = new BuildAnAtomModel();
-      var view = new BuildAnAtomView( model );
+      //Create and start the sim
+      //TODO: i18n
+      new Sim( "Build an Atom", [
+
+        { name: "Build an Atom",
+          icon: new Rectangle( 0, 0, 50, 50, {fill: 'blue'} ),
+          createModel: function () {return new BuildAnAtomModel();},
+          createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
+        },
+
+        { name: "Build an Atom",
+          icon: new Rectangle( 0, 0, 50, 50, {fill: 'red'} ),
+          createModel: function () {return new BuildAnAtomModel();},
+          createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
+        }
+      ], { home: true, tab: 0, navigationBarInFront: true} ).start();
     } );

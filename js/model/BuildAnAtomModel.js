@@ -88,7 +88,7 @@ define( function ( require ) {
       model.nucleons.push( proton );
       model.buckets.protonBucket.addParticleFirstOpen( proton );
       proton.link( 'userControlled', function ( userControlled ) {
-        if ( !userControlled && !model.buckets.protonBucket.containsParticle( proton )) {
+        if ( !userControlled && !model.buckets.protonBucket.containsParticle( proton ) ) {
           placeNucleon( proton, model.buckets.protonBucket, model.atom );
         }
       } );
@@ -100,7 +100,7 @@ define( function ( require ) {
       model.nucleons.push( neutron );
       model.buckets.neutronBucket.addParticleFirstOpen( neutron );
       neutron.link( 'userControlled', function ( userControlled ) {
-        if ( !userControlled && !model.buckets.neutronBucket.containsParticle( neutron )) {
+        if ( !userControlled && !model.buckets.neutronBucket.containsParticle( neutron ) ) {
           placeNucleon( neutron, model.buckets.neutronBucket, model.atom );
         }
       } );
@@ -112,7 +112,7 @@ define( function ( require ) {
       model.electrons.push( electron );
       model.buckets.electronBucket.addParticleFirstOpen( electron );
       electron.link( 'userControlled', function ( userControlled ) {
-        if ( !userControlled && !model.buckets.electronBucket.containsParticle( electron )) {
+        if ( !userControlled && !model.buckets.electronBucket.containsParticle( electron ) ) {
           if ( electron.position.distance( Vector2.ZERO ) < ELECTRON_CAPTURE_RADIUS ) {
             model.atom.addParticle( electron );
           }
@@ -123,6 +123,8 @@ define( function ( require ) {
       } );
     } );
   }
+
+  BuildAnAtomModel.prototype.step = function ( dt ) {};
 
   return BuildAnAtomModel;
 } );
