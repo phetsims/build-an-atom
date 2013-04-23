@@ -6,7 +6,7 @@ define( function ( require ) {
 
   // Sizes of the various particles.
   SharedConstants.NUCLEON_RADIUS = 12; // In screen coordinates, which are roughly pixels.
-  SharedConstants.ELECTRON_RADIUS = 10; // In screen coordinates, which are roughly pixels.
+  SharedConstants.ELECTRON_RADIUS = 8; // In screen coordinates, which are roughly pixels.
 
   return SharedConstants;
 
