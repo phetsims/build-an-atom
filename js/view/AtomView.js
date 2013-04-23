@@ -46,7 +46,7 @@ define( function ( require ) {
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
-    this.elementName = new Text( "-",
+    this.elementName = new Text( "--",
                                  {
                                    font: "24px Arial",
                                    fill: "red",
@@ -63,10 +63,11 @@ define( function ( require ) {
       thisAtomView.elementName.text = name;
       thisAtomView.elementName.center = elementNameCenterPos;
     };
+    updateElementName(); // Do the initial update.
 
     // Create the textual readout for the ion indicator.
     var ionIndicatorTranslation = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 140, -140 ) );
-    this.ionIndicator = new Text( "-",
+    this.ionIndicator = new Text( "--",
                                   {
                                     font: "24px Arial",
                                     fill: "black",
@@ -76,43 +77,81 @@ define( function ( require ) {
 
     // Define the update function for the ion indicator.
     var updateIonIndicator = function () {
-      if ( thisAtomView.atom.protons.length > 1 ){
+      if ( thisAtomView.atom.protons.length > 0 ) {
         var charge = thisAtomView.atom.getCharge();
         // TODO: i18n of all labels below
-        if ( charge < 0 ){
+        if ( charge < 0 ) {
           thisAtomView.ionIndicator.text = '- Ion';
           thisAtomView.ionIndicator.fill = "blue";
         }
-        else if ( charge > 0 ){
+        else if ( charge > 0 ) {
           thisAtomView.ionIndicator.text = '+ Ion';
           thisAtomView.ionIndicator.fill = "red";
         }
-        else{
+        else {
           thisAtomView.ionIndicator.text = 'Neutral Atom';
           thisAtomView.ionIndicator.fill = "black";
         }
       }
-      else{
+      else {
         // TODO: Make the text a zero-length string once supported.
-        thisAtomView.ionIndicator.text = '-';
+        thisAtomView.ionIndicator.text = '--';
         thisAtomView.ionIndicator.fill = "black";
       }
     }
+    updateIonIndicator(); // Do the initial update.
+
+    // Create the textual readout for the stability indicator.
+    var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
+    this.stabilityIndicator = new Text( "--",
+                                        {
+                                          font: "24px Arial",
+                                          fill: "black",
+                                          center: stabilityIndicatorCenterPos
+                                        } );
+    this.addChild( this.stabilityIndicator );
+
+    // Define the update function for the stability indicator.
+    var updateStabilityIndicator = function () {
+      if ( thisAtomView.atom.protons.length > 0 ) {
+        // TODO: i18n of the indicators below.
+        if ( AtomIdentifier.isStable( thisAtomView.atom.protons.length, thisAtomView.atom.neutrons.length ) ) {
+          thisAtomView.stabilityIndicator.text = 'Stable';
+        }
+        else {
+          thisAtomView.stabilityIndicator.text = 'Unstable';
+        }
+      }
+      else {
+        // TODO: Make the text a zero-length string once supported.
+        thisAtomView.stabilityIndicator.text = "--"
+      }
+      thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;
+    }
+    updateStabilityIndicator(); // Do initial update.
 
     // Bind the update functions to atom events.
     atom.protons.bind( 'add', function ( proton ) {
       updateElementName();
       updateIonIndicator();
+      updateStabilityIndicator();
     } );
     atom.protons.bind( 'remove', function ( proton ) {
       updateElementName();
       updateIonIndicator();
+      updateStabilityIndicator();
     } );
-    atom.electrons.bind( 'add', function ( proton ) {
+    atom.electrons.bind( 'add', function ( electron ) {
       updateIonIndicator();
     } );
-    atom.electrons.bind( 'remove', function ( proton ) {
+    atom.electrons.bind( 'remove', function ( electron ) {
       updateIonIndicator();
+    } );
+    atom.neutrons.bind( 'add', function ( neutron ) {
+      updateStabilityIndicator();
+    } );
+    atom.neutrons.bind( 'remove', function ( neutron ) {
+      updateStabilityIndicator();
     } );
   };
 
