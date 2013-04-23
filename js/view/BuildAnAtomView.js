@@ -44,6 +44,8 @@ define( function ( require ) {
     var rootNode = new Node();
     scene.addChild( rootNode );
 
+    var nucleonLayer = new Node();
+
     // Size of the "stage" where graphics will be displayed.
     var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
 
@@ -61,13 +63,22 @@ define( function ( require ) {
     _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketHole( bucket, mvt ) );
     } );
+    rootNode.addChild( nucleonLayer );
 
     // Add the particles.
     _.each( model.nucleons, function ( nucleon ) {
-      rootNode.addChild( new ParticleView( nucleon, mvt ) );
+      nucleonLayer.addChild( new ParticleView( nucleon, mvt ) );
     } );
     _.each( model.electrons, function ( electron ) {
       rootNode.addChild( new ParticleView( electron, mvt ) );
+    } );
+
+    //Note: this sorts all of the nucleons, even though we technically only need to sort the ones in the nucleus
+    model.atom.on( 'reconfigureNucleus', function () {
+      nucleonLayer.children = _.sortBy( nucleonLayer.children, function ( child ) {
+        //Central things should be in front
+        return -child.particle.position.distance( Vector2.ZERO );
+      } );
     } );
 
     // Add the front portion of the buckets.  Done separately from the bucket

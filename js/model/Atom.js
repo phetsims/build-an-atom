@@ -147,10 +147,10 @@ define( function ( require ) {
     var angle, distFromCenter;
 
     var nucleons = [];
-    for( var i = 0; i < this.protons.length; i++){
+    for ( var i = 0; i < this.protons.length; i++ ) {
       nucleons.push( this.protons.at( i ) );
     }
-    for( i = 0; i < this.neutrons.length; i++){
+    for ( i = 0; i < this.neutrons.length; i++ ) {
       nucleons.push( this.neutrons.at( i ) );
     }
 
@@ -174,11 +174,11 @@ define( function ( require ) {
       angle = Math.random() * 2 * Math.PI;
       distFromCenter = nucleonRadius * 1.155;
       nucleons[0].position = new Vector2( centerX + distFromCenter * Math.cos( angle ),
-                                               centerY + distFromCenter * Math.sin( angle ) );
+                                          centerY + distFromCenter * Math.sin( angle ) );
       nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
-                                               centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
+                                          centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
       nucleons[2].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
-                                               centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
+                                          centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
     }
     else if ( nucleons.length === 4 ) {
       // Four nucleons - make a sort of diamond shape with some overlap.
@@ -187,9 +187,9 @@ define( function ( require ) {
       nucleons[2].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
       distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
       nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                               centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+                                          centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
       nucleons[3].position = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                               centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+                                          centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
     }
     else if ( nucleons.length >= 5 ) {
       // This is a generalized algorithm that should work for five or
@@ -201,7 +201,7 @@ define( function ( require ) {
       var placementAngleDelta = 0;
       for ( var i = 0; i < nucleons.length; i++ ) {
         nucleons[i].position = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
-                                                 centerY + placementRadius * Math.sin( placementAngle ) );
+                                            centerY + placementRadius * Math.sin( placementAngle ) );
         numAtThisRadius--;
         if ( numAtThisRadius > 0 ) {
           // Stay at the same radius and update the placement angle.
@@ -216,6 +216,8 @@ define( function ( require ) {
           placementAngleDelta = 2 * Math.PI / numAtThisRadius;
         }
       }
+
+      this.trigger( 'reconfigureNucleus' );
 
       //WARNING: THIS IS A SPECIAL CASE FOR HANDLING A CERTAIN ISOTOPE OF LITHIUM
       //Make this isotope of lithium look better, some of the neutrons overlap
