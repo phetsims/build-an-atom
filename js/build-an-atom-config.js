@@ -6,11 +6,11 @@ require.config(
       deps: ['build-an-atom-main'],
 
       paths: {
-        // local contrib dependencies
-        i18n: "../contrib/i18n-2.0.2",
-        tpl: "../contrib/tpl-0.2",
-        lodash: "../contrib/lodash-1.0.1",
-        underscore: "../contrib/underscore-1.4.2",
+        // local lib dependencies
+        i18n: "../lib/i18n-2.0.2",
+        tpl: "../lib/tpl-0.2",
+        lodash: "../lib/lodash-1.0.1",
+        underscore: "../lib/underscore-1.4.2",
 
         // PhET's common code, uppercase names to identify them in require imports
         PHETCOMMON: "../../phetcommon/js",
