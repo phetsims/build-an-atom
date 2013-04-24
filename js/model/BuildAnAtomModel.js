@@ -44,8 +44,7 @@ define( function ( require ) {
     this.buckets = {
       protonBucket: new SphereBucket(
           {
-            x: -BUCKET_WIDTH * 1.5,
-            y: BUCKET_Y_OFFSET,
+            position: new Vector2( -BUCKET_WIDTH * 1.5, BUCKET_Y_OFFSET ),
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             particleRadius: SharedConstants.NUCLEON_RADIUS,
             baseColor: 'red',
@@ -55,8 +54,7 @@ define( function ( require ) {
       ),
       neutronBucket: new SphereBucket(
           {
-            x: 0,
-            y: BUCKET_Y_OFFSET,
+            position: new Vector2( 0, BUCKET_Y_OFFSET ),
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             particleRadius: SharedConstants.NUCLEON_RADIUS,
             baseColor: '#e0e0e0',
@@ -66,8 +64,7 @@ define( function ( require ) {
       ),
       electronBucket: new SphereBucket(
           {
-            x: BUCKET_WIDTH * 1.5,
-            y: BUCKET_Y_OFFSET,
+            position: new Vector2( BUCKET_WIDTH * 1.5, BUCKET_Y_OFFSET ),
             size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
             particleRadius: SharedConstants.ELECTRON_RADIUS,
             baseColor: 'blue',
@@ -124,7 +121,8 @@ define( function ( require ) {
     } );
   }
 
-  BuildAnAtomModel.prototype.step = function ( dt ) {};
+  BuildAnAtomModel.prototype.step = function ( dt ) {
+  };
 
   return BuildAnAtomModel;
 } );
