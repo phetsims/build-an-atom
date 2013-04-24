@@ -208,11 +208,5 @@ define( function ( require ) {
 //        }
   };
 
-  Atom.prototype.reset = function (){
-
-  }
-
-
   return Atom;
-
 } );
