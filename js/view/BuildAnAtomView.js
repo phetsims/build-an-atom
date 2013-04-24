@@ -74,10 +74,10 @@ define( function ( require ) {
     // that this sorts all of the nucleons, even though we technically only
     // need to sort the ones in the nucleus.
     model.atom.on( 'reconfigureNucleus', function () {
-      nucleonLayer.children = _.sortBy( nucleonLayer.children, function ( child ) {
-        //Central things should be in front
-        return -child.particle.position.distance( Vector2.ZERO );
-      } );
+//      nucleonLayer.children = _.sortBy( nucleonLayer.children, function ( child ) {
+//        //Central things should be in front
+//        return -child.particle.position.distance( Vector2.ZERO );
+//      } );
     } );
 
     // Add the front portion of the buckets.  Done separately from the bucket
