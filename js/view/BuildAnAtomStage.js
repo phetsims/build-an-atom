@@ -11,9 +11,8 @@ define( [
           'view/ElectronShellView'
         ], function ( _, Easel, ModelViewTransform2D, Utils, Atom, ParticleView, AtomView, BucketHole, BucketFront, ElectronShellView ) {
 
-  var _ = require("lodash");
-  var scenery = require("SCENERY/main");
-
+  var _ = require( "lodash" );
+  var scenery = require( "SCENERY/main" );
 
 
   function BuildAnAtomStage( canvas, model ) {
