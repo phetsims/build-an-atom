@@ -33,6 +33,8 @@ define( function ( require ) {
    */
   function BuildAnAtomView( model ) {
 
+    var thisView = this;
+
     // Initialize the scene.
     var scene = new TabView();
     scene.layoutBounds = STAGE_SIZE;
@@ -74,6 +76,23 @@ define( function ( require ) {
     // that this sorts all of the nucleons, even though we technically only
     // need to sort the ones in the nucleus.
     model.atom.on( 'reconfigureNucleus', function () {
+      console.log("relayering the particles")
+      var particlesInNucleus = _.filter( nucleonLayer.children, function ( particleView ) {
+        return particleView.particle.position.distance( model.atom.position ) < Atom.INNER_ELECTRON_SHELL_RADIUS;
+      } );
+
+      if ( particlesInNucleus.length > 4 ) {
+        // Particles must be layered in order to look good.
+        particlesInNucleus = _.sortBy( particlesInNucleus, function ( particleView ) {
+          // Central nucleons should be in front
+          return -particleView.particle.position.distance( model.atom.position );
+        } );
+        _.each( particlesInNucleus, function( particleView ){
+          nucleonLayer.removeChild( particleView );
+          nucleonLayer.addChild( particleView );
+        } );
+      }
+
 //      nucleonLayer.children = _.sortBy( nucleonLayer.children, function ( child ) {
 //        //Central things should be in front
 //        return -child.particle.position.distance( Vector2.ZERO );
@@ -88,7 +107,7 @@ define( function ( require ) {
 
     // Add the reset button.
     var buttonCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position )
-    rootNode.addChild( new Button( new Text( "Reset            .", { font: "'bold 48px Arial'"}),
+    rootNode.addChild( new Button( new Text( "Reset            .", { font: "'bold 48px Arial'"} ),
                                    {
                                      center: buttonCenterPosition.plus( new Vector2( 120, 30 ) )
                                    },
