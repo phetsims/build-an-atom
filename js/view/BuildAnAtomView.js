@@ -94,6 +94,7 @@ define( function ( require ) {
                                    },
                                    function () {
                                      console.log( "Reset button pressed." );
+                                     model.reset();
                                    } ) );
   }
 

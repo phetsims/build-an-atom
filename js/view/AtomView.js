@@ -136,26 +136,15 @@ define( function ( require ) {
     updateStabilityIndicator(); // Do initial update.
 
     // Bind the update functions to atom events.
-    atom.protons.on( 'add', function ( proton ) {
+    atom.protons.on( 'add remove reset', function ( proton ) {
       updateElementName();
       updateIonIndicator();
       updateStabilityIndicator();
     } );
-    atom.protons.on( 'remove', function ( proton ) {
-      updateElementName();
-      updateIonIndicator();
-      updateStabilityIndicator();
-    } );
-    atom.electrons.on( 'add', function ( electron ) {
+    atom.electrons.on( 'add remove reset', function ( electron ) {
       updateIonIndicator();
     } );
-    atom.electrons.on( 'remove', function ( electron ) {
-      updateIonIndicator();
-    } );
-    atom.neutrons.on( 'add', function ( neutron ) {
-      updateStabilityIndicator();
-    } );
-    atom.neutrons.on( 'remove', function ( neutron ) {
+    atom.neutrons.on( 'add remove reset', function ( neutron ) {
       updateStabilityIndicator();
     } );
   };
