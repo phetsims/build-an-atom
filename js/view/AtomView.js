@@ -48,6 +48,12 @@ define( function ( require ) {
     atom.on( "reconfigureNucleus", function(){
       atomCenterMarker.visible = atom.getWeight() === 0;
     })
+    atom.neutrons.on( "reset", function(){
+      atomCenterMarker.visible = atom.getWeight() === 0;
+    } );
+    atom.protons.on( "reset", function(){
+      atomCenterMarker.visible = atom.getWeight() === 0;
+    } );
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
