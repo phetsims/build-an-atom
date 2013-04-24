@@ -8,6 +8,7 @@ define( function ( require ) {
 
   var Scene = require( 'SCENERY/scene' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var ParticleView = require( 'view/ParticleView' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
@@ -18,10 +19,11 @@ define( function ( require ) {
   var Vector2 = require( "DOT/Vector2" );
   var TabView = require( "JOIST/TabView" );
   var Bounds2 = require( 'DOT/Bounds2' );
+  var Button = require( 'SUN/Button' );
 
   // Size of the stage, in screen coordinates.  This was obtained by setting
   // a Chrome window to 1024 x 768 and measuring the actual display region.
-  var STAGE_SIZE = new Bounds2(0, 0, 1010, 655 );
+  var STAGE_SIZE = new Bounds2( 0, 0, 1010, 655 );
 
   /**
    * Constructor.
@@ -83,6 +85,16 @@ define( function ( require ) {
     _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketFront( bucket, mvt ) );
     } );
+
+    // Add the reset button.
+    var buttonCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position )
+    rootNode.addChild( new Button( new Text( "Reset            .", { font: "'bold 48px Arial'"}),
+                                   {
+                                     center: buttonCenterPosition.plus( new Vector2( 120, 30 ) )
+                                   },
+                                   function () {
+                                     console.log( "Reset button pressed." );
+                                   } ) );
   }
 
   return BuildAnAtomView;
