@@ -57,7 +57,7 @@ define( function ( require ) {
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
-    this.elementName = new Text( "--",
+    this.elementName = new Text( "",
                                  {
                                    font: "24px Arial",
                                    fill: "red",
@@ -69,7 +69,7 @@ define( function ( require ) {
     var updateElementName = function () {
       var name = AtomIdentifier.getName( thisAtomView.atom.protons.length );
       if ( name.length === 0 ) {
-        name = '--';
+        name = '';
       }
       thisAtomView.elementName.text = name;
       thisAtomView.elementName.center = elementNameCenterPos;
@@ -78,7 +78,7 @@ define( function ( require ) {
 
     // Create the textual readout for the ion indicator.
     var ionIndicatorTranslation = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 140, -140 ) );
-    this.ionIndicator = new Text( "--",
+    this.ionIndicator = new Text( "",
                                   {
                                     font: "24px Arial",
                                     fill: "black",
@@ -106,7 +106,7 @@ define( function ( require ) {
       }
       else {
         // TODO: Make the text a zero-length string once supported.
-        thisAtomView.ionIndicator.text = '--';
+        thisAtomView.ionIndicator.text = '';
         thisAtomView.ionIndicator.fill = "black";
       }
     }
@@ -114,7 +114,7 @@ define( function ( require ) {
 
     // Create the textual readout for the stability indicator.
     var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
-    this.stabilityIndicator = new Text( "--",
+    this.stabilityIndicator = new Text( "",
                                         {
                                           font: "24px Arial",
                                           fill: "black",
@@ -135,7 +135,7 @@ define( function ( require ) {
       }
       else {
         // TODO: Make the text a zero-length string once supported.
-        thisAtomView.stabilityIndicator.text = "--"
+        thisAtomView.stabilityIndicator.text = ""
       }
       thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;
     }
