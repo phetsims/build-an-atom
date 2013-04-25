@@ -76,13 +76,11 @@ define( function ( require ) {
     // that this sorts all of the nucleons, even though we technically only
     // need to sort the ones in the nucleus.
     model.atom.on( 'reconfigureNucleus', function () {
-      console.log("relayering the particles")
       var particlesInNucleus = _.filter( nucleonLayer.children, function ( particleView ) {
         return particleView.particle.position.distance( model.atom.position ) < Atom.INNER_ELECTRON_SHELL_RADIUS;
       } );
 
       if ( particlesInNucleus.length > 4 ) {
-        // Particles must be layered in order to look good.
         particlesInNucleus = _.sortBy( particlesInNucleus, function ( particleView ) {
           // Central nucleons should be in front
           return -particleView.particle.position.distance( model.atom.position );
@@ -92,11 +90,6 @@ define( function ( require ) {
           nucleonLayer.addChild( particleView );
         } );
       }
-
-//      nucleonLayer.children = _.sortBy( nucleonLayer.children, function ( child ) {
-//        //Central things should be in front
-//        return -child.particle.position.distance( Vector2.ZERO );
-//      } );
     } );
 
     // Add the front portion of the buckets.  Done separately from the bucket
