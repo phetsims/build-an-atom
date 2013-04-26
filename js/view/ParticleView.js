@@ -6,7 +6,6 @@
 define( function ( require ) {
   'use strict';
 
-  var _ = require( 'lodash' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
@@ -57,29 +56,26 @@ define( function ( require ) {
     } );
 
     // Add a drag handler
-    this.addInputListener(
-        new SimpleDragHandler( {
-                                 // Allow moving a finger (touch) across a node to pick it up.
-                                 allowTouchSnag: true,
+    this.addInputListener( new SimpleDragHandler( {
+                                                    // Allow moving a finger (touch) across a node to pick it up.
+                                                    allowTouchSnag: true,
 
-                                 // Handler that moves the particle in model space.
-                                 translate: function ( translationParams ) {
-                                   particle.position = particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) );
-                                   return translationParams.position;
-                                 }
-                               } ) );
-
-    // Add a handler for setting/clearing the "user controlled" state.
-    this.addInputListener(
-        {
-          down: function () {
-            particleView.particle.userControlled = true;
-          },
-          up: function () {
-            particleView.particle.userControlled = false;
-          }
-        }
-    );
+                                                    // Handler that moves the particle in model space.
+                                                    translate: function ( translationParams ) {
+                                                      particle.position = particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) );
+                                                      return translationParams.position;
+                                                    },
+                                                    start: function ( event, trail ) {
+                                                      particleView.particle.userControlled = true;
+                                                      window.controlledParticleRefCount++;
+                                                      window.controlledParticleRefCountNode.text = window.controlledParticleRefCount;
+                                                    },
+                                                    end: function ( event, trail ) {
+                                                      particleView.particle.userControlled = false;
+                                                      window.controlledParticleRefCount--;
+                                                      window.controlledParticleRefCountNode.text = window.controlledParticleRefCount;
+                                                    }
+                                                  } ) );
   }
 
   // Inherit from Node.

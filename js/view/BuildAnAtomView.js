@@ -85,7 +85,7 @@ define( function ( require ) {
           // Central nucleons should be in front
           return -particleView.particle.position.distance( model.atom.position );
         } );
-        _.each( particlesInNucleus, function( particleView ){
+        _.each( particlesInNucleus, function ( particleView ) {
           nucleonLayer.removeChild( particleView );
           nucleonLayer.addChild( particleView );
         } );
@@ -100,7 +100,7 @@ define( function ( require ) {
 
     // Add the reset button.
     var buttonCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position )
-    rootNode.addChild( new Button( new Text( "Reset            .", { font: "'bold 48px Arial'"} ),
+    rootNode.addChild( new Button( new Text( "Reset", { font: 'bold 32px Arial'} ),
                                    {
                                      center: buttonCenterPosition.plus( new Vector2( 120, 30 ) )
                                    },
@@ -108,6 +108,13 @@ define( function ( require ) {
                                      console.log( "Reset button pressed." );
                                      model.reset();
                                    } ) );
+
+    window.controlledParticleRefCount = 0;
+    var controlledParticleRefCountNode = new Text( "0", { font: 'bold 48px Arial', fill: 'red', translation: new Vector2( 20, 100 )} );
+    window.controlledParticleRefCountNode = controlledParticleRefCountNode;
+//    rootNode.addChild( $( window ).controlledParticleRefCountNode );
+//    rootNode.addChild( new Text( "Blah", { font: 'bold 48px Arial', fill: 'red'} ) );
+    rootNode.addChild( controlledParticleRefCountNode );
   }
 
   return BuildAnAtomView;
