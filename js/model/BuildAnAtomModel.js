@@ -125,6 +125,8 @@ define( function ( require ) {
   };
 
   BuildAnAtomModel.prototype.reset = function () {
+
+    // Define a function for moving particles from atom to bucket.
     var moveParticlesFromAtomToBucket = function( particleCollection, bucket ){
       var particlesToRemove = [];
       for ( var i = 0; i < particleCollection.length; i++ ) {
@@ -134,6 +136,7 @@ define( function ( require ) {
       _.each( particlesToRemove, function( particle ){ bucket.addParticleFirstOpen( particle ); }, this );
     }
 
+    // Move all particles that are in the atom back into their respective buckets.
     moveParticlesFromAtomToBucket( this.atom.protons, this.buckets.protonBucket );
     moveParticlesFromAtomToBucket( this.atom.neutrons, this.buckets.neutronBucket );
     moveParticlesFromAtomToBucket( this.atom.electrons, this.buckets.electronBucket );
