@@ -99,15 +99,17 @@ define( function ( require ) {
     } );
 
     // Add the reset button.
-    var buttonCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position )
+    var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position )
     rootNode.addChild( new Button( new Text( "Reset", { font: 'bold 32px Arial'} ),
-                                   {
-                                     center: buttonCenterPosition.plus( new Vector2( 120, 30 ) )
-                                   },
                                    function () {
                                      console.log( "Reset button pressed." );
                                      model.reset();
-                                   } ) );
+                                   },
+                                   {
+                                     fill: 'orange',
+                                     xMargin: 10,
+                                     lineWidth: 1.5
+                                   } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 170, 40 ) )} ) );
   }
 
   return BuildAnAtomView;
