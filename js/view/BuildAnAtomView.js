@@ -108,13 +108,6 @@ define( function ( require ) {
                                      console.log( "Reset button pressed." );
                                      model.reset();
                                    } ) );
-
-    window.controlledParticleRefCount = 0;
-    var controlledParticleRefCountNode = new Text( "0", { font: 'bold 48px Arial', fill: 'red', translation: new Vector2( 20, 100 )} );
-    window.controlledParticleRefCountNode = controlledParticleRefCountNode;
-//    rootNode.addChild( $( window ).controlledParticleRefCountNode );
-//    rootNode.addChild( new Text( "Blah", { font: 'bold 48px Arial', fill: 'red'} ) );
-    rootNode.addChild( controlledParticleRefCountNode );
   }
 
   return BuildAnAtomView;

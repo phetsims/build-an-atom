@@ -67,13 +67,9 @@ define( function ( require ) {
                                                     },
                                                     start: function ( event, trail ) {
                                                       particleView.particle.userControlled = true;
-                                                      window.controlledParticleRefCount++;
-                                                      window.controlledParticleRefCountNode.text = window.controlledParticleRefCount;
                                                     },
                                                     end: function ( event, trail ) {
                                                       particleView.particle.userControlled = false;
-                                                      window.controlledParticleRefCount--;
-                                                      window.controlledParticleRefCountNode.text = window.controlledParticleRefCount;
                                                     }
                                                   } ) );
   }
