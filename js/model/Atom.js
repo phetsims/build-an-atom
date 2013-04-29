@@ -8,9 +8,7 @@ define( function ( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Particle = require( 'model/Particle' );
 
-  var ParticleCollection = Backbone.Collection.extend( {
-                                                         model: Particle
-                                                       } );
+  var ParticleCollection = Backbone.Collection.extend( { model: Particle } );
 
   var Atom = Fort.Model.extend(
       {
@@ -27,16 +25,16 @@ define( function ( require ) {
           // Initialize the positions where an electron can be placed.
           this.electronPositions = new Array( 10 );
           var angle = 0;
-          this.electronPositions[ 0 ] = { electron: null, x: Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
+          this.electronPositions[ 0 ] = { electron: null, position: new Vector2( Atom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
           angle += Math.PI;
-          this.electronPositions[ 1 ] = { electron: null, x: -Atom.INNER_ELECTRON_SHELL_RADIUS, y: 0 };
+          this.electronPositions[ 1 ] = { electron: null, position: new Vector2( -Atom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
           var numSlotsInOuterShell = 8;
           angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
           for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
             this.electronPositions[ i + 2 ] = {
               electron: null,
-              x: Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
-              y: Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS
+              position: new Vector2( Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
+                                     Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS )
             }
             angle += Math.PI / numSlotsInOuterShell * 2;
           }
@@ -74,28 +72,30 @@ define( function ( require ) {
     else if ( particle.type === 'electron' ) {
       this.electrons.add( particle );
       // Find an open position in the electron shell.
-      var openPositions = this.electronPositions.filter( function ( pos ) {
-        return ( pos.electron === null )
+      var openPositions = this.electronPositions.filter( function ( electronPosition ) {
+        return ( electronPosition.electron === null )
       } );
       var sortedOpenPositions = openPositions.sort( function ( p1, p2 ) {
         // Sort first by distance to particle.
-        return( Utils.distanceBetweenPoints( particle.x, particle.y, p1.x, p1.y ) - Utils.distanceBetweenPoints( particle.x, particle.y, p2.x, p2.y ));
+        return( Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p1.position.x, p1.position.y ) -
+                Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p2.position.x, p2.position.y ));
       } );
       var sortedOpenPositions = sortedOpenPositions.sort( function ( p1, p2 ) {
         // Sort second to put the inner shell positions at the front.
-        return( Math.round( Utils.distanceBetweenPoints( 0, 0, p1.x, p1.y ) - Utils.distanceBetweenPoints( 0, 0, p2.x, p2.y ) ) );
+        return( Math.round( Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p1.position.x, p1.position.y ) -
+                            Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p2.position.x, p2.position.y ) ) );
       } );
 
       if ( sortedOpenPositions.length === 0 ) {
         console.log( "Error: No open electron positions." );
       }
       sortedOpenPositions[0].electron = particle;
-      particle.position = new Vector2( sortedOpenPositions[ 0 ].x, sortedOpenPositions[ 0 ].y );
-      particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
-        if ( userControlled && thisAtom.neutrons.contains( userControlledParticle ) ) {
-          thisAtom.electrons.electrons( userControlledParticle );
+      particle.position = sortedOpenPositions[ 0 ].position;
+      particle.once( 'change:userControlled', function ( userControlledElectron, userControlled ) {
+        if ( userControlled && thisAtom.neutrons.contains( userControlledElectron ) ) {
+          thisAtom.electrons.electrons( userControlledElectron );
           _.each( thisAtom.electronPositions, function ( electronPosition ) {
-            if ( electronPosition.electron === userControlledParticle ) {
+            if ( electronPosition.electron === userControlledElectron ) {
               electronPosition.electron = null;
             }
           } );
