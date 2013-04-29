@@ -21,6 +21,7 @@ define( function ( require ) {
 
         constructor: function () {
           Fort.Model.apply( this );
+          var thisAtom = this;
 
           // Initialize the positions where an electron can be placed.
           this.electronPositions = new Array( 10 );
@@ -38,6 +39,13 @@ define( function ( require ) {
             }
             angle += Math.PI / numSlotsInOuterShell * 2;
           }
+
+          // If the electron collection is reset, clear the open positions.
+          this.electrons.on( 'reset', function () {
+            _.each( thisAtom.electronPositions, function ( electronPosition ) {
+              electronPosition.electron = null;
+            } )
+          } );
         }
       }
   );
