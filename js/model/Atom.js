@@ -55,16 +55,20 @@ define( function ( require ) {
       this.protons.add( particle );
       this.reconfigureNucleus( true );
       particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
-        thisAtom.protons.remove( userControlledParticle );
-        thisAtom.reconfigureNucleus( true );
+        if ( userControlled && thisAtom.protons.contains( userControlledParticle ) ) {
+          thisAtom.protons.remove( userControlledParticle );
+          thisAtom.reconfigureNucleus( true );
+        }
       } );
     }
     else if ( particle.type === 'neutron' ) {
       this.neutrons.add( particle );
       this.reconfigureNucleus( true );
       particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
-        thisAtom.neutrons.remove( userControlledParticle );
-        thisAtom.reconfigureNucleus( true );
+        if ( userControlled && thisAtom.neutrons.contains( userControlledParticle ) ) {
+          thisAtom.neutrons.remove( userControlledParticle );
+          thisAtom.reconfigureNucleus( true );
+        }
       } );
     }
     else if ( particle.type === 'electron' ) {
@@ -88,12 +92,14 @@ define( function ( require ) {
       sortedOpenPositions[0].electron = particle;
       particle.position = new Vector2( sortedOpenPositions[ 0 ].x, sortedOpenPositions[ 0 ].y );
       particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
-        thisAtom.electrons.remove( userControlledParticle );
-        _.each( thisAtom.electronPositions, function ( electronPosition ) {
-          if ( electronPosition.electron === userControlledParticle ) {
-            electronPosition.electron = null;
-          }
-        } );
+        if ( userControlled && thisAtom.neutrons.contains( userControlledParticle ) ) {
+          thisAtom.electrons.electrons( userControlledParticle );
+          _.each( thisAtom.electronPositions, function ( electronPosition ) {
+            if ( electronPosition.electron === userControlledParticle ) {
+              electronPosition.electron = null;
+            }
+          } );
+        }
       } );
     }
     else {
