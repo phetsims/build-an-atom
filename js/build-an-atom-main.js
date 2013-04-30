@@ -14,7 +14,13 @@ require(
       new Sim( "Build an Atom", [
         { name: "Build an Atom",
           icon: new Rectangle( 0, 0, 50, 50, {fill: 'blue'} ),
-          backgroundColor: 'rgb(255, 255, 153)',
+          backgroundColor: 'rgb(255, 254, 223)',
+          createModel: function () {return new BuildAnAtomModel();},
+          createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
+        },
+        { name: "Symbol",
+          icon: new Rectangle( 0, 0, 50, 50, {fill: 'red'} ),
+          backgroundColor: 'rgb(255, 254, 223)',
           createModel: function () {return new BuildAnAtomModel();},
           createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
         }
