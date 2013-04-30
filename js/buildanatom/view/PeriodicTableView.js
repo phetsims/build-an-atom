@@ -1,5 +1,5 @@
 define( [
-          'lodash',
+          '../../../.',
           'common/AtomIdentifier',
           'tpl!templates/periodic-table.html'
         ], function ( _, AtomIdentifier, periodicTableTemplate ) {

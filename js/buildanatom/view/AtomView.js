@@ -9,7 +9,7 @@ define( function ( require ) {
 
   var Vector2 = require( 'DOT/Vector2' );
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var Atom = require( 'model/Atom' );
+  var Atom = require( 'buildanatom/model/Atom' );
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Path = require( 'SCENERY/nodes/Path' );

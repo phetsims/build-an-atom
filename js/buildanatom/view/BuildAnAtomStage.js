@@ -1,5 +1,5 @@
 define( [
-          'lodash',
+          '../../../.',
           'SCENERY/main',
           'common/ModelViewTransform2D',
           'common/Utils',

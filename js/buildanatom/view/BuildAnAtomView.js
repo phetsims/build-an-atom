@@ -6,16 +6,15 @@
 define( function ( require ) {
   "use strict";
 
-  var Scene = require( 'SCENERY/scene' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ParticleView = require( 'view/ParticleView' );
+  var ParticleView = require( 'buildanatom/view/ParticleView' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ElectronShellView = require( 'view/ElectronShellView' );
-  var Atom = require( 'model/Atom' );
-  var AtomView = require( 'view/AtomView' );
+  var ElectronShellView = require( 'buildanatom/view/ElectronShellView' );
+  var Atom = require( 'buildanatom/model/Atom' );
+  var AtomView = require( 'buildanatom/view/AtomView' );
   var Vector2 = require( "DOT/Vector2" );
   var TabView = require( "JOIST/TabView" );
   var Bounds2 = require( 'DOT/Bounds2' );

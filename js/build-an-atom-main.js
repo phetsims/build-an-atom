@@ -1,8 +1,8 @@
 // Copyright 2002-2012, University of Colorado
 require(
     [
-      'model/BuildAnAtomModel',
-      'view/BuildAnAtomView',
+      'buildanatom/model/BuildAnAtomModel',
+      'buildanatom/view/BuildAnAtomView',
       'SCENERY/nodes/Rectangle' ,
       'JOIST/Sim'
     ],

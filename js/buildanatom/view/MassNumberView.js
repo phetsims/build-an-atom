@@ -1,5 +1,5 @@
 define( [
-          'lodash',
+          '../../../.',
           'tpl!templates/mass-number.html'
         ], function ( _, massNumberTemplate ) {
 
