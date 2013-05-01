@@ -9,27 +9,70 @@ define( function( require ) {
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Shape = require( 'KITE/Shape' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Button = require( 'SUN/Button' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  var ICON_WIDTH = 20;
+  var ICON_HEIGHT = 12;
+  var TOTAL_CONTENT_HEIGHT = ICON_HEIGHT + 10; // Additional vertical spacing.
+  var ICON_STROKE_WIDTH = 5;
 
   var UpDownButtonPair = function( upFunction, downFunction ) {
 
     Node.call( this ); // Call super constructor.
     var thisUpDownButton = this;
 
-    var upButton = new Button( new Text( "^", { font: "24px Arial" } ),
+    var upIconShape = new Shape();
+    upIconShape.moveTo( 0, ICON_HEIGHT );
+    upIconShape.lineTo( ICON_WIDTH / 2, 0 );
+    upIconShape.lineTo( ICON_WIDTH, ICON_HEIGHT );
+    var upIcon = new Path( {
+                             shape: upIconShape,
+                             stroke: 'yellow',
+                             lineWidth: ICON_STROKE_WIDTH,
+                             lineCap: 'round',
+                             lineJoin: 'miter'
+                           } );
+    var spacerShape = new Shape();
+    spacerShape.moveTo( ICON_WIDTH / 2, 0 );
+    spacerShape.lineTo( ICON_WIDTH / 2, TOTAL_CONTENT_HEIGHT );
+    var spacerPath = new Path( { shape: spacerShape } );
+    upIcon.addChild( spacerPath );
+
+    var upButton = new Button( upIcon,
                                upFunction,
                                {
-                                 fill: 'yellow'
+                                 fill: 'rgb(100, 100, 100)',
+                                 stroke: 'black',
+                                 lineWidth: 2
                                } );
     this.addChild( upButton );
-    var downButton = new Button( new Text( "v", { font: "24px Arial" } ),
-                               downFunction,
-                               {
-                                 fill: 'yellow'
-                               } );
-    downButton.y = upButton.bounds.maxY;
+
+    var downIconShape = new Shape();
+    var downIconVerticalOffset = TOTAL_CONTENT_HEIGHT - ICON_HEIGHT;
+    downIconShape.moveTo( 0, downIconVerticalOffset );
+    downIconShape.lineTo( ICON_WIDTH / 2, TOTAL_CONTENT_HEIGHT );
+    downIconShape.lineTo( ICON_WIDTH, downIconVerticalOffset );
+    var downIcon = new Path( {
+                               shape: downIconShape,
+                               stroke: 'yellow',
+                               lineWidth: ICON_STROKE_WIDTH,
+                               lineCap: 'round',
+                               lineJoin: 'miter'
+                             } );
+    downIcon.addChild( spacerPath );
+
+    var downButton = new Button( downIcon,
+                                 downFunction,
+                                 {
+                                   fill: 'rgb(100, 100, 100)',
+                                   stroke: 'black',
+                                   lineWidth: 2
+                                 } );
+    downButton.y = upButton.bounds.maxY + 3;
     this.addChild( downButton );
   };
 
