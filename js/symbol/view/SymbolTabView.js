@@ -35,7 +35,7 @@ define( function ( require ) {
     this.scene = scene;
 
     // Add the node that shows the interactive symbol
-    scene.addChild( new SymbolNode( model ) );
+    scene.addChild( new SymbolNode( model ).mutate( { center: new Vector2( STAGE_SIZE.width / 2, STAGE_SIZE.height / 2)}) );
 
     // Add the reset button. TODO: i18n
     scene.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
