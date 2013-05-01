@@ -136,18 +136,16 @@ define( function( require ) {
 
     // Add the listener to update the charge.
     var chargeUpdater = function() {
-      var sign;
+      var sign = '';
       var textColor;
       if ( model.getCharge() > 0 ) {
         sign = '+';
         textColor = 'red';
       }
       else if ( model.getCharge() < 0 ) {
-        sign = '-';
         textColor = 'blue';
       }
       else {
-        sign = '';
         textColor = 'black';
       }
       thisSymbolNode.charge.text = sign + model.getCharge();
