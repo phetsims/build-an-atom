@@ -40,7 +40,6 @@ define( function ( require ) {
     // Add the reset button. TODO: i18n
     scene.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
                                    function () {
-                                     console.log( "Reset button pressed." );
                                      model.reset();
                                    },
                                    {
