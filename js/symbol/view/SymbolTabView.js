@@ -41,8 +41,7 @@ define( function ( require ) {
     scene.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
                                    function () {
                                      console.log( "Reset button pressed." );
-//                                     model.reset();
-                                     model.protonCount++;
+                                     model.reset();
                                    },
                                    {
                                      fill: 'orange',
