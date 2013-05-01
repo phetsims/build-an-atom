@@ -40,9 +40,8 @@ define( function( require ) {
 
     // Add the listener to update the symbol text.
     model.link( 'protonCount', function( protonCount ) {
-      console.log( "protonCount = " + protonCount );
       var symbol = AtomIdentifier.getSymbol( protonCount );
-      thisSymbolNode.symbolText.text = symbol;
+      thisSymbolNode.symbolText.text = protonCount > 0 ? symbol : "";
       thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
     } );
     boundingBox.addChild( this.symbolText );
