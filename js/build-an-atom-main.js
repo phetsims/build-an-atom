@@ -3,10 +3,12 @@ require(
     [
       'buildanatom/model/BuildAnAtomModel',
       'buildanatom/view/BuildAnAtomView',
+      'symbol/model/SymbolModel',
+      'symbol/view/SymbolTabView',
       'SCENERY/nodes/Rectangle' ,
       'JOIST/Sim'
     ],
-    function ( BuildAnAtomModel, BuildAnAtomView, Rectangle, Sim ) {
+    function ( BuildAnAtomModel, BuildAnAtomView, SymbolModel, SymbolTabView, Rectangle, Sim ) {
       "use strict";
 
       //Create and start the sim
@@ -21,8 +23,8 @@ require(
         { name: "Symbol",
           icon: new Rectangle( 0, 0, 50, 50, {fill: 'red'} ),
           backgroundColor: 'rgb(255, 254, 223)',
-          createModel: function () {return new BuildAnAtomModel();},
-          createView: function ( model ) {return new BuildAnAtomView( model ).scene;}
+          createModel: function () {return new SymbolModel();},
+          createView: function ( model ) {return new SymbolTabView( model ).scene;}
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
     } );

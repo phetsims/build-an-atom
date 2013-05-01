@@ -23,8 +23,12 @@ define( function ( require ) {
     return this.protonCount + this.neutronCount;
   };
 
-  Atom.prototype.getCharge = function () {
+  SymbolModel.prototype.getCharge = function () {
     return this.protonCount - this.electronCount;
+  };
+
+  SymbolModel.prototype.step = function ( dt ) {
+    // TODO: TBD.
   };
 
   return SymbolModel;
