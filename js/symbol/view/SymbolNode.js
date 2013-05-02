@@ -49,7 +49,7 @@ define( function( require ) {
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
         function() {
-          if ( model.protonCount < 103 ) {
+          if ( model.protonCount < 10 ) {
             model.protonCount++;
           }
         },
@@ -78,18 +78,13 @@ define( function( require ) {
     // Add the control for the atomic mass.
     var atomicMassControl = new UpDownButtonPair(
         function() {
-          if ( model.getAtomicMass() < 240 ) {
+          if ( model.neutronCount < 12 ) {
             model.neutronCount++;
           }
         },
         function() {
-          if ( model.getAtomicMass() > 0 ) {
-            if ( model.neutronCount > 0 ){
+          if ( model.neutronCount > 0 ) {
               model.neutronCount--;
-            }
-            else{
-              model.protonCount--;
-            }
           }
         } ).mutate( { left: CONTROL_INSET, top: CONTROL_INSET }
     );
@@ -120,7 +115,7 @@ define( function( require ) {
           }
         },
         function() {
-          if ( model.electronCount < 92 ) {
+          if ( model.electronCount < 11 ) {
             model.electronCount++;
           }
         } ).mutate( { right: SYMBOL_BOX_WIDTH - CONTROL_INSET, top: CONTROL_INSET } );
