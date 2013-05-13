@@ -14,6 +14,7 @@ define( function ( require ) {
   var Button = require( 'SUN/Button' );
   var TabView = require( "JOIST/TabView" );
   var SymbolNode = require( "symbol/view/SymbolNode" );
+  var PeriodicTableNode = require( "buildanatom/view/PeriodicTableNode" );
 
   // Size of the stage, in screen coordinates.  These values were obtained by
   // setting a Chrome window to 1024 x 768 and measuring the actual display region.
@@ -27,8 +28,6 @@ define( function ( require ) {
    */
   function SymbolTabView( model ) {
 
-    var thisView = this;
-
     // Initialize the scene.
     var scene = new TabView();
     scene.layoutBounds = STAGE_SIZE;
@@ -36,6 +35,9 @@ define( function ( require ) {
 
     // Add the node that shows the interactive symbol
     scene.addChild( new SymbolNode( model ).mutate( { center: new Vector2( STAGE_SIZE.width / 2, STAGE_SIZE.height / 2)}) );
+
+    // Add the periodic table
+    scene.addChild( new PeriodicTableNode( model ) );
 
     // Add the reset button. TODO: i18n
     scene.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
