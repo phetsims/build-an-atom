@@ -3,7 +3,7 @@
 /**
  * Main view for the second tab of the Build an Atom simulation.
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   var Node = require( 'SCENERY/nodes/Node' );
@@ -34,21 +34,25 @@ define( function ( require ) {
     this.scene = scene;
 
     // Add the node that shows the interactive symbol
-    scene.addChild( new SymbolNode( model ).mutate( { center: new Vector2( STAGE_SIZE.width / 2, STAGE_SIZE.height / 2)}) );
+    var symbolNode = new SymbolNode( model ).mutate( { center: new Vector2( STAGE_SIZE.width * 0.4, STAGE_SIZE.height * 0.3 )} );
+    scene.addChild( symbolNode );
 
     // Add the periodic table
-    scene.addChild( new PeriodicTableNode( model ) );
+    scene.addChild( new PeriodicTableNode( model ).mutate( {
+                                                             top: symbolNode.bottom + 40,
+                                                             centerX: symbolNode.centerX
+                                                           } ) );
 
     // Add the reset button. TODO: i18n
     scene.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
-                                   function () {
-                                     model.reset();
-                                   },
-                                   {
-                                     fill: 'orange',
-                                     xMargin: 10,
-                                     lineWidth: 1.5
-                                   } ).mutate( {center: new Vector2( 900, 650 )} ) );
+                                function() {
+                                  model.reset();
+                                },
+                                {
+                                  fill: 'orange',
+                                  xMargin: 10,
+                                  lineWidth: 1.5
+                                } ).mutate( {center: new Vector2( 900, 650 )} ) );
   }
 
   return SymbolTabView;
