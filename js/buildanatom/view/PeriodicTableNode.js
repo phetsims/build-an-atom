@@ -31,11 +31,7 @@ define( function( require ) {
    */
   function PeriodicTableNode( atom ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
-    this.atom = atom;
-
-    if ( !this.atom ) {
-      throw new Error( 'Periodic table must be constructed with an atom.' );
-    }
+    var thisPeriodicTable = this;
 
     // Add the cells of the table.
     this.cells = [];
@@ -50,6 +46,14 @@ define( function( require ) {
         elementIndex++;
       }
     }
+
+    // Highlight the cell that corresponds to the atom.
+    atom.link( 'protonCount', function( protonCount ) {
+      _.each( thisPeriodicTable.cells, function( cell ) {
+        cell.setHighlighted( false );
+      } )
+      thisPeriodicTable.cells[protonCount].setHighlighted( true );
+    } );
   }
 
   // Inherit from Node.
