@@ -10,12 +10,7 @@ define( function( require ) {
   var AtomIdentifier = require( 'common/AtomIdentifier' );
   var periodicTableTemplate = require( 'tpl!templates/periodic-table.html' );
 
-  // Constants that define the table structure.
-  var ELEMENT_COLUMNS = 18;
-//  var ELEMENT_ROWS = 7;
-//  var POPULATED_CELLS_IN_FIRST_ROW = [0, 17];
-//  var POPULATED_CELLS_IN_SECOND_ROW = [0, 1, 12, 13, 14, 15, 16, 17];
-//  var POPULATED_CELLS_IN_THIRD_ROW = [0, 1, 12, 13, 14, 15, 16, 17];
+  // 2D array that defines the table structure.
   var POPULATED_CELLS = [
     [ 0, 17 ],
     [0, 1, 12, 13, 14, 15, 16, 17],
@@ -25,8 +20,15 @@ define( function( require ) {
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   ];
+
   var CELL_SIZE = new Dimension2( 40, 40 );
 
+  /**
+   * Constructor.
+   *
+   * @param atom - Atom that defines which element is currently highlighted.
+   * @constructor
+   */
   function PeriodicTableNode( atom ) {
     Node.call( this ); // Call super constructor.
     this.atom = atom;
@@ -35,17 +37,19 @@ define( function( require ) {
       throw new Error( 'Periodic table must be constructed with an atom.' );
     }
 
-    // Add the bounding box, which is also the root node for everything else
-    // that comprises this node.
-    var boundingBox = new Rectangle( 0, 0, CELL_SIZE.width, CELL_SIZE.height, 0, 0,
-                                     {
-                                       stroke: 'black',
-                                       lineWidth: 2,
-                                       fill: 'white'
-                                     } );
-    this.addChild( boundingBox );
-
-    this.addChild( new HTMLText( periodicTableTemplate ) );
+    // Add the cells of the table.
+    for ( var i = 0; i < POPULATED_CELLS.length; i++ ) {
+      var populatedCellsInRow = POPULATED_CELLS[i];
+      for ( var j = 0; j < populatedCellsInRow.length; j++ ) {
+        this.addChild( new Rectangle( 0, 0, CELL_SIZE.width, CELL_SIZE.height, 0, 0,
+                                      {
+                                        stroke: 'black',
+                                        lineWidth: 2,
+                                        fill: 'white',
+                                        translation: new Vector2( populatedCellsInRow[j] * CELL_SIZE.width, i * CELL_SIZE.height )
+                                      } ) );
+      }
+    }
 
     var numProtons = this.atom.protonCount;
 
