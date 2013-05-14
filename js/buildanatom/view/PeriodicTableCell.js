@@ -9,6 +9,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   var NOMINAL_CELL_DIMENSION = 25;
+  var NOMINAL_FONT_SIZE = 14;
 
   /**
    * Constructor.
@@ -29,7 +30,7 @@ define( function( require ) {
       font: "Arial",
       center: new Vector2( dimension / 2, dimension / 2 )
     } );
-    this.label.fontSize = 14 * (dimension / NOMINAL_CELL_DIMENSION);
+    this.label.fontSize = NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION);
     this.cell.addChild( this.label );
     this.addChild( this.cell );
   };
@@ -39,7 +40,7 @@ define( function( require ) {
 
   PeriodicTableCell.prototype.setHighlighted = function( highLighted ) {
     this.cell.fill = highLighted ? 'yellow' : 'white';
-    this.label.fill = highLighted ? 'red' : 'black';
+    this.label.fontWeight = highLighted ? 'bold' : 'normal';
   }
 
   return PeriodicTableCell;
