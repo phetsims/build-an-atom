@@ -15,10 +15,10 @@ define( function( require ) {
   var Button = require( 'SUN/Button' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  var ICON_WIDTH = 20;
-  var ICON_HEIGHT = 12;
-  var TOTAL_CONTENT_HEIGHT = ICON_HEIGHT + 10; // Additional vertical spacing.
-  var ICON_STROKE_WIDTH = 5;
+  var ICON_WIDTH = 10;
+  var ICON_HEIGHT = 6;
+  var TOTAL_CONTENT_HEIGHT = ICON_HEIGHT + 5; // Additional vertical spacing.
+  var ICON_STROKE_WIDTH = 3;
 
   var UpDownButtonPair = function( upFunction, downFunction ) {
 
@@ -45,7 +45,7 @@ define( function( require ) {
     var upButton = new Button( upIcon,
                                upFunction,
                                {
-                                 fill: 'rgb(100, 100, 100)',
+                                 fill: 'rgb(150, 150, 150)',
                                  stroke: 'black',
                                  lineWidth: 2
                                } );
@@ -68,7 +68,7 @@ define( function( require ) {
     var downButton = new Button( downIcon,
                                  downFunction,
                                  {
-                                   fill: 'rgb(100, 100, 100)',
+                                   fill: 'rgb(150, 150, 150)',
                                    stroke: 'black',
                                    lineWidth: 2
                                  } );

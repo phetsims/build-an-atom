@@ -27,7 +27,7 @@ define( function( require ) {
     TabView.call( this ); // Call super constructor.
 
     // Add the node that shows the interactive symbol
-    var symbolNode = new SymbolNode( model ).mutate( { center: new Vector2( 10, 10 )} );
+    var symbolNode = new SymbolNode( model ).mutate( { left: 120, top: 10 } );
     this.addChild( symbolNode );
 
     // Add the periodic table

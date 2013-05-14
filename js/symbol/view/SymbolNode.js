@@ -10,10 +10,10 @@ define( function( require ) {
   var AtomIdentifier = require( 'common/AtomIdentifier' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
 
-  var SYMBOL_BOX_WIDTH = 400; // In screen coords, which are roughly pixels.
-  var SYMBOL_BOX_HEIGHT = 400; // In screen coords, which are roughly pixels.
-  var NUMBER_FONT = "100px Arial";
-  var CONTROL_INSET = 20; // In screen coords, which are roughly pixels.
+  var SYMBOL_BOX_WIDTH = 250; // In screen coords, which are roughly pixels.
+  var SYMBOL_BOX_HEIGHT = 250; // In screen coords, which are roughly pixels.
+  var NUMBER_FONT = "45px Arial";
+  var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
   var SymbolNode = function( model ) {
 
@@ -33,7 +33,7 @@ define( function( require ) {
     // Add the symbol text.
     this.symbolText = new Text( "",
                                 {
-                                  font: "210px Arial",
+                                  font: "150px Arial",
                                   fill: "black",
                                   center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
                                 } );
@@ -71,7 +71,7 @@ define( function( require ) {
     model.link( 'protonCount', function( protonCount ) {
       thisSymbolNode.protonCount.text = protonCount;
       thisSymbolNode.protonCount.left = protonNumberControl.bounds.maxX + 10;
-      thisSymbolNode.protonCount.y = SYMBOL_BOX_HEIGHT - CONTROL_INSET;
+      thisSymbolNode.protonCount.centerY = protonNumberControl.centerY;
     } );
     boundingBox.addChild( this.protonCount );
 
@@ -102,7 +102,7 @@ define( function( require ) {
     var atomicMassUpdater = function() {
       thisSymbolNode.atomicMass.text = model.getAtomicMass();
       thisSymbolNode.atomicMass.left = atomicMassControl.bounds.maxX + 10;
-      thisSymbolNode.atomicMass.top = 0;
+      thisSymbolNode.atomicMass.centerY = atomicMassControl.centerY;
     };
     model.link( 'protonCount', atomicMassUpdater );
     model.link( 'neutronCount', atomicMassUpdater );
@@ -146,7 +146,7 @@ define( function( require ) {
       thisSymbolNode.charge.text = sign + model.getCharge();
       thisSymbolNode.charge.fill = textColor;
       thisSymbolNode.charge.right = chargeControl.bounds.minX - 10;
-      thisSymbolNode.charge.top = 10;
+      thisSymbolNode.charge.centerY = chargeControl.centerY;
     };
     model.link( 'protonCount', chargeUpdater );
     model.link( 'electronCount', chargeUpdater );
