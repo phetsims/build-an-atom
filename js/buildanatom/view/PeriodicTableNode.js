@@ -29,7 +29,7 @@ define( function( require ) {
    * @constructor
    */
   function PeriodicTableNode( atom ) {
-    Node.call( this ); // Call super constructor.
+    Node.call( this, { renderer: 'svg' } ); // Call super constructor.
     this.atom = atom;
 
     if ( !this.atom ) {
@@ -48,15 +48,14 @@ define( function( require ) {
                                     fill: 'white',
                                     translation: new Vector2( populatedCellsInRow[j] * CELL_SIZE.width, i * CELL_SIZE.height )
                                   } );
-//        cell.addChild( new Text( AtomIdentifier.getSymbol( elementIndex ) ), {
-//          font: "24px Arial",
-//          center: new Vector2( CELL_SIZE.width / 2, CELL_SIZE.height / 2 )
-//        } );
-        this.addChild( cell );
-        this.addChild( new Text( AtomIdentifier.getSymbol( elementIndex ), {
+        cell.addChild( new Text( AtomIdentifier.getSymbol( elementIndex ), {
           font: "24px Arial",
-          center: cell.center
+          center: new Vector2( CELL_SIZE.width / 2, CELL_SIZE.height / 2 )
         } ) );
+        this.addChild( cell );
+        if ( elementIndex === 2 ){
+          cell.fill = 'yellow';
+        }
         elementIndex++;
       }
     }
