@@ -15,10 +15,7 @@ define( function( require ) {
   var TabView = require( "JOIST/TabView" );
   var SymbolNode = require( "symbol/view/SymbolNode" );
   var PeriodicTableNode = require( "buildanatom/view/PeriodicTableNode" );
-
-  // Size of the stage, in screen coordinates.  These values were obtained by
-  // setting a Chrome window to 1024 x 768 and measuring the actual display region.
-  var STAGE_SIZE = new Bounds2( 0, 0, 1010, 655 );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * Constructor.
@@ -27,24 +24,20 @@ define( function( require ) {
    * @constructor
    */
   function SymbolTabView( model ) {
-
-    // Initialize the scene.
-    var scene = new TabView();
-    scene.layoutBounds = STAGE_SIZE;
-    this.scene = scene;
+    TabView.call( this ); // Call super constructor.
 
     // Add the node that shows the interactive symbol
-    var symbolNode = new SymbolNode( model ).mutate( { center: new Vector2( STAGE_SIZE.width * 0.4, STAGE_SIZE.height * 0.3 )} );
-    scene.addChild( symbolNode );
+    var symbolNode = new SymbolNode( model ).mutate( { center: new Vector2( 10, 10 )} );
+    this.addChild( symbolNode );
 
     // Add the periodic table
-    scene.addChild( new PeriodicTableNode( model ).mutate( {
+    this.addChild( new PeriodicTableNode( model ).mutate( {
                                                              top: symbolNode.bottom + 40,
                                                              centerX: symbolNode.centerX
                                                            } ) );
 
     // Add the reset button. TODO: i18n
-    scene.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
+    this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
                                 function() {
                                   model.reset();
                                 },
@@ -54,6 +47,9 @@ define( function( require ) {
                                   lineWidth: 1.5
                                 } ).mutate( {center: new Vector2( 900, 650 )} ) );
   }
+
+  // Inherit from TabView.
+  inherit( SymbolTabView, TabView );
 
   return SymbolTabView;
 } );
