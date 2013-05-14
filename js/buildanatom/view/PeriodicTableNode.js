@@ -8,7 +8,6 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var periodicTableTemplate = require( 'tpl!templates/periodic-table.html' );
 
   // 2D array that defines the table structure.
   var POPULATED_CELLS = [
@@ -38,16 +37,27 @@ define( function( require ) {
     }
 
     // Add the cells of the table.
+    var elementIndex = 1;
     for ( var i = 0; i < POPULATED_CELLS.length; i++ ) {
       var populatedCellsInRow = POPULATED_CELLS[i];
       for ( var j = 0; j < populatedCellsInRow.length; j++ ) {
-        this.addChild( new Rectangle( 0, 0, CELL_SIZE.width, CELL_SIZE.height, 0, 0,
-                                      {
-                                        stroke: 'black',
-                                        lineWidth: 2,
-                                        fill: 'white',
-                                        translation: new Vector2( populatedCellsInRow[j] * CELL_SIZE.width, i * CELL_SIZE.height )
-                                      } ) );
+        var cell = new Rectangle( 0, 0, CELL_SIZE.width, CELL_SIZE.height, 0, 0,
+                                  {
+                                    stroke: 'black',
+                                    lineWidth: 2,
+                                    fill: 'white',
+                                    translation: new Vector2( populatedCellsInRow[j] * CELL_SIZE.width, i * CELL_SIZE.height )
+                                  } );
+//        cell.addChild( new Text( AtomIdentifier.getSymbol( elementIndex ) ), {
+//          font: "24px Arial",
+//          center: new Vector2( CELL_SIZE.width / 2, CELL_SIZE.height / 2 )
+//        } );
+        this.addChild( cell );
+        this.addChild( new Text( AtomIdentifier.getSymbol( elementIndex ), {
+          font: "24px Arial",
+          center: cell.center
+        } ) );
+        elementIndex++;
       }
     }
 
