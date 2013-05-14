@@ -38,7 +38,6 @@ define( function( require ) {
   inherit( PeriodicTableCell, Node );
 
   PeriodicTableCell.prototype.setHighlighted = function( highLighted ){
-    console.log( "setHighlighted called for element " + this.label.text + ", value = " + highLighted );
     this.cell.fill = highLighted ? 'yellow' : 'white';
     this.label.fill = highLighted ? 'red' : 'black';
   }
