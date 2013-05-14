@@ -1,7 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 define( function( require ) {
 
-  var _ = require( 'lodash' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -15,7 +14,7 @@ define( function( require ) {
   var NUMBER_FONT = "45px Arial";
   var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
-  var SymbolNode = function( model ) {
+  var SymbolNode = function( atom ) {
 
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;
@@ -39,7 +38,7 @@ define( function( require ) {
                                 } );
 
     // Add the listener to update the symbol text.
-    model.link( 'protonCount', function( protonCount ) {
+    atom.link( 'protonCount', function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
       thisSymbolNode.symbolText.text = protonCount > 0 ? symbol : "";
       thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
@@ -49,13 +48,13 @@ define( function( require ) {
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
         function() {
-          if ( model.protonCount < 10 ) {
-            model.protonCount++;
+          if ( atom.protonCount < 10 ) {
+            atom.protonCount++;
           }
         },
         function() {
-          if ( model.protonCount > 0 ) {
-            model.protonCount--;
+          if ( atom.protonCount > 0 ) {
+            atom.protonCount--;
           }
         } ).mutate( { left: CONTROL_INSET, bottom: SYMBOL_BOX_HEIGHT - CONTROL_INSET } );
     this.addChild( protonNumberControl );
@@ -68,7 +67,7 @@ define( function( require ) {
                                  } );
 
     // Add the listener to update the proton count.
-    model.link( 'protonCount', function( protonCount ) {
+    atom.link( 'protonCount', function( protonCount ) {
       thisSymbolNode.protonCount.text = protonCount;
       thisSymbolNode.protonCount.left = protonNumberControl.bounds.maxX + 10;
       thisSymbolNode.protonCount.centerY = protonNumberControl.centerY;
@@ -78,13 +77,13 @@ define( function( require ) {
     // Add the control for the atomic mass.
     var atomicMassControl = new UpDownButtonPair(
         function() {
-          if ( model.neutronCount < 12 ) {
-            model.neutronCount++;
+          if ( atom.neutronCount < 12 ) {
+            atom.neutronCount++;
           }
         },
         function() {
-          if ( model.neutronCount > 0 ) {
-              model.neutronCount--;
+          if ( atom.neutronCount > 0 ) {
+              atom.neutronCount--;
           }
         } ).mutate( { left: CONTROL_INSET, top: CONTROL_INSET }
     );
@@ -100,23 +99,23 @@ define( function( require ) {
 
     // Add the listener to update the atomic mass.
     var atomicMassUpdater = function() {
-      thisSymbolNode.atomicMass.text = model.getAtomicMass();
+      thisSymbolNode.atomicMass.text = atom.getAtomicMass();
       thisSymbolNode.atomicMass.left = atomicMassControl.bounds.maxX + 10;
       thisSymbolNode.atomicMass.centerY = atomicMassControl.centerY;
     };
-    model.link( 'protonCount', atomicMassUpdater );
-    model.link( 'neutronCount', atomicMassUpdater );
+    atom.link( 'protonCount', atomicMassUpdater );
+    atom.link( 'neutronCount', atomicMassUpdater );
 
     // Add the charge control.
     var chargeControl = new UpDownButtonPair(
         function() {
-          if ( model.electronCount > 0 ) {
-            model.electronCount--;
+          if ( atom.electronCount > 0 ) {
+            atom.electronCount--;
           }
         },
         function() {
-          if ( model.electronCount < 11 ) {
-            model.electronCount++;
+          if ( atom.electronCount < 11 ) {
+            atom.electronCount++;
           }
         } ).mutate( { right: SYMBOL_BOX_WIDTH - CONTROL_INSET, top: CONTROL_INSET } );
     this.addChild( chargeControl );
@@ -133,23 +132,23 @@ define( function( require ) {
     var chargeUpdater = function() {
       var sign = '';
       var textColor;
-      if ( model.getCharge() > 0 ) {
+      if ( atom.getCharge() > 0 ) {
         sign = '+';
         textColor = 'red';
       }
-      else if ( model.getCharge() < 0 ) {
+      else if ( atom.getCharge() < 0 ) {
         textColor = 'blue';
       }
       else {
         textColor = 'black';
       }
-      thisSymbolNode.charge.text = sign + model.getCharge();
+      thisSymbolNode.charge.text = sign + atom.getCharge();
       thisSymbolNode.charge.fill = textColor;
       thisSymbolNode.charge.right = chargeControl.bounds.minX - 10;
       thisSymbolNode.charge.centerY = chargeControl.centerY;
     };
-    model.link( 'protonCount', chargeUpdater );
-    model.link( 'electronCount', chargeUpdater );
+    atom.link( 'protonCount', chargeUpdater );
+    atom.link( 'electronCount', chargeUpdater );
   };
 
   // Inherit from Node.
