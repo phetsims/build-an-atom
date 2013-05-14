@@ -52,7 +52,9 @@ define( function( require ) {
       _.each( thisPeriodicTable.cells, function( cell ) {
         cell.setHighlighted( false );
       } )
-      thisPeriodicTable.cells[protonCount].setHighlighted( true );
+      if ( protonCount > 0 ){
+        thisPeriodicTable.cells[protonCount - 1].setHighlighted( true );
+      }
     } );
   }
 
