@@ -19,25 +19,25 @@ define( function( require ) {
   function PeriodicTableCell( atomicNumber, dimension ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
 
-    this.cell = new Rectangle( 0, 0, NOMINAL_CELL_DIMENSION, NOMINAL_CELL_DIMENSION, 0, 0,
-                              {
-                                stroke: 'black',
-                                lineWidth: 1,
-                                fill: 'white'
-                              } );
+    this.cell = new Rectangle( 0, 0, dimension, dimension, 0, 0,
+                               {
+                                 stroke: 'black',
+                                 lineWidth: 1,
+                                 fill: 'white'
+                               } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
-      font: "14px Arial",
-      center: new Vector2( NOMINAL_CELL_DIMENSION / 2, NOMINAL_CELL_DIMENSION / 2 )
+      font: "Arial",
+      center: new Vector2( dimension / 2, dimension / 2 )
     } );
+    this.label.fontSize = 14 * (dimension / NOMINAL_CELL_DIMENSION);
     this.cell.addChild( this.label );
     this.addChild( this.cell );
-    this.scale = dimension / NOMINAL_CELL_DIMENSION;
   };
 
   // Inherit from Node.
   inherit( PeriodicTableCell, Node );
 
-  PeriodicTableCell.prototype.setHighlighted = function( highLighted ){
+  PeriodicTableCell.prototype.setHighlighted = function( highLighted ) {
     this.cell.fill = highLighted ? 'yellow' : 'white';
     this.label.fill = highLighted ? 'red' : 'black';
   }
