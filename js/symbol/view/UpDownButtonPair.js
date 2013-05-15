@@ -20,10 +20,26 @@ define( function( require ) {
   var TOTAL_CONTENT_HEIGHT = ICON_HEIGHT + 5; // Additional vertical spacing.
   var ICON_STROKE_WIDTH = 3;
 
-  var UpDownButtonPair = function( upFunction, downFunction ) {
+  /**
+   *
+   * @param upFunction - Function to execute when up button pressed.
+   * @param downFunction - Function to execute when down button pressed.
+   * @param options - options for this node:
+   *    vertical - boolean value, defaults to true.
+   * @constructor
+   */
+  var UpDownButtonPair = function( upFunction, downFunction, options ) {
 
     Node.call( this ); // Call super constructor.
     var thisUpDownButton = this;
+
+    options = _.extend( {
+                          fill: 'rgb(150, 150, 150)',
+                          stroke: 'black',
+                          lineWidth: 2,
+                          vertical: 'true' // Custom option
+                        },
+                        options );
 
     var upIconShape = new Shape();
     upIconShape.moveTo( 0, ICON_HEIGHT );
@@ -45,9 +61,9 @@ define( function( require ) {
     var upButton = new Button( upIcon,
                                upFunction,
                                {
-                                 fill: 'rgb(150, 150, 150)',
-                                 stroke: 'black',
-                                 lineWidth: 2
+                                 fill: options.fill,
+                                 stroke: options.stroke,
+                                 lineWidth: options.lineWidth
                                } );
     this.addChild( upButton );
 
@@ -68,11 +84,16 @@ define( function( require ) {
     var downButton = new Button( downIcon,
                                  downFunction,
                                  {
-                                   fill: 'rgb(150, 150, 150)',
-                                   stroke: 'black',
-                                   lineWidth: 2
+                                   fill: options.fill,
+                                   stroke: options.stroke,
+                                   lineWidth: options.lineWidth
                                  } );
-    downButton.y = upButton.bounds.maxY + 3;
+    if ( options && options.vertical ) {
+      downButton.y = upButton.bounds.maxY + 3;
+    }
+    else {
+      downButton.x = upButton.bounds.maxX + 3;
+    }
     this.addChild( downButton );
   };
 
