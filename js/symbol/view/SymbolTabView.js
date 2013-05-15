@@ -15,6 +15,7 @@ define( function( require ) {
   var TabView = require( "JOIST/TabView" );
   var SymbolNode = require( "symbol/view/SymbolNode" );
   var PeriodicTableNode = require( "buildanatom/view/PeriodicTableNode" );
+  var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
@@ -35,6 +36,11 @@ define( function( require ) {
                                                              top: symbolNode.bottom + 40,
                                                              centerX: symbolNode.centerX
                                                            } ) );
+
+    // Add the atom display.
+    this.addChild( new AtomWithParticleStacks ( model ).mutate({
+
+                                                               }))
 
     // Add the reset button. TODO: i18n
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
