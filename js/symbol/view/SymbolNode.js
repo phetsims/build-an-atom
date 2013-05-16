@@ -9,8 +9,8 @@ define( function( require ) {
   var AtomIdentifier = require( 'common/AtomIdentifier' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
 
-  var SYMBOL_BOX_WIDTH = 250; // In screen coords, which are roughly pixels.
-  var SYMBOL_BOX_HEIGHT = 250; // In screen coords, which are roughly pixels.
+  var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
+  var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
   var NUMBER_FONT = "45px Arial";
   var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
