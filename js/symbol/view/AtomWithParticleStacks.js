@@ -25,7 +25,7 @@ define( function( require ) {
                                      {
                                        stroke: 'black',
                                        lineWidth: 1,
-                                       fill: 'rgb( 229, 229, 255 )'
+                                       fill: 'rgb( 254, 255, 153 )'
                                      } );
     this.addChild( boundingBox );
 
