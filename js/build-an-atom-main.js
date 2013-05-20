@@ -66,7 +66,7 @@ require(
             return new SymbolModel();
           },
           createView: function( model ) {
-            return new SymbolTabView( model ).scene;
+            return new SymbolTabView( model );
           }
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
