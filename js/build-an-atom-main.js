@@ -3,14 +3,14 @@ require(
     [
       'buildanatom/model/BuildAnAtomModel',
       'buildanatom/view/BuildAnAtomView',
-      'symbol/model/SymbolModel',
+      'symbol/model/NumberAtom',
       'symbol/view/SymbolTabView',
       'SCENERY/nodes/Circle',
       'SCENERY/nodes/Rectangle' ,
       'SCENERY/nodes/Text' ,
       'JOIST/Sim'
     ],
-    function( BuildAnAtomModel, BuildAnAtomView, SymbolModel, SymbolTabView, Circle, Rectangle, Text, Sim ) {
+    function( BuildAnAtomModel, BuildAnAtomView, NumberAtom, SymbolTabView, Circle, Rectangle, Text, Sim ) {
       "use strict";
 
       var icon1 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
@@ -63,7 +63,7 @@ require(
           icon: icon2,
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() {
-            return new SymbolModel();
+            return new NumberAtom();
           },
           createView: function( model ) {
             return new SymbolTabView( model );

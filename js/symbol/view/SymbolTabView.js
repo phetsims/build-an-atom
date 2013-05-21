@@ -8,7 +8,7 @@ define( function( require ) {
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var SymbolModel = require( 'symbol/model/SymbolModel' );
+  var NumberAtom = require( 'symbol/model/NumberAtom' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Vector2 = require( 'DOT/Vector2' );
   var Button = require( 'SUN/Button' );

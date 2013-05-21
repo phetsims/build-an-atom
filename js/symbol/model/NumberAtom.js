@@ -1,15 +1,15 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Definition for a type that contains the information that is present in an
- * atomic symbol, i.e. the number of protons, the electric charge, and the
- * atomic mass.
+ * Model of an atom that represents the atom as a set of numbers which track
+ * the quantity of the various subatomic particles (i.e. protons, neutrons,
+ * and electrons).
  */
 define( function ( require ) {
 
   var Fort = require( 'FORT/Fort' );
 
-  var SymbolModel = Fort.Model.extend(
+  var NumberAtom = Fort.Model.extend(
       {
         defaults: {
           protonCount: 0,
@@ -19,17 +19,17 @@ define( function ( require ) {
       }
   );
 
-  SymbolModel.prototype.getAtomicMass = function () {
+  NumberAtom.prototype.getAtomicMass = function () {
     return this.protonCount + this.neutronCount;
   };
 
-  SymbolModel.prototype.getCharge = function () {
+  NumberAtom.prototype.getCharge = function () {
     return this.protonCount - this.electronCount;
   };
 
-  SymbolModel.prototype.step = function ( dt ) {
+  NumberAtom.prototype.step = function ( dt ) {
     // TODO: TBD.
   };
 
-  return SymbolModel;
+  return NumberAtom;
 } );
