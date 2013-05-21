@@ -62,7 +62,7 @@ define( function ( require ) {
 
                                                     // Handler that moves the particle in model space.
                                                     translate: function ( translationParams ) {
-                                                      particle.position = particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) );
+                                                      particle.setPositionAndDestination( particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) ) );
                                                       return translationParams.position;
                                                     },
                                                     start: function ( event, trail ) {

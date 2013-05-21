@@ -27,7 +27,7 @@ define( function ( require ) {
       atom.addParticle( particle );
     }
     else {
-      bucket.addParticleNearestOpen( particle );
+      bucket.addParticleNearestOpen( particle, true );
     }
   }
 
@@ -83,7 +83,7 @@ define( function ( require ) {
     _.times( NUM_PROTONS, function () {
       var proton = Particle.createProton();
       thisModel.nucleons.push( proton );
-      thisModel.buckets.protonBucket.addParticleFirstOpen( proton );
+      thisModel.buckets.protonBucket.addParticleFirstOpen( proton, false );
       proton.link( 'userControlled', function ( userControlled ) {
         if ( !userControlled && !thisModel.buckets.protonBucket.containsParticle( proton ) ) {
           placeNucleon( proton, thisModel.buckets.protonBucket, thisModel.atom );
@@ -95,7 +95,7 @@ define( function ( require ) {
     _.times( NUM_NEUTRONS, function () {
       var neutron = Particle.createNeutron();
       thisModel.nucleons.push( neutron );
-      thisModel.buckets.neutronBucket.addParticleFirstOpen( neutron );
+      thisModel.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
       neutron.link( 'userControlled', function ( userControlled ) {
         if ( !userControlled && !thisModel.buckets.neutronBucket.containsParticle( neutron ) ) {
           placeNucleon( neutron, thisModel.buckets.neutronBucket, thisModel.atom );
@@ -107,7 +107,7 @@ define( function ( require ) {
     _.times( NUM_ELECTRONS, function () {
       var electron = Particle.createElectron();
       thisModel.electrons.push( electron );
-      thisModel.buckets.electronBucket.addParticleFirstOpen( electron );
+      thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.link( 'userControlled', function ( userControlled ) {
         if ( !userControlled && !thisModel.buckets.electronBucket.containsParticle( electron ) ) {
           if ( electron.position.distance( Vector2.ZERO ) < ELECTRON_CAPTURE_RADIUS ) {
@@ -122,6 +122,8 @@ define( function ( require ) {
   }
 
   BuildAnAtomModel.prototype.step = function ( dt ) {
+    this.nucleons.forEach( function( nucleon ){ nucleon.step( dt )});
+    this.electrons.forEach( function( electron ){ electron.step( dt )});
   };
 
   BuildAnAtomModel.prototype.reset = function () {

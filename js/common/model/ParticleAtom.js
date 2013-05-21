@@ -104,7 +104,7 @@ define( function ( require ) {
         console.log( "Error: No open electron positions." );
       }
       sortedOpenPositions[0].electron = particle;
-      particle.position = sortedOpenPositions[ 0 ].position;
+      particle.destination = sortedOpenPositions[ 0 ].position;
       particle.once( 'change:userControlled', function ( userControlledElectron, userControlled ) {
         if ( userControlled && thisAtom.neutrons.contains( userControlledElectron ) ) {
           thisAtom.electrons.electrons( userControlledElectron );
@@ -148,34 +148,34 @@ define( function ( require ) {
     if ( nucleons.length === 1 ) {
       // There is only one nucleon present, so place it in the center
       // of the atom.
-      nucleons[0].position = new Vector2( centerX, centerY );
+      nucleons[0].destination = new Vector2( centerX, centerY );
     }
     else if ( nucleons.length === 2 ) {
       // Two nucleons - place them side by side with their meeting point in the center.
       angle = Math.random() * 2 * Math.PI;
-      nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
-      nucleons[1].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+      nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+      nucleons[1].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
     }
     else if ( nucleons.length === 3 ) {
       // Three nucleons - form a triangle where they all touch.
       angle = Math.random() * 2 * Math.PI;
       distFromCenter = nucleonRadius * 1.155;
-      nucleons[0].position = new Vector2( centerX + distFromCenter * Math.cos( angle ),
+      nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ),
                                           centerY + distFromCenter * Math.sin( angle ) );
-      nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
+      nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
                                           centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
-      nucleons[2].position = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
+      nucleons[2].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
                                           centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
     }
     else if ( nucleons.length === 4 ) {
       // Four nucleons - make a sort of diamond shape with some overlap.
       angle = Math.random() * 2 * Math.PI;
-      nucleons[0].position = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
-      nucleons[2].position = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+      nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+      nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
       distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
-      nucleons[1].position = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
+      nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
                                           centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
-      nucleons[3].position = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
+      nucleons[3].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
                                           centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
     }
     else if ( nucleons.length >= 5 ) {
@@ -187,7 +187,7 @@ define( function ( require ) {
       var placementAngle = 0;
       var placementAngleDelta = 0;
       for ( var i = 0; i < nucleons.length; i++ ) {
-        nucleons[i].position = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
+        nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
                                             centerY + placementRadius * Math.sin( placementAngle ) );
         numAtThisRadius--;
         if ( numAtThisRadius > 0 ) {
