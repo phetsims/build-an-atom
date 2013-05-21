@@ -12,7 +12,7 @@ define( function ( require ) {
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ElectronShellView = require( 'buildanatom/view/ElectronShellView' );
+  var ElectronShellView = require( 'common/view/ElectronShellView' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
   var AtomView = require( 'buildanatom/view/AtomView' );
   var Vector2 = require( "DOT/Vector2" );
