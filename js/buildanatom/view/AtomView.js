@@ -10,8 +10,8 @@
 define( function ( require ) {
 
   var Vector2 = require( 'DOT/Vector2' );
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var Atom = require( 'buildanatom/model/Atom' );
+  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -179,7 +179,7 @@ define( function ( require ) {
 
     // Update the textual indicators.
     var self = this;
-    atom.events.on( Atom.CONFIG_CHANGE_EVENT, function () {
+    atom.events.on( ParticleAtom.CONFIG_CHANGE_EVENT, function () {
       debugger;
 
       // Update element name.

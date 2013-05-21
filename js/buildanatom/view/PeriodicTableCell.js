@@ -5,7 +5,7 @@ define( function( require ) {
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var Vector2 = require( 'DOT/Vector2' );
 
   var NOMINAL_CELL_DIMENSION = 25;

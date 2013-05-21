@@ -1,6 +1,6 @@
 define( [
           '../../../.',
-          'common/AtomIdentifier',
+          'common/view/AtomIdentifier',
           'tpl!templates/periodic-table.html'
         ], function ( _, AtomIdentifier, periodicTableTemplate ) {
 

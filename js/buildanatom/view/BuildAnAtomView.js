@@ -13,7 +13,7 @@ define( function ( require ) {
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ElectronShellView = require( 'buildanatom/view/ElectronShellView' );
-  var Atom = require( 'buildanatom/model/Atom' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
   var AtomView = require( 'buildanatom/view/AtomView' );
   var Vector2 = require( "DOT/Vector2" );
   var TabView = require( "JOIST/TabView" );
@@ -52,7 +52,7 @@ define( function ( require ) {
     rootNode.addChild( new AtomView( model.atom, mvt ) );
 
     // Add the electron shells.
-    rootNode.addChild( new ElectronShellView( model.atom, Atom.INNER_ELECTRON_SHELL_RADIUS, Atom.OUTER_ELECTRON_SHELL_RADIUS, mvt ) );
+    rootNode.addChild( new ElectronShellView( model.atom, ParticleAtom.INNER_ELECTRON_SHELL_RADIUS, ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS, mvt ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function ( bucket ) {
@@ -76,7 +76,7 @@ define( function ( require ) {
     // need to sort the ones in the nucleus.
     model.atom.on( 'reconfigureNucleus', function () {
       var particlesInNucleus = _.filter( nucleonLayer.children, function ( particleView ) {
-        return particleView.particle.position.distance( model.atom.position ) < Atom.INNER_ELECTRON_SHELL_RADIUS;
+        return particleView.particle.position.distance( model.atom.position ) < ParticleAtom.INNER_ELECTRON_SHELL_RADIUS;
       } );
 
       if ( particlesInNucleus.length > 4 ) {

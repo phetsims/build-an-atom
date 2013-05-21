@@ -1,6 +1,6 @@
 define( [
           '../../../.',
-          'common/AtomIdentifier',
+          'common/view/AtomIdentifier',
           'tpl!templates/detailed-element-symbol.html'
         ], function ( _, AtomIdentifier, symbolTemplate ) {
 

@@ -16,7 +16,7 @@ define( function ( require ) {
 
   var ParticleCollection = Backbone.Collection.extend( { model: Particle } );
 
-  var Atom = Fort.Model.extend(
+  var ParticleAtom = Fort.Model.extend(
       {
         defaults: {
           position: Vector2.ZERO,
@@ -32,16 +32,16 @@ define( function ( require ) {
           // Initialize the positions where an electron can be placed.
           this.electronPositions = new Array( 10 );
           var angle = 0;
-          this.electronPositions[ 0 ] = { electron: null, position: new Vector2( Atom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
+          this.electronPositions[ 0 ] = { electron: null, position: new Vector2( ParticleAtom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
           angle += Math.PI;
-          this.electronPositions[ 1 ] = { electron: null, position: new Vector2( -Atom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
+          this.electronPositions[ 1 ] = { electron: null, position: new Vector2( -ParticleAtom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
           var numSlotsInOuterShell = 8;
           angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
           for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
             this.electronPositions[ i + 2 ] = {
               electron: null,
-              position: new Vector2( Math.cos( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS,
-                                     Math.sin( angle ) * Atom.OUTER_ELECTRON_SHELL_RADIUS )
+              position: new Vector2( Math.cos( angle ) * ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS,
+                                     Math.sin( angle ) * ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS )
             }
             angle += Math.PI / numSlotsInOuterShell * 2;
           }
@@ -56,10 +56,10 @@ define( function ( require ) {
       }
   );
 
-  Atom.INNER_ELECTRON_SHELL_RADIUS = 80;
-  Atom.OUTER_ELECTRON_SHELL_RADIUS = 180;
+  ParticleAtom.INNER_ELECTRON_SHELL_RADIUS = 80;
+  ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS = 180;
 
-  Atom.prototype.addParticle = function ( particle ) {
+  ParticleAtom.prototype.addParticle = function ( particle ) {
 
     var thisAtom = this;
 
@@ -121,15 +121,15 @@ define( function ( require ) {
     }
   };
 
-  Atom.prototype.getWeight = function () {
+  ParticleAtom.prototype.getWeight = function () {
     return this.protons.length + this.neutrons.length;
   };
 
-  Atom.prototype.getCharge = function () {
+  ParticleAtom.prototype.getCharge = function () {
     return this.protons.length - this.electrons.length;
   };
 
-  Atom.prototype.reconfigureNucleus = function ( moveImmediately ) {
+  ParticleAtom.prototype.reconfigureNucleus = function ( moveImmediately ) {
 
     // Convenience variables.
     var centerX = this.position.x;
@@ -228,5 +228,5 @@ define( function ( require ) {
 //        }
   };
 
-  return Atom;
+  return ParticleAtom;
 } );

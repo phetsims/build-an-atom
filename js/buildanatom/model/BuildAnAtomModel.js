@@ -7,7 +7,7 @@ define( function ( require ) {
 
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
-  var Atom = require( 'buildanatom/model/Atom' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Particle = require( 'buildanatom/model/Particle' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Dimension2 = require( 'DOT/Dimension2' );
@@ -17,7 +17,7 @@ define( function ( require ) {
   var NUM_NEUTRONS = 13;
   var NUM_ELECTRONS = 10;
   var NUCLEON_CAPTURE_RADIUS = 100;
-  var ELECTRON_CAPTURE_RADIUS = Atom.OUTER_ELECTRON_SHELL_RADIUS * 1.1;
+  var ELECTRON_CAPTURE_RADIUS = ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS * 1.1;
   var BUCKET_WIDTH = 150;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
   var BUCKET_Y_OFFSET = -300;
@@ -39,7 +39,7 @@ define( function ( require ) {
   function BuildAnAtomModel() {
 
     var thisModel = this;
-    this.atom = new Atom( 0, 0 );
+    this.atom = new ParticleAtom( 0, 0 );
 
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
