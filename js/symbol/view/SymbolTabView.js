@@ -28,22 +28,22 @@ define( function( require ) {
     TabView.call( this ); // Call super constructor.
 
     // Add the node that shows the interactive symbol
-    var symbolNode = new SymbolNode( model ).mutate( { left: 120, top: 10 } );
+    var symbolNode = new SymbolNode( model.numberAtom ).mutate( { left: 120, top: 10 } );
     this.addChild( symbolNode );
 
     // Add the periodic table
-    var periodicTable = new PeriodicTableNode( model ).mutate( {
-                                                                 top: symbolNode.bottom + 40,
-                                                                 centerX: symbolNode.centerX
-                                                               } );
+    var periodicTable = new PeriodicTableNode( model.numberAtom ).mutate( {
+                                                                            top: symbolNode.bottom + 40,
+                                                                            centerX: symbolNode.centerX
+                                                                          } );
     this.addChild( periodicTable );
 
     // Add the atom display.
     console.log( "periodicTableNode.maxX + 20 = " + periodicTable.right + 20 );
-    this.addChild( new AtomWithParticleStacks( model ).mutate( {
-                                                                 left: periodicTable.right + 40,
-                                                                 top: symbolNode.minY
-                                                               } ) );
+    this.addChild( new AtomWithParticleStacks( model.numberAtom, model.particleAtom ).mutate( {
+                                                                                                left: periodicTable.right + 40,
+                                                                                                top: symbolNode.minY
+                                                                                              } ) );
 
     // Add the reset button. TODO: i18n
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),

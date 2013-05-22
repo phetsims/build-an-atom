@@ -14,7 +14,7 @@ define( function( require ) {
   var LABEL_FONT = "45px Arial";
   var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
-  var AtomWithParticleStacks = function( atom ) {
+  var AtomWithParticleStacks = function( numberAtom, particleAtom ) {
 
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;
@@ -32,13 +32,13 @@ define( function( require ) {
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
         function() {
-          if ( atom.protonCount < 10 ) {
-            atom.protonCount++;
+          if ( numberAtom.protonCount < 10 ) {
+            numberAtom.protonCount++;
           }
         },
         function() {
-          if ( atom.protonCount > 0 ) {
-            atom.protonCount--;
+          if ( numberAtom.protonCount > 0 ) {
+            numberAtom.protonCount--;
           }
         },
         { vertical: false }
@@ -48,13 +48,13 @@ define( function( require ) {
     // Add the control for the number of neutrons.
     var neutronNumberControl = new UpDownButtonPair(
         function() {
-          if ( atom.neutronCount < 12 ) {
-            atom.neutronCount++;
+          if ( numberAtom.neutronCount < 12 ) {
+            numberAtom.neutronCount++;
           }
         },
         function() {
-          if ( atom.neutronCount > 0 ) {
-            atom.neutronCount--;
+          if ( numberAtom.neutronCount > 0 ) {
+            numberAtom.neutronCount--;
           }
         },
         { vertical: false }
@@ -64,13 +64,13 @@ define( function( require ) {
     // Add the electron control.
     var electronNumberControl = new UpDownButtonPair(
         function() {
-          if ( atom.electronCount > 0 ) {
-            atom.electronCount--;
+          if ( numberAtom.electronCount > 0 ) {
+            numberAtom.electronCount--;
           }
         },
         function() {
-          if ( atom.electronCount < 11 ) {
-            atom.electronCount++;
+          if ( numberAtom.electronCount < 11 ) {
+            numberAtom.electronCount++;
           }
         },
         { vertical: false }
