@@ -24,7 +24,7 @@ define( function( require ) {
    * @param mvt Model-View transform
    * @constructor
    */
-  var AtomView = function( atom, mvt ) {
+  var AtomNode = function( atom, mvt ) {
 
     Node.call( this ); // Call super constructor.
     var thisAtomView = this;
@@ -163,7 +163,7 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( AtomView, Node );
+  inherit( AtomNode, Node );
 
-  return AtomView;
+  return AtomNode;
 } );

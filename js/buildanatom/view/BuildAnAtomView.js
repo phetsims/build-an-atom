@@ -13,7 +13,7 @@ define( function ( require ) {
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var AtomView = require( 'buildanatom/view/AtomView' );
+  var AtomNode = require( 'common/view/AtomNode' );
   var Vector2 = require( "DOT/Vector2" );
   var TabView = require( "JOIST/TabView" );
   var Bounds2 = require( 'DOT/Bounds2' );
@@ -48,7 +48,7 @@ define( function ( require ) {
                                                                           1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
-    rootNode.addChild( new AtomView( model.atom, mvt ) );
+    rootNode.addChild( new AtomNode( model.atom, mvt ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function ( bucket ) {
