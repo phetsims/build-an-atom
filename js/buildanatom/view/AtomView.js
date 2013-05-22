@@ -7,7 +7,7 @@
  *
  * @author John Blanco
  */
-define( function ( require ) {
+define( function( require ) {
 
   var Vector2 = require( 'DOT/Vector2' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
@@ -23,7 +23,7 @@ define( function ( require ) {
    * @param mvt Model-View transform
    * @constructor
    */
-  var AtomView = function ( atom, mvt ) {
+  var AtomView = function( atom, mvt ) {
 
     Node.call( this ); // Call super constructor.
     var thisAtomView = this;
@@ -47,13 +47,13 @@ define( function ( require ) {
     this.addChild( atomCenterMarker );
 
     // Make the marker invisible if any nucleons are present.
-    atom.on( "reconfigureNucleus", function(){
+    atom.on( "reconfigureNucleus", function() {
       atomCenterMarker.visible = atom.getWeight() === 0;
-    })
-    atom.neutrons.on( "reset", function(){
+    } )
+    atom.neutrons.on( "reset", function() {
       atomCenterMarker.visible = atom.getWeight() === 0;
     } );
-    atom.protons.on( "reset", function(){
+    atom.protons.on( "reset", function() {
       atomCenterMarker.visible = atom.getWeight() === 0;
     } );
 
@@ -68,7 +68,7 @@ define( function ( require ) {
     this.addChild( this.elementName );
 
     // Define the update function for the element name.
-    var updateElementName = function () {
+    var updateElementName = function() {
       var name = AtomIdentifier.getName( thisAtomView.atom.protons.length );
       if ( name.length === 0 ) {
         name = '';
@@ -89,7 +89,7 @@ define( function ( require ) {
     this.addChild( this.ionIndicator );
 
     // Define the update function for the ion indicator.
-    var updateIonIndicator = function () {
+    var updateIonIndicator = function() {
       if ( thisAtomView.atom.protons.length > 0 ) {
         var charge = thisAtomView.atom.getCharge();
         // TODO: i18n of all labels below
@@ -125,7 +125,7 @@ define( function ( require ) {
     this.addChild( this.stabilityIndicator );
 
     // Define the update function for the stability indicator.
-    var updateStabilityIndicator = function () {
+    var updateStabilityIndicator = function() {
       if ( thisAtomView.atom.protons.length > 0 ) {
         // TODO: i18n of the indicators below.
         if ( AtomIdentifier.isStable( thisAtomView.atom.protons.length, thisAtomView.atom.neutrons.length ) ) {
@@ -144,80 +144,21 @@ define( function ( require ) {
     updateStabilityIndicator(); // Do initial update.
 
     // Bind the update functions to atom events.
-    atom.protons.on( 'add remove reset', function ( proton ) {
+    atom.protons.on( 'add remove reset', function( proton ) {
       updateElementName();
       updateIonIndicator();
       updateStabilityIndicator();
     } );
-    atom.electrons.on( 'add remove reset', function ( electron ) {
+    atom.electrons.on( 'add remove reset', function( electron ) {
       updateIonIndicator();
     } );
-    atom.neutrons.on( 'add remove reset', function ( neutron ) {
+    atom.neutrons.on( 'add remove reset', function( neutron ) {
       updateStabilityIndicator();
     } );
   };
 
-// Inherit from Node.
+  // Inherit from Node.
   inherit( AtomView, Node );
 
-// TODO: This is old, but keep until the atom view is fully working, since there is code in here that will be useful.
-  var initialize = function ( atom, mvt ) {
-    this.atom = atom;
-    this.mvt = mvt;
-
-    // Create the textual readouts for element name, stability, and charge.
-    this.elementName = new Easel.Text( "", 'bold 36px Arial', 'red' );
-    this.elementName.y = 50;
-    this.addChild( this.elementName );
-    this.stabilityIndicator = new Easel.Text( "", 'bold 26px Arial', 'black' );
-    this.stabilityIndicator.y = 420;
-    this.addChild( this.stabilityIndicator );
-    this.ionIndicator = new Easel.Text( "", 'bold 26px Arial', 'black' );
-    this.ionIndicator.x = 450;
-    this.ionIndicator.y = 150;
-    this.addChild( this.ionIndicator );
-
-    // Update the textual indicators.
-    var self = this;
-    atom.events.on( ParticleAtom.CONFIG_CHANGE_EVENT, function () {
-      debugger;
-
-      // Update element name.
-      self.elementName.text = AtomIdentifier.getName( self.atom.getNumProtons() );
-      self.elementName.x = self.mvt.modelToView( new Point2D( 0, 0 ) ).x - self.elementName.getMeasuredWidth() / 2;
-
-      // Update stability indicator.
-      if ( self.atom.getNumProtons() == 0 ) {
-        self.stabilityIndicator.text = "";
-      }
-      else if ( AtomIdentifier.isStable( self.atom.getNumProtons(), self.atom.getNumNeutrons() ) ) {
-        self.stabilityIndicator.text = "Stable";
-      }
-      else {
-        self.stabilityIndicator.text = "Unstable";
-      }
-      self.stabilityIndicator.x = self.mvt.modelToView( new Point2D( 0, 0 ) ).x - self.stabilityIndicator.getMeasuredWidth() / 2;
-
-      // Update charge indicator.
-      if ( self.atom.getNumProtons() == 0 ) {
-        self.ionIndicator.text = "";
-      }
-      else if ( self.atom.getCharge() == 0 ) {
-        self.ionIndicator.text = "Neutral Atom";
-        self.ionIndicator.color = "black";
-      }
-      else if ( self.atom.getCharge() < 0 ) {
-        self.ionIndicator.text = "-Ion";
-        self.ionIndicator.color = "blue";
-      }
-      else {
-        self.ionIndicator.text = "+Ion";
-        self.ionIndicator.color = "red";
-      }
-      self.ionIndicator.x = 180 - self.ionIndicator.getMeasuredWidth();
-    } );
-  };
-
   return AtomView;
-} )
-;
+} );
