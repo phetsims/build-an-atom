@@ -12,7 +12,6 @@ define( function ( require ) {
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ElectronShellView = require( 'common/view/ElectronShellView' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
   var AtomView = require( 'buildanatom/view/AtomView' );
   var Vector2 = require( "DOT/Vector2" );
@@ -51,9 +50,6 @@ define( function ( require ) {
     // Add the node that shows the 'x' center marker and all the textual labels.
     rootNode.addChild( new AtomView( model.atom, mvt ) );
 
-    // Add the electron shells.
-    rootNode.addChild( new ElectronShellView( model.atom, ParticleAtom.INNER_ELECTRON_SHELL_RADIUS, ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS, mvt ) );
-
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function ( bucket ) {
       rootNode.addChild( new BucketHole( bucket, mvt ) );
@@ -76,7 +72,7 @@ define( function ( require ) {
     // need to sort the ones in the nucleus.
     model.atom.on( 'reconfigureNucleus', function () {
       var particlesInNucleus = _.filter( nucleonLayer.children, function ( particleView ) {
-        return particleView.particle.position.distance( model.atom.position ) < ParticleAtom.INNER_ELECTRON_SHELL_RADIUS;
+        return particleView.particle.position.distance( model.atom.position ) < model.atom.innerElectronShellRadius;
       } );
 
       if ( particlesInNucleus.length > 4 ) {

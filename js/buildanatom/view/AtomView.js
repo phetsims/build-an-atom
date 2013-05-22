@@ -17,6 +17,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var ElectronShellView = require( 'common/view/ElectronShellView' );
 
   /**
    * @param atom Model representation of the atom
@@ -56,6 +57,10 @@ define( function( require ) {
     atom.protons.on( "reset", function() {
       atomCenterMarker.visible = atom.getWeight() === 0;
     } );
+
+    // Add the electron shells.
+    var electronShell = new ElectronShellView( atom, mvt );
+    this.addChild( electronShell );
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );

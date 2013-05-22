@@ -7,14 +7,17 @@
  */
 define( function ( require ) {
 
-  var _ = require( 'lodash' );
+  // Imports
   var Fort = require( 'FORT/Fort' );
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var Vector2 = require( 'DOT/Vector2' );
   var Particle = require( 'buildanatom/model/Particle' );
-
   var ParticleCollection = Backbone.Collection.extend( { model: Particle } );
+
+  // Constants
+  var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
+  var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 180;
 
   var ParticleAtom = Fort.Model.extend(
       {
@@ -22,7 +25,9 @@ define( function ( require ) {
           position: Vector2.ZERO,
           protons: new ParticleCollection,
           neutrons: new ParticleCollection,
-          electrons: new ParticleCollection
+          electrons: new ParticleCollection,
+          innerElectronShellRadius: DEFAULT_INNER_ELECTRON_SHELL_RADIUS,
+          outerElectronShellRadius: DEFAULT_OUTER_ELECTRON_SHELL_RADIUS
         },
 
         constructor: function () {
@@ -32,16 +37,16 @@ define( function ( require ) {
           // Initialize the positions where an electron can be placed.
           this.electronPositions = new Array( 10 );
           var angle = 0;
-          this.electronPositions[ 0 ] = { electron: null, position: new Vector2( ParticleAtom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
+          this.electronPositions[ 0 ] = { electron: null, position: new Vector2( this.innerElectronShellRadius, 0 ) };
           angle += Math.PI;
-          this.electronPositions[ 1 ] = { electron: null, position: new Vector2( -ParticleAtom.INNER_ELECTRON_SHELL_RADIUS, 0 ) };
+          this.electronPositions[ 1 ] = { electron: null, position: new Vector2( -this.innerElectronShellRadius, 0 ) };
           var numSlotsInOuterShell = 8;
           angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
           for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
             this.electronPositions[ i + 2 ] = {
               electron: null,
-              position: new Vector2( Math.cos( angle ) * ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS,
-                                     Math.sin( angle ) * ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS )
+              position: new Vector2( Math.cos( angle ) * this.outerElectronShellRadius,
+                                     Math.sin( angle ) * this.outerElectronShellRadius )
             }
             angle += Math.PI / numSlotsInOuterShell * 2;
           }
@@ -55,9 +60,6 @@ define( function ( require ) {
         }
       }
   );
-
-  ParticleAtom.INNER_ELECTRON_SHELL_RADIUS = 80;
-  ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS = 180;
 
   ParticleAtom.prototype.addParticle = function ( particle ) {
 

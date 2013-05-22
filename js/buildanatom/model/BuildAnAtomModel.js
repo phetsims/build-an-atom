@@ -17,7 +17,6 @@ define( function ( require ) {
   var NUM_NEUTRONS = 13;
   var NUM_ELECTRONS = 10;
   var NUCLEON_CAPTURE_RADIUS = 100;
-  var ELECTRON_CAPTURE_RADIUS = ParticleAtom.OUTER_ELECTRON_SHELL_RADIUS * 1.1;
   var BUCKET_WIDTH = 150;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
   var BUCKET_Y_OFFSET = -300;
@@ -110,7 +109,7 @@ define( function ( require ) {
       thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.link( 'userControlled', function ( userControlled ) {
         if ( !userControlled && !thisModel.buckets.electronBucket.containsParticle( electron ) ) {
-          if ( electron.position.distance( Vector2.ZERO ) < ELECTRON_CAPTURE_RADIUS ) {
+          if ( electron.position.distance( Vector2.ZERO ) < thisModel.atom.outerElectronShellRadius * 1.1 ) {
             thisModel.atom.addParticle( electron );
           }
           else {
