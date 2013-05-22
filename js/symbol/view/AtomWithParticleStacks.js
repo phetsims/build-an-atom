@@ -1,6 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 define( function( require ) {
 
+  // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -11,20 +12,24 @@ define( function( require ) {
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
   var AtomNode = require( 'common/view/AtomNode' );
+  var ParticleView = require( 'buildanatom/view/ParticleView' );
 
+  // Constants
   var WIDTH = 225; // In screen coords, which are roughly pixels.
   var HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var LABEL_FONT = "45px Arial";
   var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
-  var AtomWithParticleStacks = function( numberAtom, particleAtom ) {
+  /**
+   * @param symbolTableModel
+   * @constructor
+   */
+  var AtomWithParticleStacks = function( symbolTableModel ) {
 
     Node.call( this ); // Call super constructor.
-    var thisSymbolNode = this;
+    var thisNode = this;
 
     // Create our own local model view transform, since the parent view doesn't
     // have or need one.
-    // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
                                                                           { x: WIDTH / 2, y: HEIGHT * 0.35 },
                                                                           0.5 );
@@ -40,19 +45,24 @@ define( function( require ) {
     this.addChild( boundingBox );
 
     // Add the node that presents the atom.
-    var atomNode = new AtomNode( particleAtom, mvt );
+    var atomNode = new AtomNode( symbolTableModel.particleAtom, mvt );
     this.addChild( atomNode );
+
+    // Add the particle views.
+    symbolTableModel.protons.forEach( function( proton ) {
+      thisNode.addChild( new ParticleView( proton, mvt ) );
+    } );
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
         function() {
-          if ( numberAtom.protonCount < 10 ) {
-            numberAtom.protonCount++;
+          if ( symbolTableModel.numberAtom.protonCount < 10 ) {
+            symbolTableModel.numberAtom.protonCount++;
           }
         },
         function() {
-          if ( numberAtom.protonCount > 0 ) {
-            numberAtom.protonCount--;
+          if ( symbolTableModel.numberAtom.protonCount > 0 ) {
+            symbolTableModel.numberAtom.protonCount--;
           }
         },
         { vertical: false }
@@ -62,13 +72,13 @@ define( function( require ) {
     // Add the control for the number of neutrons.
     var neutronNumberControl = new UpDownButtonPair(
         function() {
-          if ( numberAtom.neutronCount < 12 ) {
-            numberAtom.neutronCount++;
+          if ( symbolTableModel.numberAtom.neutronCount < 12 ) {
+            symbolTableModel.numberAtom.neutronCount++;
           }
         },
         function() {
-          if ( numberAtom.neutronCount > 0 ) {
-            numberAtom.neutronCount--;
+          if ( symbolTableModel.numberAtom.neutronCount > 0 ) {
+            symbolTableModel.numberAtom.neutronCount--;
           }
         },
         { vertical: false }
@@ -78,13 +88,13 @@ define( function( require ) {
     // Add the control for the number of electrons.
     var electronNumberControl = new UpDownButtonPair(
         function() {
-          if ( numberAtom.electronCount > 0 ) {
-            numberAtom.electronCount--;
+          if ( symbolTableModel.numberAtom.electronCount > 0 ) {
+            symbolTableModel.numberAtom.electronCount--;
           }
         },
         function() {
-          if ( numberAtom.electronCount < 11 ) {
-            numberAtom.electronCount++;
+          if ( symbolTableModel.numberAtom.electronCount < 11 ) {
+            symbolTableModel.numberAtom.electronCount++;
           }
         },
         { vertical: false }

@@ -40,10 +40,10 @@ define( function( require ) {
 
     // Add the atom display.
     console.log( "periodicTableNode.maxX + 20 = " + periodicTable.right + 20 );
-    this.addChild( new AtomWithParticleStacks( model.numberAtom, model.particleAtom ).mutate( {
-                                                                                                left: periodicTable.right + 40,
-                                                                                                top: symbolNode.minY
-                                                                                              } ) );
+    this.addChild( new AtomWithParticleStacks( model ).mutate( {
+                                                                 left: periodicTable.right + 40,
+                                                                 top: symbolNode.minY
+                                                               } ) );
 
     // Add the reset button. TODO: i18n
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
