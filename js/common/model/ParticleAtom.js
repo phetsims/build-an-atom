@@ -12,7 +12,7 @@ define( function ( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Particle = require( 'buildanatom/model/Particle' );
+  var Particle = require( 'common/model/Particle' );
   var ParticleCollection = Backbone.Collection.extend( { model: Particle } );
 
   // Constants
