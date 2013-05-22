@@ -6,8 +6,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
+  var AtomNode = require( 'common/view/AtomNode' );
 
   var WIDTH = 225; // In screen coords, which are roughly pixels.
   var HEIGHT = 300; // In screen coords, which are roughly pixels.
@@ -19,6 +22,13 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;
 
+    // Create our own local model view transform, since the parent view doesn't
+    // have or need one.
+    // Create the model-view transform.
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
+                                                                          { x: WIDTH / 2, y: HEIGHT * 0.35 },
+                                                                          0.5 );
+
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
@@ -28,6 +38,10 @@ define( function( require ) {
                                        fill: 'rgb( 254, 255, 153 )'
                                      } );
     this.addChild( boundingBox );
+
+    // Add the node that presents the atom.
+    var atomNode = new AtomNode( particleAtom, mvt );
+    this.addChild( atomNode );
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
@@ -61,7 +75,7 @@ define( function( require ) {
     ).mutate( { centerX: WIDTH / 2, bottom: HEIGHT - CONTROL_INSET } );
     this.addChild( neutronNumberControl );
 
-    // Add the electron control.
+    // Add the control for the number of electrons.
     var electronNumberControl = new UpDownButtonPair(
         function() {
           if ( numberAtom.electronCount > 0 ) {
