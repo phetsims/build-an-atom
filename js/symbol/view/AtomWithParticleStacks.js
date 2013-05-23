@@ -52,6 +52,12 @@ define( function( require ) {
     symbolTableModel.protons.forEach( function( proton ) {
       thisNode.addChild( new ParticleView( proton, mvt ) );
     } );
+    symbolTableModel.neutrons.forEach( function( neutron ) {
+      thisNode.addChild( new ParticleView( neutron, mvt ) );
+    } );
+    symbolTableModel.electrons.forEach( function( electron ) {
+      thisNode.addChild( new ParticleView( electron, mvt ) );
+    } );
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(

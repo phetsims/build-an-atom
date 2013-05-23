@@ -18,10 +18,10 @@ define( function( require ) {
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 12;
   var NUM_ELECTRONS = 11;
-  var BOTTOM_OF_STACKS_Y = -200;
-  var PROTON_STACK_CENTER_BOTTOM = new Vector2( -30, BOTTOM_OF_STACKS_Y );
+  var BOTTOM_OF_STACKS_Y = -230;
+  var PROTON_STACK_CENTER_BOTTOM = new Vector2( -50, BOTTOM_OF_STACKS_Y );
   var NEUTRON_STACK_CENTER_BOTTOM = new Vector2( 0, BOTTOM_OF_STACKS_Y );
-  var ELECTRON_STACK_CENTER_BOTTOM = new Vector2( 30, BOTTOM_OF_STACKS_Y );
+  var ELECTRON_STACK_CENTER_BOTTOM = new Vector2( 50, BOTTOM_OF_STACKS_Y );
 
   function SymbolTabModel() {
 
@@ -31,11 +31,21 @@ define( function( require ) {
     this.particleAtom = new ParticleAtom();
 
     this.protons = [];
+    this.neutrons = [];
+    this.electrons = [];
 
     // Functions for managing particle positions.
     var getNextProtonPosition = function() {
       // TODO: Make this work as a stacking algorithm.
       return PROTON_STACK_CENTER_BOTTOM;
+    }
+    var getNextNeutronPosition = function() {
+      // TODO: Make this work as a stacking algorithm.
+      return NEUTRON_STACK_CENTER_BOTTOM;
+    }
+    var getNextElectronPosition = function() {
+      // TODO: Make this work as a stacking algorithm.
+      return ELECTRON_STACK_CENTER_BOTTOM;
     }
 
     _.times( NUM_PROTONS, function() {
@@ -43,6 +53,18 @@ define( function( require ) {
       proton.destination = getNextProtonPosition();
       proton.moveImmediatelyToDestination();
       thisSymbolTabModel.protons.push( proton );
+    } );
+    _.times( NUM_NEUTRONS, function() {
+      var neutron = Particle.createNeutron();
+      neutron.destination = getNextNeutronPosition();
+      neutron.moveImmediatelyToDestination();
+      thisSymbolTabModel.neutrons.push( neutron );
+    } );
+    _.times( NUM_ELECTRONS, function() {
+      var electron = Particle.createElectron();
+      electron.destination = getNextElectronPosition();
+      electron.moveImmediatelyToDestination();
+      thisSymbolTabModel.electrons.push( electron );
     } );
 
     // Link the numberAtom to the particleAtom.
