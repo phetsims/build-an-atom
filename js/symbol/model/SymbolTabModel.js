@@ -18,10 +18,10 @@ define( function( require ) {
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 12;
   var NUM_ELECTRONS = 11;
-  var BOTTOM_OF_STACKS_Y = -230;
-  var PROTON_STACK_CENTER_BOTTOM = new Vector2( -50, BOTTOM_OF_STACKS_Y );
+  var BOTTOM_OF_STACKS_Y = -280;
+  var PROTON_STACK_CENTER_BOTTOM = new Vector2( -150, BOTTOM_OF_STACKS_Y );
   var NEUTRON_STACK_CENTER_BOTTOM = new Vector2( 0, BOTTOM_OF_STACKS_Y );
-  var ELECTRON_STACK_CENTER_BOTTOM = new Vector2( 50, BOTTOM_OF_STACKS_Y );
+  var ELECTRON_STACK_CENTER_BOTTOM = new Vector2( 150, BOTTOM_OF_STACKS_Y );
 
   function SymbolTabModel() {
 
@@ -78,11 +78,35 @@ define( function( require ) {
         thisSymbolTabModel.protons.push( proton );
       }
     } );
+    this.numberAtom.link( 'neutronCount', function( neutronCount ) {
+      if ( neutronCount > thisSymbolTabModel.particleAtom.neutrons.length ) {
+        thisSymbolTabModel.particleAtom.addParticle( thisSymbolTabModel.neutrons.pop() );
+      }
+      else if ( neutronCount < thisSymbolTabModel.particleAtom.neutrons.length ) {
+        var neutron = thisSymbolTabModel.particleAtom.removeParticle( "neutron" );
+        neutron.destination = getNextNeutronPosition();
+        thisSymbolTabModel.neutrons.push( neutron );
+      }
+    } );
+    this.numberAtom.link( 'electronCount', function( electronCount ) {
+      if ( electronCount > thisSymbolTabModel.particleAtom.electrons.length ) {
+        thisSymbolTabModel.particleAtom.addParticle( thisSymbolTabModel.electrons.pop() );
+      }
+      else if ( electronCount < thisSymbolTabModel.particleAtom.electrons.length ) {
+        var electron = thisSymbolTabModel.particleAtom.removeParticle( "electron" );
+        electron.destination = getNextElectronPosition();
+        thisSymbolTabModel.electrons.push( electron );
+      }
+    } );
   };
 
   SymbolTabModel.prototype.step = function( dt ) {
     this.protons.forEach( function( proton ){ proton.step( dt ); } );
     this.particleAtom.protons.forEach( function( proton ){ proton.step( dt ); } );
+    this.neutrons.forEach( function( neutron ){ neutron.step( dt ); } );
+    this.particleAtom.neutrons.forEach( function( neutron ){ neutron.step( dt ); } );
+    this.electrons.forEach( function( electron ){ electron.step( dt ); } );
+    this.particleAtom.electrons.forEach( function( electron ){ electron.step( dt ); } );
   };
 
   return SymbolTabModel;
