@@ -5,7 +5,7 @@
  * modeled subatomic particles.  This model element manages the positions and
  * motion of all particles that are a part of the atom.
  */
-define( function ( require ) {
+define( function( require ) {
 
   // Imports
   var Fort = require( 'FORT/Fort' );
@@ -30,7 +30,7 @@ define( function ( require ) {
           outerElectronShellRadius: DEFAULT_OUTER_ELECTRON_SHELL_RADIUS
         },
 
-        constructor: function () {
+        constructor: function() {
           Fort.Model.apply( this );
           var thisAtom = this;
 
@@ -52,8 +52,8 @@ define( function ( require ) {
           }
 
           // If the electron collection is reset, clear the open positions.
-          this.electrons.on( 'reset', function () {
-            _.each( thisAtom.electronPositions, function ( electronPosition ) {
+          this.electrons.on( 'reset', function() {
+            _.each( thisAtom.electronPositions, function( electronPosition ) {
               electronPosition.electron = null;
             } )
           } );
@@ -61,14 +61,14 @@ define( function ( require ) {
       }
   );
 
-  ParticleAtom.prototype.addParticle = function ( particle ) {
+  ParticleAtom.prototype.addParticle = function( particle ) {
 
     var thisAtom = this;
 
     if ( particle.type === 'proton' ) {
       this.protons.add( particle );
       this.reconfigureNucleus( true );
-      particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
+      particle.once( 'change:userControlled', function( userControlledParticle, userControlled ) {
         if ( userControlled && thisAtom.protons.contains( userControlledParticle ) ) {
           thisAtom.protons.remove( userControlledParticle );
           thisAtom.reconfigureNucleus( true );
@@ -78,7 +78,7 @@ define( function ( require ) {
     else if ( particle.type === 'neutron' ) {
       this.neutrons.add( particle );
       this.reconfigureNucleus( true );
-      particle.once( 'change:userControlled', function ( userControlledParticle, userControlled ) {
+      particle.once( 'change:userControlled', function( userControlledParticle, userControlled ) {
         if ( userControlled && thisAtom.neutrons.contains( userControlledParticle ) ) {
           thisAtom.neutrons.remove( userControlledParticle );
           thisAtom.reconfigureNucleus( true );
@@ -88,15 +88,15 @@ define( function ( require ) {
     else if ( particle.type === 'electron' ) {
       this.electrons.add( particle );
       // Find an open position in the electron shell.
-      var openPositions = this.electronPositions.filter( function ( electronPosition ) {
+      var openPositions = this.electronPositions.filter( function( electronPosition ) {
         return ( electronPosition.electron === null )
       } );
-      var sortedOpenPositions = openPositions.sort( function ( p1, p2 ) {
+      var sortedOpenPositions = openPositions.sort( function( p1, p2 ) {
         // Sort first by distance to particle.
         return( Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p1.position.x, p1.position.y ) -
                 Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p2.position.x, p2.position.y ));
       } );
-      var sortedOpenPositions = sortedOpenPositions.sort( function ( p1, p2 ) {
+      var sortedOpenPositions = sortedOpenPositions.sort( function( p1, p2 ) {
         // Sort second to put the inner shell positions at the front.
         return( Math.round( Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p1.position.x, p1.position.y ) -
                             Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p2.position.x, p2.position.y ) ) );
@@ -107,10 +107,10 @@ define( function ( require ) {
       }
       sortedOpenPositions[0].electron = particle;
       particle.destination = sortedOpenPositions[ 0 ].position;
-      particle.once( 'change:userControlled', function ( userControlledElectron, userControlled ) {
+      particle.once( 'change:userControlled', function( userControlledElectron, userControlled ) {
         if ( userControlled && thisAtom.neutrons.contains( userControlledElectron ) ) {
           thisAtom.electrons.electrons( userControlledElectron );
-          _.each( thisAtom.electronPositions, function ( electronPosition ) {
+          _.each( thisAtom.electronPositions, function( electronPosition ) {
             if ( electronPosition.electron === userControlledElectron ) {
               electronPosition.electron = null;
             }
@@ -123,15 +123,37 @@ define( function ( require ) {
     }
   };
 
-  ParticleAtom.prototype.getWeight = function () {
+  ParticleAtom.prototype.removeParticle = function( particleType ) {
+    // TODO: Need to figure out how to remove the user controlled listener that was added when the particle was added to the atom.
+    var thisAtom = this;
+
+    var particle;
+    if ( particleType === 'proton' ) {
+      particle = this.protons.pop();
+      this.reconfigureNucleus( true );
+    }
+    else if ( particleType === 'neutron' ) {
+      particle = this.neutrons.pop();
+      this.reconfigureNucleus( true );
+    }
+    else if ( particleType === 'electron' ) {
+      particle = this.electrons.pop();
+    }
+    else {
+      console.log( "Error: Ignoring request to remove unknown particle type." );
+    }
+    return particle;
+  }
+
+  ParticleAtom.prototype.getWeight = function() {
     return this.protons.length + this.neutrons.length;
   };
 
-  ParticleAtom.prototype.getCharge = function () {
+  ParticleAtom.prototype.getCharge = function() {
     return this.protons.length - this.electrons.length;
   };
 
-  ParticleAtom.prototype.reconfigureNucleus = function ( moveImmediately ) {
+  ParticleAtom.prototype.reconfigureNucleus = function( moveImmediately ) {
 
     // Convenience variables.
     var centerX = this.position.x;
@@ -163,11 +185,11 @@ define( function ( require ) {
       angle = Math.random() * 2 * Math.PI;
       distFromCenter = nucleonRadius * 1.155;
       nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ),
-                                          centerY + distFromCenter * Math.sin( angle ) );
+                                             centerY + distFromCenter * Math.sin( angle ) );
       nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
-                                          centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
+                                             centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
       nucleons[2].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
-                                          centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
+                                             centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
     }
     else if ( nucleons.length === 4 ) {
       // Four nucleons - make a sort of diamond shape with some overlap.
@@ -176,9 +198,9 @@ define( function ( require ) {
       nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
       distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
       nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                          centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+                                             centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
       nucleons[3].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                          centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+                                             centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
     }
     else if ( nucleons.length >= 5 ) {
       // This is a generalized algorithm that should work for five or
@@ -190,7 +212,7 @@ define( function ( require ) {
       var placementAngleDelta = 0;
       for ( var i = 0; i < nucleons.length; i++ ) {
         nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
-                                            centerY + placementRadius * Math.sin( placementAngle ) );
+                                               centerY + placementRadius * Math.sin( placementAngle ) );
         numAtThisRadius--;
         if ( numAtThisRadius > 0 ) {
           // Stay at the same radius and update the placement angle.

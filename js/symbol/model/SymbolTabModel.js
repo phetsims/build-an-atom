@@ -48,11 +48,12 @@ define( function( require ) {
     // Link the numberAtom to the particleAtom.
     this.numberAtom.link( 'protonCount', function( protonCount ) {
       if ( protonCount > thisSymbolTabModel.particleAtom.protons.length ) {
-        console.log( "Add a proton to the atom view" );
         thisSymbolTabModel.particleAtom.addParticle( thisSymbolTabModel.protons.pop() );
       }
       else if ( protonCount < thisSymbolTabModel.particleAtom.protons.length ) {
-        console.log( "Remove a proton from the atom view" );
+        var proton = thisSymbolTabModel.particleAtom.removeParticle( "proton" );
+        proton.destination = getNextProtonPosition();
+        thisSymbolTabModel.protons.push( proton );
       }
     } );
   };
