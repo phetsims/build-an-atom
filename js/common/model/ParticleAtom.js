@@ -109,7 +109,7 @@ define( function( require ) {
       particle.destination = sortedOpenPositions[ 0 ].position;
       particle.once( 'change:userControlled', function( userControlledElectron, userControlled ) {
         if ( userControlled && thisAtom.neutrons.contains( userControlledElectron ) ) {
-          thisAtom.electrons.electrons( userControlledElectron );
+          thisAtom.electrons.remove( userControlledElectron );
           _.each( thisAtom.electronPositions, function( electronPosition ) {
             if ( electronPosition.electron === userControlledElectron ) {
               electronPosition.electron = null;
@@ -138,6 +138,11 @@ define( function( require ) {
     }
     else if ( particleType === 'electron' ) {
       particle = this.electrons.pop();
+      _.each( thisAtom.electronPositions, function( electronPosition ) {
+        if ( electronPosition.electron === particle ) {
+          electronPosition.electron = null;
+        }
+      } );
     }
     else {
       console.log( "Error: Ignoring request to remove unknown particle type." );
