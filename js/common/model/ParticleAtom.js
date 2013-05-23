@@ -108,7 +108,7 @@ define( function( require ) {
       sortedOpenPositions[0].electron = particle;
       particle.destination = sortedOpenPositions[ 0 ].position;
       particle.once( 'change:userControlled', function( userControlledElectron, userControlled ) {
-        if ( userControlled && thisAtom.neutrons.contains( userControlledElectron ) ) {
+        if ( userControlled && thisAtom.electrons.contains( userControlledElectron ) ) {
           thisAtom.electrons.remove( userControlledElectron );
           _.each( thisAtom.electronPositions, function( electronPosition ) {
             if ( electronPosition.electron === userControlledElectron ) {

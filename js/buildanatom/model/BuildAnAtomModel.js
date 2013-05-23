@@ -113,7 +113,7 @@ define( function ( require ) {
             thisModel.atom.addParticle( electron );
           }
           else {
-            thisModel.buckets.electronBucket.addParticleNearestOpen( electron );
+            thisModel.buckets.electronBucket.addParticleNearestOpen( electron, true );
           }
         }
       } );
