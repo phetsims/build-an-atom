@@ -13,12 +13,13 @@ define( function( require ) {
   var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Vector2 = require( 'DOT/Vector2' );
   var Particle = require( 'common/model/Particle' );
+  var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 12;
   var NUM_ELECTRONS = 11;
-  var BOTTOM_OF_STACKS_Y = -280;
+  var BOTTOM_OF_STACKS_Y = -300;
   var PROTON_STACK_CENTER_BOTTOM = new Vector2( -150, BOTTOM_OF_STACKS_Y );
   var NEUTRON_STACK_CENTER_BOTTOM = new Vector2( 0, BOTTOM_OF_STACKS_Y );
   var ELECTRON_STACK_CENTER_BOTTOM = new Vector2( 150, BOTTOM_OF_STACKS_Y );
@@ -34,18 +35,54 @@ define( function( require ) {
     this.neutrons = [];
     this.electrons = [];
 
+    // Function for stacking particles.
+    var getStackOffset = function( index, radius ) {
+      // At top of stack unless the stack is not complete.
+      var x = 0;
+      var y = 0;
+      switch( index ) {
+        case 0:
+          x = -2 * radius;
+          y = radius;
+          break;
+        case 1:
+          x = 0;
+          y = radius;
+          break;
+        case 2:
+          x = 2 * radius;
+          y = radius;
+          break;
+        case 3:
+          x = -radius;
+          y = 2.732 * radius;
+          break;
+        case 4:
+          x = radius;
+          y = 2.732 * radius;
+          break;
+        case 5:
+          x = 0;
+          y = 4.464 * radius;
+          break;
+        default:
+          // Defaults to top of the stack.
+          x = 0;
+          y = 4.464 * radius;
+          break;
+      }
+      return new Vector2( x, y );
+    }
+
     // Functions for managing particle positions.
     var getNextProtonPosition = function() {
-      // TODO: Make this work as a stacking algorithm.
-      return PROTON_STACK_CENTER_BOTTOM;
+      return PROTON_STACK_CENTER_BOTTOM.plus( getStackOffset( thisSymbolTabModel.protons.length, SharedConstants.NUCLEON_RADIUS ) );
     }
     var getNextNeutronPosition = function() {
-      // TODO: Make this work as a stacking algorithm.
-      return NEUTRON_STACK_CENTER_BOTTOM;
+      return NEUTRON_STACK_CENTER_BOTTOM.plus( getStackOffset( thisSymbolTabModel.neutrons.length, SharedConstants.NUCLEON_RADIUS ) );
     }
     var getNextElectronPosition = function() {
-      // TODO: Make this work as a stacking algorithm.
-      return ELECTRON_STACK_CENTER_BOTTOM;
+      return ELECTRON_STACK_CENTER_BOTTOM.plus( getStackOffset( thisSymbolTabModel.electrons.length, SharedConstants.ELECTRON_RADIUS ) );
     }
 
     _.times( NUM_PROTONS, function() {
@@ -101,12 +138,24 @@ define( function( require ) {
   };
 
   SymbolTabModel.prototype.step = function( dt ) {
-    this.protons.forEach( function( proton ){ proton.step( dt ); } );
-    this.particleAtom.protons.forEach( function( proton ){ proton.step( dt ); } );
-    this.neutrons.forEach( function( neutron ){ neutron.step( dt ); } );
-    this.particleAtom.neutrons.forEach( function( neutron ){ neutron.step( dt ); } );
-    this.electrons.forEach( function( electron ){ electron.step( dt ); } );
-    this.particleAtom.electrons.forEach( function( electron ){ electron.step( dt ); } );
+    this.protons.forEach( function( proton ) {
+      proton.step( dt );
+    } );
+    this.particleAtom.protons.forEach( function( proton ) {
+      proton.step( dt );
+    } );
+    this.neutrons.forEach( function( neutron ) {
+      neutron.step( dt );
+    } );
+    this.particleAtom.neutrons.forEach( function( neutron ) {
+      neutron.step( dt );
+    } );
+    this.electrons.forEach( function( electron ) {
+      electron.step( dt );
+    } );
+    this.particleAtom.electrons.forEach( function( electron ) {
+      electron.step( dt );
+    } );
   };
 
   return SymbolTabModel;
