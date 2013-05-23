@@ -40,13 +40,14 @@ define( function( require ) {
 
     // Add the atom display.
     console.log( "periodicTableNode.maxX + 20 = " + periodicTable.right + 20 );
-    this.addChild( new AtomWithParticleStacks( model ).mutate( {
+    var atomView = new AtomWithParticleStacks( model ).mutate( {
                                                                  left: periodicTable.right + 40,
-                                                                 top: symbolNode.minY
-                                                               } ) );
+                                                                 top: 50
+                                                               } );
+    this.addChild( atomView );
 
     // Add the reset button. TODO: i18n
-    this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
+    this.addChild( new Button( new Text( "Reset", { font: 'bold 16px Arial'} ),
                                function() {
                                  model.reset();
                                },
@@ -54,7 +55,7 @@ define( function( require ) {
                                  fill: 'orange',
                                  xMargin: 10,
                                  lineWidth: 1.5
-                               } ).mutate( {center: new Vector2( 900, 650 )} ) );
+                               } ).mutate( {center: new Vector2( atomView.centerX, atomView.bottom + 40 )} ) );
   }
 
   // Inherit from TabView.
