@@ -5,7 +5,7 @@
  * the quantity of the various subatomic particles (i.e. protons, neutrons,
  * and electrons).
  */
-define( function ( require ) {
+define( function( require ) {
 
   var Fort = require( 'FORT/Fort' );
 
@@ -19,16 +19,18 @@ define( function ( require ) {
       }
   );
 
-  NumberAtom.prototype.getAtomicMass = function () {
+  NumberAtom.prototype.getAtomicMass = function() {
     return this.protonCount + this.neutronCount;
   };
 
-  NumberAtom.prototype.getCharge = function () {
+  NumberAtom.prototype.getCharge = function() {
     return this.protonCount - this.electronCount;
   };
 
-  NumberAtom.prototype.step = function ( dt ) {
-    // TODO: TBD.
+  NumberAtom.prototype.reset = function() {
+    this.protonCount = 0;
+    this.neutronCount = 0;
+    this.electronCount = 0;
   };
 
   return NumberAtom;
