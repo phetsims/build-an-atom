@@ -16,19 +16,23 @@ define( function( require ) {
    * Constructor.
    *
    * @param atomicNumber - Atomic number of atom represented by this cell.
+   * @param dimension - Width and height of cell (cells are square).
+   * @param interactive - Boolean flag that determines whether cell is interactive.
+   * @param numberAtom - Atom that is set if this cell is selected by the user.
    * @constructor
    */
-  function PeriodicTableCell( atomicNumber, dimension, interactive ) {
+  function PeriodicTableCell( atomicNumber, dimension, interactive, numberAtom ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
 
-    this.normalFill = interactive ? new LinearGradient( 0, 0, 0, dimension ).addColorStop(0, 'white' ).addColorStop( 1, 'gray' ) : 'white';
+    this.normalFill = interactive ? new LinearGradient( 0, 0, 0, dimension ).addColorStop( 0, 'white' ).addColorStop( 1, 'gray' ) : 'white';
     this.highlightedFill = 'yellow';
 
     this.cell = new Rectangle( 0, 0, dimension, dimension, 0, 0,
                                {
                                  stroke: 'black',
                                  lineWidth: 1,
-                                 fill: this.normalFill
+                                 fill: this.normalFill,
+                                 cursor: interactive ? 'pointer' : null
                                } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
       font: "Arial",
@@ -37,6 +41,17 @@ define( function( require ) {
     this.label.fontSize = NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION);
     this.cell.addChild( this.label );
     this.addChild( this.cell );
+
+    // If interactive, add a listener to set the atom when this cell is pressed.
+    if ( interactive ) {
+      this.cell.addInputListener( {
+                                    up: function() {
+                                      numberAtom.protonCount = atomicNumber;
+                                      numberAtom.neutronCount = atomicNumber;
+                                      numberAtom.electronCount = atomicNumber;
+                                    }
+                                  } );
+    }
   };
 
   // Inherit from Node.
