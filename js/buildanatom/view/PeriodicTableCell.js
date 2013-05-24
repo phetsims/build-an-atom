@@ -3,6 +3,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
@@ -17,14 +18,17 @@ define( function( require ) {
    * @param atomicNumber - Atomic number of atom represented by this cell.
    * @constructor
    */
-  function PeriodicTableCell( atomicNumber, dimension ) {
+  function PeriodicTableCell( atomicNumber, dimension, interactive ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
+
+    this.normalFill = interactive ? new LinearGradient( 0, 0, 0, dimension ).addColorStop(0, 'white' ).addColorStop( 1, 'gray' ) : 'white';
+    this.highlightedFill = 'yellow';
 
     this.cell = new Rectangle( 0, 0, dimension, dimension, 0, 0,
                                {
                                  stroke: 'black',
                                  lineWidth: 1,
-                                 fill: 'white'
+                                 fill: this.normalFill
                                } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
       font: "Arial",
@@ -39,7 +43,7 @@ define( function( require ) {
   inherit( PeriodicTableCell, Node );
 
   PeriodicTableCell.prototype.setHighlighted = function( highLighted ) {
-    this.cell.fill = highLighted ? 'yellow' : 'white';
+    this.cell.fill = highLighted ? this.highlightedFill : this.normalFill;
     this.label.fontWeight = highLighted ? 'bold' : 'normal';
   }
 
