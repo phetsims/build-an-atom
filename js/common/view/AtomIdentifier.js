@@ -14,7 +14,7 @@ define( [], function () {
    * @return string
    */
   AtomIdentifier.getSymbol = function ( numProtons ) {
-    return symbolTable[ numProtons ];
+    return _symbolTable[ numProtons ];
   };
 
   /**
@@ -22,15 +22,16 @@ define( [], function () {
    * @return string
    */
   AtomIdentifier.getName = function ( numProtons ) {
-    return nameTable[numProtons];
+    return _nameTable[numProtons];
   };
 
   /**
    * Identifies whether a given atomic nucleus is stable.
    * @param numProtons
+   * @param numNeutrons
    */
   AtomIdentifier.isStable = function ( numProtons, numNeutrons ) {
-    var tableEntry = stableElementTable[ numProtons ];
+    var tableEntry = _stableElementTable[ numProtons ];
     if ( typeof( tableEntry ) == 'undefined' ) {
       console.log( "Error: Stability table has no entry for atomic number " + numProtons );
       return false;
@@ -38,8 +39,12 @@ define( [], function () {
     return $.inArray( numNeutrons, tableEntry ) > -1;
   };
 
+  AtomIdentifier.getNumNeutronsInMostCommonIsotope = function( atomicNumber ){
+    return _numNeutronsInMostStableIsotope[ atomicNumber ];
+  }
 
-  var nameTable = [
+
+  var _nameTable = [
     '',
     'Hydrogen',
     'Helium',
@@ -62,7 +67,7 @@ define( [], function () {
     // Stops here since this is highest element name shown in sim.
   ];
 
-  var symbolTable = [
+  var _symbolTable = [
     '-', // 0, NO ELEMENT
     'H', // 1, HYDROGEN
     'He', // 2, HELIUM
@@ -179,7 +184,7 @@ define( [], function () {
   ];
 
   // Table of stable elements, indexed by atomic number to a list of viable numbers of neutrons.
-  var stableElementTable = [
+  var _stableElementTable = [
     // No element
     [],
     // Hydrogen
@@ -202,6 +207,31 @@ define( [], function () {
     [10],
     // Neon
     [10, 11, 12]
+  ];
+
+  var _numNeutronsInMostStableIsotope = [
+    // No element
+    0,
+    // Hydrogen
+    0,
+    // Helium
+    2,
+    // Lithium
+    4,
+    // Beryllium
+    5,
+    // Boron
+    6,
+    // Carbon
+    6,
+    // Nitrogen
+    8,
+    // Oxygen
+    8,
+    // Fluorine
+    10,
+    // Neon
+    10
   ];
 
   return AtomIdentifier;

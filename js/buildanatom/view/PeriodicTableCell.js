@@ -47,7 +47,7 @@ define( function( require ) {
       this.cell.addInputListener( {
                                     up: function() {
                                       numberAtom.protonCount = atomicNumber;
-                                      numberAtom.neutronCount = atomicNumber;
+                                      numberAtom.neutronCount = AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber );
                                       numberAtom.electronCount = atomicNumber;
                                     }
                                   } );
