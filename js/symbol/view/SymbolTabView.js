@@ -33,15 +33,17 @@ define( function( require ) {
     var symbolNode = new SymbolNode( model.numberAtom ).mutate( { left: 120, top: 10 } );
     this.addChild( symbolNode );
 
-    // Add the scale - just an image with no functionality.
+    // Add the scale image - just an image with no functionality.
     var scaleImage = new Image( BAAImages.getImage( "scale.svg" ) );
     scaleImage.scale( 0.25 ); // Scale empirically determined to match design layout.
+    scaleImage.x = 0;
+    scaleImage.y = 0;
     this.addChild( scaleImage );
 
     // Add the periodic table
     var periodicTable = new PeriodicTableNode( model.numberAtom ).mutate( {
                                                                             top: symbolNode.bottom + 40,
-                                                                            centerX: symbolNode.centerX
+                                                                            left: 0
                                                                           } );
     this.addChild( periodicTable );
 
