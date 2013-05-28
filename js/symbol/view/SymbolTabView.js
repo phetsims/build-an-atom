@@ -42,7 +42,7 @@ define( function( require ) {
 
     // Add the periodic table
     var periodicTable = new PeriodicTableNode( model.numberAtom ).mutate( {
-                                                                            top: symbolNode.bottom + 40,
+                                                                            top: symbolNode.bottom,
                                                                             left: 0
                                                                           } );
     this.addChild( periodicTable );
