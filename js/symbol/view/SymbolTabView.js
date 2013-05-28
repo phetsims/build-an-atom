@@ -18,6 +18,7 @@ define( function( require ) {
   var BAAImages = require( "common/BAAImages" );
   var PeriodicTableNode = require( "buildanatom/view/PeriodicTableNode" );
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
+  var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
@@ -46,6 +47,9 @@ define( function( require ) {
                                                                             left: 0
                                                                           } );
     this.addChild( periodicTable );
+
+    // Add the particle bar graph.
+    this.addChild( new ParticleCountDisplay( model.numberAtom ) );
 
     // Add the atom display.
     console.log( "periodicTableNode.maxX + 20 = " + periodicTable.right + 20 );

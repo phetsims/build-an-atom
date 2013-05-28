@@ -8,7 +8,7 @@ define( function ( require ) {
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ParticleView = require( 'buildanatom/view/ParticleView' );
+  var ParticleView = require( 'common/view/ParticleView' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );

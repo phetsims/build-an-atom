@@ -12,7 +12,7 @@ define( function( require ) {
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
   var AtomNode = require( 'common/view/AtomNode' );
-  var ParticleView = require( 'buildanatom/view/ParticleView' );
+  var ParticleView = require( 'common/view/ParticleView' );
 
   // Constants
   var WIDTH = 225; // In screen coords, which are roughly pixels.
