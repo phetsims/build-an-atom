@@ -10,11 +10,15 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
   var ParticleView = require( 'common/view/ParticleView' );
   var PanelNode = require( 'SUN/PanelNode' );
+
+  // Constants
+  var _FONT = '20px Arial bold';
 
   /**
    * @param numberAtom Model representation of the atom
@@ -26,7 +30,7 @@ define( function( require ) {
     var thisParticleCountDisplay = this;
 
     //TODO: i18n
-    var protonTitle = new Text( "Protons:" );
+    var protonTitle = new Text( "Protons:", { font: _FONT } );
     this.addChild( protonTitle );
   }
 
