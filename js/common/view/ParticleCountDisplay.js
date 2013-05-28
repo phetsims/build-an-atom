@@ -35,6 +35,19 @@ define( function( require ) {
     //TODO: i18n
     var protonTitle = new Text( "Protons:", { font: _FONT } );
     panelContents.addChild( protonTitle );
+    var neutronTitle = new Text( "Neutrons:", { font: _FONT } );
+    panelContents.addChild( neutronTitle );
+    var electronTitle = new Text( "Electrons:", { font: _FONT } );
+    panelContents.addChild( electronTitle );
+
+    // Lay out the labels.
+    var maxLabelWidth = Math.max( Math.max( protonTitle.width, neutronTitle.width ), electronTitle.width );
+    protonTitle.right = maxLabelWidth;
+    protonTitle.top = 0;
+    neutronTitle.right = maxLabelWidth;
+    neutronTitle.top = protonTitle.bottom;
+    electronTitle.right = maxLabelWidth;
+    electronTitle.top = neutronTitle.bottom;
 
     this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
   }
