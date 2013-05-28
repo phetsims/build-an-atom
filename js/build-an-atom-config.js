@@ -18,6 +18,7 @@ require.config(
         tpl: "../lib/tpl-0.2",
         lodash: "../lib/lodash-1.0.1",
         underscore: "../lib/underscore-1.4.2",
+        imagesloaded: "../../phetcommon/contrib/jquery.imagesloaded-2.1.1",
 
         // PhET's common code, uppercase names to identify them in require imports
         PHETCOMMON: "../../phetcommon/js",

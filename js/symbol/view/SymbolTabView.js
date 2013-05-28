@@ -6,6 +6,7 @@
 define( function( require ) {
   "use strict";
 
+  var Image = require( 'SCENERY/nodes/Image' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var NumberAtom = require( 'symbol/model/NumberAtom' );
@@ -14,6 +15,7 @@ define( function( require ) {
   var Button = require( 'SUN/Button' );
   var TabView = require( "JOIST/TabView" );
   var SymbolNode = require( "symbol/view/SymbolNode" );
+  var BAAImages = require( "common/BAAImages" );
   var PeriodicTableNode = require( "buildanatom/view/PeriodicTableNode" );
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -30,6 +32,10 @@ define( function( require ) {
     // Add the node that shows the interactive symbol
     var symbolNode = new SymbolNode( model.numberAtom ).mutate( { left: 120, top: 10 } );
     this.addChild( symbolNode );
+
+    // Add the scale - just an image with no functionality.
+    var imageNode = new Image( BAAImages.getImage( "scale.png" ) );
+    this.addChild( imageNode );
 
     // Add the periodic table
     var periodicTable = new PeriodicTableNode( model.numberAtom ).mutate( {
