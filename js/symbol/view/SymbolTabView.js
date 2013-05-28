@@ -34,8 +34,9 @@ define( function( require ) {
     this.addChild( symbolNode );
 
     // Add the scale - just an image with no functionality.
-    var imageNode = new Image( BAAImages.getImage( "scale.png" ) );
-    this.addChild( imageNode );
+    var scaleImage = new Image( BAAImages.getImage( "scale.svg" ) );
+    scaleImage.scale( 0.25 ); // Scale empirically determined to match design layout.
+    this.addChild( scaleImage );
 
     // Add the periodic table
     var periodicTable = new PeriodicTableNode( model.numberAtom ).mutate( {
