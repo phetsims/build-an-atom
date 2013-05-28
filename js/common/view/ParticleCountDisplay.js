@@ -16,6 +16,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var ParticleView = require( 'common/view/ParticleView' );
   var PanelNode = require( 'SUN/PanelNode' );
+  var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
   var _FONT = '20px Arial bold';
@@ -29,9 +30,13 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
     var thisParticleCountDisplay = this;
 
+    var panelContents = new Node();
+
     //TODO: i18n
     var protonTitle = new Text( "Protons:", { font: _FONT } );
-    this.addChild( protonTitle );
+    panelContents.addChild( protonTitle );
+
+    this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
   }
 
   // Inherit from Node.

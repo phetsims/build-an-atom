@@ -13,6 +13,7 @@ define( function( require ) {
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
   var AtomNode = require( 'common/view/AtomNode' );
   var ParticleView = require( 'common/view/ParticleView' );
+  var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
   var WIDTH = 225; // In screen coords, which are roughly pixels.
@@ -40,7 +41,7 @@ define( function( require ) {
                                      {
                                        stroke: 'black',
                                        lineWidth: 1,
-                                       fill: 'rgb( 254, 255, 153 )'
+                                       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
                                      } );
     this.addChild( boundingBox );
 

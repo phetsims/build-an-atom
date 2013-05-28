@@ -8,6 +8,9 @@ define( function ( require ) {
   SharedConstants.NUCLEON_RADIUS = 12; // In screen coordinates, which are roughly pixels.
   SharedConstants.ELECTRON_RADIUS = 8; // In screen coordinates, which are roughly pixels.
 
+  // Background color used on several displays.
+  SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR = 'rgb( 254, 255, 153 )';
+
   return SharedConstants;
 
 } );
