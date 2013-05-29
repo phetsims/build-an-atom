@@ -46,7 +46,7 @@ define( function( require ) {
     this.addChild( boundingBox );
 
     // Add the node that presents the atom.
-    var atomNode = new AtomNode( symbolTableModel.particleAtom, mvt );
+    var atomNode = new AtomNode( symbolTableModel.particleAtom, mvt, {showElementName: false, showStability: false, showIonIndicator: false } );
     this.addChild( atomNode );
 
     // Add the particle views.

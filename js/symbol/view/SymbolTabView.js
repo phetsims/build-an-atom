@@ -74,10 +74,7 @@ define( function( require ) {
     atomView.left = periodicTable.right + 40;
     atomView.top = symbolNode.top + 40;
     particleCountDisplay.left = atomView.left;
-    particleCountDisplay.bottom = atomView.top - 10;
-
-    // Keep the particle count indicator centered above the atom display.
-
+    particleCountDisplay.bottom = atomView.top;
 
     resetButton.center = new Vector2( atomView.centerX, atomView.bottom + 40 );
 
