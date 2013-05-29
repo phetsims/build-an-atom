@@ -21,6 +21,8 @@ define( function( require ) {
   // Constants
   var _FONT = '20px Arial bold';
   var _PROTON_RADIUS = 5;
+  var _NEUTRON_RADIUS = 5;
+  var _ELECTRON_RADIUS = 3;
   var _INTER_PARTICLE_SPACING = _PROTON_RADIUS * 2.5;
 
   /**
@@ -55,20 +57,44 @@ define( function( require ) {
     var particleLayer = new Node();
     panelContents.addChild( particleLayer );
 
+    // Function that updates that displayed particles.
     var updateParticles = function( atom ) {
       particleLayer.removeAllChildren();
-      for ( var i = 0; i < atom.protonCount; i++ ) {
-        var particle = new ParticleNode( 'proton', _PROTON_RADIUS );
-        particle.y = protonTitle.center.y;
-        particle.x = protonTitle.right + ( i + 1 ) * _INTER_PARTICLE_SPACING;
-        particleLayer.addChild( particle );
+      var addParticles = function( particleType, numParticles, radius, startX, startY ){
+        for ( var i = 0; i < numParticles; i++ ) {
+          var particle = new ParticleNode( particleType, radius );
+          particle.y = startY;
+          particle.x = startX + i * _INTER_PARTICLE_SPACING;
+          particleLayer.addChild( particle );
+        }
       }
+      addParticles( 'proton', atom.protonCount, _PROTON_RADIUS, protonTitle.right + _INTER_PARTICLE_SPACING, protonTitle.center.y );
+      addParticles( 'neutron', atom.neutronCount, _NEUTRON_RADIUS, neutronTitle.right + _INTER_PARTICLE_SPACING, neutronTitle.center.y );
+      addParticles( 'electron', atom.electronCount, _ELECTRON_RADIUS, electronTitle.right + _INTER_PARTICLE_SPACING, electronTitle.center.y );
     }
 
-    numberAtom.link( 'protonCount', function( protonCount ) {
-      updateParticles( numberAtom )
-    } );
+    // Hook up the update function.
+    numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function( event ){
+      console.log( "Changed detected by backbone version." );
+      updateParticles( numberAtom );
+    });
 
+//    numberAtom.link( 'protonCount neutronCount electronCount', function( protonCount ) {
+//      console.log( "Changed detected by fort version." );
+//      updateParticles( numberAtom );
+//    } );
+
+//    numberAtom.link( 'protonCount', function( protonCount ) {
+//      updateParticles( numberAtom )
+//    } );
+//    numberAtom.link( 'neutronCount', function( protonCount ) {
+//      updateParticles( numberAtom )
+//    } );
+//    numberAtom.link( 'protonCount', function( protonCount ) {
+//      updateParticles( numberAtom )
+//    } );
+
+    // Add it all to a panel.
     this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
   }
 
