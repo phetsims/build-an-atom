@@ -61,7 +61,7 @@ require(
               return new BuildAnAtomModel();
             },
             createView: function( model ) {
-              return new BuildAnAtomView( model ).scene;
+              return new BuildAnAtomView( model );
             }
           },
           { name: "Symbol",

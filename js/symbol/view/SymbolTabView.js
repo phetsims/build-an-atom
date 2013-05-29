@@ -76,6 +76,9 @@ define( function( require ) {
     particleCountDisplay.left = atomView.left;
     particleCountDisplay.bottom = atomView.top - 10;
 
+    // Keep the particle count indicator centered above the atom display.
+
+
     resetButton.center = new Vector2( atomView.centerX, atomView.bottom + 40 );
 
   }
