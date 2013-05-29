@@ -75,24 +75,8 @@ define( function( require ) {
 
     // Hook up the update function.
     numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function( event ){
-      console.log( "Changed detected by backbone version." );
       updateParticles( numberAtom );
     });
-
-//    numberAtom.link( 'protonCount neutronCount electronCount', function( protonCount ) {
-//      console.log( "Changed detected by fort version." );
-//      updateParticles( numberAtom );
-//    } );
-
-//    numberAtom.link( 'protonCount', function( protonCount ) {
-//      updateParticles( numberAtom )
-//    } );
-//    numberAtom.link( 'neutronCount', function( protonCount ) {
-//      updateParticles( numberAtom )
-//    } );
-//    numberAtom.link( 'protonCount', function( protonCount ) {
-//      updateParticles( numberAtom )
-//    } );
 
     // Add it all to a panel.
     this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
