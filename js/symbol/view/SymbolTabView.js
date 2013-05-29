@@ -31,7 +31,7 @@ define( function( require ) {
     TabView.call( this ); // Call super constructor.
 
     // Add the node that shows the interactive symbol
-    var symbolNode = new SymbolNode( model.numberAtom ).mutate( { left: 120, top: 10 } );
+    var symbolNode = new SymbolNode( model.numberAtom );
     this.addChild( symbolNode );
 
     // Add the scale image - just an image with no functionality.
@@ -42,33 +42,42 @@ define( function( require ) {
     this.addChild( scaleImage );
 
     // Add the periodic table
-    var periodicTable = new PeriodicTableNode( model.numberAtom ).mutate( {
-                                                                            top: symbolNode.bottom,
-                                                                            left: 0
-                                                                          } );
+    var periodicTable = new PeriodicTableNode( model.numberAtom );
     this.addChild( periodicTable );
 
-    // Add the particle bar graph.
-    this.addChild( new ParticleCountDisplay( model.numberAtom ) );
+    // Add the particle count display.
+    var particleCountDisplay = new ParticleCountDisplay( model.numberAtom );
+    this.addChild( particleCountDisplay );
 
     // Add the atom display.
     console.log( "periodicTableNode.maxX + 20 = " + periodicTable.right + 20 );
-    var atomView = new AtomWithParticleStacks( model ).mutate( {
-                                                                 left: periodicTable.right + 40,
-                                                                 top: 50
-                                                               } );
+    var atomView = new AtomWithParticleStacks( model );
     this.addChild( atomView );
 
     // Add the reset button. TODO: i18n
-    this.addChild( new Button( new Text( "Reset", { font: 'bold 16px Arial'} ),
-                               function() {
-                                 model.reset();
-                               },
-                               {
-                                 fill: 'orange',
-                                 xMargin: 10,
-                                 lineWidth: 1.5
-                               } ).mutate( {center: new Vector2( atomView.centerX, atomView.bottom + 40 )} ) );
+    var resetButton = new Button( new Text( "Reset", { font: 'bold 16px Arial'} ),
+                                  function() {
+                                    model.reset();
+                                  },
+                                  {
+                                    fill: 'orange',
+                                    xMargin: 10,
+                                    lineWidth: 1.5
+                                  } );
+    this.addChild( resetButton );
+
+    // Do the layout.
+    symbolNode.top = 10;
+    periodicTable.left = 0;
+    periodicTable.top = symbolNode.bottom;
+    symbolNode.centerX = periodicTable.center.x;
+    atomView.left = periodicTable.right + 40;
+    atomView.top = symbolNode.top + 40;
+    particleCountDisplay.left = atomView.left;
+    particleCountDisplay.bottom = atomView.top - 10;
+
+    resetButton.center = new Vector2( atomView.centerX, atomView.bottom + 40 );
+
   }
 
   // Inherit from TabView.
