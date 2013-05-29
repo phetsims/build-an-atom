@@ -3,56 +3,31 @@
 /**
  * Type that represents a sub-atomic particle in the view.
  */
-define( function ( require ) {
+define( function( require ) {
   'use strict';
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var ParticleNode = require( 'common/view/ParticleNode' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   function ParticleView( particle, mvt ) {
 
     Node.call( this ); // Call super constructor.
-    var particleView = this;
+    var thisParticleView = this;
 
     // Set up fields.
     this.particle = particle;
     this.mvt = mvt;
-    this.drawRadius = mvt.modelToViewDeltaX( particle.radius );
 
-    // Set up the color based on the particle type.
-    var baseColor;
-    switch( particle.type ) {
-      case 'proton':
-        baseColor = 'red';
-        break;
-      case 'neutron':
-        baseColor = 'gray';
-        break;
-      case 'electron':
-        baseColor = 'blue';
-        break;
-      default:
-        console.error( 'Unrecognized particle type.' );
-        baseColor = 'black';
-        break;
-    }
-
-    // Create the basic shape.
-    this.addChild( new Circle( this.drawRadius,
-                               {
-                                 fill: new RadialGradient( -this.drawRadius * 0.4, -this.drawRadius * 0.4, 0, -this.drawRadius * 0.4, -this.drawRadius * 0.4, this.drawRadius * 1.6 )
-                                     .addColorStop( 0, 'white' )
-                                     .addColorStop( 1, baseColor ),
-                                 cursor: 'pointer'
-                               }
-    ) );
+    // Add the particle representation.
+    this.addChild( new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) ) );
 
     // Listen to the model position and update.
-    particle.link( 'position', function ( position ) {
-      particleView.translation = particleView.mvt.modelToViewPosition( position );
+    particle.link( 'position', function( position ) {
+      thisParticleView.translation = thisParticleView.mvt.modelToViewPosition( position );
     } );
 
     // Add a drag handler
@@ -61,15 +36,15 @@ define( function ( require ) {
                                                     allowTouchSnag: true,
 
                                                     // Handler that moves the particle in model space.
-                                                    translate: function ( translationParams ) {
+                                                    translate: function( translationParams ) {
                                                       particle.setPositionAndDestination( particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) ) );
                                                       return translationParams.position;
                                                     },
-                                                    start: function ( event, trail ) {
-                                                      particleView.particle.userControlled = true;
+                                                    start: function( event, trail ) {
+                                                      thisParticleView.particle.userControlled = true;
                                                     },
-                                                    end: function ( event, trail ) {
-                                                      particleView.particle.userControlled = false;
+                                                    end: function( event, trail ) {
+                                                      thisParticleView.particle.userControlled = false;
                                                     }
                                                   } ) );
   }

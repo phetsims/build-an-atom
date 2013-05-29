@@ -14,12 +14,14 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ParticleView = require( 'common/view/ParticleView' );
+  var ParticleNode = require( 'common/view/ParticleNode' );
   var PanelNode = require( 'SUN/PanelNode' );
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
   var _FONT = '20px Arial bold';
+  var _PROTON_RADIUS = 5;
+  var _INTER_PARTICLE_SPACING = _PROTON_RADIUS * 2.5;
 
   /**
    * @param numberAtom Model representation of the atom
@@ -48,6 +50,24 @@ define( function( require ) {
     neutronTitle.top = protonTitle.bottom;
     electronTitle.right = maxLabelWidth;
     electronTitle.top = neutronTitle.bottom;
+
+    // Add the layer where the particles will live.
+    var particleLayer = new Node();
+    panelContents.addChild( particleLayer );
+
+    var updateParticles = function( atom ) {
+      particleLayer.removeAllChildren();
+      for ( var i = 0; i < atom.protonCount; i++ ) {
+        var particle = new ParticleNode( 'proton', _PROTON_RADIUS );
+        particle.y = protonTitle.center.y;
+        particle.x = protonTitle.right + ( i + 1 ) * _INTER_PARTICLE_SPACING;
+        particleLayer.addChild( particle );
+      }
+    }
+
+    numberAtom.link( 'protonCount', function( protonCount ) {
+      updateParticles( numberAtom )
+    } );
 
     this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
   }
