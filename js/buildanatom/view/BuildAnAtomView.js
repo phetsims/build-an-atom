@@ -36,7 +36,7 @@ define( function ( require ) {
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
-                                                                          { x: thisView.layoutBounds.width / 2, y: thisView.layoutBounds.height * 0.35 },
+                                                                          { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.35 },
                                                                           1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
@@ -87,7 +87,7 @@ define( function ( require ) {
 
     // Add the reset button.
     var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position );
-    this.addChild( new Button( new Text( "Reset", { font: 'bold 32px Arial'} ),
+    this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
                                    function () {
                                      console.log( "Reset button pressed." );
                                      model.reset();
@@ -96,7 +96,7 @@ define( function ( require ) {
                                      fill: 'orange',
                                      xMargin: 10,
                                      lineWidth: 1.5
-                                   } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 170, 40 ) )} ) );
+                                   } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
   }
 
   // Inherit from TabView.

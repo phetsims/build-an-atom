@@ -5,6 +5,7 @@
  */
 define( function ( require ) {
 
+  // Imports
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
@@ -13,13 +14,14 @@ define( function ( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // Constants
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 13;
   var NUM_ELECTRONS = 10;
   var NUCLEON_CAPTURE_RADIUS = 100;
-  var BUCKET_WIDTH = 150;
+  var BUCKET_WIDTH = 120;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
-  var BUCKET_Y_OFFSET = -300;
+  var BUCKET_Y_OFFSET = -250;
 
   var placeNucleon = function ( particle, bucket, atom ) {
     if ( particle.position.distance( atom.position ) < NUCLEON_CAPTURE_RADIUS ) {
