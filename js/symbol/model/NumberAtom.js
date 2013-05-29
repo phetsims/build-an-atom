@@ -1,9 +1,9 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Model of an atom that represents the atom as a set of numbers which track
- * the quantity of the various subatomic particles (i.e. protons, neutrons,
- * and electrons).
+ * Model of an atom that represents the atom as a set of numbers which
+ * represent the quantity of the various subatomic particles (i.e. protons,
+ * neutrons, and electrons).
  */
 define( function( require ) {
 
@@ -15,23 +15,20 @@ define( function( require ) {
           protonCount: 0,
           neutronCount: 0,
           electronCount: 0
+        },
+        getAtomicMass: function() {
+          return this.protonCount + this.neutronCount;
+        },
+        getCharge: function() {
+          return this.protonCount - this.electronCount;
+        },
+        reset: function() {
+          this.protonCount = 0;
+          this.neutronCount = 0;
+          this.electronCount = 0;
         }
       }
   );
-
-  NumberAtom.prototype.getAtomicMass = function() {
-    return this.protonCount + this.neutronCount;
-  };
-
-  NumberAtom.prototype.getCharge = function() {
-    return this.protonCount - this.electronCount;
-  };
-
-  NumberAtom.prototype.reset = function() {
-    this.protonCount = 0;
-    this.neutronCount = 0;
-    this.electronCount = 0;
-  };
 
   return NumberAtom;
 } );
