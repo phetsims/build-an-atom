@@ -71,7 +71,7 @@ define( function( require ) {
       addParticles( 'proton', atom.protonCount, _PROTON_RADIUS, protonTitle.right + _INTER_PARTICLE_SPACING, protonTitle.center.y );
       addParticles( 'neutron', atom.neutronCount, _NEUTRON_RADIUS, neutronTitle.right + _INTER_PARTICLE_SPACING, neutronTitle.center.y );
       addParticles( 'electron', atom.electronCount, _ELECTRON_RADIUS, electronTitle.right + _INTER_PARTICLE_SPACING, electronTitle.center.y );
-    }
+    };
 
     // Hook up the update function.
     numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function( event ){
