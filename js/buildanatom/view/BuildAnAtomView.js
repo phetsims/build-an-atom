@@ -36,7 +36,7 @@ define( function ( require ) {
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
-                                                                          { x: STAGE_SIZE.width / 2, y: STAGE_SIZE.height * 0.35 },
+                                                                          { x: thisView.layoutBounds.width / 2, y: thisView.layoutBounds.height * 0.35 },
                                                                           1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
