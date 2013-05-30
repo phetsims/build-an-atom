@@ -23,6 +23,7 @@ define( function( require ) {
   var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var ChargeMeter = require( 'common/view/ChargeMeter' );
 
   // Constants
   var _EDGE_INSET = 10;
@@ -57,6 +58,10 @@ define( function( require ) {
 
     this.addChild( periodicTableFadeOutNode );
 
+    // Add the charge meter.
+    var chargeMeter = new ChargeMeter( model.numberAtom );
+    this.addChild( chargeMeter );
+
     // Add the particle count display.
     var particleCountDisplay = new ParticleCountDisplay( model.numberAtom );
     this.addChild( particleCountDisplay );
@@ -85,7 +90,9 @@ define( function( require ) {
     periodicTableFadeOutNode.center = periodicTable.center;
     symbolNode.centerX = periodicTable.center.x;
     scaleImage.x = _EDGE_INSET;
-    scaleImage.y = symbolNode.top + 10;
+    scaleImage.y = symbolNode.top;
+    chargeMeter.left = symbolNode.right + 10;
+    chargeMeter.top = symbolNode.top;
     particleCountDisplay.left = periodicTable.right + 30;
     particleCountDisplay.top = _EDGE_INSET;
     atomView.left = particleCountDisplay.left;
