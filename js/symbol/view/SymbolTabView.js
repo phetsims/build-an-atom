@@ -6,9 +6,11 @@
 define( function( require ) {
   "use strict";
 
+  // Imports
   var Image = require( 'SCENERY/nodes/Image' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var NumberAtom = require( 'symbol/model/NumberAtom' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -20,6 +22,10 @@ define( function( require ) {
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
   var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
   var inherit = require( 'PHET_CORE/inherit' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+
+  // Constants
+  var _EDGE_INSET = 10;
 
   /**
    * Constructor.
@@ -36,14 +42,20 @@ define( function( require ) {
 
     // Add the scale image - just an image with no functionality.
     var scaleImage = new Image( BAAImages.getImage( "scale.svg" ) );
-    scaleImage.scale( 0.25 ); // Scale empirically determined to match design layout.
-    scaleImage.x = 0;
-    scaleImage.y = 0;
+    scaleImage.scale( 0.20 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
     // Add the periodic table
     var periodicTable = new PeriodicTableNode( model.numberAtom );
     this.addChild( periodicTable );
+
+    // Add a node that will be used to make the periodic table appear to fade
+    // out at the bottom.
+    var fadeGradient = new LinearGradient( 0, 0, 0, periodicTable.height ).addColorStop( 0.3, 'rgba( 255, 254, 223, 0)').addColorStop( 0.7, 'rgba( 255, 254, 223, 1 )' );
+    var periodicTableFadeOutNode = new Rectangle( 0, 0, periodicTable.width * 1.01, periodicTable.height * 1.01,
+                                                  {fill: fadeGradient, pickable: false} );
+
+    this.addChild( periodicTableFadeOutNode );
 
     // Add the particle count display.
     var particleCountDisplay = new ParticleCountDisplay( model.numberAtom );
@@ -67,17 +79,18 @@ define( function( require ) {
     this.addChild( resetButton );
 
     // Do the layout.
-    symbolNode.top = 10;
-    periodicTable.left = 0;
+    symbolNode.top = _EDGE_INSET;
+    periodicTable.left = _EDGE_INSET;
     periodicTable.top = symbolNode.bottom;
+    periodicTableFadeOutNode.center = periodicTable.center;
     symbolNode.centerX = periodicTable.center.x;
-    atomView.left = periodicTable.right + 40;
-    atomView.top = symbolNode.top + 40;
-    particleCountDisplay.left = atomView.left;
-    particleCountDisplay.bottom = atomView.top;
-
+    scaleImage.x = _EDGE_INSET;
+    scaleImage.y = symbolNode.top + 10;
+    particleCountDisplay.left = periodicTable.right + 30;
+    particleCountDisplay.top = _EDGE_INSET;
+    atomView.left = particleCountDisplay.left;
+    atomView.top = particleCountDisplay.bottom + 10;
     resetButton.center = new Vector2( atomView.centerX, atomView.bottom + 40 );
-
   }
 
   // Inherit from TabView.
