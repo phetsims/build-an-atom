@@ -32,13 +32,18 @@ define( function( require ) {
 
     var meterWindowShape = new Shape();
     meterWindowShape.moveTo( _WINDOW_INSET, background.height - _WINDOW_INSET );
-    meterWindowShape.lineTo( background.centerX, _WINDOW_INSET );
-    meterWindowShape.lineTo( background.width - _WINDOW_INSET, background.height - _WINDOW_INSET );
+    meterWindowShape.cubicCurveTo( background.width * 0.2,
+                                   -background.height * 0.15,
+                                   background.width * 0.8,
+                                   -background.height * 0.15,
+                                   background.width - _WINDOW_INSET,
+                                   background.height - _WINDOW_INSET );
     meterWindowShape.close();
     var meterWindow = new Path( {
                                   shape: meterWindowShape,
                                   stroke: 'gray',
-                                  lineWidth: 2
+                                  lineWidth: 2,
+                                  fill: 'white'
                                 } );
     this.addChild( meterWindow );
 
