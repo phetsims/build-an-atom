@@ -6,6 +6,7 @@
  * neutrons, and electrons).
  */
 define( function( require ) {
+  "use strict";
 
   var Fort = require( 'FORT/Fort' );
 

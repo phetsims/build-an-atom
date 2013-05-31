@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado
 define( function( require ) {
+  'use strict';
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -41,7 +42,7 @@ define( function( require ) {
     atom.link( 'protonCount', function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
       thisSymbolNode.symbolText.text = protonCount > 0 ? symbol : "";
-      thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
+      thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     } );
     boundingBox.addChild( this.symbolText );
 

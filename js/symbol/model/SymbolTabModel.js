@@ -7,6 +7,7 @@
  * the mumber atom.
  */
 define( function( require ) {
+  'use strict';
 
   // Imports
   var NumberAtom = require( 'symbol/model/NumberAtom' );
@@ -64,7 +65,7 @@ define( function( require ) {
         particle.destination = thisSymbolTabModel._getNextParticlePosition( particleType );
         localParticleArray.push( particle );
       }
-    }
+    };
 
     // Link the numberAtom to the particleAtom.
     this.numberAtom.link( 'protonCount', function( protonCount ) {
@@ -142,32 +143,32 @@ define( function( require ) {
     return new Vector2( x, y );
   };
 
-  SymbolTabModel.prototype._getNextParticlePosition = function( particleType ){
+  SymbolTabModel.prototype._getNextParticlePosition = function( particleType ) {
     var stackPosition;
     var index;
     var particleRadius;
-    if ( particleType === 'proton'){
+    if ( particleType === 'proton' ) {
       stackPosition = PROTON_STACK_CENTER_BOTTOM;
       index = this.protons.length;
       particleRadius = SharedConstants.NUCLEON_RADIUS;
     }
-    else if ( particleType === 'neutron' ){
+    else if ( particleType === 'neutron' ) {
       stackPosition = NEUTRON_STACK_CENTER_BOTTOM;
       index = this.neutrons.length;
       particleRadius = SharedConstants.NUCLEON_RADIUS;
     }
-    else if ( particleType === 'electron' ){
+    else if ( particleType === 'electron' ) {
       stackPosition = ELECTRON_STACK_CENTER_BOTTOM;
       index = this.electrons.length;
       particleRadius = SharedConstants.ELECTRON_RADIUS;
     }
-    else{
+    else {
       console.log( "Error: Unhandled particle type = " + particleType );
       stackPosition = Vector2.ZERO;
       index = 0;
     }
     return stackPosition.plus( this._getStackOffset( index, particleRadius ) );
-  }
+  };
 
   return SymbolTabModel;
 } );

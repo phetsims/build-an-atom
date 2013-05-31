@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 define( function ( require ) {
+  "use strict";
 
-  var _ = require( 'lodash' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );

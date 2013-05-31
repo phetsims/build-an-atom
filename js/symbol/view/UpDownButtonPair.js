@@ -6,6 +6,7 @@
  * indication of current value.
  */
 define( function( require ) {
+  'use strict';
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );

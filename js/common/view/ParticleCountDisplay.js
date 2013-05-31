@@ -32,7 +32,6 @@ define( function( require ) {
   var ParticleCountDisplay = function( numberAtom ) {
 
     Node.call( this ); // Call super constructor.
-    var thisParticleCountDisplay = this;
 
     var panelContents = new Node();
 
@@ -60,27 +59,27 @@ define( function( require ) {
     // Function that updates that displayed particles.
     var updateParticles = function( atom ) {
       particleLayer.removeAllChildren();
-      var addParticles = function( particleType, numParticles, radius, startX, startY ){
+      var addParticles = function( particleType, numParticles, radius, startX, startY ) {
         for ( var i = 0; i < numParticles; i++ ) {
           var particle = new ParticleNode( particleType, radius );
           particle.y = startY;
           particle.x = startX + i * _INTER_PARTICLE_SPACING;
           particleLayer.addChild( particle );
         }
-      }
+      };
       addParticles( 'proton', atom.protonCount, _PROTON_RADIUS, protonTitle.right + _INTER_PARTICLE_SPACING, protonTitle.center.y );
       addParticles( 'neutron', atom.neutronCount, _NEUTRON_RADIUS, neutronTitle.right + _INTER_PARTICLE_SPACING, neutronTitle.center.y );
       addParticles( 'electron', atom.electronCount, _ELECTRON_RADIUS, electronTitle.right + _INTER_PARTICLE_SPACING, electronTitle.center.y );
     };
 
     // Hook up the update function.
-    numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function( event ){
+    numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function() {
       updateParticles( numberAtom );
-    });
+    } );
 
     // Add it all to a panel.
     this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
-  }
+  };
 
   // Inherit from Node.
   inherit( ParticleCountDisplay, Node );
