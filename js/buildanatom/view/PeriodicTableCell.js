@@ -36,7 +36,7 @@ define( function( require ) {
                                } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
       font: "Arial",
-      center: new Vector2( dimension / 2, dimension / 2 )
+      center: this.cell.center
     } );
     this.label.fontSize = NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION);
     this.cell.addChild( this.label );
@@ -52,7 +52,7 @@ define( function( require ) {
                                     }
                                   } );
     }
-  };
+  }
 
   // Inherit from Node.
   inherit( PeriodicTableCell, Node );
