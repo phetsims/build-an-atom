@@ -20,6 +20,8 @@ define( function( require ) {
   // Constants
   var _WIDTH = 70; // In screen coords, which are roughly pixels.
   var _MAX_CHARGE = 10;
+  var _CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
+  var _SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
   var ChargeMeter = function( atom ) {
 
@@ -51,18 +53,38 @@ define( function( require ) {
                                 } );
     this.addChild( meterWindow );
 
-    // Layer that contains the meter line.
+    // Add the plus symbol, which will be drawn (not done as a character).
+    var shadowOffset = 0.5; // In pixels.
+    var plusShape = new Shape().moveTo( -_CHARGE_SYMBOL_WIDTH / 2, 0 ).
+        lineTo( _CHARGE_SYMBOL_WIDTH / 2, 0 ).
+        moveTo( 0, -_CHARGE_SYMBOL_WIDTH / 2 ).
+        lineTo( 0, _CHARGE_SYMBOL_WIDTH / 2 );
+    var plusSymbol = new Node();
+    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
+    plusSymbol.center = new Vector2( background.width * 0.7, background.height * 0.5 );
+    this.addChild( plusSymbol );
+
+    // Add the minus symbol, which will be drawn (not done as a character).
+    var minusShape = new Shape().moveTo( -_CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( _CHARGE_SYMBOL_WIDTH / 2, 0 );
+    var minusSymbol = new Node();
+    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
+    minusSymbol.center = new Vector2( background.width * 0.3, background.height * 0.5 );
+    this.addChild( minusSymbol );
+
+    // Add the layer that contains the meter line.
     var meterLineLayer = new Node();
     this.addChild( meterLineLayer );
 
-    // Function that updates the meter when the atom changes.
+    // Define a function that updates the meter when the atom charge changes.
     var update = function() {
       meterLineLayer.removeAllChildren();
       var lineShape = new Shape();
-      lineShape.moveTo( meterWindow.centerX, meterWindow.bottom );
-      var deflectionAngle = ( atom.getCharge() / _MAX_CHARGE ) * Math.PI / 4;
+      lineShape.moveTo( meterWindow.centerX, meterWindow.bottom - 3 );
+      var deflectionAngle = ( atom.getCharge() / _MAX_CHARGE ) * Math.PI * 0.4;
       lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
-      meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black'} ) );
+      meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
     }
 
     // Add the listeners that will call the update function.
