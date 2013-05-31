@@ -15,10 +15,10 @@ define( function( require ) {
   var BAAImages = require( "common/BAAImages" );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
 
   // Constants
   var _WIDTH = 70; // In screen coords, which are roughly pixels.
-  var _WINDOW_INSET = 5; // In screen coords, which are roughly pixels.
 
   var ChargeMeter = function( atom ) {
 
@@ -30,20 +30,23 @@ define( function( require ) {
     background.scale( _WIDTH / background.width ); // Scale to the targeted width.
     this.addChild( background );
 
+    // Add the meter window.
     var meterWindowShape = new Shape();
-    meterWindowShape.moveTo( _WINDOW_INSET, background.height - _WINDOW_INSET );
-    meterWindowShape.cubicCurveTo( background.width * 0.2,
-                                   -background.height * 0.15,
-                                   background.width * 0.8,
-                                   -background.height * 0.15,
-                                   background.width - _WINDOW_INSET,
-                                   background.height - _WINDOW_INSET );
+    var meterWindowWidth = background.width * 0.8;
+    var meterWindowHeight = background.height * 0.7;
+    meterWindowShape.moveTo( 0, meterWindowHeight );
+    meterWindowShape.quadraticCurveTo( 0, 0, meterWindowWidth / 2, 0 );
+    meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
     var meterWindow = new Path( {
                                   shape: meterWindowShape,
                                   stroke: 'gray',
                                   lineWidth: 2,
-                                  fill: 'white'
+                                  fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
+                                      addColorStop( 0, 'red' ).
+                                      addColorStop( 0.5, 'white' ).
+                                      addColorStop( 1, 'blue' ),
+                                  center: background.center
                                 } );
     this.addChild( meterWindow );
 

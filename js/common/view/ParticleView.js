@@ -8,7 +8,6 @@ define( function( require ) {
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
-  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var ParticleNode = require( 'common/view/ParticleNode' );
   var inherit = require( 'PHET_CORE/inherit' );
