@@ -1,12 +1,13 @@
 {
-  "name": "phet-atom-sim",
-  "version": "0.0.6",
-  "license": "BSD",
-  "dependencies": {
-    "grunt": "~0.3.17",
-    "grunt-contrib-requirejs": "~0.3.3"
-  },
+  "name": "build-an-atom",
+  "version": "0.0.0-6",
+  "resourceDirs": "images",
+  "include": "../phetcommon/css/phetcommon.css ../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js",
+  "phetLibs": "build-an-atom assert dot fort joist kite phet-core phetcommon scenery scenery-phet sun",
+  "license": "GPL",
   "devDependencies": {
-    "grunt": "~0.3.17"
+    "grunt": "~0.4.1",
+    "grunt-requirejs": "~0.5.4",
+    "grunt-contrib-jshint": "~0.3.0"
   }
 }
