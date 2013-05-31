@@ -19,6 +19,7 @@ define( function( require ) {
 
   // Constants
   var _WIDTH = 70; // In screen coords, which are roughly pixels.
+  var _MAX_CHARGE = 10;
 
   var ChargeMeter = function( atom ) {
 
@@ -50,9 +51,18 @@ define( function( require ) {
                                 } );
     this.addChild( meterWindow );
 
+    // Layer that contains the meter line.
+    var meterLineLayer = new Node();
+    this.addChild( meterLineLayer );
+
     // Function that updates the meter when the atom changes.
     var update = function() {
-      console.log( "atom.getCharge = " + atom.getCharge );
+      meterLineLayer.removeAllChildren();
+      var lineShape = new Shape();
+      lineShape.moveTo( meterWindow.centerX, meterWindow.bottom );
+      var deflectionAngle = ( atom.getCharge() / _MAX_CHARGE ) * Math.PI / 4;
+      lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
+      meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black'} ) );
     }
 
     // Add the listeners that will call the update function.

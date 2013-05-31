@@ -95,7 +95,7 @@ define( function( require ) {
     // Add the control for the number of electrons.
     var electronNumberControl = new UpDownButtonPair(
         function() {
-          if ( symbolTableModel.numberAtom.electronCount < 11 ) {
+          if ( symbolTableModel.numberAtom.electronCount < 10 ) {
             symbolTableModel.numberAtom.electronCount++;
           }
         },
