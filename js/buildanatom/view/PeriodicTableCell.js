@@ -36,9 +36,9 @@ define( function( require ) {
                                } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
       font: "Arial",
+      fontSize: NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION),
       center: this.cell.center
     } );
-    this.label.fontSize = NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION);
     this.cell.addChild( this.label );
     this.addChild( this.cell );
 
