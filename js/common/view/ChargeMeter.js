@@ -43,9 +43,9 @@ define( function( require ) {
                                   stroke: 'gray',
                                   lineWidth: 2,
                                   fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-                                      addColorStop( 0, 'red' ).
+                                      addColorStop( 0, 'blue' ).
                                       addColorStop( 0.5, 'white' ).
-                                      addColorStop( 1, 'blue' ),
+                                      addColorStop( 1, 'red' ),
                                   center: background.center
                                 } );
     this.addChild( meterWindow );
