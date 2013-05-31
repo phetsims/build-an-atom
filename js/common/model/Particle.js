@@ -40,12 +40,12 @@ define( function( require ) {
 
   Particle.prototype.moveImmediatelyToDestination = function(){
     this.position = this.destination;
-  }
+  };
 
   Particle.prototype.setPositionAndDestination = function( newPosition ){
     this.destination = newPosition;
     this.moveImmediatelyToDestination();
-  }
+  };
 
   //------- Factory methods for creating particle instances ------------------
   Particle.createProton = function() {

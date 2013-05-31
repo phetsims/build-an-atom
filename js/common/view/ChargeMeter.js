@@ -5,6 +5,7 @@
  * provided atom.
  */
 define( function( require ) {
+  "use strict";
 
   // Imports
   var Node = require( 'SCENERY/nodes/Node' );
@@ -26,7 +27,6 @@ define( function( require ) {
   var ChargeMeter = function( atom ) {
 
     Node.call( this ); // Call super constructor.
-    var thisChargeMeter = this;
 
     // Add the background image.
     var background = new Image( BAAImages.getImage( "charge_meter_short_background.svg" ) );
@@ -85,7 +85,7 @@ define( function( require ) {
       var deflectionAngle = ( atom.getCharge() / _MAX_CHARGE ) * Math.PI * 0.4;
       lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
       meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
-    }
+    };
 
     // Add the listeners that will call the update function.
     atom.link( 'protonCount', function() {

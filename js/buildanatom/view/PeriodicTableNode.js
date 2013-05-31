@@ -1,4 +1,5 @@
 define( function( require ) {
+  "use strict";
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -51,7 +52,7 @@ define( function( require ) {
     atom.link( 'protonCount', function( protonCount ) {
       _.each( thisPeriodicTable.cells, function( cell ) {
         cell.setHighlighted( false );
-      } )
+      } );
       if ( protonCount > 0 ){
         thisPeriodicTable.cells[protonCount - 1].setHighlighted( true );
       }

@@ -6,6 +6,7 @@
  * motion of all particles that are a part of the atom.
  */
 define( function( require ) {
+  "use strict";
 
   // Imports
   var Fort = require( 'FORT/Fort' );
@@ -23,9 +24,9 @@ define( function( require ) {
       {
         defaults: {
           position: Vector2.ZERO,
-          protons: new ParticleCollection,
-          neutrons: new ParticleCollection,
-          electrons: new ParticleCollection,
+          protons: new ParticleCollection(),
+          neutrons: new ParticleCollection(),
+          electrons: new ParticleCollection(),
           innerElectronShellRadius: DEFAULT_INNER_ELECTRON_SHELL_RADIUS,
           outerElectronShellRadius: DEFAULT_OUTER_ELECTRON_SHELL_RADIUS
         },
@@ -47,7 +48,7 @@ define( function( require ) {
               electron: null,
               position: new Vector2( Math.cos( angle ) * this.outerElectronShellRadius,
                                      Math.sin( angle ) * this.outerElectronShellRadius )
-            }
+            };
             angle += Math.PI / numSlotsInOuterShell * 2;
           }
 
@@ -55,7 +56,7 @@ define( function( require ) {
           this.electrons.on( 'reset', function() {
             _.each( thisAtom.electronPositions, function( electronPosition ) {
               electronPosition.electron = null;
-            } )
+            } );
           } );
         }
       }
@@ -89,14 +90,14 @@ define( function( require ) {
       this.electrons.add( particle );
       // Find an open position in the electron shell.
       var openPositions = this.electronPositions.filter( function( electronPosition ) {
-        return ( electronPosition.electron === null )
+        return ( electronPosition.electron === null );
       } );
       var sortedOpenPositions = openPositions.sort( function( p1, p2 ) {
         // Sort first by distance to particle.
         return( Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p1.position.x, p1.position.y ) -
                 Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p2.position.x, p2.position.y ));
       } );
-      var sortedOpenPositions = sortedOpenPositions.sort( function( p1, p2 ) {
+      sortedOpenPositions = sortedOpenPositions.sort( function( p1, p2 ) {
         // Sort second to put the inner shell positions at the front.
         return( Math.round( Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p1.position.x, p1.position.y ) -
                             Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p2.position.x, p2.position.y ) ) );
@@ -148,7 +149,7 @@ define( function( require ) {
       console.log( "Error: Ignoring request to remove unknown particle type." );
     }
     return particle;
-  }
+  };
 
   ParticleAtom.prototype.getWeight = function() {
     return this.protons.length + this.neutrons.length;
@@ -158,7 +159,7 @@ define( function( require ) {
     return this.protons.length - this.electrons.length;
   };
 
-  ParticleAtom.prototype.reconfigureNucleus = function( moveImmediately ) {
+  ParticleAtom.prototype.reconfigureNucleus = function() {
 
     // Convenience variables.
     var centerX = this.position.x;
@@ -215,7 +216,7 @@ define( function( require ) {
       var level = 0;
       var placementAngle = 0;
       var placementAngleDelta = 0;
-      for ( var i = 0; i < nucleons.length; i++ ) {
+      for ( i = 0; i < nucleons.length; i++ ) {
         nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
                                                centerY + placementRadius * Math.sin( placementAngle ) );
         numAtThisRadius--;

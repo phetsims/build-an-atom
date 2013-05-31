@@ -20,10 +20,6 @@ define( function ( require ) {
   var TabView = require( "JOIST/TabView" );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  // Size of the stage, in screen coordinates.  This was obtained by setting
-  // a Chrome window to 1024 x 768 and measuring the actual display region.
-  var STAGE_SIZE = new Bounds2( 0, 0, 1010, 655 );
-
   /**
    * Constructor.
    *

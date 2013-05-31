@@ -1,4 +1,5 @@
 define( function( require ) {
+  "use strict";
 
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -60,7 +61,7 @@ define( function( require ) {
   PeriodicTableCell.prototype.setHighlighted = function( highLighted ) {
     this.cell.fill = highLighted ? this.highlightedFill : this.normalFill;
     this.label.fontWeight = highLighted ? 'bold' : 'normal';
-  }
+  };
 
   return PeriodicTableCell;
 } );

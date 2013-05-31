@@ -1,12 +1,5 @@
 // Copyright 2002-2013, University of Colorado
 
-if ( window.has ){
-  // Enable or disable assertions.
-  var assertionsEnabled = false;
-  has.add( 'assert.scenery', function() { return assertionsEnabled; } );
-  has.add( 'assert.scenery.extra', function() { return assertionsEnabled; } );
-}
-
 // RequireJS configuration file for Build an Atom.
 require.config(
     {

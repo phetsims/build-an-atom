@@ -8,6 +8,7 @@
  * @author John Blanco
  */
 define( function( require ) {
+  "use strict";
 
   var Vector2 = require( 'DOT/Vector2' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
@@ -22,6 +23,7 @@ define( function( require ) {
   /**
    * @param atom Model representation of the atom
    * @param mvt Model-View transform
+   * @param options
    * @constructor
    */
   var AtomNode = function( atom, mvt, options ) {
@@ -60,7 +62,7 @@ define( function( require ) {
       // Make the marker invisible if any nucleons are present.
       atom.on( "reconfigureNucleus", function() {
         atomCenterMarker.visible = atom.getWeight() === 0;
-      } )
+      } );
       atom.neutrons.on( "reset", function() {
         atomCenterMarker.visible = atom.getWeight() === 0;
       } );
@@ -96,7 +98,7 @@ define( function( require ) {
       updateElementName(); // Do the initial update.
 
       // Hook up update listeners.
-      atom.protons.on( 'add remove reset', function( proton ) {
+      atom.protons.on( 'add remove reset', function() {
         updateElementName();
       } );
     }
@@ -135,13 +137,13 @@ define( function( require ) {
           thisAtomView.ionIndicator.text = '';
           thisAtomView.ionIndicator.fill = "black";
         }
-      }
+      };
       updateIonIndicator(); // Do the initial update.
 
-      atom.protons.on( 'add remove reset', function( proton ) {
+      atom.protons.on( 'add remove reset', function() {
         updateIonIndicator();
       } );
-      atom.electrons.on( 'add remove reset', function( electron ) {
+      atom.electrons.on( 'add remove reset', function() {
         updateIonIndicator();
       } );
     }
@@ -170,22 +172,22 @@ define( function( require ) {
         }
         else {
           // TODO: Make the text a zero-length string once supported.
-          thisAtomView.stabilityIndicator.text = ""
+          thisAtomView.stabilityIndicator.text = "";
         }
         thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;
-      }
+      };
       updateStabilityIndicator(); // Do initial update.
 
       // Bind the update function to atom events.
-      atom.protons.on( 'add remove reset', function( proton ) {
+      atom.protons.on( 'add remove reset', function() {
         updateElementName();
         updateIonIndicator();
         updateStabilityIndicator();
       } );
-      atom.electrons.on( 'add remove reset', function( electron ) {
+      atom.electrons.on( 'add remove reset', function() {
         updateIonIndicator();
       } );
-      atom.neutrons.on( 'add remove reset', function( neutron ) {
+      atom.neutrons.on( 'add remove reset', function() {
         updateStabilityIndicator();
       } );
     }

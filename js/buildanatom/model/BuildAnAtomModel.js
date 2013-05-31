@@ -4,6 +4,7 @@
  * Main model class for the first tab of the Build an Atom simulation.
  */
 define( function ( require ) {
+  "use strict";
 
   // Imports
   var SharedConstants = require( 'common/SharedConstants' );
@@ -30,7 +31,7 @@ define( function ( require ) {
     else {
       bucket.addParticleNearestOpen( particle, true );
     }
-  }
+  };
 
   /**
    * Constructor for main model object.
@@ -123,8 +124,8 @@ define( function ( require ) {
   }
 
   BuildAnAtomModel.prototype.step = function ( dt ) {
-    this.nucleons.forEach( function( nucleon ){ nucleon.step( dt )});
-    this.electrons.forEach( function( electron ){ electron.step( dt )});
+    this.nucleons.forEach( function( nucleon ){ nucleon.step( dt );});
+    this.electrons.forEach( function( electron ){ electron.step( dt );});
   };
 
   BuildAnAtomModel.prototype.reset = function () {
@@ -137,7 +138,7 @@ define( function ( require ) {
       }
       particleCollection.reset();
       _.each( particlesToRemove, function( particle ){ bucket.addParticleFirstOpen( particle ); }, this );
-    }
+    };
 
     // Move all particles that are in the atom back into their respective buckets.
     moveParticlesFromAtomToBucket( this.atom.protons, this.buckets.protonBucket );

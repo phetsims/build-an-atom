@@ -34,7 +34,7 @@ define( function( require ) {
         break;
     }
 
-    // Create the basic shape.
+    // Create the node a circle with a gradient.
     this.addChild( new Circle( radius,
                                {
                                  fill: new RadialGradient( -radius * 0.4, -radius * 0.4, 0, -radius * 0.4, -radius * 0.4, radius * 1.6 )
@@ -42,7 +42,6 @@ define( function( require ) {
                                      .addColorStop( 1, baseColor ),
                                  cursor: 'pointer'
                                } ) );
-
   }
 
   // Inherit from Node.
