@@ -12,6 +12,7 @@ define( function( require ) {
 
   // Imports
   var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
   var ParticleNode = require( 'common/view/ParticleNode' );
@@ -56,9 +57,13 @@ define( function( require ) {
     var particleLayer = new Node();
     panelContents.addChild( particleLayer );
 
+    // Add an invisible spacer that will keep the control panel at a min width.
+    var spacer = new Rectangle( maxLabelWidth, 0, _INTER_PARTICLE_SPACING * 3, 1 );
+
     // Function that updates that displayed particles.
     var updateParticles = function( atom ) {
       particleLayer.removeAllChildren();
+      particleLayer.addChild( spacer );
       var addParticles = function( particleType, numParticles, radius, startX, startY ) {
         for ( var i = 0; i < numParticles; i++ ) {
           var particle = new ParticleNode( particleType, radius );
@@ -76,6 +81,9 @@ define( function( require ) {
     numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function() {
       updateParticles( numberAtom );
     } );
+
+    // Initial update.
+    updateParticles( numberAtom );
 
     // Add it all to a panel.
     this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
