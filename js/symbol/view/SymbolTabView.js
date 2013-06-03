@@ -67,7 +67,6 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the atom display.
-    console.log( "periodicTableNode.maxX + 20 = " + periodicTable.right + 20 );
     var atomView = new AtomWithParticleStacks( model );
     this.addChild( atomView );
 

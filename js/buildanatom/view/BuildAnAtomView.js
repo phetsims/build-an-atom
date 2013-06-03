@@ -85,7 +85,6 @@ define( function ( require ) {
     var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position );
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
                                    function () {
-                                     console.log( "Reset button pressed." );
                                      model.reset();
                                    },
                                    {
