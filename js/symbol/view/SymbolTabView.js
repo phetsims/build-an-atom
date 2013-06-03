@@ -37,7 +37,7 @@ define( function( require ) {
   function SymbolTabView( model ) {
     TabView.call( this ); // Call super constructor.
 
-    // Add the node that shows the interactive symbol
+    // Add the node that shows the interactive symbol.
     var symbolNode = new SymbolNode( model.numberAtom );
     this.addChild( symbolNode );
 
@@ -46,7 +46,7 @@ define( function( require ) {
     scaleImage.scale( 0.20 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
-    // Add the periodic table
+    // Add the periodic table.
     var periodicTable = new PeriodicTableNode( model.numberAtom );
     this.addChild( periodicTable );
 
