@@ -32,7 +32,8 @@ define( function( require ) {
 
     // Create our own local model view transform, since the parent view doesn't
     // have or need one.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+      { x: 0, y: 0 },
       { x: WIDTH / 2, y: HEIGHT * 0.35 },
       0.5 );
 
@@ -51,14 +52,36 @@ define( function( require ) {
     this.addChild( atomNode );
 
     // Add the particle views.
+    var nucleonLayer = new Node();
+    this.addChild( nucleonLayer );
     symbolTableModel.protons.forEach( function( proton ) {
-      thisNode.addChild( new ParticleView( proton, mvt ) );
+      nucleonLayer.addChild( new ParticleView( proton, mvt ) );
     } );
     symbolTableModel.neutrons.forEach( function( neutron ) {
-      thisNode.addChild( new ParticleView( neutron, mvt ) );
+      nucleonLayer.addChild( new ParticleView( neutron, mvt ) );
     } );
     symbolTableModel.electrons.forEach( function( electron ) {
       thisNode.addChild( new ParticleView( electron, mvt ) );
+    } );
+
+    // Create a function for layering the particle nodes so that the nucleus
+    // looks good, with the particles closer to the center being higher in the
+    // z-order.
+    symbolTableModel.particleAtom.on( 'reconfigureNucleus', function() {
+      var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
+        return particleView.particle.destination.distance( symbolTableModel.particleAtom.position ) < symbolTableModel.particleAtom.innerElectronShellRadius;
+      } );
+
+      if ( particlesInNucleus.length > 4 ) {
+        particlesInNucleus = _.sortBy( particlesInNucleus, function( particleView ) {
+          // Central nucleons should be in front
+          return -particleView.particle.destination.distance( symbolTableModel.particleAtom.position );
+        } );
+        _.each( particlesInNucleus, function( particleView ) {
+          nucleonLayer.removeChild( particleView );
+          nucleonLayer.addChild( particleView );
+        } );
+      }
     } );
 
     // Add the control for the number of protons.

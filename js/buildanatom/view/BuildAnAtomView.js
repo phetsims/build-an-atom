@@ -55,9 +55,8 @@ define( function( require ) {
       thisView.addChild( new ParticleView( electron, mvt ) );
     } );
 
-    // Layer the particles views so that the nucleus looks reasonable. Note
-    // that this sorts all of the nucleons, even though we technically only
-    // need to sort the ones in the nucleus.
+    // Layer the particles views so that the nucleus looks good, with the
+    // particles closer to the center being higher in the z-order.
     model.atom.on( 'reconfigureNucleus', function() {
       var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
         return particleView.particle.position.distance( model.atom.position ) < model.atom.innerElectronShellRadius;
