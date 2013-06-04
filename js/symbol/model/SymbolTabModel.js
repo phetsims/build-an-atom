@@ -56,11 +56,11 @@ define( function( require ) {
     } );
 
     // Function to move particles between the stacks and the atom.
-    var updateParticleAllocation = function( targetCountInAtom, localParticleArray, particleAtomArray, particleType ){
-      while ( targetCountInAtom > particleAtomArray.length ){
+    var updateParticleAllocation = function( targetCountInAtom, localParticleArray, particleAtomArray, particleType ) {
+      while ( targetCountInAtom > particleAtomArray.length ) {
         thisSymbolTabModel.particleAtom.addParticle( localParticleArray.pop() );
       }
-      while ( targetCountInAtom < particleAtomArray.length ){
+      while ( targetCountInAtom < particleAtomArray.length ) {
         var particle = thisSymbolTabModel.particleAtom.removeParticle( particleType );
         particle.destination = thisSymbolTabModel._getNextParticlePosition( particleType );
         localParticleArray.push( particle );
@@ -100,7 +100,7 @@ define( function( require ) {
     } );
   };
 
-  SymbolTabModel.prototype.reset = function(){
+  SymbolTabModel.prototype.reset = function() {
     this.numberAtom.reset();
   };
 

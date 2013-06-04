@@ -23,20 +23,20 @@ define( function( require ) {
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0,
-                                     {
-                                       stroke: 'black',
-                                       lineWidth: 2,
-                                       fill: 'white'
-                                     } );
+      {
+        stroke: 'black',
+        lineWidth: 2,
+        fill: 'white'
+      } );
     this.addChild( boundingBox );
 
     // Add the symbol text.
     this.symbolText = new Text( "",
-                                {
-                                  font: "150px Arial",
-                                  fill: "black",
-                                  center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
-                                } );
+      {
+        font: "150px Arial",
+        fill: "black",
+        center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
+      } );
 
     // Add the listener to update the symbol text.
     atom.link( 'protonCount', function( protonCount ) {
@@ -48,24 +48,24 @@ define( function( require ) {
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
-        function() {
-          if ( atom.protonCount < 10 ) {
-            atom.protonCount++;
-          }
-        },
-        function() {
-          if ( atom.protonCount > 0 ) {
-            atom.protonCount--;
-          }
-        } ).mutate( { left: CONTROL_INSET, bottom: SYMBOL_BOX_HEIGHT - CONTROL_INSET } );
+      function() {
+        if ( atom.protonCount < 10 ) {
+          atom.protonCount++;
+        }
+      },
+      function() {
+        if ( atom.protonCount > 0 ) {
+          atom.protonCount--;
+        }
+      } ).mutate( { left: CONTROL_INSET, bottom: SYMBOL_BOX_HEIGHT - CONTROL_INSET } );
     this.addChild( protonNumberControl );
 
     // Add the proton count display.
     this.protonCount = new Text( "0",
-                                 {
-                                   font: NUMBER_FONT,
-                                   fill: "red"
-                                 } );
+      {
+        font: NUMBER_FONT,
+        fill: "red"
+      } );
 
     // Add the listener to update the proton count.
     atom.link( 'protonCount', function( protonCount ) {
@@ -77,25 +77,25 @@ define( function( require ) {
 
     // Add the control for the atomic mass.
     var atomicMassControl = new UpDownButtonPair(
-        function() {
-          if ( atom.neutronCount < 12 ) {
-            atom.neutronCount++;
-          }
-        },
-        function() {
-          if ( atom.neutronCount > 0 ) {
-              atom.neutronCount--;
-          }
-        } ).mutate( { left: CONTROL_INSET, top: CONTROL_INSET }
+      function() {
+        if ( atom.neutronCount < 12 ) {
+          atom.neutronCount++;
+        }
+      },
+      function() {
+        if ( atom.neutronCount > 0 ) {
+          atom.neutronCount--;
+        }
+      } ).mutate( { left: CONTROL_INSET, top: CONTROL_INSET }
     );
     this.addChild( atomicMassControl );
 
     // Add the atomic mass display.
     this.atomicMass = new Text( "0",
-                                {
-                                  font: NUMBER_FONT,
-                                  fill: "black"
-                                } );
+      {
+        font: NUMBER_FONT,
+        fill: "black"
+      } );
     boundingBox.addChild( this.atomicMass );
 
     // Add the listener to update the atomic mass.
@@ -109,24 +109,24 @@ define( function( require ) {
 
     // Add the charge control.
     var chargeControl = new UpDownButtonPair(
-        function() {
-          if ( atom.electronCount > 0 ) {
-            atom.electronCount--;
-          }
-        },
-        function() {
-          if ( atom.electronCount < 11 ) {
-            atom.electronCount++;
-          }
-        } ).mutate( { right: SYMBOL_BOX_WIDTH - CONTROL_INSET, top: CONTROL_INSET } );
+      function() {
+        if ( atom.electronCount > 0 ) {
+          atom.electronCount--;
+        }
+      },
+      function() {
+        if ( atom.electronCount < 11 ) {
+          atom.electronCount++;
+        }
+      } ).mutate( { right: SYMBOL_BOX_WIDTH - CONTROL_INSET, top: CONTROL_INSET } );
     this.addChild( chargeControl );
 
     // Add the charge display.
     this.charge = new Text( "0",
-                            {
-                              font: NUMBER_FONT,
-                              fill: "black"
-                            } );
+      {
+        font: NUMBER_FONT,
+        fill: "black"
+      } );
     boundingBox.addChild( this.charge );
 
     // Add the listener to update the charge.

@@ -31,21 +31,21 @@ define( function( require ) {
 
     // Add a drag handler
     this.addInputListener( new SimpleDragHandler( {
-                                                    // Allow moving a finger (touch) across a node to pick it up.
-                                                    allowTouchSnag: true,
+      // Allow moving a finger (touch) across a node to pick it up.
+      allowTouchSnag: true,
 
-                                                    // Handler that moves the particle in model space.
-                                                    translate: function( translationParams ) {
-                                                      particle.setPositionAndDestination( particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) ) );
-                                                      return translationParams.position;
-                                                    },
-                                                    start: function( event, trail ) {
-                                                      thisParticleView.particle.userControlled = true;
-                                                    },
-                                                    end: function( event, trail ) {
-                                                      thisParticleView.particle.userControlled = false;
-                                                    }
-                                                  } ) );
+      // Handler that moves the particle in model space.
+      translate: function( translationParams ) {
+        particle.setPositionAndDestination( particle.position.plus( mvt.viewToModelDelta( translationParams.delta ) ) );
+        return translationParams.position;
+      },
+      start: function( event, trail ) {
+        thisParticleView.particle.userControlled = true;
+      },
+      end: function( event, trail ) {
+        thisParticleView.particle.userControlled = false;
+      }
+    } ) );
   }
 
   // Inherit from Node.

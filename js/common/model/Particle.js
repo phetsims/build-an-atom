@@ -12,20 +12,20 @@ define( function( require ) {
   var DEFAULT_PARTICLE_VELOCITY = 200; // Basically in pixels/sec.
 
   var Particle = Fort.Model.extend( {
-                                      defaults: {
-                                        type: 'proton',
-                                        position: Vector2.ZERO,
-                                        destination: Vector2.ZERO,
-                                        radius: SharedConstants.NUCLEON_RADIUS,
-                                        velocity: DEFAULT_PARTICLE_VELOCITY,
-                                        userControlled: false
-                                      }
-                                    }
+      defaults: {
+        type: 'proton',
+        position: Vector2.ZERO,
+        destination: Vector2.ZERO,
+        radius: SharedConstants.NUCLEON_RADIUS,
+        velocity: DEFAULT_PARTICLE_VELOCITY,
+        userControlled: false
+      }
+    }
   );
 
   // Step function, moves towards destination if not currently there.
   Particle.prototype.step = function( dt ) {
-    if ( !this.userControlled ){
+    if ( !this.userControlled ) {
       var distanceToDestination = this.position.distance( this.destination );
       if ( distanceToDestination > dt * this.velocity ) {
         // Move a step toward the destination.
@@ -38,11 +38,11 @@ define( function( require ) {
     }
   };
 
-  Particle.prototype.moveImmediatelyToDestination = function(){
+  Particle.prototype.moveImmediatelyToDestination = function() {
     this.position = this.destination;
   };
 
-  Particle.prototype.setPositionAndDestination = function( newPosition ){
+  Particle.prototype.setPositionAndDestination = function( newPosition ) {
     this.destination = newPosition;
     this.moveImmediatelyToDestination();
   };

@@ -3,7 +3,7 @@
 /**
  * Main view for the first tab of the Build an Atom simulation.
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   var Node = require( 'SCENERY/nodes/Node' );
@@ -32,14 +32,14 @@ define( function ( require ) {
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
-                                                                          { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.35 },
-                                                                          1.0 );
+      { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.35 },
+      1.0 );
 
     // Add the node that shows the 'x' center marker and all the textual labels.
     this.addChild( new AtomNode( model.atom, mvt ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
-    _.each( model.buckets, function ( bucket ) {
+    _.each( model.buckets, function( bucket ) {
       thisView.addChild( new BucketHole( bucket, mvt ) );
     } );
 
@@ -48,27 +48,27 @@ define( function ( require ) {
     this.addChild( nucleonLayer );
 
     // Add the particles.
-    _.each( model.nucleons, function ( nucleon ) {
+    _.each( model.nucleons, function( nucleon ) {
       nucleonLayer.addChild( new ParticleView( nucleon, mvt ) );
     } );
-    _.each( model.electrons, function ( electron ) {
+    _.each( model.electrons, function( electron ) {
       thisView.addChild( new ParticleView( electron, mvt ) );
     } );
 
     // Layer the particles views so that the nucleus looks reasonable. Note
     // that this sorts all of the nucleons, even though we technically only
     // need to sort the ones in the nucleus.
-    model.atom.on( 'reconfigureNucleus', function () {
-      var particlesInNucleus = _.filter( nucleonLayer.children, function ( particleView ) {
+    model.atom.on( 'reconfigureNucleus', function() {
+      var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
         return particleView.particle.position.distance( model.atom.position ) < model.atom.innerElectronShellRadius;
       } );
 
       if ( particlesInNucleus.length > 4 ) {
-        particlesInNucleus = _.sortBy( particlesInNucleus, function ( particleView ) {
+        particlesInNucleus = _.sortBy( particlesInNucleus, function( particleView ) {
           // Central nucleons should be in front
           return -particleView.particle.position.distance( model.atom.position );
         } );
-        _.each( particlesInNucleus, function ( particleView ) {
+        _.each( particlesInNucleus, function( particleView ) {
           nucleonLayer.removeChild( particleView );
           nucleonLayer.addChild( particleView );
         } );
@@ -77,21 +77,21 @@ define( function ( require ) {
 
     // Add the front portion of the buckets.  Done separately from the bucket
     // holes for layering purposes.
-    _.each( model.buckets, function ( bucket ) {
+    _.each( model.buckets, function( bucket ) {
       thisView.addChild( new BucketFront( bucket, mvt ) );
     } );
 
     // Add the reset button.
     var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position );
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
-                                   function () {
-                                     model.reset();
-                                   },
-                                   {
-                                     fill: 'orange',
-                                     xMargin: 10,
-                                     lineWidth: 1.5
-                                   } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
+      function() {
+        model.reset();
+      },
+      {
+        fill: 'orange',
+        xMargin: 10,
+        lineWidth: 1.5
+      } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
   }
 
   // Inherit from TabView.

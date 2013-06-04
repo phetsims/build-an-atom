@@ -42,23 +42,23 @@ define( function( require ) {
     meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
     var meterWindow = new Path( {
-                                  shape: meterWindowShape,
-                                  stroke: 'gray',
-                                  lineWidth: 2,
-                                  fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-                                      addColorStop( 0, 'blue' ).
-                                      addColorStop( 0.5, 'white' ).
-                                      addColorStop( 1, 'red' ),
-                                  center: background.center
-                                } );
+      shape: meterWindowShape,
+      stroke: 'gray',
+      lineWidth: 2,
+      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
+        addColorStop( 0, 'blue' ).
+        addColorStop( 0.5, 'white' ).
+        addColorStop( 1, 'red' ),
+      center: background.center
+    } );
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
     var shadowOffset = 0.5; // In pixels.
     var plusShape = new Shape().moveTo( -_CHARGE_SYMBOL_WIDTH / 2, 0 ).
-        lineTo( _CHARGE_SYMBOL_WIDTH / 2, 0 ).
-        moveTo( 0, -_CHARGE_SYMBOL_WIDTH / 2 ).
-        lineTo( 0, _CHARGE_SYMBOL_WIDTH / 2 );
+      lineTo( _CHARGE_SYMBOL_WIDTH / 2, 0 ).
+      moveTo( 0, -_CHARGE_SYMBOL_WIDTH / 2 ).
+      lineTo( 0, _CHARGE_SYMBOL_WIDTH / 2 );
     var plusSymbol = new Node();
     plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
     plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );

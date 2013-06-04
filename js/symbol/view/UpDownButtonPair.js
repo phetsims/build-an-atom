@@ -35,24 +35,24 @@ define( function( require ) {
     var thisUpDownButton = this;
 
     options = _.extend( {
-                          fill: 'rgb(150, 150, 150)',
-                          stroke: 'black',
-                          lineWidth: 2,
-                          vertical: 'true' // Custom option
-                        },
-                        options );
+        fill: 'rgb(150, 150, 150)',
+        stroke: 'black',
+        lineWidth: 2,
+        vertical: 'true' // Custom option
+      },
+      options );
 
     var upIconShape = new Shape();
     upIconShape.moveTo( 0, ICON_HEIGHT );
     upIconShape.lineTo( ICON_WIDTH / 2, 0 );
     upIconShape.lineTo( ICON_WIDTH, ICON_HEIGHT );
     var upIcon = new Path( {
-                             shape: upIconShape,
-                             stroke: 'yellow',
-                             lineWidth: ICON_STROKE_WIDTH,
-                             lineCap: 'round',
-                             lineJoin: 'miter'
-                           } );
+      shape: upIconShape,
+      stroke: 'yellow',
+      lineWidth: ICON_STROKE_WIDTH,
+      lineCap: 'round',
+      lineJoin: 'miter'
+    } );
     var spacerShape = new Shape();
     spacerShape.moveTo( ICON_WIDTH / 2, 0 );
     spacerShape.lineTo( ICON_WIDTH / 2, TOTAL_CONTENT_HEIGHT );
@@ -60,12 +60,12 @@ define( function( require ) {
     upIcon.addChild( spacerPath );
 
     var upButton = new Button( upIcon,
-                               upFunction,
-                               {
-                                 fill: options.fill,
-                                 stroke: options.stroke,
-                                 lineWidth: options.lineWidth
-                               } );
+      upFunction,
+      {
+        fill: options.fill,
+        stroke: options.stroke,
+        lineWidth: options.lineWidth
+      } );
     this.addChild( upButton );
 
     var downIconShape = new Shape();
@@ -74,21 +74,21 @@ define( function( require ) {
     downIconShape.lineTo( ICON_WIDTH / 2, TOTAL_CONTENT_HEIGHT );
     downIconShape.lineTo( ICON_WIDTH, downIconVerticalOffset );
     var downIcon = new Path( {
-                               shape: downIconShape,
-                               stroke: 'yellow',
-                               lineWidth: ICON_STROKE_WIDTH,
-                               lineCap: 'round',
-                               lineJoin: 'miter'
-                             } );
+      shape: downIconShape,
+      stroke: 'yellow',
+      lineWidth: ICON_STROKE_WIDTH,
+      lineCap: 'round',
+      lineJoin: 'miter'
+    } );
     downIcon.addChild( spacerPath );
 
     var downButton = new Button( downIcon,
-                                 downFunction,
-                                 {
-                                   fill: options.fill,
-                                   stroke: options.stroke,
-                                   lineWidth: options.lineWidth
-                                 } );
+      downFunction,
+      {
+        fill: options.fill,
+        stroke: options.stroke,
+        lineWidth: options.lineWidth
+      } );
     if ( options && options.vertical ) {
       downButton.y = upButton.bounds.maxY + 3;
     }

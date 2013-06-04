@@ -4,7 +4,7 @@
  * Object that can be used to identify various things about an atom given its
  * configuration, i.e. number of protons, neutrons, and/or electrons.
  */
-define( [], function () {
+define( [], function() {
   "use strict";
 
   // Not meant to be instantiated.
@@ -14,7 +14,7 @@ define( [], function () {
    * @param numProtons
    * @return string
    */
-  AtomIdentifier.getSymbol = function ( numProtons ) {
+  AtomIdentifier.getSymbol = function( numProtons ) {
     return _symbolTable[ numProtons ];
   };
 
@@ -22,7 +22,7 @@ define( [], function () {
    * @param numProtons
    * @return string
    */
-  AtomIdentifier.getName = function ( numProtons ) {
+  AtomIdentifier.getName = function( numProtons ) {
     return _nameTable[numProtons];
   };
 
@@ -31,7 +31,7 @@ define( [], function () {
    * @param numProtons
    * @param numNeutrons
    */
-  AtomIdentifier.isStable = function ( numProtons, numNeutrons ) {
+  AtomIdentifier.isStable = function( numProtons, numNeutrons ) {
     var tableEntry = _stableElementTable[ numProtons ];
     if ( typeof( tableEntry ) === 'undefined' ) {
       console.log( "Error: Stability table has no entry for atomic number " + numProtons );
@@ -40,7 +40,7 @@ define( [], function () {
     return $.inArray( numNeutrons, tableEntry ) > -1;
   };
 
-  AtomIdentifier.getNumNeutronsInMostCommonIsotope = function( atomicNumber ){
+  AtomIdentifier.getNumNeutronsInMostCommonIsotope = function( atomicNumber ) {
     return _numNeutronsInMostStableIsotope[ atomicNumber ];
   };
 

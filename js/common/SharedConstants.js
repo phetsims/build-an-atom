@@ -1,5 +1,5 @@
 // Copyright 2002-2013, University of Colorado
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // Not meant to be instantiated.

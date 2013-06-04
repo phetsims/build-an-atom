@@ -33,17 +33,17 @@ define( function( require ) {
     // Create our own local model view transform, since the parent view doesn't
     // have or need one.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
-                                                                          { x: WIDTH / 2, y: HEIGHT * 0.35 },
-                                                                          0.5 );
+      { x: WIDTH / 2, y: HEIGHT * 0.35 },
+      0.5 );
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
-                                     {
-                                       stroke: 'black',
-                                       lineWidth: 1,
-                                       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
-                                     } );
+      {
+        stroke: 'black',
+        lineWidth: 1,
+        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
+      } );
     this.addChild( boundingBox );
 
     // Add the node that presents the atom.
@@ -63,49 +63,49 @@ define( function( require ) {
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
-        function() {
-          if ( symbolTableModel.numberAtom.protonCount < 10 ) {
-            symbolTableModel.numberAtom.protonCount++;
-          }
-        },
-        function() {
-          if ( symbolTableModel.numberAtom.protonCount > 0 ) {
-            symbolTableModel.numberAtom.protonCount--;
-          }
-        },
-        { vertical: false }
+      function() {
+        if ( symbolTableModel.numberAtom.protonCount < 10 ) {
+          symbolTableModel.numberAtom.protonCount++;
+        }
+      },
+      function() {
+        if ( symbolTableModel.numberAtom.protonCount > 0 ) {
+          symbolTableModel.numberAtom.protonCount--;
+        }
+      },
+      { vertical: false }
     ).mutate( { left: CONTROL_INSET, bottom: HEIGHT - CONTROL_INSET } );
     this.addChild( protonNumberControl );
 
     // Add the control for the number of neutrons.
     var neutronNumberControl = new UpDownButtonPair(
-        function() {
-          if ( symbolTableModel.numberAtom.neutronCount < 12 ) {
-            symbolTableModel.numberAtom.neutronCount++;
-          }
-        },
-        function() {
-          if ( symbolTableModel.numberAtom.neutronCount > 0 ) {
-            symbolTableModel.numberAtom.neutronCount--;
-          }
-        },
-        { vertical: false }
+      function() {
+        if ( symbolTableModel.numberAtom.neutronCount < 12 ) {
+          symbolTableModel.numberAtom.neutronCount++;
+        }
+      },
+      function() {
+        if ( symbolTableModel.numberAtom.neutronCount > 0 ) {
+          symbolTableModel.numberAtom.neutronCount--;
+        }
+      },
+      { vertical: false }
     ).mutate( { centerX: WIDTH / 2, bottom: HEIGHT - CONTROL_INSET } );
     this.addChild( neutronNumberControl );
 
     // Add the control for the number of electrons.
     var electronNumberControl = new UpDownButtonPair(
-        function() {
-          if ( symbolTableModel.numberAtom.electronCount < 10 ) {
-            symbolTableModel.numberAtom.electronCount++;
-          }
-        },
-        function() {
-          if ( symbolTableModel.numberAtom.electronCount > 0 ) {
-            symbolTableModel.numberAtom.electronCount--;
-          }
-        },
-        { vertical: false }
+      function() {
+        if ( symbolTableModel.numberAtom.electronCount < 10 ) {
+          symbolTableModel.numberAtom.electronCount++;
+        }
+      },
+      function() {
+        if ( symbolTableModel.numberAtom.electronCount > 0 ) {
+          symbolTableModel.numberAtom.electronCount--;
+        }
+      },
+      { vertical: false }
     ).mutate( { right: WIDTH - CONTROL_INSET, bottom: HEIGHT - CONTROL_INSET } );
     this.addChild( electronNumberControl );
   };
