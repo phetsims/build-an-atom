@@ -52,7 +52,7 @@ define( function( require ) {
 
     // Add a node that will be used to make the periodic table appear to fade
     // out at the bottom.
-    var fadeGradient = new LinearGradient( 0, 0, 0, periodicTable.height ).addColorStop( 0.3, 'rgba( 255, 254, 223, 0)').addColorStop( 0.7, 'rgba( 255, 254, 223, 1 )' );
+    var fadeGradient = new LinearGradient( 0, 0, 0, periodicTable.height ).addColorStop( 0, 'rgba( 255, 254, 223, 0)' ).addColorStop( 0.5, 'rgba( 255, 254, 223, 0)').addColorStop( 0.68, 'rgba( 255, 254, 223, 1 )' );
     var periodicTableFadeOutNode = new Rectangle( 0, 0, periodicTable.width * 1.01, periodicTable.height * 1.01,
                                                   {fill: fadeGradient, pickable: false} );
 
