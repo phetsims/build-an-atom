@@ -67,21 +67,21 @@ define( function( require ) {
 
         if ( particle.type === 'proton' ) {
           this.protons.add( particle );
-          this.reconfigureNucleus( true );
+          this.reconfigureNucleus();
           particle.once( 'change:userControlled', function( userControlledParticle, userControlled ) {
             if ( userControlled && thisAtom.protons.contains( userControlledParticle ) ) {
               thisAtom.protons.remove( userControlledParticle );
-              thisAtom.reconfigureNucleus( true );
+              thisAtom.reconfigureNucleus();
             }
           } );
         }
         else if ( particle.type === 'neutron' ) {
           this.neutrons.add( particle );
-          this.reconfigureNucleus( true );
+          this.reconfigureNucleus();
           particle.once( 'change:userControlled', function( userControlledParticle, userControlled ) {
             if ( userControlled && thisAtom.neutrons.contains( userControlledParticle ) ) {
               thisAtom.neutrons.remove( userControlledParticle );
-              thisAtom.reconfigureNucleus( true );
+              thisAtom.reconfigureNucleus();
             }
           } );
         }
@@ -134,7 +134,7 @@ define( function( require ) {
         }
         else if ( particleType === 'neutron' ) {
           particle = this.neutrons.pop();
-          this.reconfigureNucleus( true );
+          this.reconfigureNucleus();
         }
         else if ( particleType === 'electron' ) {
           particle = this.electrons.pop();
@@ -166,12 +166,20 @@ define( function( require ) {
         var nucleonRadius = SharedConstants.NUCLEON_RADIUS;
         var angle, distFromCenter;
 
+        // Create an array of interspersed protons and neutrons for configuring.
         var nucleons = [];
-        for ( var i = 0; i < this.protons.length; i++ ) {
-          nucleons.push( this.protons.at( i ) );
-        }
-        for ( i = 0; i < this.neutrons.length; i++ ) {
-          nucleons.push( this.neutrons.at( i ) );
+        var protonIndex = 0, neutronIndex = 0;
+        var neutronsPerProton = this.neutrons.length / this.protons.length;
+        var neutronsToAdd = 0;
+        while ( nucleons.length < this.neutrons.length + this.protons.length ){
+          neutronsToAdd += neutronsPerProton;
+          while ( neutronsToAdd >= 1 && neutronIndex < this.neutrons.length ){
+            nucleons.push( this.neutrons.at( neutronIndex++) );
+            neutronsToAdd -= 1;
+          }
+          if ( protonIndex < this.protons.length ){
+            nucleons.push( this.protons.at( protonIndex++) )
+          }
         }
 
         if ( nucleons.length === 1 ) {
@@ -215,7 +223,7 @@ define( function( require ) {
           var level = 0;
           var placementAngle = 0;
           var placementAngleDelta = 0;
-          for ( i = 0; i < nucleons.length; i++ ) {
+          for ( var i = 0; i < nucleons.length; i++ ) {
             nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
               centerY + placementRadius * Math.sin( placementAngle ) );
             numAtThisRadius--;
