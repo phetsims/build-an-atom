@@ -17,7 +17,7 @@ define( function( require ) {
       {
         stroke: 'blue',
         lineWidth: 1.5,
-        lineDash: [ 10, 15 ],
+        lineDash: [ 4, 6 ],
         translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
       }
     );
@@ -29,7 +29,7 @@ define( function( require ) {
       {
         stroke: 'blue',
         lineWidth: 1.5,
-        lineDash: [ 10, 15 ],
+        lineDash: [ 4, 6 ],
         translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
       }
     );
