@@ -77,10 +77,12 @@ define( function( require ) {
 
     // Create the textual readout for the element name.
     if ( options.showElementName ) {
-      var elementNameCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, -40 ) );
+      var elementNameCenterPos = mvt.modelToViewPosition( atom.position.plus( new Vector2( 0, atom.innerElectronShellRadius / 2 ) ) );
+      var elementNameFontSize = mvt.modelToViewDeltaX( atom.innerElectronShellRadius ) * 0.35 + "px";
       this.elementName = new Text( "",
         {
-          font: "24px Arial",
+          font: "Arial",
+          fontSize: elementNameFontSize,
           fill: "red",
           center: elementNameCenterPos
         } );
@@ -93,6 +95,9 @@ define( function( require ) {
           name = '';
         }
         thisAtomView.elementName.text = name;
+        thisAtomView.elementName.setScaleMagnitude( 1 );
+        var maxLabelWidth = mvt.modelToViewDeltaX( atom.innerElectronShellRadius * 1.4 );
+        thisAtomView.elementName.setScaleMagnitude( Math.min( maxLabelWidth / thisAtomView.elementName.width, 1 ) );
         thisAtomView.elementName.center = elementNameCenterPos;
       };
       updateElementName(); // Do the initial update.

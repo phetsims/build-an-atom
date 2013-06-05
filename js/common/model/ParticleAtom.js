@@ -23,14 +23,15 @@ define( function( require ) {
   var ParticleAtom = Fort.Model.extend(
     {
       defaults: {
-        position: Vector2.ZERO,
-        innerElectronShellRadius: DEFAULT_INNER_ELECTRON_SHELL_RADIUS,
-        outerElectronShellRadius: DEFAULT_OUTER_ELECTRON_SHELL_RADIUS
+        position: Vector2.ZERO
       },
 
-      constructor: function() {
+      constructor: function( innerElectronShellRadius, outerElectronShellRadius ) {
         Fort.Model.apply( this );
         var thisAtom = this;
+
+        this.innerElectronShellRadius = innerElectronShellRadius || DEFAULT_INNER_ELECTRON_SHELL_RADIUS;
+        this.outerElectronShellRadius = outerElectronShellRadius || DEFAULT_OUTER_ELECTRON_SHELL_RADIUS;
 
         // Create the particle collections.
         this.protons = new ParticleCollection();
