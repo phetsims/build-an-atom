@@ -51,6 +51,41 @@ define( function( require ) {
     var atomNode = new AtomNode( symbolTableModel.particleAtom, mvt, {showElementName: true, showStability: false, showIonIndicator: false } );
     this.addChild( atomNode );
 
+    // Add our own ion indicator, since we need something different from what
+    // the 'stock' atom node provide.
+    var ionIndicatorTranslation = mvt.modelToViewPosition( symbolTableModel.particleAtom.position.plus( new Vector2( symbolTableModel.particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.33 ) ) );
+    this.ionIndicator = new Text( "",
+                                  {
+                                    font: "16px Arial",
+                                    fill: "black",
+                                    translation: ionIndicatorTranslation
+                                  } );
+    this.addChild( this.ionIndicator );
+    var updateIonIndicator = function() {
+      if ( symbolTableModel.numberAtom.protonCount > 0 ) {
+        var charge = symbolTableModel.numberAtom.getCharge();
+        // TODO: i18n of all labels below
+        if ( charge < 0 ) {
+          thisNode.ionIndicator.text = '- Ion';
+          thisNode.ionIndicator.fill = "blue";
+        }
+        else if ( charge > 0 ) {
+          thisNode.ionIndicator.text = '+ Ion';
+          thisNode.ionIndicator.fill = "red";
+        }
+        else {
+          thisNode.ionIndicator.text = 'Neutral';
+          thisNode.ionIndicator.fill = "black";
+        }
+        // TODO: Scale!!!!!!!!!!!!!!!!!!!!!!!
+      }
+      else {
+        thisNode.ionIndicator.text = '';
+      }
+    };
+    symbolTableModel.numberAtom.link( 'protonCount', updateIonIndicator );
+    symbolTableModel.numberAtom.link( 'electronCount', updateIonIndicator );
+
     // Add the particle views.
     var nucleonLayer = new Node( { pickable: false } );
     this.addChild( nucleonLayer );
