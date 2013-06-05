@@ -35,7 +35,7 @@ define( function( require ) {
       { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.35 },
       1.0 );
 
-    // Add the node that shows the 'x' center marker and all the textual labels.
+    // Add the node that shows the electron shells and the various textual labels.
     this.addChild( new AtomNode( model.atom, mvt ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.

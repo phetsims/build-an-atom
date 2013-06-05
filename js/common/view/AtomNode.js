@@ -149,7 +149,7 @@ define( function( require ) {
     }
 
     // Create the textual readout for the stability indicator.
-    if ( options.stabilityIndicator ) {
+    if ( options.showStability ) {
       var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
       this.stabilityIndicator = new Text( "",
         {
