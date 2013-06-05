@@ -21,16 +21,14 @@ define( function( require ) {
 
   // Constants
   var _FONT = '20px Arial bold';
-  var _PROTON_RADIUS = 5;
-  var _NEUTRON_RADIUS = 5;
-  var _ELECTRON_RADIUS = 3;
-  var _INTER_PARTICLE_SPACING = _PROTON_RADIUS * 2.5;
 
   /**
    * @param numberAtom Model representation of the atom
+   * @param maxParticles The maximum number of particles to display
+   * @param maxWidth The maximum width that this display should reach
    * @constructor
    */
-  var ParticleCountDisplay = function( numberAtom ) {
+  var ParticleCountDisplay = function ParticleCountDisplay( numberAtom, maxParticles, maxWidth ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -53,12 +51,19 @@ define( function( require ) {
     electronTitle.right = maxLabelWidth;
     electronTitle.top = neutronTitle.bottom;
 
+    // Figure out the sizes of the particles and the inter-particle
+    // spacing based on the max width.
+    var totalParticleSpace = maxWidth - protonTitle.right - 10; // TODO: The value of 10 comes from something hard-coded into PanelNode, fix when PanelNode is finalized.
+    var nucleonRadius = totalParticleSpace / ( (maxParticles * 2) + ( maxParticles - 1) + 2);
+    var electronRadius = nucleonRadius * 0.6; // Arbitrarily chosen.
+    var interParticleSpacing = nucleonRadius * 3;
+
     // Add the layer where the particles will live.
     var particleLayer = new Node();
     panelContents.addChild( particleLayer );
 
     // Add an invisible spacer that will keep the control panel at a min width.
-    var spacer = new Rectangle( maxLabelWidth, 0, _INTER_PARTICLE_SPACING * 3, 1 );
+    var spacer = new Rectangle( maxLabelWidth, 0, interParticleSpacing * 3, 1 );
 
     // Function that updates that displayed particles.
     var updateParticles = function( atom ) {
@@ -68,13 +73,13 @@ define( function( require ) {
         for ( var i = 0; i < numParticles; i++ ) {
           var particle = new ParticleNode( particleType, radius ).mutate( { pickable: false } );
           particle.y = startY;
-          particle.x = startX + i * _INTER_PARTICLE_SPACING;
+          particle.x = startX + i * interParticleSpacing;
           particleLayer.addChild( particle );
         }
       };
-      addParticles( 'proton', atom.protonCount, _PROTON_RADIUS, protonTitle.right + _INTER_PARTICLE_SPACING, protonTitle.center.y );
-      addParticles( 'neutron', atom.neutronCount, _NEUTRON_RADIUS, neutronTitle.right + _INTER_PARTICLE_SPACING, neutronTitle.center.y );
-      addParticles( 'electron', atom.electronCount, _ELECTRON_RADIUS, electronTitle.right + _INTER_PARTICLE_SPACING, electronTitle.center.y );
+      addParticles( 'proton', atom.protonCount, nucleonRadius, protonTitle.right + interParticleSpacing, protonTitle.center.y );
+      addParticles( 'neutron', atom.neutronCount, nucleonRadius, neutronTitle.right + interParticleSpacing, neutronTitle.center.y );
+      addParticles( 'electron', atom.electronCount, electronRadius, electronTitle.right + interParticleSpacing, electronTitle.center.y );
     };
 
     // Hook up the update function.

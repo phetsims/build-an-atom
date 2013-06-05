@@ -17,15 +17,15 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
-  var WIDTH = 225; // In screen coords, which are roughly pixels.
-  var HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
+  var _WIDTH = 225; // In screen coords, which are roughly pixels.
+  var _HEIGHT = 300; // In screen coords, which are roughly pixels.
+  var _CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
   /**
    * @param symbolTableModel
    * @constructor
    */
-  var AtomWithParticleStacks = function( symbolTableModel ) {
+  var AtomWithParticleStacks = function( symbolTableModel, numProtons, numNeutrons, numElectrons ) {
 
     Node.call( this ); // Call super constructor.
     var thisNode = this;
@@ -34,12 +34,12 @@ define( function( require ) {
     // have or need one.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       { x: 0, y: 0 },
-      { x: WIDTH / 2, y: HEIGHT * 0.35 },
+      { x: _WIDTH / 2, y: _HEIGHT * 0.35 },
       0.5 );
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
-    var boundingBox = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
+    var boundingBox = new Rectangle( 0, 0, _WIDTH, _HEIGHT, 10, 10,
       {
         stroke: 'black',
         lineWidth: 1,
@@ -87,7 +87,7 @@ define( function( require ) {
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
       function() {
-        if ( symbolTableModel.numberAtom.protonCount < 10 ) {
+        if ( symbolTableModel.numberAtom.protonCount < numProtons ) {
           symbolTableModel.numberAtom.protonCount++;
         }
       },
@@ -97,13 +97,13 @@ define( function( require ) {
         }
       },
       { vertical: false }
-    ).mutate( { left: CONTROL_INSET, bottom: HEIGHT - CONTROL_INSET } );
+    ).mutate( { left: _CONTROL_INSET, bottom: _HEIGHT - _CONTROL_INSET } );
     this.addChild( protonNumberControl );
 
     // Add the control for the number of neutrons.
     var neutronNumberControl = new UpDownButtonPair(
       function() {
-        if ( symbolTableModel.numberAtom.neutronCount < 12 ) {
+        if ( symbolTableModel.numberAtom.neutronCount < numNeutrons ) {
           symbolTableModel.numberAtom.neutronCount++;
         }
       },
@@ -113,13 +113,13 @@ define( function( require ) {
         }
       },
       { vertical: false }
-    ).mutate( { centerX: WIDTH / 2, bottom: HEIGHT - CONTROL_INSET } );
+    ).mutate( { centerX: _WIDTH / 2, bottom: _HEIGHT - _CONTROL_INSET } );
     this.addChild( neutronNumberControl );
 
     // Add the control for the number of electrons.
     var electronNumberControl = new UpDownButtonPair(
       function() {
-        if ( symbolTableModel.numberAtom.electronCount < 10 ) {
+        if ( symbolTableModel.numberAtom.electronCount < numElectrons ) {
           symbolTableModel.numberAtom.electronCount++;
         }
       },
@@ -129,7 +129,7 @@ define( function( require ) {
         }
       },
       { vertical: false }
-    ).mutate( { right: WIDTH - CONTROL_INSET, bottom: HEIGHT - CONTROL_INSET } );
+    ).mutate( { right: _WIDTH - _CONTROL_INSET, bottom: _HEIGHT - _CONTROL_INSET } );
     this.addChild( electronNumberControl );
   };
 

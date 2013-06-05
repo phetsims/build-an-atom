@@ -62,13 +62,14 @@ define( function( require ) {
     var chargeMeter = new ChargeMeter( model.numberAtom );
     this.addChild( chargeMeter );
 
-    // Add the particle count display.
-    var particleCountDisplay = new ParticleCountDisplay( model.numberAtom );
-    this.addChild( particleCountDisplay );
-
     // Add the atom display.
-    var atomView = new AtomWithParticleStacks( model );
+    var atomView = new AtomWithParticleStacks( model, model.protons.length, model.neutrons.length, model.electrons.length );
     this.addChild( atomView );
+
+    // Add the particle count display.
+    var maxParticles = Math.max( Math.max( model.protons.length, model.neutrons.length ), model.electrons.length );
+    var particleCountDisplay = new ParticleCountDisplay( model.numberAtom, maxParticles, atomView.width );
+    this.addChild( particleCountDisplay );
 
     // Add the reset button. TODO: i18n
     var resetButton = new Button( new Text( "Reset", { font: 'bold 16px Arial'} ),
