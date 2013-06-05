@@ -52,7 +52,7 @@ define( function( require ) {
     this.addChild( atomNode );
 
     // Add the particle views.
-    var nucleonLayer = new Node();
+    var nucleonLayer = new Node( { pickable: false } );
     this.addChild( nucleonLayer );
     symbolTableModel.protons.forEach( function( proton ) {
       nucleonLayer.addChild( new ParticleView( proton, mvt ) );
@@ -61,7 +61,7 @@ define( function( require ) {
       nucleonLayer.addChild( new ParticleView( neutron, mvt ) );
     } );
     symbolTableModel.electrons.forEach( function( electron ) {
-      thisNode.addChild( new ParticleView( electron, mvt ) );
+      thisNode.addChild( new ParticleView( electron, mvt ).mutate( { pickable: false } ) );
     } );
 
     // Create a function for layering the particle nodes so that the nucleus
