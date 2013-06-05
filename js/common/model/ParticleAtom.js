@@ -17,8 +17,8 @@ define( function( require ) {
   var ParticleCollection = Backbone.Collection.extend( { model: Particle } );
 
   // Constants
-  var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 70;
-  var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 150;
+  var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
+  var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 160;
 
   var ParticleAtom = Fort.Model.extend(
     {

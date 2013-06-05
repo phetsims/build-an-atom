@@ -41,7 +41,7 @@ define( function( require ) {
   function BuildAnAtomModel() {
 
     var thisModel = this;
-    this.atom = new ParticleAtom( 70, 150 );
+    this.atom = new ParticleAtom( 80, 160 );
 
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
