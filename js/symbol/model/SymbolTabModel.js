@@ -31,6 +31,7 @@ define( function( require ) {
 
     this.numberAtom = new NumberAtom();
     this.particleAtom = new ParticleAtom();
+    this.particleAtom.electronAddMode = 'random';
 
     this.protons = [];
     this.neutrons = [];
