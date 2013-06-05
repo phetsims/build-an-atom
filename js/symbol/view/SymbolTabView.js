@@ -26,7 +26,8 @@ define( function( require ) {
   var ChargeMeter = require( 'common/view/ChargeMeter' );
 
   // Constants
-  var _EDGE_INSET = 10;
+  var _TOP_INSET = 30;
+  var _SIDE_INSET = 10;
 
   /**
    * Constructor.
@@ -84,17 +85,17 @@ define( function( require ) {
     this.addChild( resetButton );
 
     // Do the layout.
-    symbolNode.top = _EDGE_INSET;
-    periodicTable.left = _EDGE_INSET;
+    symbolNode.top = _TOP_INSET;
+    periodicTable.left = _SIDE_INSET;
     periodicTable.top = symbolNode.bottom;
     periodicTableFadeOutNode.center = periodicTable.center;
     symbolNode.centerX = periodicTable.center.x;
-    scaleImage.x = _EDGE_INSET;
+    scaleImage.x = _SIDE_INSET;
     scaleImage.y = symbolNode.top;
     chargeMeter.left = symbolNode.right + 10;
     chargeMeter.top = symbolNode.top;
     particleCountDisplay.left = periodicTable.right + 30;
-    particleCountDisplay.top = _EDGE_INSET;
+    particleCountDisplay.top = _TOP_INSET;
     atomView.left = particleCountDisplay.left;
     atomView.top = particleCountDisplay.bottom + 10;
     resetButton.center = new Vector2( atomView.centerX, atomView.bottom + 40 );
