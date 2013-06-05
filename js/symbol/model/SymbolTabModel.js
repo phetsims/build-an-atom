@@ -20,7 +20,7 @@ define( function( require ) {
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 11;
   var NUM_ELECTRONS = 10;
-  var BOTTOM_OF_STACKS_Y = -300;
+  var BOTTOM_OF_STACKS_Y = -250;
   var PROTON_STACK_CENTER_BOTTOM = new Vector2( -150, BOTTOM_OF_STACKS_Y );
   var NEUTRON_STACK_CENTER_BOTTOM = new Vector2( 0, BOTTOM_OF_STACKS_Y );
   var ELECTRON_STACK_CENTER_BOTTOM = new Vector2( 150, BOTTOM_OF_STACKS_Y );

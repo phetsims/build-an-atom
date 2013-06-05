@@ -17,8 +17,8 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
-  var _WIDTH = 225; // In screen coords, which are roughly pixels.
-  var _HEIGHT = 300; // In screen coords, which are roughly pixels.
+  var _WIDTH = 250; // In screen coords, which are roughly pixels.
+  var _HEIGHT = 315; // In screen coords, which are roughly pixels.
   var _CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
   /**
@@ -34,8 +34,8 @@ define( function( require ) {
     // have or need one.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       { x: 0, y: 0 },
-      { x: _WIDTH / 2, y: _HEIGHT * 0.35 },
-      0.5 );
+      { x: _WIDTH / 2, y: _HEIGHT * 0.4 },
+      0.6 );
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
@@ -56,7 +56,7 @@ define( function( require ) {
     var ionIndicatorTranslation = mvt.modelToViewPosition( symbolTableModel.particleAtom.position.plus( new Vector2( symbolTableModel.particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.33 ) ) );
     this.ionIndicator = new Text( "",
                                   {
-                                    font: "16px Arial",
+                                    font: "20px Arial",
                                     fill: "black",
                                     translation: ionIndicatorTranslation
                                   } );
