@@ -18,6 +18,7 @@ require.config(
 
       // Scenery and its dependencies
       ASSERT: '../../assert/js',
+      AXON: '../../axon/js',
       DOT: '../../dot/js',
       KITE: '../../kite/js',
       PHET_CORE: '../../phet-core/js',
