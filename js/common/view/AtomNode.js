@@ -199,7 +199,7 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( AtomNode, Node );
+  inherit( Node, AtomNode );
 
   return AtomNode;
 } );

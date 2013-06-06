@@ -49,7 +49,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( ParticleView, Node );
+  inherit( Node, ParticleView );
 
   return ParticleView;
 } );

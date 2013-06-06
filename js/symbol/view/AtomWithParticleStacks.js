@@ -169,7 +169,7 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( AtomWithParticleStacks, Node );
+  inherit( Node, AtomWithParticleStacks );
 
   return AtomWithParticleStacks;
 } );

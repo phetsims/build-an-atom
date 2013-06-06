@@ -102,7 +102,7 @@ define( function( require ) {
   }
 
   // Inherit from TabView.
-  inherit( SymbolTabView, TabView );
+  inherit( TabView, SymbolTabView );
 
   return SymbolTabView;
 } );

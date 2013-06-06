@@ -45,7 +45,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( ParticleNode, Node );
+  inherit( Node, ParticleNode );
 
   return ParticleNode;
 } );

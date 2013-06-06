@@ -56,7 +56,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( PeriodicTableCell, Node );
+  inherit( Node, PeriodicTableCell );
 
   PeriodicTableCell.prototype.setHighlighted = function( highLighted ) {
     this.cell.fill = highLighted ? this.highlightedFill : this.normalFill;

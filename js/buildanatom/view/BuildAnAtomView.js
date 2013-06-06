@@ -94,7 +94,7 @@ define( function( require ) {
   }
 
   // Inherit from TabView.
-  inherit( BuildAnAtomView, TabView );
+  inherit( TabView, BuildAnAtomView );
 
   return BuildAnAtomView;
 } );

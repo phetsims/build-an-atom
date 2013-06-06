@@ -37,7 +37,7 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( ElectronShellView, Node );
+  inherit( Node, ElectronShellView );
 
   return ElectronShellView;
 } );

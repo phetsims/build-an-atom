@@ -153,7 +153,7 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( SymbolNode, Node );
+  inherit( Node, SymbolNode );
 
   return SymbolNode;
 } );

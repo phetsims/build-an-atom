@@ -99,7 +99,7 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( UpDownButtonPair, Node );
+  inherit( Node, UpDownButtonPair );
 
   return UpDownButtonPair;
 } );
