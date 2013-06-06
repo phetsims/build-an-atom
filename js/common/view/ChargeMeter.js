@@ -48,7 +48,7 @@ define( function( require ) {
       fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
         addColorStop( 0, 'rgb( 117, 186, 255 )' ).
         addColorStop( 0.5, 'white' ).
-        addColorStop( 1, 'red' ),
+        addColorStop( 1, 'rgb( 255, 77, 77 )' ),
       center: background.center
     } );
     this.addChild( meterWindow );
