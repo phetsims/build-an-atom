@@ -24,7 +24,7 @@ define( function( require ) {
   var _CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
   var _SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
-  var ChargeMeter = function( atom ) {
+  var ChargeMeter = function( numberAtom ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -77,23 +77,16 @@ define( function( require ) {
     var meterLineLayer = new Node();
     this.addChild( meterLineLayer );
 
-    // Define a function that updates the meter when the atom charge changes.
-    var update = function() {
-      meterLineLayer.removeAllChildren();
-      var lineShape = new Shape();
-      lineShape.moveTo( meterWindow.centerX, meterWindow.bottom - 3 );
-      var deflectionAngle = ( atom.getCharge() / _MAX_CHARGE ) * Math.PI * 0.4;
-      lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
-      meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
-    };
-
-    // Add the listeners that will call the update function.
-    atom.link( 'protonCount', function() {
-      update();
-    } );
-    atom.link( 'electronCount', function() {
-      update();
-    } );
+    // Add the listeners that will update the meter when the charge changes.
+    numberAtom.chargeProperty.link( function( charge ) {
+        meterLineLayer.removeAllChildren();
+        var lineShape = new Shape();
+        lineShape.moveTo( meterWindow.centerX, meterWindow.bottom - 3 );
+        var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
+        lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
+        meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
+      }
+    );
   };
 
   // Inherit from Node.

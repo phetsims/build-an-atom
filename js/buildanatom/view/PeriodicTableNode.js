@@ -49,7 +49,7 @@ define( function( require ) {
     }
 
     // Highlight the cell that corresponds to the atom.
-    atom.link( 'protonCount', function( protonCount ) {
+    atom.protonCountProperty.link( function( protonCount ) {
       _.each( thisPeriodicTable.cells, function( cell ) {
         cell.setHighlighted( false );
       } );

@@ -83,7 +83,7 @@ define( function( require ) {
     };
 
     // Hook up the update function.
-    numberAtom.on( 'change:protonCount change:neutronCount change:electronCount', function() {
+    numberAtom.particleCountProperty.link( function() {
       updateParticles( numberAtom );
     } );
 

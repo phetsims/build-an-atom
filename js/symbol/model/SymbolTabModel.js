@@ -73,13 +73,13 @@ define( function( require ) {
     };
 
     // Link the numberAtom to the particleAtom.
-    this.numberAtom.link( 'protonCount', function( protonCount ) {
+    this.numberAtom.protonCountProperty.link( function( protonCount ) {
       updateParticleAllocation( protonCount, thisSymbolTabModel.protons, thisSymbolTabModel.particleAtom.protons, 'proton' );
     } );
-    this.numberAtom.link( 'neutronCount', function( neutronCount ) {
+    this.numberAtom.neutronCountProperty.link( function( neutronCount ) {
       updateParticleAllocation( neutronCount, thisSymbolTabModel.neutrons, thisSymbolTabModel.particleAtom.neutrons, 'neutron' );
     } );
-    this.numberAtom.link( 'electronCount', function( electronCount ) {
+    this.numberAtom.electronCountProperty.link( function( electronCount ) {
       updateParticleAllocation( electronCount, thisSymbolTabModel.electrons, thisSymbolTabModel.particleAtom.electrons, 'electron' );
     } );
   }

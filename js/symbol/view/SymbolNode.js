@@ -23,23 +23,23 @@ define( function( require ) {
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0,
-      {
-        stroke: 'black',
-        lineWidth: 2,
-        fill: 'white'
-      } );
+                                     {
+                                       stroke: 'black',
+                                       lineWidth: 2,
+                                       fill: 'white'
+                                     } );
     this.addChild( boundingBox );
 
     // Add the symbol text.
     this.symbolText = new Text( "",
-      {
-        font: "150px Arial",
-        fill: "black",
-        center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
-      } );
+                                {
+                                  font: "150px Arial",
+                                  fill: "black",
+                                  center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
+                                } );
 
     // Add the listener to update the symbol text.
-    atom.link( 'protonCount', function( protonCount ) {
+    atom.protonCountProperty.link( function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
       thisSymbolNode.symbolText.text = protonCount > 0 ? symbol : "";
       thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
@@ -62,13 +62,13 @@ define( function( require ) {
 
     // Add the proton count display.
     this.protonCount = new Text( "0",
-      {
-        font: NUMBER_FONT,
-        fill: "red"
-      } );
+                                 {
+                                   font: NUMBER_FONT,
+                                   fill: "red"
+                                 } );
 
     // Add the listener to update the proton count.
-    atom.link( 'protonCount', function( protonCount ) {
+    atom.protonCountProperty.link( function( protonCount ) {
       thisSymbolNode.protonCount.text = protonCount;
       thisSymbolNode.protonCount.left = protonNumberControl.bounds.maxX + 10;
       thisSymbolNode.protonCount.centerY = protonNumberControl.centerY;
@@ -92,20 +92,18 @@ define( function( require ) {
 
     // Add the atomic mass display.
     this.atomicMass = new Text( "0",
-      {
-        font: NUMBER_FONT,
-        fill: "black"
-      } );
+                                {
+                                  font: NUMBER_FONT,
+                                  fill: "black"
+                                } );
     boundingBox.addChild( this.atomicMass );
 
     // Add the listener to update the atomic mass.
-    var atomicMassUpdater = function() {
-      thisSymbolNode.atomicMass.text = atom.getAtomicMass();
+    atom.atomicMassProperty.link( function( atomicMass ) {
+      thisSymbolNode.atomicMass.text = atomicMass;
       thisSymbolNode.atomicMass.left = atomicMassControl.bounds.maxX + 10;
       thisSymbolNode.atomicMass.centerY = atomicMassControl.centerY;
-    };
-    atom.link( 'protonCount', atomicMassUpdater );
-    atom.link( 'neutronCount', atomicMassUpdater );
+    } );
 
     // Add the charge control.
     var chargeControl = new UpDownButtonPair(
@@ -123,33 +121,31 @@ define( function( require ) {
 
     // Add the charge display.
     this.charge = new Text( "0",
-      {
-        font: NUMBER_FONT,
-        fill: "black"
-      } );
+                            {
+                              font: NUMBER_FONT,
+                              fill: "black"
+                            } );
     boundingBox.addChild( this.charge );
 
     // Add the listener to update the charge.
-    var chargeUpdater = function() {
+    atom.chargeProperty.link( function( charge ) {
       var sign = '';
       var textColor;
-      if ( atom.getCharge() > 0 ) {
+      if ( charge > 0 ) {
         sign = '+';
         textColor = 'red';
       }
-      else if ( atom.getCharge() < 0 ) {
+      else if ( charge < 0 ) {
         textColor = 'blue';
       }
       else {
         textColor = 'black';
       }
-      thisSymbolNode.charge.text = sign + atom.getCharge();
+      thisSymbolNode.charge.text = sign + charge;
       thisSymbolNode.charge.fill = textColor;
       thisSymbolNode.charge.right = chargeControl.bounds.minX - 10;
       thisSymbolNode.charge.centerY = chargeControl.centerY;
-    };
-    atom.link( 'protonCount', chargeUpdater );
-    atom.link( 'electronCount', chargeUpdater );
+    } );
   };
 
   // Inherit from Node.

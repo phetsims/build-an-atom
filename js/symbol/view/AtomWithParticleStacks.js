@@ -40,11 +40,11 @@ define( function( require ) {
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, _WIDTH, _HEIGHT, 10, 10,
-      {
-        stroke: 'black',
-        lineWidth: 1,
-        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
-      } );
+                                     {
+                                       stroke: 'black',
+                                       lineWidth: 1,
+                                       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
+                                     } );
     this.addChild( boundingBox );
 
     // Add the node that presents the atom.
@@ -61,9 +61,8 @@ define( function( require ) {
                                     translation: ionIndicatorTranslation
                                   } );
     this.addChild( this.ionIndicator );
-    var updateIonIndicator = function() {
+    symbolTableModel.numberAtom.chargeProperty.link( function( charge ) {
       if ( symbolTableModel.numberAtom.protonCount > 0 ) {
-        var charge = symbolTableModel.numberAtom.getCharge();
         // TODO: i18n of all labels below
         if ( charge < 0 ) {
           thisNode.ionIndicator.text = '- Ion';
@@ -82,9 +81,7 @@ define( function( require ) {
       else {
         thisNode.ionIndicator.text = '';
       }
-    };
-    symbolTableModel.numberAtom.link( 'protonCount', updateIonIndicator );
-    symbolTableModel.numberAtom.link( 'electronCount', updateIonIndicator );
+    } );
 
     // Add the particle views.
     var nucleonLayer = new Node( { pickable: false } );

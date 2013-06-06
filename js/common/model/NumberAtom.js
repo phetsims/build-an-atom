@@ -8,28 +8,23 @@
 define( function( require ) {
   "use strict";
 
-  var Fort = require( 'FORT/Fort' );
+  var PropertySet = require( 'AXON/PropertySet' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
-  var NumberAtom = Fort.Model.extend(
-    {
-      defaults: {
-        protonCount: 0,
-        neutronCount: 0,
-        electronCount: 0
-      },
-      getAtomicMass: function() {
-        return this.protonCount + this.neutronCount;
-      },
-      getCharge: function() {
-        return this.protonCount - this.electronCount;
-      },
-      reset: function() {
-        this.protonCount = 0;
-        this.neutronCount = 0;
-        this.electronCount = 0;
-      }
-    }
-  );
+  function NumberAtom(){
+    PropertySet.call( this,  { protonCount: 0, neutronCount: 0, electronCount: 0 } );
+    this.addDerivedProperty( 'charge', [ 'protonCount', 'electronCount' ], function( protonCount, electronCount ){
+      return protonCount - electronCount;
+    } );
+    this.addDerivedProperty( 'atomicMass', [ 'protonCount', 'neutronCount' ], function( protonCount, neutronCount ){
+      return protonCount + neutronCount;
+    } );
+    this.addDerivedProperty( 'particleCount', [ 'protonCount', 'neutronCount', 'electronCount' ], function( protonCount, neutronCount, electronCount ){
+      return protonCount + neutronCount + electronCount;
+    } );
+  }
+
+  inherit( PropertySet, NumberAtom );
 
   return NumberAtom;
 } );
