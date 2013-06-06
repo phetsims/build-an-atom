@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var NumberAtom = require( 'symbol/model/NumberAtom' );
+  var NumberAtom = require( 'common/model/NumberAtom' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Vector2 = require( 'DOT/Vector2' );
   var Particle = require( 'common/model/Particle' );

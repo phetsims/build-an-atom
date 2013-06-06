@@ -10,7 +10,7 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var NumberAtom = require( 'symbol/model/NumberAtom' );
+  var NumberAtom = require( 'common/model/NumberAtom' );
   var Particle = require( 'common/model/Particle' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Dimension2 = require( 'DOT/Dimension2' );
