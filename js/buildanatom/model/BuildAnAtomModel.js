@@ -84,7 +84,7 @@ define( function( require ) {
 
     // Add the protons.
     _.times( NUM_PROTONS, function() {
-      var proton = Particle.createProton();
+      var proton = new Particle( 'proton' );
       thisModel.nucleons.push( proton );
       thisModel.buckets.protonBucket.addParticleFirstOpen( proton, false );
       proton.link( 'userControlled', function( userControlled ) {
@@ -96,7 +96,7 @@ define( function( require ) {
 
     // Add the neutrons.
     _.times( NUM_NEUTRONS, function() {
-      var neutron = Particle.createNeutron();
+      var neutron = new Particle( 'neutron' );
       thisModel.nucleons.push( neutron );
       thisModel.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
       neutron.link( 'userControlled', function( userControlled ) {
@@ -108,7 +108,7 @@ define( function( require ) {
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function() {
-      var electron = Particle.createElectron();
+      var electron = new Particle( 'electron' );
       thisModel.electrons.push( electron );
       thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.link( 'userControlled', function( userControlled ) {
@@ -125,7 +125,7 @@ define( function( require ) {
 
     // Have a 'number atom' that tracks the state of the particle atom.
     this.numberAtom = new NumberAtom();
-    var updateNumberAtom = function(){
+    var updateNumberAtom = function() {
       thisModel.numberAtom.protonCount = thisModel.particleAtom.protons.length;
       thisModel.numberAtom.neutronCount = thisModel.particleAtom.neutrons.length;
       thisModel.numberAtom.electronCount = thisModel.particleAtom.electrons.length;

@@ -42,19 +42,19 @@ define( function( require ) {
     this.electrons = [];
 
     _.times( NUM_PROTONS, function() {
-      var proton = Particle.createProton();
+      var proton = new Particle( 'proton' );
       proton.destination = thisSymbolTabModel._getNextParticlePosition( 'proton' );
       proton.moveImmediatelyToDestination();
       thisSymbolTabModel.protons.push( proton );
     } );
     _.times( NUM_NEUTRONS, function() {
-      var neutron = Particle.createNeutron();
+      var neutron = new Particle( 'neutron' );
       neutron.destination = thisSymbolTabModel._getNextParticlePosition( 'neutron' );
       neutron.moveImmediatelyToDestination();
       thisSymbolTabModel.neutrons.push( neutron );
     } );
     _.times( NUM_ELECTRONS, function() {
-      var electron = Particle.createElectron();
+      var electron = new Particle( 'electron' );
       electron.destination = thisSymbolTabModel._getNextParticlePosition( 'electron' );
       electron.moveImmediatelyToDestination();
       thisSymbolTabModel.electrons.push( electron );

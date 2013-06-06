@@ -73,12 +73,15 @@ define( function( require ) {
         if ( particle.type === 'proton' ) {
           this.protons.add( particle );
           this.reconfigureNucleus();
-          particle.once( 'change:userControlled', function( userControlledParticle, userControlled ) {
-            if ( userControlled && thisAtom.protons.contains( userControlledParticle ) ) {
-              thisAtom.protons.remove( userControlledParticle );
+          var userControlledProtonListener = function( userControlled ) {
+            if ( userControlled && thisAtom.protons.contains( particle ) ) {
+              thisAtom.protons.remove( particle );
               thisAtom.reconfigureNucleus();
             }
-          } );
+            debugger;
+            particle.userControlledProperty.unlink( userControlledProtonListener );
+          };
+          particle.userControlledProperty.lazyLink( userControlledProtonListener );
         }
         else if ( particle.type === 'neutron' ) {
           this.neutrons.add( particle );
@@ -104,7 +107,7 @@ define( function( require ) {
                       Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p2.position.x, p2.position.y ));
             } );
           }
-          else{
+          else {
             sortedOpenPositions = _.shuffle( openPositions );
           }
 

@@ -4,24 +4,26 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var Fort = require( 'FORT/Fort' );
+  var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
   var SharedConstants = require( 'common/SharedConstants' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   // Constants
   var DEFAULT_PARTICLE_VELOCITY = 200; // Basically in pixels/sec.
 
-  var Particle = Fort.Model.extend( {
-      defaults: {
-        type: 'proton',
-        position: Vector2.ZERO,
-        destination: Vector2.ZERO,
-        radius: SharedConstants.NUCLEON_RADIUS,
-        velocity: DEFAULT_PARTICLE_VELOCITY,
-        userControlled: false
-      }
-    }
-  );
+  function Particle( type ) {
+    PropertySet.call( this,
+                      { type: type,
+                        position: Vector2.ZERO,
+                        destination: Vector2.ZERO,
+                        radius: type === 'electron' ? SharedConstants.ELECTRON_RADIUS : SharedConstants.NUCLEON_RADIUS,
+                        velocity: DEFAULT_PARTICLE_VELOCITY,
+                        userControlled: false
+                      } );
+  }
+
+  inherit( PropertySet, Particle );
 
   // Step function, moves towards destination if not currently there.
   Particle.prototype.step = function( dt ) {
@@ -45,19 +47,6 @@ define( function( require ) {
   Particle.prototype.setPositionAndDestination = function( newPosition ) {
     this.destination = newPosition;
     this.moveImmediatelyToDestination();
-  };
-
-  //------- Factory methods for creating particle instances ------------------
-  Particle.createProton = function() {
-    return new Particle( { type: 'proton', radius: SharedConstants.NUCLEON_RADIUS } );
-  };
-
-  Particle.createNeutron = function() {
-    return new Particle( { type: 'neutron', radius: SharedConstants.NUCLEON_RADIUS } );
-  };
-
-  Particle.createElectron = function() {
-    return new Particle( { type: 'electron', radius: SharedConstants.ELECTRON_RADIUS } );
   };
 
   return Particle;
