@@ -34,7 +34,7 @@ define( function( require ) {
     var thisSymbolTabModel = this;
 
     this.numberAtom = new NumberAtom();
-    this.particleAtom = new ParticleAtom( 80, 160 );
+    this.particleAtom = new ParticleAtom( 80, 150 );
     this.particleAtom.electronAddMode = 'random';
 
     this.protons = [];

@@ -10,6 +10,7 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
+  var NumberAtom = require( 'symbol/model/NumberAtom' );
   var Particle = require( 'common/model/Particle' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Dimension2 = require( 'DOT/Dimension2' );
@@ -21,8 +22,8 @@ define( function( require ) {
   var NUM_ELECTRONS = 10;
   var NUCLEON_CAPTURE_RADIUS = 100;
   var BUCKET_WIDTH = 120;
-  var BUCKET_HEIGHT = BUCKET_WIDTH * 0.6;
-  var BUCKET_Y_OFFSET = -250;
+  var BUCKET_HEIGHT = BUCKET_WIDTH * 0.4;
+  var BUCKET_Y_OFFSET = -240;
 
   var placeNucleon = function( particle, bucket, atom ) {
     if ( particle.position.distance( atom.position ) < NUCLEON_CAPTURE_RADIUS ) {
@@ -41,7 +42,7 @@ define( function( require ) {
   function BuildAnAtomModel() {
 
     var thisModel = this;
-    this.atom = new ParticleAtom( 80, 160 );
+    this.particleAtom = new ParticleAtom( 80, 150 );
 
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
@@ -88,7 +89,7 @@ define( function( require ) {
       thisModel.buckets.protonBucket.addParticleFirstOpen( proton, false );
       proton.link( 'userControlled', function( userControlled ) {
         if ( !userControlled && !thisModel.buckets.protonBucket.containsParticle( proton ) ) {
-          placeNucleon( proton, thisModel.buckets.protonBucket, thisModel.atom );
+          placeNucleon( proton, thisModel.buckets.protonBucket, thisModel.particleAtom );
         }
       } );
     } );
@@ -100,7 +101,7 @@ define( function( require ) {
       thisModel.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
       neutron.link( 'userControlled', function( userControlled ) {
         if ( !userControlled && !thisModel.buckets.neutronBucket.containsParticle( neutron ) ) {
-          placeNucleon( neutron, thisModel.buckets.neutronBucket, thisModel.atom );
+          placeNucleon( neutron, thisModel.buckets.neutronBucket, thisModel.particleAtom );
         }
       } );
     } );
@@ -112,8 +113,8 @@ define( function( require ) {
       thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.link( 'userControlled', function( userControlled ) {
         if ( !userControlled && !thisModel.buckets.electronBucket.containsParticle( electron ) ) {
-          if ( electron.position.distance( Vector2.ZERO ) < thisModel.atom.outerElectronShellRadius * 1.1 ) {
-            thisModel.atom.addParticle( electron );
+          if ( electron.position.distance( Vector2.ZERO ) < thisModel.particleAtom.outerElectronShellRadius * 1.1 ) {
+            thisModel.particleAtom.addParticle( electron );
           }
           else {
             thisModel.buckets.electronBucket.addParticleNearestOpen( electron, true );
@@ -121,6 +122,19 @@ define( function( require ) {
         }
       } );
     } );
+
+    // Have a 'number atom' that tracks the state of the particle atom.
+    this.numberAtom = new NumberAtom();
+    var updateNumberAtom = function(){
+      thisModel.numberAtom.protonCount = thisModel.particleAtom.protons.length;
+      thisModel.numberAtom.neutronCount = thisModel.particleAtom.neutrons.length;
+      thisModel.numberAtom.electronCount = thisModel.particleAtom.electrons.length;
+    };
+
+    // Update the number atom when the particle atom changes.
+    this.particleAtom.protons.on( 'add remove reset', function() { updateNumberAtom(); } );
+    this.particleAtom.neutrons.on( 'add remove reset', function() { updateNumberAtom(); } );
+    this.particleAtom.electrons.on( 'add remove reset', function() { updateNumberAtom(); } );
   }
 
   BuildAnAtomModel.prototype.step = function( dt ) {
@@ -147,9 +161,9 @@ define( function( require ) {
     };
 
     // Move all particles that are in the atom back into their respective buckets.
-    moveParticlesFromAtomToBucket( this.atom.protons, this.buckets.protonBucket );
-    moveParticlesFromAtomToBucket( this.atom.neutrons, this.buckets.neutronBucket );
-    moveParticlesFromAtomToBucket( this.atom.electrons, this.buckets.electronBucket );
+    moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
+    moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
+    moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
   };
 
   return BuildAnAtomModel;

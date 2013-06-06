@@ -20,7 +20,7 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
-  var _FONT = '20px Arial bold';
+  var _FONT = '16px Arial';
 
   /**
    * @param numberAtom Model representation of the atom

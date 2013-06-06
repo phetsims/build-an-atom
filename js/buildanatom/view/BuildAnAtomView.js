@@ -19,6 +19,7 @@ define( function( require ) {
   var Button = require( 'SUN/Button' );
   var TabView = require( "JOIST/TabView" );
   var inherit = require( 'PHET_CORE/inherit' );
+  var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
 
   /**
    * Constructor.
@@ -31,12 +32,13 @@ define( function( require ) {
     var thisView = this;
 
     // Create the model-view transform.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping( { x: 0, y: 0 },
-      { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.35 },
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+      { x: 0, y: 0 },
+      { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.45 },
       1.0 );
 
     // Add the node that shows the electron shells and the various textual labels.
-    this.addChild( new AtomNode( model.atom, mvt ) );
+    this.addChild( new AtomNode( model.particleAtom, mvt ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
@@ -57,15 +59,15 @@ define( function( require ) {
 
     // Layer the particles views so that the nucleus looks good, with the
     // particles closer to the center being higher in the z-order.
-    model.atom.on( 'reconfigureNucleus', function() {
+    model.particleAtom.on( 'reconfigureNucleus', function() {
       var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
-        return particleView.particle.destination.distance( model.atom.position ) < model.atom.innerElectronShellRadius;
+        return particleView.particle.destination.distance( model.particleAtom.position ) < model.particleAtom.innerElectronShellRadius;
       } );
 
       if ( particlesInNucleus.length > 4 ) {
         particlesInNucleus = _.sortBy( particlesInNucleus, function( particleView ) {
           // Central nucleons should be in front
-          return -particleView.particle.destination.distance( model.atom.position );
+          return -particleView.particle.destination.distance( model.particleAtom.position );
         } );
         _.each( particlesInNucleus, function( particleView ) {
           nucleonLayer.removeChild( particleView );
@@ -80,17 +82,20 @@ define( function( require ) {
       thisView.addChild( new BucketFront( bucket, mvt ) );
     } );
 
+    // Add the particle count indicator.
+    this.addChild( new ParticleCountDisplay( model.numberAtom, 13, 250 ).mutate( { top: 5, left: 5 } ) ); // Width arbitrarily chosen.
+
     // Add the reset button.
     var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position );
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
-      function() {
-        model.reset();
-      },
-      {
-        fill: 'orange',
-        xMargin: 10,
-        lineWidth: 1.5
-      } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
+                               function() {
+                                 model.reset();
+                               },
+                               {
+                                 fill: 'orange',
+                                 xMargin: 10,
+                                 lineWidth: 1.5
+                               } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
   }
 
   // Inherit from TabView.

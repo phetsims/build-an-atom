@@ -18,7 +18,7 @@ define( function( require ) {
 
   // Constants
   var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
-  var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 160;
+  var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 150;
 
   var ParticleAtom = Fort.Model.extend(
     {
