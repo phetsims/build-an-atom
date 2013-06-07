@@ -27,10 +27,10 @@ define( function( require ) {
   /**
    * Constructor.
    *
-   * @param atom - Atom that defines which element is currently highlighted.
+   * @param numberAtom - Atom that defines which element is currently highlighted.
    * @constructor
    */
-  function PeriodicTableNode( atom ) {
+  function PeriodicTableNode( numberAtom ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
     var thisPeriodicTable = this;
 
@@ -40,7 +40,7 @@ define( function( require ) {
     for ( var i = 0; i < POPULATED_CELLS.length; i++ ) {
       var populatedCellsInRow = POPULATED_CELLS[i];
       for ( var j = 0; j < populatedCellsInRow.length; j++ ) {
-        var cell = new PeriodicTableCell( elementIndex, CELL_DIMENSION, i <= 1, atom );
+        var cell = new PeriodicTableCell( elementIndex, CELL_DIMENSION, i <= 1, numberAtom );
         cell.translation = new Vector2( populatedCellsInRow[j] * CELL_DIMENSION, i * CELL_DIMENSION );
         this.addChild( cell );
         this.cells.push( cell );
@@ -49,7 +49,7 @@ define( function( require ) {
     }
 
     // Highlight the cell that corresponds to the atom.
-    atom.protonCountProperty.link( function( protonCount ) {
+    numberAtom.protonCountProperty.link( function( protonCount ) {
       _.each( thisPeriodicTable.cells, function( cell ) {
         cell.setHighlighted( false );
       } );
