@@ -87,7 +87,7 @@ define( function( require ) {
       var proton = new Particle( 'proton' );
       thisModel.nucleons.push( proton );
       thisModel.buckets.protonBucket.addParticleFirstOpen( proton, false );
-      proton.link( 'userControlled', function( userControlled ) {
+      proton.userControlledProperty.link( function( userControlled ) {
         if ( !userControlled && !thisModel.buckets.protonBucket.containsParticle( proton ) ) {
           placeNucleon( proton, thisModel.buckets.protonBucket, thisModel.particleAtom );
         }
@@ -99,7 +99,7 @@ define( function( require ) {
       var neutron = new Particle( 'neutron' );
       thisModel.nucleons.push( neutron );
       thisModel.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
-      neutron.link( 'userControlled', function( userControlled ) {
+      neutron.userControlledProperty.link( function( userControlled ) {
         if ( !userControlled && !thisModel.buckets.neutronBucket.containsParticle( neutron ) ) {
           placeNucleon( neutron, thisModel.buckets.neutronBucket, thisModel.particleAtom );
         }
@@ -111,7 +111,7 @@ define( function( require ) {
       var electron = new Particle( 'electron' );
       thisModel.electrons.push( electron );
       thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
-      electron.link( 'userControlled', function( userControlled ) {
+      electron.userControlledProperty.link( function( userControlled ) {
         if ( !userControlled && !thisModel.buckets.electronBucket.containsParticle( electron ) ) {
           if ( electron.position.distance( Vector2.ZERO ) < thisModel.particleAtom.outerElectronShellRadius * 1.1 ) {
             thisModel.particleAtom.addParticle( electron );

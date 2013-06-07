@@ -25,7 +25,7 @@ define( function( require ) {
     this.addChild( new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) ) );
 
     // Listen to the model position and update.
-    particle.link( 'position', function( position ) {
+    particle.positionProperty.link( function( position ) {
       thisParticleView.translation = thisParticleView.mvt.modelToViewPosition( position );
     } );
 
