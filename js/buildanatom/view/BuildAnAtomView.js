@@ -59,7 +59,9 @@ define( function( require ) {
 
     // Layer the particles views so that the nucleus looks good, with the
     // particles closer to the center being higher in the z-order.
-    model.particleAtom.on( 'reconfigureNucleus', function() {
+
+    // Make the marker invisible if any nucleons are present.
+    var relayerNucleus = function() {
       var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
         return particleView.particle.destination.distance( model.particleAtom.position ) < model.particleAtom.innerElectronShellRadius;
       } );
@@ -74,7 +76,9 @@ define( function( require ) {
           nucleonLayer.addChild( particleView );
         } );
       }
-    } );
+    };
+    model.particleAtom.neutrons.addListener( relayerNucleus );
+    model.particleAtom.protons.addListener( relayerNucleus );
 
     // Add the front portion of the buckets.  Done separately from the bucket
     // holes for layering purposes.
@@ -88,14 +92,14 @@ define( function( require ) {
     // Add the reset button.
     var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position );
     this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
-                               function() {
-                                 model.reset();
-                               },
-                               {
-                                 fill: 'orange',
-                                 xMargin: 10,
-                                 lineWidth: 1.5
-                               } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
+      function() {
+        model.reset();
+      },
+      {
+        fill: 'orange',
+        xMargin: 10,
+        lineWidth: 1.5
+      } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
   }
 
   // Inherit from TabView.

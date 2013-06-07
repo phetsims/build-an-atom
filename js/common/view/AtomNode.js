@@ -60,15 +60,10 @@ define( function( require ) {
       this.addChild( atomCenterMarker );
 
       // Make the marker invisible if any nucleons are present.
-      atom.on( "reconfigureNucleus", function() {
-        atomCenterMarker.visible = atom.getWeight() === 0;
-      } );
-      atom.neutrons.addListener( function() {
-        atomCenterMarker.visible = atom.getWeight() === 0;
-      } );
-      atom.protons.addListener( function() {
-        atomCenterMarker.visible = atom.getWeight() === 0;
-      } );
+      var listener = function() { atomCenterMarker.visible = atom.getWeight() === 0; };
+      atom.electrons.addListener( listener );
+      atom.neutrons.addListener( listener );
+      atom.protons.addListener( listener );
     }
 
     // Add the electron shells.
