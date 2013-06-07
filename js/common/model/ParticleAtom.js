@@ -14,7 +14,7 @@ define( function( require ) {
   var Utils = require( 'common/Utils' );
   var Vector2 = require( 'DOT/Vector2' );
   var Particle = require( 'common/model/Particle' );
-  var ParticleCollection = Backbone.Collection.extend( { model: Particle } );
+  var ObservableArray = require( 'AXON/ObservableArray' );
 
   // Constants
   var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
@@ -34,9 +34,9 @@ define( function( require ) {
         this.outerElectronShellRadius = outerElectronShellRadius || DEFAULT_OUTER_ELECTRON_SHELL_RADIUS;
 
         // Create the particle collections.
-        this.protons = new ParticleCollection();
-        this.neutrons = new ParticleCollection();
-        this.electrons = new ParticleCollection();
+        this.protons = new ObservableArray();
+        this.neutrons = new ObservableArray();
+        this.electrons = new ObservableArray();
 
         // Set the default electron add/remove mode.  Valid values are "proximal" and "random".
         this.electronAddMode = 'proximal';
@@ -53,16 +53,18 @@ define( function( require ) {
           this.electronPositions[ i + 2 ] = {
             electron: null,
             position: new Vector2( Math.cos( angle ) * this.outerElectronShellRadius,
-                                   Math.sin( angle ) * this.outerElectronShellRadius )
+              Math.sin( angle ) * this.outerElectronShellRadius )
           };
           angle += Math.PI / numSlotsInOuterShell * 2;
         }
 
         // If the electron collection is reset, clear the open positions.
-        this.electrons.on( 'reset', function() {
-          _.each( thisAtom.electronPositions, function( electronPosition ) {
-            electronPosition.electron = null;
-          } );
+        this.electrons.addListener( function( a, b, c ) {
+          if ( c.length === 0 ) {
+            _.each( thisAtom.electronPositions, function( electronPosition ) {
+              electronPosition.electron = null;
+            } );
+          }
         } );
       },
 
@@ -78,7 +80,6 @@ define( function( require ) {
               thisAtom.protons.remove( particle );
               thisAtom.reconfigureNucleus();
             }
-            debugger;
             particle.userControlledProperty.unlink( userControlledProtonListener );
           };
           particle.userControlledProperty.lazyLink( userControlledProtonListener );
@@ -86,9 +87,9 @@ define( function( require ) {
         else if ( particle.type === 'neutron' ) {
           this.neutrons.add( particle );
           this.reconfigureNucleus();
-          particle.once( 'change:userControlled', function( userControlledParticle, userControlled ) {
-            if ( userControlled && thisAtom.neutrons.contains( userControlledParticle ) ) {
-              thisAtom.neutrons.remove( userControlledParticle );
+          particle.userControlledProperty.once( function( userControlled ) {
+            if ( userControlled && thisAtom.neutrons.contains( particle ) ) {
+              thisAtom.neutrons.remove( particle );
               thisAtom.reconfigureNucleus();
             }
           } );
@@ -122,11 +123,11 @@ define( function( require ) {
           }
           sortedOpenPositions[0].electron = particle;
           particle.destination = sortedOpenPositions[ 0 ].position;
-          particle.once( 'change:userControlled', function( userControlledElectron, userControlled ) {
-            if ( userControlled && thisAtom.electrons.contains( userControlledElectron ) ) {
-              thisAtom.electrons.remove( userControlledElectron );
+          particle.userControlledProperty.once( function( userControlled ) {
+            if ( userControlled && thisAtom.electrons.contains( particle ) ) {
+              thisAtom.electrons.remove( particle );
               _.each( thisAtom.electronPositions, function( electronPosition ) {
-                if ( electronPosition.electron === userControlledElectron ) {
+                if ( electronPosition.electron === particle ) {
                   electronPosition.electron = null;
                 }
               } );
@@ -213,11 +214,11 @@ define( function( require ) {
           angle = Math.random() * 2 * Math.PI;
           distFromCenter = nucleonRadius * 1.155;
           nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ),
-                                                 centerY + distFromCenter * Math.sin( angle ) );
+            centerY + distFromCenter * Math.sin( angle ) );
           nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
-                                                 centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
+            centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
           nucleons[2].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
-                                                 centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
+            centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
         }
         else if ( nucleons.length === 4 ) {
           // Four nucleons - make a sort of diamond shape with some overlap.
@@ -226,9 +227,9 @@ define( function( require ) {
           nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
           distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
           nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                                 centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+            centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
           nucleons[3].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                                 centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+            centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
         }
         else if ( nucleons.length >= 5 ) {
           // This is a generalized algorithm that should work for five or
@@ -240,7 +241,7 @@ define( function( require ) {
           var placementAngleDelta = 0;
           for ( var i = 0; i < nucleons.length; i++ ) {
             nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
-                                                   centerY + placementRadius * Math.sin( placementAngle ) );
+              centerY + placementRadius * Math.sin( placementAngle ) );
             numAtThisRadius--;
             if ( numAtThisRadius > 0 ) {
               // Stay at the same radius and update the placement angle.

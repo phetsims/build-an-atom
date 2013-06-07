@@ -132,9 +132,9 @@ define( function( require ) {
     };
 
     // Update the number atom when the particle atom changes.
-    this.particleAtom.protons.on( 'add remove reset', function() { updateNumberAtom(); } );
-    this.particleAtom.neutrons.on( 'add remove reset', function() { updateNumberAtom(); } );
-    this.particleAtom.electrons.on( 'add remove reset', function() { updateNumberAtom(); } );
+    this.particleAtom.protons.addListener( updateNumberAtom );
+    this.particleAtom.electrons.addListener( updateNumberAtom );
+    this.particleAtom.neutrons.addListener( updateNumberAtom );
   }
 
   BuildAnAtomModel.prototype.step = function( dt ) {
@@ -154,7 +154,7 @@ define( function( require ) {
       for ( var i = 0; i < particleCollection.length; i++ ) {
         particlesToRemove[i] = particleCollection.at( i );
       }
-      particleCollection.reset();
+      particleCollection.clear();
       _.each( particlesToRemove, function( particle ) {
         bucket.addParticleFirstOpen( particle );
       }, this );
