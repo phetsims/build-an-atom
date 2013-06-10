@@ -30,7 +30,7 @@ define( function( require ) {
    * @param numberAtom - Atom that defines which element is currently highlighted.
    * @constructor
    */
-  function PeriodicTableNode( numberAtom ) {
+  function PeriodicTableNode( numberAtom, interactiveMax ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
     var thisPeriodicTable = this;
 
@@ -40,7 +40,7 @@ define( function( require ) {
     for ( var i = 0; i < POPULATED_CELLS.length; i++ ) {
       var populatedCellsInRow = POPULATED_CELLS[i];
       for ( var j = 0; j < populatedCellsInRow.length; j++ ) {
-        var cell = new PeriodicTableCell( elementIndex, CELL_DIMENSION, i <= 1, numberAtom );
+        var cell = new PeriodicTableCell( elementIndex, CELL_DIMENSION, interactiveMax >= elementIndex, numberAtom );
         cell.translation = new Vector2( populatedCellsInRow[j] * CELL_DIMENSION, i * CELL_DIMENSION );
         this.addChild( cell );
         this.cells.push( cell );

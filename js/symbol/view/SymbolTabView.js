@@ -47,7 +47,7 @@ define( function( require ) {
     this.addChild( scaleImage );
 
     // Add the periodic table.
-    var periodicTable = new PeriodicTableNode( model.numberAtom );
+    var periodicTable = new PeriodicTableNode( model.numberAtom, 10 );
     this.addChild( periodicTable );
 
     // Add a node that will be used to make the periodic table appear to fade

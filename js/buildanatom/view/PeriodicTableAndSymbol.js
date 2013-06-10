@@ -27,7 +27,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Create and add the periodic table.
-    var periodicTable = new PeriodicTableNode( numberAtom );
+    var periodicTable = new PeriodicTableNode( numberAtom, 0 );
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.
