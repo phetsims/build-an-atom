@@ -15,7 +15,6 @@ define( function( require ) {
   var ParticleAtom = require( 'common/model/ParticleAtom' );
   var AtomNode = require( 'common/view/AtomNode' );
   var Vector2 = require( "DOT/Vector2" );
-  var Bounds2 = require( 'DOT/Bounds2' );
   var Button = require( 'SUN/Button' );
   var AccordionBox = require( 'SUN/AccordionBox' );
   var TabView = require( "JOIST/TabView" );
@@ -23,6 +22,7 @@ define( function( require ) {
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var PeriodicTableNode = require( 'buildanatom/view/PeriodicTableNode' );
+  var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
 
   /**
    * Constructor.
@@ -118,7 +118,7 @@ define( function( require ) {
     this.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massIndicatorBox = new AccordionBox( new ChargeMeter( model.numberAtom ),
+    var massIndicatorBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ),
                                              {
                                                title: 'Mass Number', // TODO: i18n
                                                initiallyOpen: false,

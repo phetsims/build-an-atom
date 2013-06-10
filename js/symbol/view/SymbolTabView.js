@@ -12,7 +12,6 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var NumberAtom = require( 'common/model/NumberAtom' );
-  var Bounds2 = require( 'DOT/Bounds2' );
   var Vector2 = require( 'DOT/Vector2' );
   var Button = require( 'SUN/Button' );
   var TabView = require( "JOIST/TabView" );

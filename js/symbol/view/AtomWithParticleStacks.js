@@ -8,7 +8,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Bounds2 = require( 'DOT/Bounds2' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
