@@ -21,7 +21,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
-  var PeriodicTableNode = require( 'buildanatom/view/PeriodicTableNode' );
+  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
   var SharedConstants = require( 'common/SharedConstants' );
 

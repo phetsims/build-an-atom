@@ -9,7 +9,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
-  var PeriodicTableCell = require( 'buildanatom/view/PeriodicTableCell' );
+  var PeriodicTableCell = require( 'common/view/PeriodicTableCell' );
 
   // 2D array that defines the table structure.
   var POPULATED_CELLS = [

@@ -17,7 +17,7 @@ define( function( require ) {
   var TabView = require( "JOIST/TabView" );
   var SymbolNode = require( "symbol/view/SymbolNode" );
   var BAAImages = require( "common/BAAImages" );
-  var PeriodicTableNode = require( "buildanatom/view/PeriodicTableNode" );
+  var PeriodicTableNode = require( "common/view/PeriodicTableNode" );
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
   var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
   var inherit = require( 'PHET_CORE/inherit' );
