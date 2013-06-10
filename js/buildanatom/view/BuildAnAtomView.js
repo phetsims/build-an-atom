@@ -23,6 +23,7 @@ define( function( require ) {
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var PeriodicTableNode = require( 'buildanatom/view/PeriodicTableNode' );
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
+  var SharedConstants = require( 'common/SharedConstants' );
 
   /**
    * Constructor.
@@ -98,6 +99,7 @@ define( function( require ) {
     var periodicTableBox = new AccordionBox( periodicTable,
                                              {
                                                title: 'Periodic Table', // TODO: i18n
+                                               fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                                minWidth: accordionBoxWidth,
                                                contentPosition: 'left',
                                                titlePosition: 'left',
@@ -109,6 +111,7 @@ define( function( require ) {
     var chargeMeterBox = new AccordionBox( new ChargeMeter( model.numberAtom ),
                                            {
                                              title: 'Net Charge', // TODO: i18n
+                                             fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                              initiallyOpen: false,
                                              minWidth: accordionBoxWidth,
                                              contentPosition: 'left',
@@ -121,6 +124,7 @@ define( function( require ) {
     var massIndicatorBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ),
                                              {
                                                title: 'Mass Number', // TODO: i18n
+                                               fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                                initiallyOpen: false,
                                                minWidth: accordionBoxWidth,
                                                contentPosition: 'left',
