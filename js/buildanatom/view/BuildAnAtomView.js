@@ -21,7 +21,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
-  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
   var SharedConstants = require( 'common/SharedConstants' );
 
@@ -94,7 +94,7 @@ define( function( require ) {
 
     // Add the periodic table display inside of an accordion box.
     var accordionBoxWidth = 400; // Width chosen to make layout work.
-    var periodicTable = new PeriodicTableNode( model.numberAtom );
+    var periodicTable = new PeriodicTableAndSymbol( model.numberAtom );
     periodicTable.scale( 0.7 ); // Scale empirically determined.
     var periodicTableBox = new AccordionBox( periodicTable,
                                              {
