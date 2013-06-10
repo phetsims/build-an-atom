@@ -11,15 +11,15 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  function NumberAtom(){
-    PropertySet.call( this,  { protonCount: 0, neutronCount: 0, electronCount: 0 } );
-    this.addDerivedProperty( 'charge', [ 'protonCount', 'electronCount' ], function( protonCount, electronCount ){
+  function NumberAtom() {
+    PropertySet.call( this, { protonCount: 0, neutronCount: 0, electronCount: 0 } );
+    this.addDerivedProperty( 'charge', [ 'protonCount', 'electronCount' ], function( protonCount, electronCount ) {
       return protonCount - electronCount;
     } );
-    this.addDerivedProperty( 'atomicMass', [ 'protonCount', 'neutronCount' ], function( protonCount, neutronCount ){
+    this.addDerivedProperty( 'atomicMass', [ 'protonCount', 'neutronCount' ], function( protonCount, neutronCount ) {
       return protonCount + neutronCount;
     } );
-    this.addDerivedProperty( 'particleCount', [ 'protonCount', 'neutronCount', 'electronCount' ], function( protonCount, neutronCount, electronCount ){
+    this.addDerivedProperty( 'particleCount', [ 'protonCount', 'neutronCount', 'electronCount' ], function( protonCount, neutronCount, electronCount ) {
       return protonCount + neutronCount + electronCount;
     } );
   }

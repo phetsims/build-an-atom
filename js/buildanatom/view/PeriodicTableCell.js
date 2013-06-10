@@ -29,12 +29,12 @@ define( function( require ) {
     this.highlightedFill = 'yellow';
 
     this.cell = new Rectangle( 0, 0, dimension, dimension, 0, 0,
-      {
-        stroke: 'black',
-        lineWidth: 1,
-        fill: this.normalFill,
-        cursor: interactive ? 'pointer' : null
-      } );
+                               {
+                                 stroke: 'black',
+                                 lineWidth: 1,
+                                 fill: this.normalFill,
+                                 cursor: interactive ? 'pointer' : null
+                               } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
       font: "Arial",
       fontSize: NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION),
@@ -46,12 +46,12 @@ define( function( require ) {
     // If interactive, add a listener to set the atom when this cell is pressed.
     if ( interactive ) {
       this.cell.addInputListener( {
-        up: function() {
-          numberAtom.protonCount = atomicNumber;
-          numberAtom.neutronCount = AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber );
-          numberAtom.electronCount = atomicNumber;
-        }
-      } );
+                                    up: function() {
+                                      numberAtom.protonCount = atomicNumber;
+                                      numberAtom.neutronCount = AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber );
+                                      numberAtom.electronCount = atomicNumber;
+                                    }
+                                  } );
     }
   }
 

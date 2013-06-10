@@ -119,14 +119,14 @@ define( function( require ) {
 
     // Add the mass indicator inside of an accordion box.
     var massIndicatorBox = new AccordionBox( new ChargeMeter( model.numberAtom ),
-                                           {
-                                             title: 'Mass Number', // TODO: i18n
-                                             initiallyOpen: false,
-                                             minWidth: accordionBoxWidth,
-                                             contentPosition: 'left',
-                                             titlePosition: 'left',
-                                             buttonPosition: 'right'
-                                           } );
+                                             {
+                                               title: 'Mass Number', // TODO: i18n
+                                               initiallyOpen: false,
+                                               minWidth: accordionBoxWidth,
+                                               contentPosition: 'left',
+                                               titlePosition: 'left',
+                                               buttonPosition: 'right'
+                                             } );
     this.addChild( massIndicatorBox );
 
     // Add the reset button.

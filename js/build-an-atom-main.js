@@ -17,30 +17,30 @@ require(
 
     var icon1 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
     icon1.addChild( new Circle( 10,
-      {
-        stroke: 'blue',
-        lineWidth: 0.5,
-        lineDash: [ 1, 1 ],
-        translation: {x: 25, y: 25 }
-      }
+                                {
+                                  stroke: 'blue',
+                                  lineWidth: 0.5,
+                                  lineDash: [ 1, 1 ],
+                                  translation: {x: 25, y: 25 }
+                                }
     ) );
     icon1.addChild( new Circle( 20,
-      {
-        stroke: 'blue',
-        lineWidth: 0.5,
-        lineDash: [ 1, 1 ],
-        translation: {x: 25, y: 25 }
-      }
+                                {
+                                  stroke: 'blue',
+                                  lineWidth: 0.5,
+                                  lineDash: [ 1, 1 ],
+                                  translation: {x: 25, y: 25 }
+                                }
     ) );
 
     var icon2 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
     icon2.addChild( new Rectangle( 0, 0, 30, 30,
-      {
-        stroke: 'black',
-        lineWidth: 0.5,
-        translation: {x: 10, y: 10 },
-        fill: 'rgb( 255, 255, 255)'
-      }
+                                   {
+                                     stroke: 'black',
+                                     lineWidth: 0.5,
+                                     translation: {x: 10, y: 10 },
+                                     fill: 'rgb( 255, 255, 255)'
+                                   }
     ) );
     icon2.addChild( new Text( "H", {
       translation: { x: 17, y: 30 },

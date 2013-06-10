@@ -53,10 +53,10 @@ define( function( require ) {
       centerMarker.moveTo( center.x - sizeInPixels / 2, center.y + sizeInPixels / 2 );
       centerMarker.lineTo( center.x + sizeInPixels / 2, center.y - sizeInPixels / 2 );
       var atomCenterMarker = new Path( {
-        shape: centerMarker,
-        stroke: 'orange',
-        lineWidth: 5
-      } );
+                                         shape: centerMarker,
+                                         stroke: 'orange',
+                                         lineWidth: 5
+                                       } );
       this.addChild( atomCenterMarker );
 
       // Make the marker invisible if any nucleons are present.
@@ -75,12 +75,12 @@ define( function( require ) {
       var elementNameCenterPos = mvt.modelToViewPosition( atom.position.plus( new Vector2( 0, atom.innerElectronShellRadius / 2 ) ) );
       var elementNameFontSize = mvt.modelToViewDeltaX( atom.innerElectronShellRadius ) * 0.35 + "px";
       this.elementName = new Text( "",
-        {
-          font: "Arial",
-          fontSize: elementNameFontSize,
-          fill: "red",
-          center: elementNameCenterPos
-        } );
+                                   {
+                                     font: "Arial",
+                                     fontSize: elementNameFontSize,
+                                     fill: "red",
+                                     center: elementNameCenterPos
+                                   } );
       this.addChild( this.elementName );
 
       // Define the update function for the element name.
@@ -107,11 +107,11 @@ define( function( require ) {
     if ( options.showIonIndicator ) {
       var ionIndicatorTranslation = mvt.modelToViewPosition( atom.position.plus( new Vector2( atom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.25 ) ) );
       this.ionIndicator = new Text( "",
-        {
-          font: "24px Arial",
-          fill: "black",
-          translation: ionIndicatorTranslation
-        } );
+                                    {
+                                      font: "24px Arial",
+                                      fill: "black",
+                                      translation: ionIndicatorTranslation
+                                    } );
       this.addChild( this.ionIndicator );
 
       // Define the update function for the ion indicator.
@@ -148,11 +148,11 @@ define( function( require ) {
     if ( options.showStability ) {
       var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
       this.stabilityIndicator = new Text( "",
-        {
-          font: "24px Arial",
-          fill: "black",
-          center: stabilityIndicatorCenterPos
-        } );
+                                          {
+                                            font: "24px Arial",
+                                            fill: "black",
+                                            center: stabilityIndicatorCenterPos
+                                          } );
       this.addChild( this.stabilityIndicator );
 
       // Define the update function for the stability indicator.

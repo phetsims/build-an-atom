@@ -40,11 +40,11 @@ define( function( require ) {
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, _WIDTH, _HEIGHT, 10, 10,
-      {
-        stroke: 'black',
-        lineWidth: 1,
-        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
-      } );
+                                     {
+                                       stroke: 'black',
+                                       lineWidth: 1,
+                                       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR
+                                     } );
     this.addChild( boundingBox );
 
     // Add the node that presents the atom.
@@ -55,11 +55,11 @@ define( function( require ) {
     // the 'stock' atom node provide.
     var ionIndicatorTranslation = mvt.modelToViewPosition( symbolTableModel.particleAtom.position.plus( new Vector2( symbolTableModel.particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.33 ) ) );
     this.ionIndicator = new Text( "",
-      {
-        font: "20px Arial",
-        fill: "black",
-        translation: ionIndicatorTranslation
-      } );
+                                  {
+                                    font: "20px Arial",
+                                    fill: "black",
+                                    translation: ionIndicatorTranslation
+                                  } );
     this.addChild( this.ionIndicator );
     symbolTableModel.numberAtom.chargeProperty.link( function( charge ) {
       if ( symbolTableModel.numberAtom.protonCount > 0 ) {

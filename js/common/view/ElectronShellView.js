@@ -14,24 +14,24 @@ define( function( require ) {
     var outerRadiusInView = mvt.modelToViewDeltaX( atom.outerElectronShellRadius );
     var outerRing = new Circle( outerRadiusInView,
       // Options
-      {
-        stroke: 'blue',
-        lineWidth: 1.5,
-        lineDash: [ 4, 6 ],
-        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
-      }
+                                {
+                                  stroke: 'blue',
+                                  lineWidth: 1.5,
+                                  lineDash: [ 4, 6 ],
+                                  translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+                                }
     );
     this.addChild( outerRing );
 
     var innerRadiusInView = mvt.modelToViewDeltaX( atom.innerElectronShellRadius );
     var innerRing = new Circle( innerRadiusInView,
       // Options
-      {
-        stroke: 'blue',
-        lineWidth: 1.5,
-        lineDash: [ 4, 6 ],
-        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
-      }
+                                {
+                                  stroke: 'blue',
+                                  lineWidth: 1.5,
+                                  lineDash: [ 4, 6 ],
+                                  translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+                                }
     );
     this.addChild( innerRing );
   };

@@ -42,15 +42,15 @@ define( function( require ) {
     meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
     var meterWindow = new Path( {
-      shape: meterWindowShape,
-      stroke: 'gray',
-      lineWidth: 2,
-      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-        addColorStop( 0, 'rgb( 117, 186, 255 )' ).
-        addColorStop( 0.5, 'white' ).
-        addColorStop( 1, 'rgb( 255, 77, 77 )' ),
-      center: background.center
-    } );
+                                  shape: meterWindowShape,
+                                  stroke: 'gray',
+                                  lineWidth: 2,
+                                  fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
+                                    addColorStop( 0, 'rgb( 117, 186, 255 )' ).
+                                    addColorStop( 0.5, 'white' ).
+                                    addColorStop( 1, 'rgb( 255, 77, 77 )' ),
+                                  center: background.center
+                                } );
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
@@ -79,13 +79,13 @@ define( function( require ) {
 
     // Add the listeners that will update the meter when the charge changes.
     numberAtom.chargeProperty.link( function( charge ) {
-        meterLineLayer.removeAllChildren();
-        var lineShape = new Shape();
-        lineShape.moveTo( meterWindow.centerX, meterWindow.bottom - 3 );
-        var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
-        lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
-        meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
-      }
+                                      meterLineLayer.removeAllChildren();
+                                      var lineShape = new Shape();
+                                      lineShape.moveTo( meterWindow.centerX, meterWindow.bottom - 3 );
+                                      var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
+                                      lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
+                                      meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
+                                    }
     );
   };
 
