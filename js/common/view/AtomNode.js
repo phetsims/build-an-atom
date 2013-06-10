@@ -33,7 +33,8 @@ define( function( require ) {
         showCenterX: true,
         showElementName: true,
         showStability: true,
-        showIonIndicator: true},
+        showIonIndicator: true
+      },
       options
     );
 

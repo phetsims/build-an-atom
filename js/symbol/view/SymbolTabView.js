@@ -59,7 +59,7 @@ define( function( require ) {
     this.addChild( periodicTableFadeOutNode );
 
     // Add the charge meter.
-    var chargeMeter = new ChargeMeter( model.numberAtom );
+    var chargeMeter = new ChargeMeter( model.numberAtom, { showNumericalReadout: false } );
     this.addChild( chargeMeter );
 
     // Add the atom display.
