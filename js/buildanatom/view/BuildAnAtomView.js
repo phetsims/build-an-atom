@@ -122,29 +122,29 @@ define( function( require ) {
     this.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massIndicatorBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ),
-                                             {
-                                               title: 'Mass Number', // TODO: i18n
-                                               fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                               initiallyOpen: false,
-                                               minWidth: periodicTableBox.width,
-                                               contentPosition: 'left',
-                                               titlePosition: 'left',
-                                               buttonPosition: 'right'
-                                             } );
-    this.addChild( massIndicatorBox );
+    var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ),
+                                          {
+                                            title: 'Mass Number', // TODO: i18n
+                                            fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+                                            initiallyOpen: false,
+                                            minWidth: periodicTableBox.width,
+                                            contentPosition: 'left',
+                                            titlePosition: 'left',
+                                            buttonPosition: 'right'
+                                          } );
+    this.addChild( massNumberBox );
 
     // Add the reset button.
-    var bucketCenterPosition = mvt.modelToViewPosition( model.buckets.electronBucket.position );
-    this.addChild( new Button( new Text( "Reset", { font: 'bold 24px Arial'} ),
-                               function() {
-                                 model.reset();
-                               },
-                               {
-                                 fill: 'orange',
-                                 xMargin: 10,
-                                 lineWidth: 1.5
-                               } ).mutate( {center: bucketCenterPosition.plus( new Vector2( 150, 30 ) )} ) );
+    var resetButton = new Button( new Text( "Reset", { font: 'bold 20px Arial'} ),
+                                  function() {
+                                    model.reset();
+                                  },
+                                  {
+                                    fill: 'orange',
+                                    xMargin: 10,
+                                    lineWidth: 1.5
+                                  } );
+    this.addChild( resetButton );
 
     // Do the layout.
     particleCountDisplay.top = 5;
@@ -153,8 +153,10 @@ define( function( require ) {
     periodicTableBox.right = this.layoutBounds.width;
     chargeMeterBox.right = periodicTableBox.right;
     chargeMeterBox.top = periodicTableBox.bottom + 10;
-    massIndicatorBox.right = periodicTableBox.right;
-    massIndicatorBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + 10;
+    massNumberBox.right = periodicTableBox.right;
+    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + 10;
+    resetButton.centerX = periodicTableBox.centerX;
+    resetButton.bottom = this.layoutBounds.height - 10;
   }
 
   // Inherit from TabView.

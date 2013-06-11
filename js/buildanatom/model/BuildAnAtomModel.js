@@ -48,7 +48,7 @@ define( function( require ) {
     this.buckets = {
       protonBucket: new SphereBucket(
         {
-          position: new Vector2( -BUCKET_WIDTH * 1.5, BUCKET_Y_OFFSET ),
+          position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           particleRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'red',
@@ -68,7 +68,7 @@ define( function( require ) {
       ),
       electronBucket: new SphereBucket(
         {
-          position: new Vector2( BUCKET_WIDTH * 1.5, BUCKET_Y_OFFSET ),
+          position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           particleRadius: SharedConstants.ELECTRON_RADIUS,
           baseColor: 'blue',
