@@ -5,51 +5,53 @@ require(
     'buildanatom/view/BuildAnAtomView',
     'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
-    "PHETCOMMON/util/ImagesLoader",
     'common/BAAImages',
     'SCENERY/nodes/Circle',
     'SCENERY/nodes/Rectangle' ,
     'SCENERY/nodes/Text' ,
-    'JOIST/Sim'
+    'JOIST/Sim',
+    'JOIST/SimLauncher',
+    'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, SymbolTabModel, SymbolTabView, ImagesLoader, BAAImages, Circle, Rectangle, Text, Sim ) {
+  function( BuildAnAtomModel, BuildAnAtomView, SymbolTabModel, SymbolTabView, BAAImages, Circle, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     var icon1 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
     icon1.addChild( new Circle( 10,
-                                {
-                                  stroke: 'blue',
-                                  lineWidth: 0.5,
-                                  lineDash: [ 1, 1 ],
-                                  translation: {x: 25, y: 25 }
-                                }
+      {
+        stroke: 'blue',
+        lineWidth: 0.5,
+        lineDash: [ 1, 1 ],
+        translation: {x: 25, y: 25 }
+      }
     ) );
     icon1.addChild( new Circle( 20,
-                                {
-                                  stroke: 'blue',
-                                  lineWidth: 0.5,
-                                  lineDash: [ 1, 1 ],
-                                  translation: {x: 25, y: 25 }
-                                }
+      {
+        stroke: 'blue',
+        lineWidth: 0.5,
+        lineDash: [ 1, 1 ],
+        translation: {x: 25, y: 25 }
+      }
     ) );
 
     var icon2 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
     icon2.addChild( new Rectangle( 0, 0, 30, 30,
-                                   {
-                                     stroke: 'black',
-                                     lineWidth: 0.5,
-                                     translation: {x: 10, y: 10 },
-                                     fill: 'rgb( 255, 255, 255)'
-                                   }
+      {
+        stroke: 'black',
+        lineWidth: 0.5,
+        translation: {x: 10, y: 10 },
+        fill: 'rgb( 255, 255, 255)'
+      }
     ) );
     icon2.addChild( new Text( "H", {
       translation: { x: 17, y: 30 },
       font: "20px Arial"
     } ) );
 
-    var loader = new ImagesLoader( function( loader ) {
 
-      BAAImages.getImage = loader.getImage;
+    SimLauncher.launch( imageLoader, function() {
+
+      BAAImages.getImage = imageLoader.getImage;
 
       //Create and start the sim
       //TODO: i18n
@@ -75,5 +77,6 @@ require(
           }
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
-    } );
+    } )
+
   } );
