@@ -50,15 +50,18 @@ define( function( require ) {
     } );
 
     // Add the layer where the nucleons will be maintained.
-    var nucleonLayer = new Node();
+    var nucleonLayer = new Node( { layerSplit: true } );
     this.addChild( nucleonLayer );
+
+    var electronLayer = new Node( { layerSplit: true } );
+    this.addChild( electronLayer );
 
     // Add the particles.
     _.each( model.nucleons, function( nucleon ) {
       nucleonLayer.addChild( new ParticleView( nucleon, mvt ) );
     } );
     _.each( model.electrons, function( electron ) {
-      thisView.addChild( new ParticleView( electron, mvt ) );
+      electronLayer.addChild( new ParticleView( electron, mvt ) );
     } );
 
     // Layer the particles views so that the nucleus looks good, with the

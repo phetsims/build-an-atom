@@ -24,7 +24,7 @@ define( function( require ) {
    * @param symbolTableModel
    * @constructor
    */
-  var AtomWithParticleStacks = function( symbolTableModel, numProtons, numNeutrons, numElectrons ) {
+  var AtomWithParticleStacks = function AtomWithParticleStacks( symbolTableModel, numProtons, numNeutrons, numElectrons ) {
 
     Node.call( this ); // Call super constructor.
     var thisNode = this;

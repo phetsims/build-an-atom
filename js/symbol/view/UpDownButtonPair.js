@@ -29,7 +29,7 @@ define( function( require ) {
    *    vertical - boolean value, defaults to true.
    * @constructor
    */
-  var UpDownButtonPair = function( upFunction, downFunction, options ) {
+  var UpDownButtonPair = function UpDownButtonPair( upFunction, downFunction, options ) {
 
     Node.call( this ); // Call super constructor.
     var thisUpDownButton = this;

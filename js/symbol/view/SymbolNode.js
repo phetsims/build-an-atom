@@ -15,7 +15,7 @@ define( function( require ) {
   var NUMBER_FONT = "45px Arial";
   var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
-  var SymbolNode = function( atom ) {
+  var SymbolNode = function SymbolNode( atom ) {
 
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;

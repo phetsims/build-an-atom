@@ -27,7 +27,7 @@ define( function( require ) {
   var _SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
   // TODO: Document options.
-  var ChargeMeter = function( numberAtom, options ) {
+  var ChargeMeter = function ChargeMeter( numberAtom, options ) {
 
     Node.call( this, options ); // Call super constructor.
 

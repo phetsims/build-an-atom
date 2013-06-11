@@ -8,7 +8,7 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  var ElectronShellView = function( atom, mvt ) {
+  var ElectronShellView = function ElectronShellView( atom, mvt ) {
     Node.call( this ); // Call super constructor.
 
     var outerRadiusInView = mvt.modelToViewDeltaX( atom.outerElectronShellRadius );
