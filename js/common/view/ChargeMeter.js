@@ -15,7 +15,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var BAAImages = require( "common/BAAImages" );
+  var imageLoader = require( "imageLoader" );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
@@ -41,10 +41,10 @@ define( function( require ) {
     // Add the background image. TODO - Get consistent with SVG or PNG for these images.
     var background;
     if ( options.showNumericalReadout ) {
-      background = new Image( BAAImages.getImage( "atom_builder_charge_meter_no_window.png" ) );
+      background = new Image( imageLoader.getImage( "atom_builder_charge_meter_no_window.png" ) );
     }
     else {
-      background = new Image( BAAImages.getImage( "charge_meter_short_background.svg" ) );
+      background = new Image( imageLoader.getImage( "charge_meter_short_background.svg" ) );
     }
     background.scale( WIDTH / background.width ); // Scale to the targeted width.
     this.addChild( background );
@@ -58,16 +58,16 @@ define( function( require ) {
     meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
     var meterWindow = new Path( {
-                                  shape: meterWindowShape,
-                                  stroke: 'gray',
-                                  lineWidth: 2,
-                                  fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-                                    addColorStop( 0, 'rgb( 117, 186, 255 )' ).
-                                    addColorStop( 0.5, 'white' ).
-                                    addColorStop( 1, 'rgb( 255, 77, 77 )' ),
-                                  centerX: background.centerX,
-                                  top: 3 // Adjust as needed to work with background graphics.
-                                } );
+      shape: meterWindowShape,
+      stroke: 'gray',
+      lineWidth: 2,
+      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
+        addColorStop( 0, 'rgb( 117, 186, 255 )' ).
+        addColorStop( 0.5, 'white' ).
+        addColorStop( 1, 'rgb( 255, 77, 77 )' ),
+      centerX: background.centerX,
+      top: 3 // Adjust as needed to work with background graphics.
+    } );
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
@@ -98,13 +98,13 @@ define( function( require ) {
     if ( options.showNumericalReadout ) {
       var size = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.7 );
       var numericalReadout = new Rectangle( 0, 0, size.width, size.height, 3, 3,
-                                            {
-                                              fill: 'white',
-                                              stroke: 'black',
-                                              lineWidth: 1,
-                                              top: meterWindow.bottom + 3,
-                                              centerX: background.centerX
-                                            } );
+        {
+          fill: 'white',
+          stroke: 'black',
+          lineWidth: 1,
+          top: meterWindow.bottom + 3,
+          centerX: background.centerX
+        } );
       this.addChild( numericalReadout );
     }
 
@@ -131,13 +131,13 @@ define( function( require ) {
           textColor = 'black';
         }
         var readoutText = new Text( sign + numberAtom.charge,
-                                    {
-                                      font: '36px Tahoma',
-                                      fill: textColor
-                                    } );
+          {
+            font: '36px Tahoma',
+            fill: textColor
+          } );
         readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );
-        readoutText.centerX =  numericalReadout.width / 2;
-        readoutText.centerY =  numericalReadout.height / 2;
+        readoutText.centerX = numericalReadout.width / 2;
+        readoutText.centerY = numericalReadout.height / 2;
 //        readoutText.center = new Vector2( numericalReadout.width / 2, numericalReadout.height / 2 );
         numericalReadout.addChild( readoutText );
       }

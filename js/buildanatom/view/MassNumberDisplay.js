@@ -15,7 +15,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var BAAImages = require( "common/BAAImages" );
+  var imageLoader = require( "imageLoader" );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
 
@@ -28,31 +28,31 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Add the background image, i.e. the scale.
-    var scaleImage = new Image( BAAImages.getImage( "scale.svg" ) );
+    var scaleImage = new Image( imageLoader.getImage( "scale.svg" ) );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 
     // Add the numerical readout window.
     var readoutBackground = new Rectangle( 0, 0, READOUT_SIZE.width, READOUT_SIZE.height, 4, 4,
-                                           {
-                                             fill: 'white',
-                                             stroke: 'black',
-                                             lineWidth: 1,
-                                             // Position is based on the background image, and may need tweaking if the image is changed.
-                                             bottom: scaleImage.bottom - 7,
-                                             centerX: scaleImage.centerX + 1
-                                           } );
+      {
+        fill: 'white',
+        stroke: 'black',
+        lineWidth: 1,
+        // Position is based on the background image, and may need tweaking if the image is changed.
+        bottom: scaleImage.bottom - 7,
+        centerX: scaleImage.centerX + 1
+      } );
     this.addChild( readoutBackground );
 
     // Add the listeners that will update the numerical display when the charge changes.
     numberAtom.atomicMassProperty.link( function( atomicMass ) {
       readoutBackground.removeAllChildren();
       var numericalText = new Text( atomicMass,
-                                    {
-                                      font: "24px Tahoma bold"
-                                    } );
+        {
+          font: "24px Tahoma bold"
+        } );
       numericalText.scale( Math.min( READOUT_SIZE.height * 0.9 / numericalText.height,
-                                     READOUT_SIZE.width * 0.9 / numericalText.width ) );
+        READOUT_SIZE.width * 0.9 / numericalText.width ) );
 //      numericalText.center = readoutBackground.center;
       numericalText.centerX = READOUT_SIZE.width / 2;
       numericalText.centerY = READOUT_SIZE.height / 2;

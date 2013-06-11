@@ -16,7 +16,7 @@ define( function( require ) {
   var Button = require( 'SUN/Button' );
   var TabView = require( "JOIST/TabView" );
   var SymbolNode = require( "symbol/view/SymbolNode" );
-  var BAAImages = require( "common/BAAImages" );
+  var imageLoader = require( "imageLoader" );
   var PeriodicTableNode = require( "common/view/PeriodicTableNode" );
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
   var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
@@ -42,7 +42,7 @@ define( function( require ) {
     this.addChild( symbolNode );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( BAAImages.getImage( "scale.svg" ) );
+    var scaleImage = new Image( imageLoader.getImage( "scale.svg" ) );
     scaleImage.scale( 0.20 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
@@ -54,7 +54,7 @@ define( function( require ) {
     // out at the bottom.
     var fadeGradient = new LinearGradient( 0, 0, 0, periodicTable.height ).addColorStop( 0, 'rgba( 255, 254, 223, 0)' ).addColorStop( 0.5, 'rgba( 255, 254, 223, 0)' ).addColorStop( 0.68, 'rgba( 255, 254, 223, 1 )' );
     var periodicTableFadeOutNode = new Rectangle( 0, 0, periodicTable.width * 1.01, periodicTable.height * 1.01,
-                                                  {fill: fadeGradient, pickable: false} );
+      {fill: fadeGradient, pickable: false} );
 
     this.addChild( periodicTableFadeOutNode );
 
@@ -73,14 +73,14 @@ define( function( require ) {
 
     // Add the reset button. TODO: i18n
     var resetButton = new Button( new Text( "Reset", { font: 'bold 16px Arial'} ),
-                                  function() {
-                                    model.reset();
-                                  },
-                                  {
-                                    fill: 'orange',
-                                    xMargin: 10,
-                                    lineWidth: 1.5
-                                  } );
+      function() {
+        model.reset();
+      },
+      {
+        fill: 'orange',
+        xMargin: 10,
+        lineWidth: 1.5
+      } );
     this.addChild( resetButton );
 
     // Do the layout.

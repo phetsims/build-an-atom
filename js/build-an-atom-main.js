@@ -5,7 +5,6 @@ require(
     'buildanatom/view/BuildAnAtomView',
     'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
-    'common/BAAImages',
     'SCENERY/nodes/Circle',
     'SCENERY/nodes/Rectangle' ,
     'SCENERY/nodes/Text' ,
@@ -13,7 +12,7 @@ require(
     'JOIST/SimLauncher',
     'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, SymbolTabModel, SymbolTabView, BAAImages, Circle, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomView, SymbolTabModel, SymbolTabView, Circle, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     var icon1 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
@@ -50,8 +49,6 @@ require(
 
 
     SimLauncher.launch( imageLoader, function() {
-
-      BAAImages.getImage = imageLoader.getImage;
 
       //Create and start the sim
       //TODO: i18n
