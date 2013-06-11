@@ -136,9 +136,8 @@ define( function( require ) {
             fill: textColor
           } );
         readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );
-        readoutText.centerX = numericalReadout.width / 2;
-        readoutText.centerY = numericalReadout.height / 2;
-//        readoutText.center = new Vector2( numericalReadout.width / 2, numericalReadout.height / 2 );
+        readoutText.center = new Vector2( numericalReadout.width / 2, numericalReadout.height / 2 );
+
         numericalReadout.addChild( readoutText );
       }
     } );
