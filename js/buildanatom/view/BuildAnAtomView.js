@@ -68,10 +68,10 @@ define( function( require ) {
     // particles closer to the center being higher in the z-order.
     var relayerNucleus = function() {
       var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
-        return particleView.particle.destination.distance( model.particleAtom.position ) < model.particleAtom.innerElectronShellRadius;
+        return particleView.particle.destination.distance( model.particleAtom.position ) < model.particleAtom.outerElectronShellRadius;
       } );
 
-      if ( particlesInNucleus.length > 4 ) {
+      if ( particlesInNucleus.length > 3 ) {
         particlesInNucleus = _.sortBy( particlesInNucleus, function( particleView ) {
           // Central nucleons should be in front
           return -particleView.particle.destination.distance( model.particleAtom.position );
@@ -82,8 +82,10 @@ define( function( require ) {
         } );
       }
     };
-    model.particleAtom.neutrons.addListener( relayerNucleus );
-    model.particleAtom.protons.addListener( relayerNucleus );
+
+    model.particleAtom.nucleusReconfiguredMonitor.on( 'nucleusReconfigured', function(){
+      relayerNucleus();
+    });
 
     // Add the front portion of the buckets.  This is done separately from the
     // bucket holes for layering purposes.

@@ -24,7 +24,6 @@ define( function( require ) {
   function ParticleAtom( innerElectronShellRadius, outerElectronShellRadius ) {
     PropertySet.call( this, {position: Vector2.ZERO} );
 
-
     var thisAtom = this;
 
     this.innerElectronShellRadius = innerElectronShellRadius || DEFAULT_INNER_ELECTRON_SHELL_RADIUS;
@@ -34,6 +33,10 @@ define( function( require ) {
     this.protons = new ObservableArray();
     this.neutrons = new ObservableArray();
     this.electrons = new ObservableArray();
+
+    // Create the backbone model that can be monitored for nucleus
+    // reconfiguration events.  TODO: Temporary until Axon supports event triggering.
+    this.nucleusReconfiguredMonitor = new Backbone.Model({ title: 'Nucleus Reconfigured Monitor'});
 
     // Set the default electron add/remove mode.  Valid values are "proximal" and "random".
     this.electronAddMode = 'proximal';
@@ -276,6 +279,7 @@ define( function( require ) {
 //                nucleon.moveToDestination();
 //            }
 //        }
+      this.nucleusReconfiguredMonitor.trigger( 'nucleusReconfigured' );
     }
   } );
 } );

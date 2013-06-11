@@ -114,8 +114,9 @@ define( function( require ) {
         } );
       }
     };
-    symbolTableModel.particleAtom.neutrons.addListener( relayerNucleus );
-    symbolTableModel.particleAtom.protons.addListener( relayerNucleus );
+    symbolTableModel.particleAtom.nucleusReconfiguredMonitor.on( 'nucleusReconfigured', function(){
+      relayerNucleus();
+    });
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(

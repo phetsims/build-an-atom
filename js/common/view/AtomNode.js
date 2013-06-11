@@ -21,12 +21,12 @@ define( function( require ) {
   var ElectronShellView = require( 'common/view/ElectronShellView' );
 
   /**
-   * @param atom Model representation of the atom
+   * @param particleAtom Model representation of the atom
    * @param mvt Model-View transform
    * @param options
    * @constructor
    */
-  var AtomNode = function AtomNode( atom, mvt, options ) {
+  var AtomNode = function AtomNode( particleAtom, mvt, options ) {
 
     options = _.extend(
       {
@@ -41,13 +41,13 @@ define( function( require ) {
     Node.call( this, options ); // Call super constructor.
     var thisAtomView = this;
 
-    this.atom = atom;
+    this.atom = particleAtom;
     this.mvt = mvt;
 
     // Create the X where the nucleus goes.
     if ( options.showCenterX ) {
       var sizeInPixels = mvt.modelToViewDeltaX( 20 );
-      var center = mvt.modelToViewPosition( atom.position );
+      var center = mvt.modelToViewPosition( particleAtom.position );
       var centerMarker = new Shape();
       centerMarker.moveTo( center.x - sizeInPixels / 2, center.y - sizeInPixels / 2 );
       centerMarker.lineTo( center.x + sizeInPixels / 2, center.y + sizeInPixels / 2 );
@@ -61,20 +61,20 @@ define( function( require ) {
       this.addChild( atomCenterMarker );
 
       // Make the marker invisible if any nucleons are present.
-      var listener = function() { atomCenterMarker.visible = atom.getWeight() === 0; };
-      atom.electrons.addListener( listener );
-      atom.neutrons.addListener( listener );
-      atom.protons.addListener( listener );
+      var listener = function() { atomCenterMarker.visible = particleAtom.getWeight() === 0; };
+      particleAtom.electrons.addListener( listener );
+      particleAtom.neutrons.addListener( listener );
+      particleAtom.protons.addListener( listener );
     }
 
     // Add the electron shells.
-    var electronShell = new ElectronShellView( atom, mvt );
+    var electronShell = new ElectronShellView( particleAtom, mvt );
     this.addChild( electronShell );
 
     // Create the textual readout for the element name.
     if ( options.showElementName ) {
-      var elementNameCenterPos = mvt.modelToViewPosition( atom.position.plus( new Vector2( 0, atom.innerElectronShellRadius / 2 ) ) );
-      var elementNameFontSize = mvt.modelToViewDeltaX( atom.innerElectronShellRadius ) * 0.35 + "px";
+      var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
+      var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35 + "px";
       this.elementName = new Text( "",
                                    {
                                      font: "Arial",
@@ -92,21 +92,21 @@ define( function( require ) {
         }
         thisAtomView.elementName.text = name;
         thisAtomView.elementName.setScaleMagnitude( 1 );
-        var maxLabelWidth = mvt.modelToViewDeltaX( atom.innerElectronShellRadius * 1.4 );
+        var maxLabelWidth = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius * 1.4 );
         thisAtomView.elementName.setScaleMagnitude( Math.min( maxLabelWidth / thisAtomView.elementName.width, 1 ) );
         thisAtomView.elementName.center = elementNameCenterPos;
       };
       updateElementName(); // Do the initial update.
 
       // Hook up update listeners.
-      atom.protons.addListener( function() {
+      particleAtom.protons.addListener( function() {
         updateElementName();
       } );
     }
 
     // Create the textual readout for the ion indicator.
     if ( options.showIonIndicator ) {
-      var ionIndicatorTranslation = mvt.modelToViewPosition( atom.position.plus( new Vector2( atom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.25 ) ) );
+      var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.25 ) ) );
       this.ionIndicator = new Text( "",
                                     {
                                       font: "24px Arial",
@@ -141,8 +141,8 @@ define( function( require ) {
       };
       updateIonIndicator(); // Do the initial update.
 
-      atom.protons.addListener( updateIonIndicator );
-      atom.electrons.addListener( updateIonIndicator );
+      particleAtom.protons.addListener( updateIonIndicator );
+      particleAtom.electrons.addListener( updateIonIndicator );
     }
 
     // Create the textual readout for the stability indicator.
@@ -176,13 +176,13 @@ define( function( require ) {
       updateStabilityIndicator(); // Do initial update.
 
       // Bind the update function to atom events.
-      atom.protons.addListener( function() {
+      particleAtom.protons.addListener( function() {
         updateElementName();
         updateIonIndicator();
         updateStabilityIndicator();
       } );
-      atom.electrons.addListener( updateIonIndicator );
-      atom.neutrons.addListener( updateStabilityIndicator );
+      particleAtom.electrons.addListener( updateIonIndicator );
+      particleAtom.neutrons.addListener( updateStabilityIndicator );
     }
   };
 
