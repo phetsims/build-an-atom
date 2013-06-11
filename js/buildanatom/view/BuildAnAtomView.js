@@ -38,7 +38,7 @@ define( function( require ) {
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       { x: 0, y: 0 },
-      { x: thisView.layoutBounds.width * 0.4, y: thisView.layoutBounds.height * 0.45 },
+      { x: thisView.layoutBounds.width * 0.3, y: thisView.layoutBounds.height * 0.45 },
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
@@ -93,14 +93,12 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
-    var accordionBoxWidth = 400; // Width chosen to make layout work.
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom );
     periodicTable.scale( 0.7 ); // Scale empirically determined.
     var periodicTableBox = new AccordionBox( periodicTable,
                                              {
                                                title: 'Periodic Table', // TODO: i18n
                                                fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                               minWidth: accordionBoxWidth,
                                                contentPosition: 'left',
                                                titlePosition: 'left',
                                                buttonPosition: 'right'
@@ -113,7 +111,7 @@ define( function( require ) {
                                              title: 'Net Charge', // TODO: i18n
                                              fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                              initiallyOpen: false,
-                                             minWidth: accordionBoxWidth,
+                                             minWidth: periodicTableBox.width,
                                              contentPosition: 'left',
                                              titlePosition: 'left',
                                              buttonPosition: 'right'
@@ -126,7 +124,7 @@ define( function( require ) {
                                                title: 'Mass Number', // TODO: i18n
                                                fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                                initiallyOpen: false,
-                                               minWidth: accordionBoxWidth,
+                                               minWidth: periodicTableBox.width,
                                                contentPosition: 'left',
                                                titlePosition: 'left',
                                                buttonPosition: 'right'
