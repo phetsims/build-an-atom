@@ -28,7 +28,7 @@ define( function( require ) {
                                          addColorStop( 0.15, 'rgb( 179, 217, 255 )' ).
                                          addColorStop( 0.85, 'rgb( 179, 217, 255 )' ).
                                          addColorStop( 1, 'rgb( 77, 172, 240 )' ),
-                                       lineWidth: 2,
+                                       lineWidth: 1,
                                        cursor: 'pointer'
                                      } );
     this.addChild( boundingBox );
@@ -41,12 +41,34 @@ define( function( require ) {
                                left: INSET,
                                centerY: HEIGHT / 2
                              } );
-    this.addChild( textNode );
+    boundingBox.addChild( textNode );
 
     // Add the listener to update the appearance and handle a click.
-
-
-
+    boundingBox.addInputListener(
+      {
+        down: function() {
+          boundingBox.fill = new LinearGradient( 0, 0, 0, HEIGHT ).
+            addColorStop( 0, 'rgb( 77, 172, 240 )' ).
+            addColorStop( 0.15, 'rgb( 102, 179, 255 )' ).
+            addColorStop( 0.85, 'rgb( 102, 179, 255 )' ).
+            addColorStop( 1, 'rgb( 229, 243, 255 )' )
+        },
+        up: function() {
+          boundingBox.fill = new LinearGradient( 0, 0, 0, HEIGHT ).
+            addColorStop( 0, 'rgb( 229, 243, 255 )' ).
+            addColorStop( 0.15, 'rgb( 179, 217, 255 )' ).
+            addColorStop( 0.85, 'rgb( 179, 217, 255 )' ).
+            addColorStop( 1, 'rgb( 77, 172, 240 )' )
+        },
+        over: function() {
+          boundingBox.stroke = 'yellow';
+          boundingBox.lineWidth = 5;
+        },
+        out: function() {
+          boundingBox.stroke = 'black';
+          boundingBox.lineWidth = 1;
+        }
+      } );
   };
 
   // Inherit from Node.
