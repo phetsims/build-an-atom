@@ -6,6 +6,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
 
   var WIDTH = 700; // In screen coords, which are roughly pixels.
   var HEIGHT = 75; // In screen coords, which are roughly pixels.
@@ -22,8 +23,12 @@ define( function( require ) {
     var boundingBox = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
                                      {
                                        stroke: 'black',
+                                       fill: new LinearGradient( 0, 0, 0, HEIGHT ).
+                                         addColorStop( 0, 'rgb( 229, 243, 255 )' ).
+                                         addColorStop( 0.15, 'rgb( 179, 217, 255 )' ).
+                                         addColorStop( 0.85, 'rgb( 179, 217, 255 )' ).
+                                         addColorStop( 1, 'rgb( 77, 172, 240 )' ),
                                        lineWidth: 2,
-                                       fill: 'rgb( 200, 20, 200 )',
                                        cursor: 'pointer'
                                      } );
     this.addChild( boundingBox );
@@ -38,8 +43,9 @@ define( function( require ) {
                              } );
     this.addChild( textNode );
 
+    // Add the listener to update the appearance and handle a click.
 
-    // Add the listener to update the state.
+
 
   };
 
