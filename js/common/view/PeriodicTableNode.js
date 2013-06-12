@@ -49,12 +49,14 @@ define( function( require ) {
     }
 
     // Highlight the cell that corresponds to the atom.
+    var highlightedCell = null;
     numberAtom.protonCountProperty.link( function( protonCount ) {
-      _.each( thisPeriodicTable.cells, function( cell ) {
-        cell.setHighlighted( false );
-      } );
-      if ( protonCount > 0 ) {
-        thisPeriodicTable.cells[protonCount - 1].setHighlighted( true );
+      if ( highlightedCell != null ){
+        highlightedCell.setHighlighted( false );
+      }
+      if ( protonCount > 0 && protonCount <= thisPeriodicTable.cells.length ) {
+        highlightedCell = thisPeriodicTable.cells[protonCount - 1];
+        highlightedCell.setHighlighted( true );
       }
     } );
   }
