@@ -12,6 +12,7 @@ define( function( require ) {
   function GameModel() {
     PropertySet.call( this,
                       {
+                        playing: false,
                         periodicTableGameCompleted: false,
                         massAndChargeGameCompleted: false,
                         symbolGameCompleted: false,

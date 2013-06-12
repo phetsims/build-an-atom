@@ -13,7 +13,7 @@ define( function( require ) {
   var TITLE_FONT = "35px Arial";
   var INSET = 20; // In screen coords, which are roughly pixels.
 
-  var GameStartButton = function GameStartButton( text ) {
+  var GameStartButton = function GameStartButton( text, gameModel ) {
 
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;
@@ -47,18 +47,9 @@ define( function( require ) {
     boundingBox.addInputListener(
       {
         down: function() {
-          boundingBox.fill = new LinearGradient( 0, 0, 0, HEIGHT ).
-            addColorStop( 0, 'rgb( 77, 172, 240 )' ).
-            addColorStop( 0.15, 'rgb( 102, 179, 255 )' ).
-            addColorStop( 0.85, 'rgb( 102, 179, 255 )' ).
-            addColorStop( 1, 'rgb( 229, 243, 255 )' )
-        },
-        up: function() {
-          boundingBox.fill = new LinearGradient( 0, 0, 0, HEIGHT ).
-            addColorStop( 0, 'rgb( 229, 243, 255 )' ).
-            addColorStop( 0.15, 'rgb( 179, 217, 255 )' ).
-            addColorStop( 0.85, 'rgb( 179, 217, 255 )' ).
-            addColorStop( 1, 'rgb( 77, 172, 240 )' )
+          gameModel.playing = true;
+          boundingBox.stroke = 'black';
+          boundingBox.lineWidth = 1;
         },
         over: function() {
           boundingBox.stroke = 'yellow';

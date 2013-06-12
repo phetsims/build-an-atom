@@ -8,9 +8,11 @@ define( function( require ) {
 
   // Imports
   var Node = require( 'SCENERY/nodes/Node' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var TabView = require( "JOIST/TabView" );
   var inherit = require( 'PHET_CORE/inherit' );
   var GameStartButton = require( 'game/view/GameStartButton' );
+  var Button = require( 'SUN/Button' );
 
   /**
    * Constructor.
@@ -22,14 +24,38 @@ define( function( require ) {
     TabView.call( this ); // Call super constructor.
 
     // Add the buttons used to start the various sub-games.
-    var periodicTableGameButton = new GameStartButton( "Periodic Table Game" );
+    var periodicTableGameButton = new GameStartButton( "Periodic Table Game", gameModel );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( "Mass & Charge Game" );
+    var massAndChangeGameButton = new GameStartButton( "Mass & Charge Game", gameModel );
     this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new GameStartButton( "Symbol Game" );
+    var symbolGameButton = new GameStartButton( "Symbol Game", gameModel );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new GameStartButton( "Advanced Symbol Game" );
+    var advancedSymbolGameButton = new GameStartButton( "Advanced Symbol Game", gameModel );
     this.addChild( advancedSymbolGameButton );
+
+    // Add the nods that are shown for unfinished sub-games.
+    var unfinishedGameText = new Text( "(Unimplemented sub-game)",
+                                       {
+                                         font: "30px Arial"
+                                       } );
+    this.addChild( unfinishedGameText );
+    var doneButton = new Button( new Text( "Done", {font: "24px Arial"} ),
+                                           function() {
+                                             gameModel.playing = false;
+                                           },
+                                           { fill: 'orange'} );
+    this.addChild( doneButton );
+
+    // Update visibility based on state.
+    gameModel.playingProperty.link( function( playingGame ) {
+      periodicTableGameButton.visible = !playingGame;
+      massAndChangeGameButton.visible = !playingGame;
+      symbolGameButton.visible = !playingGame;
+      advancedSymbolGameButton.visible = !playingGame;
+      unfinishedGameText.visible = playingGame;
+      doneButton.visible = playingGame;
+      doneButton.enabled = playingGame;
+    } );
 
     // Layout
     var ySpacing = this.layoutBounds.height / 5;
@@ -41,6 +67,10 @@ define( function( require ) {
     symbolGameButton.centerY = ySpacing * 3;
     advancedSymbolGameButton.centerX = this.layoutBounds.centerX;
     advancedSymbolGameButton.centerY = ySpacing * 4;
+    unfinishedGameText.centerX = this.layoutBounds.width / 2;
+    unfinishedGameText.centerY = this.layoutBounds.height / 3;
+    doneButton.centerX = this.layoutBounds.width / 2;
+    doneButton.top = unfinishedGameText.bottom + 20;
   }
 
   // Inherit from TabView.
