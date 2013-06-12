@@ -56,7 +56,7 @@ define( function( require ) {
     symbolRectangle.top = 0;
     periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5);
     periodicTable.left = 0;
-  };
+  }
 
   // Inherit from Node.
   inherit( Node, PeriodicTableAndSymbol );

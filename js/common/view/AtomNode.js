@@ -105,6 +105,7 @@ define( function( require ) {
     }
 
     // Create the textual readout for the ion indicator.
+    var updateIonIndicator = function(){};
     if ( options.showIonIndicator ) {
       var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.25 ) ) );
       this.ionIndicator = new Text( "",
@@ -116,7 +117,7 @@ define( function( require ) {
       this.addChild( this.ionIndicator );
 
       // Define the update function for the ion indicator.
-      var updateIonIndicator = function() {
+      updateIonIndicator = function() {
         if ( thisAtomView.atom.protons.length > 0 ) {
           var charge = thisAtomView.atom.getCharge();
           // TODO: i18n of all labels below

@@ -74,6 +74,6 @@ require(
           }
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
-    } )
+    } );
 
   } );

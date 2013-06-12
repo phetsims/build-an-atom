@@ -58,7 +58,7 @@ define( function( require ) {
       numericalText.centerY = READOUT_SIZE.height / 2;
       readoutBackground.addChild( numericalText );
     } );
-  };
+  }
 
   // Inherit from Node.
   inherit( Node, MassNumberDisplay );

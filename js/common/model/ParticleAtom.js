@@ -196,7 +196,7 @@ define( function( require ) {
           neutronsToAdd -= 1;
         }
         if ( protonIndex < this.protons.length ) {
-          nucleons.push( this.protons.at( protonIndex++ ) )
+          nucleons.push( this.protons.at( protonIndex++ ) );
         }
       }
 
