@@ -148,7 +148,7 @@ define( function( require ) {
       var particle;
       if ( particleType === 'proton' ) {
         particle = this.protons.pop();
-        this.reconfigureNucleus( true );
+        this.reconfigureNucleus();
       }
       else if ( particleType === 'neutron' ) {
         particle = this.neutrons.pop();
