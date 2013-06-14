@@ -61,7 +61,7 @@ define( function( require ) {
           position: new Vector2( 0, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           particleRadius: SharedConstants.NUCLEON_RADIUS,
-          baseColor: '#e0e0e0',
+          baseColor: 'rgb( 100, 100, 100 )',
           caption: 'Neutrons',
           captionColor: 'white'
         }
