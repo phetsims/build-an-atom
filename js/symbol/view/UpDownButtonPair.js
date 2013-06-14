@@ -38,7 +38,7 @@ define( function( require ) {
     var thisUpDownButton = this;
 
     options = _.extend( {
-                          vertical: 'true' // Custom option
+                          vertical: 'true' // Custom option that controls orientation.
                         },
                         options );
 
