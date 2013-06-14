@@ -6,24 +6,25 @@
 define( function( require ) {
   "use strict";
 
+  var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
+  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
+  var SharedConstants = require( 'common/SharedConstants' );
+  var AtomNode = require( 'common/view/AtomNode' );
+  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var ParticleView = require( 'common/view/ParticleView' );
+  var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
+  var Vector2 = require( "DOT/Vector2" );
+  var TabView = require( "JOIST/TabView" );
+  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ParticleView = require( 'common/view/ParticleView' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var AtomNode = require( 'common/view/AtomNode' );
-  var Vector2 = require( "DOT/Vector2" );
-  var Button = require( 'SUN/Button' );
+  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var AccordionBox = require( 'SUN/AccordionBox' );
-  var TabView = require( "JOIST/TabView" );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
-  var ChargeMeter = require( 'common/view/ChargeMeter' );
-  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
-  var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var Button = require( 'SUN/Button' );
 
   /**
    * Constructor.
@@ -83,9 +84,9 @@ define( function( require ) {
       }
     };
 
-    model.particleAtom.nucleusReconfiguredMonitor.on( 'nucleusReconfigured', function(){
+    model.particleAtom.nucleusReconfiguredMonitor.on( 'nucleusReconfigured', function() {
       relayerNucleus();
-    });
+    } );
 
     // Add the front portion of the buckets.  This is done separately from the
     // bucket holes for layering purposes.
@@ -137,15 +138,8 @@ define( function( require ) {
     this.addChild( massNumberBox );
 
     // Add the reset button.
-    var resetButton = new Button( new Text( "Reset", { font: 'bold 20px Arial'} ),
-                                  function() {
-                                    model.reset();
-                                  },
-                                  {
-                                    fill: 'orange',
-                                    xMargin: 10,
-                                    lineWidth: 1.5
-                                  } );
+    var resetButton = new ResetAllButton( function() { model.reset() } );
+    resetButton.scale( 0.8 );
     this.addChild( resetButton );
 
     // Do the layout.

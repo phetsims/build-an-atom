@@ -23,6 +23,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
 
   // Constants
   var _TOP_INSET = 30;
@@ -72,15 +73,8 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the reset button. TODO: i18n
-    var resetButton = new Button( new Text( "Reset", { font: 'bold 16px Arial'} ),
-      function() {
-        model.reset();
-      },
-      {
-        fill: 'orange',
-        xMargin: 10,
-        lineWidth: 1.5
-      } );
+    var resetButton = new ResetAllButton( function() { model.reset() } );
+    resetButton.scale( 0.8 );
     this.addChild( resetButton );
 
     // Do the layout.
