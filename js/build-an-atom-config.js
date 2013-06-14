@@ -9,7 +9,6 @@ require.config(
       // local lib dependencies
       i18n: "../lib/i18n-2.0.2",
       lodash: "../lib/lodash-1.0.1",
-      underscore: "../lib/underscore-1.4.2",
 
       // PhET's common code, uppercase names to identify them in require imports
       PHETCOMMON: "../../phetcommon/js",
@@ -28,8 +27,7 @@ require.config(
     },
 
     shim: {
-      lodash: { exports: "_" },
-      underscore: { exports: "_" }
+      lodash: { exports: "_" }
     },
 
     urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
