@@ -8,17 +8,20 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var Circle = require( 'SCENERY/nodes/Circle' );
+  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Shape = require( 'KITE/Shape' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Button = require( 'SUN/Button' );
+  var BAAGraphicButton = require( 'common/view/BAAGraphicButton' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  var ICON_WIDTH = 10;
-  var ICON_HEIGHT = 6;
-  var TOTAL_CONTENT_HEIGHT = ICON_HEIGHT + 5; // Additional vertical spacing.
+  // Constants
+  var BUTTON_RADIUS = 12; // In screen coords, basically pixels.
+  var ICON_HEIGHT = BUTTON_RADIUS / 2;
   var ICON_STROKE_WIDTH = 3;
 
   /**
@@ -35,65 +38,62 @@ define( function( require ) {
     var thisUpDownButton = this;
 
     options = _.extend( {
-                          fill: 'rgb(150, 150, 150)',
-                          stroke: 'black',
-                          lineWidth: 2,
                           vertical: 'true' // Custom option
                         },
                         options );
 
-    var upIconShape = new Shape();
-    upIconShape.moveTo( 0, ICON_HEIGHT );
-    upIconShape.lineTo( ICON_WIDTH / 2, 0 );
-    upIconShape.lineTo( ICON_WIDTH, ICON_HEIGHT );
+    // Create the fills used for the various button states.
+    var idleButtonFill = new RadialGradient( -BUTTON_RADIUS * 0.25, -BUTTON_RADIUS * 0.25, BUTTON_RADIUS * 0.1, 0, 0, BUTTON_RADIUS ).
+      addColorStop( 0, 'rgb( 150, 150, 150 )' ).
+      addColorStop( 0.6, 'black' );
+
+    // Create the up icon that will appear on each up button
+    var upSymbolShape = new Shape();
+    upSymbolShape.moveTo( 0, ICON_HEIGHT );
+    upSymbolShape.lineTo( BUTTON_RADIUS * 0.4, 0 );
+    upSymbolShape.lineTo( BUTTON_RADIUS * 0.8, ICON_HEIGHT );
     var upIcon = new Path( {
-                             shape: upIconShape,
+                             shape: upSymbolShape,
                              stroke: 'yellow',
                              lineWidth: ICON_STROKE_WIDTH,
                              lineCap: 'round',
-                             lineJoin: 'miter'
+                             lineJoin: 'miter',
+                             centerX: 0,
+                             centerY: -BUTTON_RADIUS * 0.1 // Bit of a tweak factor for better visual effect.
                            } );
-    var spacerShape = new Shape();
-    spacerShape.moveTo( ICON_WIDTH / 2, 0 );
-    spacerShape.lineTo( ICON_WIDTH / 2, TOTAL_CONTENT_HEIGHT );
-    var spacerPath = new Path( { shape: spacerShape } );
-    upIcon.addChild( spacerPath );
 
-    var upButton = new Button( upIcon,
-                               upFunction,
-                               {
-                                 fill: options.fill,
-                                 stroke: options.stroke,
-                                 lineWidth: options.lineWidth
-                               } );
+    // Create the down icon that will appear on each down button.
+    var downSymbolShape = new Shape();
+    downSymbolShape.moveTo( 0, 0 );
+    downSymbolShape.lineTo( BUTTON_RADIUS * 0.4, ICON_HEIGHT );
+    downSymbolShape.lineTo( BUTTON_RADIUS * 0.8, 0 );
+    var downIcon = new Path( {
+                             shape: downSymbolShape,
+                             stroke: 'yellow',
+                             lineWidth: ICON_STROKE_WIDTH,
+                             lineCap: 'round',
+                             lineJoin: 'miter',
+                             centerX: 0,
+                             centerY: BUTTON_RADIUS * 0.1 // Bit of a tweak factor for better visual effect.
+                           } );
+
+    // Create the buttons.
+    var upButtonContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
+    upButtonContent.addChild( upIcon );
+    var upButton = new BAAGraphicButton( upButtonContent, upFunction );
     this.addChild( upButton );
 
-    var downIconShape = new Shape();
-    var downIconVerticalOffset = TOTAL_CONTENT_HEIGHT - ICON_HEIGHT;
-    downIconShape.moveTo( 0, downIconVerticalOffset );
-    downIconShape.lineTo( ICON_WIDTH / 2, TOTAL_CONTENT_HEIGHT );
-    downIconShape.lineTo( ICON_WIDTH, downIconVerticalOffset );
-    var downIcon = new Path( {
-                               shape: downIconShape,
-                               stroke: 'yellow',
-                               lineWidth: ICON_STROKE_WIDTH,
-                               lineCap: 'round',
-                               lineJoin: 'miter'
-                             } );
-    downIcon.addChild( spacerPath );
-
-    var downButton = new Button( downIcon,
-                                 downFunction,
-                                 {
-                                   fill: options.fill,
-                                   stroke: options.stroke,
-                                   lineWidth: options.lineWidth
-                                 } );
+    var downButtonContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
+    downButtonContent.addChild( downIcon );
+    var downButton = new BAAGraphicButton( downButtonContent, downFunction );
+    this.addChild( downButton );
+    
+    // Layout
     if ( options && options.vertical ) {
-      downButton.y = upButton.bounds.maxY + 3;
+      downButton.top = upButton.bottom + BUTTON_RADIUS * 0.2;
     }
     else {
-      downButton.x = upButton.bounds.maxX + 3;
+      downButton.left = upButton.right + BUTTON_RADIUS * 0.2;
     }
     this.addChild( downButton );
   };
