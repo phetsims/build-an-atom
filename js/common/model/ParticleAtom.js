@@ -34,10 +34,6 @@ define( function( require ) {
     this.neutrons = new ObservableArray();
     this.electrons = new ObservableArray();
 
-    // Create the backbone model that can be monitored for nucleus
-    // reconfiguration events.  TODO: Temporary until Axon supports event triggering.
-    this.nucleusReconfiguredMonitor = new Backbone.Model({ title: 'Nucleus Reconfigured Monitor'});
-
     // Set the default electron add/remove mode.  Valid values are "proximal" and "random".
     this.electronAddMode = 'proximal';
 
@@ -279,7 +275,7 @@ define( function( require ) {
 //                nucleon.moveToDestination();
 //            }
 //        }
-      this.nucleusReconfiguredMonitor.trigger( 'nucleusReconfigured' );
+      this.trigger( 'nucleusReconfigured' );
     }
   } );
 } );

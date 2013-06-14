@@ -114,7 +114,7 @@ define( function( require ) {
         } );
       }
     };
-    symbolTableModel.particleAtom.nucleusReconfiguredMonitor.on( 'nucleusReconfigured', function(){
+    symbolTableModel.particleAtom.on( 'nucleusReconfigured', function(){
       relayerNucleus();
     });
 

@@ -84,7 +84,7 @@ define( function( require ) {
       }
     };
 
-    model.particleAtom.nucleusReconfiguredMonitor.on( 'nucleusReconfigured', function() {
+    model.particleAtom.on( 'nucleusReconfigured', function() {
       relayerNucleus();
     } );
 
