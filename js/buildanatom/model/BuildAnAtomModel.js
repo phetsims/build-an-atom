@@ -22,7 +22,7 @@ define( function( require ) {
   var NUM_ELECTRONS = 10;
   var NUCLEON_CAPTURE_RADIUS = 100;
   var BUCKET_WIDTH = 120;
-  var BUCKET_HEIGHT = BUCKET_WIDTH * 0.4;
+  var BUCKET_HEIGHT = BUCKET_WIDTH * 0.5;
   var BUCKET_Y_OFFSET = -240;
 
   var placeNucleon = function( particle, bucket, atom ) {
