@@ -38,7 +38,7 @@ define( function( require ) {
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       { x: 0, y: 0 },
-      { x: thisView.layoutBounds.width * 0.3, y: thisView.layoutBounds.height * 0.45 },
+      { x: thisView.layoutBounds.width * 0.275, y: thisView.layoutBounds.height * 0.45 },
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
@@ -99,7 +99,7 @@ define( function( require ) {
 
     // Add the periodic table display inside of an accordion box.
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom );
-    periodicTable.scale( 0.7 ); // Scale empirically determined.
+    periodicTable.scale( 0.65 ); // Scale empirically determined.
     var periodicTableBox = new AccordionBox( periodicTable,
                                              {
                                                title: 'Periodic Table', // TODO: i18n

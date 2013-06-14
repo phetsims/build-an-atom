@@ -107,7 +107,7 @@ define( function( require ) {
     // Create the textual readout for the ion indicator.
     var updateIonIndicator = function(){};
     if ( options.showIonIndicator ) {
-      var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.25 ) ) );
+      var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.35 ) ) );
       this.ionIndicator = new Text( "",
                                     {
                                       font: "24px Arial",

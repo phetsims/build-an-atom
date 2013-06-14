@@ -1,3 +1,4 @@
+6/14/2013 Changed layout of the first tab so that the "Neutral Atom" label isn't occluded by other items on the canvas.
 6/14/2013 Changed size of particle display font to save some space on the canvas.
 6/14/2013 Fixed an issue that could cause the symbol node to try to add more electrons or protons than were available.
 6/14/2013 Converted spinners to a button that looks more like what is in the spec.
