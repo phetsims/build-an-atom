@@ -8,7 +8,6 @@ require.config(
     paths: {
       // local lib dependencies
       i18n: "../lib/i18n-2.0.2",
-      tpl: "../lib/tpl-0.2",
       lodash: "../lib/lodash-1.0.1",
       underscore: "../lib/underscore-1.4.2",
 
