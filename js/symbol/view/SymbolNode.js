@@ -78,7 +78,7 @@ define( function( require ) {
     // Add the control for the atomic mass.
     var atomicMassControl = new UpDownButtonPair(
       function() {
-        if ( atom.neutronCount < 12 ) {
+        if ( atom.neutronCount < 11 ) {
           atom.neutronCount++;
         }
       },
@@ -113,7 +113,7 @@ define( function( require ) {
         }
       },
       function() {
-        if ( atom.electronCount < 11 ) {
+        if ( atom.electronCount < 10 ) {
           atom.electronCount++;
         }
       } ).mutate( { right: SYMBOL_BOX_WIDTH - CONTROL_INSET, top: CONTROL_INSET } );
