@@ -52,7 +52,7 @@ define( function( require ) {
 
     // Add our own ion indicator, since we need something different from what
     // the 'stock' atom node provide.
-    var ionIndicatorTranslation = mvt.modelToViewPosition( symbolTableModel.particleAtom.position.plus( new Vector2( symbolTableModel.particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.33 ) ) );
+    var ionIndicatorTranslation = mvt.modelToViewPosition( symbolTableModel.particleAtom.position.plus( new Vector2( symbolTableModel.particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.4 ) ) );
     this.ionIndicator = new Text( "",
                                   {
                                     font: "20px Arial",
