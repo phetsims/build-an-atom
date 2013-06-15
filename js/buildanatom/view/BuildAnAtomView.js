@@ -91,7 +91,14 @@ define( function( require ) {
     // Add the front portion of the buckets.  This is done separately from the
     // bucket holes for layering purposes.
     _.each( model.buckets, function( bucket ) {
-      thisView.addChild( new BucketFront( bucket, mvt ) );
+      var bucketFront = new BucketFront( bucket, mvt );
+      thisView.addChild( bucketFront );
+      bucketFront.addInputListener(
+        {
+          down: function( event ) {
+            console.log( "Down on de bucket, mon." )
+          },
+        } );
     } );
 
     // Add the particle count indicator.
