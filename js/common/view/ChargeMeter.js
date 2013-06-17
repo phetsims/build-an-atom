@@ -24,8 +24,8 @@ define( function( require ) {
   // Constants
   var WIDTH = 70; // In screen coords, which are roughly pixels.
   var _MAX_CHARGE = 10;
-  var _CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
-  var _SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
+  var CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
+  var SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
   // TODO: Document options.
   var ChargeMeter = function ChargeMeter( numberAtom, options ) {
@@ -73,21 +73,21 @@ define( function( require ) {
 
     // Add the plus symbol, which will be drawn (not done as a character).
     var shadowOffset = 0.5; // In pixels.
-    var plusShape = new Shape().moveTo( -_CHARGE_SYMBOL_WIDTH / 2, 0 ).
-      lineTo( _CHARGE_SYMBOL_WIDTH / 2, 0 ).
-      moveTo( 0, -_CHARGE_SYMBOL_WIDTH / 2 ).
-      lineTo( 0, _CHARGE_SYMBOL_WIDTH / 2 );
+    var plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).
+      lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).
+      moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).
+      lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
     var plusSymbol = new Node();
-    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
-    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
+    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
     plusSymbol.center = new Vector2( meterWindow.width * 0.7, meterWindow.height * 0.5 );
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
-    var minusShape = new Shape().moveTo( -_CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( _CHARGE_SYMBOL_WIDTH / 2, 0 );
+    var minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
     var minusSymbol = new Node();
-    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
-    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: _SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
+    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
     minusSymbol.center = new Vector2( meterWindow.width * 0.3, meterWindow.height * 0.5 );
     meterWindow.addChild( minusSymbol );
 
@@ -97,7 +97,7 @@ define( function( require ) {
 
     // Add the numerical display, if present.
     if ( options.showNumericalReadout ) {
-      var size = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.7 );
+      var size = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
       var numericalReadout = new Rectangle( 0, 0, size.width, size.height, 3, 3,
         {
           fill: 'white',
