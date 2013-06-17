@@ -12,6 +12,7 @@ define( function( require ) {
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var Button = require( 'SUN/Button' );
+  var ChargeComparisonDisplay = require( 'buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
@@ -114,8 +115,23 @@ define( function( require ) {
                                              } );
     this.addChild( periodicTableBox );
 
-    // Add the charge meter inside of an accordion box.
-    var chargeMeterBox = new AccordionBox( new ChargeMeter( model.numberAtom ),
+    // Add the charge meter and charge comparison display inside of an accordion box.
+    var chargeMeterBoxContents = new Node();
+    chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom ),
+                                     {
+                                       title: 'Net Charge', // TODO: i18n
+                                       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+                                       initiallyOpen: false,
+                                       minWidth: periodicTableBox.width,
+                                       contentPosition: 'left',
+                                       titlePosition: 'left',
+                                       buttonPosition: 'right'
+                                     } );
+    var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom );
+    chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
+    chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
+    chargeMeterBoxContents.addChild( chargeComparisonDisplay );
+    var chargeMeterBox = new AccordionBox( chargeMeterBoxContents,
                                            {
                                              title: 'Net Charge', // TODO: i18n
                                              fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
