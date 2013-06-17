@@ -62,9 +62,9 @@ define( function( require ) {
       stroke: 'gray',
       lineWidth: 2,
       fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-        addColorStop( 0, 'rgb( 117, 186, 255 )' ).
+        addColorStop( 0, 'rgb( 0, 0, 255 )' ).
         addColorStop( 0.5, 'white' ).
-        addColorStop( 1, 'rgb( 255, 77, 77 )' ),
+        addColorStop( 1, 'rgb( 255, 0, 0 )' ),
       centerX: background.centerX,
       top: 3 // Adjust as needed to work with background graphics.
     } );
