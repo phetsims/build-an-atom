@@ -16,7 +16,7 @@ define( function( require ) {
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
   var NUMBER_FONT = new BAAFont( 45 );
-  var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
+  var CONTROL_INSET = 20; // In screen coords, which are roughly pixels.
 
   /**
    * Constructor
