@@ -7,12 +7,13 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var TabView = require( "JOIST/TabView" );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var GameStartButton = require( 'game/view/GameStartButton' );
+  var BAAFont = require('common/view/BAAFont');
   var Button = require( 'SUN/Button' );
+  var GameStartButton = require( 'game/view/GameStartButton' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var TabView = require( "JOIST/TabView" );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * Constructor.
@@ -36,10 +37,10 @@ define( function( require ) {
     // Add the nods that are shown for unfinished sub-games.
     var unfinishedGameText = new Text( "(Unimplemented sub-game)",
                                        {
-                                         font: "30px Arial"
+                                         font: new BAAFont( 30 )
                                        } );
     this.addChild( unfinishedGameText );
-    var doneButton = new Button( new Text( "Done", {font: "24px Arial"} ),
+    var doneButton = new Button( new Text( "Done", { font: new BAAFont( 24 ) } ),
                                            function() {
                                              gameModel.playing = false;
                                            },

@@ -8,16 +8,17 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Vector2 = require( 'DOT/Vector2' );
+  var BAAFont = require('common/view/BAAFont');
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( "imageLoader" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
   var WIDTH = 120; // In screen coords, which are roughly pixels.
@@ -49,13 +50,11 @@ define( function( require ) {
       readoutBackground.removeAllChildren();
       var numericalText = new Text( atomicMass,
         {
-          font: "24px Tahoma bold"
+          font: new BAAFont( 24, 'bold' )
         } );
       numericalText.scale( Math.min( READOUT_SIZE.height * 0.9 / numericalText.height,
         READOUT_SIZE.width * 0.9 / numericalText.width ) );
-//      numericalText.center = readoutBackground.center;
-      numericalText.centerX = READOUT_SIZE.width / 2;
-      numericalText.centerY = READOUT_SIZE.height / 2;
+      numericalText.center = new Vector2( READOUT_SIZE.width / 2, READOUT_SIZE.height / 2 );
       readoutBackground.addChild( numericalText );
     } );
   }

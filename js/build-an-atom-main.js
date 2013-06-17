@@ -3,51 +3,52 @@ require(
   [
     'buildanatom/model/BuildAnAtomModel',
     'buildanatom/view/BuildAnAtomView',
+    'common/view/BAAFont',
     'game/model/GameModel',
     'game/view/GameTabView',
     'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
     'SCENERY/nodes/Circle',
-    'SCENERY/nodes/Rectangle' ,
+    'SCENERY/nodes/Rectangle',
     'SCENERY/nodes/Text' ,
     'JOIST/Sim',
     'JOIST/SimLauncher',
     'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, GameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, GameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     // TODO: Icons are temporary, will be replaced by screen shots or something later.
     var icon1 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
     icon1.addChild( new Circle( 10,
-      {
-        stroke: 'blue',
-        lineWidth: 0.5,
-        lineDash: [ 1, 1 ],
-        translation: {x: 25, y: 25 }
-      }
+                                {
+                                  stroke: 'blue',
+                                  lineWidth: 0.5,
+                                  lineDash: [ 1, 1 ],
+                                  translation: {x: 25, y: 25 }
+                                }
     ) );
     icon1.addChild( new Circle( 20,
-      {
-        stroke: 'blue',
-        lineWidth: 0.5,
-        lineDash: [ 1, 1 ],
-        translation: {x: 25, y: 25 }
-      }
+                                {
+                                  stroke: 'blue',
+                                  lineWidth: 0.5,
+                                  lineDash: [ 1, 1 ],
+                                  translation: {x: 25, y: 25 }
+                                }
     ) );
 
     var icon2 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
     icon2.addChild( new Rectangle( 0, 0, 30, 30,
-      {
-        stroke: 'black',
-        lineWidth: 0.5,
-        translation: {x: 10, y: 10 },
-        fill: 'rgb( 255, 255, 255)'
-      }
+                                   {
+                                     stroke: 'black',
+                                     lineWidth: 0.5,
+                                     translation: {x: 10, y: 10 },
+                                     fill: 'rgb( 255, 255, 255)'
+                                   }
     ) );
     icon2.addChild( new Text( "H", {
       translation: { x: 17, y: 30 },
-      font: "20px Arial"
+      font: new BAAFont( 20 )
     } ) );
 
     var icon3 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
@@ -69,11 +70,11 @@ require(
     ) );
     icon3.addChild( new Text( "?",
                               {
-                                font: '40px Arial Bold',
+                                font: new BAAFont( 40, 'bold' ),
                                 fill: 'rgba(50, 50, 50, 20)',
                                 centerX: 25,
                                 centerY: 25
-                              }));
+                              } ) );
 
     SimLauncher.launch( imageLoader, function() {
 

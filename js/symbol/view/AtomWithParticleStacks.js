@@ -3,6 +3,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var BAAFont = require('common/view/BAAFont');
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -55,7 +56,7 @@ define( function( require ) {
     var ionIndicatorTranslation = mvt.modelToViewPosition( symbolTableModel.particleAtom.position.plus( new Vector2( symbolTableModel.particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.4 ) ) );
     this.ionIndicator = new Text( "",
                                   {
-                                    font: "20px Arial",
+                                    font: new BAAFont( 20 ),
                                     fill: "black",
                                     translation: ionIndicatorTranslation
                                   } );

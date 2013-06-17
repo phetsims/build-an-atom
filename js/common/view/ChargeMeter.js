@@ -8,6 +8,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
+  var BAAFont = require('common/view/BAAFont');
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -132,7 +133,7 @@ define( function( require ) {
         }
         var readoutText = new Text( sign + numberAtom.charge,
           {
-            font: '36px Tahoma',
+            font: new BAAFont( 36 ),
             fill: textColor
           } );
         readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );

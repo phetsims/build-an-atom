@@ -9,14 +9,15 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var BAAFont = require('common/view/BAAFont');
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
   var SYMBOL_WIDTH_PROPORTION = 0.2;
@@ -44,7 +45,7 @@ define( function( require ) {
       symbolRectangle.removeAllChildren();
       var symbolText = new Text( AtomIdentifier.getSymbol( numberAtom.protonCount ),
                                  {
-                                   font: "48px Tahoma bold"
+                                   font: new BAAFont( 48, 'bold')
                                  });
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height), 1 ) );
       symbolText.center = new Vector2( symbolRectangle.width / 2, symbolRectangle.height / 2 );

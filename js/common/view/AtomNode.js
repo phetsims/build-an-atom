@@ -10,18 +10,19 @@
 define( function( require ) {
   "use strict";
 
-  var Vector2 = require( 'DOT/Vector2' );
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  var BAAFont = require('common/view/BAAFont');
+  var ElectronShellView = require( 'common/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ElectronShellView = require( 'common/view/ElectronShellView' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * @param particleAtom Model representation of the atom
+   * @param particleAtom Model that represents the atom, including particle positions
    * @param mvt Model-View transform
    * @param options
    * @constructor
@@ -74,11 +75,10 @@ define( function( require ) {
     // Create the textual readout for the element name.
     if ( options.showElementName ) {
       var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
-      var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35 + "px";
+      var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35;
       this.elementName = new Text( "",
                                    {
-                                     font: "Arial",
-                                     fontSize: elementNameFontSize,
+                                     font: new BAAFont( elementNameFontSize ),
                                      fill: "red",
                                      center: elementNameCenterPos
                                    } );
@@ -110,7 +110,7 @@ define( function( require ) {
       var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
       this.ionIndicator = new Text( "",
                                     {
-                                      font: "24px Arial",
+                                      font: new BAAFont( 24 ),
                                       fill: "black",
                                       translation: ionIndicatorTranslation
                                     } );
@@ -151,7 +151,7 @@ define( function( require ) {
       var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
       this.stabilityIndicator = new Text( "",
                                           {
-                                            font: "24px Arial",
+                                            font: new BAAFont( 24 ),
                                             fill: "black",
                                             center: stabilityIndicatorCenterPos
                                           } );

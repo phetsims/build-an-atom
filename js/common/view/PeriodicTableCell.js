@@ -1,6 +1,7 @@
 define( function( require ) {
   "use strict";
 
+  var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
@@ -36,8 +37,7 @@ define( function( require ) {
                                  cursor: interactive ? 'pointer' : null
                                } );
     this.label = new Text( AtomIdentifier.getSymbol( atomicNumber ), {
-      font: "Arial",
-      fontSize: NOMINAL_FONT_SIZE * (dimension / NOMINAL_CELL_DIMENSION),
+      font: new BAAFont( NOMINAL_FONT_SIZE * ( dimension / NOMINAL_CELL_DIMENSION ) ),
       center: this.cell.center
     } );
     this.cell.addChild( this.label );

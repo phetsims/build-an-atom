@@ -2,20 +2,28 @@
 define( function( require ) {
   'use strict';
 
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Vector2 = require( 'DOT/Vector2' );
+  // Imports
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var BAAFont = require('common/view/BAAFont');
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var UpDownButtonPair = require( 'symbol/view/UpDownButtonPair' );
+  var Vector2 = require( 'DOT/Vector2' );
 
+  // Constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var NUMBER_FONT = "45px Arial";
+  var NUMBER_FONT = new BAAFont( 45 );
   var CONTROL_INSET = 10; // In screen coords, which are roughly pixels.
 
-  var SymbolNode = function SymbolNode( atom ) {
+  /**
+   * Constructor
+   * @param numberAtom
+   * @constructor
+   */
+  var SymbolNode = function SymbolNode( numberAtom ) {
 
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;
@@ -33,13 +41,13 @@ define( function( require ) {
     // Add the symbol text.
     this.symbolText = new Text( "",
                                 {
-                                  font: "150px Arial",
+                                  font: new BAAFont( 150 ),
                                   fill: "black",
                                   center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
                                 } );
 
     // Add the listener to update the symbol text.
-    atom.protonCountProperty.link( function( protonCount ) {
+    numberAtom.protonCountProperty.link( function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
       thisSymbolNode.symbolText.text = protonCount > 0 ? symbol : "";
       thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
@@ -49,13 +57,13 @@ define( function( require ) {
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(
       function() {
-        if ( atom.protonCount < 10 ) {
-          atom.protonCount++;
+        if ( numberAtom.protonCount < 10 ) {
+          numberAtom.protonCount++;
         }
       },
       function() {
-        if ( atom.protonCount > 0 ) {
-          atom.protonCount--;
+        if ( numberAtom.protonCount > 0 ) {
+          numberAtom.protonCount--;
         }
       } ).mutate( { left: CONTROL_INSET, bottom: SYMBOL_BOX_HEIGHT - CONTROL_INSET } );
     this.addChild( protonNumberControl );
@@ -68,7 +76,7 @@ define( function( require ) {
                                  } );
 
     // Add the listener to update the proton count.
-    atom.protonCountProperty.link( function( protonCount ) {
+    numberAtom.protonCountProperty.link( function( protonCount ) {
       thisSymbolNode.protonCount.text = protonCount;
       thisSymbolNode.protonCount.left = protonNumberControl.bounds.maxX + 10;
       thisSymbolNode.protonCount.centerY = protonNumberControl.centerY;
@@ -78,13 +86,13 @@ define( function( require ) {
     // Add the control for the atomic mass.
     var atomicMassControl = new UpDownButtonPair(
       function() {
-        if ( atom.neutronCount < 11 ) {
-          atom.neutronCount++;
+        if ( numberAtom.neutronCount < 11 ) {
+          numberAtom.neutronCount++;
         }
       },
       function() {
-        if ( atom.neutronCount > 0 ) {
-          atom.neutronCount--;
+        if ( numberAtom.neutronCount > 0 ) {
+          numberAtom.neutronCount--;
         }
       } ).mutate( { left: CONTROL_INSET, top: CONTROL_INSET }
     );
@@ -99,7 +107,7 @@ define( function( require ) {
     boundingBox.addChild( this.atomicMass );
 
     // Add the listener to update the atomic mass.
-    atom.atomicMassProperty.link( function( atomicMass ) {
+    numberAtom.atomicMassProperty.link( function( atomicMass ) {
       thisSymbolNode.atomicMass.text = atomicMass;
       thisSymbolNode.atomicMass.left = atomicMassControl.bounds.maxX + 10;
       thisSymbolNode.atomicMass.centerY = atomicMassControl.centerY;
@@ -108,13 +116,13 @@ define( function( require ) {
     // Add the charge control.
     var chargeControl = new UpDownButtonPair(
       function() {
-        if ( atom.electronCount > 0 ) {
-          atom.electronCount--;
+        if ( numberAtom.electronCount > 0 ) {
+          numberAtom.electronCount--;
         }
       },
       function() {
-        if ( atom.electronCount < 10 ) {
-          atom.electronCount++;
+        if ( numberAtom.electronCount < 10 ) {
+          numberAtom.electronCount++;
         }
       } ).mutate( { right: SYMBOL_BOX_WIDTH - CONTROL_INSET, top: CONTROL_INSET } );
     this.addChild( chargeControl );
@@ -128,7 +136,7 @@ define( function( require ) {
     boundingBox.addChild( this.charge );
 
     // Add the listener to update the charge.
-    atom.chargeProperty.link( function( charge ) {
+    numberAtom.chargeProperty.link( function( charge ) {
       var sign = '';
       var textColor;
       if ( charge > 0 ) {

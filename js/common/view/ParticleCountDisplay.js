@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var BAAFont = require('common/view/BAAFont');
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -20,7 +21,7 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
-  var _FONT = '14px Arial';
+  var FONT = new BAAFont( 14 );
 
   /**
    * @param numberAtom Model representation of the atom
@@ -35,11 +36,11 @@ define( function( require ) {
     var panelContents = new Node();
 
     //TODO: i18n
-    var protonTitle = new Text( "Protons:", { font: _FONT } );
+    var protonTitle = new Text( "Protons:", { font: FONT } );
     panelContents.addChild( protonTitle );
-    var neutronTitle = new Text( "Neutrons:", { font: _FONT } );
+    var neutronTitle = new Text( "Neutrons:", { font: FONT } );
     panelContents.addChild( neutronTitle );
-    var electronTitle = new Text( "Electrons:", { font: _FONT } );
+    var electronTitle = new Text( "Electrons:", { font: FONT } );
     panelContents.addChild( electronTitle );
 
     // Lay out the labels.
