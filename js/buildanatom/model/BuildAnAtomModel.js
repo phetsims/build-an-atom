@@ -50,7 +50,7 @@ define( function( require ) {
         {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          particleRadius: SharedConstants.NUCLEON_RADIUS,
+          sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'red',
           caption: 'Protons',
           captionColor: 'white'
@@ -60,7 +60,7 @@ define( function( require ) {
         {
           position: new Vector2( 0, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          particleRadius: SharedConstants.NUCLEON_RADIUS,
+          sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'rgb( 100, 100, 100 )',
           caption: 'Neutrons',
           captionColor: 'white'
@@ -70,7 +70,7 @@ define( function( require ) {
         {
           position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          particleRadius: SharedConstants.ELECTRON_RADIUS,
+          sphereRadius: SharedConstants.ELECTRON_RADIUS,
           baseColor: 'blue',
           caption: 'Electrons',
           captionColor: 'white'

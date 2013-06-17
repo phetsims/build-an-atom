@@ -6,25 +6,26 @@
 define( function( require ) {
   "use strict";
 
-  var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
-  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomNode = require( 'common/view/AtomNode' );
-  var ChargeMeter = require( 'common/view/ChargeMeter' );
-  var ParticleView = require( 'common/view/ParticleView' );
-  var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
-  var Vector2 = require( "DOT/Vector2" );
-  var TabView = require( "JOIST/TabView" );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
-  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
-  var AccordionBox = require( 'SUN/AccordionBox' );
   var Button = require( 'SUN/Button' );
+  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
+  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
+  var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
+  var ParticleView = require( 'common/view/ParticleView' );
+  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
+  var SharedConstants = require( 'common/SharedConstants' );
+  var TabView = require( "JOIST/TabView" );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( "DOT/Vector2" );
 
   /**
    * Constructor.
@@ -65,7 +66,7 @@ define( function( require ) {
       electronLayer.addChild( new ParticleView( electron, mvt ) );
     } );
 
-    // Layer the particles views so that the nucleus looks good, with the
+    // Layer the particle views so that the nucleus looks good, with the
     // particles closer to the center being higher in the z-order.
     var relayerNucleus = function() {
       var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
@@ -93,12 +94,7 @@ define( function( require ) {
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, mvt );
       thisView.addChild( bucketFront );
-      bucketFront.addInputListener(
-        {
-          down: function( event ) {
-            console.log( "Down on de bucket, mon." )
-          },
-        } );
+      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt ) );
     } );
 
     // Add the particle count indicator.
