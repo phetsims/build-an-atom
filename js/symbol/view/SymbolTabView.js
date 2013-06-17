@@ -7,27 +7,28 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var Image = require( 'SCENERY/nodes/Image' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Button = require( 'SUN/Button' );
-  var TabView = require( "JOIST/TabView" );
-  var SymbolNode = require( "symbol/view/SymbolNode" );
-  var imageLoader = require( "imageLoader" );
-  var PeriodicTableNode = require( "common/view/PeriodicTableNode" );
+
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
-  var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
+  var Button = require( 'SUN/Button' );
+  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var imageLoader = require( "imageLoader" );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
-  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var NumberAtom = require( 'common/model/NumberAtom' );
+  var ParticleCountDisplay = require( "common/view/ParticleCountDisplay" );
+  var PeriodicTableNode = require( "common/view/PeriodicTableNode" );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
+  var SymbolNode = require( "symbol/view/SymbolNode" );
+  var TabView = require( "JOIST/TabView" );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
-  var _TOP_INSET = 30;
-  var _SIDE_INSET = 10;
+  var TOP_INSET = 30;
+  var SIDE_INSET = 10;
 
   /**
    * Constructor.
@@ -78,17 +79,17 @@ define( function( require ) {
     this.addChild( resetButton );
 
     // Do the layout.
-    symbolNode.top = _TOP_INSET;
-    periodicTable.left = _SIDE_INSET;
+    symbolNode.top = TOP_INSET;
+    periodicTable.left = SIDE_INSET;
     periodicTable.top = symbolNode.bottom;
     periodicTableFadeOutNode.center = periodicTable.center;
     symbolNode.centerX = periodicTable.center.x;
-    scaleImage.x = _SIDE_INSET;
-    scaleImage.y = symbolNode.top;
+    scaleImage.x = SIDE_INSET;
+    scaleImage.centerY = symbolNode.top + 40; // Bit of a tweak factor here, adjust as needed for good looking layout.
     chargeMeter.left = symbolNode.right + 10;
-    chargeMeter.top = symbolNode.top;
+    chargeMeter.centerY = symbolNode.top + 45; // Bit of a tweak factor here, adjust as needed for good looking layout.
     particleCountDisplay.left = periodicTable.right + 30;
-    particleCountDisplay.top = _TOP_INSET;
+    particleCountDisplay.top = TOP_INSET;
     atomView.left = particleCountDisplay.left;
     atomView.top = particleCountDisplay.bottom + 10;
     resetButton.center = new Vector2( atomView.centerX, atomView.bottom + 40 );
