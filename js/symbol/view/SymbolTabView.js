@@ -74,7 +74,7 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the reset button. TODO: i18n
-    var resetButton = new ResetAllButton( function() { model.reset() } );
+    var resetButton = new ResetAllButton( function() { model.reset(); } );
     resetButton.scale( 0.8 );
     this.addChild( resetButton );
 

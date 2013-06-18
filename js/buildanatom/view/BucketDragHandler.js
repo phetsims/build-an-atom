@@ -25,12 +25,6 @@ define( function( require ) {
     var activeParticle = null;
     var options = {
       start: function( event, trail ) {
-        console.log( "-----------------------------." );
-        console.log( "Start drag received, obtaining particle from bucket." );
-        console.log( "Local point: " + event.pointer.point );
-        console.log( "Global point: " + bucketView.localToGlobalPoint( event.pointer.point ) );
-        console.log( "Bucket bounds: " + bucketView.bounds );
-
         // Note: The following transform works, but it is a bit obscure, and
         // relies on the topology of the scene graph.  JB, SR, and JO
         // discussed potentially better ways to do it.  If this code is
@@ -39,22 +33,18 @@ define( function( require ) {
 
         var particle = bucket.extractClosestParticle( positionInModelSpace );
         activeParticle = particle;
-        if ( activeParticle != null ) {
+        if ( activeParticle !== null ) {
           activeParticle.setPositionAndDestination( positionInModelSpace );
           activeParticle.userControlled = true;
         }
       },
       translate: function( translationParams ) {
-        console.log( "-----------------------------." );
-        console.log( "Translate received, delta = " + translationParams.delta );
-        if ( activeParticle != null ) {
+        if ( activeParticle !== null ) {
           activeParticle.setPositionAndDestination( activeParticle.position.plus( mvt.viewToModelDelta( translationParams.delta ) ) );
         }
       },
       end: function( event ) {
-        console.log( "-----------------------------." );
-        console.log( "End drag received" );
-        if ( activeParticle != null ) {
+        if ( activeParticle !== null ) {
           activeParticle.userControlled = false;
         }
       }

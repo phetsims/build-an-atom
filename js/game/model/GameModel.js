@@ -24,7 +24,7 @@ define( function( require ) {
   inherit( PropertySet, GameModel );
 
   GameModel.prototype.step = function( dt ) {
-  }
+  };
 
     return GameModel;
 } );
