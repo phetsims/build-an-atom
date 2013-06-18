@@ -2,7 +2,7 @@
 
 /**
  * This type defines a pair of buttons that can be used to control an integer
- * parameter.  It is visuall similar to a spinner except that there is no
+ * parameter.  It is visually similar to a spinner except that there is no
  * indication of current value.
  */
 define( function( require ) {
@@ -47,6 +47,10 @@ define( function( require ) {
       addColorStop( 0, 'rgb( 150, 150, 150 )' ).
       addColorStop( 0.6, 'black' );
 
+    var disabledButtonFill = new RadialGradient( -BUTTON_RADIUS * 0.25, -BUTTON_RADIUS * 0.25, BUTTON_RADIUS * 0.1, 0, 0, BUTTON_RADIUS ).
+      addColorStop( 0, 'rgb( 150, 150, 150 )' ).
+      addColorStop( 0.6, 'gray' );
+
     // Create the up icon that will appear on each up button
     var upSymbolShape = new Shape();
     upSymbolShape.moveTo( 0, ICON_HEIGHT );
@@ -78,24 +82,31 @@ define( function( require ) {
                            } );
 
     // Create the buttons.
-    var upButtonContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
-    upButtonContent.addChild( upIcon );
-    var upButton = new BAAGraphicButton( upButtonContent, upFunction );
-    this.addChild( upButton );
+    var upButtonIdleContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
+    upButtonIdleContent.addChild( upIcon );
+    var upButtonIdle = new BAAGraphicButton( upButtonIdleContent, upFunction );
+    this.addChild( upButtonIdle );
+    var upButtonDisabledContent = new Circle( BUTTON_RADIUS, { fill: disabledButtonFill } );
+    upButtonDisabledContent.addChild( upIcon.mutate( { stroke: 'rgb( 200, 200, 200 )' } ) );
+    var upButtonDisabled = new BAAGraphicButton( upButtonDisabledContent, function(){} );
+//    this.addChild( upButtonDisabled );
 
-    var downButtonContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
-    downButtonContent.addChild( downIcon );
-    var downButton = new BAAGraphicButton( downButtonContent, downFunction );
-    this.addChild( downButton );
-    
+    var downButtonIdleContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
+    downButtonIdleContent.addChild( downIcon );
+    var downButtonIdle = new BAAGraphicButton( downButtonIdleContent, downFunction );
+    this.addChild( downButtonIdle );
+//    var downButtonIdleContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
+//    downButtonIdleContent.addChild( downIcon );
+//    var downButtonIdle = new BAAGraphicButton( downButtonIdleContent, downFunction );
+//    this.addChild( downButtonIdle );
+
     // Layout
     if ( options && options.vertical ) {
-      downButton.top = upButton.bottom + BUTTON_RADIUS * 0.2;
+      downButtonIdle.top = upButtonIdle.bottom + BUTTON_RADIUS * 0.2;
     }
     else {
-      downButton.left = upButton.right + BUTTON_RADIUS * 0.2;
+      downButtonIdle.left = upButtonIdle.right + BUTTON_RADIUS * 0.2;
     }
-    this.addChild( downButton );
   };
 
   // Inherit from Node.
