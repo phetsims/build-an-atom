@@ -19,6 +19,8 @@ define( function( require ) {
 
   // Constants
   var SYMBOL_WIDTH = 15;
+  var VERTICAL_INSET = 5;
+  var INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
   var SYMBOL_LINE_WIDTH = SYMBOL_WIDTH / 4;
 
   /**
@@ -58,26 +60,44 @@ define( function( require ) {
     // Function that updates that displayed charge.
     var update = function( atom ) {
       symbolLayer.removeAllChildren();
+
+      // Add plus symbols
       for ( var numProtons = 0; numProtons < atom.protonCount; numProtons++ ) {
         symbolLayer.addChild( new Path( {
                                           shape: plusSymbolShape,
                                           stroke: 'black',
                                           lineWidth: 1,
                                           fill: 'red',
-                                          left: numProtons * (SYMBOL_WIDTH * 1.1 )
+                                          left: INTER_SYMBOL_DISTANCE / 2 + numProtons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
+                                          centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
                                         } ) );
       }
+
+      // Add minus symbols
       for ( var numElectrons = 0; numElectrons < atom.electronCount; numElectrons++ ) {
         symbolLayer.addChild( new Path( {
                                           shape: minusSymbolShape,
                                           stroke: 'black',
                                           lineWidth: 1,
                                           fill: 'blue',
-                                          top: SYMBOL_WIDTH * 1.1,
-                                          left: numElectrons * (SYMBOL_WIDTH * 1.1 )
+                                          left: INTER_SYMBOL_DISTANCE / 2 + numElectrons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
+                                          centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
                                         } ) );
       }
+
+      // Add bounding box
+      var numMatchedSymbols = Math.min( numProtons, numElectrons );
+      if ( numMatchedSymbols > 0 ) {
+        symbolLayer.addChild( new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2 + ( numMatchedSymbols * SYMBOL_WIDTH ) + ( ( numMatchedSymbols - 0.5 ) * INTER_SYMBOL_DISTANCE ), 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4,
+                                             {
+                                               lineWidth: 1,
+                                               stroke: 'black'
+                                             } ) );
+      }
     };
+
+    // Workaround for issue where location can't be set if no bounds exist.
+    this.addChild( new Rectangle( 0, 0, SYMBOL_WIDTH, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )'} ) );
 
     // Hook up the update function.
     numberAtom.particleCountProperty.link( function() {
