@@ -16,6 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Bounds2 = require( 'DOT/Bounds2' );
 
   /**
    * @constructor
@@ -23,10 +24,19 @@ define( function( require ) {
   var BucketDragHandler = function BucketDragHandler( bucket, bucketView, mvt ) {
     var activeParticle = null;
     var options = {
-      start: function( event ) {
+      start: function( event, trail ) {
         console.log( "-----------------------------." );
         console.log( "Start drag received, obtaining particle from bucket." );
-        var positionInModelSpace = mvt.viewToModelPosition( bucketView.localToGlobalPoint( event.pointer.point ) );
+        console.log( "Local point: " + event.pointer.point );
+        console.log( "Global point: " + bucketView.localToGlobalPoint( event.pointer.point ) );
+        console.log( "Bucket bounds: " + bucketView.bounds );
+
+        // Note: The following transform works, but it is a bit obscure, and
+        // relies on the topology of the scene graph.  JB, SR, and JO
+        // discussed potentially better ways to do it.  If this code is
+        // leveraged, revisit this line for potential improvement.
+        var positionInModelSpace = mvt.viewToModelPosition( bucketView.getParents()[0].globalToLocalPoint(event.pointer.point) );
+
         var particle = bucket.extractClosestParticle( positionInModelSpace );
         activeParticle = particle;
         if ( activeParticle != null ) {
