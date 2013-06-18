@@ -100,16 +100,16 @@ require(
           createView: function( model ) {
             return new SymbolTabView( model );
           }
-        },
-        { name: "Game",
-          icon: icon3,
-          backgroundColor: 'rgb(255, 254, 223)',
-          createModel: function() {
-            return new GameModel();
-          },
-          createView: function( model ) {
-            return new GameTabView( model );
-          }
+//        },
+//        { name: "Game",
+//          icon: icon3,
+//          backgroundColor: 'rgb(255, 254, 223)',
+//          createModel: function() {
+//            return new GameModel();
+//          },
+//          createView: function( model ) {
+//            return new GameTabView( model );
+//          }
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
     } );
