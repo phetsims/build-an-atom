@@ -157,7 +157,12 @@ define( function( require ) {
     this.addChild( massNumberBox );
 
     // Add the reset button.
-    var resetButton = new ResetAllButton( function() { model.reset() } );
+    var resetButton = new ResetAllButton( function() {
+      model.reset();
+      periodicTableBox.open.reset();
+      chargeMeterBox.open.reset();
+      massNumberBox.open.reset();
+    } );
     resetButton.scale( 0.8 );
     this.addChild( resetButton );
 
