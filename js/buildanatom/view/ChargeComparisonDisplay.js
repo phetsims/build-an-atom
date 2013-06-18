@@ -21,7 +21,7 @@ define( function( require ) {
   var SYMBOL_WIDTH = 15;
   var VERTICAL_INSET = 5;
   var INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
-  var SYMBOL_LINE_WIDTH = SYMBOL_WIDTH / 4;
+  var SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 
   /**
    * @param numberAtom Model representation of the atom
@@ -79,7 +79,7 @@ define( function( require ) {
                                           shape: minusSymbolShape,
                                           stroke: 'black',
                                           lineWidth: 1,
-                                          fill: 'blue',
+                                          fill: 'rgb( 100, 100, 255 )',
                                           left: INTER_SYMBOL_DISTANCE / 2 + numElectrons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
                                           centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
                                         } ) );
