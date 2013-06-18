@@ -21,7 +21,7 @@ define( function( require ) {
 
   // Constants
   var WIDTH = 120; // In screen coords, which are roughly pixels.
-  var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.15 ); // In screen coords, which are roughly pixels.
+  var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
   function MassNumberDisplay( numberAtom ) {
 

@@ -133,7 +133,7 @@ define( function( require ) {
         }
         var readoutText = new Text( sign + numberAtom.charge,
           {
-            font: new BAAFont( 36 ),
+            font: new BAAFont( 24, 'bold' ),
             fill: textColor
           } );
         readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );
