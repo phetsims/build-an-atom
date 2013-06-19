@@ -87,7 +87,7 @@ define( function( require ) {
     var upButtonIdle = new BAAGraphicButton( upButtonIdleContent, upFunction );
     this.addChild( upButtonIdle );
     var upButtonDisabledContent = new Circle( BUTTON_RADIUS, { fill: disabledButtonFill } );
-    upButtonDisabledContent.addChild( upIcon.mutate( { stroke: 'rgb( 200, 200, 200 )' } ) );
+//    upButtonDisabledContent.addChild( upIcon.mutate( { stroke: 'rgb( 200, 200, 200 )' } ) );
     var upButtonDisabled = new BAAGraphicButton( upButtonDisabledContent, function(){} );
 //    this.addChild( upButtonDisabled );
 
