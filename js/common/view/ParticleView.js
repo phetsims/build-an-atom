@@ -32,7 +32,7 @@ define( function( require ) {
     // Add a drag handler
     this.addInputListener( new SimpleDragHandler( {
                                                     // Allow moving a finger (touch) across a node to pick it up.
-                                                    allowTouchSnag: true,
+//                                                    allowTouchSnag: true,
 
                                                     // Handler that moves the particle in model space.
                                                     translate: function( translationParams ) {

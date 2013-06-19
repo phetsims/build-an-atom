@@ -95,7 +95,7 @@ define( function( require ) {
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, mvt );
       thisView.addChild( bucketFront );
-//      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt ) );
+      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt ) );
     } );
 
     // Add the particle count indicator.
