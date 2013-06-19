@@ -1,6 +1,6 @@
 {
   "name": "build-an-atom",
-  "version": "0.0.0-9",
+  "version": "0.0.0-11",
   "resourceDirs": "images",
   "include": "../phetcommon/css/phetcommon.css ../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js",
   "phetLibs": "build-an-atom assert dot fort joist kite phet-core phetcommon scenery scenery-phet sun",
