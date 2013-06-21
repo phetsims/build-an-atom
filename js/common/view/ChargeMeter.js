@@ -8,6 +8,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
+  var ArrowNode = require('SCENERY_PHET/ArrowNode');
   var BAAFont = require('common/view/BAAFont');
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -92,8 +93,8 @@ define( function( require ) {
     meterWindow.addChild( minusSymbol );
 
     // Add the layer that contains the meter line.
-    var meterLineLayer = new Node();
-    this.addChild( meterLineLayer );
+    var meterNeedleLayer = new Node();
+    this.addChild( meterNeedleLayer );
 
     // Add the numerical display, if present.
     if ( options.showNumericalReadout ) {
@@ -111,12 +112,11 @@ define( function( require ) {
 
     // Add the listeners that will update the meter and numerical display when the charge changes.
     numberAtom.chargeProperty.link( function( charge ) {
-      meterLineLayer.removeAllChildren();
-      var lineShape = new Shape();
-      lineShape.moveTo( meterWindow.centerX, meterWindow.bottom - 3 );
+      meterNeedleLayer.removeAllChildren();
       var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
-      lineShape.lineTo( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 );
-      meterLineLayer.addChild( new Path( { shape: lineShape, lineWidth: 2, stroke: 'black', lineCap: 'round'} ) );
+      var meterNeedle = new ArrowNode( new Vector2( meterWindow.centerX, meterWindow.bottom - 3 ), new Vector2( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 ) );
+      meterNeedleLayer.addChild( meterNeedle );
+
       if ( numericalReadout !== undefined ) {
         numericalReadout.removeAllChildren();
         var sign = '';
