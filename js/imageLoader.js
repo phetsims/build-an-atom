@@ -10,7 +10,9 @@ define( function( require ) {
       'scale.svg',
       'charge_meter_short_background.svg',
       'charge_meter_background.svg',
-      'atom_builder_charge_meter_no_window.png'
+      'atom_builder_charge_meter_no_window.png',
+      'BAA_atom.png',
+      'BAA_symbol.png'
     ]
   };
 } );

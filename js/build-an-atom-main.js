@@ -9,71 +9,40 @@ require(
     'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
     'SCENERY/nodes/Circle',
+    'SCENERY/nodes/Image',
     'SCENERY/nodes/Rectangle',
     'SCENERY/nodes/Text' ,
     'JOIST/Sim',
     'JOIST/SimLauncher',
     'imageLoader'
-  ],
-  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, GameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+],
+  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, GameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     // TODO: Icons are temporary, will be replaced by screen shots or something later.
-    var icon1 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
-    icon1.addChild( new Circle( 10,
-                                {
-                                  stroke: 'blue',
-                                  lineWidth: 0.5,
-                                  lineDash: [ 1, 1 ],
-                                  translation: {x: 25, y: 25 }
-                                }
-    ) );
-    icon1.addChild( new Circle( 20,
-                                {
-                                  stroke: 'blue',
-                                  lineWidth: 0.5,
-                                  lineDash: [ 1, 1 ],
-                                  translation: {x: 25, y: 25 }
-                                }
-    ) );
 
-    var icon2 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
-    icon2.addChild( new Rectangle( 0, 0, 30, 30,
-                                   {
-                                     stroke: 'black',
-                                     lineWidth: 0.5,
-                                     translation: {x: 10, y: 10 },
-                                     fill: 'rgb( 255, 255, 255)'
-                                   }
-    ) );
-    icon2.addChild( new Text( "H", {
-      translation: { x: 17, y: 30 },
-      font: new BAAFont( 20 )
-    } ) );
-
-    var icon3 = new Rectangle( 0, 0, 50, 50, {fill: 'rgb(255, 254, 223)'} );
-    icon3.addChild( new Circle( 10,
+    var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
+    gameIcon.addChild( new Circle( 10,
                                 {
                                   stroke: 'blue',
                                   lineWidth: 0.5,
                                   lineDash: [ 1, 1 ],
-                                  translation: {x: 25, y: 25 }
+                                  center: gameIcon.center
                                 }
     ) );
-    icon3.addChild( new Circle( 20,
+    gameIcon.addChild( new Circle( 20,
                                 {
                                   stroke: 'blue',
                                   lineWidth: 0.5,
                                   lineDash: [ 1, 1 ],
-                                  translation: {x: 25, y: 25 }
+                                  center: gameIcon.center
                                 }
     ) );
-    icon3.addChild( new Text( "?",
+    gameIcon.addChild( new Text( "?",
                               {
                                 font: new BAAFont( 40, 'bold' ),
                                 fill: 'rgba(50, 50, 50, 20)',
-                                centerX: 25,
-                                centerY: 25
+                                center: gameIcon.center
                               } ) );
 
     SimLauncher.launch( imageLoader, function() {
@@ -81,8 +50,8 @@ require(
       //Create and start the sim
       //TODO: i18n
       new Sim( "Build an Atom", [
-        { name: "Build an Atom",
-          icon: icon1,
+        { name: "Atom",
+          icon: new Image( imageLoader.getImage( "BAA_atom.png" ) ),
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() {
             return new BuildAnAtomModel();
@@ -92,7 +61,7 @@ require(
           }
         },
         { name: "Symbol",
-          icon: icon2,
+          icon: new Image( imageLoader.getImage( "BAA_symbol.png" ) ),
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() {
             return new SymbolTabModel();
@@ -102,7 +71,7 @@ require(
           }
 //        },
 //        { name: "Game",
-//          icon: icon3,
+//          icon: gameIcon,
 //          backgroundColor: 'rgb(255, 254, 223)',
 //          createModel: function() {
 //            return new GameModel();
