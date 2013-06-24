@@ -64,7 +64,7 @@ require(
           icon: new Image( imageLoader.getImage( "BAA_symbol.png" ) ),
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() {
-            return new SymbolTabModel();
+            return new BuildAnAtomModel();
           },
           createView: function( model ) {
             return new SymbolTabView( model );

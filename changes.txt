@@ -1,3 +1,8 @@
+6/24/2013 Drastically modified the 2nd tab so that it looks like the first, but with a symbol instead of charge and mass meters.
+6/24/2013 Integrated new scale image.
+6/24/2013 Implemented arrow for the charge meter.
+# 00.00.00-11
+(Note - This file has not been well maintained)
 6/14/2013 Moved the ion indicators on both tabs so that they aren't just above an electron.
 6/14/2013 Replaced a backbone trigger with an Axon trigger, since they are now supported.  Removed backbone as an include.
 6/14/2013 Modified neutron bucket color so that caption is more visible.
