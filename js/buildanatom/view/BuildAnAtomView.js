@@ -170,13 +170,13 @@ define( function( require ) {
     particleCountDisplay.top = 5;
     particleCountDisplay.left = 5;
     periodicTableBox.top = 5;
-    periodicTableBox.right = this.layoutBounds.width;
+    periodicTableBox.right = this.layoutBounds.width - 5;
     chargeMeterBox.right = periodicTableBox.right;
     chargeMeterBox.top = periodicTableBox.bottom + 10;
     massNumberBox.right = periodicTableBox.right;
     massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + 10;
     resetButton.centerX = periodicTableBox.centerX;
-    resetButton.bottom = this.layoutBounds.height - 10;
+    resetButton.bottom = this.layoutBounds.height - 5;
   }
 
   // Inherit from TabView.

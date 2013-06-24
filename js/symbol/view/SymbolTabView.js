@@ -115,7 +115,7 @@ define( function( require ) {
 
     // Add the symbol node within an accordion box.
     var symbolNode = new SymbolNode( model.numberAtom );
-    symbolNode.scale( 0.65 ); // Scale empirically determined.
+    symbolNode.scale( 0.55 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode,
                                       {
                                         title: 'Symbol', // TODO: i18n
@@ -140,11 +140,11 @@ define( function( require ) {
     particleCountDisplay.top = 5;
     particleCountDisplay.left = 5;
     periodicTableBox.top = 5;
-    periodicTableBox.right = this.layoutBounds.width;
+    periodicTableBox.right = this.layoutBounds.width - 5;
     symbolBox.top = periodicTableBox.top + periodicTableBox.openHeight + 10;
     symbolBox.left = periodicTableBox.left;
     resetButton.centerX = periodicTableBox.centerX;
-    resetButton.bottom = this.layoutBounds.height - 10;
+    resetButton.bottom = this.layoutBounds.height - 5;
   }
 
   // Inherit from TabView.
