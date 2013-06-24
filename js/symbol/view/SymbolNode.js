@@ -5,6 +5,9 @@ define( function( require ) {
   // Imports
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var BAAFont = require('common/view/BAAFont');
+  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var imageLoader = require( "imageLoader" );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -14,7 +17,7 @@ define( function( require ) {
   // Constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var NUMBER_FONT = new BAAFont( 45 );
+  var NUMBER_FONT = new BAAFont( 56 );
   var NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
 
   /**
@@ -38,7 +41,7 @@ define( function( require ) {
     this.addChild( boundingBox );
 
     // Add the symbol text.
-    this.symbolText = new Text( "",
+    var symbolText = new Text( "",
                                 {
                                   font: new BAAFont( 150 ),
                                   fill: "black",
@@ -48,13 +51,13 @@ define( function( require ) {
     // Add the listener to update the symbol text.
     numberAtom.protonCountProperty.link( function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
-      thisSymbolNode.symbolText.text = protonCount > 0 ? symbol : "";
-      thisSymbolNode.symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
+      symbolText.text = protonCount > 0 ? symbol : "";
+      symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     } );
-    boundingBox.addChild( this.symbolText );
+    boundingBox.addChild( symbolText );
 
     // Add the proton count display.
-    this.protonCount = new Text( "0",
+    var protonCountDisplay = new Text( "0",
                                  {
                                    font: NUMBER_FONT,
                                    fill: "red"
@@ -62,34 +65,34 @@ define( function( require ) {
 
     // Add the listener to update the proton count.
     numberAtom.protonCountProperty.link( function( protonCount ) {
-      thisSymbolNode.protonCount.text = protonCount;
-      thisSymbolNode.protonCount.left = NUMBER_INSET;
-      thisSymbolNode.protonCount.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
+      protonCountDisplay.text = protonCount;
+      protonCountDisplay.left = NUMBER_INSET;
+      protonCountDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
     } );
-    boundingBox.addChild( this.protonCount );
+    boundingBox.addChild( protonCountDisplay );
 
     // Add the atomic mass display.
-    this.atomicMass = new Text( "0",
+    var atomicMassDisplay = new Text( "0",
                                 {
                                   font: NUMBER_FONT,
                                   fill: "black"
                                 } );
-    boundingBox.addChild( this.atomicMass );
+    boundingBox.addChild( atomicMassDisplay );
 
     // Add the listener to update the atomic mass.
     numberAtom.atomicMassProperty.link( function( atomicMass ) {
-      thisSymbolNode.atomicMass.text = atomicMass;
-      thisSymbolNode.atomicMass.left = NUMBER_INSET;
-      thisSymbolNode.atomicMass.top = NUMBER_INSET;
+      atomicMassDisplay.text = atomicMass;
+      atomicMassDisplay.left = NUMBER_INSET;
+      atomicMassDisplay.top = NUMBER_INSET;
     } );
 
     // Add the charge display.
-    this.charge = new Text( "0",
+    var chargeDisplay = new Text( "0",
                             {
                               font: NUMBER_FONT,
                               fill: "black"
                             } );
-    boundingBox.addChild( this.charge );
+    boundingBox.addChild( chargeDisplay );
 
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( function( charge ) {
@@ -105,11 +108,28 @@ define( function( require ) {
       else {
         textColor = 'black';
       }
-      thisSymbolNode.charge.text = sign + charge;
-      thisSymbolNode.charge.fill = textColor;
-      thisSymbolNode.charge.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
-      thisSymbolNode.charge.top = NUMBER_INSET;
+      chargeDisplay.text = sign + charge;
+      chargeDisplay.fill = textColor;
+      chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
+      chargeDisplay.top = NUMBER_INSET;
     } );
+
+    // Add the scale image - just an image with no functionality.
+    var scaleImage = new Image( imageLoader.getImage( "scale_new.svg" ) );
+    scaleImage.scale( 0.20 ); // Scale empirically determined to match design layout.
+    this.addChild( scaleImage );
+
+    // Add the charge meter.
+    var chargeMeter = new ChargeMeter( numberAtom, { showNumericalReadout: false } );
+    this.addChild( chargeMeter );
+
+    // Do the layout.
+    scaleImage.left = 0;
+    scaleImage.centerY = atomicMassDisplay.centerY;
+    boundingBox.top = 0;
+    boundingBox.left = scaleImage.right + 10;
+    chargeMeter.left = boundingBox.right + 10;
+    chargeMeter.centerY = chargeDisplay.centerY;
   };
 
   // Inherit from Node.
