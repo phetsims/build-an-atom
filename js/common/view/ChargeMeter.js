@@ -8,8 +8,8 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var ArrowNode = require('SCENERY_PHET/ArrowNode');
-  var BAAFont = require('common/view/BAAFont');
+  var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
+  var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -60,16 +60,16 @@ define( function( require ) {
     meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
     var meterWindow = new Path( {
-      shape: meterWindowShape,
-      stroke: 'gray',
-      lineWidth: 2,
-      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-        addColorStop( 0, 'rgb( 0, 0, 255 )' ).
-        addColorStop( 0.5, 'white' ).
-        addColorStop( 1, 'rgb( 255, 0, 0 )' ),
-      centerX: background.centerX,
-      top: 3 // Adjust as needed to work with background graphics.
-    } );
+                                  shape: meterWindowShape,
+                                  stroke: 'gray',
+                                  lineWidth: 2,
+                                  fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
+                                    addColorStop( 0, 'rgb( 0, 0, 255 )' ).
+                                    addColorStop( 0.5, 'white' ).
+                                    addColorStop( 1, 'rgb( 255, 0, 0 )' ),
+                                  centerX: background.centerX,
+                                  top: 3 // Adjust as needed to work with background graphics.
+                                } );
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
@@ -100,13 +100,13 @@ define( function( require ) {
     if ( options.showNumericalReadout ) {
       var size = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
       var numericalReadout = new Rectangle( 0, 0, size.width, size.height, 3, 3,
-        {
-          fill: 'white',
-          stroke: 'black',
-          lineWidth: 1,
-          top: meterWindow.bottom + 3,
-          centerX: background.centerX
-        } );
+                                            {
+                                              fill: 'white',
+                                              stroke: 'black',
+                                              lineWidth: 1,
+                                              top: meterWindow.bottom + 3,
+                                              centerX: background.centerX
+                                            } );
       this.addChild( numericalReadout );
     }
 
@@ -114,7 +114,11 @@ define( function( require ) {
     numberAtom.chargeProperty.link( function( charge ) {
       meterNeedleLayer.removeAllChildren();
       var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
-      var meterNeedle = new ArrowNode( new Vector2( meterWindow.centerX, meterWindow.bottom - 3 ), new Vector2( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 ) );
+      var meterNeedle = new ArrowNode( new Vector2( meterWindow.centerX, meterWindow.bottom - 3 ),
+                                       new Vector2( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 ),
+                                       7,
+                                       5,
+                                       1 );
       meterNeedleLayer.addChild( meterNeedle );
 
       if ( numericalReadout !== undefined ) {
@@ -132,10 +136,10 @@ define( function( require ) {
           textColor = 'black';
         }
         var readoutText = new Text( sign + numberAtom.charge,
-          {
-            font: new BAAFont( 24, 'bold' ),
-            fill: textColor
-          } );
+                                    {
+                                      font: new BAAFont( 24, 'bold' ),
+                                      fill: textColor
+                                    } );
         readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );
         readoutText.center = new Vector2( numericalReadout.width / 2, numericalReadout.height / 2 );
 
