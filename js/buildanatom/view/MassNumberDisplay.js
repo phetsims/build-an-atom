@@ -28,7 +28,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Add the background image, i.e. the scale.
-    var scaleImage = new Image( imageLoader.getImage( "scale.svg" ) );
+    var scaleImage = new Image( imageLoader.getImage( "scale_new.svg" ) );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 

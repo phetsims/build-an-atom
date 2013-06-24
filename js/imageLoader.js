@@ -8,6 +8,8 @@ define( function( require ) {
     imageNames: [
       'scale.png',
       'scale.svg',
+      'scale_new.svg',
+      'scale_new2.svg',
       'charge_meter_short_background.svg',
       'charge_meter_background.svg',
       'atom_builder_charge_meter_no_window.png',

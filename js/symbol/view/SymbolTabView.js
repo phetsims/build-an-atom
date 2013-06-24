@@ -44,7 +44,7 @@ define( function( require ) {
     this.addChild( symbolNode );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( imageLoader.getImage( "scale.svg" ) );
+    var scaleImage = new Image( imageLoader.getImage( "scale_new.svg" ) );
     scaleImage.scale( 0.20 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
