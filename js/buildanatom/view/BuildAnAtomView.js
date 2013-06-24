@@ -8,6 +8,7 @@ define( function( require ) {
 
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomNode = require( 'common/view/AtomNode' );
+  var BAAFont = require( 'common/view/BAAFont' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
@@ -111,7 +112,8 @@ define( function( require ) {
                                                fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                                contentPosition: 'left',
                                                titlePosition: 'left',
-                                               buttonPosition: 'right'
+                                               buttonPosition: 'right',
+                                               font: new BAAFont( 20 )
                                              } );
     this.addChild( periodicTableBox );
 
@@ -125,7 +127,8 @@ define( function( require ) {
                                        minWidth: periodicTableBox.width,
                                        contentPosition: 'left',
                                        titlePosition: 'left',
-                                       buttonPosition: 'right'
+                                       buttonPosition: 'right',
+                                       font: new BAAFont( 20 )
                                      } );
     var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom );
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
@@ -139,7 +142,8 @@ define( function( require ) {
                                              minWidth: periodicTableBox.width,
                                              contentPosition: 'left',
                                              titlePosition: 'left',
-                                             buttonPosition: 'right'
+                                             buttonPosition: 'right',
+                                             font: new BAAFont( 20 )
                                            } );
     this.addChild( chargeMeterBox );
 

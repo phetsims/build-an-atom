@@ -1,3 +1,5 @@
+6/24/2013 Specified font for accordion box labels.
+6/24/2013 Moved the buckets and changed the size so that they will stay within the layout bounds.
 6/24/2013 Drastically modified the 2nd tab so that it looks like the first, but with a symbol instead of charge and mass meters.
 6/24/2013 Integrated new scale image.
 6/24/2013 Implemented arrow for the charge meter.
