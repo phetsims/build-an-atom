@@ -114,8 +114,10 @@ define( function( require ) {
     numberAtom.chargeProperty.link( function( charge ) {
       meterNeedleLayer.removeAllChildren();
       var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
-      var meterNeedle = new ArrowNode( new Vector2( meterWindow.centerX, meterWindow.bottom - 3 ),
-                                       new Vector2( meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ), meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9 ),
+      var meterNeedle = new ArrowNode( meterWindow.centerX,
+                                       meterWindow.bottom - 3,
+                                       meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ),
+                                       meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9,
                                        7,
                                        5,
                                        1 );
