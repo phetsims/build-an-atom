@@ -19,8 +19,6 @@ require(
   function( BuildAnAtomModel, BuildAnAtomView, BAAFont, BAAGameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
-    // TODO: Icons are temporary, will be replaced by screen shots or something later.
-
     var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
     gameIcon.addChild( new Circle( 10,
                                    {
@@ -52,7 +50,8 @@ require(
       new Sim( "Build an Atom", [
         { name: "Atom",
           icon: new Image( imageLoader.getImage( "BAA_atom.png" ) ),
-          backgroundColor: 'rgb(255, 254, 223)',
+//          backgroundColor: 'rgb(255, 254, 223)',
+          backgroundColor: 'white',
           createModel: function() {
             return new BuildAnAtomModel();
           },
@@ -62,7 +61,7 @@ require(
         },
         { name: "Symbol",
           icon: new Image( imageLoader.getImage( "BAA_symbol.png" ) ),
-          backgroundColor: 'rgb(255, 254, 223)',
+          backgroundColor: 'rgb(255, 230, 179)',
           createModel: function() {
             return new BuildAnAtomModel();
           },
