@@ -7,7 +7,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var Button = require( 'SUN/Button' );
   var GameStartButton = require( 'game/view/GameStartButton' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -41,10 +41,10 @@ define( function( require ) {
                                        } );
     this.addChild( unfinishedGameText );
     var doneButton = new Button( new Text( "Done", { font: new BAAFont( 24 ) } ),
-                                           function() {
-                                             gameModel.playing = false;
-                                           },
-                                           { fill: 'orange'} );
+                                 function() {
+                                   gameModel.playing = false;
+                                 },
+                                 { fill: 'orange'} );
     this.addChild( doneButton );
 
     // Update visibility based on state.

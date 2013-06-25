@@ -27,9 +27,9 @@ define( function( require ) {
   function BAAGraphicButton( idleContent, callback, options ) {
 
     options = _.extend( {
-        cursor: 'pointer'
-      },
-      options );
+                          cursor: 'pointer'
+                        },
+                        options );
 
     var thisButton = this;
     Node.call( thisButton, options );
@@ -40,10 +40,10 @@ define( function( require ) {
     // TODO: Make the center be the center of the largest image.
     thisButton.addChild( idleContent );
     thisButton.addInputListener( new ButtonListener( {
-      fire: function() {
-        thisButton.buttonModel.fireListeners();
-      }
-    } ) );
+                                                       fire: function() {
+                                                         thisButton.buttonModel.fireListeners();
+                                                       }
+                                                     } ) );
 
     thisButton.addPeer( '<input type="button">', {click: thisButton.buttonModel.fireListeners.bind( thisButton.buttonModel )} );
   }

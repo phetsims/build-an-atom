@@ -4,7 +4,7 @@ define( function( require ) {
 
   // Imports
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );

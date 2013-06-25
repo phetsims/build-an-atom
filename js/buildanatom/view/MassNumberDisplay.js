@@ -8,7 +8,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( "imageLoader" );
@@ -34,25 +34,25 @@ define( function( require ) {
 
     // Add the numerical readout window.
     var readoutBackground = new Rectangle( 0, 0, READOUT_SIZE.width, READOUT_SIZE.height, 4, 4,
-      {
-        fill: 'white',
-        stroke: 'black',
-        lineWidth: 1,
-        // Position is based on the background image, and may need tweaking if the image is changed.
-        bottom: scaleImage.bottom - 7,
-        centerX: scaleImage.centerX + 1
-      } );
+                                           {
+                                             fill: 'white',
+                                             stroke: 'black',
+                                             lineWidth: 1,
+                                             // Position is based on the background image, and may need tweaking if the image is changed.
+                                             bottom: scaleImage.bottom - 7,
+                                             centerX: scaleImage.centerX + 1
+                                           } );
     this.addChild( readoutBackground );
 
     // Add the listeners that will update the numerical display when the charge changes.
     numberAtom.atomicMassProperty.link( function( atomicMass ) {
       readoutBackground.removeAllChildren();
       var numericalText = new Text( atomicMass,
-        {
-          font: new BAAFont( 24, 'bold' )
-        } );
+                                    {
+                                      font: new BAAFont( 24, 'bold' )
+                                    } );
       numericalText.scale( Math.min( READOUT_SIZE.height * 0.9 / numericalText.height,
-        READOUT_SIZE.width * 0.9 / numericalText.width ) );
+                                     READOUT_SIZE.width * 0.9 / numericalText.width ) );
       numericalText.center = new Vector2( READOUT_SIZE.width / 2, READOUT_SIZE.height / 2 );
       readoutBackground.addChild( numericalText );
     } );

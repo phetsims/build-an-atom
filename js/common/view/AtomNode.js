@@ -11,7 +11,7 @@ define( function( require ) {
   "use strict";
 
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var ElectronShellView = require( 'common/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -105,7 +105,7 @@ define( function( require ) {
     }
 
     // Create the textual readout for the ion indicator.
-    var updateIonIndicator = function(){};
+    var updateIonIndicator = function() {};
     if ( options.showIonIndicator ) {
       var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
       this.ionIndicator = new Text( "",

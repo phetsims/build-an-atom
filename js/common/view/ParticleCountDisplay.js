@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var inherit = require( 'PHET_CORE/inherit' );

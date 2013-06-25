@@ -3,7 +3,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -115,9 +115,9 @@ define( function( require ) {
         } );
       }
     };
-    symbolTableModel.particleAtom.on( 'nucleusReconfigured', function(){
+    symbolTableModel.particleAtom.on( 'nucleusReconfigured', function() {
       relayerNucleus();
-    });
+    } );
 
     // Add the control for the number of protons.
     var protonNumberControl = new UpDownButtonPair(

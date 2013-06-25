@@ -72,14 +72,14 @@ define( function( require ) {
     downSymbolShape.lineTo( BUTTON_RADIUS * 0.4, ICON_HEIGHT );
     downSymbolShape.lineTo( BUTTON_RADIUS * 0.8, 0 );
     var downIcon = new Path( {
-                             shape: downSymbolShape,
-                             stroke: 'yellow',
-                             lineWidth: ICON_STROKE_WIDTH,
-                             lineCap: 'round',
-                             lineJoin: 'miter',
-                             centerX: 0,
-                             centerY: BUTTON_RADIUS * 0.1 // Bit of a tweak factor for better visual effect.
-                           } );
+                               shape: downSymbolShape,
+                               stroke: 'yellow',
+                               lineWidth: ICON_STROKE_WIDTH,
+                               lineCap: 'round',
+                               lineJoin: 'miter',
+                               centerX: 0,
+                               centerY: BUTTON_RADIUS * 0.1 // Bit of a tweak factor for better visual effect.
+                             } );
 
     // Create the buttons.
     var upButtonIdleContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );
@@ -88,7 +88,7 @@ define( function( require ) {
     this.addChild( upButtonIdle );
     var upButtonDisabledContent = new Circle( BUTTON_RADIUS, { fill: disabledButtonFill } );
 //    upButtonDisabledContent.addChild( upIcon.mutate( { stroke: 'rgb( 200, 200, 200 )' } ) );
-    var upButtonDisabled = new BAAGraphicButton( upButtonDisabledContent, function(){} );
+    var upButtonDisabled = new BAAGraphicButton( upButtonDisabledContent, function() {} );
 //    this.addChild( upButtonDisabled );
 
     var downButtonIdleContent = new Circle( BUTTON_RADIUS, { fill: idleButtonFill } );

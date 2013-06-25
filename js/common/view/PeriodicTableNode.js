@@ -51,7 +51,7 @@ define( function( require ) {
     // Highlight the cell that corresponds to the atom.
     var highlightedCell = null;
     numberAtom.protonCountProperty.link( function( protonCount ) {
-      if ( highlightedCell !== null ){
+      if ( highlightedCell !== null ) {
         highlightedCell.setHighlighted( false );
       }
       if ( protonCount > 0 && protonCount <= thisPeriodicTable.cells.length ) {

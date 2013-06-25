@@ -29,7 +29,7 @@ define( function( require ) {
         // relies on the topology of the scene graph.  JB, SR, and JO
         // discussed potentially better ways to do it.  If this code is
         // leveraged, revisit this line for potential improvement.
-        var positionInModelSpace = mvt.viewToModelPosition( bucketView.getParents()[0].globalToLocalPoint(event.pointer.point) );
+        var positionInModelSpace = mvt.viewToModelPosition( bucketView.getParents()[0].globalToLocalPoint( event.pointer.point ) );
 
         var particle = bucket.extractClosestParticle( positionInModelSpace );
         activeParticle = particle;

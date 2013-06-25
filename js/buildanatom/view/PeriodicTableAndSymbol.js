@@ -10,7 +10,7 @@ define( function( require ) {
 
   // Imports
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
-  var BAAFont = require('common/view/BAAFont');
+  var BAAFont = require( 'common/view/BAAFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -45,9 +45,9 @@ define( function( require ) {
       symbolRectangle.removeAllChildren();
       var symbolText = new Text( AtomIdentifier.getSymbol( numberAtom.protonCount ),
                                  {
-                                   font: new BAAFont( 48, 'bold')
-                                 });
-      symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height), 1 ) );
+                                   font: new BAAFont( 48, 'bold' )
+                                 } );
+      symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );
       symbolText.center = new Vector2( symbolRectangle.width / 2, symbolRectangle.height / 2 );
       symbolRectangle.addChild( symbolText );
     } );
