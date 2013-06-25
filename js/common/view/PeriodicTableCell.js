@@ -60,6 +60,8 @@ define( function( require ) {
 
   PeriodicTableCell.prototype.setHighlighted = function( highLighted ) {
     this.cell.fill = highLighted ? this.highlightedFill : this.normalFill;
+    this.cell.stroke = highLighted ? 'red' : 'black';
+    this.cell.lineWidth = highLighted ? 2 : 1;
     this.label.fontWeight = highLighted ? 'bold' : 'normal';
   };
 

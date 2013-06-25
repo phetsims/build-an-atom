@@ -56,6 +56,12 @@ define( function( require ) {
       }
       if ( protonCount > 0 && protonCount <= thisPeriodicTable.cells.length ) {
         highlightedCell = thisPeriodicTable.cells[protonCount - 1];
+
+        // Move the cell to the top of the z-order.
+        thisPeriodicTable.removeChild( highlightedCell );
+        thisPeriodicTable.addChild( highlightedCell );
+
+        // Highlight the cell.
         highlightedCell.setHighlighted( true );
       }
     } );
