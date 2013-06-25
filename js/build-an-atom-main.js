@@ -4,7 +4,7 @@ require(
     'buildanatom/model/BuildAnAtomModel',
     'buildanatom/view/BuildAnAtomView',
     'common/view/BAAFont',
-    'game/model/GameModel',
+    'game/model/BAAGameModel',
     'game/view/GameTabView',
     'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
@@ -16,7 +16,7 @@ require(
     'JOIST/SimLauncher',
     'imageLoader'
 ],
-  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, GameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, BAAGameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     // TODO: Icons are temporary, will be replaced by screen shots or something later.
@@ -74,7 +74,7 @@ require(
 //          icon: gameIcon,
 //          backgroundColor: 'rgb(255, 254, 223)',
 //          createModel: function() {
-//            return new GameModel();
+//            return new BAAGameModel();
 //          },
 //          createView: function( model ) {
 //            return new GameTabView( model );
