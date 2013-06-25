@@ -5,7 +5,7 @@ require(
     'buildanatom/view/BuildAnAtomView',
     'common/view/BAAFont',
     'game/model/BAAGameModel',
-    'game/view/GameTabView',
+    'game/view/BAAGameView',
     'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
     'SCENERY/nodes/Circle',
@@ -16,7 +16,7 @@ require(
     'JOIST/SimLauncher',
     'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, BAAGameModel, GameTabView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAFont, BAAGameModel, BAAGameView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
@@ -76,7 +76,7 @@ require(
 //            return new BAAGameModel();
 //          },
 //          createView: function( model ) {
-//            return new GameTabView( model );
+//            return new BAAGameView( model );
 //          }
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();

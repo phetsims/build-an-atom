@@ -21,7 +21,7 @@ define( function( require ) {
    * @param model Build an Atom model object.
    * @constructor
    */
-  function GameTabView( gameModel ) {
+  function BAAGameView( gameModel ) {
     TabView.call( this ); // Call super constructor.
 
     // Add the buttons used to start the various sub-games.
@@ -75,7 +75,7 @@ define( function( require ) {
   }
 
   // Inherit from TabView.
-  inherit( TabView, GameTabView );
+  inherit( TabView, BAAGameView );
 
-  return GameTabView;
+  return BAAGameView;
 } );
