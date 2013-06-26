@@ -68,16 +68,16 @@ require(
           createView: function( model ) {
             return new SymbolTabView( model );
           }
-//        },
-//        { name: "Game",
-//          icon: gameIcon,
-//          backgroundColor: 'rgb(255, 254, 223)',
-//          createModel: function() {
-//            return new BAAGameModel();
-//          },
-//          createView: function( model ) {
-//            return new BAAGameView( model );
-//          }
+        },
+        { name: "Game",
+          icon: gameIcon,
+          backgroundColor: 'rgb(255, 254, 223)',
+          createModel: function() {
+            return new BAAGameModel();
+          },
+          createView: function( model ) {
+            return new BAAGameView( model );
+          }
         }
       ], { home: true, tab: 0, navigationBarInFront: true} ).start();
     } );

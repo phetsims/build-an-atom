@@ -21,7 +21,7 @@ define( function( require ) {
   function BAAGameModel() {
     PropertySet.call( this,
                       {
-                        state: 'gameSettingsState',
+                        state: 'selectSubGame',
                         soundEnabled: 'false',
                         timerEnabled: 'true',
                         problemIndex: 0,
@@ -35,18 +35,18 @@ define( function( require ) {
                         advancedSymbolGameCompleted: false
                       } );
 
-    // Initialize the collection of best times, one for each sub-game.
-    this.bestTimes = [];
+    var thisGameModel = this;
+
     _.each( LEVELS, function( level ) {
-      this.bestTimes[level] = Number.POSITIVE_INFINITY;
+      thisGameModel.bestTimes[level] = Number.POSITIVE_INFINITY;
     } );
   }
 
   // Inherit from base class and define the methods for this object.
   inherit( PropertySet, BAAGameModel, {
     // Start a new game.
-    startGame: function() {
-      console.log( "startGame called, not implemented." );
+    startSubGame: function( subGameType ) {
+      console.log( "startGame called, not implemented, sub game subGameType = " + subGameType );
     },
     // Stop the current game and show the totals.
     stopGame: function() {

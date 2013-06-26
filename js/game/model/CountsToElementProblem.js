@@ -33,5 +33,5 @@ define( function( require ) {
     }
   } );
 
-  return BAAGameProblem;
+  return CountsToElementProblem;
 } );

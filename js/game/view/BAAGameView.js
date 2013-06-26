@@ -22,43 +22,28 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameView( gameModel ) {
+
     TabView.call( this ); // Call super constructor.
+    var thisScene = this;
 
-    // Add the buttons used to start the various sub-games.
-    var periodicTableGameButton = new GameStartButton( "Periodic Table Game", gameModel );
-    this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( "Mass & Charge Game", gameModel );
-    this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new GameStartButton( "Symbol Game", gameModel );
-    this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new GameStartButton( "Advanced Symbol Game", gameModel );
-    this.addChild( advancedSymbolGameButton );
-
-    // Add the nods that are shown for unfinished sub-games.
-    var unfinishedGameText = new Text( "(Unimplemented sub-game)",
-                                       {
-                                         font: new BAAFont( 30 )
-                                       } );
-    this.addChild( unfinishedGameText );
-    var doneButton = new Button( new Text( "Done", { font: new BAAFont( 24 ) } ),
-                                 function() {
-                                   gameModel.playing = false;
-                                 },
-                                 { fill: 'orange'} );
-    this.addChild( doneButton );
-
-    // Update visibility based on state.
-    gameModel.playingProperty.link( function( playingGame ) {
-      periodicTableGameButton.visible = !playingGame;
-      massAndChangeGameButton.visible = !playingGame;
-      symbolGameButton.visible = !playingGame;
-      advancedSymbolGameButton.visible = !playingGame;
-      unfinishedGameText.visible = playingGame;
-      doneButton.visible = playingGame;
-      doneButton.enabled = playingGame;
+    // Game settings screen - to do - pull this out into a separate view class.
+    var gameSettingsRoot = new Node();
+    var periodicTableGameButton = new GameStartButton( "Periodic Table Game", function(){
+      gameModel.startSubGame( 'periodicTableGame');
     } );
-
-    // Layout
+    gameSettingsRoot.addChild( periodicTableGameButton );
+    var massAndChangeGameButton = new GameStartButton( "Mass And Change Game", function(){
+      gameModel.startSubGame( 'massAndChargeGame');
+    } );
+    gameSettingsRoot.addChild( massAndChangeGameButton );
+    var symbolGameButton = new GameStartButton( "Symbol Game", function(){
+      gameModel.startSubGame( 'symbolGame');
+    } );
+    gameSettingsRoot.addChild( symbolGameButton );
+    var advancedSymbolGameButton = new GameStartButton( "Advanced Symbol Game", function(){
+      gameModel.startSubGame( 'advancedSymbolGame');
+    } );
+    gameSettingsRoot.addChild( advancedSymbolGameButton );
     var ySpacing = this.layoutBounds.height / 5;
     periodicTableGameButton.centerX = this.layoutBounds.centerX;
     periodicTableGameButton.centerY = ySpacing;
@@ -68,10 +53,33 @@ define( function( require ) {
     symbolGameButton.centerY = ySpacing * 3;
     advancedSymbolGameButton.centerX = this.layoutBounds.centerX;
     advancedSymbolGameButton.centerY = ySpacing * 4;
-    unfinishedGameText.centerX = this.layoutBounds.width / 2;
-    unfinishedGameText.centerY = this.layoutBounds.height / 3;
-    doneButton.centerX = this.layoutBounds.width / 2;
-    doneButton.top = unfinishedGameText.bottom + 20;
+
+    // Monitor the game state and update the view accordingly.
+    gameModel.stateProperty.link( function( state ){
+      if ( state === 'selectSubGame' ){
+        thisScene.removeAllChildren();
+        thisScene.addChild( gameSettingsRoot );
+      }
+      else{
+        console.log( "Unrecognized state, state = " + state );
+        thisScene.removeAllChildren();
+        var unfinishedGameText = new Text( "(Unimplemented sub-game)",
+                                           {
+                                             font: new BAAFont( 30 )
+                                           } );
+        thisScene.addChild( unfinishedGameText );
+        var doneButton = new Button( new Text( "Done", { font: new BAAFont( 24 ) } ),
+                                     function() {
+                                       gameModel.state = 'selectSubGame';
+                                     },
+                                     { fill: 'orange'} );
+        thisScene.addChild( doneButton );
+        unfinishedGameText.centerX = this.layoutBounds.width / 2;
+        unfinishedGameText.centerY = this.layoutBounds.height / 3;
+        doneButton.centerX = this.layoutBounds.width / 2;
+        doneButton.top = unfinishedGameText.bottom + 20;
+      }
+    } );
   }
 
   // Inherit from TabView.

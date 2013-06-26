@@ -14,7 +14,7 @@ define( function( require ) {
   var TITLE_FONT = new BAAFont( 35 );
   var INSET = 20; // In screen coords, which are roughly pixels.
 
-  var GameStartButton = function GameStartButton( text, gameModel ) {
+  var GameStartButton = function GameStartButton( text, onFireFunction ) {
 
     Node.call( this ); // Call super constructor.
     var thisSymbolNode = this;
@@ -48,7 +48,7 @@ define( function( require ) {
     boundingBox.addInputListener(
       {
         down: function() {
-          gameModel.playing = true;
+          onFireFunction();
           boundingBox.stroke = 'black';
           boundingBox.lineWidth = 1;
         },
