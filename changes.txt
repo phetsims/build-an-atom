@@ -1,3 +1,7 @@
+6/26/2014 Re-enabled the feature for getting particles by dragging on buckets, since the related Kite problem is now fixed.
+# 00.00.00-12
+6/25/2014 Added better highlighting of selected element in the periodic table.
+6/25/2014 Changed background colors so that tabs 1 & 2 can be more easily distinguished.
 6/24/2013 Made scale and charge meter larger on the symbol indicator so that they render decently on an iPad.
 6/24/2013 Specified font for accordion box labels.
 6/24/2013 Moved the buckets and changed the size so that they will stay within the layout bounds.
