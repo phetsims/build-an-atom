@@ -47,6 +47,7 @@ define( function( require ) {
     // Start a new game.
     startSubGame: function( subGameType ) {
       console.log( "startGame called, not implemented, sub game subGameType = " + subGameType );
+      this.state = 'presentingProblems';
     },
     // Stop the current game and show the totals.
     stopGame: function() {

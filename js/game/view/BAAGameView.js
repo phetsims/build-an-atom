@@ -74,9 +74,9 @@ define( function( require ) {
                                      },
                                      { fill: 'orange'} );
         thisScene.addChild( doneButton );
-        unfinishedGameText.centerX = this.layoutBounds.width / 2;
-        unfinishedGameText.centerY = this.layoutBounds.height / 3;
-        doneButton.centerX = this.layoutBounds.width / 2;
+        unfinishedGameText.centerX = thisScene.layoutBounds.width / 2;
+        unfinishedGameText.centerY = thisScene.layoutBounds.height / 3;
+        doneButton.centerX = thisScene.layoutBounds.width / 2;
         doneButton.top = unfinishedGameText.bottom + 20;
       }
     } );
