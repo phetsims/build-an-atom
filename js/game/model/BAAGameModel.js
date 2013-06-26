@@ -39,30 +39,30 @@ define( function( require ) {
     this.bestTimes = [];
     _.each( LEVELS, function( level ) {
       this.bestTimes[level] = Number.POSITIVE_INFINITY;
-    } )
+    } );
   }
 
   // Inherit from base class and define the methods for this object.
   inherit( PropertySet, BAAGameModel, {
     // Start a new game.
     startGame: function() {
-      console.log( "startGame called, not implemented." )
+      console.log( "startGame called, not implemented." );
     },
     // Stop the current game and show the totals.
     stopGame: function() {
-      console.log( "stopGame called, not implemented." )
+      console.log( "stopGame called, not implemented." );
     },
     // Start a new game.
     newGame: function( level ) {
-      console.log( "newGame called, not implemented." )
+      console.log( "newGame called, not implemented." );
     },
     // Process a guess from the user.
     processGuess: function( numberAtom ) {
-      console.log( "processGuess called, not implemented." )
+      console.log( "processGuess called, not implemented." );
     },
     // Advance to the next problem or to the 'game over' screen if all problems finished.
     next: function() {
-      console.log( "processGuess called, not implemented." )
+      console.log( "processGuess called, not implemented." );
     }
 
   } );
