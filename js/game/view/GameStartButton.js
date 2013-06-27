@@ -17,7 +17,6 @@ define( function( require ) {
   var GameStartButton = function GameStartButton( text, onFireFunction ) {
 
     Node.call( this ); // Call super constructor.
-    var thisSymbolNode = this;
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
