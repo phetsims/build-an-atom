@@ -14,6 +14,7 @@ define( function( require ) {
   var TabView = require( "JOIST/TabView" );
   var Text = require( 'SCENERY/nodes/Text' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
+  var SubGameOverNode = require( 'game/view/SubGameOverNode' );
 
   /**
    * Constructor.
@@ -27,31 +28,17 @@ define( function( require ) {
     var thisScene = this;
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
+    var subGameOverNode = new SubGameOverNode( gameModel, this.layoutBounds );
 
     // Monitor the game state and update the view accordingly.
-    gameModel.stateProperty.link( function( state ){
-      if ( state === 'selectSubGame' ){
+    gameModel.stateProperty.link( function( state ) {
+      if ( state === 'selectSubGame' ) {
         thisScene.removeAllChildren();
         thisScene.addChild( startSubGameNode );
       }
-      else{
-        console.log( "Unrecognized state, state = " + state );
+      else if ( state === 'subGameOver' ) {
         thisScene.removeAllChildren();
-        var unfinishedGameText = new Text( "(Unimplemented sub-game)",
-                                           {
-                                             font: new BAAFont( 30 )
-                                           } );
-        thisScene.addChild( unfinishedGameText );
-        var doneButton = new Button( new Text( "Done", { font: new BAAFont( 24 ) } ),
-                                     function() {
-                                       gameModel.state = 'selectSubGame';
-                                     },
-                                     { fill: 'orange'} );
-        thisScene.addChild( doneButton );
-        unfinishedGameText.centerX = thisScene.layoutBounds.width / 2;
-        unfinishedGameText.centerY = thisScene.layoutBounds.height / 3;
-        doneButton.centerX = thisScene.layoutBounds.width / 2;
-        doneButton.top = unfinishedGameText.bottom + 20;
+        thisScene.addChild( subGameOverNode );
       }
     } );
   }

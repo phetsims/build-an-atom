@@ -9,6 +9,8 @@ define( function( require ) {
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
+  var NumberAtom = require( 'common/model/NumberAtom' );
 
   // Constants
   var LEVELS = [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ];
@@ -28,7 +30,8 @@ define( function( require ) {
                         score: 0,
                         elapsedTime: 0,
                         bestTimes: [],
-                        playing: false,
+                        currentProblem: null,
+                        playing: false, // TODO - This was added for prototyping and can probably be removed one game is working.
                         periodicTableGameCompleted: false,
                         massAndChargeGameCompleted: false,
                         symbolGameCompleted: false,
@@ -48,6 +51,7 @@ define( function( require ) {
     startSubGame: function( subGameType ) {
       console.log( "startGame called, not implemented, sub game subGameType = " + subGameType );
       this.state = 'presentingProblems';
+      this.currentProblem = new CountsToElementProblem( )
     },
     // Stop the current game and show the totals.
     stopGame: function() {

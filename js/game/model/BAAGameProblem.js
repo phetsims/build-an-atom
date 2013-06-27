@@ -26,17 +26,17 @@ define( function( require ) {
     PropertySet.call( this,
                       {
                         state: 'presentingProblem',
-                        answerAtom : answerAtom,
-                        numSubmissions : 0,
-                        score : 0,
-                        solvedCorrectly : false
+                        answerAtom: answerAtom,
+                        numSubmissions: 0,
+                        score: 0,
+                        solvedCorrectly: false
                       } );
     this.answerAtom = answerAtom;
     this.model = buildAnAtomGameModel;
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( PropertySet, BAAGameModel, {
+  inherit( PropertySet, BAAGameProblem, {
     // Process answer submitted by the user.
     processSubmission: function( submittedAtom ) {
       this.numSubmissions++;
