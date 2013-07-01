@@ -13,6 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( "ASSERT/assert" )( "build-an-atom" );
   var BAAFont = require( 'common/view/BAAFont' );
+  var Button = require( 'SUN/Button' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
@@ -23,6 +24,7 @@ define( function( require ) {
   // Constants
   var TITLE_FONT = new BAAFont( 30 );
   var PARTICLE_COUNTS_FONT = new BAAFont( 24 );
+  var BUTTON_FONT = new BAAFont( 20 );
   var INSET = 10;
 
   /**
@@ -62,15 +64,28 @@ define( function( require ) {
     var problemTitle = new Text( "Find the element:", { font: TITLE_FONT } ); // TODO: i18n
     this.addChild( problemTitle );
 
+    // Check answer button.
+    var checkAnswerButton = new Button( new Text( "Check", {font: BUTTON_FONT} ),
+                                        function() {
+                                          // TODO: This isn't correct, and needs to be fleshed out.
+                                          gameModel.next();
+                                        },
+                                        { fill: 'rgb( 0, 255, 153 )' } );
+    this.addChild( checkAnswerButton );
+
     // Layout
     periodicTable.right = layoutBounds.width - INSET;
     periodicTable.centerY = layoutBounds.height / 2;
+
     var maxTitleWidth = periodicTable.width * 0.9;
     if ( problemTitle.width > maxTitleWidth ) {
       problemTitle.scale( maxTitleWidth / problemTitle.width );
     }
     problemTitle.centerX = periodicTable.centerX;
     problemTitle.bottom = periodicTable.top - 30; // Offset empirically determined.
+
+    checkAnswerButton.centerX = periodicTable.centerX;
+    checkAnswerButton.top = periodicTable.bottom + 50;
 
     var countIndicatorRightEdge = layoutBounds.width * 0.25; // Controls horizontal position of count indicators, adjust as needed.
     protonCountText.right = countIndicatorRightEdge;
