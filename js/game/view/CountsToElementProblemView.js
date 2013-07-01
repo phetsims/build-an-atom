@@ -11,10 +11,11 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var BAAFont = require( 'common/view/BAAFont' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
   var FONT = new BAAFont( 30 );
@@ -24,21 +25,13 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToElementProblemView( gameModel, answerAtom, scene ) {
-    this.gameModel = gameModel;
-    this.answerAtom = answerAtom;
-    this.scene = scene;
-    this.viewRoot = new Node();
+  function CountsToElementProblemView( gameModel, answerAtom ) {
+    Node.call( this ); // Call super constructor.
+    this.addChild( new Rectangle( 0, 0, 1000, 1000, 5, 5, { fill: 'pink'} ) );
   }
 
-  CountsToElementProblemView.prototype.init = function() {
-    this.viewRoot.addChild( new Text( "Here is some text!", { font: FONT } ) );
-    this.scene.addChild( this.viewRoot );
-  }
-
-  CountsToElementProblemView.prototype.tearDown = function() {
-    this.scene.removeChild( this.viewRoot );
-  }
+  // Inherit from Node.
+  inherit( Node, CountsToElementProblemView );
 
   return CountsToElementProblemView;
 } );

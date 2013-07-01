@@ -12,9 +12,8 @@ define( function( require ) {
 
   // Imports
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
+  var CountsToElementProblemView = require( 'game/view/CountsToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
-
-  // Constants
 
   /**
    * Main constructor function.
@@ -28,10 +27,11 @@ define( function( require ) {
   // Inherit from base class and define the methods for this object.
   inherit( BAAGameProblem, CountsToElementProblem, {
     // Create the view needed to visual represent this problem.
-    createView: function( gameScene ) {
-      return new CountsToElementProblemView( this.model, this.answerAtom, gameScene );
+    createView: function() {
+      return new CountsToElementProblemView( this.model, this.answerAtom );
     }
   } );
 
   return CountsToElementProblem;
+  return {};
 } );

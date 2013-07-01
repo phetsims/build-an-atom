@@ -10,6 +10,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
+  var BAAGameProblem = require( 'game/model/BAAGameProblem' );
   var NumberAtom = require( 'common/model/NumberAtom' );
 
   // Constants
@@ -23,15 +24,14 @@ define( function( require ) {
   function BAAGameModel() {
     PropertySet.call( this,
                       {
-                        state: 'selectSubGame',
+                        state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
                         soundEnabled: 'false',
                         timerEnabled: 'true',
                         problemIndex: 0,
                         score: 0,
                         elapsedTime: 0,
                         bestTimes: [],
-                        currentProblem: null,
-                        playing: false, // TODO - This was added for prototyping and can probably be removed one game is working.
+                        playing: false, // TODO - This was added for prototyping and can probably be removed once game is working.
                         periodicTableGameCompleted: false,
                         massAndChargeGameCompleted: false,
                         symbolGameCompleted: false,
@@ -39,6 +39,7 @@ define( function( require ) {
                       } );
 
     var thisGameModel = this;
+    this._problemSet = [];
 
     _.each( LEVELS, function( level ) {
       thisGameModel.bestTimes[level] = Number.POSITIVE_INFINITY;
@@ -47,27 +48,47 @@ define( function( require ) {
 
   // Inherit from base class and define the methods for this object.
   inherit( PropertySet, BAAGameModel, {
+
     // Start a new game.
     startSubGame: function( subGameType ) {
-      console.log( "startGame called, not implemented, sub game subGameType = " + subGameType );
-      this.state = 'presentingProblems';
-      this.currentProblem = new CountsToElementProblem( )
+      console.log( "startGame called, sub game subGameType = " + subGameType );
+      this.problemIndex = 0;
+      // TODO: Need to generate real problem set.
+      this._problemSet = [ new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ) ];
+      if ( this._problemSet.length > 0 ){
+        this.state = this._problemSet[0];
+      }
+      else{
+        this.state = 'subGameOver';
+      }
     },
+
     // Stop the current game and show the totals.
     stopGame: function() {
       console.log( "stopGame called, not implemented." );
     },
+
     // Start a new game.
     newGame: function( level ) {
       console.log( "newGame called, not implemented." );
     },
+
     // Process a guess from the user.
     processGuess: function( numberAtom ) {
       console.log( "processGuess called, not implemented." );
     },
+
     // Advance to the next problem or to the 'game over' screen if all problems finished.
     next: function() {
-      console.log( "processGuess called, not implemented." );
+      if ( this._problemSet.length > this.problemIndex + 1 ){
+        // Next problem.
+        this.problemIndex++;
+        this.state = this._problemSet[ this.problemIndex ];
+      }
+      else{
+        // Sub game over.
+        this.state = 'subGameOver';
+      }
     }
 
   } );
