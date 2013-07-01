@@ -40,9 +40,9 @@ define( function( require ) {
         thisScene.removeAllChildren();
         thisScene.addChild( subGameOverNode );
       }
-      else if ( state.createView !== undefined ){
+      else if ( typeof( state.createView ) === 'function' ){
         thisScene.removeAllChildren();
-        thisScene.addChild( state.createView() );
+        thisScene.addChild( state.createView( thisScene.layoutBounds ) );
       }
     } );
   }
