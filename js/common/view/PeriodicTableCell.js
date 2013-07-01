@@ -28,7 +28,7 @@ define( function( require ) {
   function PeriodicTableCell( atomicNumber, dimension, interactive, numberAtom ) {
     Node.call( this, { renderer: 'svg' } ); // Call super constructor.
 
-    this.normalFill = interactive ? new LinearGradient( 0, 0, 0, dimension ).addColorStop( 0, 'white' ).addColorStop( 1, 'gray' ) : 'white';
+    this.normalFill = interactive ? new LinearGradient( 0, 0, 0, dimension ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ) : 'white';
     this.highlightedFill = 'yellow';
 
     this.cell = new Rectangle( 0, 0, dimension, dimension, 0, 0,
