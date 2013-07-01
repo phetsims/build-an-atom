@@ -14,6 +14,8 @@ define( function( require ) {
   var BAAFont = require( 'common/view/BAAFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var NumberAtom = require( 'common/model/NumberAtom' );
+  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -27,7 +29,8 @@ define( function( require ) {
    */
   function CountsToElementProblemView( gameModel, answerAtom ) {
     Node.call( this ); // Call super constructor.
-    this.addChild( new Rectangle( 0, 0, 1000, 1000, 5, 5, { fill: 'pink'} ) );
+    var periodicTableAtom = new NumberAtom();
+    this.addChild( new PeriodicTableNode( periodicTableAtom, 100 ) );
   }
 
   // Inherit from Node.
