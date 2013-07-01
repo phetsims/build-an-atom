@@ -40,9 +40,13 @@ define( function( require ) {
         thisScene.removeAllChildren();
         thisScene.addChild( subGameOverNode );
       }
-      else if ( typeof( state.createView ) === 'function' ){
+      else if ( typeof( state.createView ) === 'function' ) {
+        // Since we're not in the start or game-over states, we must be
+        // presenting a problem.
         thisScene.removeAllChildren();
         thisScene.addChild( state.createView( thisScene.layoutBounds ) );
+        thisScene.addChild( new Text( "Problem " + ( gameModel.problemIndex + 1 ) + " of " + gameModel.problemSet.length,
+                                      { font: new BAAFont( 16 ), top: 30, left: 10 } ) );
       }
     } );
   }

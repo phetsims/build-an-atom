@@ -27,7 +27,7 @@ define( function( require ) {
                         state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
                         soundEnabled: 'false',
                         timerEnabled: 'true',
-                        problemIndex: 0,
+                        problemSet: [],
                         score: 0,
                         elapsedTime: 0,
                         bestTimes: [],
@@ -39,7 +39,6 @@ define( function( require ) {
                       } );
 
     var thisGameModel = this;
-    this._problemSet = [];
 
     _.each( LEVELS, function( level ) {
       thisGameModel.bestTimes[level] = Number.POSITIVE_INFINITY;
@@ -54,11 +53,11 @@ define( function( require ) {
       console.log( "startGame called, sub game subGameType = " + subGameType );
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
-      this._problemSet = [ new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ) ];
-      if ( this._problemSet.length > 0 ){
-        this.state = this._problemSet[0];
+      this.problemSet = [ new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ) ];
+      if ( this.problemSet.length > 0 ) {
+        this.state = this.problemSet[0];
       }
-      else{
+      else {
         this.state = 'subGameOver';
       }
     },
@@ -80,12 +79,12 @@ define( function( require ) {
 
     // Advance to the next problem or to the 'game over' screen if all problems finished.
     next: function() {
-      if ( this._problemSet.length > this.problemIndex + 1 ){
+      if ( this.problemSet.length > this.problemIndex + 1 ) {
         // Next problem.
         this.problemIndex++;
-        this.state = this._problemSet[ this.problemIndex ];
+        this.state = this.problemSet[ this.problemIndex ];
       }
-      else{
+      else {
         // Sub game over.
         this.state = 'subGameOver';
       }

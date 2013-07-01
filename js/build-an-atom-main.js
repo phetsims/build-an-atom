@@ -60,7 +60,7 @@ require(
         },
         { name: "Symbol",
           icon: new Image( imageLoader.getImage( "BAA_symbol.png" ) ),
-          // backgroundColor: 'rgb(255, 230, 179)', // Somewhat orange-ish color (1st try at distinguishing colors)
+//          backgroundColor: 'rgb(255, 230, 179)', // Somewhat orange-ish color (1st try at distinguishing colors)
 //          backgroundColor: 'rgb( 255, 246, 219 )', // Lighter orange-ish.  Looks a bit funny.
 //          backgroundColor: 'rgb( 255, 252, 173 )', // Yellow, somewhat lighter than control panel yellow
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
