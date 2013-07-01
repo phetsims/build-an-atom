@@ -50,7 +50,6 @@ require(
       new Sim( "Build an Atom", [
         { name: "Atom",
           icon: new Image( imageLoader.getImage( "BAA_atom.png" ) ),
-//          backgroundColor: 'rgb(255, 254, 223)',
           backgroundColor: 'white',
           createModel: function() {
             return new BuildAnAtomModel();
@@ -61,7 +60,11 @@ require(
         },
         { name: "Symbol",
           icon: new Image( imageLoader.getImage( "BAA_symbol.png" ) ),
-          backgroundColor: 'rgb(255, 230, 179)',
+          // backgroundColor: 'rgb(255, 230, 179)', // Somewhat orange-ish color (1st try at distinguishing colors)
+//          backgroundColor: 'rgb( 255, 246, 219 )', // Lighter orange-ish.  Looks a bit funny.
+//          backgroundColor: 'rgb( 255, 252, 173 )', // Yellow, somewhat lighter than control panel yellow
+          backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
+
           createModel: function() {
             return new BuildAnAtomModel();
           },
