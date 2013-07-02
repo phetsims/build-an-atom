@@ -53,7 +53,9 @@ define( function( require ) {
       console.log( "startGame called, sub game subGameType = " + subGameType );
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
-      this.problemSet = [ new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ) ];
+      this.problemSet = [
+        new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ),
+        new CountsToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) )];
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];
       }
