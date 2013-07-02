@@ -35,7 +35,7 @@ define( function( require ) {
    * @param model Build an Atom model object.
    * @constructor
    */
-  function BuildAnAtomView( model ) {
+  function BuildAnAtomTabView( model ) {
     TabView.call( this ); // Call super constructor.
     var thisView = this;
 
@@ -184,7 +184,7 @@ define( function( require ) {
   }
 
   // Inherit from TabView.
-  inherit( TabView, BuildAnAtomView );
+  inherit( TabView, BuildAnAtomTabView );
 
-  return BuildAnAtomView;
+  return BuildAnAtomTabView;
 } );
