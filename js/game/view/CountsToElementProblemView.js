@@ -18,6 +18,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var RadioButton = require( "SUN/RadioButton" );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -32,7 +33,7 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToElementProblemView( gameModel, answerAtom, layoutBounds ) {
+  function CountsToElementProblemView( gameModel, countsToElementProblem, layoutBounds ) {
     Node.call( this ); // Call super constructor.
 
     // Layout assumes that bounds start at 0, 0 - so verify that this is true.
@@ -44,25 +45,40 @@ define( function( require ) {
     // Particle counts
     var protonCountTitle = new Text( "Protons:", PARTICLE_COUNTS_FONT );
     this.addChild( protonCountTitle );
-    var protonCountText = new Text( answerAtom.protonCount, PARTICLE_COUNTS_FONT );
+    var protonCountText = new Text( countsToElementProblem.answerAtom.protonCount, PARTICLE_COUNTS_FONT );
     this.addChild( protonCountText );
     var neutronCountTitle = new Text( "Neutrons:", PARTICLE_COUNTS_FONT );
     this.addChild( neutronCountTitle );
-    var neutronCountText = new Text( answerAtom.neutronCount, PARTICLE_COUNTS_FONT );
+    var neutronCountText = new Text( countsToElementProblem.answerAtom.neutronCount, PARTICLE_COUNTS_FONT );
     this.addChild( neutronCountText );
     var electronCountTitle = new Text( "Electrons:", PARTICLE_COUNTS_FONT );
     this.addChild( electronCountTitle );
-    var electronCountText = new Text( answerAtom.electronCount, PARTICLE_COUNTS_FONT );
+    var electronCountText = new Text( countsToElementProblem.answerAtom.electronCount, PARTICLE_COUNTS_FONT );
     this.addChild( electronCountText );
-
-    // Periodic table
-    var periodicTableAtom = new NumberAtom();
-    var periodicTable = new PeriodicTableNode( periodicTableAtom, 100 );
-    this.addChild( periodicTable );
 
     // Problem title
     var problemTitle = new Text( "Find the element:", { font: TITLE_FONT } ); // TODO: i18n
     this.addChild( problemTitle );
+
+    // Periodic table
+    var periodicTableAtom = new NumberAtom();
+    var periodicTable = new PeriodicTableNode( periodicTableAtom, 100 );
+    periodicTable.scale( 0.85 );
+    this.addChild( periodicTable );
+
+    // Neutron atom versus ion question. TODO i18n of this section.
+    var neutralVersusIonPrompt = new Text( "Is it:", { font: new BAAFont( 24 )} );
+    var neutralAtomButton = new RadioButton( countsToElementProblem.isNeutral, true, new Text( "Neutral Atom", {font: new BAAFont( 18 )}), { radius: 8 } );
+    var ionButton = new RadioButton( countsToElementProblem.isNeutral, false, new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var neutralAtomVersusIonQuestion = new Node();
+    neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
+    neutralAtomButton.left = neutralVersusIonPrompt.right + 10;
+    neutralAtomButton.centerY = neutralVersusIonPrompt.centerY;
+    neutralAtomVersusIonQuestion.addChild( neutralAtomButton );
+    ionButton.left = neutralAtomVersusIonQuestion.right + 10;
+    ionButton.centerY = neutralVersusIonPrompt.centerY;
+    neutralAtomVersusIonQuestion.addChild( ionButton );
+    this.addChild( neutralAtomVersusIonQuestion );
 
     // Check answer button.
     var checkAnswerButton = new Button( new Text( "Check", {font: BUTTON_FONT} ),
@@ -73,7 +89,7 @@ define( function( require ) {
                                         { fill: 'rgb( 0, 255, 153 )' } );
     this.addChild( checkAnswerButton );
 
-    // Layout
+    // -------- Layout ---------------------
     periodicTable.right = layoutBounds.width - INSET;
     periodicTable.centerY = layoutBounds.height / 2;
 
@@ -84,10 +100,7 @@ define( function( require ) {
     problemTitle.centerX = periodicTable.centerX;
     problemTitle.bottom = periodicTable.top - 30; // Offset empirically determined.
 
-    checkAnswerButton.centerX = periodicTable.centerX;
-    checkAnswerButton.top = periodicTable.bottom + 50;
-
-    var countIndicatorRightEdge = layoutBounds.width * 0.25; // Controls horizontal position of count indicators, adjust as needed.
+    var countIndicatorRightEdge = layoutBounds.width * 0.35; // Controls horizontal position of count indicators, adjust as needed.
     protonCountText.right = countIndicatorRightEdge;
     neutronCountText.right = protonCountText.right;
     electronCountText.right = protonCountText.right;
@@ -103,6 +116,13 @@ define( function( require ) {
     protonCountTitle.centerY = protonCountText.centerY;
     neutronCountTitle.centerY = neutronCountText.centerY;
     electronCountTitle.centerY = electronCountText.centerY;
+
+    neutralAtomVersusIonQuestion.centerX = periodicTable.centerX;
+    neutralAtomVersusIonQuestion.top = periodicTable.bottom + 20;
+
+    checkAnswerButton.centerX = periodicTable.centerX;
+    checkAnswerButton.top = neutralAtomVersusIonQuestion.bottom + 20;
+
   }
 
   // Inherit from Node.

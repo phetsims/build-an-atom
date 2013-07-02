@@ -14,6 +14,7 @@ define( function( require ) {
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
   var CountsToElementProblemView = require( 'game/view/CountsToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Property = require( 'AXON/Property' );
 
   /**
    * Main constructor function.
@@ -21,14 +22,15 @@ define( function( require ) {
    * @constructor
    */
   function CountsToElementProblem( buildAnAtomGameModel, answerAtom ) {
-    BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom )
+    BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
+    this.isNeutral = new Property( true );
   }
 
   // Inherit from base class and define the methods for this object.
   inherit( BAAGameProblem, CountsToElementProblem, {
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
-      return new CountsToElementProblemView( this.model, this.answerAtom, layoutBounds );
+      return new CountsToElementProblemView( this.model, this, layoutBounds );
     }
   } );
 
