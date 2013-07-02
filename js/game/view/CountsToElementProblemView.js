@@ -42,6 +42,8 @@ define( function( require ) {
       console.log( "Error: Layout bounds must start at 0, 0" );
     }
 
+    //--------------- Creation and addition of nodes -------------------------
+
     // Particle counts
     var protonCountTitle = new Text( "Protons:", PARTICLE_COUNTS_FONT );
     this.addChild( protonCountTitle );
@@ -68,8 +70,8 @@ define( function( require ) {
 
     // Neutron atom versus ion question. TODO i18n of this section.
     var neutralVersusIonPrompt = new Text( "Is it:", { font: new BAAFont( 24 )} );
-    var neutralAtomButton = new RadioButton( countsToElementProblem.isNeutral, true, new Text( "Neutral Atom", {font: new BAAFont( 18 )}), { radius: 8 } );
-    var ionButton = new RadioButton( countsToElementProblem.isNeutral, false, new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var neutralAtomButton = new RadioButton( countsToElementProblem.neutralOrIon, 'neutral', new Text( "Neutral Atom", {font: new BAAFont( 18 )}), { radius: 8 } );
+    var ionButton = new RadioButton( countsToElementProblem.neutralOrIon, 'ion', new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;
@@ -89,7 +91,18 @@ define( function( require ) {
                                         { fill: 'rgb( 0, 255, 153 )' } );
     this.addChild( checkAnswerButton );
 
-    // -------- Layout ---------------------
+    //-------------------- Dynamic behavior -----------------------------------
+
+    periodicTableAtom.protonCountProperty.link( function( protonCount ){
+      neutralAtomVersusIonQuestion.visible = protonCount > 0;
+    });
+
+    countsToElementProblem.neutralOrIon.link( function( neutralOrIon ){
+      checkAnswerButton.visible = neutralOrIon != 'noSelection';
+    } );
+
+    //-------------------- Layout --------------------------------------------
+
     periodicTable.right = layoutBounds.width - INSET;
     periodicTable.centerY = layoutBounds.height / 2;
 

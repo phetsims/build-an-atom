@@ -23,7 +23,7 @@ define( function( require ) {
    */
   function CountsToElementProblem( buildAnAtomGameModel, answerAtom ) {
     BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
-    this.isNeutral = new Property( true );
+    this.neutralOrIon = new Property( 'noSelection' );
   }
 
   // Inherit from base class and define the methods for this object.
