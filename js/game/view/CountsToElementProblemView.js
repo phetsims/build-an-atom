@@ -14,6 +14,7 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "build-an-atom" );
   var BAAFont = require( 'common/view/BAAFont' );
   var Button = require( 'SUN/Button' );
+  var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
@@ -36,7 +37,7 @@ define( function( require ) {
   function CountsToElementProblemView( gameModel, countsToElementProblem, layoutBounds ) {
     Node.call( this ); // Call super constructor.
 
-    // Layout assumes that bounds start at 0, 0 - so verify that this is true.
+    // Layout assumes that bounds start at (0,0), so verify that this is true.
     // TODO: Replace this with an assert.
     if ( layoutBounds.minX !== 0 || layoutBounds.minY !== 0 ) {
       console.log( "Error: Layout bounds must start at 0, 0" );
@@ -91,6 +92,10 @@ define( function( require ) {
                                         { fill: 'rgb( 0, 255, 153 )' } );
     this.addChild( checkAnswerButton );
 
+    // Face node used to signal correct/incorrect answers.
+    var faceNode = new FaceNode( layoutBounds.width * 0.4 );
+    this.addChild( faceNode );
+
     //-------------------- Dynamic behavior -----------------------------------
 
     periodicTableAtom.protonCountProperty.link( function( protonCount ){
@@ -98,6 +103,7 @@ define( function( require ) {
     });
 
     countsToElementProblem.neutralOrIon.link( function( neutralOrIon ){
+      // TODO: Make this control enabled state instead of visibility once the button supports it.
       checkAnswerButton.visible = neutralOrIon != 'noSelection';
     } );
 
@@ -135,6 +141,9 @@ define( function( require ) {
 
     checkAnswerButton.centerX = periodicTable.centerX;
     checkAnswerButton.top = neutralAtomVersusIonQuestion.bottom + 20;
+
+    faceNode.centerX = layoutBounds.width / 2;
+    faceNode.centerY = layoutBounds.height / 2;
 
   }
 
