@@ -12,6 +12,9 @@ define( function( require ) {
   // Background color used on several displays.
   SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR = 'rgb( 254, 255, 153 )';
 
+  // Max attempts for each problem on the game tab.
+  SharedConstants.MAX_PROBLEM_ATTEMPTS = 2;
+
   return SharedConstants;
 
 } );

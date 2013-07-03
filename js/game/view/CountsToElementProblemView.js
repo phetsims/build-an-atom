@@ -19,6 +19,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var Property = require( 'AXON/Property' );
   var RadioButton = require( "SUN/RadioButton" );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -27,6 +28,7 @@ define( function( require ) {
   var TITLE_FONT = new BAAFont( 30 );
   var PARTICLE_COUNTS_FONT = new BAAFont( 24 );
   var BUTTON_FONT = new BAAFont( 20 );
+  var BUTTON_FILL = 'rgb( 0, 255, 153 )';
   var INSET = 10;
 
   /**
@@ -34,7 +36,7 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToElementProblemView( gameModel, countsToElementProblem, layoutBounds ) {
+  function CountsToElementProblemView( countsToElementProblem, layoutBounds ) {
     Node.call( this ); // Call super constructor.
     var thisNode = this;
 
@@ -70,10 +72,11 @@ define( function( require ) {
     periodicTable.scale( 0.85 );
     this.addChild( periodicTable );
 
-    // Neutron atom versus ion question. TODO i18n of this section.
+    // Neutral atom versus ion question. TODO i18n of this section.
+    var neutralOrIon = new Property( 'noSelection' );
     var neutralVersusIonPrompt = new Text( "Is it:", { font: new BAAFont( 24 )} );
-    var neutralAtomButton = new RadioButton( countsToElementProblem.neutralOrIon, 'neutral', new Text( "Neutral Atom", {font: new BAAFont( 18 )} ), { radius: 8 } );
-    var ionButton = new RadioButton( countsToElementProblem.neutralOrIon, 'ion', new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var neutralAtomButton = new RadioButton( neutralOrIon, 'neutral', new Text( "Neutral Atom", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var ionButton = new RadioButton( neutralOrIon, 'ion', new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;
@@ -88,43 +91,111 @@ define( function( require ) {
     var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false } );
     this.addChild( faceNode );
 
-    // Buttons.
-    var attempts = 0;
-    this._checkAnswerButton = new Button( new Text( "Check", {font: BUTTON_FONT} ),
-                                         function() {
-                                           attempts++;
-                                           if ( periodicTableAtom.protonCount === countsToElementProblem.answerAtom.protonCount &&
-                                                periodicTableAtom.neutronCount === countsToElementProblem.answerAtom.neutronCount &&
-                                                ( ( countsToElementProblem.neutralOrIon.value === 'neutral' && countsToElementProblem.answerAtom.charge === 0 ) ||
-                                                  ( countsToElementProblem.neutralOrIon.value === 'ion' && countsToElementProblem.answerAtom.charge !== 0 ) ) ) {
-                                             faceNode.smile();
-                                           }
-                                           else {
-                                             faceNode.frown();
-                                           }
-                                           faceNode.visible = true;
-                                           thisNode._checkAnswerButton.visible = false;
-                                           thisNode._nextButton.visible = true;
-                                         },
-                                         { fill: 'rgb( 0, 255, 153 )' } );
-    this.addChild( this._checkAnswerButton );
-    this._nextButton = new Button( new Text( "Next", {font: BUTTON_FONT} ),
-                                  function() {
-                                    gameModel.next();
-                                  },
-                                  { fill: 'rgb( 0, 255, 153 )' } );
-    this._nextButton.visible = false; // TODO: Remove when state stuff is closer to working.
-    this.addChild( this._nextButton );
+    // Buttons. TODO: i18n of all buttons.
+    var checkAnswerButton = new Button( new Text( "Check", {font: BUTTON_FONT} ),
+                                        function() { countsToElementProblem.checkAnswer( periodicTableAtom, neutralOrIon.value ) },
+                                        { fill: BUTTON_FILL } );
+    this.addChild( checkAnswerButton );
+
+    var nextButton = new Button( new Text( "Next", {font: BUTTON_FONT} ),
+                                 function() {countsToElementProblem.next()},
+                                 { fill: BUTTON_FILL } );
+    this.addChild( nextButton );
+
+    var tryAgainButton = new Button( new Text( "Try Again", {font: BUTTON_FONT} ),
+                                     function() { countsToElementProblem.tryAgain()},
+                                     { fill: BUTTON_FILL } );
+    this.addChild( tryAgainButton );
+
+    var displayCorrectAnswerButton = new Button( new Text( "Display Correct Answer", {font: BUTTON_FONT} ),
+                                                 function() { countsToElementProblem.displayCorrectAnswer() },
+                                                 { fill: BUTTON_FILL } );
+    this.addChild( displayCorrectAnswerButton );
 
     //-------------------- Dynamic behavior -----------------------------------
 
     periodicTableAtom.protonCountProperty.link( function( protonCount ) {
+      // Once the user has selected an element, make the ion question visible.
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
     } );
 
-    countsToElementProblem.neutralOrIon.link( function( neutralOrIon ) {
-      // TODO: Make this control enabled state instead of visibility once the button supports it.
-      thisNode._checkAnswerButton.visible = neutralOrIon != 'noSelection';
+    // Utility function to hide the buttons and the feedback face.
+    var hideButtonsAndFace = function hideButtonsAndFace() {
+      checkAnswerButton.visible = false;
+      nextButton.visible = false;
+      tryAgainButton.visible = false;
+      displayCorrectAnswerButton.visible = false;
+      faceNode.visible = false;
+    }
+    hideButtonsAndFace();
+
+    // Utility function to enable/disable interaction with answer portion of
+    // the displayed problem.
+    var setAnswerNodeInteractive = function( interactive ) {
+      // TODO: This doesn't seem to work, figure out why and fix.
+      periodicTable.pickable = interactive;
+      neutralAtomVersusIonQuestion.pickable = interactive;
+    }
+
+    // Function to clear the user's answer, generally used when giving the
+    // user another change to answer.
+    var clearAnswer = function(){
+      periodicTableAtom.protonCount = 0;
+      periodicTableAtom.neutronCount = 0;
+      periodicTableAtom.electronCount = 0;
+      neutralOrIon.reset();
+    }
+
+    // State change handlers.
+    var stateChangeHandlers = {
+      presentingProblem: function(){
+        clearAnswer();
+        setAnswerNodeInteractive( true );
+        checkAnswerButton.visible = true;
+      },
+      problemSolvedCorrectly: function(){
+        setAnswerNodeInteractive( true );
+        faceNode.smile();
+        faceNode.visible = true;
+        nextButton.visible = true;
+      },
+      presentingTryAgain: function(){
+        setAnswerNodeInteractive( false );
+        faceNode.frown();
+        faceNode.visible = true;
+        tryAgainButton.visible = true;
+      },
+      attemptsExhausted: function(){
+        setAnswerNodeInteractive( false );
+        displayCorrectAnswerButton.visible = true;
+        faceNode.frown();
+        faceNode.visible = true;
+      },
+      displayingCorrectAnswer: function(){
+        setAnswerNodeInteractive( false );
+        nextButton.visible = true;
+        periodicTableAtom.protonCount = countsToElementProblem.answerAtom.protonCount;
+        if ( countsToElementProblem.answerAtom.charge === 0 ){
+          neutralOrIon.value = 'neutral';
+        }
+        else{
+          neutralOrIon.value = 'ion';
+        }
+      }
+    }
+
+    // Update the appearance of the problem as the state changes.
+    countsToElementProblem.problemStateProperty.link( function( problemState ) {
+      console.log( 'Problem state changed, new state = ' + problemState );
+      hideButtonsAndFace();
+      if ( stateChangeHandlers[ problemState ] !== undefined ){
+        stateChangeHandlers[ problemState ]();
+      }
+    } );
+
+    neutralOrIon.link( function( neutralOrIon ) {
+      checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
+      checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
     } );
 
     //-------------------- Layout --------------------------------------------
@@ -159,10 +230,14 @@ define( function( require ) {
     neutralAtomVersusIonQuestion.centerX = periodicTable.centerX;
     neutralAtomVersusIonQuestion.top = periodicTable.bottom + 20;
 
-    this._checkAnswerButton.centerX = periodicTable.centerX;
-    this._checkAnswerButton.top = neutralAtomVersusIonQuestion.bottom + 20;
-    this._nextButton.centerX = this._checkAnswerButton.centerX;
-    this._nextButton.centerY = this._checkAnswerButton.centerY;
+    checkAnswerButton.centerX = periodicTable.centerX;
+    checkAnswerButton.top = neutralAtomVersusIonQuestion.bottom + 20;
+    nextButton.centerX = checkAnswerButton.centerX;
+    nextButton.centerY = checkAnswerButton.centerY;
+    tryAgainButton.centerX = checkAnswerButton.centerX;
+    tryAgainButton.centerY = checkAnswerButton.centerY;
+    displayCorrectAnswerButton.centerX = checkAnswerButton.centerX;
+    displayCorrectAnswerButton.centerY = checkAnswerButton.centerY;
 
     faceNode.centerX = layoutBounds.width / 2;
     faceNode.centerY = layoutBounds.height / 2;

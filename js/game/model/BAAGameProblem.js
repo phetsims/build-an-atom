@@ -13,9 +13,7 @@ define( function( require ) {
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
-
-
-  // Constants
+  var SharedConstants = require( 'common/SharedConstants' );
 
   /**
    * Main constructor function.
@@ -25,11 +23,10 @@ define( function( require ) {
   function BAAGameProblem( buildAnAtomGameModel, answerAtom ) {
     PropertySet.call( this,
                       {
-                        state: 'presentingProblem',
+                        problemState: 'presentingProblem',
                         answerAtom: answerAtom,
                         numSubmissions: 0,
-                        score: 0,
-                        solvedCorrectly: false
+                        score: 0
                       } );
     this.answerAtom = answerAtom;
     this.model = buildAnAtomGameModel;
@@ -37,18 +34,58 @@ define( function( require ) {
 
   // Inherit from base class and define the methods for this object.
   inherit( PropertySet, BAAGameProblem, {
-    // Process answer submitted by the user.
-    processSubmission: function( submittedAtom ) {
+
+    //------------------------------------------------------------------------
+    // The following functions comprise the API used by the problem view to
+    // send user events to the problem.
+    //------------------------------------------------------------------------
+
+    // Process answer submitted by the user.  This is the most basic check,
+    // and more elaborate ways of verifying can be implemented in sub-classes.
+    checkAnswer: function( submittedAtom ) {
+
+      // TODO: Put an assert here to verify expected state.
       this.numSubmissions++;
-      if ( this.this.answerAtom.equals( submittedAtom) ){
-        this.solvedCorrectly = true;
-        if ( this.numSubmissions === 1 ){
-          this.score = 2;
+      if ( this.answerAtom.equals( submittedAtom ) ) {
+
+        // Increment the score.
+        this.model.score += this.numSubmissions === 1 ? 2 : 1;
+
+        // Move to the next state.
+        this.problemState = 'problemSolvedCorrectly';
+      }
+      else {
+
+        // Handle incorrect answer.
+        if ( this.numSubmissions < SharedConstants.MAX_PROBLEM_ATTEMPTS ) {
+
+          // Give the user another chance.
+          this.problemState = 'presentingTryAgain';
         }
-        else{
-          this.score = 1;
+        else {
+
+          // User has exhausted their attempts.
+          this.problemState = 'attemptsExhausted';
         }
       }
+    },
+
+    // The user has pressed the "Try Again" button.
+    tryAgain: function() {
+      this.problemState = 'presentingProblem';
+    },
+
+    // The user has pressed the 'Next' button.
+    next: function() {
+      // This event is basically handled by the model, which will remove this
+      // problem and do whatever should happen next.
+      this.model.next();
+    },
+
+    // The user has exhausted attempts and has pressed the "Display Correct
+    // Answer" button.
+    displayCorrectAnswer: function() {
+      this.problemState = 'displayingCorrectAnswer';
     }
   } );
 
