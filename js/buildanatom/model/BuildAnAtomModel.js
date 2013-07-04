@@ -23,7 +23,7 @@ define( function( require ) {
   var NUCLEON_CAPTURE_RADIUS = 100;
   var BUCKET_WIDTH = 120;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
-  var BUCKET_Y_OFFSET = -230;
+  var BUCKET_Y_OFFSET = -225;
 
   var placeNucleon = function( particle, bucket, atom ) {
     if ( particle.position.distance( atom.position ) < NUCLEON_CAPTURE_RADIUS ) {

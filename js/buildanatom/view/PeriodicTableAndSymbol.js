@@ -21,7 +21,7 @@ define( function( require ) {
 
   // Constants
   var SYMBOL_WIDTH_PROPORTION = 0.2;
-  var SYMBOL_ASPECT_RATIO = 0.8; // Width/height.
+  var SYMBOL_ASPECT_RATIO = 0.9; // Width/height.
 
   function PeriodicTableAndSymbol( numberAtom ) {
 

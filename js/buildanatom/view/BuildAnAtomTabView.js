@@ -6,6 +6,7 @@
 define( function( require ) {
   "use strict";
 
+  // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomNode = require( 'common/view/AtomNode' );
   var BAAFont = require( 'common/view/BAAFont' );
@@ -20,14 +21,15 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ParticleView = require( 'common/view/ParticleView' );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var SharedConstants = require( 'common/SharedConstants' );
   var TabView = require( "JOIST/TabView" );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( "DOT/Vector2" );
+
+  // Constants
+  var CONTROLS_INSET = 10;
+  var INTER_BOX_SPACING = 10;
 
   /**
    * Constructor.
@@ -171,16 +173,16 @@ define( function( require ) {
     this.addChild( resetButton );
 
     // Do the layout.
-    particleCountDisplay.top = 5;
-    particleCountDisplay.left = 5;
-    periodicTableBox.top = 5;
-    periodicTableBox.right = this.layoutBounds.width - 5;
+    particleCountDisplay.top = CONTROLS_INSET;
+    particleCountDisplay.left = CONTROLS_INSET;
+    periodicTableBox.top = CONTROLS_INSET;
+    periodicTableBox.right = this.layoutBounds.width - CONTROLS_INSET;
     chargeMeterBox.right = periodicTableBox.right;
-    chargeMeterBox.top = periodicTableBox.bottom + 10;
+    chargeMeterBox.top = periodicTableBox.bottom + INTER_BOX_SPACING;
     massNumberBox.right = periodicTableBox.right;
-    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + 10;
+    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + INTER_BOX_SPACING;
     resetButton.centerX = periodicTableBox.centerX;
-    resetButton.bottom = this.layoutBounds.height - 5;
+    resetButton.bottom = this.layoutBounds.height - CONTROLS_INSET;
   }
 
   // Inherit from TabView.
