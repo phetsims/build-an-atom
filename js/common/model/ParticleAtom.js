@@ -22,7 +22,7 @@ define( function( require ) {
   var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 150;
 
   function ParticleAtom( innerElectronShellRadius, outerElectronShellRadius ) {
-    PropertySet.call( this, {position: Vector2.ZERO} );
+    PropertySet.call( this, { position: Vector2.ZERO, nucleusOffset: Vector2.ZERO } );
 
     var thisAtom = this;
 
@@ -63,6 +63,29 @@ define( function( require ) {
       }
     } );
 
+    // Utility function to translate all particles.
+    var translateParticle = function( particle, translation ) {
+      if ( particle.position.equals( particle.destination ) ) {
+        particle.setPositionAndDestination( particle.position.plus( translation ) );
+      }
+      else {
+        // Particle is moving, only change the destination.
+        particle.destination = particle.destination.plus( translation );
+      }
+    }
+
+    // When the nucleus offset changes, update all nucleon positions.
+    this.nucleusOffsetProperty.link( function( newOffset, oldOffset ) {
+      console.log( "Offset changed, old = " + oldOffset + ", new = " + newOffset );
+      var translation = oldOffset === null ? Vector2.ZERO : newOffset.minus( oldOffset );
+      console.log( "Translation = " + translation );
+      thisAtom.protons.forEach( function( particle ) {
+        translateParticle( particle, translation );
+      } );
+      thisAtom.neutrons.forEach( function( particle ) {
+        translateParticle( particle, translation );
+      } );
+    } );
   }
 
   return inherit( PropertySet, ParticleAtom, {
@@ -175,8 +198,8 @@ define( function( require ) {
     reconfigureNucleus: function() {
 
       // Convenience variables.
-      var centerX = this.position.x;
-      var centerY = this.position.y;
+      var centerX = this.position.x + this.nucleusOffset.x;
+      var centerY = this.position.y + this.nucleusOffset.y;
       var nucleonRadius = SharedConstants.NUCLEON_RADIUS;
       var angle, distFromCenter;
 

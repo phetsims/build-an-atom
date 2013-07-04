@@ -142,6 +142,7 @@ define( function( require ) {
     // Update the stability state and counter on changes.
     this.nucleusStable = true;
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    this.nucleusOffset = Vector2.ZERO;
     this.numberAtom.atomicMassProperty.link( function( atomicMass ) {
       var stable = atomicMass > 0 ? AtomIdentifier.isStable( thisModel.numberAtom.protonCount, thisModel.numberAtom.neutronCount ) : true;
       if ( thisModel.nucleusStable !== stable ){
@@ -168,11 +169,15 @@ define( function( require ) {
     if ( this.nucleusStable === false ){
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ){
-        console.log( "Jump!!!" );
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+        if ( this.particleAtom.nucleusOffset === Vector2.ZERO ){
+          this.particleAtom.nucleusOffset = new Vector2( 20, 20 );
+        }
+        else {
+          this.particleAtom.nucleusOffset = Vector2.ZERO;
+        }
       }
     }
-
   };
 
   BuildAnAtomModel.prototype.reset = function() {
