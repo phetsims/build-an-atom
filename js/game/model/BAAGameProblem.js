@@ -11,6 +11,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
+  var assert = require( "ASSERT/assert" )( "build-an-atom" );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
@@ -44,7 +45,9 @@ define( function( require ) {
     // and more elaborate ways of verifying can be implemented in sub-classes.
     checkAnswer: function( submittedAtom ) {
 
-      // TODO: Put an assert here to verify expected state.
+      // Verify that the current state is as expected.
+      assert && assert( this.problemState === 'presentingProblem', "Unexpected problem state: " + this.problemState );
+
       this.numSubmissions++;
       if ( this.answerAtom.equals( submittedAtom ) ) {
 

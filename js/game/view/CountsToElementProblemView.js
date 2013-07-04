@@ -41,10 +41,7 @@ define( function( require ) {
     var thisNode = this;
 
     // Layout assumes that bounds start at (0,0), so verify that this is true.
-    // TODO: Replace this with an assert.
-    if ( layoutBounds.minX !== 0 || layoutBounds.minY !== 0 ) {
-      console.log( "Error: Layout bounds must start at 0, 0" );
-    }
+    assert && assert( layoutBounds.minX === 0 && layoutBounds.minY === 0 );
 
     //--------------- Creation and addition of nodes -------------------------
 
