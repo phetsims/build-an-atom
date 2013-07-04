@@ -7,6 +7,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
+  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var SharedConstants = require( 'common/SharedConstants' );
   var Utils = require( 'common/Utils' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
@@ -24,15 +25,7 @@ define( function( require ) {
   var BUCKET_WIDTH = 120;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
   var BUCKET_Y_OFFSET = -225;
-
-  var placeNucleon = function( particle, bucket, atom ) {
-    if ( particle.position.distance( atom.position ) < NUCLEON_CAPTURE_RADIUS ) {
-      atom.addParticle( particle );
-    }
-    else {
-      bucket.addParticleNearestOpen( particle, true );
-    }
-  };
+  var NUCLEUS_JUMP_PERIOD = 1; // In seconds
 
   /**
    * Constructor for main model object.
@@ -76,6 +69,16 @@ define( function( require ) {
           captionColor: 'white'
         }
       )
+    };
+
+    // Define function that will decide where to put nucleons.
+    var placeNucleon = function( particle, bucket, atom ) {
+      if ( particle.position.distance( atom.position ) < NUCLEON_CAPTURE_RADIUS ) {
+        atom.addParticle( particle );
+      }
+      else {
+        bucket.addParticleNearestOpen( particle, true );
+      }
     };
 
     // Add the subatomic particles to the model.
@@ -123,7 +126,7 @@ define( function( require ) {
       } );
     } );
 
-    // Have a 'number atom' that tracks the state of the particle atom.
+    // Make available a 'number atom' that tracks the state of the particle atom.
     this.numberAtom = new NumberAtom();
     var updateNumberAtom = function() {
       thisModel.numberAtom.protonCount = thisModel.particleAtom.protons.length;
@@ -135,15 +138,41 @@ define( function( require ) {
     this.particleAtom.protons.addListener( updateNumberAtom );
     this.particleAtom.electrons.addListener( updateNumberAtom );
     this.particleAtom.neutrons.addListener( updateNumberAtom );
+
+    // Update the stability state and counter on changes.
+    this.nucleusStable = true;
+    this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    this.numberAtom.atomicMassProperty.link( function( atomicMass ) {
+      var stable = atomicMass > 0 ? AtomIdentifier.isStable( thisModel.numberAtom.protonCount, thisModel.numberAtom.neutronCount ) : true;
+      if ( thisModel.nucleusStable !== stable ){
+        // Stability has changed.
+        thisModel.nucleusStable = stable;
+        if ( stable ){
+          thisModel.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+        }
+      }
+    } );
   }
 
   BuildAnAtomModel.prototype.step = function( dt ) {
+
+    // Update particle positions.
     this.nucleons.forEach( function( nucleon ) {
       nucleon.step( dt );
     } );
     this.electrons.forEach( function( electron ) {
       electron.step( dt );
     } );
+
+    // Animate the unstable nucleus by making it jump periodically.
+    if ( this.nucleusStable === false ){
+      this.nucleusJumpCountdown -= dt;
+      if ( this.nucleusJumpCountdown <= 0 ){
+        console.log( "Jump!!!" );
+        this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+      }
+    }
+
   };
 
   BuildAnAtomModel.prototype.reset = function() {
