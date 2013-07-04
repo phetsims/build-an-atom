@@ -1,3 +1,6 @@
+7/4/2014 Implemented the feature where the nucleus vibrates when unstable.
+7/3/2014 Implemented the counts-to-element problem for the game.
+7/3/2014 Added basic game logic.
 6/26/2014 Re-enabled the feature for getting particles by dragging on buckets, since the related Kite problem is now fixed.
 # 00.00.00-12
 6/25/2014 Added better highlighting of selected element in the periodic table.

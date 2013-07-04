@@ -25,7 +25,8 @@ define( function( require ) {
   var BUCKET_WIDTH = 120;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
   var BUCKET_Y_OFFSET = -225;
-  var NUCLEUS_JUMP_PERIOD = 1; // In seconds
+  var NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
+  var MAX_NUCLEUS_JUMP = SharedConstants.NUCLEON_RADIUS * 1;
 
   /**
    * Constructor for main model object.
@@ -150,6 +151,7 @@ define( function( require ) {
         thisModel.nucleusStable = stable;
         if ( stable ){
           thisModel.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+          thisModel.particleAtom.nucleusOffset = Vector2.ZERO;
         }
       }
     } );
@@ -171,7 +173,9 @@ define( function( require ) {
       if ( this.nucleusJumpCountdown <= 0 ){
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
         if ( this.particleAtom.nucleusOffset === Vector2.ZERO ){
-          this.particleAtom.nucleusOffset = new Vector2( 20, 20 );
+          var angle = Math.random() * 2 * Math.PI;
+          var distance = Math.random() * MAX_NUCLEUS_JUMP;
+          this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
         }
         else {
           this.particleAtom.nucleusOffset = Vector2.ZERO;
