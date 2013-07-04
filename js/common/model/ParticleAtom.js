@@ -76,9 +76,7 @@ define( function( require ) {
 
     // When the nucleus offset changes, update all nucleon positions.
     this.nucleusOffsetProperty.link( function( newOffset, oldOffset ) {
-      console.log( "Offset changed, old = " + oldOffset + ", new = " + newOffset );
       var translation = oldOffset === null ? Vector2.ZERO : newOffset.minus( oldOffset );
-      console.log( "Translation = " + translation );
       thisAtom.protons.forEach( function( particle ) {
         translateParticle( particle, translation );
       } );
