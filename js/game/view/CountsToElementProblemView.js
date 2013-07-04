@@ -85,7 +85,7 @@ define( function( require ) {
     this.addChild( neutralAtomVersusIonQuestion );
 
     // Face node used to signal correct/incorrect answers.
-    var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false } );
+    var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
     this.addChild( faceNode );
 
     // Buttons. TODO: i18n of all buttons.
