@@ -17,7 +17,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
   var ParticleNode = require( 'common/view/ParticleNode' );
-  var PanelNode = require( 'SUN/PanelNode' );
+  var Panel = require( 'SUN/Panel' );
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
@@ -54,7 +54,7 @@ define( function( require ) {
 
     // Figure out the sizes of the particles and the inter-particle
     // spacing based on the max width.
-    var totalParticleSpace = maxWidth - protonTitle.right - 10; // TODO: The value of 10 comes from something hard-coded into PanelNode, fix when PanelNode is finalized.
+    var totalParticleSpace = maxWidth - protonTitle.right - 10; // TODO: The value of 10 comes from something hard-coded into Panel, fix when Panel is finalized.
     var nucleonRadius = totalParticleSpace / ( (maxParticles * 2) + ( maxParticles - 1) + 2);
     var electronRadius = nucleonRadius * 0.6; // Arbitrarily chosen.
     var interParticleSpacing = nucleonRadius * 3;
@@ -92,7 +92,7 @@ define( function( require ) {
     updateParticles( numberAtom );
 
     // Add it all to a panel.
-    this.addChild( new PanelNode( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
+    this.addChild( new Panel( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
   };
 
   // Inherit from Node.
