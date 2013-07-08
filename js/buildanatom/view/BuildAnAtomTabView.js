@@ -20,16 +20,20 @@ define( function( require ) {
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
+  var Panel = require( "SUN/Panel" );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ParticleView = require( 'common/view/ParticleView' );
+  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var SharedConstants = require( 'common/SharedConstants' );
   var TabView = require( "JOIST/TabView" );
+  var Text = require( "SCENERY/nodes/Text" );
+  var VerticalCheckBoxGroup = require( "SUN/VerticalCheckBoxGroup" );
 
   // Constants
   var CONTROLS_INSET = 10;
   var INTER_BOX_SPACING = 10;
+  var LABEL_CONTROL_FONT = new BAAFont( 24 );
 
   /**
    * Constructor.
@@ -162,6 +166,18 @@ define( function( require ) {
                                           } );
     this.addChild( massNumberBox );
 
+    // Add the control panel for label visibility. TODO: i18n
+    var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
+      [
+        { content: new Text( 'Element Name', {font: LABEL_CONTROL_FONT} ), property: model.showElementName, label: 'Element Name' },
+        { content: new Text( 'Neutral/Ion', {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIon, label: 'Neutral/Ion' },
+        { content: new Text( 'Stable/Unstable', {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstable, label: 'Stable/Unstable' }
+      ] ), { fill: 'rgb( 240, 240, 240 )' } );
+    labelVizControlPanel.scale( 0.65 );  // TODO: Seems a bit of a hack.  Is there a better way to get the check boxes to scale?
+    this.addChild( labelVizControlPanel );
+    var labelVizControlPanelTitle = new Text( "Show", new BAAFont( 16, 'bold' ) ); // TODO: i18n
+    this.addChild( labelVizControlPanelTitle );
+
     // Add the reset button.
     var resetButton = new ResetAllButton( function() {
       model.reset();
@@ -181,8 +197,12 @@ define( function( require ) {
     chargeMeterBox.top = periodicTableBox.bottom + INTER_BOX_SPACING;
     massNumberBox.right = periodicTableBox.right;
     massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + INTER_BOX_SPACING;
-    resetButton.centerX = periodicTableBox.centerX;
-    resetButton.bottom = this.layoutBounds.height - CONTROLS_INSET;
+    resetButton.left = periodicTableBox.left;
+    labelVizControlPanel.centerX = ( resetButton.right + this.layoutBounds.width ) / 2;
+    labelVizControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
+    resetButton.centerY = labelVizControlPanel.centerY;
+    labelVizControlPanelTitle.bottom = labelVizControlPanel.top;
+    labelVizControlPanelTitle.centerX = labelVizControlPanel.centerX;
   }
 
   // Inherit from TabView.

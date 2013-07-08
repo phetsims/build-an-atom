@@ -8,13 +8,14 @@ define( function( require ) {
 
   // Imports
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
-  var SharedConstants = require( 'common/SharedConstants' );
-  var Utils = require( 'common/Utils' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
+  var Dimension2 = require( 'DOT/Dimension2' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var Particle = require( 'common/model/Particle' );
+  var ParticleAtom = require( 'common/model/ParticleAtom' );
+  var Property = require( 'AXON/Property' );
+  var SharedConstants = require( 'common/SharedConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
-  var Dimension2 = require( 'DOT/Dimension2' );
+  var Utils = require( 'common/Utils' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
@@ -71,6 +72,11 @@ define( function( require ) {
         }
       )
     };
+
+    // Properties that control label visibility.
+    this.showElementName = new Property( true );
+    this.showNeutralOrIon = new Property( true );
+    this.showStableOrUnstable = new Property( true );
 
     // Define function that will decide where to put nucleons.
     var placeNucleon = function( particle, bucket, atom ) {
