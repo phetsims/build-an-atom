@@ -20,7 +20,7 @@ define( function( require ) {
   var NumberAtom = require( 'common/model/NumberAtom' );
   var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
   var Property = require( 'AXON/Property' );
-  var RadioButton = require( "SUN/RadioButton" );
+  var AquaRadioButton = require( "SUN/AquaRadioButton" );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -72,8 +72,8 @@ define( function( require ) {
     // Neutral atom versus ion question. TODO i18n of this section.
     var neutralOrIon = new Property( 'noSelection' );
     var neutralVersusIonPrompt = new Text( "Is it:", { font: new BAAFont( 24 )} );
-    var neutralAtomButton = new RadioButton( neutralOrIon, 'neutral', new Text( "Neutral Atom", {font: new BAAFont( 18 )} ), { radius: 8 } );
-    var ionButton = new RadioButton( neutralOrIon, 'ion', new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var neutralAtomButton = new AquaRadioButton( neutralOrIon, 'neutral', new Text( "Neutral Atom", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var ionButton = new AquaRadioButton( neutralOrIon, 'ion', new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;
