@@ -35,7 +35,6 @@ define( function( require ) {
         activeParticle = particle;
         if ( activeParticle !== null ) {
           activeParticle.setPositionAndDestination( positionInModelSpace );
-          activeParticle.userControlled = true;
         }
       },
       translate: function( translationParams ) {
