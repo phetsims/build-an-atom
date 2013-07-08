@@ -11,11 +11,11 @@ define( function( require ) {
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
   var SharedConstants = require( 'common/SharedConstants' );
-  var Utils = require( 'common/Utils' );
   var Vector2 = require( 'DOT/Vector2' );
   var Particle = require( 'common/model/Particle' );
   var ObservableArray = require( 'AXON/ObservableArray' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Utils = require( 'common/Utils' );
 
   // Constants
   var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
@@ -38,15 +38,15 @@ define( function( require ) {
     this.electronAddMode = 'proximal';
 
     // Initialize the positions where an electron can be placed.
-    this.electronPositions = new Array( 10 );
+    this.validElectronPositions = new Array( 10 );
     var angle = 0;
-    this.electronPositions[ 0 ] = { electron: null, position: new Vector2( this.innerElectronShellRadius, 0 ) };
+    this.validElectronPositions[ 0 ] = { electron: null, position: new Vector2( this.innerElectronShellRadius, 0 ) };
     angle += Math.PI;
-    this.electronPositions[ 1 ] = { electron: null, position: new Vector2( -this.innerElectronShellRadius, 0 ) };
+    this.validElectronPositions[ 1 ] = { electron: null, position: new Vector2( -this.innerElectronShellRadius, 0 ) };
     var numSlotsInOuterShell = 8;
     angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
     for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
-      this.electronPositions[ i + 2 ] = {
+      this.validElectronPositions[ i + 2 ] = {
         electron: null,
         position: new Vector2( Math.cos( angle ) * this.outerElectronShellRadius,
                                Math.sin( angle ) * this.outerElectronShellRadius )
@@ -54,13 +54,33 @@ define( function( require ) {
       angle += Math.PI / numSlotsInOuterShell * 2;
     }
 
-    // If the electron collection is reset, clear the open positions.
-    this.electrons.addListener( function( a, b, c ) {
-      if ( c.length === 0 ) {
-        _.each( thisAtom.electronPositions, function( electronPosition ) {
-          electronPosition.electron = null;
+    // When an electron is removed, clear the corresponding shell position.
+    this.electrons.addListener( function( added, removed, resultingArray ) {
+      removed.forEach( function( electron ) {
+        thisAtom.validElectronPositions.forEach( function( validElectronPosition ) {
+          if ( validElectronPosition.electron === electron ) {
+            validElectronPosition.electron = null;
+            if ( Math.abs( validElectronPosition.position.magnitude() - thisAtom.innerElectronShellRadius ) < 1E-5 ){
+              // An inner-shell electron was removed.  If there are electrons
+              // in the outer shell, move one of them in.
+              var occupiedOuterShellPositions = _.filter( thisAtom.validElectronPositions, function( validElectronPosition ){
+                return ( validElectronPosition.electron !== null && Utils.roughlyEqual( validElectronPosition.position.magnitude(),
+                                                                                        thisAtom.outerElectronShellRadius,
+                                                                                        1E-5 ));
+              });
+              occupiedOuterShellPositions = _.sortBy( occupiedOuterShellPositions, function( occupiedShellPosition ) {
+                return occupiedShellPosition.position.distance( validElectronPosition.position );
+              } );
+              if ( occupiedOuterShellPositions.length > 0 ){
+                // Move outer electron to inner spot.
+                validElectronPosition.electron = occupiedOuterShellPositions[0].electron;
+                occupiedOuterShellPositions[0].electron = null;
+                validElectronPosition.electron.destination = validElectronPosition.position;
+              }
+            }
+          }
         } );
-      }
+      } )
     } );
 
     // Utility function to translate all particles.
@@ -116,7 +136,7 @@ define( function( require ) {
       else if ( particle.type === 'electron' ) {
         this.electrons.add( particle );
         // Find an open position in the electron shell.
-        var openPositions = this.electronPositions.filter( function( electronPosition ) {
+        var openPositions = this.validElectronPositions.filter( function( electronPosition ) {
           return ( electronPosition.electron === null );
         } );
         var sortedOpenPositions;
@@ -142,14 +162,11 @@ define( function( require ) {
         }
         sortedOpenPositions[0].electron = particle;
         particle.destination = sortedOpenPositions[ 0 ].position;
+
+        // Listen for removal of the electron and handle it.
         particle.userControlledProperty.once( function( userControlled ) {
           if ( userControlled && thisAtom.electrons.contains( particle ) ) {
             thisAtom.electrons.remove( particle );
-            _.each( thisAtom.electronPositions, function( electronPosition ) {
-              if ( electronPosition.electron === particle ) {
-                electronPosition.electron = null;
-              }
-            } );
           }
         } );
       }
@@ -173,11 +190,6 @@ define( function( require ) {
       }
       else if ( particleType === 'electron' ) {
         particle = this.electrons.pop();
-        _.each( thisAtom.electronPositions, function( electronPosition ) {
-          if ( electronPosition.electron === particle ) {
-            electronPosition.electron = null;
-          }
-        } );
       }
       else {
         console.log( "Error: Ignoring request to remove unknown particle type." );

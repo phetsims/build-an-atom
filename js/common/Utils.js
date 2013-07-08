@@ -18,5 +18,16 @@ define( [], function() {
     return Math.sqrt( ( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 ) );
   };
 
+  /**
+   * Determine if two values are equal within a tolerance.
+   *
+   * @param value1
+   * @param value2
+   * @param tolerance
+   */
+  Utils.roughlyEqual = function( value1, value2, tolerance ) {
+    return Math.abs( value1 - value2 ) < tolerance;
+  };
+
   return Utils;
 } );
