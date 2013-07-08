@@ -26,7 +26,7 @@ define( function( require ) {
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
   var BUCKET_Y_OFFSET = -225;
   var NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
-  var MAX_NUCLEUS_JUMP = SharedConstants.NUCLEON_RADIUS * 1;
+  var MAX_NUCLEUS_JUMP = SharedConstants.NUCLEON_RADIUS * 0.5;
 
   /**
    * Constructor for main model object.
