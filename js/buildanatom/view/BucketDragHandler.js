@@ -43,6 +43,7 @@ define( function( require ) {
         }
       },
       end: function( event ) {
+        debugger;
         if ( activeParticle !== null ) {
           activeParticle.userControlled = false;
         }

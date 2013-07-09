@@ -20,7 +20,8 @@ define( function( require ) {
   var ElectronCloudView = function ElectronCloudView( atom, mvt ) {
 
     // Call super constructor.
-    Node.call( this );
+    Node.call( this, { cursor: 'pointer' } );
+    var thisNode = this;
 
     var electronCloud = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
                                     {
@@ -46,10 +47,41 @@ define( function( require ) {
     };
     updateElectronCloud( atom.electrons.length );
 
-    // Update the cloud as electrons come and go.
+    // Update the cloud size as electrons come and go.
     atom.electrons.addListener( function( added, removed, resultingArray ) {
       updateElectronCloud( resultingArray.length );
     } );
+
+    // If the user clicks on the cloud, extract an electron.
+    this.extractedElectron = null;
+    this.addInputListener( new SimpleDragHandler(
+      {
+        activeParticle: null,
+        start: function( event, trail ) {
+          // Note: The following transform works, but it is a bit obscure, and
+          // relies on the topology of the scene graph.  JB, SR, and JO
+          // discussed potentially better ways to do it.  If this code is
+          // leveraged, revisit this line for potential improvement.
+          var positionInModelSpace = mvt.viewToModelPosition( thisNode.getParents()[0].globalToLocalPoint( event.pointer.point ) );
+
+          var electron = atom.removeParticle( 'electron' );
+          if ( electron !== null ) {
+            electron.userControlled = true;
+            electron.setPositionAndDestination( positionInModelSpace );
+            thisNode.extractedElectron = electron;
+          }
+        },
+        translate: function( translationParams ) {
+          if ( thisNode.extractedElectron !== null ) {
+            thisNode.extractedElectron.setPositionAndDestination( thisNode.extractedElectron.position.plus( mvt.viewToModelDelta( translationParams.delta ) ) );
+          }
+        },
+        end: function( event ) {
+          if ( thisNode.extractedElectron !== null ) {
+            thisNode.extractedElectron.userControlled = false;
+          }
+        }
+      } ) );
   };
 
   // Inherit from Node.
