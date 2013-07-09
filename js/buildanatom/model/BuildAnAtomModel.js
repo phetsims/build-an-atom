@@ -213,10 +213,11 @@ define( function( require ) {
     moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
     moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
 
-    // Reset label visibility states.
+    // Reset properties related to the view.
     this.showElementName.reset();
     this.showNeutralOrIon.reset();
     this.showStableOrUnstable.reset();
+    this.electronShellDepiction.reset();
 
   };
 

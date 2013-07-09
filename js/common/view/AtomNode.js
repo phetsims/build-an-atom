@@ -12,6 +12,7 @@ define( function( require ) {
 
   var AtomIdentifier = require( 'common/view/AtomIdentifier' );
   var BAAFont = require( 'common/view/BAAFont' );
+  var ElectronCloudView = require( 'common/view/ElectronCloudView' );
   var ElectronShellView = require( 'common/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -75,6 +76,13 @@ define( function( require ) {
     this.addChild( electronShell );
     options.electronShellDepiction.link( function( depiction ){
       electronShell.visible = depiction === 'orbits';
+    });
+
+    // Add the electron cloud.
+    var electronCloud = new ElectronCloudView( particleAtom, mvt );
+    this.addChild( electronCloud );
+    options.electronShellDepiction.link( function( depiction ){
+      electronCloud.visible = depiction === 'cloud';
     });
 
     // Create the textual readout for the element name.
