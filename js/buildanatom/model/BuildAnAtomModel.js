@@ -208,6 +208,12 @@ define( function( require ) {
     moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
     moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
     moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
+
+    // Reset label visibility states.
+    this.showElementName.reset();
+    this.showNeutralOrIon.reset();
+    this.showStableOrUnstable.reset();
+
   };
 
   return BuildAnAtomModel;

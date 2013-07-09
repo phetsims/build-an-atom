@@ -17,6 +17,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -32,12 +33,17 @@ define( function( require ) {
     options = _.extend(
       {
         showCenterX: true,
-        showElementName: true,
-        showStability: true,
-        showIonIndicator: true
+        showElementName: new Property( true ),
+        showNeutralOrIon: new Property( true ),
+        showStableOrUnstable: new Property( true )
       },
       options
     );
+
+    options.showElementName.link( function( showElementName ) {
+      console.log( "Yugga!!" );
+    } );
+
 
     Node.call( this, options ); // Call super constructor.
     var thisAtomView = this;
@@ -73,118 +79,122 @@ define( function( require ) {
     this.addChild( electronShell );
 
     // Create the textual readout for the element name.
-    if ( options.showElementName ) {
-      var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
-      var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35;
-      this.elementName = new Text( "",
-                                   {
-                                     font: new BAAFont( elementNameFontSize ),
-                                     fill: "red",
-                                     center: elementNameCenterPos
-                                   } );
-      this.addChild( this.elementName );
+    var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
+    var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35;
+    this.elementName = new Text( "",
+                                 {
+                                   font: new BAAFont( elementNameFontSize ),
+                                   fill: "red",
+                                   center: elementNameCenterPos
+                                 } );
+    this.addChild( this.elementName );
 
-      // Define the update function for the element name.
-      var updateElementName = function() {
-        var name = AtomIdentifier.getName( thisAtomView.atom.protons.length );
-        if ( name.length === 0 ) {
-          name = '';
-        }
-        thisAtomView.elementName.text = name;
-        thisAtomView.elementName.setScaleMagnitude( 1 );
-        var maxLabelWidth = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius * 1.4 );
-        thisAtomView.elementName.setScaleMagnitude( Math.min( maxLabelWidth / thisAtomView.elementName.width, 1 ) );
-        thisAtomView.elementName.center = elementNameCenterPos;
-      };
-      updateElementName(); // Do the initial update.
+    // Define the update function for the element name.
+    var updateElementName = function() {
+      var name = AtomIdentifier.getName( thisAtomView.atom.protons.length );
+      if ( name.length === 0 ) {
+        name = '';
+      }
+      thisAtomView.elementName.text = name;
+      thisAtomView.elementName.setScaleMagnitude( 1 );
+      var maxLabelWidth = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius * 1.4 );
+      thisAtomView.elementName.setScaleMagnitude( Math.min( maxLabelWidth / thisAtomView.elementName.width, 1 ) );
+      thisAtomView.elementName.center = elementNameCenterPos;
+    };
+    updateElementName(); // Do the initial update.
 
-      // Hook up update listeners.
-      particleAtom.protons.addListener( function() {
-        updateElementName();
-      } );
-    }
+    // Hook up update listeners.
+    particleAtom.protons.addListener( function() {
+      updateElementName();
+    } );
+    options.showElementName.link( function( visible ) {
+      thisAtomView.elementName.visible = visible;
+    } );
 
     // Create the textual readout for the ion indicator.
     var updateIonIndicator = function() {};
-    if ( options.showIonIndicator ) {
-      var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
-      this.ionIndicator = new Text( "",
-                                    {
-                                      font: new BAAFont( 24 ),
-                                      fill: "black",
-                                      translation: ionIndicatorTranslation
-                                    } );
-      this.addChild( this.ionIndicator );
+    var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
+    this.ionIndicator = new Text( "",
+                                  {
+                                    font: new BAAFont( 24 ),
+                                    fill: "black",
+                                    translation: ionIndicatorTranslation
+                                  } );
+    this.addChild( this.ionIndicator );
 
-      // Define the update function for the ion indicator.
-      updateIonIndicator = function() {
-        if ( thisAtomView.atom.protons.length > 0 ) {
-          var charge = thisAtomView.atom.getCharge();
-          // TODO: i18n of all labels below
-          if ( charge < 0 ) {
-            thisAtomView.ionIndicator.text = '- Ion';
-            thisAtomView.ionIndicator.fill = "blue";
-          }
-          else if ( charge > 0 ) {
-            thisAtomView.ionIndicator.text = '+ Ion';
-            thisAtomView.ionIndicator.fill = "red";
-          }
-          else {
-            thisAtomView.ionIndicator.text = 'Neutral Atom';
-            thisAtomView.ionIndicator.fill = "black";
-          }
+    // Define the update function for the ion indicator.
+    updateIonIndicator = function() {
+      if ( thisAtomView.atom.protons.length > 0 ) {
+        var charge = thisAtomView.atom.getCharge();
+        // TODO: i18n of all labels below
+        if ( charge < 0 ) {
+          thisAtomView.ionIndicator.text = '- Ion';
+          thisAtomView.ionIndicator.fill = "blue";
+        }
+        else if ( charge > 0 ) {
+          thisAtomView.ionIndicator.text = '+ Ion';
+          thisAtomView.ionIndicator.fill = "red";
         }
         else {
-          // TODO: Make the text a zero-length string once supported.
-          thisAtomView.ionIndicator.text = '';
+          thisAtomView.ionIndicator.text = 'Neutral Atom';
           thisAtomView.ionIndicator.fill = "black";
         }
-      };
-      updateIonIndicator(); // Do the initial update.
+      }
+      else {
+        // TODO: Make the text a zero-length string once supported.
+        thisAtomView.ionIndicator.text = '';
+        thisAtomView.ionIndicator.fill = "black";
+      }
+    };
+    updateIonIndicator(); // Do the initial update.
 
-      particleAtom.protons.addListener( updateIonIndicator );
-      particleAtom.electrons.addListener( updateIonIndicator );
-    }
+    particleAtom.protons.addListener( updateIonIndicator );
+    particleAtom.electrons.addListener( updateIonIndicator );
+    options.showNeutralOrIon.link( function( visible ) {
+      thisAtomView.ionIndicator.visible = visible;
+    } );
 
     // Create the textual readout for the stability indicator.
-    if ( options.showStability ) {
-      var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
-      this.stabilityIndicator = new Text( "",
-                                          {
-                                            font: new BAAFont( 24 ),
-                                            fill: "black",
-                                            center: stabilityIndicatorCenterPos
-                                          } );
-      this.addChild( this.stabilityIndicator );
+    var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
+    this.stabilityIndicator = new Text( "",
+                                        {
+                                          font: new BAAFont( 24 ),
+                                          fill: "black",
+                                          center: stabilityIndicatorCenterPos
+                                        } );
+    this.addChild( this.stabilityIndicator );
 
-      // Define the update function for the stability indicator.
-      var updateStabilityIndicator = function() {
-        if ( thisAtomView.atom.protons.length > 0 ) {
-          // TODO: i18n of the indicators below.
-          if ( AtomIdentifier.isStable( thisAtomView.atom.protons.length, thisAtomView.atom.neutrons.length ) ) {
-            thisAtomView.stabilityIndicator.text = 'Stable';
-          }
-          else {
-            thisAtomView.stabilityIndicator.text = 'Unstable';
-          }
+    // Define the update function for the stability indicator.
+    var updateStabilityIndicator = function() {
+      if ( thisAtomView.atom.protons.length > 0 ) {
+        // TODO: i18n of the indicators below.
+        if ( AtomIdentifier.isStable( thisAtomView.atom.protons.length, thisAtomView.atom.neutrons.length ) ) {
+          thisAtomView.stabilityIndicator.text = 'Stable';
         }
         else {
-          // TODO: Make the text a zero-length string once supported.
-          thisAtomView.stabilityIndicator.text = "";
+          thisAtomView.stabilityIndicator.text = 'Unstable';
         }
-        thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;
-      };
-      updateStabilityIndicator(); // Do initial update.
+      }
+      else {
+        // TODO: Make the text a zero-length string once supported.
+        thisAtomView.stabilityIndicator.text = "";
+      }
+      thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;
+    };
+    updateStabilityIndicator(); // Do initial update.
 
-      // Bind the update function to atom events.
-      particleAtom.protons.addListener( function() {
-        updateElementName();
-        updateIonIndicator();
-        updateStabilityIndicator();
-      } );
-      particleAtom.electrons.addListener( updateIonIndicator );
-      particleAtom.neutrons.addListener( updateStabilityIndicator );
-    }
+    // Add the listeners that control the label content and visibility.
+    particleAtom.protons.addListener( function() {
+      updateElementName();
+      updateIonIndicator();
+      updateStabilityIndicator();
+    } );
+    particleAtom.electrons.addListener( updateIonIndicator );
+    particleAtom.neutrons.addListener( updateStabilityIndicator );
+    options.showStableOrUnstable.link( function( visible ) {
+      thisAtomView.stabilityIndicator.visible = visible;
+    } );
+
   };
 
   // Inherit from Node.

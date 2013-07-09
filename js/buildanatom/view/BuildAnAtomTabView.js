@@ -51,7 +51,11 @@ define( function( require ) {
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    this.addChild( new AtomNode( model.particleAtom, mvt ) );
+    this.addChild( new AtomNode( model.particleAtom, mvt,
+                                 { showElementName : model.showElementName,
+                                   showNeutralOrIon : model.showNeutralOrIon,
+                                   showStableOrUnstable : model.showStableOrUnstable
+                                 } ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
