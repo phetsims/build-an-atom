@@ -3,7 +3,7 @@ define( function( require ) {
   'use strict';
 
   var BAAFont = require( 'common/view/BAAFont' );
-  var Button = require( 'SUN/Button' );
+  var RectangleButton = require( 'SUN/RectangleButton' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -18,7 +18,7 @@ define( function( require ) {
     var gameOverText = new Text("Game Completed", {font: new BAAFont(20)});
     this.addChild( gameOverText );
 
-    var doneButton = new Button( new Text( "OK", { font: new BAAFont( 24 ) } ),
+    var doneButton = new RectangleButton( new Text( "OK", { font: new BAAFont( 24 ) } ),
                                  function() {
                                    gameModel.state = 'selectSubGame';
                                  },

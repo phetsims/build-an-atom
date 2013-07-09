@@ -9,7 +9,6 @@ define( function( require ) {
   // Imports
 
   var AtomWithParticleStacks = require( "symbol/view/AtomWithParticleStacks" );
-  var Button = require( 'SUN/Button' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( "imageLoader" );

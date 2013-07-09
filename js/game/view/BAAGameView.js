@@ -8,7 +8,6 @@ define( function( require ) {
 
   // Imports
   var BAAFont = require( 'common/view/BAAFont' );
-  var Button = require( 'SUN/Button' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var TabView = require( "JOIST/TabView" );

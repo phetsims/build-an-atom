@@ -13,7 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( "ASSERT/assert" )( "build-an-atom" );
   var BAAFont = require( 'common/view/BAAFont' );
-  var Button = require( 'SUN/Button' );
+  var RectangleButton = require( 'SUN/RectangleButton' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -89,22 +89,22 @@ define( function( require ) {
     this.addChild( faceNode );
 
     // Buttons. TODO: i18n of all buttons.
-    var checkAnswerButton = new Button( new Text( "Check", {font: BUTTON_FONT} ),
+    var checkAnswerButton = new RectangleButton( new Text( "Check", {font: BUTTON_FONT} ),
                                         function() { countsToElementProblem.checkAnswer( periodicTableAtom, neutralOrIon.value ) },
                                         { fill: BUTTON_FILL } );
     this.addChild( checkAnswerButton );
 
-    var nextButton = new Button( new Text( "Next", {font: BUTTON_FONT} ),
+    var nextButton = new RectangleButton( new Text( "Next", {font: BUTTON_FONT} ),
                                  function() {countsToElementProblem.next()},
                                  { fill: BUTTON_FILL } );
     this.addChild( nextButton );
 
-    var tryAgainButton = new Button( new Text( "Try Again", {font: BUTTON_FONT} ),
+    var tryAgainButton = new RectangleButton( new Text( "Try Again", {font: BUTTON_FONT} ),
                                      function() { countsToElementProblem.tryAgain()},
                                      { fill: BUTTON_FILL } );
     this.addChild( tryAgainButton );
 
-    var displayCorrectAnswerButton = new Button( new Text( "Display Correct Answer", {font: BUTTON_FONT} ),
+    var displayCorrectAnswerButton = new RectangleButton( new Text( "Display Correct Answer", {font: BUTTON_FONT} ),
                                                  function() { countsToElementProblem.displayCorrectAnswer() },
                                                  { fill: BUTTON_FILL } );
     this.addChild( displayCorrectAnswerButton );

@@ -13,7 +13,6 @@ define( function( require ) {
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
-  var Button = require( 'SUN/Button' );
   var ChargeComparisonDisplay = require( 'buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
