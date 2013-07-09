@@ -38,11 +38,13 @@ define( function( require ) {
         electronCloud.fill = 'transparent'
       }
       else {
-        var radius = mvt.modelToViewDeltaX( atom.outerElectronShellRadius ) * ( numElectrons / 10 ); // TODO: Divisor should be max electrons, pull from a constant somewhere.;
+        var minRadius = mvt.modelToViewDeltaX( atom.innerElectronShellRadius ) * 0.5;
+        var maxRadius = mvt.modelToViewDeltaX( atom.outerElectronShellRadius );
+        var radius = minRadius + ( ( maxRadius - minRadius ) / 10 ) * numElectrons; // TODO: Divisor should be max electrons, pull from a constant somewhere.;
         electronCloud.radius = radius;
         electronCloud.fill = new RadialGradient( 0, 0, 0, 0, 0, radius )
-          .addColorStop( 0, 'blue' )
-          .addColorStop( 1, 'rgba( 0, 0, 255, 0 )' );
+          .addColorStop( 0, 'rgba( 0, 0, 255, 200 )' )
+          .addColorStop( 0.9, 'rgba( 0, 0, 255, 0 )' );
       }
     };
     updateElectronCloud( atom.electrons.length );
