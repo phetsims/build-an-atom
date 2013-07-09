@@ -12,11 +12,10 @@ define( function( require ) {
   // Constants
   var LINE_DASH = [ 4, 5 ];
 
-  var ElectronShellView = function ElectronShellView( atom, mvt ) {
+  var ElectronShellView = function ElectronShellView( atom, mvt, orbitsOrCloudsProperty ) {
     Node.call( this ); // Call super constructor.
 
-    var outerRadiusInView = mvt.modelToViewDeltaX( atom.outerElectronShellRadius );
-    var outerRing = new Circle( outerRadiusInView,
+    var outerRing = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
       // Options
                                 {
                                   renderer: 'svg', // This is necessary to get dotted lines on IE10, see Scenery issue #70.
@@ -26,10 +25,8 @@ define( function( require ) {
                                   translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
                                 }
     );
-    this.addChild( outerRing );
 
-    var innerRadiusInView = mvt.modelToViewDeltaX( atom.innerElectronShellRadius );
-    var innerRing = new Circle( innerRadiusInView,
+    var innerRing = new Circle( mvt.modelToViewDeltaX( atom.innerElectronShellRadius ),
       // Options
                                 {
                                   renderer: 'svg', // This is necessary to get dotted lines on IE10, see Scenery issue #70.
@@ -39,7 +36,17 @@ define( function( require ) {
                                   translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
                                 }
     );
-    this.addChild( innerRing );
+
+    var orbitsView = new Node( {children: [ innerRing, outerRing ] } );
+    this.addChild( orbitsView );
+
+    var electronCloud =
+    var cloudView = new Node({children: [ electronCloud ] } )
+
+
+
+
+
   };
 
   // Inherit from Node.
