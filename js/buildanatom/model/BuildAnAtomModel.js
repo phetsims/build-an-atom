@@ -80,7 +80,7 @@ define( function( require ) {
     this.showStableOrUnstable = new Property( true );
 
     // Property that controls how the electrons are depicted.
-    this.showElectronsAsOrbits = new Property( true );
+    this.electronShellDepiction = new Property( 'orbits' );
 
     // Define function that will decide where to put nucleons.
     var placeNucleon = function( particle, bucket, atom ) {

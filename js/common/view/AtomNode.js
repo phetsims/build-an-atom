@@ -35,15 +35,11 @@ define( function( require ) {
         showCenterX: true,
         showElementName: new Property( true ),
         showNeutralOrIon: new Property( true ),
-        showStableOrUnstable: new Property( true )
+        showStableOrUnstable: new Property( true ),
+        electronShellDepiction: new Property( 'orbits' )
       },
       options
     );
-
-    options.showElementName.link( function( showElementName ) {
-      console.log( "Yugga!!" );
-    } );
-
 
     Node.call( this, options ); // Call super constructor.
     var thisAtomView = this;
@@ -77,6 +73,9 @@ define( function( require ) {
     // Add the electron shells.
     var electronShell = new ElectronShellView( particleAtom, mvt );
     this.addChild( electronShell );
+    options.electronShellDepiction.link( function( depiction ){
+      electronShell.visible = depiction === 'orbits';
+    });
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );

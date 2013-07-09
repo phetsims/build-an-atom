@@ -56,7 +56,8 @@ define( function( require ) {
     var atomNode = new AtomNode( model.particleAtom, mvt,
                                  { showElementName: model.showElementName,
                                    showNeutralOrIon: model.showNeutralOrIon,
-                                   showStableOrUnstable: model.showStableOrUnstable
+                                   showStableOrUnstable: model.showStableOrUnstable,
+                                   electronShellDepiction: model.electronShellDepiction
                                  } );
     this.addChild( atomNode );
 
@@ -186,8 +187,8 @@ define( function( require ) {
 
     // Add the radio buttons that control the electron representation in the atom. TODO: i18n
     var radioButtonRadius = 8;
-    var orbitsButton = new AquaRadioButton( model.showElectronsAsOrbits, true, new Text( "Orbits", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.showElectronsAsOrbits, false, new Text( "Cloud", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var orbitsButton = new AquaRadioButton( model.electronShellDepiction, 'orbits', new Text( "Orbits", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.electronShellDepiction, 'cloud', new Text( "Cloud", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( "Model:", { font: new BAAFont(18, 'bold') } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
