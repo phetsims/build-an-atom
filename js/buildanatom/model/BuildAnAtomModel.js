@@ -73,10 +73,14 @@ define( function( require ) {
       )
     };
 
+    // TODO: Make this class a PropertySet and include properties below.
     // Properties that control label visibility.
     this.showElementName = new Property( true );
     this.showNeutralOrIon = new Property( true );
     this.showStableOrUnstable = new Property( true );
+
+    // Property that controls how the electrons are depicted.
+    this.showElectronsAsOrbits = new Property( true );
 
     // Define function that will decide where to put nucleons.
     var placeNucleon = function( particle, bucket, atom ) {

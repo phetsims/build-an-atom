@@ -8,6 +8,7 @@ define( function( require ) {
 
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
+  var AquaRadioButton = require( "SUN/AquaRadioButton" );
   var AtomNode = require( 'common/view/AtomNode' );
   var BAAFont = require( 'common/view/BAAFont' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
@@ -33,6 +34,7 @@ define( function( require ) {
   var CONTROLS_INSET = 10;
   var INTER_BOX_SPACING = 10;
   var LABEL_CONTROL_FONT = new BAAFont( 24 );
+  var ELECTRON_VIEW_CONTROL_FONT = new BAAFont( 16 );
 
   /**
    * Constructor.
@@ -51,11 +53,12 @@ define( function( require ) {
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    this.addChild( new AtomNode( model.particleAtom, mvt,
-                                 { showElementName : model.showElementName,
-                                   showNeutralOrIon : model.showNeutralOrIon,
-                                   showStableOrUnstable : model.showStableOrUnstable
-                                 } ) );
+    var atomNode = new AtomNode( model.particleAtom, mvt,
+                                 { showElementName: model.showElementName,
+                                   showNeutralOrIon: model.showNeutralOrIon,
+                                   showStableOrUnstable: model.showStableOrUnstable
+                                 } );
+    this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
@@ -181,6 +184,18 @@ define( function( require ) {
     var labelVizControlPanelTitle = new Text( "Show", new BAAFont( 16, 'bold' ) ); // TODO: i18n
     this.addChild( labelVizControlPanelTitle );
 
+    // Add the radio buttons that control the electron representation in the atom. TODO: i18n
+    var radioButtonRadius = 8;
+    var orbitsButton = new AquaRadioButton( model.showElectronsAsOrbits, true, new Text( "Orbits", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.showElectronsAsOrbits, false, new Text( "Cloud", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var electronViewButtonGroup = new Node();
+    electronViewButtonGroup.addChild( new Text( "Model:", { font: new BAAFont(18, 'bold') } ) );
+    orbitsButton.top = electronViewButtonGroup.bottom;
+    electronViewButtonGroup.addChild( orbitsButton );
+    cloudButton.top = electronViewButtonGroup.bottom;
+    electronViewButtonGroup.addChild( cloudButton );
+    this.addChild( electronViewButtonGroup );
+
     // Add the reset button.
     var resetButton = new ResetAllButton( function() {
       model.reset();
@@ -206,6 +221,8 @@ define( function( require ) {
     resetButton.centerY = labelVizControlPanel.centerY;
     labelVizControlPanelTitle.bottom = labelVizControlPanel.top;
     labelVizControlPanelTitle.centerX = labelVizControlPanel.centerX;
+    electronViewButtonGroup.left = atomNode.right;
+    electronViewButtonGroup.bottom = atomNode.bottom;
   }
 
   // Inherit from TabView.
