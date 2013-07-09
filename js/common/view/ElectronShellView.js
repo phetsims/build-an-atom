@@ -6,6 +6,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
+  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
 
@@ -13,12 +14,15 @@ define( function( require ) {
   var LINE_DASH = [ 4, 5 ];
 
   var ElectronShellView = function ElectronShellView( atom, mvt, orbitsOrCloudsProperty ) {
-    Node.call( this ); // Call super constructor.
 
-    var outerRing = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
-      // Options
+    // Call super constructor.
+    Node.call( this,
+               { renderer: 'svg'} // This is necessary to get dotted lines on IE10, see Scenery issue #70.
+    );
+
+    var outerRingRadius = mvt.modelToViewDeltaX( atom.outerElectronShellRadius );
+    var outerRing = new Circle( outerRingRadius,
                                 {
-                                  renderer: 'svg', // This is necessary to get dotted lines on IE10, see Scenery issue #70.
                                   stroke: 'blue',
                                   lineWidth: 1.5,
                                   lineDash: LINE_DASH,
@@ -27,9 +31,7 @@ define( function( require ) {
     );
 
     var innerRing = new Circle( mvt.modelToViewDeltaX( atom.innerElectronShellRadius ),
-      // Options
                                 {
-                                  renderer: 'svg', // This is necessary to get dotted lines on IE10, see Scenery issue #70.
                                   stroke: 'blue',
                                   lineWidth: 1.5,
                                   lineDash: LINE_DASH,
@@ -40,12 +42,34 @@ define( function( require ) {
     var orbitsView = new Node( {children: [ innerRing, outerRing ] } );
     this.addChild( orbitsView );
 
-    var electronCloud =
-    var cloudView = new Node({children: [ electronCloud ] } )
+    var electronCloud = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
+                                    {
+                                      fill: 'pink',
+                                      translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+                                    }
+    );
+    var cloudView = new Node( {children: [ electronCloud ] } );
+    this.addChild( cloudView );
 
+    // Update the cloud as electrons come and go.
+    var updateElectronCloud = function( numElectrons ) {
+      if ( numElectrons === 0 ) {
+        electronCloud.radius = 1E-5; // Arbitrary non-zero value.
+        electronCloud.fill = 'transparent'
+      }
+      else {
+        var radius = outerRingRadius * ( numElectrons / 10 ); // TODO: Divisor should be max electrons, pull from a constant somewhere.;
+        electronCloud.radius = radius;
+        electronCloud.fill = new RadialGradient( 0, 0, 0, 0, 0, radius )
+          .addColorStop( 0, 'blue' )
+          .addColorStop( 1, 'rgba( 0, 0, 255, 0 )' );
+      }
+    };
+    updateElectronCloud( atom.electrons.length );
 
-
-
+    atom.electrons.addListener( function( added, removed, resultingArray ) {
+      updateElectronCloud( resultingArray.length );
+    } );
 
   };
 
