@@ -70,6 +70,7 @@ define( function( require ) {
     var nucleonLayer = new Node( { layerSplit: true } );
     this.addChild( nucleonLayer );
 
+    // Add the layer where the electrons will be maintained.
     var electronLayer = new Node( { layerSplit: true } );
     this.addChild( electronLayer );
 
@@ -103,6 +104,16 @@ define( function( require ) {
     model.particleAtom.on( 'nucleusReconfigured', function() {
       relayerNucleus();
     } );
+
+    // When the electrons are represented as a cloud, the individual particles
+    // become invisible when added to the atom.
+    var updateElectronVisibility = function(){
+      electronLayer.getChildren().forEach( function( electronNode ){
+        electronNode.visible = model.electronShellDepiction.value === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
+      } );
+    }
+    model.particleAtom.electrons.addListener( updateElectronVisibility );
+    model.electronShellDepiction.link( updateElectronVisibility );
 
     // Add the front portion of the buckets.  This is done separately from the
     // bucket holes for layering purposes.
@@ -190,7 +201,7 @@ define( function( require ) {
     var orbitsButton = new AquaRadioButton( model.electronShellDepiction, 'orbits', new Text( "Orbits", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var cloudButton = new AquaRadioButton( model.electronShellDepiction, 'cloud', new Text( "Cloud", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
-    electronViewButtonGroup.addChild( new Text( "Model:", { font: new BAAFont(18, 'bold') } ) );
+    electronViewButtonGroup.addChild( new Text( "Model:", { font: new BAAFont( 18, 'bold' ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
     electronViewButtonGroup.addChild( orbitsButton );
     cloudButton.top = electronViewButtonGroup.bottom;
