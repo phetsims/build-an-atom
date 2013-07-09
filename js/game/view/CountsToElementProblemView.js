@@ -13,7 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( "ASSERT/assert" )( "build-an-atom" );
   var BAAFont = require( 'common/view/BAAFont' );
-  var RectangleButton = require( 'SUN/RectangleButton' );
+  var TextButton = require( 'SUN/TextButton' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -89,24 +89,24 @@ define( function( require ) {
     this.addChild( faceNode );
 
     // Buttons. TODO: i18n of all buttons.
-    var checkAnswerButton = new RectangleButton( new Text( "Check", {font: BUTTON_FONT} ),
-                                        function() { countsToElementProblem.checkAnswer( periodicTableAtom, neutralOrIon.value ) },
-                                        { fill: BUTTON_FILL } );
+    var checkAnswerButton = new TextButton( "Check",
+      function() { countsToElementProblem.checkAnswer( periodicTableAtom, neutralOrIon.value ) },
+      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( checkAnswerButton );
 
-    var nextButton = new RectangleButton( new Text( "Next", {font: BUTTON_FONT} ),
-                                 function() {countsToElementProblem.next()},
-                                 { fill: BUTTON_FILL } );
+    var nextButton = new TextButton( "Next",
+      function() {countsToElementProblem.next()},
+      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( nextButton );
 
-    var tryAgainButton = new RectangleButton( new Text( "Try Again", {font: BUTTON_FONT} ),
-                                     function() { countsToElementProblem.tryAgain()},
-                                     { fill: BUTTON_FILL } );
+    var tryAgainButton = new TextButton( "Try Again",
+      function() { countsToElementProblem.tryAgain()},
+      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( tryAgainButton );
 
-    var displayCorrectAnswerButton = new RectangleButton( new Text( "Display Correct Answer", {font: BUTTON_FONT} ),
-                                                 function() { countsToElementProblem.displayCorrectAnswer() },
-                                                 { fill: BUTTON_FILL } );
+    var displayCorrectAnswerButton = new TextButton( "Display Correct Answer",
+      function() { countsToElementProblem.displayCorrectAnswer() },
+      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( displayCorrectAnswerButton );
 
     //-------------------- Dynamic behavior -----------------------------------
