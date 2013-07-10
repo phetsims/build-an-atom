@@ -48,6 +48,7 @@ define( function( require ) {
     TabView.call( this ); // Call super constructor.
     var thisView = this;
     this.model = model;
+    this.resetFunctions = [];
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -182,12 +183,15 @@ define( function( require ) {
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    this.reset = function() {
-      thisView.model.reset();
-      thisView.periodicTableBox.open.reset();
-    }
+    this.resetFunctions.push( function() {
+                                thisView.model.reset();
+                                thisView.periodicTableBox.open.reset();
+                              }
+    );
     var resetButton = new ResetAllButton( function() {
-      thisView.reset();
+      thisView.resetFunctions.forEach( function( resetFunction ){
+        resetFunction();
+      } );
     } );
     resetButton.scale( 0.8 ); // Empirically determined scale factor.
     this.addChild( resetButton );

@@ -75,6 +75,13 @@ define( function( require ) {
                                           } );
     this.addChild( massNumberBox );
 
+    // Add additional reset functionality.
+    this.resetFunctions.push(
+      function() {
+        chargeMeterBox.open.reset();
+        massNumberBox.open.reset();
+      } );
+
     // Do the layout.
     chargeMeterBox.right = this.periodicTableBox.right;
     chargeMeterBox.top = this.periodicTableBox.bottom + INTER_BOX_SPACING;
