@@ -1,5 +1,8 @@
-7/4/2014 Implemented the ability to switch between orbital and cloud representation for electrons.
-7/4/2014 Implemented ability to turn the labels on and off on the 1st tab.
+7/10/2014 Made electrons stack better in the bucket.
+7/10/2014 Made first and second tab use same base class so that they look more alike.
+7/10/2014 Improved layout to work better and to look more like design doc.
+7/9/2014 Implemented the ability to switch between orbital and cloud representation for electrons.
+7/8/2014 Implemented ability to turn the labels on and off on the 1st tab.
 7/4/2014 Implemented the feature where the nucleus vibrates when unstable.
 7/3/2014 Implemented the counts-to-element problem for the game.
 7/3/2014 Added basic game logic.

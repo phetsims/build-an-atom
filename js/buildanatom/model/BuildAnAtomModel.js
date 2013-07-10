@@ -66,6 +66,7 @@ define( function( require ) {
           position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.ELECTRON_RADIUS,
+          usableWidthProportion: 0.8,
           baseColor: 'blue',
           caption: 'Electrons',
           captionColor: 'white'
