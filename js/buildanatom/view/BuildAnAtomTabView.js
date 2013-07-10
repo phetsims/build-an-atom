@@ -32,9 +32,10 @@ define( function( require ) {
 
   // Constants
   var CONTROLS_INSET = 10;
-  var INTER_BOX_SPACING = 10;
+  var INTER_BOX_SPACING = 7;
   var LABEL_CONTROL_FONT = new BAAFont( 24 );
-  var ELECTRON_VIEW_CONTROL_FONT = new BAAFont( 16 );
+  var ACCORDION_BOX_FONT = new BAAFont( 18 );
+  var ELECTRON_VIEW_CONTROL_FONT = new BAAFont( 14 );
 
   /**
    * Constructor.
@@ -129,15 +130,15 @@ define( function( require ) {
 
     // Add the periodic table display inside of an accordion box.
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom );
-    periodicTable.scale( 0.65 ); // Scale empirically determined.
+    periodicTable.scale( 0.525 ); // Scale empirically determined to match layout in design doc.
     var periodicTableBox = new AccordionBox( periodicTable,
                                              {
-                                               title: 'Periodic Table', // TODO: i18n
+                                               title: 'Element', // TODO: i18n
                                                fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
                                                contentPosition: 'left',
                                                titlePosition: 'left',
                                                buttonPosition: 'right',
-                                               font: new BAAFont( 20 )
+                                               font: ACCORDION_BOX_FONT
                                              } );
     this.addChild( periodicTableBox );
 
@@ -152,7 +153,7 @@ define( function( require ) {
                                        contentPosition: 'left',
                                        titlePosition: 'left',
                                        buttonPosition: 'right',
-                                       font: new BAAFont( 20 )
+                                       font: ACCORDION_BOX_FONT
                                      } );
     var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom );
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
@@ -167,7 +168,7 @@ define( function( require ) {
                                              contentPosition: 'left',
                                              titlePosition: 'left',
                                              buttonPosition: 'right',
-                                             font: new BAAFont( 20 )
+                                             font: ACCORDION_BOX_FONT
                                            } );
     this.addChild( chargeMeterBox );
 
@@ -197,14 +198,16 @@ define( function( require ) {
     this.addChild( labelVizControlPanelTitle );
 
     // Add the radio buttons that control the electron representation in the atom. TODO: i18n
-    var radioButtonRadius = 8;
+    var radioButtonRadius = 6;
     var orbitsButton = new AquaRadioButton( model.electronShellDepiction, 'orbits', new Text( "Orbits", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var cloudButton = new AquaRadioButton( model.electronShellDepiction, 'cloud', new Text( "Cloud", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( "Model:", { font: new BAAFont( 18, 'bold' ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
+    orbitsButton.left = electronViewButtonGroup.left + 5;
     electronViewButtonGroup.addChild( orbitsButton );
-    cloudButton.top = electronViewButtonGroup.bottom;
+    cloudButton.top = electronViewButtonGroup.bottom + 3;
+    cloudButton.left = electronViewButtonGroup.left + 5;
     electronViewButtonGroup.addChild( cloudButton );
     this.addChild( electronViewButtonGroup );
 
@@ -233,8 +236,8 @@ define( function( require ) {
     resetButton.centerY = labelVizControlPanel.centerY;
     labelVizControlPanelTitle.bottom = labelVizControlPanel.top;
     labelVizControlPanelTitle.centerX = labelVizControlPanel.centerX;
-    electronViewButtonGroup.left = atomNode.right;
-    electronViewButtonGroup.bottom = atomNode.bottom;
+    electronViewButtonGroup.left = atomNode.right + 5;
+    electronViewButtonGroup.bottom = atomNode.bottom + 5;
   }
 
   // Inherit from TabView.
