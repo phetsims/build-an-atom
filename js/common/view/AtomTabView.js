@@ -45,6 +45,7 @@ define( function( require ) {
   function AtomTabView( model ) {
     TabView.call( this ); // Call super constructor.
     var thisView = this;
+    this.model = model;
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -106,8 +107,8 @@ define( function( require ) {
 
     // When the electrons are represented as a cloud, the individual particles
     // become invisible when added to the atom.
-    var updateElectronVisibility = function(){
-      electronLayer.getChildren().forEach( function( electronNode ){
+    var updateElectronVisibility = function() {
+      electronLayer.getChildren().forEach( function( electronNode ) {
         electronNode.visible = model.electronShellDepiction.value === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
     }
@@ -129,16 +130,16 @@ define( function( require ) {
     // Add the periodic table display inside of an accordion box.
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom );
     periodicTable.scale( 0.525 ); // Scale empirically determined to match layout in design doc.
-    var periodicTableBox = new AccordionBox( periodicTable,
-                                             {
-                                               title: 'Element', // TODO: i18n
-                                               fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                               contentPosition: 'left',
-                                               titlePosition: 'left',
-                                               buttonPosition: 'right',
-                                               font: ACCORDION_BOX_FONT
-                                             } );
-    this.addChild( periodicTableBox );
+    this.periodicTableBox = new AccordionBox( periodicTable,
+                                              {
+                                                title: 'Element', // TODO: i18n
+                                                fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+                                                contentPosition: 'left',
+                                                titlePosition: 'left',
+                                                buttonPosition: 'right',
+                                                font: ACCORDION_BOX_FONT
+                                              } );
+    this.addChild( this.periodicTableBox );
 
     // Add the control panel for label visibility. TODO: i18n
     var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
@@ -167,19 +168,22 @@ define( function( require ) {
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    var resetButton = new ResetAllButton( function() {
-      model.reset();
-      periodicTableBox.open.reset();
+    this.reset = function(){
+      thisView.model.reset();
+      thisView.periodicTableBox.open.reset();
+    }
+    var resetButton = new ResetAllButton( function(){
+      thisView.reset();
     } );
-    resetButton.scale( 0.8 );
+    resetButton.scale( 0.8 ); // Empirically determined scale factor.
     this.addChild( resetButton );
 
     // Do the layout.
     particleCountDisplay.top = CONTROLS_INSET;
     particleCountDisplay.left = CONTROLS_INSET;
-    periodicTableBox.top = CONTROLS_INSET;
-    periodicTableBox.right = this.layoutBounds.width - CONTROLS_INSET;
-    resetButton.left = periodicTableBox.left;
+    this.periodicTableBox.top = CONTROLS_INSET;
+    this.periodicTableBox.right = this.layoutBounds.width - CONTROLS_INSET;
+    resetButton.left = this.periodicTableBox.left;
     labelVizControlPanel.centerX = ( resetButton.right + this.layoutBounds.width ) / 2;
     labelVizControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
     resetButton.centerY = labelVizControlPanel.centerY;
