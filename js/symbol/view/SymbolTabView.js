@@ -28,7 +28,7 @@ define( function( require ) {
     // Add the symbol node within an accordion box.
     var symbolNode = new SymbolNode( model.numberAtom );
     symbolNode.scale( 0.43 ); // Scale empirically determined.
-    var symbolBox = new AccordionBox( symbolKNode,
+    var symbolBox = new AccordionBox( symbolNode,
                                       {
                                         title: 'Symbol', // TODO: i18n
                                         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,

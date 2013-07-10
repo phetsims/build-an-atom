@@ -23,8 +23,10 @@ define( function( require ) {
   var Panel = require( "SUN/Panel" );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ParticleView = require( 'common/view/ParticleView' );
+  var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
+  var Shape = require( 'KITE/Shape' );
   var SharedConstants = require( 'common/SharedConstants' );
   var TabView = require( "JOIST/TabView" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -147,7 +149,19 @@ define( function( require ) {
         { content: new Text( 'Element Name', {font: LABEL_CONTROL_FONT} ), property: model.showElementName, label: 'Element Name' },
         { content: new Text( 'Neutral/Ion', {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIon, label: 'Neutral/Ion' },
         { content: new Text( 'Stable/Unstable', {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstable, label: 'Stable/Unstable' }
-      ] ), { fill: 'rgb( 240, 240, 240 )' } );
+      ], { spacing: 10 } ), { fill: 'rgb( 245, 245, 245 )' } );
+    var numDividerLines = 2;
+    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
+    for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ){
+      var dividerLine1 = new Path(
+        { shape: dividerLineShape,
+          lineWidth: 1,
+          stroke : 'gray',
+          centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 )
+        } );
+      labelVizControlPanel.addChild( dividerLine1 );
+    }
+
     labelVizControlPanel.scale( 0.65 );  // TODO: Seems a bit of a hack.  Is there a better way to get the check boxes to scale?
     this.addChild( labelVizControlPanel );
     var labelVizControlPanelTitle = new Text( "Show", new BAAFont( 16, 'bold' ) ); // TODO: i18n
@@ -168,11 +182,11 @@ define( function( require ) {
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    this.reset = function(){
+    this.reset = function() {
       thisView.model.reset();
       thisView.periodicTableBox.open.reset();
     }
-    var resetButton = new ResetAllButton( function(){
+    var resetButton = new ResetAllButton( function() {
       thisView.reset();
     } );
     resetButton.scale( 0.8 ); // Empirically determined scale factor.
