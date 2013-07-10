@@ -7,7 +7,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var Particle = require( 'common/model/Particle' );

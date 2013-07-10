@@ -3,7 +3,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var BAAFont = require( 'common/view/BAAFont' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );

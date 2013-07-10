@@ -10,7 +10,7 @@ define( function( require ) {
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var Vector2 = require( 'DOT/Vector2' );
 
   var NOMINAL_CELL_DIMENSION = 25;

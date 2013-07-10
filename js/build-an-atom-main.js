@@ -6,7 +6,6 @@ require(
     'common/view/BAAFont',
     'game/model/BAAGameModel',
     'game/view/BAAGameView',
-    'symbol/model/SymbolTabModel',
     'symbol/view/SymbolTabView',
     'SCENERY/nodes/Circle',
     'SCENERY/nodes/Image',
@@ -16,7 +15,7 @@ require(
     'JOIST/SimLauncher',
     'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomTabView, BAAFont, BAAGameModel, BAAGameView, SymbolTabModel, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomTabView, BAAFont, BAAGameModel, BAAGameView, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     "use strict";
 
     var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );

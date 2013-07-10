@@ -10,7 +10,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Vector2 = require( 'DOT/Vector2' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var PeriodicTableCell = require( 'common/view/PeriodicTableCell' );
 
   // 2D array that defines the table structure.

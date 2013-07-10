@@ -10,7 +10,7 @@
 define( function( require ) {
   "use strict";
 
-  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var BAAFont = require( 'common/view/BAAFont' );
   var ElectronCloudView = require( 'common/view/ElectronCloudView' );
   var ElectronShellView = require( 'common/view/ElectronShellView' );

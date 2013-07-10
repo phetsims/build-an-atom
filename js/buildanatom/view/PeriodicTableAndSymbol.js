@@ -9,7 +9,7 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var AtomIdentifier = require( 'common/view/AtomIdentifier' );
+  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var BAAFont = require( 'common/view/BAAFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
