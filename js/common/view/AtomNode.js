@@ -8,7 +8,7 @@
  * @author John Blanco
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   var AtomIdentifier = require( 'common/AtomIdentifier' );
   var BAAFont = require( 'common/view/BAAFont' );
@@ -88,10 +88,10 @@ define( function( require ) {
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
     var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35;
-    this.elementName = new Text( "",
+    this.elementName = new Text( '',
                                  {
                                    font: new BAAFont( elementNameFontSize ),
-                                   fill: "red",
+                                   fill: 'red',
                                    center: elementNameCenterPos
                                  } );
     this.addChild( this.elementName );
@@ -120,10 +120,10 @@ define( function( require ) {
 
     // Create the textual readout for the ion indicator.
     var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
-    this.ionIndicator = new Text( "",
+    this.ionIndicator = new Text( '',
                                   {
                                     font: new BAAFont( 24 ),
-                                    fill: "black",
+                                    fill: 'black',
                                     translation: ionIndicatorTranslation
                                   } );
     this.addChild( this.ionIndicator );
@@ -135,21 +135,21 @@ define( function( require ) {
         // TODO: i18n of all labels below
         if ( charge < 0 ) {
           thisAtomView.ionIndicator.text = '- Ion';
-          thisAtomView.ionIndicator.fill = "blue";
+          thisAtomView.ionIndicator.fill = 'blue';
         }
         else if ( charge > 0 ) {
           thisAtomView.ionIndicator.text = '+ Ion';
-          thisAtomView.ionIndicator.fill = "red";
+          thisAtomView.ionIndicator.fill = 'red';
         }
         else {
           thisAtomView.ionIndicator.text = 'Neutral Atom';
-          thisAtomView.ionIndicator.fill = "black";
+          thisAtomView.ionIndicator.fill = 'black';
         }
       }
       else {
         // TODO: Make the text a zero-length string once supported.
         thisAtomView.ionIndicator.text = '';
-        thisAtomView.ionIndicator.fill = "black";
+        thisAtomView.ionIndicator.fill = 'black';
       }
     };
     updateIonIndicator(); // Do the initial update.
@@ -162,10 +162,10 @@ define( function( require ) {
 
     // Create the textual readout for the stability indicator.
     var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
-    this.stabilityIndicator = new Text( "",
+    this.stabilityIndicator = new Text( '',
                                         {
                                           font: new BAAFont( 24 ),
-                                          fill: "black",
+                                          fill: 'black',
                                           center: stabilityIndicatorCenterPos
                                         } );
     this.addChild( this.stabilityIndicator );
@@ -183,7 +183,7 @@ define( function( require ) {
       }
       else {
         // TODO: Make the text a zero-length string once supported.
-        thisAtomView.stabilityIndicator.text = "";
+        thisAtomView.stabilityIndicator.text = '';
       }
       thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;
     };
