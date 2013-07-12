@@ -51,7 +51,7 @@ define( function( require ) {
 //    }
 //    background.scale( WIDTH / background.width ); // Scale to the targeted width.
     var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
-    background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, { fill: 'rgb( 200, 200, 200 )', stroke: 'gray', lineWidth: 1.0 } );
+    background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, { fill: 'rgb( 210, 210, 210 )', stroke: 'gray', lineWidth: 1.0 } );
     this.addChild( background );
 
     // Add the meter window.
