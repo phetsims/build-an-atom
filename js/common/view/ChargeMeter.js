@@ -50,13 +50,8 @@ define( function( require ) {
 //      background = new Image( imageLoader.getImage( "charge_meter_short_background.svg" ) );
 //    }
 //    background.scale( WIDTH / background.width ); // Scale to the targeted width.
-    var backgroundOptions = { fill: 'rgb( 200, 200, 200 )', stroke: 'gray', lineWidth: 1.0 };
-    if ( options.showNumericalReadout ) {
-      background = new Rectangle( 0, 0, WIDTH, WIDTH * 0.9, 7, 7, backgroundOptions );
-    }
-    else {
-      background = new Rectangle( 0, 0, WIDTH, WIDTH * 0.55, 7, 7, backgroundOptions );
-    }
+    var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
+    background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, { fill: 'rgb( 200, 200, 200 )', stroke: 'gray', lineWidth: 1.0 } );
     this.addChild( background );
 
     // Add the meter window.
