@@ -153,11 +153,11 @@ define( function( require ) {
       ], { spacing: 10 } ), { fill: 'rgb( 245, 245, 245 )' } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
-    for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ){
+    for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
       var dividerLine1 = new Path(
         { shape: dividerLineShape,
           lineWidth: 1,
-          stroke : 'gray',
+          stroke: 'gray',
           centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 )
         } );
       labelVizControlPanel.addChild( dividerLine1 );
@@ -189,7 +189,7 @@ define( function( require ) {
                               }
     );
     var resetButton = new ResetAllButton( function() {
-      thisView.resetFunctions.forEach( function( resetFunction ){
+      thisView.resetFunctions.forEach( function( resetFunction ) {
         resetFunction();
       } );
     } );
