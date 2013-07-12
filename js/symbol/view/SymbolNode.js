@@ -109,7 +109,7 @@ define( function( require ) {
         textColor = 'black';
       }
       chargeDisplay.text = sign + charge;
-      chargeDisplay.fill = textColor;
+//      chargeDisplay.fill = textColor;
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;
     } );

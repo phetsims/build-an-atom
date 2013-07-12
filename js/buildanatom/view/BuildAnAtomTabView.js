@@ -34,17 +34,7 @@ define( function( require ) {
 
     // Add the charge meter and charge comparison display inside of an accordion box.
     var chargeMeterBoxContents = new Node();
-    chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom ),
-                                     {
-                                       title: 'Net Charge', // TODO: i18n
-                                       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                       initiallyOpen: false,
-                                       minWidth: this.periodicTableBox.width,
-                                       contentPosition: 'left',
-                                       titlePosition: 'left',
-                                       buttonPosition: 'right',
-                                       font: ACCORDION_BOX_FONT
-                                     } );
+    chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom ) );
     var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom );
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;

@@ -1,3 +1,4 @@
+7/12/2014 Made the change meter background be drawn rather than an SVG - this improves performance.
 7/10/2014 Made electrons stack better in the bucket.
 7/10/2014 Made first and second tab use same base class so that they look more alike.
 7/10/2014 Improved layout to work better and to look more like design doc.

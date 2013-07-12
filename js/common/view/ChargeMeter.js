@@ -19,6 +19,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( "imageLoader" );
   var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
 
@@ -31,7 +32,7 @@ define( function( require ) {
   // TODO: Document options.
   var ChargeMeter = function ChargeMeter( numberAtom, options ) {
 
-    Node.call( this, options ); // Call super constructor.
+    Node.call( this ); // Call super constructor.
 
     options = _.extend(
       {
@@ -42,13 +43,20 @@ define( function( require ) {
 
     // Add the background image. TODO - Get consistent with SVG or PNG for these images.
     var background;
+//    if ( options.showNumericalReadout ) {
+//      background = new Image( imageLoader.getImage( "atom_builder_charge_meter_no_window.png" ) );
+//    }
+//    else {
+//      background = new Image( imageLoader.getImage( "charge_meter_short_background.svg" ) );
+//    }
+//    background.scale( WIDTH / background.width ); // Scale to the targeted width.
+    var backgroundOptions = { fill: 'rgb( 200, 200, 200 )', stroke: 'gray', lineWidth: 1.0 };
     if ( options.showNumericalReadout ) {
-      background = new Image( imageLoader.getImage( "atom_builder_charge_meter_no_window.png" ) );
+      background = new Rectangle( 0, 0, WIDTH, WIDTH * 0.9, 7, 7, backgroundOptions );
     }
     else {
-      background = new Image( imageLoader.getImage( "charge_meter_short_background.svg" ) );
+      background = new Rectangle( 0, 0, WIDTH, WIDTH * 0.55, 7, 7, backgroundOptions );
     }
-    background.scale( WIDTH / background.width ); // Scale to the targeted width.
     this.addChild( background );
 
     // Add the meter window.
