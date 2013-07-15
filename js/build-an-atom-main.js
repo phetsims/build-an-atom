@@ -18,6 +18,17 @@ require(
   function( BuildAnAtomModel, BuildAnAtomTabView, BAAFont, BAAGameModel, BAAGameView, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     'use strict';
 
+    var simOptions = {
+      credits: 'PhET Development Team -\n' +
+               'Lead Design: Kelly Lancaster\n' +
+               'Software Development: John Blanco, Sam Reid\n' +
+               'Design Team: Jack Barbara, Suzanne Brahmia, Patricia Loeblein, Emily B. Moore, Robert Parson, Ariel Paul, Kathy Perkins\n' +
+               'Interviews: Emily Moore, Kelly Lancaster, Ariel Paul',
+      thanks: 'Thanks -\n' +
+              'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+    };
+
+    // TODO: Temporary icon for the game, add something better (screenshot probably) when game is implemented.
     var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
     gameIcon.addChild( new Circle( 10,
                                    {
@@ -50,38 +61,21 @@ require(
         { name: 'Atom',
           icon: new Image( imageLoader.getImage( 'BAA_atom.png' ) ),
           backgroundColor: 'white',
-          createModel: function() {
-            return new BuildAnAtomModel();
-          },
-          createView: function( model ) {
-            return new BuildAnAtomTabView( model );
-          }
-        },
+          createModel: function() { return new BuildAnAtomModel(); },
+          createView: function( model ) { return new BuildAnAtomTabView( model ); } },
         { name: 'Symbol',
           icon: new Image( imageLoader.getImage( 'BAA_symbol.png' ) ),
 //          backgroundColor: 'rgb(255, 230, 179)', // Somewhat orange-ish color (1st try at distinguishing colors)
 //          backgroundColor: 'rgb( 255, 246, 219 )', // Lighter orange-ish.  Looks a bit funny.
 //          backgroundColor: 'rgb( 255, 252, 173 )', // Yellow, somewhat lighter than control panel yellow
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
-
-          createModel: function() {
-            return new BuildAnAtomModel();
-          },
-          createView: function( model ) {
-            return new SymbolTabView( model );
-          }
-        },
+          createModel: function() { return new BuildAnAtomModel(); },
+          createView: function( model ) { return new SymbolTabView( model ); } },
         { name: 'Game',
           icon: gameIcon,
           backgroundColor: 'rgb(255, 254, 223)',
-          createModel: function() {
-            return new BAAGameModel();
-          },
-          createView: function( model ) {
-            return new BAAGameView( model );
-          }
-        }
-      ], { home: true, tab: 0, navigationBarInFront: true} ).start();
+          createModel: function() { return new BAAGameModel(); },
+          createView: function( model ) { return new BAAGameView( model ); } }
+      ], simOptions ).start();
     } );
-
   } );
