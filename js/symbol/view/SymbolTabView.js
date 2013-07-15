@@ -40,7 +40,7 @@ define( function( require ) {
     this.addChild( symbolBox );
 
     // Add additional reset functionality.
-    this.resetFunctions.push( function(){ symbolBox.open.reset(); } );
+    this.resetFunctions.push( function() { symbolBox.open.reset(); } );
 
     // Do the layout.
     symbolBox.top = this.periodicTableBox.top + this.periodicTableBox.openHeight + 10;

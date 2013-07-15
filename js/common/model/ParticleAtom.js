@@ -60,18 +60,18 @@ define( function( require ) {
         thisAtom.validElectronPositions.forEach( function( validElectronPosition ) {
           if ( validElectronPosition.electron === electron ) {
             validElectronPosition.electron = null;
-            if ( Math.abs( validElectronPosition.position.magnitude() - thisAtom.innerElectronShellRadius ) < 1E-5 ){
+            if ( Math.abs( validElectronPosition.position.magnitude() - thisAtom.innerElectronShellRadius ) < 1E-5 ) {
               // An inner-shell electron was removed.  If there are electrons
               // in the outer shell, move one of them in.
-              var occupiedOuterShellPositions = _.filter( thisAtom.validElectronPositions, function( validElectronPosition ){
+              var occupiedOuterShellPositions = _.filter( thisAtom.validElectronPositions, function( validElectronPosition ) {
                 return ( validElectronPosition.electron !== null && Utils.roughlyEqual( validElectronPosition.position.magnitude(),
                                                                                         thisAtom.outerElectronShellRadius,
                                                                                         1E-5 ));
-              });
+              } );
               occupiedOuterShellPositions = _.sortBy( occupiedOuterShellPositions, function( occupiedShellPosition ) {
                 return occupiedShellPosition.position.distance( validElectronPosition.position );
               } );
-              if ( occupiedOuterShellPositions.length > 0 ){
+              if ( occupiedOuterShellPositions.length > 0 ) {
                 // Move outer electron to inner spot.
                 validElectronPosition.electron = occupiedOuterShellPositions[0].electron;
                 occupiedOuterShellPositions[0].electron = null;

@@ -14,20 +14,20 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    var periodicTableGameButton = new GameStartButton( 'Periodic Table Game', function(){
-      gameModel.startSubGame( 'periodicTableGame');
+    var periodicTableGameButton = new GameStartButton( 'Periodic Table Game', function() {
+      gameModel.startSubGame( 'periodicTableGame' );
     } );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( 'Mass And Change Game', function(){
-      gameModel.startSubGame( 'massAndChargeGame');
+    var massAndChangeGameButton = new GameStartButton( 'Mass And Change Game', function() {
+      gameModel.startSubGame( 'massAndChargeGame' );
     } );
     this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new GameStartButton( 'Symbol Game', function(){
-      gameModel.startSubGame( 'symbolGame');
+    var symbolGameButton = new GameStartButton( 'Symbol Game', function() {
+      gameModel.startSubGame( 'symbolGame' );
     } );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new GameStartButton( 'Advanced Symbol Game', function(){
-      gameModel.startSubGame( 'advancedSymbolGame');
+    var advancedSymbolGameButton = new GameStartButton( 'Advanced Symbol Game', function() {
+      gameModel.startSubGame( 'advancedSymbolGame' );
     } );
     this.addChild( advancedSymbolGameButton );
     var ySpacing = layoutBounds.height / 5;

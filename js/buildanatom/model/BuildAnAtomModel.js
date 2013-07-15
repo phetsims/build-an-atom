@@ -217,7 +217,7 @@ define( function( require ) {
              },
 
              reset: function() {
-               callSuper( PropertySet, 'reset', this);
+               callSuper( PropertySet, 'reset', this );
 
                // Move all particles that are in the atom back into their respective buckets.
                this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );

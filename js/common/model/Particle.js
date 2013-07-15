@@ -24,7 +24,7 @@ define( function( require ) {
   }
 
   inherit( PropertySet, Particle, {
-    step : function( dt ) {
+    step: function( dt ) {
       if ( !this.userControlled ) {
         var distanceToDestination = this.position.distance( this.destination );
         if ( distanceToDestination > dt * this.velocity ) {
@@ -42,7 +42,7 @@ define( function( require ) {
       this.position = this.destination;
     },
 
-    setPositionAndDestination : function( newPosition ) {
+    setPositionAndDestination: function( newPosition ) {
       this.destination = newPosition;
       this.moveImmediatelyToDestination();
     }

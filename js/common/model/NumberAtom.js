@@ -15,7 +15,7 @@ define( function( require ) {
 
     // Default configuration.
     options = _.extend( {
-                          protonCount:  0,
+                          protonCount: 0,
                           neutronCount: 0,
                           electronCount: 0
                         },
@@ -41,7 +41,7 @@ define( function( require ) {
   }
 
   inherit( PropertySet, NumberAtom, {
-    equals : function( otherAtom ){
+    equals: function( otherAtom ) {
       return ( this.protonCount === otherAtom.protonCount &&
                this.neutronCount === otherAtom.neutronCount &&
                this.electronCount === otherAtom.electronCount );

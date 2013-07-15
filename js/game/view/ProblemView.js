@@ -54,7 +54,7 @@ define( function( require ) {
     // Buttons. TODO: i18n of all buttons.
     this.buttons = [];
     this.checkAnswerButton = new TextButton( 'Check',
-                                             function(){ thisNode.checkAnswer(); },
+                                             function() { thisNode.checkAnswer(); },
                                              { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
@@ -79,7 +79,7 @@ define( function( require ) {
 
     // Utility function to hide all buttons and the feedback face.
     var hideButtonsAndFace = function hideButtonsAndFace() {
-      thisNode.buttons.forEach( function( button ){
+      thisNode.buttons.forEach( function( button ) {
         button.visible = false;
       } );
       faceNode.visible = false;
@@ -137,7 +137,7 @@ define( function( require ) {
 
     // Do an initial layout, but the subclasses can and should move the
     // buttons as needed.
-    this.setButtonCenter(layoutBounds.width * 0.75, layoutBounds.height * 0.8 );
+    this.setButtonCenter( layoutBounds.width * 0.75, layoutBounds.height * 0.8 );
     faceNode.centerX = layoutBounds.width / 2;
     faceNode.centerY = layoutBounds.height / 2;
   }
@@ -160,13 +160,13 @@ define( function( require ) {
              checkAnswer: function() {},
 
              // Function to set the location of all buttons.
-             setButtonCenter : function( x, y ){
-               this.buttons.forEach( function( button ){
+             setButtonCenter: function( x, y ) {
+               this.buttons.forEach( function( button ) {
                  button.centerX = x;
                  button.centerY = y;
                } );
              }
-        }
+           }
   );
 
   return ProblemView;

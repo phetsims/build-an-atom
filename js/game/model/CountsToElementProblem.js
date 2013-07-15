@@ -42,7 +42,7 @@ define( function( require ) {
       if ( submittedAtom.protonCount === this.answerAtom.protonCount &&
            submittedAtom.neutronCount === this.answerAtom.neutronCount &&
            ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.charge === 0 ) ||
-             ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) ) ){
+             ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) ) ) {
         // Answer is correct.
         // Increment the score.
         this.model.score += this.numSubmissions === 1 ? 2 : 1;

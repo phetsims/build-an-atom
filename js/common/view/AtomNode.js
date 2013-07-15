@@ -75,10 +75,10 @@ define( function( require ) {
     this.addChild( electronShell );
     var electronCloud = new ElectronCloudView( particleAtom, mvt );
     this.addChild( electronCloud );
-    options.electronShellDepictionProperty.link( function( depiction ){
+    options.electronShellDepictionProperty.link( function( depiction ) {
       electronShell.visible = depiction === 'orbits';
       electronCloud.visible = depiction === 'cloud';
-    });
+    } );
 
     // Create the textual readout for the element name.
     var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
