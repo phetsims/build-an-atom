@@ -47,6 +47,10 @@ define( function( require ) {
   // Inherit from base class and define the methods for this object.
   inherit( PropertySet, BAAGameModel, {
 
+    // Step function necessary to be used as a model in the Joist framework.
+    step: function( dt ) {
+    },
+
     // Start a new game.
     startSubGame: function( subGameType ) {
       console.log( 'startGame called, sub game subGameType = ' + subGameType );
@@ -92,9 +96,6 @@ define( function( require ) {
     }
 
   } );
-
-  BAAGameModel.prototype.step = function( dt ) {
-  };
 
   return BAAGameModel;
 } );

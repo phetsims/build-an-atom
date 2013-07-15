@@ -23,31 +23,30 @@ define( function( require ) {
                       } );
   }
 
-  inherit( PropertySet, Particle );
+  inherit( PropertySet, Particle, {
+    step : function( dt ) {
+      if ( !this.userControlled ) {
+        var distanceToDestination = this.position.distance( this.destination );
+        if ( distanceToDestination > dt * this.velocity ) {
+          // Move a step toward the destination.
+          this.position = this.position.plus( this.destination.minus( this.position ).normalized().timesScalar( this.velocity * dt ) );
+        }
+        else if ( distanceToDestination > 0 ) {
+          // Less than one time step away, so just go to the destination.
+          this.position = this.destination;
+        }
+      }
+    },
 
-  // Step function, moves towards destination if not currently there.
-  Particle.prototype.step = function( dt ) {
-    if ( !this.userControlled ) {
-      var distanceToDestination = this.position.distance( this.destination );
-      if ( distanceToDestination > dt * this.velocity ) {
-        // Move a step toward the destination.
-        this.position = this.position.plus( this.destination.minus( this.position ).normalized().timesScalar( this.velocity * dt ) );
-      }
-      else if ( distanceToDestination > 0 ) {
-        // Less than one time step away, so just go to the destination.
-        this.position = this.destination;
-      }
+    moveImmediatelyToDestination: function() {
+      this.position = this.destination;
+    },
+
+    setPositionAndDestination : function( newPosition ) {
+      this.destination = newPosition;
+      this.moveImmediatelyToDestination();
     }
-  };
-
-  Particle.prototype.moveImmediatelyToDestination = function() {
-    this.position = this.destination;
-  };
-
-  Particle.prototype.setPositionAndDestination = function( newPosition ) {
-    this.destination = newPosition;
-    this.moveImmediatelyToDestination();
-  };
+  } );
 
   return Particle;
 } );
