@@ -7,10 +7,10 @@ require.config(
 
     paths: {
       // local lib dependencies
-      i18n: "../lib/i18n-2.0.2",
+      i18n: '../lib/i18n-2.0.2',
 
       // PhET's common code, uppercase names to identify them in require imports
-      PHETCOMMON: "../../phetcommon/js",
+      PHETCOMMON: '../../phetcommon/js',
 
       // Scenery and its dependencies
       ASSERT: '../../assert/js',

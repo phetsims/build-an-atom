@@ -4,13 +4,13 @@
  * Main view for the second tab of the Build an Atom simulation.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var BAAFont = require( 'common/view/BAAFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var TabView = require( "JOIST/TabView" );
+  var TabView = require( 'JOIST/TabView' );
   var Text = require( 'SCENERY/nodes/Text' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
   var SubGameOverNode = require( 'game/view/SubGameOverNode' );
@@ -44,7 +44,7 @@ define( function( require ) {
         // presenting a problem.
         thisScene.removeAllChildren();
         thisScene.addChild( state.createView( thisScene.layoutBounds ) );
-        thisScene.addChild( new Text( "Problem " + ( gameModel.problemIndex + 1 ) + " of " + gameModel.problemSet.length,
+        thisScene.addChild( new Text( 'Problem ' + ( gameModel.problemIndex + 1 ) + ' of ' + gameModel.problemSet.length,
                                       { font: new BAAFont( 16 ), top: 30, left: 10 } ) );
       }
     } );

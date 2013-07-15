@@ -4,7 +4,7 @@
  * Main model class for the first tab of the Build an Atom simulation.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );

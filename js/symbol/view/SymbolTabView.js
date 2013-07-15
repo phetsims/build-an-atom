@@ -4,7 +4,7 @@
  * Main view for the first tab of the Build an Atom simulation.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomTabView = require( 'common/view/AtomTabView' );

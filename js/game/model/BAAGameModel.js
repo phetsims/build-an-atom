@@ -4,7 +4,7 @@
  * Primary model class for the Build and Atom Game tab.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
@@ -50,7 +50,7 @@ define( function( require ) {
 
     // Start a new game.
     startSubGame: function( subGameType ) {
-      console.log( "startGame called, sub game subGameType = " + subGameType );
+      console.log( 'startGame called, sub game subGameType = ' + subGameType );
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
@@ -66,17 +66,17 @@ define( function( require ) {
 
     // Stop the current game and show the totals.
     stopGame: function() {
-      console.log( "stopGame called, not implemented." );
+      console.log( 'stopGame called, not implemented.' );
     },
 
     // Start a new game.
     newGame: function( level ) {
-      console.log( "newGame called, not implemented." );
+      console.log( 'newGame called, not implemented.' );
     },
 
     // Process a guess from the user.
     processGuess: function( numberAtom ) {
-      console.log( "processGuess called, not implemented." );
+      console.log( 'processGuess called, not implemented.' );
     },
 
     // Advance to the next problem or to the 'game over' screen if all problems finished.

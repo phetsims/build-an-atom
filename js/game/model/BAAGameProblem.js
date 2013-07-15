@@ -8,10 +8,10 @@
  * @author John Blanco
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
-  var assert = require( "ASSERT/assert" )( "build-an-atom" );
+  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
@@ -46,7 +46,7 @@ define( function( require ) {
     checkAnswer: function( submittedAtom ) {
 
       // Verify that the current state is as expected.
-      assert && assert( this.problemState === 'presentingProblem', "Unexpected problem state: " + this.problemState );
+      assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
 
       this.numSubmissions++;
       if ( this.answerAtom.equals( submittedAtom ) ) {

@@ -5,7 +5,7 @@
  * configuration, i.e. number of protons, neutrons, and/or electrons.
  */
 define( [], function() {
-  "use strict";
+  'use strict';
 
   // Not meant to be instantiated.
   var AtomIdentifier = { };
@@ -34,7 +34,7 @@ define( [], function() {
   AtomIdentifier.isStable = function( numProtons, numNeutrons ) {
     var tableEntry = _stableElementTable[ numProtons ];
     if ( typeof( tableEntry ) === 'undefined' ) {
-      console.log( "Error: Stability table has no entry for atomic number " + numProtons );
+      console.log( 'Error: Stability table has no entry for atomic number ' + numProtons );
       return false;
     }
     return $.inArray( numNeutrons, tableEntry ) > -1;

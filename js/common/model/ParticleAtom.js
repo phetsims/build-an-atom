@@ -6,7 +6,7 @@
  * motion of all particles that are a part of the atom.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
@@ -34,7 +34,7 @@ define( function( require ) {
     this.neutrons = new ObservableArray();
     this.electrons = new ObservableArray();
 
-    // Set the default electron add/remove mode.  Valid values are "proximal" and "random".
+    // Set the default electron add/remove mode.  Valid values are 'proximal' and 'random'.
     this.electronAddMode = 'proximal';
 
     // Initialize the positions where an electron can be placed.
@@ -158,7 +158,7 @@ define( function( require ) {
         } );
 
         if ( sortedOpenPositions.length === 0 ) {
-          console.log( "Error: No open electron positions." );
+          console.log( 'Error: No open electron positions.' );
         }
         sortedOpenPositions[0].electron = particle;
         particle.destination = sortedOpenPositions[ 0 ].position;
@@ -171,7 +171,7 @@ define( function( require ) {
         } );
       }
       else {
-        console.log( "Error: Ignoring unexpected particle type." );
+        console.log( 'Error: Ignoring unexpected particle type.' );
       }
     },
 
@@ -192,7 +192,7 @@ define( function( require ) {
         particle = this.electrons.pop();
       }
       else {
-        console.log( "Error: Ignoring request to remove unknown particle type." );
+        console.log( 'Error: Ignoring request to remove unknown particle type.' );
       }
       return particle;
     },

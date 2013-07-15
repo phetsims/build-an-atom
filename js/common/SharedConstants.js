@@ -1,6 +1,6 @@
 // Copyright 2002-2013, University of Colorado Boulder
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Not meant to be instantiated.
   var SharedConstants = {};

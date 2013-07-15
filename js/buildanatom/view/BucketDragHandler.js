@@ -10,7 +10,7 @@
  * @author John Blanco
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var inherit = require( 'PHET_CORE/inherit' );

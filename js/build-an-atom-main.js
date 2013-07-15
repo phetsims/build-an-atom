@@ -16,7 +16,7 @@ require(
     'imageLoader'
   ],
   function( BuildAnAtomModel, BuildAnAtomTabView, BAAFont, BAAGameModel, BAAGameView, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
-    "use strict";
+    'use strict';
 
     var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
     gameIcon.addChild( new Circle( 10,
@@ -35,7 +35,7 @@ require(
                                      center: gameIcon.center
                                    }
     ) );
-    gameIcon.addChild( new Text( "?",
+    gameIcon.addChild( new Text( '?',
                                  {
                                    font: new BAAFont( 40, 'bold' ),
                                    fill: 'rgba(50, 50, 50, 20)',
@@ -46,9 +46,9 @@ require(
 
       //Create and start the sim
       //TODO: i18n
-      new Sim( "Build an Atom", [
-        { name: "Atom",
-          icon: new Image( imageLoader.getImage( "BAA_atom.png" ) ),
+      new Sim( 'Build an Atom', [
+        { name: 'Atom',
+          icon: new Image( imageLoader.getImage( 'BAA_atom.png' ) ),
           backgroundColor: 'white',
           createModel: function() {
             return new BuildAnAtomModel();
@@ -57,8 +57,8 @@ require(
             return new BuildAnAtomTabView( model );
           }
         },
-        { name: "Symbol",
-          icon: new Image( imageLoader.getImage( "BAA_symbol.png" ) ),
+        { name: 'Symbol',
+          icon: new Image( imageLoader.getImage( 'BAA_symbol.png' ) ),
 //          backgroundColor: 'rgb(255, 230, 179)', // Somewhat orange-ish color (1st try at distinguishing colors)
 //          backgroundColor: 'rgb( 255, 246, 219 )', // Lighter orange-ish.  Looks a bit funny.
 //          backgroundColor: 'rgb( 255, 252, 173 )', // Yellow, somewhat lighter than control panel yellow
@@ -71,7 +71,7 @@ require(
             return new SymbolTabView( model );
           }
         },
-        { name: "Game",
+        { name: 'Game',
           icon: gameIcon,
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() {

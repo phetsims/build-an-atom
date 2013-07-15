@@ -6,7 +6,7 @@
  *
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );

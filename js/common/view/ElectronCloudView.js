@@ -8,7 +8,7 @@
  * @author John Blanco
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var Node = require( 'SCENERY/nodes/Node' );

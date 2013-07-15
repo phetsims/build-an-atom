@@ -8,10 +8,10 @@
  * @author John Blanco
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
-  var AquaRadioButton = require( "SUN/AquaRadioButton" );
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var BAAFont = require( 'common/view/BAAFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -36,21 +36,21 @@ define( function( require ) {
     var thisNode = this;
 
     // Particle counts
-    var protonCountTitle = new Text( "Protons:", PARTICLE_COUNTS_FONT );
+    var protonCountTitle = new Text( 'Protons:', PARTICLE_COUNTS_FONT );
     this.problemPresentationNode.addChild( protonCountTitle );
     var protonCountText = new Text( countsToElementProblem.answerAtom.protonCount, PARTICLE_COUNTS_FONT );
     this.problemPresentationNode.addChild( protonCountText );
-    var neutronCountTitle = new Text( "Neutrons:", PARTICLE_COUNTS_FONT );
+    var neutronCountTitle = new Text( 'Neutrons:', PARTICLE_COUNTS_FONT );
     this.problemPresentationNode.addChild( neutronCountTitle );
     var neutronCountText = new Text( countsToElementProblem.answerAtom.neutronCount, PARTICLE_COUNTS_FONT );
     this.problemPresentationNode.addChild( neutronCountText );
-    var electronCountTitle = new Text( "Electrons:", PARTICLE_COUNTS_FONT );
+    var electronCountTitle = new Text( 'Electrons:', PARTICLE_COUNTS_FONT );
     this.problemPresentationNode.addChild( electronCountTitle );
     var electronCountText = new Text( countsToElementProblem.answerAtom.electronCount, PARTICLE_COUNTS_FONT );
     this.problemPresentationNode.addChild( electronCountText );
 
     // Problem title
-    var problemTitle = new Text( "Find the element:", { font: TITLE_FONT } ); // TODO: i18n
+    var problemTitle = new Text( 'Find the element:', { font: TITLE_FONT } ); // TODO: i18n
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
@@ -59,9 +59,9 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( periodicTable );
 
     // Neutral atom versus ion question. TODO i18n of this section.
-    var neutralVersusIonPrompt = new Text( "Is it:", { font: new BAAFont( 24 )} );
-    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( "Neutral Atom", {font: new BAAFont( 18 )} ), { radius: 8 } );
-    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( "Ion", {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var neutralVersusIonPrompt = new Text( 'Is it:', { font: new BAAFont( 24 )} );
+    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( 'Neutral Atom', {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( 'Ion', {font: new BAAFont( 18 )} ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;
@@ -103,7 +103,7 @@ define( function( require ) {
     protonCountText.centerY = periodicTable.top + periodicTable.height * 0.25;
     neutronCountText.centerY = periodicTable.centerY;
     electronCountText.centerY = periodicTable.top + periodicTable.height * 0.75;
-    var maxNumberWidth = new Text( "99", { font: PARTICLE_COUNTS_FONT } ).width;
+    var maxNumberWidth = new Text( '99', { font: PARTICLE_COUNTS_FONT } ).width;
     var maxParticleLabelWidth = Math.max( Math.max( protonCountTitle.width, neutronCountTitle.width ), electronCountTitle.width );
     var countTitleLeftEdge = countIndicatorRightEdge - maxNumberWidth - maxParticleLabelWidth - 10;
     protonCountTitle.left = countTitleLeftEdge;

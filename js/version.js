@@ -2,8 +2,8 @@
 
 // Returns version identifier for the simulation.
 define( function( require ) {
-  "use strict";
+  'use strict';
   return function() {
-    return "0.0.0-14";
+    return '0.0.0-14';
   };
 } );

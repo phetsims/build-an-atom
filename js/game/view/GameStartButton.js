@@ -37,7 +37,7 @@ define( function( require ) {
     var textNode = new Text( text,
                              {
                                font: TITLE_FONT,
-                               fill: "black",
+                               fill: 'black',
                                left: INSET,
                                centerY: HEIGHT / 2
                              } );

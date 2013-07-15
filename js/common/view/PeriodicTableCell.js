@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );

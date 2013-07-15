@@ -5,7 +5,7 @@
  * provided atom.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );

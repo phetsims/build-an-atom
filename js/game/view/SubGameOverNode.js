@@ -15,10 +15,10 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    var gameOverText = new Text("Game Completed", {font: new BAAFont(20)});
+    var gameOverText = new Text('Game Completed', {font: new BAAFont(20)});
     this.addChild( gameOverText );
 
-    var doneButton = new RectangleButton( new Text( "OK", { font: new BAAFont( 24 ) } ),
+    var doneButton = new RectangleButton( new Text( 'OK', { font: new BAAFont( 24 ) } ),
                                  function() {
                                    gameModel.state = 'selectSubGame';
                                  },

@@ -7,7 +7,7 @@
  */
 
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var Circle = require( 'SCENERY/nodes/Circle' );

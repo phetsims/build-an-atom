@@ -7,11 +7,11 @@
  * as a base type for tabs with similar views.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
-  var AccordionBox = require( "SUN/AccordionBox" );
-  var AquaRadioButton = require( "SUN/AquaRadioButton" );
+  var AccordionBox = require( 'SUN/AccordionBox' );
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'common/view/AtomNode' );
   var BAAFont = require( 'common/view/BAAFont' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
@@ -20,17 +20,17 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Panel = require( "SUN/Panel" );
+  var Panel = require( 'SUN/Panel' );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
   var ParticleView = require( 'common/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
-  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var Shape = require( 'KITE/Shape' );
   var SharedConstants = require( 'common/SharedConstants' );
-  var TabView = require( "JOIST/TabView" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var VerticalCheckBoxGroup = require( "SUN/VerticalCheckBoxGroup" );
+  var TabView = require( 'JOIST/TabView' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
 
   // Constants
   var CONTROLS_INSET = 10;
@@ -165,15 +165,15 @@ define( function( require ) {
 
     labelVizControlPanel.scale( 0.65 );  // TODO: Seems a bit of a hack.  Is there a better way to get the check boxes to scale?
     this.addChild( labelVizControlPanel );
-    var labelVizControlPanelTitle = new Text( "Show", new BAAFont( 16, 'bold' ) ); // TODO: i18n
+    var labelVizControlPanelTitle = new Text( 'Show', new BAAFont( 16, 'bold' ) ); // TODO: i18n
     this.addChild( labelVizControlPanelTitle );
 
     // Add the radio buttons that control the electron representation in the atom. TODO: i18n
     var radioButtonRadius = 6;
-    var orbitsButton = new AquaRadioButton( model.electronShellDepiction, 'orbits', new Text( "Orbits", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.electronShellDepiction, 'cloud', new Text( "Cloud", ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var orbitsButton = new AquaRadioButton( model.electronShellDepiction, 'orbits', new Text( 'Orbits', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.electronShellDepiction, 'cloud', new Text( 'Cloud', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
-    electronViewButtonGroup.addChild( new Text( "Model:", { font: new BAAFont( 18, 'bold' ) } ) );
+    electronViewButtonGroup.addChild( new Text( 'Model:', { font: new BAAFont( 18, 'bold' ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
     orbitsButton.left = electronViewButtonGroup.left + 5;
     electronViewButtonGroup.addChild( orbitsButton );

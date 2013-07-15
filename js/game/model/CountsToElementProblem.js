@@ -8,10 +8,10 @@
  * @author John Blanco
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
-  var assert = require( "ASSERT/assert" )( "build-an-atom" );
+  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
   var CountsToElementProblemView = require( 'game/view/CountsToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -38,7 +38,7 @@ define( function( require ) {
     // Override the method for checking the correct answer, since this problem
     // has the additional step of user deciding whether atom is an ion.
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
-      assert && assert( this.problemState === 'presentingProblem', "Unexpected problem state: " + this.problemState );
+      assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
       this.numSubmissions++;
       if ( submittedAtom.protonCount === this.answerAtom.protonCount &&
            submittedAtom.neutronCount === this.answerAtom.neutronCount &&

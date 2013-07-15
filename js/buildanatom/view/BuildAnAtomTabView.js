@@ -4,7 +4,7 @@
  * Main view for the first tab of the Build an Atom simulation.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
@@ -16,7 +16,7 @@ define( function( require ) {
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'common/SharedConstants' );
-  var Text = require( "SCENERY/nodes/Text" );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
   var INTER_BOX_SPACING = 7;

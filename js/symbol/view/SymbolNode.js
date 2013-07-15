@@ -7,7 +7,7 @@ define( function( require ) {
   var BAAFont = require( 'common/view/BAAFont' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( "imageLoader" );
+  var imageLoader = require( 'imageLoader' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -41,26 +41,26 @@ define( function( require ) {
     this.addChild( boundingBox );
 
     // Add the symbol text.
-    var symbolText = new Text( "",
+    var symbolText = new Text( '',
                                {
                                  font: new BAAFont( 150 ),
-                                 fill: "black",
+                                 fill: 'black',
                                  center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
                                } );
 
     // Add the listener to update the symbol text.
     numberAtom.protonCountProperty.link( function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
-      symbolText.text = protonCount > 0 ? symbol : "";
+      symbolText.text = protonCount > 0 ? symbol : '';
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     } );
     boundingBox.addChild( symbolText );
 
     // Add the proton count display.
-    var protonCountDisplay = new Text( "0",
+    var protonCountDisplay = new Text( '0',
                                        {
                                          font: NUMBER_FONT,
-                                         fill: "red"
+                                         fill: 'red'
                                        } );
 
     // Add the listener to update the proton count.
@@ -72,10 +72,10 @@ define( function( require ) {
     boundingBox.addChild( protonCountDisplay );
 
     // Add the atomic mass display.
-    var atomicMassDisplay = new Text( "0",
+    var atomicMassDisplay = new Text( '0',
                                       {
                                         font: NUMBER_FONT,
-                                        fill: "black"
+                                        fill: 'black'
                                       } );
     boundingBox.addChild( atomicMassDisplay );
 
@@ -87,10 +87,10 @@ define( function( require ) {
     } );
 
     // Add the charge display.
-    var chargeDisplay = new Text( "0",
+    var chargeDisplay = new Text( '0',
                                   {
                                     font: NUMBER_FONT,
-                                    fill: "black"
+                                    fill: 'black'
                                   } );
     boundingBox.addChild( chargeDisplay );
 
@@ -115,7 +115,7 @@ define( function( require ) {
     } );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( imageLoader.getImage( "scale_new.svg" ) );
+    var scaleImage = new Image( imageLoader.getImage( 'scale_new.svg' ) );
     scaleImage.scale( 0.30 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
