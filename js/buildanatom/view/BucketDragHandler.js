@@ -31,8 +31,7 @@ define( function( require ) {
         // leveraged, revisit this line for potential improvement.
         var positionInModelSpace = mvt.viewToModelPosition( bucketView.getParents()[0].globalToLocalPoint( event.pointer.point ) );
 
-        var particle = bucket.extractClosestParticle( positionInModelSpace );
-        activeParticle = particle;
+        activeParticle = bucket.extractClosestParticle( positionInModelSpace );
         if ( activeParticle !== null ) {
           activeParticle.setPositionAndDestination( positionInModelSpace );
         }
