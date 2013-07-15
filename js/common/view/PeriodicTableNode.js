@@ -4,13 +4,8 @@ define( function( require ) {
   'use strict';
 
   var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
   var PeriodicTableCell = require( 'common/view/PeriodicTableCell' );
 
   // 2D array that defines the table structure.

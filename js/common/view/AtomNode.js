@@ -16,7 +16,6 @@ define( function( require ) {
   var ElectronShellView = require( 'common/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );

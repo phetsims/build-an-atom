@@ -16,7 +16,6 @@ define( function( require ) {
   var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'common/SharedConstants' );
-  var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
   var INTER_BOX_SPACING = 7;

@@ -10,7 +10,6 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
-  var BAAGameProblem = require( 'game/model/BAAGameProblem' );
   var NumberAtom = require( 'common/model/NumberAtom' );
 
   // Constants

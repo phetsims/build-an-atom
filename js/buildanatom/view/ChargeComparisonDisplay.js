@@ -10,7 +10,6 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/shape' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );

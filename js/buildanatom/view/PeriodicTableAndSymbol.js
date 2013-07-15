@@ -11,7 +11,6 @@ define( function( require ) {
   // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );
   var BAAFont = require( 'common/view/BAAFont' );
-  var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );

@@ -15,7 +15,6 @@ define( function( require ) {
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
   var CountsToElementProblemView = require( 'game/view/CountsToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
   var SharedConstants = require( 'common/SharedConstants' );
 
   /**

@@ -6,12 +6,10 @@ define( function( require ) {
   var BAAFont = require( 'common/view/BAAFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var Vector2 = require( 'DOT/Vector2' );
 
   var NOMINAL_CELL_DIMENSION = 25;
   var NOMINAL_FONT_SIZE = 14;

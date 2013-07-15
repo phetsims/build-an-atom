@@ -13,7 +13,6 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'common/SharedConstants' );
   var SymbolNode = require( 'symbol/view/SymbolNode' );
-  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * Constructor.
