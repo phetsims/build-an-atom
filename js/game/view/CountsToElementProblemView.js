@@ -138,7 +138,7 @@ define( function( require ) {
                this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
                this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
                this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
-               this.neutralOrIon.value = this.problem.answerAtom.charge == 0 ? 'neutral' : 'ion';
+               this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
              }
            } );
 

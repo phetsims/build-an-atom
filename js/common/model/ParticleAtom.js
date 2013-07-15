@@ -80,7 +80,7 @@ define( function( require ) {
             }
           }
         } );
-      } )
+      } );
     } );
 
     // Utility function to translate all particles.
@@ -92,7 +92,7 @@ define( function( require ) {
         // Particle is moving, only change the destination.
         particle.destination = particle.destination.plus( translation );
       }
-    }
+    };
 
     // When the nucleus offset changes, update all nucleon positions.
     this.nucleusOffsetProperty.link( function( newOffset, oldOffset ) {

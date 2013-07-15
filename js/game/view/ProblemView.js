@@ -54,25 +54,25 @@ define( function( require ) {
     // Buttons. TODO: i18n of all buttons.
     this.buttons = [];
     this.checkAnswerButton = new TextButton( "Check",
-                                             function(){ thisNode.checkAnswer() },
+                                             function(){ thisNode.checkAnswer(); },
                                              { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
     this.nextButton = new TextButton( "Next",
-                                      function() {problem.next()},
+                                      function() { problem.next(); },
                                       { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
     this.tryAgainButton = new TextButton( "Try Again",
-                                          function() { problem.tryAgain()},
+                                          function() { problem.tryAgain(); },
                                           { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
     this.displayCorrectAnswerButton = new TextButton( "Display Correct Answer",
-                                                      function() { problem.displayCorrectAnswer() },
+                                                      function() { problem.displayCorrectAnswer(); },
                                                       { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
     this.addChild( this.displayCorrectAnswerButton );
     this.buttons.push( this.displayCorrectAnswerButton );
@@ -81,9 +81,9 @@ define( function( require ) {
     var hideButtonsAndFace = function hideButtonsAndFace() {
       thisNode.buttons.forEach( function( button ){
         button.visible = false;
-      } )
+      } );
       faceNode.visible = false;
-    }
+    };
     hideButtonsAndFace();
 
     // Utility function to enable/disable interaction with answer portion of
@@ -91,7 +91,7 @@ define( function( require ) {
     var setAnswerNodeInteractive = function( interactive ) {
       // TODO: This doesn't seem to work, figure out why and fix.
       thisNode.interactiveAnswerNode.pickable = interactive;
-    }
+    };
 
     // Updated the visibility of the various buttons and other nodes based on
     // the problem state.
@@ -164,7 +164,7 @@ define( function( require ) {
                this.buttons.forEach( function( button ){
                  button.centerX = x;
                  button.centerY = y;
-               } )
+               } );
              }
         }
   );

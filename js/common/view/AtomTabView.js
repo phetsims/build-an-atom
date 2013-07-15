@@ -114,7 +114,7 @@ define( function( require ) {
       electronLayer.getChildren().forEach( function( electronNode ) {
         electronNode.visible = model.electronShellDepiction.value === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
-    }
+    };
     model.particleAtom.electrons.addListener( updateElectronVisibility );
     model.electronShellDepiction.link( updateElectronVisibility );
 

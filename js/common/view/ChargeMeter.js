@@ -10,18 +10,15 @@ define( function( require ) {
   // Imports
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var BAAFont = require( 'common/view/BAAFont' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Vector2 = require( 'DOT/Vector2' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( "imageLoader" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
   var WIDTH = 70; // In screen coords, which are roughly pixels.
@@ -41,17 +38,9 @@ define( function( require ) {
       options
     );
 
-    // Add the background image. TODO - Get consistent with SVG or PNG for these images.
-    var background;
-//    if ( options.showNumericalReadout ) {
-//      background = new Image( imageLoader.getImage( "atom_builder_charge_meter_no_window.png" ) );
-//    }
-//    else {
-//      background = new Image( imageLoader.getImage( "charge_meter_short_background.svg" ) );
-//    }
-//    background.scale( WIDTH / background.width ); // Scale to the targeted width.
+    // Add the background.
     var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
-    background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, { fill: 'rgb( 210, 210, 210 )', stroke: 'gray', lineWidth: 1.0 } );
+    var background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, { fill: 'rgb( 210, 210, 210 )', stroke: 'gray', lineWidth: 1.0 } );
     this.addChild( background );
 
     // Add the meter window.

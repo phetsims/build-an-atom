@@ -35,7 +35,7 @@ define( function( require ) {
     var updateElectronCloud = function( numElectrons ) {
       if ( numElectrons === 0 ) {
         electronCloud.radius = 1E-5; // Arbitrary non-zero value.
-        electronCloud.fill = 'transparent'
+        electronCloud.fill = 'transparent';
       }
       else {
         var minRadius = mvt.modelToViewDeltaX( atom.innerElectronShellRadius ) * 0.5;

@@ -10,12 +10,9 @@ define( function( require ) {
   "use strict";
 
   // Imports
-  var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
-  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
-  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
-  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
 
   // Constants
   var LINE_DASH = [ 4, 5 ];
