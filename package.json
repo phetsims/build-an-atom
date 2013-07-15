@@ -7,7 +7,7 @@
   "license": "GPL",
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-requirejs": "~0.5.4",
-    "grunt-contrib-jshint": "~0.3.0"
+    "grunt-requirejs": "~0.3.2",
+    "grunt-contrib-jshint": "~0.5.4"
   }
 }
