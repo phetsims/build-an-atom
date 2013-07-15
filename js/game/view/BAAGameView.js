@@ -12,6 +12,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var TabView = require( 'JOIST/TabView' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var GameScoreboardNode = require( 'game/view/GameScoreboardNode' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
   var SubGameOverNode = require( 'game/view/SubGameOverNode' );
 
@@ -28,6 +29,7 @@ define( function( require ) {
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
     var subGameOverNode = new SubGameOverNode( gameModel, this.layoutBounds );
+    var scoreboard = new GameScoreboardNode( gameModel ).mutate( {centerX : this.layoutBounds.centerX, bottom : this.layoutBounds.maxY - 10 } );
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
@@ -46,6 +48,7 @@ define( function( require ) {
         thisScene.addChild( state.createView( thisScene.layoutBounds ) );
         thisScene.addChild( new Text( 'Problem ' + ( gameModel.problemIndex + 1 ) + ' of ' + gameModel.problemSet.length,
                                       { font: new BAAFont( 16 ), top: 30, left: 10 } ) );
+        thisScene.addChild( scoreboard );
       }
     } );
   }
