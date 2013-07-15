@@ -288,26 +288,7 @@ define( function( require ) {
           }
         }
 
-        //WARNING: THIS IS A SPECIAL CASE FOR HANDLING A CERTAIN ISOTOPE OF LITHIUM
-        //Make this isotope of lithium look better, some of the neutrons overlap
-        //too much for discerning in the game mode
-        // TODO: Integrate this, which was commented out when initially ported from Java.
-//            if ( this.nucleons.length == 7 && neutrons.size() == 4 ) {
-//                neutron = neutrons.get( neutrons.size() - 1 );
-//                neutron.setDestination(
-//                        neutron.getDestination().getX(),
-//                        neutron.getDestination().getY() - 3 );
-//            }
       }
-
-      //If the particles shouldn't be animating, they should immediately move to their destination
-//        if ( moveImmediately ) {
-//            for ( SphericalParticle nucleon : nucleons
-//        )
-//            {
-//                nucleon.moveToDestination();
-//            }
-//        }
       this.trigger( 'nucleusReconfigured' );
     }
   } );
