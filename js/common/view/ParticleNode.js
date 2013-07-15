@@ -16,22 +16,11 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    // Set up the color based on the particle type.
-    var baseColor;
-    switch( particleType ) {
-      case 'proton':
-        baseColor = 'red';
-        break;
-      case 'neutron':
-        baseColor = 'gray';
-        break;
-      case 'electron':
-        baseColor = 'blue';
-        break;
-      default:
-        console.error( 'Unrecognized particle type.' );
-        baseColor = 'black';
-        break;
+    var colors = { proton: 'red', neutron: 'gray', electron: 'blue' };
+    var baseColor = colors[ particleType ];
+    if ( baseColor === undefined ) {
+      console.error( 'Unrecognized particle type.' );
+      baseColor = 'black';
     }
 
     // Create the node a circle with a gradient.
