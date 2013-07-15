@@ -8,8 +8,8 @@
 define( function( require ) {
   'use strict';
 
-  var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PropertySet = require( 'AXON/PropertySet' );
 
   function NumberAtom( options ) {
 

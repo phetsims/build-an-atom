@@ -34,10 +34,10 @@ define( function( require ) {
     options = _.extend(
       {
         showCenterX: true,
-        showElementName: new Property( true ),
-        showNeutralOrIon: new Property( true ),
-        showStableOrUnstable: new Property( true ),
-        electronShellDepiction: new Property( 'orbits' )
+        showElementNameProperty: new Property( true ),
+        showNeutralOrIonProperty: new Property( true ),
+        showStableOrUnstableProperty: new Property( true ),
+        electronShellDepictionProperty: new Property( 'orbits' )
       },
       options
     );
@@ -71,17 +71,13 @@ define( function( require ) {
       particleAtom.protons.addListener( listener );
     }
 
-    // Add the electron shells.
+    // Add the electron shells and cloud.
     var electronShell = new ElectronShellView( particleAtom, mvt );
     this.addChild( electronShell );
-    options.electronShellDepiction.link( function( depiction ){
-      electronShell.visible = depiction === 'orbits';
-    });
-
-    // Add the electron cloud.
     var electronCloud = new ElectronCloudView( particleAtom, mvt );
     this.addChild( electronCloud );
-    options.electronShellDepiction.link( function( depiction ){
+    options.electronShellDepictionProperty.link( function( depiction ){
+      electronShell.visible = depiction === 'orbits';
       electronCloud.visible = depiction === 'cloud';
     });
 
@@ -114,7 +110,7 @@ define( function( require ) {
     particleAtom.protons.addListener( function() {
       updateElementName();
     } );
-    options.showElementName.link( function( visible ) {
+    options.showElementNameProperty.link( function( visible ) {
       thisAtomView.elementName.visible = visible;
     } );
 
@@ -156,7 +152,7 @@ define( function( require ) {
 
     particleAtom.protons.addListener( updateIonIndicator );
     particleAtom.electrons.addListener( updateIonIndicator );
-    options.showNeutralOrIon.link( function( visible ) {
+    options.showNeutralOrIonProperty.link( function( visible ) {
       thisAtomView.ionIndicator.visible = visible;
     } );
 
@@ -197,7 +193,7 @@ define( function( require ) {
     } );
     particleAtom.electrons.addListener( updateIonIndicator );
     particleAtom.neutrons.addListener( updateStabilityIndicator );
-    options.showStableOrUnstable.link( function( visible ) {
+    options.showStableOrUnstableProperty.link( function( visible ) {
       thisAtomView.stabilityIndicator.visible = visible;
     } );
 

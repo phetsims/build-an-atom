@@ -58,10 +58,10 @@ define( function( require ) {
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
     var atomNode = new AtomNode( model.particleAtom, mvt,
-                                 { showElementName: model.showElementName,
-                                   showNeutralOrIon: model.showNeutralOrIon,
-                                   showStableOrUnstable: model.showStableOrUnstable,
-                                   electronShellDepiction: model.electronShellDepiction
+                                 { showElementNameProperty: model.showElementNameProperty,
+                                   showNeutralOrIonProperty: model.showNeutralOrIonProperty,
+                                   showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+                                   electronShellDepictionProperty: model.electronShellDepictionProperty
                                  } );
     this.addChild( atomNode );
 
@@ -112,11 +112,11 @@ define( function( require ) {
     // become invisible when added to the atom.
     var updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
-        electronNode.visible = model.electronShellDepiction.value === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
+        electronNode.visible = model.electronShellDepiction === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
     };
     model.particleAtom.electrons.addListener( updateElectronVisibility );
-    model.electronShellDepiction.link( updateElectronVisibility );
+    model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets.  This is done separately from the
     // bucket holes for layering purposes.
@@ -147,9 +147,9 @@ define( function( require ) {
     // Add the control panel for label visibility. TODO: i18n
     var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
       [
-        { content: new Text( 'Element Name', {font: LABEL_CONTROL_FONT} ), property: model.showElementName, label: 'Element Name' },
-        { content: new Text( 'Neutral/Ion', {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIon, label: 'Neutral/Ion' },
-        { content: new Text( 'Stable/Unstable', {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstable, label: 'Stable/Unstable' }
+        { content: new Text( 'Element Name', {font: LABEL_CONTROL_FONT} ), property: model.showElementNameProperty, label: 'Element Name' },
+        { content: new Text( 'Neutral/Ion', {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIonProperty, label: 'Neutral/Ion' },
+        { content: new Text( 'Stable/Unstable', {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstableProperty, label: 'Stable/Unstable' }
       ], { spacing: 10 } ), { fill: 'rgb( 245, 245, 245 )' } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
@@ -170,8 +170,8 @@ define( function( require ) {
 
     // Add the radio buttons that control the electron representation in the atom. TODO: i18n
     var radioButtonRadius = 6;
-    var orbitsButton = new AquaRadioButton( model.electronShellDepiction, 'orbits', new Text( 'Orbits', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.electronShellDepiction, 'cloud', new Text( 'Cloud', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( 'Orbits', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( 'Cloud', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( 'Model:', { font: new BAAFont( 18, 'bold' ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
