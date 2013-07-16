@@ -26,6 +26,7 @@ define( function( require ) {
                         state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
                         soundEnabled: 'false',
                         timerEnabled: 'true',
+                        level: 0,
                         problemSet: [],
                         score: 0,
                         elapsedTime: 0,
@@ -49,6 +50,7 @@ define( function( require ) {
 
     // Step function necessary to be used as a model in the Joist framework.
     step: function( dt ) {
+      this.elapasedTime += dt;
     },
 
     // Start a new game.
