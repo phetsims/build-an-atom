@@ -45,7 +45,7 @@ define( function( require ) {
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       { x: 0, y: 0 },
       { x: layoutBounds.width * 0.275, y: layoutBounds.height * 0.45 },
-      1.0 );
+      0.8 );
 
     // Add the schematic representation of the atom.
     this.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, mvt ) );
