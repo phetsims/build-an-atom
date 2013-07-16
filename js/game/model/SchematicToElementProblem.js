@@ -1,9 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Problem where the user is presented with a set of counts for protons,
- * neutrons, and electrons, and must find the represented element on a
- * periodic table.
+ * Problem where the user is presented with a schematic representation of an
+ * atom (which looks much like the atoms constructed on the 1st tab), and must
+ * find the represented element on a periodic table.
  *
  * @author John Blanco
  */
@@ -13,7 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var ToElementProblem = require( 'game/model/ToElementProblem' );
-  var CountsToElementProblemView = require( 'game/view/CountsToElementProblemView' );
+  var SchematicToElementProblemView = require( 'game/view/SchematicToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
 
@@ -22,18 +22,18 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToElementProblem( buildAnAtomGameModel, answerAtom ) {
+  function SchematicToElementProblem( buildAnAtomGameModel, answerAtom ) {
     ToElementProblem.call( this, buildAnAtomGameModel, answerAtom );
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( ToElementProblem, CountsToElementProblem, {
+  inherit( ToElementProblem, SchematicToElementProblem, {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
-      return new CountsToElementProblemView( this, layoutBounds );
+      return new SchematicToElementProblemView( this, layoutBounds );
     }
   } );
 
-  return CountsToElementProblem;
+  return SchematicToElementProblem;
 } );

@@ -11,6 +11,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
   var NumberAtom = require( 'common/model/NumberAtom' );
+  var SchematicToElementProblem = require( 'game/model/SchematicToElementProblem' );
 
   // Constants
   var LEVELS = [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ];
@@ -57,11 +58,11 @@ define( function( require ) {
     startSubGame: function( subGameType ) {
       console.log( 'startGame called, sub game subGameType = ' + subGameType );
       this.problemIndex = 0;
-      this.elapsedTime = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
+        new SchematicToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) )];
         new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ),
-        new CountsToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) )];
+      this.elapsedTime = 0;
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];
       }

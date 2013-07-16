@@ -197,6 +197,14 @@ define( function( require ) {
       return particle;
     },
 
+    // Move all the particles to their destinations.  This is gnerally used
+    // when animation is not desired.
+    moveAllParticlesToDestination: function(){
+      this.protons.forEach( function( p ){ p.moveImmediatelyToDestination() } );
+      this.neutrons.forEach( function( p ){ p.moveImmediatelyToDestination() } );
+      this.electrons.forEach( function( p ){ p.moveImmediatelyToDestination() } );
+    },
+
     getWeight: function() {
       return this.protons.length + this.neutrons.length;
     },
