@@ -60,8 +60,8 @@ define( function( require ) {
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
-        new SchematicToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) )];
-        new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ),
+        new SchematicToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) ),
+        new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ) ];
       this.elapsedTime = 0;
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];
