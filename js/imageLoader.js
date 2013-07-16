@@ -8,15 +8,12 @@ define( function( require ) {
 
   return {
     imageNames: [
-      'scale.png',
+      'BAA_atom.png',
+      'BAA_symbol.png',
+      'blue-stopwatch.png',
       'scale.svg',
       'scale_new.svg',
-      'scale_new2.svg',
-      'charge_meter_short_background.svg',
-      'charge_meter_background.svg',
-      'atom_builder_charge_meter_no_window.png',
-      'BAA_atom.png',
-      'BAA_symbol.png'
+      'scale_new2.svg'
     ]
   };
 } );
