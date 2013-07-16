@@ -50,7 +50,7 @@ define( function( require ) {
 
     // Step function necessary to be used as a model in the Joist framework.
     step: function( dt ) {
-      this.elapasedTime += dt;
+      this.elapsedTime += dt;
     },
 
     // Start a new game.

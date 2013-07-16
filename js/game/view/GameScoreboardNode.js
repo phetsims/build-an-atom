@@ -103,7 +103,7 @@ define( function( require ) {
     _formatTime: function( secs ) {
       var hours = Math.floor( secs / 3600 );
       var minutes = Math.floor( (secs - (hours * 3600)) / 60 );
-      var seconds = secs - (hours * 3600) - (minutes * 60);
+      var seconds = Math.floor( secs - (hours * 3600) - (minutes * 60) );
       return ( hours > 0 ? hours + ':' : '' ) + minutes + ':' + ( seconds > 9 ? seconds : '0' + seconds );
     }
   } );
