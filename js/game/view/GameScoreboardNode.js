@@ -20,7 +20,7 @@ define( function( require ) {
   var TextButton = require( 'SUN/TextButton' );
 
   // Constants
-  var FONT = new BAAFont( 24 );
+  var FONT = new BAAFont( 20 );
   var X_MARGIN = 20;
   var Y_MARGIN = 5;
 
@@ -39,7 +39,8 @@ define( function( require ) {
         // Defaults
         backgroundFillColor: 'rgb( 180, 205, 255 )',
         backgroundStroke: 'black',
-        backgroundLineWidth: 1
+        backgroundLineWidth: 1,
+        width: 700
       }, options );
 
     // Level
@@ -63,6 +64,9 @@ define( function( require ) {
     thisNode.addChild( timerValue );
     gameModel.elapsedTimeProperty.link( function( elapsedTime ) {
       timerValue.text = thisNode._formatTime( elapsedTime );
+      if ( gameModel.bestTimes[gameModel.level] ) {
+        timerValue.text += ( ' (Your best: ' + thisNode._formatTime( gameModel.bestTimes[gameModel.level] ) + ')' );
+      }
     } );
 
     // New Game button
@@ -79,17 +83,17 @@ define( function( require ) {
     var backgroundHeight = maxChildHeight + 2 * Y_MARGIN;
     levelNode.left = X_MARGIN;
     levelNode.centerY = backgroundHeight / 2;
-    scoreNode.left = levelNode.right + 80;
+    scoreNode.centerX = options.width * 0.28;
     scoreNode.centerY = backgroundHeight / 2;
-    timerIcon.left = scoreNode.right + 60;
+    timerIcon.right = options.width / 2;
     timerIcon.centerY = backgroundHeight / 2;
     timerValue.left = timerIcon.right + 5;
     timerValue.centerY = backgroundHeight / 2;
-    newGameButton.left = timerValue.right + 200;
+    newGameButton.right = options.width - X_MARGIN;
     newGameButton.centerY = backgroundHeight / 2;
 
     // Add background.  This is added last since it's sized to fit the child nodes above.
-    var background = new Rectangle( 0, 0, newGameButton.right + Y_MARGIN, backgroundHeight, 0, 0,
+    var background = new Rectangle( 0, 0, options.width, backgroundHeight, 0, 0,
                                     {
                                       fill: options.backgroundFillColor,
                                       stroke: options.backgroundStroke,
