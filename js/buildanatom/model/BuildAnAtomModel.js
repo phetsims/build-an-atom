@@ -52,7 +52,7 @@ define( function( require ) {
     var thisModel = this;
 
     // Create the atom that the user will build, modify, and generally play with.
-    this.particleAtom = new ParticleAtom( 80, 150 );
+    this.particleAtom = new ParticleAtom();
 
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {

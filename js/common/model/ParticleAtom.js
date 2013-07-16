@@ -21,18 +21,24 @@ define( function( require ) {
   var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
   var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 150;
 
-  function ParticleAtom( innerElectronShellRadius, outerElectronShellRadius ) {
+  function ParticleAtom( options ) {
     PropertySet.call( this, { position: Vector2.ZERO, nucleusOffset: Vector2.ZERO } );
 
     var thisAtom = this;
 
-    this.innerElectronShellRadius = innerElectronShellRadius || DEFAULT_INNER_ELECTRON_SHELL_RADIUS;
-    this.outerElectronShellRadius = outerElectronShellRadius || DEFAULT_OUTER_ELECTRON_SHELL_RADIUS;
+    options = _.extend( {
+                          innerElectronShellRadius : 80,
+                          outerElectronShellRadius : 150
+                        }, options )
 
     // Create the particle collections.
     this.protons = new ObservableArray();
     this.neutrons = new ObservableArray();
     this.electrons = new ObservableArray();
+
+    // Make shell radii publicly accessible.
+    this.innerElectronShellRadius = options.innerElectronShellRadius;
+    this.outerElectronShellRadius = options.outerElectronShellRadius;
 
     // Set the default electron add/remove mode.  Valid values are 'proximal' and 'random'.
     this.electronAddMode = 'proximal';
@@ -40,16 +46,16 @@ define( function( require ) {
     // Initialize the positions where an electron can be placed.
     this.validElectronPositions = new Array( 10 );
     var angle = 0;
-    this.validElectronPositions[ 0 ] = { electron: null, position: new Vector2( this.innerElectronShellRadius, 0 ) };
+    this.validElectronPositions[ 0 ] = { electron: null, position: new Vector2( thisAtom.innerElectronShellRadius, 0 ) };
     angle += Math.PI;
-    this.validElectronPositions[ 1 ] = { electron: null, position: new Vector2( -this.innerElectronShellRadius, 0 ) };
+    this.validElectronPositions[ 1 ] = { electron: null, position: new Vector2( -thisAtom.innerElectronShellRadius, 0 ) };
     var numSlotsInOuterShell = 8;
     angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
     for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
       this.validElectronPositions[ i + 2 ] = {
         electron: null,
-        position: new Vector2( Math.cos( angle ) * this.outerElectronShellRadius,
-                               Math.sin( angle ) * this.outerElectronShellRadius )
+        position: new Vector2( Math.cos( angle ) * thisAtom.outerElectronShellRadius,
+                               Math.sin( angle ) * thisAtom.outerElectronShellRadius )
       };
       angle += Math.PI / numSlotsInOuterShell * 2;
     }

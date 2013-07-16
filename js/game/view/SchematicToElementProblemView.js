@@ -18,6 +18,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var NonInteractiveSchematicAtomNode = require( 'game/view/NonInteractiveSchematicAtomNode' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var Particle = require( 'common/model/Particle' );
   var ParticleAtom = require( 'common/model/ParticleAtom' );
@@ -47,23 +48,7 @@ define( function( require ) {
       1.0 );
 
     // Add the schematic representation of the atom.
-    var particleAtom = new ParticleAtom( 70, 120 );
-    this.addChild( new AtomNode( particleAtom, mvt, {
-      showElementNameProperty : new Property( false ),
-      showNeutralOrIonProperty : new Property( false ),
-      showStableOrUnstableProperty : new Property( false )
-    } ) );
-    var createAndAddParticles = function ( particleType, number ){
-      _.times( number, function(){
-        var particle = new Particle( particleType );
-        particleAtom.addParticle( particle );
-        thisNode.addChild( new ParticleView( particle, mvt ) );
-      });
-    };
-    createAndAddParticles( 'proton', schematicToElementProblem.answerAtom.protonCount );
-    createAndAddParticles( 'neutron', schematicToElementProblem.answerAtom.neutronCount );
-    createAndAddParticles( 'electron', schematicToElementProblem.answerAtom.electronCount );
-    particleAtom.moveAllParticlesToDestination();
+    this.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, mvt ) );
 
     // Problem title
     var problemTitle = new Text( 'Find the element:', { font: TITLE_FONT } ); // TODO: i18n
