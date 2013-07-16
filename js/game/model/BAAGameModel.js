@@ -57,6 +57,7 @@ define( function( require ) {
     startSubGame: function( subGameType ) {
       console.log( 'startGame called, sub game subGameType = ' + subGameType );
       this.problemIndex = 0;
+      this.elapsedTime = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
         new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ),
@@ -76,7 +77,7 @@ define( function( require ) {
 
     // Start a new game.
     newGame: function( level ) {
-      console.log( 'newGame called, not implemented.' );
+      this.state = 'selectSubGame';
     },
 
     // Process a guess from the user.
