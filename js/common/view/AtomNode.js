@@ -28,7 +28,7 @@ define( function( require ) {
    * @param options
    * @constructor
    */
-  var AtomNode = function AtomNode( particleAtom, mvt, options ) {
+  function AtomNode( particleAtom, mvt, options ) {
 
     options = _.extend(
       {
