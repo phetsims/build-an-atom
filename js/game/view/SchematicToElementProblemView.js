@@ -20,9 +20,6 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var NonInteractiveSchematicAtomNode = require( 'game/view/NonInteractiveSchematicAtomNode' );
   var NumberAtom = require( 'common/model/NumberAtom' );
-  var Particle = require( 'common/model/Particle' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var ParticleView = require( 'common/view/ParticleView' );
   var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
   var ProblemView = require( 'game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
