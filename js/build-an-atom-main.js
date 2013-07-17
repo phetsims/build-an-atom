@@ -31,27 +31,27 @@ require(
     // TODO: Temporary icon for the game, add something better (screenshot probably) when game is implemented.
     var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
     gameIcon.addChild( new Circle( 10,
-                                   {
-                                     stroke: 'blue',
-                                     lineWidth: 0.5,
-                                     lineDash: [ 1, 1 ],
-                                     center: gameIcon.center
-                                   }
+      {
+        stroke: 'blue',
+        lineWidth: 0.5,
+        lineDash: [ 1, 1 ],
+        center: gameIcon.center
+      }
     ) );
     gameIcon.addChild( new Circle( 20,
-                                   {
-                                     stroke: 'blue',
-                                     lineWidth: 0.5,
-                                     lineDash: [ 1, 1 ],
-                                     center: gameIcon.center
-                                   }
+      {
+        stroke: 'blue',
+        lineWidth: 0.5,
+        lineDash: [ 1, 1 ],
+        center: gameIcon.center
+      }
     ) );
     gameIcon.addChild( new Text( '?',
-                                 {
-                                   font: new BAAFont( 40, 'bold' ),
-                                   fill: 'rgba(50, 50, 50, 20)',
-                                   center: gameIcon.center
-                                 } ) );
+      {
+        font: new BAAFont( 40, 'bold' ),
+        fill: 'rgba(50, 50, 50, 20)',
+        center: gameIcon.center
+      } ) );
 
     SimLauncher.launch( imageLoader, function() {
 

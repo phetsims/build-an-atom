@@ -39,29 +39,29 @@ define( function( require ) {
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
     var chargeMeterBox = new AccordionBox( chargeMeterBoxContents,
-                                           {
-                                             title: 'Net Charge', // TODO: i18n
-                                             fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                             initiallyOpen: false,
-                                             minWidth: this.periodicTableBox.width,
-                                             contentPosition: 'left',
-                                             titlePosition: 'left',
-                                             buttonPosition: 'right',
-                                             font: ACCORDION_BOX_FONT
-                                           } );
+      {
+        title: 'Net Charge', // TODO: i18n
+        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+        initiallyOpen: false,
+        minWidth: this.periodicTableBox.width,
+        contentPosition: 'left',
+        titlePosition: 'left',
+        buttonPosition: 'right',
+        font: ACCORDION_BOX_FONT
+      } );
     this.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
     var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ),
-                                          {
-                                            title: 'Mass Number', // TODO: i18n
-                                            fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                            initiallyOpen: false,
-                                            minWidth: this.periodicTableBox.width,
-                                            contentPosition: 'left',
-                                            titlePosition: 'left',
-                                            buttonPosition: 'right'
-                                          } );
+      {
+        title: 'Mass Number', // TODO: i18n
+        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+        initiallyOpen: false,
+        minWidth: this.periodicTableBox.width,
+        contentPosition: 'left',
+        titlePosition: 'left',
+        buttonPosition: 'right'
+      } );
     this.addChild( massNumberBox );
 
     // Add additional reset functionality.

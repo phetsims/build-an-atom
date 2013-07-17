@@ -19,10 +19,10 @@ define( function( require ) {
     this.addChild( gameOverText );
 
     var doneButton = new RectangleButton( new Text( 'OK', { font: new BAAFont( 24 ) } ),
-                                          function() {
-                                            gameModel.state = 'selectSubGame';
-                                          },
-                                          { fill: 'orange'} );
+      function() {
+        gameModel.state = 'selectSubGame';
+      },
+      { fill: 'orange'} );
     this.addChild( doneButton );
 
     // Layout

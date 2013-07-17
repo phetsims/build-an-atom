@@ -63,35 +63,35 @@ define( function( require ) {
       // Add plus symbols
       for ( var numProtons = 0; numProtons < atom.protonCount; numProtons++ ) {
         symbolLayer.addChild( new Path( {
-                                          shape: plusSymbolShape,
-                                          stroke: 'black',
-                                          lineWidth: 1,
-                                          fill: 'red',
-                                          left: INTER_SYMBOL_DISTANCE / 2 + numProtons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
-                                          centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
-                                        } ) );
+          shape: plusSymbolShape,
+          stroke: 'black',
+          lineWidth: 1,
+          fill: 'red',
+          left: INTER_SYMBOL_DISTANCE / 2 + numProtons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
+          centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
+        } ) );
       }
 
       // Add minus symbols
       for ( var numElectrons = 0; numElectrons < atom.electronCount; numElectrons++ ) {
         symbolLayer.addChild( new Path( {
-                                          shape: minusSymbolShape,
-                                          stroke: 'black',
-                                          lineWidth: 1,
-                                          fill: 'rgb( 100, 100, 255 )',
-                                          left: INTER_SYMBOL_DISTANCE / 2 + numElectrons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
-                                          centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
-                                        } ) );
+          shape: minusSymbolShape,
+          stroke: 'black',
+          lineWidth: 1,
+          fill: 'rgb( 100, 100, 255 )',
+          left: INTER_SYMBOL_DISTANCE / 2 + numElectrons * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
+          centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
+        } ) );
       }
 
       // Add bounding box
       var numMatchedSymbols = Math.min( numProtons, numElectrons );
       if ( numMatchedSymbols > 0 ) {
         symbolLayer.addChild( new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2 + ( numMatchedSymbols * SYMBOL_WIDTH ) + ( ( numMatchedSymbols - 0.5 ) * INTER_SYMBOL_DISTANCE ), 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4,
-                                             {
-                                               lineWidth: 1,
-                                               stroke: 'black'
-                                             } ) );
+          {
+            lineWidth: 1,
+            stroke: 'black'
+          } ) );
       }
     };
 

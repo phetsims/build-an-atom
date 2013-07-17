@@ -23,12 +23,12 @@ define( function( require ) {
    */
   function BAAGameProblem( buildAnAtomGameModel, answerAtom ) {
     PropertySet.call( this,
-                      {
-                        problemState: 'presentingProblem',
-                        answerAtom: answerAtom,
-                        numSubmissions: 0,
-                        score: 0
-                      } );
+      {
+        problemState: 'presentingProblem',
+        answerAtom: answerAtom,
+        numSubmissions: 0,
+        score: 0
+      } );
     this.answerAtom = answerAtom;
     this.model = buildAnAtomGameModel;
   }

@@ -58,11 +58,11 @@ define( function( require ) {
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
     var atomNode = new AtomNode( model.particleAtom, mvt,
-                                 { showElementNameProperty: model.showElementNameProperty,
-                                   showNeutralOrIonProperty: model.showNeutralOrIonProperty,
-                                   showStableOrUnstableProperty: model.showStableOrUnstableProperty,
-                                   electronShellDepictionProperty: model.electronShellDepictionProperty
-                                 } );
+      { showElementNameProperty: model.showElementNameProperty,
+        showNeutralOrIonProperty: model.showNeutralOrIonProperty,
+        showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+        electronShellDepictionProperty: model.electronShellDepictionProperty
+      } );
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
@@ -134,14 +134,14 @@ define( function( require ) {
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom );
     periodicTable.scale( 0.525 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable,
-                                              {
-                                                title: 'Element', // TODO: i18n
-                                                fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                                contentPosition: 'left',
-                                                titlePosition: 'left',
-                                                buttonPosition: 'right',
-                                                font: ACCORDION_BOX_FONT
-                                              } );
+      {
+        title: 'Element', // TODO: i18n
+        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+        contentPosition: 'left',
+        titlePosition: 'left',
+        buttonPosition: 'right',
+        font: ACCORDION_BOX_FONT
+      } );
     this.addChild( this.periodicTableBox );
 
     // Add the control panel for label visibility. TODO: i18n
@@ -184,9 +184,9 @@ define( function( require ) {
 
     // Add the reset button.
     this.resetFunctions.push( function() {
-                                thisView.model.reset();
-                                thisView.periodicTableBox.open.reset();
-                              }
+        thisView.model.reset();
+        thisView.periodicTableBox.open.reset();
+      }
     );
     var resetButton = new ResetAllButton( function() {
       thisView.resetFunctions.forEach( function( resetFunction ) {

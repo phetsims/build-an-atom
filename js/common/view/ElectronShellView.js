@@ -21,26 +21,26 @@ define( function( require ) {
 
     // Call super constructor.
     Node.call( this,
-               { renderer: 'svg'} // This is necessary to get dotted lines on IE10, see Scenery issue #70.
+      { renderer: 'svg'} // This is necessary to get dotted lines on IE10, see Scenery issue #70.
     );
 
     var outerRing = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
-                                {
-                                  stroke: 'blue',
-                                  lineWidth: 1.5,
-                                  lineDash: LINE_DASH,
-                                  translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
-                                }
+      {
+        stroke: 'blue',
+        lineWidth: 1.5,
+        lineDash: LINE_DASH,
+        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+      }
     );
     this.addChild( outerRing );
 
     var innerRing = new Circle( mvt.modelToViewDeltaX( atom.innerElectronShellRadius ),
-                                {
-                                  stroke: 'blue',
-                                  lineWidth: 1.5,
-                                  lineDash: LINE_DASH,
-                                  translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
-                                }
+      {
+        stroke: 'blue',
+        lineWidth: 1.5,
+        lineDash: LINE_DASH,
+        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+      }
     );
     this.addChild( innerRing );
   };

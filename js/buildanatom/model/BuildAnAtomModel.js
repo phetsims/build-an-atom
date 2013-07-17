@@ -39,15 +39,15 @@ define( function( require ) {
 
     // Call the super constructor.
     PropertySet.call( this,
-                      {
-                        // Properties that control label visibility in the view.
-                        showElementName: true,
-                        showNeutralOrIon: true,
-                        showStableOrUnstable: true,
+      {
+        // Properties that control label visibility in the view.
+        showElementName: true,
+        showNeutralOrIon: true,
+        showStableOrUnstable: true,
 
-                        // Property that controls electron depiction in the view.
-                        electronShellDepiction: 'orbits'
-                      } );
+        // Property that controls electron depiction in the view.
+        electronShellDepiction: 'orbits'
+      } );
 
     var thisModel = this;
 
@@ -175,56 +175,56 @@ define( function( require ) {
   }
 
   inherit( PropertySet,
-           BuildAnAtomModel,
-           {
-             // Main model step function, called by the framework.
-             step: function( dt ) {
+    BuildAnAtomModel,
+    {
+      // Main model step function, called by the framework.
+      step: function( dt ) {
 
-               // Update particle positions.
-               this.nucleons.forEach( function( nucleon ) {
-                 nucleon.step( dt );
-               } );
-               this.electrons.forEach( function( electron ) {
-                 electron.step( dt );
-               } );
+        // Update particle positions.
+        this.nucleons.forEach( function( nucleon ) {
+          nucleon.step( dt );
+        } );
+        this.electrons.forEach( function( electron ) {
+          electron.step( dt );
+        } );
 
-               // Animate the unstable nucleus by making it jump periodically.
-               if ( this.nucleusStable === false ) {
-                 this.nucleusJumpCountdown -= dt;
-                 if ( this.nucleusJumpCountdown <= 0 ) {
-                   this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-                   if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
-                     var angle = Math.random() * 2 * Math.PI;
-                     var distance = Math.random() * MAX_NUCLEUS_JUMP;
-                     this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
-                   }
-                   else {
-                     this.particleAtom.nucleusOffset = Vector2.ZERO;
-                   }
-                 }
-               }
-             },
+        // Animate the unstable nucleus by making it jump periodically.
+        if ( this.nucleusStable === false ) {
+          this.nucleusJumpCountdown -= dt;
+          if ( this.nucleusJumpCountdown <= 0 ) {
+            this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+            if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
+              var angle = Math.random() * 2 * Math.PI;
+              var distance = Math.random() * MAX_NUCLEUS_JUMP;
+              this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
+            }
+            else {
+              this.particleAtom.nucleusOffset = Vector2.ZERO;
+            }
+          }
+        }
+      },
 
-             _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
-               var particlesToRemove = [];
-               for ( var i = 0; i < particleCollection.length; i++ ) {
-                 particlesToRemove[i] = particleCollection.at( i );
-               }
-               particleCollection.clear();
-               _.each( particlesToRemove, function( particle ) {
-                 bucket.addParticleFirstOpen( particle );
-               }, this );
-             },
+      _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
+        var particlesToRemove = [];
+        for ( var i = 0; i < particleCollection.length; i++ ) {
+          particlesToRemove[i] = particleCollection.at( i );
+        }
+        particleCollection.clear();
+        _.each( particlesToRemove, function( particle ) {
+          bucket.addParticleFirstOpen( particle );
+        }, this );
+      },
 
-             reset: function() {
-               callSuper( PropertySet, 'reset', this );
+      reset: function() {
+        callSuper( PropertySet, 'reset', this );
 
-               // Move all particles that are in the atom back into their respective buckets.
-               this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
-               this._moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
-               this._moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
-             }
-           } );
+        // Move all particles that are in the atom back into their respective buckets.
+        this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
+        this._moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
+        this._moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
+      }
+    } );
 
   return BuildAnAtomModel;
 } );

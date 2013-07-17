@@ -33,20 +33,20 @@ define( function( require ) {
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
     var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0,
-                                     {
-                                       stroke: 'black',
-                                       lineWidth: 2,
-                                       fill: 'white'
-                                     } );
+      {
+        stroke: 'black',
+        lineWidth: 2,
+        fill: 'white'
+      } );
     this.addChild( boundingBox );
 
     // Add the symbol text.
     var symbolText = new Text( '',
-                               {
-                                 font: new BAAFont( 150 ),
-                                 fill: 'black',
-                                 center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
-                               } );
+      {
+        font: new BAAFont( 150 ),
+        fill: 'black',
+        center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
+      } );
 
     // Add the listener to update the symbol text.
     numberAtom.protonCountProperty.link( function( protonCount ) {
@@ -58,10 +58,10 @@ define( function( require ) {
 
     // Add the proton count display.
     var protonCountDisplay = new Text( '0',
-                                       {
-                                         font: NUMBER_FONT,
-                                         fill: 'red'
-                                       } );
+      {
+        font: NUMBER_FONT,
+        fill: 'red'
+      } );
 
     // Add the listener to update the proton count.
     numberAtom.protonCountProperty.link( function( protonCount ) {
@@ -73,10 +73,10 @@ define( function( require ) {
 
     // Add the atomic mass display.
     var atomicMassDisplay = new Text( '0',
-                                      {
-                                        font: NUMBER_FONT,
-                                        fill: 'black'
-                                      } );
+      {
+        font: NUMBER_FONT,
+        fill: 'black'
+      } );
     boundingBox.addChild( atomicMassDisplay );
 
     // Add the listener to update the atomic mass.
@@ -88,10 +88,10 @@ define( function( require ) {
 
     // Add the charge display.
     var chargeDisplay = new Text( '0',
-                                  {
-                                    font: NUMBER_FONT,
-                                    fill: 'black'
-                                  } );
+      {
+        font: NUMBER_FONT,
+        fill: 'black'
+      } );
     boundingBox.addChild( chargeDisplay );
 
     // Add the listener to update the charge.

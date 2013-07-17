@@ -27,9 +27,9 @@ define( function( require ) {
     var thisAtom = this;
 
     options = _.extend( {
-                          innerElectronShellRadius : 80,
-                          outerElectronShellRadius : 150
-                        }, options );
+      innerElectronShellRadius: 80,
+      outerElectronShellRadius: 150
+    }, options );
 
     // Create the particle collections.
     this.protons = new ObservableArray();
@@ -55,7 +55,7 @@ define( function( require ) {
       this.validElectronPositions[ i + 2 ] = {
         electron: null,
         position: new Vector2( Math.cos( angle ) * thisAtom.outerElectronShellRadius,
-                               Math.sin( angle ) * thisAtom.outerElectronShellRadius )
+          Math.sin( angle ) * thisAtom.outerElectronShellRadius )
       };
       angle += Math.PI / numSlotsInOuterShell * 2;
     }
@@ -71,8 +71,8 @@ define( function( require ) {
               // in the outer shell, move one of them in.
               var occupiedOuterShellPositions = _.filter( thisAtom.validElectronPositions, function( validElectronPosition ) {
                 return ( validElectronPosition.electron !== null && Utils.roughlyEqual( validElectronPosition.position.magnitude(),
-                                                                                        thisAtom.outerElectronShellRadius,
-                                                                                        1E-5 ));
+                  thisAtom.outerElectronShellRadius,
+                  1E-5 ));
               } );
               occupiedOuterShellPositions = _.sortBy( occupiedOuterShellPositions, function( occupiedShellPosition ) {
                 return occupiedShellPosition.position.distance( validElectronPosition.position );
@@ -205,10 +205,10 @@ define( function( require ) {
 
     // Move all the particles to their destinations.  This is gnerally used
     // when animation is not desired.
-    moveAllParticlesToDestination: function(){
-      this.protons.forEach( function( p ){ p.moveImmediatelyToDestination(); } );
-      this.neutrons.forEach( function( p ){ p.moveImmediatelyToDestination(); } );
-      this.electrons.forEach( function( p ){ p.moveImmediatelyToDestination(); } );
+    moveAllParticlesToDestination: function() {
+      this.protons.forEach( function( p ) { p.moveImmediatelyToDestination(); } );
+      this.neutrons.forEach( function( p ) { p.moveImmediatelyToDestination(); } );
+      this.electrons.forEach( function( p ) { p.moveImmediatelyToDestination(); } );
     },
 
     getWeight: function() {
@@ -259,11 +259,11 @@ define( function( require ) {
         angle = Math.random() * 2 * Math.PI;
         distFromCenter = nucleonRadius * 1.155;
         nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ),
-                                               centerY + distFromCenter * Math.sin( angle ) );
+          centerY + distFromCenter * Math.sin( angle ) );
         nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
-                                               centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
+          centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
         nucleons[2].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
-                                               centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
+          centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
       }
       else if ( nucleons.length === 4 ) {
         // Four nucleons - make a sort of diamond shape with some overlap.
@@ -272,9 +272,9 @@ define( function( require ) {
         nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
         distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
         nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                               centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+          centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
         nucleons[3].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
-                                               centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+          centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
       }
       else if ( nucleons.length >= 5 ) {
         // This is a generalized algorithm that should work for five or
@@ -286,7 +286,7 @@ define( function( require ) {
         var placementAngleDelta = 0;
         for ( var i = 0; i < nucleons.length; i++ ) {
           nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
-                                                 centerY + placementRadius * Math.sin( placementAngle ) );
+            centerY + placementRadius * Math.sin( placementAngle ) );
           numAtThisRadius--;
           if ( numAtThisRadius > 0 ) {
             // Stay at the same radius and update the placement angle.

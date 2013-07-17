@@ -24,10 +24,10 @@ define( function( require ) {
     var thisNode = this;
 
     var electronCloud = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
-                                    {
-                                      fill: 'pink',
-                                      translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
-                                    }
+      {
+        fill: 'pink',
+        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+      }
     );
     this.addChild( electronCloud );
 

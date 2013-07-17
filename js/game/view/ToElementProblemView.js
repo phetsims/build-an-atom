@@ -89,26 +89,26 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   inherit( ProblemView,
-           CountsToElementProblemView,
-           {
-             periodicTableAtom: new NumberAtom(),
-             neutralOrIon: new Property( 'noSelection' ),
-             checkAnswer: function() {
-               this.problem.checkAnswer( this.periodicTableAtom, this.neutralOrIon.value );
-             },
-             clearAnswer: function() {
-               this.periodicTableAtom.protonCount = 0;
-               this.periodicTableAtom.neutronCount = 0;
-               this.periodicTableAtom.electronCount = 0;
-               this.neutralOrIon.reset();
-             },
-             displayCorrectAnswer: function() {
-               this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
-               this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
-               this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
-               this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
-             }
-           } );
+    CountsToElementProblemView,
+    {
+      periodicTableAtom: new NumberAtom(),
+      neutralOrIon: new Property( 'noSelection' ),
+      checkAnswer: function() {
+        this.problem.checkAnswer( this.periodicTableAtom, this.neutralOrIon.value );
+      },
+      clearAnswer: function() {
+        this.periodicTableAtom.protonCount = 0;
+        this.periodicTableAtom.neutronCount = 0;
+        this.periodicTableAtom.electronCount = 0;
+        this.neutralOrIon.reset();
+      },
+      displayCorrectAnswer: function() {
+        this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
+        this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
+        this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
+        this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
+      }
+    } );
 
   return CountsToElementProblemView;
 } );

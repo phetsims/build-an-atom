@@ -23,21 +23,21 @@ define( function( require ) {
    */
   function BAAGameModel() {
     PropertySet.call( this,
-                      {
-                        state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
-                        soundEnabled: 'false',
-                        timerEnabled: 'true',
-                        level: 0,
-                        problemSet: [],
-                        score: 0,
-                        elapsedTime: 0,
-                        bestTimes: [],
-                        playing: false, // TODO - This was added for prototyping and can probably be removed once game is working.
-                        periodicTableGameCompleted: false,
-                        massAndChargeGameCompleted: false,
-                        symbolGameCompleted: false,
-                        advancedSymbolGameCompleted: false
-                      } );
+      {
+        state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
+        soundEnabled: 'false',
+        timerEnabled: 'true',
+        level: 0,
+        problemSet: [],
+        score: 0,
+        elapsedTime: 0,
+        bestTimes: [],
+        playing: false, // TODO - This was added for prototyping and can probably be removed once game is working.
+        periodicTableGameCompleted: false,
+        massAndChargeGameCompleted: false,
+        symbolGameCompleted: false,
+        advancedSymbolGameCompleted: false
+      } );
 
     var thisGameModel = this;
 

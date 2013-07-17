@@ -15,19 +15,19 @@ define( function( require ) {
 
     // Default configuration.
     options = _.extend( {
-                          protonCount: 0,
-                          neutronCount: 0,
-                          electronCount: 0
-                        },
-                        options );
+        protonCount: 0,
+        neutronCount: 0,
+        electronCount: 0
+      },
+      options );
 
     // Call the super constructor.
     PropertySet.call( this,
-                      {
-                        protonCount: options.protonCount,
-                        neutronCount: options.neutronCount,
-                        electronCount: options.electronCount
-                      } );
+      {
+        protonCount: options.protonCount,
+        neutronCount: options.neutronCount,
+        electronCount: options.electronCount
+      } );
 
     this.addDerivedProperty( 'charge', [ 'protonCount', 'electronCount' ], function( protonCount, electronCount ) {
       return protonCount - electronCount;

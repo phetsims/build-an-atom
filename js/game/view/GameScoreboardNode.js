@@ -71,8 +71,8 @@ define( function( require ) {
 
     // New Game button
     var newGameButton = new TextButton( 'New Game', // TODO: i18n
-                                        function() { gameModel.newGame(); },
-                                        { font: new BAAFont( 20 ), rectangleFill: 'rgb(  235, 235, 235 )' } );
+      function() { gameModel.newGame(); },
+      { font: new BAAFont( 20 ), rectangleFill: 'rgb(  235, 235, 235 )' } );
     thisNode.addChild( newGameButton );
 
     // Layout - everything in a row, vertically centered, offsets were set by eyeballing them.
@@ -94,10 +94,10 @@ define( function( require ) {
 
     // Add background.  This is added last since it's sized to fit the child nodes above.
     var background = new Rectangle( 0, 0, options.width, backgroundHeight, 0, 0,
-                                    {
-                                      fill: options.backgroundFillColor,
-                                      stroke: options.backgroundStroke,
-                                      lineWidth: options.backgroundLineWidth } );
+      {
+        fill: options.backgroundFillColor,
+        stroke: options.backgroundStroke,
+        lineWidth: options.backgroundLineWidth } );
     thisNode.addChild( background );
     background.moveToBack();
   }

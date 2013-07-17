@@ -28,15 +28,15 @@ define( function( require ) {
     var symbolNode = new SymbolNode( model.numberAtom );
     symbolNode.scale( 0.43 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode,
-                                      {
-                                        title: 'Symbol', // TODO: i18n
-                                        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-                                        minWidth: this.periodicTableBox.width,
-                                        contentPosition: 'center',
-                                        titlePosition: 'left',
-                                        buttonPosition: 'right',
-                                        font: new BAAFont( 20 )
-                                      } );
+      {
+        title: 'Symbol', // TODO: i18n
+        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+        minWidth: this.periodicTableBox.width,
+        contentPosition: 'center',
+        titlePosition: 'left',
+        buttonPosition: 'right',
+        font: new BAAFont( 20 )
+      } );
     this.addChild( symbolBox );
 
     // Add additional reset functionality.

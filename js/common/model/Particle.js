@@ -14,13 +14,13 @@ define( function( require ) {
 
   function Particle( type ) {
     PropertySet.call( this,
-                      { type: type,
-                        position: Vector2.ZERO,
-                        destination: Vector2.ZERO,
-                        radius: type === 'electron' ? SharedConstants.ELECTRON_RADIUS : SharedConstants.NUCLEON_RADIUS,
-                        velocity: DEFAULT_PARTICLE_VELOCITY,
-                        userControlled: false
-                      } );
+      { type: type,
+        position: Vector2.ZERO,
+        destination: Vector2.ZERO,
+        radius: type === 'electron' ? SharedConstants.ELECTRON_RADIUS : SharedConstants.NUCLEON_RADIUS,
+        velocity: DEFAULT_PARTICLE_VELOCITY,
+        userControlled: false
+      } );
   }
 
   inherit( PropertySet, Particle, {

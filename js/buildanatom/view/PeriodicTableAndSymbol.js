@@ -32,20 +32,20 @@ define( function( require ) {
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.
     var symbolRectangle = new Rectangle( 0, 0, periodicTable.width * SYMBOL_WIDTH_PROPORTION, periodicTable.width * SYMBOL_WIDTH_PROPORTION / SYMBOL_ASPECT_RATIO,
-                                         {
-                                           fill: 'white',
-                                           stroke: 'black',
-                                           lineWidth: 2
-                                         } );
+      {
+        fill: 'white',
+        stroke: 'black',
+        lineWidth: 2
+      } );
     this.addChild( symbolRectangle );
 
     // Add the text that represents the chosen element.
     numberAtom.protonCountProperty.link( function( numProtons ) {
       symbolRectangle.removeAllChildren();
       var symbolText = new Text( AtomIdentifier.getSymbol( numberAtom.protonCount ),
-                                 {
-                                   font: new BAAFont( 48, 'bold' )
-                                 } );
+        {
+          font: new BAAFont( 48, 'bold' )
+        } );
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );
       symbolText.center = new Vector2( symbolRectangle.width / 2, symbolRectangle.height / 2 );
       symbolRectangle.addChild( symbolText );
