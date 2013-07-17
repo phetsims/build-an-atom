@@ -18,9 +18,6 @@ define( function( require ) {
   var ToElementProblemView = require( 'game/view/ToElementProblemView' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // Constants
-  var PARTICLE_COUNTS_FONT = new BAAFont( 24 );
-
   /**
    * Main constructor function.
    *
