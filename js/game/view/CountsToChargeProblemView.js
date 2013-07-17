@@ -23,7 +23,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
-  var READOUT_SIZE = { width: 40, height: 40 }; // Size empirically determined.
+  var READOUT_SIZE = { width: 50, height: 40 }; // Size empirically determined.
 
   /**
    * Main constructor function.
@@ -59,11 +59,14 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( answerValueBackground );
     thisNode.chargeAnswer.link( function( newValue ) {
       answerValueBackground.removeAllChildren();
-      answerValueBackground.addChild( new Text( newValue,
+      var prepend = newValue > 0 ? '+' : '';
+      var textNode = new Text( prepend + newValue,
         { font: new BAAFont( 22 ),
+          fill: newValue > 0 ? 'red' : newValue < 0 ? 'blue' : 'black',
           centerX: answerValueBackground.width / 2,
           centerY: answerValueBackground.height / 2
-        } ) );
+        } );
+      answerValueBackground.addChild( textNode );
     } );
 
     // Layout
