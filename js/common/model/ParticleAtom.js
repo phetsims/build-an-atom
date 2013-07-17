@@ -29,7 +29,7 @@ define( function( require ) {
     options = _.extend( {
                           innerElectronShellRadius : 80,
                           outerElectronShellRadius : 150
-                        }, options )
+                        }, options );
 
     // Create the particle collections.
     this.protons = new ObservableArray();
@@ -206,9 +206,9 @@ define( function( require ) {
     // Move all the particles to their destinations.  This is gnerally used
     // when animation is not desired.
     moveAllParticlesToDestination: function(){
-      this.protons.forEach( function( p ){ p.moveImmediatelyToDestination() } );
-      this.neutrons.forEach( function( p ){ p.moveImmediatelyToDestination() } );
-      this.electrons.forEach( function( p ){ p.moveImmediatelyToDestination() } );
+      this.protons.forEach( function( p ){ p.moveImmediatelyToDestination(); } );
+      this.neutrons.forEach( function( p ){ p.moveImmediatelyToDestination(); } );
+      this.electrons.forEach( function( p ){ p.moveImmediatelyToDestination(); } );
     },
 
     getWeight: function() {

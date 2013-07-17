@@ -196,7 +196,7 @@ define( function( require ) {
       thisAtomView.stabilityIndicator.visible = visible;
     } );
 
-  };
+  }
 
   // Inherit from Node.
   inherit( Node, AtomNode );
