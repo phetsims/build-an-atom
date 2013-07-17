@@ -28,7 +28,6 @@ define( function( require ) {
    */
   function CountsToElementProblemView( countsToElementProblem, layoutBounds ) {
     ToElementProblemView.call( this, countsToElementProblem, layoutBounds ); // Call super constructor.
-    var thisNode = this;
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToElementProblem.answerAtom );
