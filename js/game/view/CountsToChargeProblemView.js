@@ -61,11 +61,12 @@ define( function( require ) {
       answerValueBackground.removeAllChildren();
       var prepend = newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue,
-        { font: new BAAFont( 22 ),
-          fill: newValue > 0 ? 'red' : newValue < 0 ? 'blue' : 'black',
-          centerX: answerValueBackground.width / 2,
-          centerY: answerValueBackground.height / 2
+        { font: new BAAFont( 100 ),
+          fill: newValue > 0 ? 'red' : newValue < 0 ? 'blue' : 'black'
         } );
+      textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );
+      textNode.centerX = answerValueBackground.width / 2;
+      textNode.centerY = answerValueBackground.height / 2;
       answerValueBackground.addChild( textNode );
     } );
 
