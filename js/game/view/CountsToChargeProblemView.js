@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var ArrowButton = require( 'game/view/ArrowButton' );
+  var ArrowButton = require( 'SCENERY_PHET/ArrowButton' );
   var BAAFont = require( 'common/view/BAAFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
