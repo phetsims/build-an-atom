@@ -1,3 +1,9 @@
+7/17/2014 Implemented counts-to-charge problem
+7/16/2014 Implemented schematic-to-element problem
+7/16/2014 Added credits
+7/16/2014 Added the scoreboard
+7/15/2014 Turned touch-to-snag back on
+# 00.00.00-14
 7/12/2014 Made the change meter background be drawn rather than an SVG - this improves performance.
 7/10/2014 Made electrons stack better in the bucket.
 7/10/2014 Made first and second tab use same base class so that they look more alike.
