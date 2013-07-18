@@ -61,7 +61,7 @@ define( function( require ) {
       answerValueBackground.removeAllChildren();
       var prepend = newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue,
-        { font: new BAAFont( 100 ),
+        { font: new BAAFont( 22 ),
           fill: newValue > 0 ? 'red' : newValue < 0 ? 'blue' : 'black'
         } );
       textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );
@@ -75,12 +75,12 @@ define( function( require ) {
     particleCountsNode.centerY = layoutBounds.height * 0.5;
     questionPrompt.centerX = layoutBounds.width * 0.65;
     questionPrompt.centerY = layoutBounds.height * 0.5;
-    upArrowButton.left = questionPrompt.right + 10;
-    upArrowButton.bottom = questionPrompt.centerY - 1;
-    downArrowButton.left = questionPrompt.right + 10;
-    downArrowButton.top = questionPrompt.centerY + 1;
     answerValueBackground.centerY = questionPrompt.centerY;
-    answerValueBackground.left = upArrowButton.right + 2;
+    answerValueBackground.left = questionPrompt.right + 10;
+    upArrowButton.left = answerValueBackground.right + 2;
+    upArrowButton.bottom = answerValueBackground.centerY - 1;
+    downArrowButton.left = answerValueBackground.right + 2;
+    downArrowButton.top = answerValueBackground.centerY + 1;
   }
 
   // Inherit from ProblemView.
