@@ -115,8 +115,8 @@ define( function( require ) {
     } );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( imageLoader.getImage( 'scale_new.svg' ) );
-    scaleImage.scale( 0.30 ); // Scale empirically determined to match design layout.
+    var scaleImage = new Image( imageLoader.getImage( 'scale.png' ) );
+    scaleImage.scale( 0.32 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
     // Add the charge meter.

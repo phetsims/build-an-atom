@@ -19,7 +19,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
-  var WIDTH = 120; // In screen coords, which are roughly pixels.
+  var WIDTH = 122; // In screen coords, which are roughly pixels.
   var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
   function MassNumberDisplay( numberAtom ) {
@@ -27,7 +27,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Add the background image, i.e. the scale.
-    var scaleImage = new Image( imageLoader.getImage( 'scale_new.svg' ) );
+    var scaleImage = new Image( imageLoader.getImage( 'scale.png' ) );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 
@@ -38,7 +38,7 @@ define( function( require ) {
         stroke: 'black',
         lineWidth: 1,
         // Position is based on the background image, and may need tweaking if the image is changed.
-        bottom: scaleImage.bottom - 7,
+        bottom: scaleImage.bottom - 6,
         centerX: scaleImage.centerX + 1
       } );
     this.addChild( readoutBackground );

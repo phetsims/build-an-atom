@@ -12,9 +12,7 @@ define( function( require ) {
       'BAA_symbol.png',
       'blue-stopwatch.png',
       'game_icon.png',
-      'scale.svg',
-      'scale_new.svg',
-      'scale_new2.svg'
+      'scale.png'
     ]
   };
 } );
