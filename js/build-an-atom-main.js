@@ -72,9 +72,7 @@ require(
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolTabView( model ); } },
         { name: 'Game',
-//          icon: gameIcon,
           icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
-//          icon: new Image( imageLoader.getImage( 'bugga.png' ) ),
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() { return new BAAGameModel(); },
           createView: function( model ) { return new BAAGameView( model ); } }
