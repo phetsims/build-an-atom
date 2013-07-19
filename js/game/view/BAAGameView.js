@@ -24,7 +24,7 @@ define( function( require ) {
    */
   function BAAGameView( gameModel ) {
 
-    TabView.call( this ); // Call super constructor.
+    TabView.call( this, { renderer: 'svg' } ); // Call super constructor.
     var thisScene = this;
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
