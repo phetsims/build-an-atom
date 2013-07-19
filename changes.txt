@@ -1,3 +1,4 @@
+7/19/2014 Changed the background color of the symbol tab icon to match the current color on the tab.
 7/19/2014 Make the check boxes less eye catching.
 7/19/2014 Added new icon for the game
 7/18/2014 Modified answer entry layout for counts-to-charge problem
