@@ -201,13 +201,13 @@ define( function( require ) {
     particleCountDisplay.left = CONTROLS_INSET;
     this.periodicTableBox.top = CONTROLS_INSET;
     this.periodicTableBox.right = this.layoutBounds.width - CONTROLS_INSET;
-    resetButton.left = this.periodicTableBox.left;
-    labelVizControlPanel.centerX = ( resetButton.right + this.layoutBounds.width ) / 2;
+    labelVizControlPanel.left = this.periodicTableBox.left + 10;
     labelVizControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    resetButton.centerY = labelVizControlPanel.centerY;
     labelVizControlPanelTitle.bottom = labelVizControlPanel.top;
     labelVizControlPanelTitle.centerX = labelVizControlPanel.centerX;
-    electronViewButtonGroup.left = atomNode.right + 5;
+    resetButton.centerX = ( labelVizControlPanel.right + this.periodicTableBox.right ) / 2;
+    resetButton.centerY = labelVizControlPanel.centerY;
+    electronViewButtonGroup.right = this.periodicTableBox.left - 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
   }
 

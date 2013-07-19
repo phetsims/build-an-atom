@@ -1,3 +1,5 @@
+7/19/2014 Fixed an issue where the position of the electron representation selection would move between tabs 1 & 2 in some browsers.
+7/19/2014 Swapped positions of the label control box and the reset button.
 7/19/2014 Changed the background color of the symbol tab icon to match the current color on the tab.
 7/19/2014 Make the check boxes less eye catching.
 7/19/2014 Added new icon for the game
