@@ -11,6 +11,7 @@ define( function( require ) {
       'BAA_atom.png',
       'BAA_symbol.png',
       'blue-stopwatch.png',
+      'game_icon.png',
       'scale.svg',
       'scale_new.svg',
       'scale_new2.svg'

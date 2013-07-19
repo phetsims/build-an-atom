@@ -57,6 +57,7 @@ require(
 
       //Create and start the sim
       //TODO: i18n
+      debugger;
       new Sim( 'Build an Atom', [
         { name: 'Atom',
           icon: new Image( imageLoader.getImage( 'BAA_atom.png' ) ),
@@ -72,7 +73,9 @@ require(
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolTabView( model ); } },
         { name: 'Game',
-          icon: gameIcon,
+//          icon: gameIcon,
+          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
+//          icon: new Image( imageLoader.getImage( 'bugga.png' ) ),
           backgroundColor: 'rgb(255, 254, 223)',
           createModel: function() { return new BAAGameModel(); },
           createView: function( model ) { return new BAAGameView( model ); } }
