@@ -57,7 +57,6 @@ require(
 
       //Create and start the sim
       //TODO: i18n
-      debugger;
       new Sim( 'Build an Atom', [
         { name: 'Atom',
           icon: new Image( imageLoader.getImage( 'BAA_atom.png' ) ),
