@@ -18,7 +18,7 @@ define( function( require ) {
       gameModel.startSubGame( 'periodicTableGame' );
     } );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( 'Mass And Change Game', function() {
+    var massAndChangeGameButton = new GameStartButton( 'Mass And Charge Game', function() {
       gameModel.startSubGame( 'massAndChargeGame' );
     } );
     this.addChild( massAndChangeGameButton );
