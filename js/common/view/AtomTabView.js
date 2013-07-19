@@ -13,7 +13,7 @@ define( function( require ) {
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'common/view/AtomNode' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
@@ -34,9 +34,9 @@ define( function( require ) {
 
   // Constants
   var CONTROLS_INSET = 10;
-  var LABEL_CONTROL_FONT = new BAAFont( 24 );
-  var ELECTRON_VIEW_CONTROL_FONT = new BAAFont( 14 );
-  var ACCORDION_BOX_FONT = new BAAFont( 18 );
+  var LABEL_CONTROL_FONT = new PhetFont( 24 );
+  var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );
+  var ACCORDION_BOX_FONT = new PhetFont( 18 );
 
   /**
    * Constructor.
@@ -165,7 +165,7 @@ define( function( require ) {
 
     labelVizControlPanel.scale( 0.65 );  // TODO: Seems a bit of a hack.  Is there a better way to get the check boxes to scale?
     this.addChild( labelVizControlPanel );
-    var labelVizControlPanelTitle = new Text( 'Show', new BAAFont( 16, 'bold' ) ); // TODO: i18n
+    var labelVizControlPanelTitle = new Text( 'Show', new PhetFont( 16, 'bold' ) ); // TODO: i18n
     this.addChild( labelVizControlPanelTitle );
 
     // Add the radio buttons that control the electron representation in the atom. TODO: i18n
@@ -173,7 +173,7 @@ define( function( require ) {
     var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( 'Orbits', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( 'Cloud', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
-    electronViewButtonGroup.addChild( new Text( 'Model:', { font: new BAAFont( 18, 'bold' ) } ) );
+    electronViewButtonGroup.addChild( new Text( 'Model:', { font: new PhetFont( 18, 'bold' ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
     orbitsButton.left = electronViewButtonGroup.left + 5;
     electronViewButtonGroup.addChild( orbitsButton );

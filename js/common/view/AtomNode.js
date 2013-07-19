@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ElectronCloudView = require( 'common/view/ElectronCloudView' );
   var ElectronShellView = require( 'common/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -85,7 +85,7 @@ define( function( require ) {
     var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35;
     this.elementName = new Text( '',
       {
-        font: new BAAFont( elementNameFontSize ),
+        font: new PhetFont( elementNameFontSize ),
         fill: 'red',
         center: elementNameCenterPos
       } );
@@ -117,7 +117,7 @@ define( function( require ) {
     var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
     this.ionIndicator = new Text( '',
       {
-        font: new BAAFont( 24 ),
+        font: new PhetFont( 24 ),
         fill: 'black',
         translation: ionIndicatorTranslation
       } );
@@ -159,7 +159,7 @@ define( function( require ) {
     var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
     this.stabilityIndicator = new Text( '',
       {
-        font: new BAAFont( 24 ),
+        font: new PhetFont( 24 ),
         fill: 'black',
         center: stabilityIndicatorCenterPos
       } );

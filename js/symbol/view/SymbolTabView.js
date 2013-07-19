@@ -8,7 +8,7 @@ define( function( require ) {
 
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomTabView = require( 'common/view/AtomTabView' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'common/SharedConstants' );
@@ -35,7 +35,7 @@ define( function( require ) {
         contentPosition: 'center',
         titlePosition: 'left',
         buttonPosition: 'right',
-        font: new BAAFont( 20 )
+        font: new PhetFont( 20 )
       } );
     this.addChild( symbolBox );
 

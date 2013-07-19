@@ -7,7 +7,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var TabView = require( 'JOIST/TabView' );
@@ -47,7 +47,7 @@ define( function( require ) {
         thisScene.removeAllChildren();
         thisScene.addChild( state.createView( thisScene.layoutBounds ) );
         thisScene.addChild( new Text( 'Problem ' + ( gameModel.problemIndex + 1 ) + ' of ' + gameModel.problemSet.length,
-          { font: new BAAFont( 16 ), top: 30, left: 10 } ) );
+          { font: new PhetFont( 16 ), top: 30, left: 10 } ) );
         thisScene.addChild( scoreboard );
       }
     } );

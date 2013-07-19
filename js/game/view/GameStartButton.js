@@ -2,7 +2,7 @@
 define( function( require ) {
   'use strict';
 
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -11,7 +11,7 @@ define( function( require ) {
 
   var WIDTH = 700; // In screen coords, which are roughly pixels.
   var HEIGHT = 75; // In screen coords, which are roughly pixels.
-  var TITLE_FONT = new BAAFont( 35 );
+  var TITLE_FONT = new PhetFont( 35 );
   var INSET = 20; // In screen coords, which are roughly pixels.
 
   var GameStartButton = function GameStartButton( text, onFireFunction ) {

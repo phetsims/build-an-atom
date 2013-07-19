@@ -9,7 +9,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -18,7 +18,7 @@ define( function( require ) {
 
     Node.call( this, options ); // Call super constructor.
 
-    options = _.extend( { font: new BAAFont( 24 )}, options );
+    options = _.extend( { font: new PhetFont( 24 )}, options );
 
     // TODO: i18n
     var protonCountTitle = new Text( 'Protons:', options.font );

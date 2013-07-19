@@ -11,7 +11,7 @@ define( function( require ) {
 
   // Imports
   var ArrowButton = require( 'SCENERY_PHET/ArrowButton' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -41,7 +41,7 @@ define( function( require ) {
     this.problemPresentationNode.addChild( particleCountsNode );
 
     // Question
-    var questionPrompt = new MultiLineText( "What is the\ntotal charge?", { align: 'left', font: new BAAFont( 24 ) } );
+    var questionPrompt = new MultiLineText( "What is the\ntotal charge?", { align: 'left', font: new PhetFont( 24 ) } );
 
     // TODO: Put this into a ValueEntryNode class or something.
     var arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15 };
@@ -61,7 +61,7 @@ define( function( require ) {
       answerValueBackground.removeAllChildren();
       var prepend = newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue,
-        { font: new BAAFont( 22 ),
+        { font: new PhetFont( 22 ),
           fill: newValue > 0 ? 'red' : newValue < 0 ? 'blue' : 'black'
         } );
       textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );
@@ -97,7 +97,7 @@ define( function( require ) {
       },
 
       clearAnswer: function() {
-        this.chargeAnswer.reset;
+        this.chargeAnswer.reset();
       },
 
       displayCorrectAnswer: function() {

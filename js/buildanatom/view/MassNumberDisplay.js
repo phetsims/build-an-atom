@@ -8,7 +8,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( 'imageLoader' );
@@ -48,7 +48,7 @@ define( function( require ) {
       readoutBackground.removeAllChildren();
       var numericalText = new Text( atomicMass,
         {
-          font: new BAAFont( 24, 'bold' )
+          font: new PhetFont( 24, 'bold' )
         } );
       numericalText.scale( Math.min( READOUT_SIZE.height * 0.9 / numericalText.height,
         READOUT_SIZE.width * 0.9 / numericalText.width ) );

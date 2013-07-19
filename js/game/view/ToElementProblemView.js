@@ -12,7 +12,7 @@ define( function( require ) {
 
   // Imports
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
@@ -22,7 +22,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
-  var TITLE_FONT = new BAAFont( 30 );
+  var TITLE_FONT = new PhetFont( 30 );
   var INSET = 10;
 
   /**
@@ -44,9 +44,9 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Neutral atom versus ion question. TODO i18n of this section.
-    var neutralVersusIonPrompt = new Text( 'Is it:', { font: new BAAFont( 24 )} );
-    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( 'Neutral Atom', {font: new BAAFont( 18 )} ), { radius: 8 } );
-    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( 'Ion', {font: new BAAFont( 18 )} ), { radius: 8 } );
+    var neutralVersusIonPrompt = new Text( 'Is it:', { font: new PhetFont( 24 )} );
+    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( 'Neutral Atom', {font: new PhetFont( 18 )} ), { radius: 8 } );
+    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( 'Ion', {font: new PhetFont( 18 )} ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;

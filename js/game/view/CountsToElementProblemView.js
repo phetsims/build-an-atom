@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ParticleCountsNode = require( 'game/view/ParticleCountsNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );

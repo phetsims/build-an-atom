@@ -9,7 +9,7 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomTabView = require( 'common/view/AtomTabView' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeComparisonDisplay = require( 'buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -19,7 +19,7 @@ define( function( require ) {
 
   // Constants
   var INTER_BOX_SPACING = 7;
-  var ACCORDION_BOX_FONT = new BAAFont( 18 );
+  var ACCORDION_BOX_FONT = new PhetFont( 18 );
 
   /**
    * Constructor.

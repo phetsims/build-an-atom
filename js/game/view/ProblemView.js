@@ -11,7 +11,7 @@ define( function( require ) {
 
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var TextButton = require( 'SUN/TextButton' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -24,7 +24,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
-  var BUTTON_FONT = new BAAFont( 20 );
+  var BUTTON_FONT = new PhetFont( 20 );
   var BUTTON_FILL = 'rgb( 0, 255, 153 )';
 
   /**

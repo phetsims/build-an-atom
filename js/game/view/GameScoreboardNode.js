@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( 'imageLoader' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -20,7 +20,7 @@ define( function( require ) {
   var TextButton = require( 'SUN/TextButton' );
 
   // Constants
-  var FONT = new BAAFont( 20 );
+  var FONT = new PhetFont( 20 );
   var X_MARGIN = 20;
   var Y_MARGIN = 5;
 
@@ -72,7 +72,7 @@ define( function( require ) {
     // New Game button
     var newGameButton = new TextButton( 'New Game', // TODO: i18n
       function() { gameModel.newGame(); },
-      { font: new BAAFont( 20 ), rectangleFill: 'rgb(  235, 235, 235 )' } );
+      { font: new PhetFont( 20 ), rectangleFill: 'rgb(  235, 235, 235 )' } );
     thisNode.addChild( newGameButton );
 
     // Layout - everything in a row, vertically centered, offsets were set by eyeballing them.

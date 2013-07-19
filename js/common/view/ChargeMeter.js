@@ -9,7 +9,7 @@ define( function( require ) {
 
   // Imports
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
@@ -131,7 +131,7 @@ define( function( require ) {
         }
         var readoutText = new Text( sign + numberAtom.charge,
           {
-            font: new BAAFont( 24, 'bold' ),
+            font: new PhetFont( 24, 'bold' ),
             fill: textColor
           } );
         readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );

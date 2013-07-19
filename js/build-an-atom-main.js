@@ -3,7 +3,7 @@ require(
   [
     'buildanatom/model/BuildAnAtomModel',
     'buildanatom/view/BuildAnAtomTabView',
-    'common/view/BAAFont',
+    'SCENERY_PHET/PhetFont',
     'game/model/BAAGameModel',
     'game/view/BAAGameView',
     'symbol/view/SymbolTabView',
@@ -15,7 +15,7 @@ require(
     'JOIST/SimLauncher',
     'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomTabView, BAAFont, BAAGameModel, BAAGameView, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomTabView, PhetFont, BAAGameModel, BAAGameView, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     'use strict';
 
     var simOptions = {
@@ -48,7 +48,7 @@ require(
     ) );
     gameIcon.addChild( new Text( '?',
       {
-        font: new BAAFont( 40, 'bold' ),
+        font: new PhetFont( 40, 'bold' ),
         fill: 'rgba(50, 50, 50, 20)',
         center: gameIcon.center
       } ) );

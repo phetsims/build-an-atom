@@ -4,7 +4,7 @@ define( function( require ) {
 
   // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( 'imageLoader' );
@@ -17,7 +17,7 @@ define( function( require ) {
   // Constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var NUMBER_FONT = new BAAFont( 56 );
+  var NUMBER_FONT = new PhetFont( 56 );
   var NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
 
   /**
@@ -43,7 +43,7 @@ define( function( require ) {
     // Add the symbol text.
     var symbolText = new Text( '',
       {
-        font: new BAAFont( 150 ),
+        font: new PhetFont( 150 ),
         fill: 'black',
         center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
       } );

@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAFont = require( 'common/view/BAAFont' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -21,7 +21,7 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
 
   // Constants
-  var FONT = new BAAFont( 14 );
+  var FONT = new PhetFont( 14 );
 
   /**
    * @param numberAtom Model representation of the atom
