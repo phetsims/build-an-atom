@@ -34,7 +34,7 @@ define( function( require ) {
 
   // Constants
   var CONTROLS_INSET = 10;
-  var LABEL_CONTROL_FONT = new PhetFont( 24 );
+  var LABEL_CONTROL_FONT = new PhetFont( 32 );
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );
   var ACCORDION_BOX_FONT = new PhetFont( 18 );
 
@@ -163,7 +163,7 @@ define( function( require ) {
       labelVizControlPanel.addChild( dividerLine1 );
     }
 
-    labelVizControlPanel.scale( 0.65 );  // TODO: Seems a bit of a hack.  Is there a better way to get the check boxes to scale?
+    labelVizControlPanel.scale( 0.55 );  // Use a large font, then scale down to get smaller checkboxes.
     this.addChild( labelVizControlPanel );
     var labelVizControlPanelTitle = new Text( 'Show', new PhetFont( 16, 'bold' ) ); // TODO: i18n
     this.addChild( labelVizControlPanelTitle );

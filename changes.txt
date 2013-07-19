@@ -1,3 +1,6 @@
+7/19/2014 Make the check boxes less eye catching.
+7/19/2014 Added new icon for the game
+7/18/2014 Modified answer entry layout for counts-to-charge problem
 7/17/2014 Implemented counts-to-charge problem
 7/16/2014 Implemented schematic-to-element problem
 7/16/2014 Added credits
