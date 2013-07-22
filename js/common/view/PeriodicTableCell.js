@@ -24,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function PeriodicTableCell( atomicNumber, dimension, interactive, numberAtom ) {
-    Node.call( this, { renderer: 'svg' } ); // Call super constructor.
+    Node.call( this ); // Call super constructor.
 
     this.normalFill = interactive ? new LinearGradient( 0, 0, 0, dimension ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ) : 'white';
     this.highlightedFill = 'yellow';

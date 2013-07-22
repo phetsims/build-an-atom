@@ -36,7 +36,7 @@ define( function( require ) {
     var panelContents = new Node();
 
     //TODO: i18n
-    var titleOptions = { font: new PhetFont( 14 ), renderer: 'svg' };
+    var titleOptions = { font: new PhetFont( 14 ) };
     var protonTitle = new Text( 'Protons:', titleOptions );
     panelContents.addChild( protonTitle );
     var neutronTitle = new Text( 'Neutrons:', titleOptions );

@@ -87,8 +87,7 @@ define( function( require ) {
       {
         font: new PhetFont( elementNameFontSize ),
         fill: 'red',
-        center: elementNameCenterPos,
-        renderer: 'svg'
+        center: elementNameCenterPos
       } );
     this.addChild( this.elementName );
 
@@ -120,8 +119,7 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         fill: 'black',
-        translation: ionIndicatorTranslation,
-        renderer: 'svg'
+        translation: ionIndicatorTranslation
       } );
     this.addChild( this.ionIndicator );
 
@@ -163,8 +161,7 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         fill: 'black',
-        center: stabilityIndicatorCenterPos,
-        renderer: 'svg'
+        center: stabilityIndicatorCenterPos
       } );
     this.addChild( this.stabilityIndicator );
 
