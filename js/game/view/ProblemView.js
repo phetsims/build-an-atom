@@ -11,6 +11,7 @@ define( function( require ) {
 
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
+  var Color = require( 'SCENERY/util/Color' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var TextButton = require( 'SUN/TextButton' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
@@ -25,7 +26,7 @@ define( function( require ) {
 
   // Constants
   var BUTTON_FONT = new PhetFont( 20 );
-  var BUTTON_FILL = 'rgb( 0, 255, 153 )';
+  var BUTTON_FILL = new Color( 0, 255, 153 );
 
   /**
    * Main constructor function.
@@ -55,25 +56,25 @@ define( function( require ) {
     this.buttons = [];
     this.checkAnswerButton = new TextButton( 'Check',
       function() { thisNode.checkAnswer(); },
-      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
+      { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
     this.nextButton = new TextButton( 'Next',
       function() { problem.next(); },
-      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
+      { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
     this.tryAgainButton = new TextButton( 'Try Again',
       function() { problem.tryAgain(); },
-      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
+      { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
     this.displayCorrectAnswerButton = new TextButton( 'Display Correct Answer',
       function() { problem.displayCorrectAnswer(); },
-      { font: BUTTON_FONT, rectangleFill: BUTTON_FILL } );
+      { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.displayCorrectAnswerButton );
     this.buttons.push( this.displayCorrectAnswerButton );
 

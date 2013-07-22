@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var Color = require( 'SCENERY/util/Color' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( 'imageLoader' );
@@ -72,7 +73,7 @@ define( function( require ) {
     // New Game button
     var newGameButton = new TextButton( 'New Game', // TODO: i18n
       function() { gameModel.newGame(); },
-      { font: new PhetFont( 20 ), rectangleFill: 'rgb(  235, 235, 235 )' } );
+      { font: new PhetFont( 20 ), rectangleFillUp: new Color( 235, 235, 235 ) } );
     thisNode.addChild( newGameButton );
 
     // Layout - everything in a row, vertically centered, offsets were set by eyeballing them.
