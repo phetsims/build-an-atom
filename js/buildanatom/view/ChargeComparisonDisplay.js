@@ -17,7 +17,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   // Constants
-  var SYMBOL_WIDTH = 15;
+  var SYMBOL_WIDTH = 12;
   var VERTICAL_INSET = 5;
   var INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
   var SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;

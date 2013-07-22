@@ -1,4 +1,5 @@
-7/19/2014 Changed the mass scale image to be a PNG instead of an SVG, since the SVG looked bad on some browsers (mostly FireFox).
+7/22/2014 Fixed an issue where the plus/minus symbols would go outside the bounding box when all protons and/or neutrons added.
+7/19/2014 Changed the mass scale image to be a PNG instead of an SVG, since the SVG looked jagged and weird on some browsers (mostly FireFox).
 7/19/2014 Fixed typo on game tab - "Mass and Change" fixed to "Mass and Charge".
 7/19/2014 Switched all tabs to SVG rendering in order to try to make the fonts look better across platforms.
 7/19/2014 Fixed an issue where the position of the electron representation selection would move between tabs 1 & 2 in some browsers.
