@@ -87,7 +87,8 @@ define( function( require ) {
       {
         font: new PhetFont( elementNameFontSize ),
         fill: 'red',
-        center: elementNameCenterPos
+        center: elementNameCenterPos,
+        renderer: 'svg'
       } );
     this.addChild( this.elementName );
 
@@ -119,7 +120,8 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         fill: 'black',
-        translation: ionIndicatorTranslation
+        translation: ionIndicatorTranslation,
+        renderer: 'svg'
       } );
     this.addChild( this.ionIndicator );
 
@@ -161,7 +163,8 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         fill: 'black',
-        center: stabilityIndicatorCenterPos
+        center: stabilityIndicatorCenterPos,
+        renderer: 'svg'
       } );
     this.addChild( this.stabilityIndicator );
 
@@ -195,7 +198,6 @@ define( function( require ) {
     options.showStableOrUnstableProperty.link( function( visible ) {
       thisAtomView.stabilityIndicator.visible = visible;
     } );
-
   }
 
   // Inherit from Node.

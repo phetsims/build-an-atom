@@ -36,11 +36,12 @@ define( function( require ) {
     var panelContents = new Node();
 
     //TODO: i18n
-    var protonTitle = new Text( 'Protons:', { font: FONT } );
+    var titleOptions = { font: new PhetFont( 14 ), renderer: 'svg' };
+    var protonTitle = new Text( 'Protons:', titleOptions );
     panelContents.addChild( protonTitle );
-    var neutronTitle = new Text( 'Neutrons:', { font: FONT } );
+    var neutronTitle = new Text( 'Neutrons:', titleOptions );
     panelContents.addChild( neutronTitle );
-    var electronTitle = new Text( 'Electrons:', { font: FONT } );
+    var electronTitle = new Text( 'Electrons:', titleOptions );
     panelContents.addChild( electronTitle );
 
     // Lay out the labels.

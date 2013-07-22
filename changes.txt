@@ -1,3 +1,4 @@
+7/22/2014 Removed the 'svg' renderer spec from the tab view classes and moved it down to locations where text is rendered.
 7/22/2014 Integrated a reset button that highlights on hover, darkens on press.
 7/22/2014 Adjusted the layout of the mass display so that readout is more consistently centered over the graphic.
 7/22/2014 Fixed an issue where the plus/minus symbols would go outside the bounding box when all protons and/or neutrons added.

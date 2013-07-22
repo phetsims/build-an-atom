@@ -45,7 +45,8 @@ define( function( require ) {
    * @constructor
    */
   function AtomTabView( model ) {
-    TabView.call( this, { renderer: 'svg' } ); // Call super constructor.
+//    TabView.call( this, { renderer: 'svg' } ); // Call super constructor.
+    TabView.call( this ); // Call super constructor.
     var thisView = this;
     this.model = model;
     this.resetFunctions = [];
