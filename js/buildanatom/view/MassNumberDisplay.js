@@ -39,7 +39,7 @@ define( function( require ) {
         lineWidth: 1,
         // Position is based on the background image, and may need tweaking if the image is changed.
         bottom: scaleImage.bottom - 6,
-        centerX: scaleImage.centerX + 1
+        centerX: scaleImage.centerX
       } );
     this.addChild( readoutBackground );
 
