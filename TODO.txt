@@ -1,0 +1,4 @@
+Improve performance on iPad (pretty slow in version 0.0.0-15)
+Refresh and republish in order to capture changes to Joist.
+Work out with team if we need easy particle removal from the atom.
+Push fix with "Output Log" turned off.
