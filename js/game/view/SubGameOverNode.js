@@ -3,7 +3,7 @@ define( function( require ) {
   'use strict';
 
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var RectangleButton = require( 'SUN/RectangleButton' );
+  var TextButton = require( 'SUN/TextButton' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -18,11 +18,11 @@ define( function( require ) {
     var gameOverText = new Text( 'Game Completed', {font: new PhetFont( 20 )} );
     this.addChild( gameOverText );
 
-    var doneButton = new RectangleButton( new Text( 'OK', { font: new PhetFont( 24 ) } ),
+    var doneButton = new TextButton( 'OK',
       function() {
         gameModel.state = 'selectSubGame';
       },
-      { fill: 'orange'} );
+      { font: new PhetFont( 24 ), rectangleFillUp: 'orange'} );
     this.addChild( doneButton );
 
     // Layout
