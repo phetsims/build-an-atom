@@ -19,16 +19,18 @@
 
   <title>Build an Atom</title>
 
-  <!--JavaScript dependencies -->
+  <!-- Third-party libraries -->
   <script src="lib/jquery-1.9.1.js"></script>
-  <script src='lib/modernizr-2.6.2.min.js'></script>
   <script src='lib/lodash-1.0.1.js'></script>
   <script src='lib/has.js'></script>
   <script src='lib/PxLoader.js'></script>
   <script src='lib/PxLoaderImage.js'></script>
+
+  <!-- PhET common code that must be loaded pre-RequireJS -->
   <script src="../phetcommon/js/util/query-parameters.js"></script>
   <script src="../phetcommon/js/util/check-assertions.js"></script>
-  <script src="../phetcommon/js/util/check-accessibility.js"></script>
+
+  <!-- Simulation -->
   <script data-main="js/build-an-atom-config.js" src="lib/require-2.1.4.js"></script>
 
 </head>
