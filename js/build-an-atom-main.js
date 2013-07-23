@@ -28,31 +28,6 @@ require(
               'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
-    // TODO: Temporary icon for the game, add something better (screenshot probably) when game is implemented.
-    var gameIcon = new Rectangle( 0, 0, 67, 50, {fill: 'rgb(255, 254, 223)'} );
-    gameIcon.addChild( new Circle( 10,
-      {
-        stroke: 'blue',
-        lineWidth: 0.5,
-        lineDash: [ 1, 1 ],
-        center: gameIcon.center
-      }
-    ) );
-    gameIcon.addChild( new Circle( 20,
-      {
-        stroke: 'blue',
-        lineWidth: 0.5,
-        lineDash: [ 1, 1 ],
-        center: gameIcon.center
-      }
-    ) );
-    gameIcon.addChild( new Text( '?',
-      {
-        font: new PhetFont( 40, 'bold' ),
-        fill: 'rgba(50, 50, 50, 20)',
-        center: gameIcon.center
-      } ) );
-
     SimLauncher.launch( imageLoader, function() {
 
       //Create and start the sim
@@ -65,9 +40,6 @@ require(
           createView: function( model ) { return new BuildAnAtomTabView( model ); } },
         { name: 'Symbol',
           icon: new Image( imageLoader.getImage( 'BAA_symbol.png' ) ),
-//          backgroundColor: 'rgb(255, 230, 179)', // Somewhat orange-ish color (1st try at distinguishing colors)
-//          backgroundColor: 'rgb( 255, 246, 219 )', // Lighter orange-ish.  Looks a bit funny.
-//          backgroundColor: 'rgb( 255, 252, 173 )', // Yellow, somewhat lighter than control panel yellow
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolTabView( model ); } }
