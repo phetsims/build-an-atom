@@ -31,7 +31,7 @@ define( function( require ) {
    */
   var ParticleCountDisplay = function ParticleCountDisplay( numberAtom, maxParticles, maxWidth ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this, { pickable: false } ); // Call super constructor.
 
     var panelContents = new Node();
 

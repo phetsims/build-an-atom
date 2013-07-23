@@ -27,7 +27,7 @@ define( function( require ) {
    */
   var SymbolNode = function SymbolNode( numberAtom ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this, { pickable: false } ); // Call super constructor.
     var thisSymbolNode = this;
 
     // Add the bounding box, which is also the root node for everything else

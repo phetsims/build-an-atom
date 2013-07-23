@@ -32,9 +32,9 @@ define( function( require ) {
     var thisView = this;
 
     // Add the charge meter and charge comparison display inside of an accordion box.
-    var chargeMeterBoxContents = new Node();
+    var chargeMeterBoxContents = new Node( { pickable: false } );
     chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom ) );
-    var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom );
+    var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom ).mutate( { pickable: false } );
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
@@ -52,7 +52,7 @@ define( function( require ) {
     this.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ),
+    var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } ),
       {
         title: 'Mass Number', // TODO: i18n
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
