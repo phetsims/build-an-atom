@@ -42,12 +42,12 @@ require(
           icon: new Image( imageLoader.getImage( 'BAA_symbol.png' ) ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
-          createView: function( model ) { return new SymbolTabView( model ); } }
-//        { name: 'Game',
-//          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
-//          backgroundColor: 'rgb(255, 254, 223)',
-//          createModel: function() { return new BAAGameModel(); },
-//          createView: function( model ) { return new BAAGameView( model ); } }
+          createView: function( model ) { return new SymbolTabView( model ); } },
+        { name: 'Game',
+          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
+          backgroundColor: 'rgb(255, 254, 223)',
+          createModel: function() { return new BAAGameModel(); },
+          createView: function( model ) { return new BAAGameView( model ); } }
       ], simOptions ).start();
     } );
   } );

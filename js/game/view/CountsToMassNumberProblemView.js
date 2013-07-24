@@ -2,7 +2,7 @@
 
 /**
  * Problem where the user is presented with a set of counts for protons,
- * neutrons, and electrons, and must determine the overall charge.
+ * neutrons, and electrons, and must determine the mass number.
  *
  * @author John Blanco
  */
@@ -25,22 +25,22 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToChargeProblemView( countsToChargeProblem, layoutBounds ) {
+  function CountsToMassNumberProblemView( countsToMassNumberProblem, layoutBounds ) {
 
-    this.chargeAnswer = new Property( 0 ); // Must be defined before call to super constructor.
-    ProblemView.call( this, countsToChargeProblem, layoutBounds ); // Call super constructor.
+    this.massNumberAnswer = new Property( 0 ); // Must be defined before call to super constructor.
+    ProblemView.call( this, countsToMassNumberProblem, layoutBounds ); // Call super constructor.
     var thisNode = this;
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
+    var particleCountsNode = new ParticleCountsNode( countsToMassNumberProblem.answerAtom );
     this.problemPresentationNode.addChild( particleCountsNode );
 
     // Question TODO: i18n
-    var questionPrompt = new MultiLineText( "What is the\ntotal charge?", { align: 'left', font: new PhetFont( 24 ) } );
+    var questionPrompt = new MultiLineText( "What is the\nmass number?", { align: 'left', font: new PhetFont( 24 ) } );
     this.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer );
+    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer );
     thisNode.addChild( numberEntryNode );
 
     // Layout
@@ -53,27 +53,27 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, CountsToChargeProblemView,
+  inherit( ProblemView, CountsToMassNumberProblemView,
     {
       checkAnswer: function() {
         var userSubmittedAnswer = new NumberAtom(
           {
             protonCount: this.problem.answerAtom.protonCount,
-            neutronCount: this.problem.answerAtom.neutronCount,
-            electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
+            neutronCount: this.massNumberAnswer.value - this.problem.answerAtom.protonCount,
+            electronCount: this.problem.answerAtom.electronCount
           } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
       clearAnswer: function() {
-        this.chargeAnswer.reset();
+        this.massNumberAnswer.reset();
       },
 
       displayCorrectAnswer: function() {
-        this.chargeAnswer.value = this.problem.answerAtom.charge;
+        this.massNumberAnswer.value = this.problem.answerAtom.massNumber;
       }
     }
   );
 
-  return CountsToChargeProblemView;
+  return CountsToMassNumberProblemView;
 } );

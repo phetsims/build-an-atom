@@ -11,6 +11,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CountsToChargeProblem = require( 'game/model/CountsToChargeProblem' );
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
+  var CountsToMassNumberProblem = require( 'game/model/CountsToMassNumberProblem' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var SchematicToElementProblem = require( 'game/model/SchematicToElementProblem' );
 
@@ -61,6 +62,7 @@ define( function( require ) {
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
+        new CountsToMassNumberProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),
         new CountsToChargeProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),
         new SchematicToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) ),
         new CountsToElementProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ) ) ];

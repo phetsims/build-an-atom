@@ -2,6 +2,8 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
+  var Color = require( 'SCENERY/util/Color' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var TextButton = require( 'SUN/TextButton' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -11,6 +13,13 @@ define( function( require ) {
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var GameStartButton = require( 'game/view/GameStartButton' );
 
+  /**
+   * Constructor.
+   *
+   * @param gameModel
+   * @param layoutBounds
+   * @constructor
+   */
   var StartSubGameNode = function StartSubGameNode( gameModel, layoutBounds ) {
 
     Node.call( this ); // Call super constructor.
@@ -22,7 +31,7 @@ define( function( require ) {
       function() {
         gameModel.state = 'selectSubGame';
       },
-      { font: new PhetFont( 24 ), rectangleFillUp: 'orange'} );
+      { font: new PhetFont( 24 ), rectangleFillUp: new Color( 128, 223, 255 ) } );
     this.addChild( doneButton );
 
     // Layout
