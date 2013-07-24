@@ -96,11 +96,14 @@ define( function( require ) {
       7, 5, 1 );
     meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
+    
+    var numericalReadout;
+    var readoutText;
 
     // Add the numerical display, if present.
+    var readoutSize = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
     if ( options.showNumericalReadout ) {
-      var size = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
-      var numericalReadout = new Rectangle( 0, 0, size.width, size.height, 3, 3,
+      numericalReadout = new Rectangle( 0, 0, readoutSize.width, readoutSize.height, 3, 3,
         {
           fill: 'white',
           stroke: 'black',
@@ -109,6 +112,12 @@ define( function( require ) {
           centerX: background.centerX
         } );
       this.addChild( numericalReadout );
+      
+      // created with placeholder empty-string, which will be changed
+      var readoutText = new Text( " ", {
+        font: new PhetFont( 24, 'bold' )
+      } );
+      numericalReadout.addChild( readoutText );
     }
 
     // Add the listeners that will update the meter and numerical display when the charge changes.
@@ -116,7 +125,6 @@ define( function( require ) {
       meterNeedle.rotation = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
 
       if ( numericalReadout !== undefined ) {
-        numericalReadout.removeAllChildren();
         var sign = '';
         var textColor;
         if ( charge > 0 ) {
@@ -129,15 +137,17 @@ define( function( require ) {
         else {
           textColor = 'black';
         }
-        var readoutText = new Text( sign + numberAtom.charge,
-          {
-            font: new PhetFont( 24, 'bold' ),
-            fill: textColor
-          } );
-        readoutText.scale( Math.min( Math.min( numericalReadout.width * 0.8 / readoutText.width, numericalReadout.height * 0.8 / readoutText.height ), 1 ) );
-        readoutText.center = new Vector2( numericalReadout.width / 2, numericalReadout.height / 2 );
-
-        numericalReadout.addChild( readoutText );
+        readoutText.fill = textColor;
+        
+        var newText = sign + numberAtom.charge;
+        if ( newText !== readoutText.text ) {
+          readoutText.text = newText;
+          
+          // reposition as necessary. TODO: optimize this into one transform change (instead of 3)
+          readoutText.resetTransform();
+          readoutText.scale( Math.min( Math.min( readoutSize.width * 0.8 / readoutText.width, readoutSize.height * 0.8 / readoutText.height ), 1 ) );
+          readoutText.center = new Vector2( readoutSize.width / 2, readoutSize.height / 2 );
+        }
       }
     } );
   };
