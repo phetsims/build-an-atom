@@ -71,11 +71,11 @@ define( function( require ) {
       thisView.addChild( new BucketHole( bucket, mvt ) );
     } );
 
-    // Add the layer where the nucleons will be maintained.
+    // Add the layer where the nucleons will be maintained. relayerNucleus is dependant on this being added directly under the electronLayer
     var nucleonLayer = new Node( { layerSplit: true } );
     this.addChild( nucleonLayer );
 
-    // Add the layer where the electrons will be maintained.
+    // Add the layer where the electrons will be maintained. relayerNucleus is dependant on this being added directly over the nucleonLayer
     var electronLayer = new Node( { layerSplit: true } );
     this.addChild( electronLayer );
 
@@ -99,10 +99,15 @@ define( function( require ) {
           // Central nucleons should be in front
           return -particleView.particle.destination.distance( model.particleAtom.position );
         } );
+        // temporarily remove the nucleonLayer from the scene so that each add/remove call doesn't require stitching
+        if ( thisView.indexOfChild( electronLayer ) - 1 !== thisView.indexOfChild( nucleonLayer ) ) { throw new Error( 'Stacking order assumption invalid' ); }
+        thisView.removeChild( nucleonLayer );
         _.each( particlesInNucleus, function( particleView ) {
           nucleonLayer.removeChild( particleView );
           nucleonLayer.addChild( particleView );
         } );
+        // add the nucleonLayer back, in front of the electronLayer
+        thisView.insertChild( thisView.indexOfChild( electronLayer ), nucleonLayer );
       }
     };
     model.particleAtom.on( 'nucleusReconfigured', function() {
