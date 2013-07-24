@@ -73,7 +73,7 @@ define( function( require ) {
       particleLayer.addChild( spacer );
       var addParticles = function( particleType, numParticles, radius, startX, startY ) {
         for ( var i = 0; i < numParticles; i++ ) {
-          var particle = new ParticleNode( particleType, radius ).mutate( { pickable: false } );
+          var particle = new ParticleNode( particleType, radius );
           particle.y = startY;
           particle.x = startX + i * interParticleSpacing;
           particleLayer.addChild( particle );
