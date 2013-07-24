@@ -86,7 +86,6 @@ define( function( require ) {
           x: startX + newIndex * interParticleSpacing,
           y: startY
         } ) );
-        console.log( startX + newIndex * interParticleSpacing );
       }
       particleLayer.addChild( array[newIndex] );
       currentQuantity += 1;
