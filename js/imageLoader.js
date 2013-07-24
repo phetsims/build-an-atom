@@ -12,6 +12,10 @@ define( function( require ) {
       'BAA_symbol.png',
       'blue-stopwatch.png',
       'game_icon.png',
+      'reset_button_disabled.png',
+      'reset_button_down.png',
+      'reset_button_over.png',
+      'reset_button_up.png',
       'scale.png'
     ]
   };

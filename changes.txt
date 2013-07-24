@@ -1,3 +1,4 @@
+7/24/13 add local copy of new ResetAllButton and associated images
 7/23/2014 Made a number of display nodes explicitly not pickable in an effort to improve dragging performance on iPad.
 # 00.00.00-15
 7/22/2014 Integrated a reset button that highlights on hover, darkens on press.
