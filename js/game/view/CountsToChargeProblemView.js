@@ -40,7 +40,7 @@ define( function( require ) {
     this.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer );
+    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, true );
     thisNode.addChild( numberEntryNode );
 
     // Layout

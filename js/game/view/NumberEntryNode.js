@@ -25,7 +25,7 @@ define( function( require ) {
    * @param options
    * @constructor
    */
-  function NumberEntryNode( numberProperty, options ) {
+  function NumberEntryNode( numberProperty, isCharge, options ) {
 
     Node.call( this, options ); // Call super constructor.
     var thisNode = this;
@@ -47,10 +47,10 @@ define( function( require ) {
     thisNode.addChild( answerValueBackground );
     numberProperty.link( function( newValue ) {
       answerValueBackground.removeAllChildren();
-      var prepend = newValue > 0 ? '+' : '';
+      var prepend = isCharge && newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue,
         { font: new PhetFont( 22 ),
-          fill: newValue > 0 ? 'red' : newValue < 0 ? 'blue' : 'black'
+          fill: !isCharge || newValue === 0 ? 'black' : newValue > 0 ? 'red' : 'blue'
         } );
       textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );
       textNode.centerX = answerValueBackground.width / 2;

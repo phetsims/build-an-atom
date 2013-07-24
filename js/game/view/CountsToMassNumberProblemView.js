@@ -40,7 +40,7 @@ define( function( require ) {
     this.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer );
+    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer, false );
     thisNode.addChild( numberEntryNode );
 
     // Layout
@@ -70,7 +70,7 @@ define( function( require ) {
       },
 
       displayCorrectAnswer: function() {
-        this.massNumberAnswer.value = this.problem.answerAtom.massNumber;
+        this.massNumberAnswer.value = this.problem.answerAtom.atomicMass;
       }
     }
   );
