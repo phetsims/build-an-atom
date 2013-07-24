@@ -85,7 +85,16 @@ define( function( require ) {
     meterWindow.addChild( minusSymbol );
 
     // Add the layer that contains the meter line.
-    var meterNeedleLayer = new Node();
+    var meterNeedleLayer = new Node( {
+      x: meterWindow.centerX,
+      y: meterWindow.bottom - 3
+    } );
+    meterNeedleLayer.setScaleMagnitude( 1, 0.9 ); // match previous scaling behavior
+    var meterNeedle = new ArrowNode(
+      0, 0, // tip at origin, so we can rotate around it
+      0, 3 - meterWindowHeight,
+      7, 5, 1 );
+    meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
 
     // Add the numerical display, if present.
@@ -104,16 +113,7 @@ define( function( require ) {
 
     // Add the listeners that will update the meter and numerical display when the charge changes.
     numberAtom.chargeProperty.link( function( charge ) {
-      meterNeedleLayer.removeAllChildren();
-      var deflectionAngle = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
-      var meterNeedle = new ArrowNode( meterWindow.centerX,
-        meterWindow.bottom - 3,
-        meterWindow.centerX + meterWindowHeight * Math.sin( deflectionAngle ),
-        meterWindow.bottom - meterWindowHeight * Math.cos( deflectionAngle ) * 0.9,
-        7,
-        5,
-        1 );
-      meterNeedleLayer.addChild( meterNeedle );
+      meterNeedle.rotation = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
 
       if ( numericalReadout !== undefined ) {
         numericalReadout.removeAllChildren();
