@@ -72,18 +72,18 @@ define( function( require ) {
     boundingBox.addChild( protonCountDisplay );
 
     // Add the atomic mass display.
-    var atomicMassDisplay = new Text( '0',
+    var massNumberDisplay = new Text( '0',
       {
         font: NUMBER_FONT,
         fill: 'black'
       } );
-    boundingBox.addChild( atomicMassDisplay );
+    boundingBox.addChild( massNumberDisplay );
 
     // Add the listener to update the atomic mass.
-    numberAtom.atomicMassProperty.link( function( atomicMass ) {
-      atomicMassDisplay.text = atomicMass;
-      atomicMassDisplay.left = NUMBER_INSET;
-      atomicMassDisplay.top = NUMBER_INSET;
+    numberAtom.massNumberProperty.link( function( massNumber ) {
+      massNumberDisplay.text = massNumber;
+      massNumberDisplay.left = NUMBER_INSET;
+      massNumberDisplay.top = NUMBER_INSET;
     } );
 
     // Add the charge display.
@@ -126,7 +126,7 @@ define( function( require ) {
 
     // Do the layout.
     scaleImage.left = 0;
-    scaleImage.centerY = atomicMassDisplay.centerY;
+    scaleImage.centerY = massNumberDisplay.centerY;
     boundingBox.top = 0;
     boundingBox.left = scaleImage.right + 10;
     chargeMeter.left = boundingBox.right + 10;

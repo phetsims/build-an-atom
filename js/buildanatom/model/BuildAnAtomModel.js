@@ -161,8 +161,8 @@ define( function( require ) {
     this.nucleusStable = true;
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     this.nucleusOffset = Vector2.ZERO;
-    this.numberAtom.atomicMassProperty.link( function( atomicMass ) {
-      var stable = atomicMass > 0 ? AtomIdentifier.isStable( thisModel.numberAtom.protonCount, thisModel.numberAtom.neutronCount ) : true;
+    this.numberAtom.massNumberProperty.link( function( massNumber ) {
+      var stable = massNumber > 0 ? AtomIdentifier.isStable( thisModel.numberAtom.protonCount, thisModel.numberAtom.neutronCount ) : true;
       if ( thisModel.nucleusStable !== stable ) {
         // Stability has changed.
         thisModel.nucleusStable = stable;

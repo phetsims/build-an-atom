@@ -44,9 +44,9 @@ define( function( require ) {
     this.addChild( readoutBackground );
 
     // Add the listeners that will update the numerical display when the charge changes.
-    numberAtom.atomicMassProperty.link( function( atomicMass ) {
+    numberAtom.massNumberProperty.link( function( massNumber ) {
       readoutBackground.removeAllChildren();
-      var numericalText = new Text( atomicMass,
+      var numericalText = new Text( massNumber,
         {
           font: new PhetFont( 24, 'bold' )
         } );

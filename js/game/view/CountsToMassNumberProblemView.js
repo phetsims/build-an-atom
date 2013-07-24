@@ -70,7 +70,7 @@ define( function( require ) {
       },
 
       displayCorrectAnswer: function() {
-        this.massNumberAnswer.value = this.problem.answerAtom.atomicMass;
+        this.massNumberAnswer.value = this.problem.answerAtom.massNumber;
       }
     }
   );

@@ -32,7 +32,7 @@ define( function( require ) {
     this.addDerivedProperty( 'charge', [ 'protonCount', 'electronCount' ], function( protonCount, electronCount ) {
       return protonCount - electronCount;
     } );
-    this.addDerivedProperty( 'atomicMass', [ 'protonCount', 'neutronCount' ], function( protonCount, neutronCount ) {
+    this.addDerivedProperty( 'massNumber', [ 'protonCount', 'neutronCount' ], function( protonCount, neutronCount ) {
       return protonCount + neutronCount;
     } );
     this.addDerivedProperty( 'particleCount', [ 'protonCount', 'neutronCount', 'electronCount' ], function( protonCount, neutronCount, electronCount ) {
