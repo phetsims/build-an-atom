@@ -12,9 +12,9 @@ define( function( require ) {
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  function ParticleNode( particleType, radius ) {
+  function ParticleNode( particleType, radius, options ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this, options ); // Call super constructor.
 
     var colors = { proton: 'red', neutron: 'gray', electron: 'blue' };
     var baseColor = colors[ particleType ];

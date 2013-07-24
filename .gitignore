@@ -1,1 +1,3 @@
 build-an-atom.iml
+node_modules/
+build/

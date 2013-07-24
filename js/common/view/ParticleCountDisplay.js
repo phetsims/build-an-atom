@@ -60,28 +60,71 @@ define( function( require ) {
     var electronRadius = nucleonRadius * 0.6; // Arbitrarily chosen.
     var interParticleSpacing = nucleonRadius * 3;
 
-    // Add the layer where the particles will live.
-    var particleLayer = new Node();
-    panelContents.addChild( particleLayer );
-
     // Add an invisible spacer that will keep the control panel at a min width.
     var spacer = new Rectangle( maxLabelWidth, 0, interParticleSpacing * 3, 1 );
 
+    // Add the layer where the particles will live.
+    var particleLayer = new Node( { children: [spacer] } );
+    panelContents.addChild( particleLayer );
+    
+    // stored ParticleNode instances that are positioned correctly, so we just have to add/remove the changed ones (faster than full rebuild)
+    var protons = [];
+    var neutrons = [];
+    var electrons = [];
+    
+    // counts of the displayed number of particles
+    var protonDisplayCount = 0;
+    var neutronDisplayCount = 0;
+    var electronDisplayCount = 0;
+    
+    // increase the particle count by 1, and return the currently displayed quantity array should be protons, neutrons, or electrons
+    function incrementParticle( array, currentQuantity, particleType, radius, startX, startY ) {
+      var newIndex = currentQuantity;
+      if ( newIndex === array.length ) {
+        // we need to create a new particle
+        array.push( new ParticleNode( particleType, radius, {
+          x: startX + newIndex * interParticleSpacing,
+          y: startY
+        } ) );
+      }
+      particleLayer.addChild( array[newIndex] );
+      currentQuantity += 1;
+      return currentQuantity;
+    }
+    
+    // decrease the particle count by 1, and return the currently displayed quantity. array should be protons, neutrons, or electrons
+    function decrementParticle( array, currentQuantity ) {
+      currentQuantity -= 1;
+      particleLayer.removeChild( array[currentQuantity] );
+      return currentQuantity;
+    }
+    
     // Function that updates that displayed particles.
     var updateParticles = function( atom ) {
-      particleLayer.removeAllChildren();
-      particleLayer.addChild( spacer );
-      var addParticles = function( particleType, numParticles, radius, startX, startY ) {
-        for ( var i = 0; i < numParticles; i++ ) {
-          var particle = new ParticleNode( particleType, radius ).mutate( { pickable: false } );
-          particle.y = startY;
-          particle.x = startX + i * interParticleSpacing;
-          particleLayer.addChild( particle );
-        }
-      };
-      addParticles( 'proton', atom.protonCount, nucleonRadius, protonTitle.right + interParticleSpacing, protonTitle.center.y );
-      addParticles( 'neutron', atom.neutronCount, nucleonRadius, neutronTitle.right + interParticleSpacing, neutronTitle.center.y );
-      addParticles( 'electron', atom.electronCount, electronRadius, electronTitle.right + interParticleSpacing, electronTitle.center.y );
+      // feel free to refactor this, although we'd need to get a passable reference to the counts (that's why there is duplication now)
+      while ( atom.protonCount > protonDisplayCount ) {
+        protonDisplayCount = incrementParticle( protons, protonDisplayCount, 'proton', nucleonRadius,
+                                                protonTitle.right + interParticleSpacing, protonTitle.center.y );
+      }
+      while ( atom.protonCount < protonDisplayCount ) {
+        protonDisplayCount = decrementParticle( protons, protonDisplayCount );
+      }
+      
+      while ( atom.neutronCount > neutronDisplayCount ) {
+        neutronDisplayCount = incrementParticle( neutrons, neutronDisplayCount, 'neutron', nucleonRadius,
+                                                 neutronTitle.right + interParticleSpacing, neutronTitle.center.y );
+      }
+      while ( atom.neutronCount < neutronDisplayCount ) {
+        neutronDisplayCount = decrementParticle( neutrons, neutronDisplayCount );
+      }
+      
+      while ( atom.electronCount > electronDisplayCount ) {
+        electronDisplayCount = incrementParticle( electrons, electronDisplayCount, 'electron', electronRadius,
+                                                  electronTitle.right + interParticleSpacing, electronTitle.center.y );
+      }
+      while ( atom.electronCount < electronDisplayCount ) {
+        electronDisplayCount = decrementParticle( electrons, electronDisplayCount );
+      }
     };
 
     // Hook up the update function.
