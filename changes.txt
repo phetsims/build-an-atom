@@ -1,37 +1,37 @@
-7/24/13 add local copy of new ResetAllButton and associated images
-7/23/2014 Made a number of display nodes explicitly not pickable in an effort to improve dragging performance on iPad.
+7/24/2013 add local copy of new ResetAllButton and associated images
+7/23/2013 Made a number of display nodes explicitly not pickable in an effort to improve dragging performance on iPad.
 # 00.00.00-15
-7/22/2014 Integrated a reset button that highlights on hover, darkens on press.
-7/22/2014 Adjusted the layout of the mass display so that readout is more consistently centered over the graphic.
-7/22/2014 Fixed an issue where the plus/minus symbols would go outside the bounding box when all protons and/or neutrons added.
-7/19/2014 Changed the mass scale image to be a PNG instead of an SVG, since the SVG looked jagged and weird on some browsers (mostly FireFox).
-7/19/2014 Fixed typo on game tab - "Mass and Change" fixed to "Mass and Charge".
-7/19/2014 Switched all tabs to SVG rendering in order to try to make the fonts look better across platforms.
-7/19/2014 Fixed an issue where the position of the electron representation selection would move between tabs 1 & 2 in some browsers.
-7/19/2014 Swapped positions of the label control box and the reset button.
-7/19/2014 Changed the background color of the symbol tab icon to match the current color on the tab.
-7/19/2014 Make the check boxes less eye catching.
-7/19/2014 Added new icon for the game
-7/18/2014 Modified answer entry layout for counts-to-charge problem
-7/17/2014 Implemented counts-to-charge problem
-7/16/2014 Implemented schematic-to-element problem
-7/16/2014 Added credits
-7/16/2014 Added the scoreboard
-7/15/2014 Turned touch-to-snag back on
+7/22/2013 Integrated a reset button that highlights on hover, darkens on press.
+7/22/2013 Adjusted the layout of the mass display so that readout is more consistently centered over the graphic.
+7/22/2013 Fixed an issue where the plus/minus symbols would go outside the bounding box when all protons and/or neutrons added.
+7/19/2013 Changed the mass scale image to be a PNG instead of an SVG, since the SVG looked jagged and weird on some browsers (mostly FireFox).
+7/19/2013 Fixed typo on game tab - "Mass and Change" fixed to "Mass and Charge".
+7/19/2013 Switched all tabs to SVG rendering in order to try to make the fonts look better across platforms.
+7/19/2013 Fixed an issue where the position of the electron representation selection would move between tabs 1 & 2 in some browsers.
+7/19/2013 Swapped positions of the label control box and the reset button.
+7/19/2013 Changed the background color of the symbol tab icon to match the current color on the tab.
+7/19/2013 Make the check boxes less eye catching.
+7/19/2013 Added new icon for the game
+7/18/2013 Modified answer entry layout for counts-to-charge problem
+7/17/2013 Implemented counts-to-charge problem
+7/16/2013 Implemented schematic-to-element problem
+7/16/2013 Added credits
+7/16/2013 Added the scoreboard
+7/15/2013 Turned touch-to-snag back on
 # 00.00.00-14
-7/12/2014 Made the change meter background be drawn rather than an SVG - this improves performance.
-7/10/2014 Made electrons stack better in the bucket.
-7/10/2014 Made first and second tab use same base class so that they look more alike.
-7/10/2014 Improved layout to work better and to look more like design doc.
-7/9/2014 Implemented the ability to switch between orbital and cloud representation for electrons.
-7/8/2014 Implemented ability to turn the labels on and off on the 1st tab.
-7/4/2014 Implemented the feature where the nucleus vibrates when unstable.
-7/3/2014 Implemented the counts-to-element problem for the game.
-7/3/2014 Added basic game logic.
-6/26/2014 Re-enabled the feature for getting particles by dragging on buckets, since the related Kite problem is now fixed.
+7/12/2013 Made the change meter background be drawn rather than an SVG - this improves performance.
+7/10/2013 Made electrons stack better in the bucket.
+7/10/2013 Made first and second tab use same base class so that they look more alike.
+7/10/2013 Improved layout to work better and to look more like design doc.
+7/9/2013 Implemented the ability to switch between orbital and cloud representation for electrons.
+7/8/2013 Implemented ability to turn the labels on and off on the 1st tab.
+7/4/2013 Implemented the feature where the nucleus vibrates when unstable.
+7/3/2013 Implemented the counts-to-element problem for the game.
+7/3/2013 Added basic game logic.
+6/26/2013 Re-enabled the feature for getting particles by dragging on buckets, since the related Kite problem is now fixed.
 # 00.00.00-12
-6/25/2014 Added better highlighting of selected element in the periodic table.
-6/25/2014 Changed background colors so that tabs 1 & 2 can be more easily distinguished.
+6/25/2013 Added better highlighting of selected element in the periodic table.
+6/25/2013 Changed background colors so that tabs 1 & 2 can be more easily distinguished.
 6/24/2013 Made scale and charge meter larger on the symbol indicator so that they render decently on an iPad.
 6/24/2013 Specified font for accordion box labels.
 6/24/2013 Moved the buckets and changed the size so that they will stay within the layout bounds.
