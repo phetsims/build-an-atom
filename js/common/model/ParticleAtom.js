@@ -17,10 +17,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Utils = require( 'common/Utils' );
 
-  // Constants
-  var DEFAULT_INNER_ELECTRON_SHELL_RADIUS = 80;
-  var DEFAULT_OUTER_ELECTRON_SHELL_RADIUS = 150;
-
   function ParticleAtom( options ) {
     PropertySet.call( this, { position: Vector2.ZERO, nucleusOffset: Vector2.ZERO } );
 
@@ -124,6 +120,7 @@ define( function( require ) {
           if ( userControlled && thisAtom.protons.contains( particle ) ) {
             thisAtom.protons.remove( particle );
             thisAtom.reconfigureNucleus();
+            particle.zLayer = 0;
           }
           particle.userControlledProperty.unlink( userControlledProtonListener );
         };
@@ -136,6 +133,7 @@ define( function( require ) {
           if ( userControlled && thisAtom.neutrons.contains( particle ) ) {
             thisAtom.neutrons.remove( particle );
             thisAtom.reconfigureNucleus();
+            particle.zLayer = 0;
           }
         } );
       }
@@ -247,34 +245,43 @@ define( function( require ) {
         // There is only one nucleon present, so place it in the center
         // of the atom.
         nucleons[0].destination = new Vector2( centerX, centerY );
+        nucleons[0].zLayer = 0;
       }
       else if ( nucleons.length === 2 ) {
         // Two nucleons - place them side by side with their meeting point in the center.
         angle = Math.random() * 2 * Math.PI;
         nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+        nucleons[0].zLayer = 0;
         nucleons[1].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+        nucleons[1].zLayer = 0;
       }
       else if ( nucleons.length === 3 ) {
         // Three nucleons - form a triangle where they all touch.
         angle = Math.random() * 2 * Math.PI;
         distFromCenter = nucleonRadius * 1.155;
-        nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ),
-          centerY + distFromCenter * Math.sin( angle ) );
+        nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ), centerY + distFromCenter * Math.sin( angle ) );
+        nucleons[0].zLayer = 0;
         nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
           centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
+        nucleons[1].zLayer = 0;
         nucleons[2].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
           centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
+        nucleons[2].zLayer = 0;
       }
       else if ( nucleons.length === 4 ) {
         // Four nucleons - make a sort of diamond shape with some overlap.
         angle = Math.random() * 2 * Math.PI;
         nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+        nucleons[0].zLayer = 0;
         nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+        nucleons[2].zLayer = 0;
         distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
         nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
           centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+        nucleons[1].zLayer = 1;
         nucleons[3].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
           centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
+        nucleons[3].zLayer = 1;
       }
       else if ( nucleons.length >= 5 ) {
         // This is a generalized algorithm that should work for five or
@@ -287,6 +294,7 @@ define( function( require ) {
         for ( var i = 0; i < nucleons.length; i++ ) {
           nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
             centerY + placementRadius * Math.sin( placementAngle ) );
+          nucleons[i].zLayer = level;
           numAtThisRadius--;
           if ( numAtThisRadius > 0 ) {
             // Stay at the same radius and update the placement angle.
@@ -301,9 +309,7 @@ define( function( require ) {
             placementAngleDelta = 2 * Math.PI / numAtThisRadius;
           }
         }
-
       }
-      this.trigger( 'nucleusReconfigured' );
     }
   } );
 } );

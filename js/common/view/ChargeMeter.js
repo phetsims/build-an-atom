@@ -96,7 +96,7 @@ define( function( require ) {
       7, 5, 1 );
     meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
-    
+
     var numericalReadout;
     var readoutText;
 
@@ -112,7 +112,7 @@ define( function( require ) {
           centerX: background.centerX
         } );
       this.addChild( numericalReadout );
-      
+
       // created with placeholder empty-string, which will be changed
       readoutText = new Text( " ", {
         font: new PhetFont( 24, 'bold' )
@@ -138,11 +138,11 @@ define( function( require ) {
           textColor = 'black';
         }
         readoutText.fill = textColor;
-        
+
         var newText = sign + numberAtom.charge;
         if ( newText !== readoutText.text ) {
           readoutText.text = newText;
-          
+
           // reposition as necessary. TODO: optimize this into one transform change (instead of 3)
           readoutText.resetTransform();
           readoutText.scale( Math.min( Math.min( readoutSize.width * 0.8 / readoutText.width, readoutSize.height * 0.8 / readoutText.height ), 1 ) );

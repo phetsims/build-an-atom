@@ -12,6 +12,7 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var AtomNode = require( 'common/view/AtomNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
@@ -37,6 +38,7 @@ define( function( require ) {
   var LABEL_CONTROL_FONT = new PhetFont( 32 );
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );
   var ACCORDION_BOX_FONT = new PhetFont( 18 );
+  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes. TODO: Refine.
 
   /**
    * Constructor.
@@ -71,49 +73,63 @@ define( function( require ) {
       thisView.addChild( new BucketHole( bucket, mvt ) );
     } );
 
-    // Add the layer where the nucleons will be maintained. relayerNucleus is dependant on this being added directly under the electronLayer
-    var nucleonLayer = new Node( { layerSplit: true } );
-    this.addChild( nucleonLayer );
+    // Add the layers where the nucleons will be maintained.
+    var nucleonLayers = [];
+    _.times( NUM_NUCLEON_LAYERS, function() {
+      var nucleonLayer = new Node();
+      nucleonLayers.push( nucleonLayer );
+      thisView.addChild( nucleonLayer );
+    } );
+    nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
-    // Add the layer where the electrons will be maintained. relayerNucleus is dependant on this being added directly over the nucleonLayer
+    // Add the layer where the electrons will be maintained.
     var electronLayer = new Node( { layerSplit: true } );
     this.addChild( electronLayer );
 
-    // Add the particles.
-    _.each( model.nucleons, function( nucleon ) {
-      nucleonLayer.addChild( new ParticleView( nucleon, mvt ) );
-    } );
-    _.each( model.electrons, function( electron ) {
-      electronLayer.addChild( new ParticleView( electron, mvt ) );
-    } );
+    // Add the nucleon particle views.
+    model.nucleons.forEach( function( nucleon ) {
+      nucleonLayers[nucleon.zLayer].addChild( new ParticleView( nucleon, mvt ) );
+      // Add a listener that adjusts a nucleon's z-order layering.
+      nucleon.zLayerProperty.link( function( zLayer ) {
+//        console.log( "=============" );
+//        console.log( "zLayer change notification, value: " + zLayer );
+        assert && assert( nucleonLayers.length > zLayer, "zLayer for nucleon exceeds number of layers, max number may need increasing." );
+        // Determine whether nucleon view is on the correct layer.
+        var onCorrectLayer = false;
+        nucleonLayers[zLayer].children.forEach( function( particleView ) {
+          if ( particleView.particle === nucleon ) {
+            onCorrectLayer = true;
+          }
+        } );
+//        console.log( "Value of onCorrectLayer: " + onCorrectLayer );
 
-    // Layer the particle views so that the nucleus looks good, with the
-    // particles closer to the center being higher in the z-order.
-    var relayerNucleus = function() {
-      var particlesInNucleus = _.filter( nucleonLayer.children, function( particleView ) {
-        return particleView.particle.destination.distance( model.particleAtom.position ) < model.particleAtom.outerElectronShellRadius;
+        if ( !onCorrectLayer ) {
+
+//          console.log( "Moving particle view to new layer." );
+          // Remove particle view from its current layer.
+          var particleView = null;
+          for ( var layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
+            for ( var childIndex = 0; childIndex < nucleonLayers[layerIndex].children.length; childIndex++ ) {
+              if ( nucleonLayers[layerIndex].children[childIndex].particle === nucleon ) {
+//                console.log( "Particle view found on layer: " + layerIndex );
+                particleView = nucleonLayers[layerIndex].children[childIndex];
+                nucleonLayers[layerIndex].removeChildAt( childIndex );
+                break;
+              }
+            }
+          }
+
+          // Add the particle view to its new layer.
+          assert && assert( particleView !== null, "Particle view not found" );
+          nucleonLayers[ zLayer ].addChild( particleView );
+//          console.log( "Added particle to layer: " + zLayer );
+        }
       } );
+    } );
 
-      if ( particlesInNucleus.length > 3 ) {
-        particlesInNucleus = _.sortBy( particlesInNucleus, function( particleView ) {
-          // Central nucleons should be in front
-          return -particleView.particle.destination.distance( model.particleAtom.position );
-        } );
-        // temporarily remove the nucleonLayer from the scene so that each add/remove call doesn't require stitching
-        if ( thisView.indexOfChild( electronLayer ) - 1 !== thisView.indexOfChild( nucleonLayer ) ) { throw new Error( 'Stacking order assumption invalid' ); }
-        thisView.removeChild( nucleonLayer );
-        _.each( particlesInNucleus, function( particleView ) {
-          nucleonLayer.removeChild( particleView );
-        } );
-        _.each( particlesInNucleus, function( particleView ) {
-          nucleonLayer.addChild( particleView );
-        } );
-        // add the nucleonLayer back, in front of the electronLayer
-        thisView.insertChild( thisView.indexOfChild( electronLayer ), nucleonLayer );
-      }
-    };
-    model.particleAtom.on( 'nucleusReconfigured', function() {
-      relayerNucleus();
+    // Add the electron particle views.
+    model.electrons.forEach( function( electron ) {
+      electronLayer.addChild( new ParticleView( electron, mvt ) );
     } );
 
     // When the electrons are represented as a cloud, the individual particles

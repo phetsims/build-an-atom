@@ -29,10 +29,10 @@ define( function( require ) {
   var ChargeComparisonDisplay = function ChargeComparisonDisplay( numberAtom ) {
 
     Node.call( this ); // Call super constructor.
-    
+
     var MAX_CHARGE = 10; // TODO: is this correct always?
     var i;
-    
+
     // Parent node for all symbols.
     var symbolLayer = new Node();
 
@@ -42,7 +42,7 @@ define( function( require ) {
     minusSymbolShape.lineTo( SYMBOL_WIDTH / 2, SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.close();
-    
+
     var minusSymbolPath = new Path( {
       shape: minusSymbolShape,
       stroke: 'black',
@@ -51,7 +51,7 @@ define( function( require ) {
       left: INTER_SYMBOL_DISTANCE / 2,
       centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
     } );
-    
+
     var minuses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       var minusSymbol = new Node( {
@@ -76,7 +76,7 @@ define( function( require ) {
     plusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, SYMBOL_LINE_WIDTH / 2 );
     plusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
     plusSymbolShape.close();
-    
+
     var plusSymbolPath = new Path( {
       shape: plusSymbolShape,
       stroke: 'black',
@@ -85,7 +85,7 @@ define( function( require ) {
       left: INTER_SYMBOL_DISTANCE / 2,
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );
-    
+
     var plusses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       var plusSymbol = new Node( {
@@ -95,7 +95,7 @@ define( function( require ) {
       plusses.push( plusSymbol );
       symbolLayer.addChild( plusSymbol );
     }
-    
+
     // width will be changed dynamically, all of the others will remain static
     var matchBox = new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4, {
       lineWidth: 1,
@@ -110,12 +110,12 @@ define( function( require ) {
       for ( var numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
         plusses[numProtons].visible = numProtons < atom.protonCount;
       }
-      
+
       // toggle minus visibility
       for ( var numElectrons = 0; numElectrons < MAX_CHARGE; numElectrons++ ) {
         minuses[numElectrons].visible = numElectrons < atom.electronCount;
       }
-      
+
       // matching box
       var numMatchedSymbols = Math.min( atom.protonCount, atom.electronCount );
       matchBox.visible = numMatchedSymbols > 0;
@@ -129,7 +129,7 @@ define( function( require ) {
     numberAtom.particleCountProperty.link( function() {
       update( numberAtom );
     } );
-    
+
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
   };
 

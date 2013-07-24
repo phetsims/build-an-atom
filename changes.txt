@@ -1,3 +1,4 @@
+7/24/2013 Worked with Jonathan O on a number of performance improvements and optimizations
 7/24/2013 add local copy of new ResetAllButton and associated images
 7/23/2013 Made a number of display nodes explicitly not pickable in an effort to improve dragging performance on iPad.
 # 00.00.00-15

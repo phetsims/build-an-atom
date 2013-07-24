@@ -42,7 +42,7 @@ define( function( require ) {
         centerX: scaleImage.centerX
       } );
     this.addChild( readoutBackground );
-    
+
     // placeholder text value, will be changed later
     var numericalText = new Text( " ", {
       font: new PhetFont( 24, 'bold' )
@@ -50,14 +50,14 @@ define( function( require ) {
     readoutBackground.addChild( numericalText );
 
     // Add the listeners that will update the numerical display when the charge changes.
-    numberAtom.atomicMassProperty.link( function( atomicMass ) {
-      var newText = '' + atomicMass; // cast to a string explicitly just in case
+    numberAtom.massNumberProperty.link( function( massNumber ) {
+      var newText = '' + massNumber; // cast to a string explicitly just in case
       if ( newText !== numericalText.text ) {
         numericalText.text = newText;
-        
+
         numericalText.resetTransform();
         numericalText.scale( Math.min( READOUT_SIZE.height * 0.9 / numericalText.height,
-                             READOUT_SIZE.width * 0.9 / numericalText.width ) );
+          READOUT_SIZE.width * 0.9 / numericalText.width ) );
         numericalText.center = new Vector2( READOUT_SIZE.width / 2, READOUT_SIZE.height / 2 );
       }
     } );

@@ -19,7 +19,8 @@ define( function( require ) {
         destination: Vector2.ZERO,
         radius: type === 'electron' ? SharedConstants.ELECTRON_RADIUS : SharedConstants.NUCLEON_RADIUS,
         velocity: DEFAULT_PARTICLE_VELOCITY,
-        userControlled: false
+        userControlled: false,
+        zLayer: 0 // Used in view, integer value, higher means further back.
       } );
   }
 
