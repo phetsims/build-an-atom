@@ -71,7 +71,7 @@ define( function( require ) {
     } );
     boundingBox.addChild( protonCountDisplay );
 
-    // Add the atomic mass display.
+    // Add the mass number display.
     var massNumberDisplay = new Text( '0',
       {
         font: NUMBER_FONT,
@@ -79,7 +79,7 @@ define( function( require ) {
       } );
     boundingBox.addChild( massNumberDisplay );
 
-    // Add the listener to update the atomic mass.
+    // Add the listener to update the mass number.
     numberAtom.massNumberProperty.link( function( massNumber ) {
       massNumberDisplay.text = massNumber;
       massNumberDisplay.left = NUMBER_INSET;
