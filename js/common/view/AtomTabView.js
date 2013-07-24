@@ -104,6 +104,8 @@ define( function( require ) {
         thisView.removeChild( nucleonLayer );
         _.each( particlesInNucleus, function( particleView ) {
           nucleonLayer.removeChild( particleView );
+        } );
+        _.each( particlesInNucleus, function( particleView ) {
           nucleonLayer.addChild( particleView );
         } );
         // add the nucleonLayer back, in front of the electronLayer
