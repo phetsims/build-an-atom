@@ -150,7 +150,7 @@ define( function( require ) {
 
     // Add the periodic table display inside of an accordion box.
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom ).mutate( { pickable: false } );
-    periodicTable.scale( 0.525 ); // Scale empirically determined to match layout in design doc.
+    periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable,
       {
         title: 'Element', // TODO: i18n
