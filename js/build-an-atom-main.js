@@ -34,20 +34,20 @@ require(
       //TODO: i18n
       new Sim( 'Build an Atom', [
         { name: 'Atom',
-          icon: new Image( imageLoader.getImage( 'BAA_atom.png' ) ),
+          icon: new Image( imageLoader.getImage( 'atom_icon.png' ) ),
           backgroundColor: 'white',
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new BuildAnAtomTabView( model ); } },
         { name: 'Symbol',
-          icon: new Image( imageLoader.getImage( 'BAA_symbol.png' ) ),
+          icon: new Image( imageLoader.getImage( 'element_icon.png' ) ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
-          createView: function( model ) { return new SymbolTabView( model ); } },
-        { name: 'Game',
-          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
-          backgroundColor: 'rgb(255, 254, 223)',
-          createModel: function() { return new BAAGameModel(); },
-          createView: function( model ) { return new BAAGameView( model ); } }
+          createView: function( model ) { return new SymbolTabView( model ); } }
+//        { name: 'Game',
+//          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
+//          backgroundColor: 'rgb(255, 254, 223)',
+//          createModel: function() { return new BAAGameModel(); },
+//          createView: function( model ) { return new BAAGameView( model ); } }
       ], simOptions ).start();
     } );
   } );

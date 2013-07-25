@@ -1,3 +1,5 @@
+7/25/2013 Updated icon images for first two tabs so that they look reasonable on IE10.
+7/25/2013 Made the Stable/Unstable option off by default, and made its state affect whether the animation occurs.
 7/24/2013 Worked with Jonathan O on a number of performance improvements and optimizations
 7/24/2013 add local copy of new ResetAllButton and associated images
 7/23/2013 Made a number of display nodes explicitly not pickable in an effort to improve dragging performance on iPad.
