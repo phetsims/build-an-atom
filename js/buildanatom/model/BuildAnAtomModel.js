@@ -43,7 +43,7 @@ define( function( require ) {
         // Properties that control label visibility in the view.
         showElementName: true,
         showNeutralOrIon: true,
-        showStableOrUnstable: true,
+        showStableOrUnstable: false,
 
         // Property that controls electron depiction in the view.
         electronShellDepiction: 'orbits'
@@ -172,6 +172,14 @@ define( function( require ) {
         }
       }
     } );
+
+    // If stability label visibility is turned off when nucleus animation is
+    // in progress, reset the animation.
+    this.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
+      if ( !showStableOrUnstable ) {
+        thisModel.particleAtom.nucleusOffset = Vector2.ZERO;
+      }
+    } );
   }
 
   inherit( PropertySet,
@@ -189,7 +197,7 @@ define( function( require ) {
         } );
 
         // Animate the unstable nucleus by making it jump periodically.
-        if ( this.nucleusStable === false ) {
+        if ( this.nucleusStable === false && this.showStableOrUnstable ) {
           this.nucleusJumpCountdown -= dt;
           if ( this.nucleusJumpCountdown <= 0 ) {
             this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
