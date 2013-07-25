@@ -91,8 +91,6 @@ define( function( require ) {
       nucleonLayers[nucleon.zLayer].addChild( new ParticleView( nucleon, mvt ) );
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
-//        console.log( "=============" );
-//        console.log( "zLayer change notification, value: " + zLayer );
         assert && assert( nucleonLayers.length > zLayer, "zLayer for nucleon exceeds number of layers, max number may need increasing." );
         // Determine whether nucleon view is on the correct layer.
         var onCorrectLayer = false;
@@ -101,17 +99,14 @@ define( function( require ) {
             onCorrectLayer = true;
           }
         } );
-//        console.log( "Value of onCorrectLayer: " + onCorrectLayer );
 
         if ( !onCorrectLayer ) {
 
-//          console.log( "Moving particle view to new layer." );
           // Remove particle view from its current layer.
           var particleView = null;
           for ( var layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
             for ( var childIndex = 0; childIndex < nucleonLayers[layerIndex].children.length; childIndex++ ) {
               if ( nucleonLayers[layerIndex].children[childIndex].particle === nucleon ) {
-//                console.log( "Particle view found on layer: " + layerIndex );
                 particleView = nucleonLayers[layerIndex].children[childIndex];
                 nucleonLayers[layerIndex].removeChildAt( childIndex );
                 break;
@@ -120,9 +115,8 @@ define( function( require ) {
           }
 
           // Add the particle view to its new layer.
-          assert && assert( particleView !== null, "Particle view not found" );
+          assert && assert( particleView !== null, "Particle view not found during relayering" );
           nucleonLayers[ zLayer ].addChild( particleView );
-//          console.log( "Added particle to layer: " + zLayer );
         }
       } );
     } );
