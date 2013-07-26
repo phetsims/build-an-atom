@@ -1,8 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Type for game problems where the user is presented with a set of particle
- * counts for an atom and must determine the total charge.
+ * Problem where the user is presented with a schematic representation of an
+ * atom (which looks much like the atoms constructed on the 1st tab), and must
+ * determine the charge.
  *
  * @author John Blanco
  */
@@ -12,7 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
-  var CountsToChargeProblemView = require( 'game/view/CountsToChargeProblemView' );
+  var SchematicToChargeProblemView = require( 'game/view/SchematicToChargeProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
 
@@ -21,18 +22,18 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToChargeProblem( buildAnAtomGameModel, answerAtom ) {
+  function SchematicToChargeProblem( buildAnAtomGameModel, answerAtom ) {
     BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( BAAGameProblem, CountsToChargeProblem, {
+  inherit( BAAGameProblem, SchematicToChargeProblem, {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
-      return new CountsToChargeProblemView( this, layoutBounds );
+      return new SchematicToChargeProblemView( this, layoutBounds );
     }
   } );
 
-  return CountsToChargeProblem;
+  return SchematicToChargeProblem;
 } );

@@ -13,6 +13,7 @@ define( function( require ) {
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
   var CountsToMassNumberProblem = require( 'game/model/CountsToMassNumberProblem' );
   var NumberAtom = require( 'common/model/NumberAtom' );
+  var SchematicToChargeProblem = require( 'game/model/SchematicToChargeProblem' );
   var SchematicToElementProblem = require( 'game/model/SchematicToElementProblem' );
 
   // Constants
@@ -62,6 +63,7 @@ define( function( require ) {
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
+        new SchematicToChargeProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ) ),
         new CountsToMassNumberProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),
         new CountsToChargeProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),
         new SchematicToElementProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ) ),
