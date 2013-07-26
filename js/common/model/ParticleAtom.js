@@ -162,7 +162,7 @@ define( function( require ) {
                               Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p2.position.x, p2.position.y ) ) );
         } );
 
-        assert && assert( sortedOpenPositions.length > 0, "No open positions found for electrons" )
+        assert && assert( sortedOpenPositions.length > 0, "No open positions found for electrons" );
         sortedOpenPositions[0].electron = particle;
         particle.destination = sortedOpenPositions[ 0 ].position;
 
