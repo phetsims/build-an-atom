@@ -1,3 +1,4 @@
+7/26/2013 fix up package.json to work with build.sh changes (chipper#12)
 7/26/2013 Removed some console logging.
 7/26/2013 Added code to possibly prevent a particle's position from being set to a non-vector value.
 # 00.00.00-16
