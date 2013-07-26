@@ -34,7 +34,6 @@ define( [], function() {
   AtomIdentifier.isStable = function( numProtons, numNeutrons ) {
     var tableEntry = _stableElementTable[ numProtons ];
     if ( typeof( tableEntry ) === 'undefined' ) {
-      console.log( 'Error: Stability table has no entry for atomic number ' + numProtons );
       return false;
     }
     return $.inArray( numNeutrons, tableEntry ) > -1;

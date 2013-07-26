@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var PropertySet = require( 'AXON/PropertySet' );
   var SharedConstants = require( 'common/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -161,9 +162,7 @@ define( function( require ) {
                               Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p2.position.x, p2.position.y ) ) );
         } );
 
-        if ( sortedOpenPositions.length === 0 ) {
-          console.log( 'Error: No open electron positions.' );
-        }
+        assert && assert( sortedOpenPositions.length > 0, "No open positions found for electrons" )
         sortedOpenPositions[0].electron = particle;
         particle.destination = sortedOpenPositions[ 0 ].position;
 
@@ -175,7 +174,7 @@ define( function( require ) {
         } );
       }
       else {
-        console.log( 'Error: Ignoring unexpected particle type.' );
+        assert && assert( false, "Unexpected particle type." );
       }
     },
 
@@ -196,7 +195,7 @@ define( function( require ) {
         particle = this.electrons.pop();
       }
       else {
-        console.log( 'Error: Ignoring request to remove unknown particle type.' );
+        assert && assert( false, "Unknown particle type in removeParticle." );
       }
       return particle;
     },

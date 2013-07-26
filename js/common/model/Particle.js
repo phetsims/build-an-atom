@@ -4,6 +4,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
   var SharedConstants = require( 'common/SharedConstants' );
@@ -44,8 +45,15 @@ define( function( require ) {
     },
 
     setPositionAndDestination: function( newPosition ) {
-      this.destination = newPosition;
-      this.moveImmediatelyToDestination();
+      assert && assert( newPosition instanceof Vector2, "Attempt to set non-vector position." );
+      if ( newPosition instanceof Vector2 ) {
+        this.destination = newPosition;
+        this.moveImmediatelyToDestination();
+      }
+      else {
+        // TODO: Remove this log before publication.
+        console.log( "Error: Attempt to set position that is not a vector" );
+      }
     }
   } );
 
