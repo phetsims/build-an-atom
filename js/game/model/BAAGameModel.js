@@ -15,6 +15,7 @@ define( function( require ) {
   var NumberAtom = require( 'common/model/NumberAtom' );
   var SchematicToChargeProblem = require( 'game/model/SchematicToChargeProblem' );
   var SchematicToElementProblem = require( 'game/model/SchematicToElementProblem' );
+  var SchematicToMassNumberProblem = require( 'game/model/SchematicToMassNumberProblem' );
 
   // Constants
   var LEVELS = [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ];
@@ -63,6 +64,7 @@ define( function( require ) {
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
+        new SchematicToMassNumberProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ) ),
         new SchematicToChargeProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ) ),
         new CountsToMassNumberProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),
         new CountsToChargeProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),
