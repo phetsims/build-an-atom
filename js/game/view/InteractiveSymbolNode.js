@@ -10,11 +10,9 @@ define( function( require ) {
   // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ChargeMeter = require( 'common/view/ChargeMeter' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( 'imageLoader' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var NumberEntryNode = require( 'game/view/NumberEntryNode' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -30,10 +28,17 @@ define( function( require ) {
    * @param numberAtom
    * @constructor
    */
-  var SymbolNode = function SymbolNode( numberAtom ) {
+  function InteractiveSymbolNode( numberAtom, options ) {
 
-    Node.call( this, { pickable: false } ); // Call super constructor.
-    var thisSymbolNode = this;
+    Node.call( this ); // Call super constructor.
+    var thisNode = this;
+
+    options = _.extend(
+      { // defaults
+        interactiveProtonCount: false,
+        interactiveMassNumber: false,
+        interactiveCharge: false
+      }, options );
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
@@ -61,20 +66,29 @@ define( function( require ) {
     } );
     boundingBox.addChild( symbolText );
 
-    // Add the proton count display.
-    var protonCountDisplay = new Text( '0',
-      {
-        font: NUMBER_FONT,
-        fill: 'red'
-      } );
+    // Add the proton count display, either interactive or not.
+    if ( options.interactiveProtonCount ) {
+      boundingBox.addChild( new NumberEntryNode( numberAtom.protonCountProperty, false,
+        {
+          BOTTOM: SYMBOL_BOX_HEIGHT - NUMBER_INSET,
+          right: NUMBER_INSET
+        } ) );
+    }
+    else {
+      var protonCountDisplay = new Text( '0',
+        {
+          font: NUMBER_FONT,
+          fill: 'red'
+        } );
 
-    // Add the listener to update the proton count.
-    numberAtom.protonCountProperty.link( function( protonCount ) {
-      protonCountDisplay.text = protonCount;
-      protonCountDisplay.left = NUMBER_INSET;
-      protonCountDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
-    } );
-    boundingBox.addChild( protonCountDisplay );
+      // Add the listener to update the proton count.
+      numberAtom.protonCountProperty.link( function( protonCount ) {
+        protonCountDisplay.text = protonCount;
+        protonCountDisplay.left = NUMBER_INSET;
+        protonCountDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
+      } );
+      boundingBox.addChild( protonCountDisplay );
+    }
 
     // Add the mass number display.
     var massNumberDisplay = new Text( '0',
@@ -114,32 +128,14 @@ define( function( require ) {
         textColor = 'black';
       }
       chargeDisplay.text = sign + charge;
-//      chargeDisplay.fill = textColor;
+      chargeDisplay.fill = textColor;
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;
     } );
-
-    // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( imageLoader.getImage( 'scale.png' ) );
-    scaleImage.scale( 0.32 ); // Scale empirically determined to match design layout.
-    this.addChild( scaleImage );
-
-    // Add the charge meter.
-    var chargeMeter = new ChargeMeter( numberAtom, { showNumericalReadout: false } );
-    chargeMeter.scale( 1.5 );
-    this.addChild( chargeMeter );
-
-    // Do the layout.
-    scaleImage.left = 0;
-    scaleImage.centerY = massNumberDisplay.centerY;
-    boundingBox.top = 0;
-    boundingBox.left = scaleImage.right + 10;
-    chargeMeter.left = boundingBox.right + 10;
-    chargeMeter.centerY = chargeDisplay.centerY;
   };
 
   // Inherit from Node.
-  inherit( Node, SymbolNode );
+  inherit( Node, InteractiveSymbolNode );
 
-  return SymbolNode;
+  return InteractiveSymbolNode;
 } );
