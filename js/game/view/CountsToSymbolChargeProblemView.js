@@ -35,8 +35,7 @@ define( function( require ) {
     this.problemPresentationNode.addChild( particleCountsNode );
 
     // Interactive Symbol
-//    var interactiveSymbol = new InteractiveSymbolNode( this.userSubmittedAtom, { interactiveProtonCount: true } );
-    var interactiveSymbol = new InteractiveSymbolNode( this.userSubmittedAtom );
+    var interactiveSymbol = new InteractiveSymbolNode( thisNode.problem.answerAtom, { interactiveProtonCount: true } );
     interactiveSymbol.scale( 0.75 );
 
 //    var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -47,7 +46,7 @@ define( function( require ) {
     particleCountsNode.centerX = layoutBounds.width * 0.25;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
     interactiveSymbol.centerX = layoutBounds.width * 0.75;
-    interactiveSymbol.centerY = layoutBounds.height * 0.5;
+    interactiveSymbol.centerY = layoutBounds.height * 0.4;
   }
 
   // Inherit from ProblemView.

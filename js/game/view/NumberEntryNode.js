@@ -27,10 +27,10 @@ define( function( require ) {
    */
   function NumberEntryNode( numberProperty, isCharge, options ) {
 
-    Node.call( this, options ); // Call super constructor.
+    Node.call( this ); // Call super constructor.
     var thisNode = this;
 
-    options = _.extend( { font: new PhetFont( 24 )}, options );
+    options = _.extend( { font: new PhetFont( 24 ) }, options );
 
     // Node creation
     var arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15 };
@@ -62,6 +62,8 @@ define( function( require ) {
     downArrowButton.top = upArrowButton.bottom + 3;
     answerValueBackground.left = upArrowButton.right + 3;
     answerValueBackground.centerY = ( upArrowButton.bottom + downArrowButton.top ) / 2;
+
+    thisNode.mutate( options );
   }
 
   // Inherit from Node.
