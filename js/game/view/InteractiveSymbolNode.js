@@ -132,7 +132,7 @@ define( function( require ) {
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;
     } );
-  };
+  }
 
   // Inherit from Node.
   inherit( Node, InteractiveSymbolNode );
