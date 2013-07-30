@@ -25,7 +25,7 @@ require(
                'Design Team: Jack Barbara, Suzanne Brahmia, Patricia Loeblein, Emily B. Moore, Robert Parson, Ariel Paul, Kathy Perkins\n' +
                'Interviews: Emily Moore, Kelly Lancaster, Ariel Paul',
       thanks: 'Thanks -\n' +
-              'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+              'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
     SimLauncher.launch( imageLoader, function() {
