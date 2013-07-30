@@ -231,6 +231,18 @@ define( function( require ) {
         this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
         this._moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
         this._moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
+
+        // Move any particles that are in transit back to its bucket.
+        this.nucleons.forEach( function( nucleon ) {
+          if ( !nucleon.position.equals( nucleon.destination ) ) {
+            nucleon.moveImmediatelyToDestination();
+          }
+        } );
+        this.electrons.forEach( function( electron ) {
+          if ( !electron.position.equals( electron.destination ) ) {
+            electron.moveImmediatelyToDestination();
+          }
+        } );
       }
     } );
 

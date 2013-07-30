@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 require(
   [
-    'buildanatom/model/BuildAnAtomModel',
+    'common/model/BuildAnAtomModel',
     'buildanatom/view/BuildAnAtomTabView',
     'SCENERY_PHET/PhetFont',
     'game/model/BAAGameModel',
