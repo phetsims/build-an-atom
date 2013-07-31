@@ -1,6 +1,6 @@
 {
   "name": "build-an-atom",
-  "version": "0.0.0-17",
+  "version": "1.0.0-0",
   "resourceDirs": "images",
   "phetLibs": "build-an-atom assert axon dot joist kite phet-core phetcommon scenery scenery-phet sun",
   "preload": "lib/jquery-2.0.3.js lib/lodash-1.3.1.js lib/has.js lib/PxLoader.js lib/PxLoaderImage.js ../phetcommon/js/util/query-parameters.js ../phetcommon/js/util/check-assertions.js",

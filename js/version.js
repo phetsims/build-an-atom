@@ -4,6 +4,6 @@
 define( function( require ) {
   'use strict';
   return function() {
-    return '0.0.0-17';
+    return '1.0.0-0';
   };
 } );
