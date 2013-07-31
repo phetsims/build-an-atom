@@ -28,7 +28,6 @@ define( function( require ) {
     var scaledRadius = viewRadius * scale;
     
     var particleNode = new ParticleNode( particle.type, scaledRadius );
-    console.log( scaledRadius );
 
     var node = new Node( { cursor: 'pointer' } );
     particleNode.toImage( function( im, x, y ) {
