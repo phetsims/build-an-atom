@@ -4,7 +4,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="233.279px" height="159.84px" viewBox="0 0 233.279 159.84" enable-background="new 0 0 233.279 159.84"
 	 xml:space="preserve">
-<rect x="0" fill="#FFFFFF" width="233.279" height="159.84"/>
+<rect x="0" fill="#FFFFE2" enable-background="new    " width="233.279" height="159.84"/>
 <image overflow="visible" enable-background="new    " width="898" height="178" xlink:href="476AF2E7.jpeg"  transform="matrix(0.1616 0 0 0.16 48.7659 127.4414)">
 </image>
 <circle fill="#FFFEE2" cx="126.595" cy="130.875" r="3.625"/>
