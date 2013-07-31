@@ -34,12 +34,12 @@ require(
       //TODO: i18n
       new Sim( 'Build an Atom', [
         { name: 'Atom',
-          icon: new Image( imageLoader.getImage( 'atom_icon.png' ) ),
+          icon: new Image( imageLoader.getImage( 'baa_atom_icon.png' ) ),
           backgroundColor: 'white',
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new BuildAnAtomTabView( model ); } },
         { name: 'Symbol',
-          icon: new Image( imageLoader.getImage( 'element_icon.png' ) ),
+          icon: new Image( imageLoader.getImage( 'baa_element_icon.png' ) ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolTabView( model ); } }

@@ -8,9 +8,9 @@ define( function( require ) {
 
   return {
     imageNames: [
-      'atom_icon.png',
+      'baa_atom_icon.png',
+      'baa_element_icon.png',
       'blue-stopwatch.png',
-      'element_icon.png',
       'game_icon.png',
       'reset_button_disabled.png',
       'reset_button_down.png',

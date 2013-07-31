@@ -1,4 +1,8 @@
+7/30/2013 Integrated improved icons for the first two tabs.
+# 00.00.00-18
+7/30/2013 Integrated fixes from Scenery for issues with touch events and particles
 7/30/2013 Fixed an issue where particles were not being returned to their buckets if reset pressed with they were in motion.
+# 00.00.00-17
 7/26/2013 Integrated fixes from Scenery for issues with particles reappearing when resized.
 7/26/2013 fix up package.json to work with build.sh changes (chipper#12)
 7/26/2013 Removed some console logging.
