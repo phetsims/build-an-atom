@@ -128,7 +128,7 @@ define( function( require ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.charge, true,
         {
           top: NUMBER_ENTRY_NODE_INSET,
-          left: NUMBER_ENTRY_NODE_INSET
+          right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_INSET
         } ) );
     }
     else {
@@ -146,7 +146,14 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, InteractiveSymbolNode );
+  inherit( Node, InteractiveSymbolNode,
+    {
+      reset: function() {
+        this.protonCount.reset;
+        this.massNumber.reset;
+        this.charge.reset;
+      }
+    } );
 
   return InteractiveSymbolNode;
 } );

@@ -23,50 +23,53 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToChargeProblemView( countsToChargeProblem, layoutBounds ) {
+  function CountsToSymbolChargeProblemView( countsToChargeProblem, layoutBounds ) {
 
-    this.userSubmittedAtom = new NumberAtom(); // Must create before call to super constructor.
+    // Interactive Symbol (must be defined before the constructor is invoked).
+    this.interactiveSymbol = new InteractiveSymbolNode( countsToChargeProblem.answerAtom, { interactiveCharge: true } );
 
     ProblemView.call( this, countsToChargeProblem, layoutBounds ); // Call super constructor.
     var thisNode = this;
+
+    // Add the interactive symbol.
+    this.interactiveSymbol.scale( 0.75 );
+    this.interactiveAnswerNode.addChild( this.interactiveSymbol );
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
     this.problemPresentationNode.addChild( particleCountsNode );
 
-    // Interactive Symbol
-    var interactiveSymbol = new InteractiveSymbolNode( thisNode.problem.answerAtom, { interactiveProtonCount: true } );
-    interactiveSymbol.scale( 0.75 );
-
-//    var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-//    var interactiveSymbol = new Rectangle( 0, 0, 100, 100, 5, 5, { fill: 'pink'});
-    this.interactiveAnswerNode.addChild( interactiveSymbol );
-
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.25;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
-    interactiveSymbol.centerX = layoutBounds.width * 0.75;
-    interactiveSymbol.centerY = layoutBounds.height * 0.4;
+    this.interactiveSymbol.centerX = layoutBounds.width * 0.75;
+    this.interactiveSymbol.centerY = layoutBounds.height * 0.4;
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, CountsToChargeProblemView,
+  inherit( ProblemView, CountsToSymbolChargeProblemView,
     {
       checkAnswer: function() {
-        this.problem.checkAnswer( this.userSubmittedAtom );
+        var userSubmittedAtom = new NumberAtom(
+          {
+            protonCount: this.interactiveSymbol.protonCount.value,
+            neutronCount: this.interactiveSymbol.massNumber.value - this.interactiveSymbol.protonCount.value,
+            electronCount: this.interactiveSymbol.protonCount.value - this.interactiveSymbol.charge.value
+          } );
+        this.problem.checkAnswer( userSubmittedAtom );
       },
 
       clearAnswer: function() {
-        this.userSubmittedAtom.reset();
+        this.interactiveSymbol.reset();
       },
 
       displayCorrectAnswer: function() {
-        this.userSubmittedAtom.protonCount = this.problem.answerAtom.protonCount;
-        this.userSubmittedAtom.neutronCount = this.problem.answerAtom.neutronCount;
-        this.userSubmittedAtom.electronCount = this.problem.answerAtom.electronCount;
+        this.interactiveSymbol.protonCount.value = this.problem.answerAtom.protonCount;
+        this.interactiveSymbol.massNumber.value = this.problem.answerAtom.massNumber;
+        this.interactiveSymbol.charge.value = this.problem.answerAtom.charge;
       }
     }
   );
 
-  return CountsToChargeProblemView;
+  return CountsToSymbolChargeProblemView;
 } );
