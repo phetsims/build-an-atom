@@ -13,7 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
-  var CountsToSymbolChargeProblemView = require( 'game/view/CountsToSymbolChargeProblemView' );
+  var CountsToSymbolProblemView = require( 'game/view/CountsToSymbolProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
 
@@ -22,18 +22,21 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToSymbolChargeProblem( buildAnAtomGameModel, answerAtom ) {
+  function CountsToSymbolProblem( buildAnAtomGameModel, answerAtom, configurableProtonCount, configurableMassNumber, configurableCharge ) {
     BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
+    this.configurableProtonCount = configurableProtonCount;
+    this.configurableMassNumber = configurableMassNumber;
+    this.configurableCharge = configurableCharge;
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( BAAGameProblem, CountsToSymbolChargeProblem, {
+  inherit( BAAGameProblem, CountsToSymbolProblem, {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
-      return new CountsToSymbolChargeProblemView( this, layoutBounds );
+      return new CountsToSymbolProblemView( this, layoutBounds );
     }
   } );
 
-  return CountsToSymbolChargeProblem;
+  return CountsToSymbolProblem;
 } );

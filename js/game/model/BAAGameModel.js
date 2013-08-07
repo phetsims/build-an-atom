@@ -10,7 +10,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CountsToChargeProblem = require( 'game/model/CountsToChargeProblem' );
-  var CountsToSymbolChargeProblem = require( 'game/model/CountsToSymbolChargeProblem' );
+  var CountsToSymbolProblem = require( 'game/model/CountsToSymbolProblem' );
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
   var CountsToMassNumberProblem = require( 'game/model/CountsToMassNumberProblem' );
   var NumberAtom = require( 'common/model/NumberAtom' );
@@ -65,7 +65,10 @@ define( function( require ) {
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
-        new CountsToSymbolChargeProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ) ),
+        new CountsToSymbolProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ), true, false, false ),
+        new CountsToSymbolProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ), false, true, false ),
+        new CountsToSymbolProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ), false, false, true ),
+        new CountsToSymbolProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ), true, true, true ),
         new SchematicToMassNumberProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ) ),
         new SchematicToChargeProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ) ),
         new CountsToMassNumberProblem( this, new NumberAtom( { protonCount: 8, neutronCount: 8, electronCount: 10 } ) ),

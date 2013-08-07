@@ -23,10 +23,15 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToSymbolChargeProblemView( countsToChargeProblem, layoutBounds ) {
+  function CountsToSymbolProblemView( countsToChargeProblem, layoutBounds ) {
 
     // Interactive Symbol (must be defined before the constructor is invoked).
-    this.interactiveSymbol = new InteractiveSymbolNode( countsToChargeProblem.answerAtom, { interactiveCharge: true } );
+    this.interactiveSymbol = new InteractiveSymbolNode( countsToChargeProblem.answerAtom,
+      {
+        interactiveProtonCount: countsToChargeProblem.configurableProtonCount,
+        interactiveMassNumber: countsToChargeProblem.configurableMassNumber,
+        interactiveCharge: countsToChargeProblem.configurableCharge
+      } );
 
     ProblemView.call( this, countsToChargeProblem, layoutBounds ); // Call super constructor.
     var thisNode = this;
@@ -47,7 +52,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, CountsToSymbolChargeProblemView,
+  inherit( ProblemView, CountsToSymbolProblemView,
     {
       checkAnswer: function() {
         var userSubmittedAtom = new NumberAtom(
@@ -71,5 +76,5 @@ define( function( require ) {
     }
   );
 
-  return CountsToSymbolChargeProblemView;
+  return CountsToSymbolProblemView;
 } );
