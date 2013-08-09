@@ -248,7 +248,7 @@ define( function( require ) {
       }
       else if ( nucleons.length === 2 ) {
         // Two nucleons - place them side by side with their meeting point in the center.
-        angle = Math.random() * 2 * Math.PI;
+        angle = 0.2 * 2 * Math.PI; // Angle arbitrarily chosen.
         nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
         nucleons[0].zLayer = 0;
         nucleons[1].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
@@ -256,7 +256,7 @@ define( function( require ) {
       }
       else if ( nucleons.length === 3 ) {
         // Three nucleons - form a triangle where they all touch.
-        angle = Math.random() * 2 * Math.PI;
+        angle = 0.7 * 2 * Math.PI; // Angle arbitrarily chosen.
         distFromCenter = nucleonRadius * 1.155;
         nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ), centerY + distFromCenter * Math.sin( angle ) );
         nucleons[0].zLayer = 0;
@@ -269,7 +269,7 @@ define( function( require ) {
       }
       else if ( nucleons.length === 4 ) {
         // Four nucleons - make a sort of diamond shape with some overlap.
-        angle = Math.random() * 2 * Math.PI;
+        angle = 1.4 * 2 * Math.PI; // Angle arbitrarily chosen.
         nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
         nucleons[0].zLayer = 0;
         nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );

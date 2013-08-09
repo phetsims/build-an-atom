@@ -30,8 +30,15 @@ define( function( require ) {
       if ( !this.userControlled ) {
         var distanceToDestination = this.position.distance( this.destination );
         if ( distanceToDestination > dt * this.velocity ) {
+
+          // This was broken up into individual steps in an attempt to solve
+          // an issue where complex vector operations sometimes didn't work.
+          var stepMagnitude = this.velocity * dt;
+          var stepAngle = Math.atan2( this.destination.y - this.position.y, this.destination.x - this.position.x );
+          var stepVector = Vector2.createPolar( stepMagnitude, stepAngle );
+
           // Move a step toward the destination.
-          this.position = this.position.plus( this.destination.minus( this.position ).normalized().timesScalar( this.velocity * dt ) );
+          this.position = this.position.plus( stepVector );
         }
         else if ( distanceToDestination > 0 ) {
           // Less than one time step away, so just go to the destination.

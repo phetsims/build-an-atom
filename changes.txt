@@ -1,3 +1,5 @@
+8/9/2013 Removed randomness so that we can more easily recreate issues that are coming up.
+8/9/2013 Changed particle movement vector operations to try to solve an issue with occasional long pauses in operation.
 7/31/2013 Implemented the various "counts to symbol" problem variations.
 # 01.00.00
 7/31/2013 Added Google analytics

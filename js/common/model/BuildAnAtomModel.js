@@ -29,6 +29,8 @@ define( function( require ) {
   var BUCKET_Y_OFFSET = -225;
   var NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
   var MAX_NUCLEUS_JUMP = SharedConstants.NUCLEON_RADIUS * 0.5;
+  var JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
+  var JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
   /**
    * Constructor for main model object.
@@ -185,6 +187,8 @@ define( function( require ) {
   inherit( PropertySet,
     BuildAnAtomModel,
     {
+      _nucleusJumpCount: 0,
+
       // Main model step function, called by the framework.
       step: function( dt ) {
 
@@ -202,8 +206,9 @@ define( function( require ) {
           if ( this.nucleusJumpCountdown <= 0 ) {
             this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
             if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
-              var angle = Math.random() * 2 * Math.PI;
-              var distance = Math.random() * MAX_NUCLEUS_JUMP;
+              this._nucleusJumpCount++;
+              var angle = JUMP_ANGLES[ this._nucleusJumpCount % JUMP_ANGLES.length ];
+              var distance = JUMP_DISTANCES[ this._nucleusJumpCount % JUMP_DISTANCES.length ];
               this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
             }
             else {
