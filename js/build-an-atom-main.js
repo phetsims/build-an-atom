@@ -2,11 +2,11 @@
 require(
   [
     'common/model/BuildAnAtomModel',
-    'buildanatom/view/BuildAnAtomTabView',
+    'buildanatom/view/BuildAnAtomView',
     'SCENERY_PHET/PhetFont',
     'game/model/BAAGameModel',
     'game/view/BAAGameView',
-    'symbol/view/SymbolTabView',
+    'symbol/view/SymbolView',
     'SCENERY/nodes/Circle',
     'SCENERY/nodes/Image',
     'SCENERY/nodes/Rectangle',
@@ -15,7 +15,7 @@ require(
     'JOIST/SimLauncher',
     'imageLoader'
   ],
-  function( BuildAnAtomModel, BuildAnAtomTabView, PhetFont, BAAGameModel, BAAGameView, SymbolTabView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomView, PhetFont, BAAGameModel, BAAGameView, SymbolView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
     'use strict';
 
     var simOptions = {
@@ -37,12 +37,12 @@ require(
           icon: new Image( imageLoader.getImage( 'baa_atom_icon.png' ) ),
           backgroundColor: 'white',
           createModel: function() { return new BuildAnAtomModel(); },
-          createView: function( model ) { return new BuildAnAtomTabView( model ); } },
+          createView: function( model ) { return new BuildAnAtomView( model ); } },
         { name: 'Symbol',
           icon: new Image( imageLoader.getImage( 'baa_element_icon.png' ) ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
-          createView: function( model ) { return new SymbolTabView( model ); } }
+          createView: function( model ) { return new SymbolView( model ); } }
 //        { name: 'Game',
 //          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
 //          backgroundColor: 'rgb( 255, 254, 223 )',

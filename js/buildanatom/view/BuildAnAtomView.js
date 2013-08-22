@@ -1,14 +1,14 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Main view for the first tab of the Build an Atom simulation.
+ * Main view for the first screen of the Build an Atom simulation.
  */
 define( function( require ) {
   'use strict';
 
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
-  var AtomTabView = require( 'common/view/AtomTabView' );
+  var AtomView = require( 'common/view/AtomView' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeComparisonDisplay = require( 'buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
@@ -27,8 +27,8 @@ define( function( require ) {
    * @param model Build an Atom model object.
    * @constructor
    */
-  function BuildAnAtomTabView( model ) {
-    AtomTabView.call( this, model ); // Call super constructor.
+  function BuildAnAtomView( model ) {
+    AtomView.call( this, model ); // Call super constructor.
     var thisView = this;
 
     // Add the charge meter and charge comparison display inside of an accordion box.
@@ -78,8 +78,7 @@ define( function( require ) {
     massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + INTER_BOX_SPACING;
   }
 
-  // Inherit from TabView.
-  inherit( AtomTabView, BuildAnAtomTabView );
+  inherit( AtomView, BuildAnAtomView );
 
-  return BuildAnAtomTabView;
+  return BuildAnAtomView;
 } );

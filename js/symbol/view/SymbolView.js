@@ -1,13 +1,13 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Main view for the first tab of the Build an Atom simulation.
+ * Main view for the "Symbol" screen of the Build an Atom simulation.
  */
 define( function( require ) {
   'use strict';
 
   var AccordionBox = require( 'SUN/AccordionBox' );
-  var AtomTabView = require( 'common/view/AtomTabView' );
+  var AtomView = require( 'common/view/AtomView' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -20,8 +20,8 @@ define( function( require ) {
    * @param model Build an Atom model object.
    * @constructor
    */
-  function SymbolTabView( model ) {
-    AtomTabView.call( this, model ); // Call super constructor.
+  function SymbolView( model ) {
+    AtomView.call( this, model ); // Call super constructor.
     var thisView = this;
 
     // Add the symbol node within an accordion box.
@@ -47,8 +47,7 @@ define( function( require ) {
     symbolBox.left = this.periodicTableBox.left;
   }
 
-  // Inherit from TabView.
-  inherit( AtomTabView, SymbolTabView );
+  inherit( AtomView, SymbolView );
 
-  return SymbolTabView;
+  return SymbolView;
 } );

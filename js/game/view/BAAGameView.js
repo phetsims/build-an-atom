@@ -10,7 +10,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var TabView = require( 'JOIST/TabView' );
+  var ScreenView = require( 'JOIST/ScreenView' );
   var Text = require( 'SCENERY/nodes/Text' );
   var GameScoreboardNode = require( 'game/view/GameScoreboardNode' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
@@ -24,7 +24,7 @@ define( function( require ) {
    */
   function BAAGameView( gameModel ) {
 
-    TabView.call( this ); // Call super constructor.
+    ScreenView.call( this ); // Call super constructor.
     var thisScene = this;
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
@@ -53,8 +53,8 @@ define( function( require ) {
     } );
   }
 
-  // Inherit from TabView.
-  inherit( TabView, BAAGameView );
+  // Inherit from ScreenView.
+  inherit( ScreenView, BAAGameView );
 
   return BAAGameView;
 } );

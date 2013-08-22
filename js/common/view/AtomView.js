@@ -1,10 +1,10 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Tab view that presents an interactive atom on the left side, buckets of
+ * ScreenView that presents an interactive atom on the left side, buckets of
  * particles underneath, and controls for label visibility and reset.  A
  * periodic table is included on the right side.  This is intended to be used
- * as a base type for tabs with similar views.
+ * as a base type for screens with similar views.
  */
 define( function( require ) {
   'use strict';
@@ -27,9 +27,9 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
   var ResetAllButton = require( 'common/view/ResetAllButton' );
+  var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
   var SharedConstants = require( 'common/SharedConstants' );
-  var TabView = require( 'JOIST/TabView' );
   var Text = require( 'SCENERY/nodes/Text' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
 
@@ -46,9 +46,9 @@ define( function( require ) {
    * @param model Build an Atom model object.
    * @constructor
    */
-  function AtomTabView( model ) {
-    TabView.call( this, { renderer: 'svg' } ); // Call super constructor.
-//    TabView.call( this ); // Call super constructor.
+  function AtomView( model ) {
+    ScreenView.call( this, { renderer: 'svg' } ); // Call super constructor.
+//    ScreenView.call( this ); // Call super constructor.
     var thisView = this;
     this.model = model;
     this.resetFunctions = [];
@@ -229,8 +229,8 @@ define( function( require ) {
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
   }
 
-  // Inherit from TabView.
-  inherit( TabView, AtomTabView );
+  // Inherit from ScreenView.
+  inherit( ScreenView, AtomView );
 
-  return AtomTabView;
+  return AtomView;
 } );
