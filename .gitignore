@@ -1,5 +1,5 @@
-build-an-atom.iml
 node_modules/
 build/
+*.iml
 .DS_Store
 .DS_Store?
