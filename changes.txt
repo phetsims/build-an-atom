@@ -1,3 +1,4 @@
+8/26/2013 Added code to allow limits to be set for proton count and mass number in the interactive game questions.
 8/26/2013 Generalized color and text formatting for interactive symbol, should now be correct in all game problems.
 8/22/2013 joist#35, terminology change: tab -> screen
 8/9/2013 Removed randomness so that we can more easily recreate issues that are coming up.

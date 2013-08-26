@@ -29,6 +29,7 @@ define( function( require ) {
   /**
    * Constructor
    * @param numberAtom
+   * @param options
    * @constructor
    */
   function InteractiveSymbolNode( numberAtom, options ) {
@@ -154,9 +155,9 @@ define( function( require ) {
   inherit( Node, InteractiveSymbolNode,
     {
       reset: function() {
-        this.protonCount.reset;
-        this.massNumber.reset;
-        this.charge.reset;
+        this.protonCount.reset();
+        this.massNumber.reset();
+        this.charge.reset();
       }
     } );
 

@@ -63,6 +63,8 @@ define( function( require ) {
       textNode.centerX = answerValueBackground.width / 2;
       textNode.centerY = answerValueBackground.height / 2;
       answerValueBackground.addChild( textNode );
+      upArrowButton.setEnabled( newValue < options.maxValue );
+      downArrowButton.setEnabled( newValue > options.minValue );
     } );
 
     // Layout

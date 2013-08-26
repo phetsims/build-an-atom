@@ -23,17 +23,17 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToSymbolProblemView( countsToChargeProblem, layoutBounds ) {
+  function CountsToSymbolProblemView( toSymbolProblem, layoutBounds ) {
 
     // Interactive Symbol (must be defined before the constructor is invoked).
-    this.interactiveSymbol = new InteractiveSymbolNode( countsToChargeProblem.answerAtom,
+    this.interactiveSymbol = new InteractiveSymbolNode( toSymbolProblem.answerAtom,
       {
-        interactiveProtonCount: countsToChargeProblem.configurableProtonCount,
-        interactiveMassNumber: countsToChargeProblem.configurableMassNumber,
-        interactiveCharge: countsToChargeProblem.configurableCharge
+        interactiveProtonCount: toSymbolProblem.configurableProtonCount,
+        interactiveMassNumber: toSymbolProblem.configurableMassNumber,
+        interactiveCharge: toSymbolProblem.configurableCharge
       } );
 
-    ProblemView.call( this, countsToChargeProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, toSymbolProblem, layoutBounds ); // Call super constructor.
     var thisNode = this;
 
     // Add the interactive symbol.
@@ -41,7 +41,7 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.interactiveSymbol );
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
+    var particleCountsNode = new ParticleCountsNode( toSymbolProblem.answerAtom );
     this.problemPresentationNode.addChild( particleCountsNode );
 
     // Layout
