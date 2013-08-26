@@ -15,6 +15,9 @@ define( function( require ) {
   // Max attempts for each problem on the game tab.
   SharedConstants.MAX_PROBLEM_ATTEMPTS = 2;
 
+  // Color selector used when depicting charge values.
+  SharedConstants.CHARGE_TEXT_COLOR = function( charge ) { return charge > 0 ? 'red' : charge < 0 ? 'blue' : 'black'};
+
   return SharedConstants;
 
 } );

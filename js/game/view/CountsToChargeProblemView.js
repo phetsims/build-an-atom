@@ -19,6 +19,7 @@ define( function( require ) {
   var ParticleCountsNode = require( 'game/view/ParticleCountsNode' );
   var ProblemView = require( 'game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
+  var SharedConstants = require( 'common/SharedConstants' );
 
   /**
    * Main constructor function.
@@ -40,7 +41,7 @@ define( function( require ) {
     this.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, true );
+    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, { prependPlusSign: true, getTextColor: SharedConstants.CHARGE_TEXT_COLOR } );
     thisNode.addChild( numberEntryNode );
 
     // Layout

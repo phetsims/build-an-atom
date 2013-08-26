@@ -1,3 +1,4 @@
+8/26/2013 Generalized color and text formatting for interactive symbol, should now be correct in all game problems.
 8/22/2013 joist#35, terminology change: tab -> screen
 8/9/2013 Removed randomness so that we can more easily recreate issues that are coming up.
 8/9/2013 Changed particle movement vector operations to try to solve an issue with occasional long pauses in operation.

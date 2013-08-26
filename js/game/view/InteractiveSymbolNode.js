@@ -15,6 +15,7 @@ define( function( require ) {
   var NumberEntryNode = require( 'game/view/NumberEntryNode' );
   var Property = require( 'AXON/Property' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var SharedConstants = require( 'common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -85,8 +86,10 @@ define( function( require ) {
 
     // Add the proton count display, either interactive or not.
     if ( options.interactiveProtonCount ) {
-      boundingBox.addChild( new NumberEntryNode( thisNode.protonCount, false,
+      boundingBox.addChild( new NumberEntryNode( thisNode.protonCount,
         {
+          minValue: 0,
+          getTextColor: function() {return 'red'},
           bottom: SYMBOL_BOX_HEIGHT - NUMBER_ENTRY_NODE_INSET,
           left: NUMBER_ENTRY_NODE_INSET
         } ) );
@@ -106,8 +109,9 @@ define( function( require ) {
 
     // Add the mass number display, either interactive or not.
     if ( options.interactiveMassNumber ) {
-      boundingBox.addChild( new NumberEntryNode( thisNode.massNumber, false,
+      boundingBox.addChild( new NumberEntryNode( thisNode.massNumber,
         {
+          minValue: 0,
           top: NUMBER_ENTRY_NODE_INSET,
           left: NUMBER_ENTRY_NODE_INSET
         } ) );
@@ -125,19 +129,20 @@ define( function( require ) {
 
     // Add the charge display, either interactive or not.
     if ( options.interactiveCharge ) {
-      boundingBox.addChild( new NumberEntryNode( thisNode.charge, true,
+      boundingBox.addChild( new NumberEntryNode( thisNode.charge,
         {
+          prependPlusSign: true,
+          getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
           top: NUMBER_ENTRY_NODE_INSET,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_INSET
         } ) );
     }
     else {
-      var chargeTextColor = numberAtom.charge > 0 ? 'red' : numberAtom.charge < 0 ? 'blue' : 'black';
       var chargeTextPrepend = numberAtom.charge > 0 ? '+' : '';
       var chargeDisplay = new Text( chargeTextPrepend + numberAtom.charge,
         {
           font: NUMBER_FONT,
-          fill: chargeTextColor,
+          fill: SharedConstants.CHARGE_TEXT_COLOR( numberAtom.charge ),
           right: SYMBOL_BOX_WIDTH - NUMBER_INSET,
           top: NUMBER_INSET
         } );
