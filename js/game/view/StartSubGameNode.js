@@ -19,12 +19,12 @@ define( function( require ) {
     // Node creation
     var title = new Text( "Choose Your Challenge", { font: new PhetFont( 30 ) } );
     this.addChild( title );
-    var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+    var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'periodicTableGame' );
       } );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+    var massAndChangeGameButton = new GameStartButton( new Image( imageLoader.getImage( 'mass_charge_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'massAndChargeGame' );
       } );

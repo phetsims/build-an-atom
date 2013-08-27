@@ -12,6 +12,8 @@ define( function( require ) {
       'baa_element_icon.png',
       'blue-stopwatch.png',
       'game_icon.png',
+      'mass_charge_icon.png',
+      'periodic_table_icon.png',
       'question_mark_icon.png',
       'reset_button_disabled.png',
       'reset_button_down.png',
