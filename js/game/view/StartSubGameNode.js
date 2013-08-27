@@ -14,6 +14,9 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
+    // Node creation
+    var title = new Text( "Choose Your Challenge", { font: new PhetFont( 24 ) } );
+    this.addChild( title );
     var periodicTableGameButton = new GameStartButton( 'Periodic Table Game', function() {
       gameModel.startSubGame( 'periodicTableGame' );
     } );
@@ -30,6 +33,10 @@ define( function( require ) {
       gameModel.startSubGame( 'advancedSymbolGame' );
     } );
     this.addChild( advancedSymbolGameButton );
+
+    // Layout
+    title.centerX = layoutBounds.width / 2;
+    title.top = 10;
     var ySpacing = layoutBounds.height / 5;
     periodicTableGameButton.centerX = layoutBounds.centerX;
     periodicTableGameButton.centerY = ySpacing;
