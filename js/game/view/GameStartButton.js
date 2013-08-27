@@ -16,7 +16,7 @@ define( function( require ) {
   var DROP_SHADOW_OFFSET = WIDTH * 0.02;
   var CORNER_ROUNDING = 10;
 
-  var GameStartButton = function GameStartButton( text, onFireFunction ) {
+  var GameStartButton = function GameStartButton( icon, onFireFunction ) {
 
     Node.call( this ); // Call super constructor.
     var thisNode = this;
@@ -32,7 +32,7 @@ define( function( require ) {
       }
     ) );
 
-    // Add the bounding box, which is also the root node for everything else
+    // Add the button outline, which is also the root node for everything else
     // that is on the button.
     var buttonOutline = new Rectangle( 0, 0, WIDTH, HEIGHT, CORNER_ROUNDING, CORNER_ROUNDING,
       {
@@ -44,7 +44,13 @@ define( function( require ) {
     thisNode.addChild( buttonOutline );
 
     // Add the icon.
-    //TODO
+    var iconScaleFactor = HEIGHT * 0.65 / icon.width;
+    icon.scale( iconScaleFactor );
+    icon.centerX = WIDTH / 2;
+    icon.centerY = HEIGHT * 0.4;
+
+    //TODO - The icon should be scaled to fit if too big.
+    buttonOutline.addChild( icon );
 
     thisNode._armed = false;
 

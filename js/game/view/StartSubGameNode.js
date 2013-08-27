@@ -2,13 +2,15 @@
 define( function( require ) {
   'use strict';
 
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var GameStartButton = require( 'game/view/GameStartButton' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var imageLoader = require( 'imageLoader' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   var StartSubGameNode = function StartSubGameNode( gameModel, layoutBounds ) {
 
@@ -17,21 +19,25 @@ define( function( require ) {
     // Node creation
     var title = new Text( "Choose Your Challenge", { font: new PhetFont( 30 ) } );
     this.addChild( title );
-    var periodicTableGameButton = new GameStartButton( 'Periodic Table Game', function() {
-      gameModel.startSubGame( 'periodicTableGame' );
-    } );
+    var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+      function() {
+        gameModel.startSubGame( 'periodicTableGame' );
+      } );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( 'Mass And Charge Game', function() {
-      gameModel.startSubGame( 'massAndChargeGame' );
-    } );
+    var massAndChangeGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+      function() {
+        gameModel.startSubGame( 'massAndChargeGame' );
+      } );
     this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new GameStartButton( 'Symbol Game', function() {
-      gameModel.startSubGame( 'symbolGame' );
-    } );
+    var symbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
+      function() {
+        gameModel.startSubGame( 'symbolGame' );
+      } );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new GameStartButton( 'Advanced Symbol Game', function() {
-      gameModel.startSubGame( 'advancedSymbolGame' );
-    } );
+    var advancedSymbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+      function() {
+        gameModel.startSubGame( 'advancedSymbolGame' );
+      } );
     this.addChild( advancedSymbolGameButton );
 
     // Layout
