@@ -12,39 +12,64 @@ define( function( require ) {
   var WIDTH = 150; // In screen coords, which are roughly pixels.
   var HEIGHT = 150; // In screen coords, which are roughly pixels.
   var BACKGROUND_COLOR = 'rgb( 242, 255, 204 )';
+  var HIGHLIGHTED_BACKGROUND_COLOR = 'rgb( 250, 255, 230 )';
+  var DROP_SHADOW_OFFSET = WIDTH * 0.02;
+  var CORNER_ROUNDING = 10;
 
   var GameStartButton = function GameStartButton( text, onFireFunction ) {
 
     Node.call( this ); // Call super constructor.
+    var thisNode = this;
+
+    // Add the drop shadow.
+    this.addChild( new Rectangle( 0, 0, WIDTH, HEIGHT, CORNER_ROUNDING, CORNER_ROUNDING,
+      {
+        stroke: 'black',
+        lineWidth: 1,
+        fill: 'black',
+        top: DROP_SHADOW_OFFSET,
+        left: DROP_SHADOW_OFFSET
+      }
+    ) );
 
     // Add the bounding box, which is also the root node for everything else
-    // that comprises this node.
-    var buttonOutline = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
+    // that is on the button.
+    var buttonOutline = new Rectangle( 0, 0, WIDTH, HEIGHT, CORNER_ROUNDING, CORNER_ROUNDING,
       {
         stroke: 'black',
         lineWidth: 1,
         fill: BACKGROUND_COLOR,
         cursor: 'pointer'
       } );
-    this.addChild( buttonOutline );
+    thisNode.addChild( buttonOutline );
 
     // Add the icon.
     //TODO
+
+    thisNode._armed = false;
 
     // Add the listener to update the appearance and handle a click.
     buttonOutline.addInputListener(
       {
         down: function() {
-          buttonOutline.stroke = 'black';
+          buttonOutline.fill = HIGHLIGHTED_BACKGROUND_COLOR;
+          buttonOutline.top = DROP_SHADOW_OFFSET;
+          buttonOutline.left = DROP_SHADOW_OFFSET;
+          thisNode._armed = true;
         },
         over: function() {
-          buttonOutline.stroke = 'yellow';
+          buttonOutline.fill = HIGHLIGHTED_BACKGROUND_COLOR;
         },
         out: function() {
-          buttonOutline.stroke = 'black';
+          buttonOutline.fill = BACKGROUND_COLOR;
         },
         up: function() {
-          onFireFunction();
+          buttonOutline.fill = BACKGROUND_COLOR;
+          buttonOutline.top = 0;
+          buttonOutline.left = 0;
+          if ( thisNode._armed ) {
+            onFireFunction();
+          }
         }
       } );
   };
