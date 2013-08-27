@@ -9,10 +9,9 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
 
-  var WIDTH = 700; // In screen coords, which are roughly pixels.
-  var HEIGHT = 75; // In screen coords, which are roughly pixels.
-  var TITLE_FONT = new PhetFont( 35 );
-  var INSET = 20; // In screen coords, which are roughly pixels.
+  var WIDTH = 150; // In screen coords, which are roughly pixels.
+  var HEIGHT = 150; // In screen coords, which are roughly pixels.
+  var BACKGROUND_COLOR = 'red';
 
   var GameStartButton = function GameStartButton( text, onFireFunction ) {
 
@@ -20,44 +19,33 @@ define( function( require ) {
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
-    var boundingBox = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
+    var buttonOutline = new Rectangle( 0, 0, WIDTH, HEIGHT, 10, 10,
       {
         stroke: 'black',
-        fill: new LinearGradient( 0, 0, 0, HEIGHT ).
-          addColorStop( 0, 'rgb( 229, 243, 255 )' ).
-          addColorStop( 0.15, 'rgb( 179, 217, 255 )' ).
-          addColorStop( 0.85, 'rgb( 179, 217, 255 )' ).
-          addColorStop( 1, 'rgb( 77, 172, 240 )' ),
         lineWidth: 1,
+        fill: BACKGROUND_COLOR,
         cursor: 'pointer'
       } );
-    this.addChild( boundingBox );
+    this.addChild( buttonOutline );
 
-    // Add the text.
-    var textNode = new Text( text,
-      {
-        font: TITLE_FONT,
-        fill: 'black',
-        left: INSET,
-        centerY: HEIGHT / 2
-      } );
-    boundingBox.addChild( textNode );
+    // Add the icon.
+    //TODO
 
     // Add the listener to update the appearance and handle a click.
-    boundingBox.addInputListener(
+    buttonOutline.addInputListener(
       {
         down: function() {
           onFireFunction();
-          boundingBox.stroke = 'black';
-          boundingBox.lineWidth = 1;
+          buttonOutline.stroke = 'black';
         },
         over: function() {
-          boundingBox.stroke = 'yellow';
-          boundingBox.lineWidth = 5;
+          buttonOutline.stroke = 'yellow';
         },
         out: function() {
-          boundingBox.stroke = 'black';
-          boundingBox.lineWidth = 1;
+          buttonOutline.stroke = 'black';
+        },
+        up: function() {
+          onFireFunction();
         }
       } );
   };

@@ -15,7 +15,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Node creation
-    var title = new Text( "Choose Your Challenge", { font: new PhetFont( 24 ) } );
+    var title = new Text( "Choose Your Challenge", { font: new PhetFont( 30 ) } );
     this.addChild( title );
     var periodicTableGameButton = new GameStartButton( 'Periodic Table Game', function() {
       gameModel.startSubGame( 'periodicTableGame' );
@@ -36,16 +36,18 @@ define( function( require ) {
 
     // Layout
     title.centerX = layoutBounds.width / 2;
-    title.top = 10;
-    var ySpacing = layoutBounds.height / 5;
-    periodicTableGameButton.centerX = layoutBounds.centerX;
-    periodicTableGameButton.centerY = ySpacing;
-    massAndChangeGameButton.centerX = layoutBounds.centerX;
-    massAndChangeGameButton.centerY = ySpacing * 2;
-    symbolGameButton.centerX = layoutBounds.centerX;
-    symbolGameButton.centerY = ySpacing * 3;
-    advancedSymbolGameButton.centerX = layoutBounds.centerX;
-    advancedSymbolGameButton.centerY = ySpacing * 4;
+    title.top = 20;
+    var buttonWidth = periodicTableGameButton.width; // Note: Assumes all buttons are the same size.
+    var interButtonXSpace = buttonWidth * 0.2;
+    var buttonCenterY = layoutBounds.height * 0.4;
+    periodicTableGameButton.right = layoutBounds.centerX - 1.5 * interButtonXSpace - buttonWidth;
+    periodicTableGameButton.centerY = buttonCenterY;
+    massAndChangeGameButton.left = periodicTableGameButton.right + interButtonXSpace;
+    massAndChangeGameButton.centerY = buttonCenterY;
+    symbolGameButton.left = massAndChangeGameButton.right + interButtonXSpace;
+    symbolGameButton.centerY = buttonCenterY;
+    advancedSymbolGameButton.left = symbolGameButton.right + interButtonXSpace;
+    advancedSymbolGameButton.centerY = buttonCenterY;
   };
 
   // Inherit from Node.
