@@ -11,7 +11,7 @@ define( function( require ) {
 
   var WIDTH = 150; // In screen coords, which are roughly pixels.
   var HEIGHT = 150; // In screen coords, which are roughly pixels.
-  var BACKGROUND_COLOR = 'red';
+  var BACKGROUND_COLOR = 'rgb( 242, 255, 204 )';
 
   var GameStartButton = function GameStartButton( text, onFireFunction ) {
 
@@ -35,7 +35,6 @@ define( function( require ) {
     buttonOutline.addInputListener(
       {
         down: function() {
-          onFireFunction();
           buttonOutline.stroke = 'black';
         },
         over: function() {
