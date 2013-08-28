@@ -38,7 +38,7 @@ define( function( require ) {
         fill: BACKGROUND_COLOR,
         stroke: 'black',
         lineWidth: 1
-      } )
+      } );
     this.addChild( boundingRectangle );
 
     // Add the un-highlighted progress stars.
@@ -54,7 +54,7 @@ define( function( require ) {
         } ) );
       starLeft += distanceBetweenStars + starDiameter;
     }
-  };
+  }
 
   // Inherit from Node.
   inherit( Node, GameProgressIndicator );

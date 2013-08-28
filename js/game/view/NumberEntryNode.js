@@ -34,7 +34,7 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         prependPlusSign: false, // Generally set to true when depicting charge.
-        getTextColor: function() { return 'black' },
+        getTextColor: function() { return 'black'; },
         minValue: Number.NEGATIVE_INFINITY,
         maxValue: Number.POSITIVE_INFINITY
       }, options );
