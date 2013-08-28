@@ -43,14 +43,16 @@ define( function( require ) {
 
     // Add the un-highlighted progress stars.
     var starDiameter = height * 0.8;
-    var distanceBetweenStarCenters = starDiameter + ( width - ( starDiameter * numStars ) ) / numStars;
+    var distanceBetweenStars = ( width - ( starDiameter * numStars ) ) / ( numStars + 1 );
+    var starLeft = distanceBetweenStars;
     for ( var i = 0; i < numStars; i++ ) {
       boundingRectangle.addChild( new Star( height * 0.8,
         {
           fill: UNFILLED_STAR_COLOR,
-          centerX: distanceBetweenStarCenters * ( i + 0.5 ),
+          left: starLeft,
           centerY: height / 2
         } ) );
+      starLeft += distanceBetweenStars + starDiameter;
     }
   };
 
