@@ -45,7 +45,7 @@ define( function( require ) {
 
     // placeholder text value, will be changed later
     var numericalText = new Text( " ", {
-      font: new PhetFont( 24, 'bold' )
+      font: new PhetFont( { size: 24, weight: 'bold' } )
     } );
     readoutBackground.addChild( numericalText );
 

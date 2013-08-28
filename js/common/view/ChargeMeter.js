@@ -115,7 +115,7 @@ define( function( require ) {
 
       // created with placeholder empty-string, which will be changed
       readoutText = new Text( " ", {
-        font: new PhetFont( 24, 'bold' )
+        font: new PhetFont( { size: 24, weight: 'bold' } )
       } );
       numericalReadout.addChild( readoutText );
     }

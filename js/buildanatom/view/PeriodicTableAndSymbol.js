@@ -44,7 +44,7 @@ define( function( require ) {
       symbolRectangle.removeAllChildren();
       var symbolText = new Text( AtomIdentifier.getSymbol( numberAtom.protonCount ),
         {
-          font: new PhetFont( 48, 'bold' )
+          font: new PhetFont( { size: 48, weight: 'bold' } )
         } );
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );
       symbolText.center = new Vector2( symbolRectangle.width / 2, symbolRectangle.height / 2 );
