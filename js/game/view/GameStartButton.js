@@ -44,7 +44,7 @@ define( function( require ) {
     thisNode.addChild( buttonOutline );
 
     // Add the icon.
-    var iconScaleFactor = HEIGHT * 0.65 / icon.width;
+    var iconScaleFactor = Math.min( HEIGHT * 0.65 / icon.height, WIDTH * 0.85 / icon.width );
     icon.scale( iconScaleFactor );
     icon.centerX = WIDTH / 2;
     icon.centerY = HEIGHT * 0.4;
