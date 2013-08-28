@@ -50,13 +50,13 @@ define( function( require ) {
 
     // Add the schematic representation of the atom.
     var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, mvt );
-    this.addChild( new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, mvt ) );
+    this.addChild( schematicAtomNode );
 
     // Layout
     schematicAtomNode.centerX = layoutBounds.width * 0.25;
-    schematicAtomNode.centerY = layoutBounds.height * 0.5;
+    schematicAtomNode.centerY = layoutBounds.height * 0.4;
     this.interactiveSymbol.centerX = layoutBounds.width * 0.75;
-    this.interactiveSymbol.centerY = layoutBounds.height * 0.4;
+    this.interactiveSymbol.centerY = layoutBounds.height * 0.45;
   }
 
   // Inherit from ProblemView.
