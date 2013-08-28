@@ -1,3 +1,6 @@
+8/28/2013 Ported the schematic-to-symbol class of problems.
+8/28/2013 Added progress indicator (stars) to the game start buttons.  Not fully operational yet.
+8/27/2013 Added game start buttons that match (mostly) the spec.
 8/26/2013 Added symbol-to-counts problem type to the game.
 8/26/2013 Added code to allow limits to be set for proton count and mass number in the interactive game questions.
 8/26/2013 Generalized color and text formatting for interactive symbol, should now be correct in all game problems.
