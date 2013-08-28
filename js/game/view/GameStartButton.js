@@ -52,7 +52,7 @@ define( function( require ) {
     buttonOutline.addChild( icon );
 
     // Add the progress indicator to the button.
-    buttonOutline.addChild( new GameProgressIndicator( WIDTH, HEIGHT * 0.2, CORNER_ROUNDING ).mutate( { bottom: HEIGHT } ) );
+    buttonOutline.addChild( new GameProgressIndicator( WIDTH, HEIGHT * 0.2, CORNER_ROUNDING, 5 ).mutate( { bottom: HEIGHT } ) );
 
     // Add the listener to update the appearance and handle a click.
     thisNode._armed = false;
