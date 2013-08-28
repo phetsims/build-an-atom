@@ -2,12 +2,13 @@
 define( function( require ) {
   'use strict';
 
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var GameProgressIndicator = require( 'game/view/GameProgressIndicator' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   var WIDTH = 150; // In screen coords, which are roughly pixels.
   var HEIGHT = 150; // In screen coords, which are roughly pixels.
@@ -43,18 +44,18 @@ define( function( require ) {
       } );
     thisNode.addChild( buttonOutline );
 
-    // Add the icon.
+    // Add the icon, scaling as needed.
     var iconScaleFactor = Math.min( HEIGHT * 0.65 / icon.height, WIDTH * 0.85 / icon.width );
     icon.scale( iconScaleFactor );
     icon.centerX = WIDTH / 2;
     icon.centerY = HEIGHT * 0.4;
-
-    //TODO - The icon should be scaled to fit if too big.
     buttonOutline.addChild( icon );
 
-    thisNode._armed = false;
+    // Add the progress indicator to the button.
+    buttonOutline.addChild( new GameProgressIndicator( WIDTH, HEIGHT * 0.2, CORNER_ROUNDING ).mutate( { bottom: HEIGHT } ) );
 
     // Add the listener to update the appearance and handle a click.
+    thisNode._armed = false;
     buttonOutline.addInputListener(
       {
         down: function() {
