@@ -93,7 +93,7 @@ define( function( require ) {
     var meterNeedle = new ArrowNode(
       0, 0, // tip at origin, so we can rotate around it
       0, 3 - meterWindowHeight,
-      7, 5, 1 );
+      { headHeight: 7, headWidth: 5, tailWidth: 1 } );
     meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
 
