@@ -168,7 +168,7 @@ define( function( require ) {
         { content: new Text( 'Element Name', {font: LABEL_CONTROL_FONT} ), property: model.showElementNameProperty, label: 'Element Name' },
         { content: new Text( 'Neutral/Ion', {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIonProperty, label: 'Neutral/Ion' },
         { content: new Text( 'Stable/Unstable', {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstableProperty, label: 'Stable/Unstable' }
-      ] ), { fill: 'rgb( 245, 245, 245 )' } );
+      ] ), { fill: 'rgb( 245, 245, 245 )', xMargin: 15 } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
     for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
