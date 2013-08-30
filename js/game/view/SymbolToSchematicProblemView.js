@@ -12,10 +12,11 @@ define( function( require ) {
 
   // Imports
   var inherit = require( 'PHET_CORE/inherit' );
+  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var InteractiveSymbolNode = require( 'game/view/InteractiveSymbolNode' );
-  var InteractiveParticleCountsNode = require( 'game/view/InteractiveParticleCountsNode' );
+  var NonInteractiveSchematicAtomNode = require( 'game/view/NonInteractiveSchematicAtomNode' );
   var ProblemView = require( 'game/view/ProblemView' );
 
   /**
@@ -23,19 +24,25 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SymbolToCountsProblemView( symbolToCountsProblem, layoutBounds ) {
+  function SymbolToSchematicProblemView( problem, layoutBounds ) {
 
-    // Interactive particle count node - must be defined before call to super constructor.
-    this.interactiveSchematicAtomNode = new InteractiveParticleCountsNode();
+    // Create the model-view transform used by the schematic atom.
+    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+      { x: 0, y: 0 },
+      { x: layoutBounds.width * 0.275, y: layoutBounds.height * 0.45 },
+      0.8 );
+
+    // Interactive schematic atom node - must be defined before call to super constructor.
+    this.interactiveSchematicAtomNode = new NonInteractiveSchematicAtomNode( problem.answerAtom, mvt ); // TODO: Need to make this interactive
 
     // Call super constructor.
-    ProblemView.call( this, symbolToCountsProblem, layoutBounds );
+    ProblemView.call( this, problem, layoutBounds );
 
-    // Add interactive particle count.
+    // Add interactive schematic atom.
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtomNode );
 
     // Symbol
-    var symbol = new InteractiveSymbolNode( symbolToCountsProblem.answerAtom );
+    var symbol = new InteractiveSymbolNode( problem.answerAtom );
     symbol.scale( 0.75 );
     this.problemPresentationNode.addChild( symbol );
 
@@ -47,24 +54,22 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, SymbolToCountsProblemView,
+  inherit( ProblemView, SymbolToSchematicProblemView,
     {
       checkAnswer: function() {
-
-        this.problem.checkAnswer( this.interactiveSchematicAtomNode.numberAtom );
+        // TODO - Implement
+        return true;
       },
 
       clearAnswer: function() {
-        this.interactiveSchematicAtomNode.numberAtom.reset();
+        // TODO - Implement
       },
 
       displayCorrectAnswer: function() {
-        this.interactiveSchematicAtomNode.numberAtom.protonCount = this.problem.answerAtom.protonCount;
-        this.interactiveSchematicAtomNode.numberAtom.neutronCount = this.problem.answerAtom.neutronCount;
-        this.interactiveSchematicAtomNode.numberAtom.electronCount = this.problem.answerAtom.electronCount;
+        // TODO - Implement
       }
     }
   );
 
-  return SymbolToCountsProblemView;
+  return SymbolToSchematicProblemView;
 } );
