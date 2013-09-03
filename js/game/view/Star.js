@@ -21,9 +21,8 @@ define( function( require ) {
       angle += ( 2 * Math.PI ) / 10;
     }
     starShape.close();
-    options.shape = starShape;
 
-    Path.call( this, options ); // Call super constructor.
+    Path.call( this, starShape, options ); // Call super constructor.
   };
 
   // Inherit from Path.

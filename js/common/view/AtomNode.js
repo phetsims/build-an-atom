@@ -56,8 +56,7 @@ define( function( require ) {
       centerMarker.lineTo( center.x + sizeInPixels / 2, center.y + sizeInPixels / 2 );
       centerMarker.moveTo( center.x - sizeInPixels / 2, center.y + sizeInPixels / 2 );
       centerMarker.lineTo( center.x + sizeInPixels / 2, center.y - sizeInPixels / 2 );
-      var atomCenterMarker = new Path( {
-        shape: centerMarker,
+      var atomCenterMarker = new Path( centerMarker, {
         stroke: 'orange',
         lineWidth: 5
       } );

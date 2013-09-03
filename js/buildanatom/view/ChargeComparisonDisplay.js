@@ -43,8 +43,7 @@ define( function( require ) {
     minusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.close();
 
-    var minusSymbolPath = new Path( {
-      shape: minusSymbolShape,
+    var minusSymbolPath = new Path( minusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
       fill: 'rgb( 100, 100, 255 )',
@@ -77,8 +76,7 @@ define( function( require ) {
     plusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
     plusSymbolShape.close();
 
-    var plusSymbolPath = new Path( {
-      shape: plusSymbolShape,
+    var plusSymbolPath = new Path( plusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
       fill: 'red',

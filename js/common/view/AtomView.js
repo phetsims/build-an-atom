@@ -172,8 +172,8 @@ define( function( require ) {
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
     for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
-      var dividerLine1 = new Path(
-        { shape: dividerLineShape,
+      var dividerLine1 = new Path( dividerLineShape,
+        {
           lineWidth: 1,
           stroke: 'gray',
           centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 )

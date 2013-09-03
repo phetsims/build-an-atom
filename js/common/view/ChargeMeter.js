@@ -51,8 +51,7 @@ define( function( require ) {
     meterWindowShape.quadraticCurveTo( 0, 0, meterWindowWidth / 2, 0 );
     meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
-    var meterWindow = new Path( {
-      shape: meterWindowShape,
+    var meterWindow = new Path( meterWindowShape,{
       stroke: 'gray',
       lineWidth: 2,
       fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
@@ -71,16 +70,16 @@ define( function( require ) {
       moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).
       lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
     var plusSymbol = new Node();
-    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
-    plusSymbol.addChild( new Path( { shape: plusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
+    plusSymbol.addChild( new Path( plusShape,{ lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    plusSymbol.addChild( new Path( plusShape,{ lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
     plusSymbol.center = new Vector2( meterWindow.width * 0.7, meterWindow.height * 0.5 );
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
     var minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
     var minusSymbol = new Node();
-    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
-    minusSymbol.addChild( new Path( { shape: minusShape, lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
+    minusSymbol.addChild( new Path( minusShape,{ lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    minusSymbol.addChild( new Path( minusShape,{ lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
     minusSymbol.center = new Vector2( meterWindow.width * 0.3, meterWindow.height * 0.5 );
     meterWindow.addChild( minusSymbol );
 
