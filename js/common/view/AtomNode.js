@@ -64,9 +64,9 @@ define( function( require ) {
 
       // Make the marker invisible if any nucleons are present.
       var listener = function() { atomCenterMarker.visible = particleAtom.getWeight() === 0; };
-      particleAtom.electrons.addListener( listener );
-      particleAtom.neutrons.addListener( listener );
-      particleAtom.protons.addListener( listener );
+      particleAtom.electrons.lengthProperty.link( listener );
+      particleAtom.neutrons.lengthProperty.link( listener );
+      particleAtom.protons.lengthProperty.link( listener );
     }
 
     // Add the electron shells and cloud.
@@ -105,7 +105,7 @@ define( function( require ) {
     updateElementName(); // Do the initial update.
 
     // Hook up update listeners.
-    particleAtom.protons.addListener( function() {
+    particleAtom.protons.lengthProperty.link( function() {
       updateElementName();
     } );
     options.showElementNameProperty.link( function( visible ) {
@@ -148,8 +148,8 @@ define( function( require ) {
     };
     updateIonIndicator(); // Do the initial update.
 
-    particleAtom.protons.addListener( updateIonIndicator );
-    particleAtom.electrons.addListener( updateIonIndicator );
+    particleAtom.protons.lengthProperty.link( updateIonIndicator );
+    particleAtom.electrons.lengthProperty.link( updateIonIndicator );
     options.showNeutralOrIonProperty.link( function( visible ) {
       thisAtomView.ionIndicator.visible = visible;
     } );
@@ -184,13 +184,13 @@ define( function( require ) {
     updateStabilityIndicator(); // Do initial update.
 
     // Add the listeners that control the label content and visibility.
-    particleAtom.protons.addListener( function() {
+    particleAtom.protons.lengthProperty.link( function() {
       updateElementName();
       updateIonIndicator();
       updateStabilityIndicator();
     } );
-    particleAtom.electrons.addListener( updateIonIndicator );
-    particleAtom.neutrons.addListener( updateStabilityIndicator );
+    particleAtom.electrons.lengthProperty.link( updateIonIndicator );
+    particleAtom.neutrons.lengthProperty.link( updateStabilityIndicator );
     options.showStableOrUnstableProperty.link( function( visible ) {
       thisAtomView.stabilityIndicator.visible = visible;
     } );

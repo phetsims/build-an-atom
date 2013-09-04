@@ -155,9 +155,9 @@ define( function( require ) {
     };
 
     // Update the number atom when the particle atom changes.
-    this.particleAtom.protons.addListener( updateNumberAtom );
-    this.particleAtom.electrons.addListener( updateNumberAtom );
-    this.particleAtom.neutrons.addListener( updateNumberAtom );
+    this.particleAtom.protons.lengthProperty.link( updateNumberAtom );
+    this.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
+    this.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
 
     // Update the stability state and counter on changes.
     this.nucleusStable = true;
@@ -221,7 +221,7 @@ define( function( require ) {
       _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
         var particlesToRemove = [];
         for ( var i = 0; i < particleCollection.length; i++ ) {
-          particlesToRemove[i] = particleCollection.at( i );
+          particlesToRemove[i] = particleCollection.get( i );
         }
         particleCollection.clear();
         _.each( particlesToRemove, function( particle ) {

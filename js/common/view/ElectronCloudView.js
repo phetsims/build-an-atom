@@ -50,8 +50,8 @@ define( function( require ) {
     updateElectronCloud( atom.electrons.length );
 
     // Update the cloud size as electrons come and go.
-    atom.electrons.addListener( function( added, removed, resultingArray ) {
-      updateElectronCloud( resultingArray.length );
+    atom.electrons.lengthProperty.link( function( length ) {
+      updateElectronCloud( length );
     } );
 
     // If the user clicks on the cloud, extract an electron.

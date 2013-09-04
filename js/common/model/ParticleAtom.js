@@ -58,31 +58,29 @@ define( function( require ) {
     }
 
     // When an electron is removed, clear the corresponding shell position.
-    this.electrons.addListener( function( added, removed, resultingArray ) {
-      removed.forEach( function( electron ) {
-        thisAtom.validElectronPositions.forEach( function( validElectronPosition ) {
-          if ( validElectronPosition.electron === electron ) {
-            validElectronPosition.electron = null;
-            if ( Math.abs( validElectronPosition.position.magnitude() - thisAtom.innerElectronShellRadius ) < 1E-5 ) {
-              // An inner-shell electron was removed.  If there are electrons
-              // in the outer shell, move one of them in.
-              var occupiedOuterShellPositions = _.filter( thisAtom.validElectronPositions, function( validElectronPosition ) {
-                return ( validElectronPosition.electron !== null && Utils.roughlyEqual( validElectronPosition.position.magnitude(),
-                  thisAtom.outerElectronShellRadius,
-                  1E-5 ));
-              } );
-              occupiedOuterShellPositions = _.sortBy( occupiedOuterShellPositions, function( occupiedShellPosition ) {
-                return occupiedShellPosition.position.distance( validElectronPosition.position );
-              } );
-              if ( occupiedOuterShellPositions.length > 0 ) {
-                // Move outer electron to inner spot.
-                validElectronPosition.electron = occupiedOuterShellPositions[0].electron;
-                occupiedOuterShellPositions[0].electron = null;
-                validElectronPosition.electron.destination = validElectronPosition.position;
-              }
+    this.electrons.addItemRemovedListener( function( electron ) {
+      thisAtom.validElectronPositions.forEach( function( validElectronPosition ) {
+        if ( validElectronPosition.electron === electron ) {
+          validElectronPosition.electron = null;
+          if ( Math.abs( validElectronPosition.position.magnitude() - thisAtom.innerElectronShellRadius ) < 1E-5 ) {
+            // An inner-shell electron was removed.  If there are electrons
+            // in the outer shell, move one of them in.
+            var occupiedOuterShellPositions = _.filter( thisAtom.validElectronPositions, function( validElectronPosition ) {
+              return ( validElectronPosition.electron !== null && Utils.roughlyEqual( validElectronPosition.position.magnitude(),
+                thisAtom.outerElectronShellRadius,
+                1E-5 ));
+            } );
+            occupiedOuterShellPositions = _.sortBy( occupiedOuterShellPositions, function( occupiedShellPosition ) {
+              return occupiedShellPosition.position.distance( validElectronPosition.position );
+            } );
+            if ( occupiedOuterShellPositions.length > 0 ) {
+              // Move outer electron to inner spot.
+              validElectronPosition.electron = occupiedOuterShellPositions[0].electron;
+              occupiedOuterShellPositions[0].electron = null;
+              validElectronPosition.electron.destination = validElectronPosition.position;
             }
           }
-        } );
+        }
       } );
     } );
 
@@ -232,11 +230,11 @@ define( function( require ) {
       while ( nucleons.length < this.neutrons.length + this.protons.length ) {
         neutronsToAdd += neutronsPerProton;
         while ( neutronsToAdd >= 1 && neutronIndex < this.neutrons.length ) {
-          nucleons.push( this.neutrons.at( neutronIndex++ ) );
+          nucleons.push( this.neutrons.get( neutronIndex++ ) );
           neutronsToAdd -= 1;
         }
         if ( protonIndex < this.protons.length ) {
-          nucleons.push( this.protons.at( protonIndex++ ) );
+          nucleons.push( this.protons.get( protonIndex++ ) );
         }
       }
 

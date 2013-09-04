@@ -12,13 +12,18 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
+  var AtomNode = require( 'common/view/AtomNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
+  var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
+  var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var InteractiveSchematicAtom = require( 'common/view/InteractiveSchematicAtom' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
+  var ParticleView = require( 'common/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
   var ResetAllButton = require( 'common/view/ResetAllButton' );
@@ -33,6 +38,7 @@ define( function( require ) {
   var LABEL_CONTROL_FONT = new PhetFont( 32 );
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );
   var ACCORDION_BOX_FONT = new PhetFont( 18 );
+  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes. TODO: Refine.
 
   /**
    * Constructor.
@@ -42,6 +48,7 @@ define( function( require ) {
    */
   function AtomView( model ) {
     ScreenView.call( this, { renderer: 'svg' } ); // Call super constructor.
+//    ScreenView.call( this ); // Call super constructor.
     var thisView = this;
     this.model = model;
     this.resetFunctions = [];
@@ -52,9 +59,90 @@ define( function( require ) {
       { x: thisView.layoutBounds.width * 0.275, y: thisView.layoutBounds.height * 0.45 },
       1.0 );
 
-    // Add the interactive atom, which include the buckets and particles.
-    var atomNode = new InteractiveSchematicAtom( model, mvt );
+    // Add the node that shows the textual labels, the electron shells, and the center X marker.
+    var atomNode = new AtomNode( model.particleAtom, mvt,
+      { showElementNameProperty: model.showElementNameProperty,
+        showNeutralOrIonProperty: model.showNeutralOrIonProperty,
+        showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+        electronShellDepictionProperty: model.electronShellDepictionProperty
+      } );
     this.addChild( atomNode );
+
+    // Add the bucket holes.  Done separately from the bucket front for layering.
+    _.each( model.buckets, function( bucket ) {
+      thisView.addChild( new BucketHole( bucket, mvt ) );
+    } );
+
+    // Add the layers where the nucleons will be maintained.
+    var nucleonLayers = [];
+    _.times( NUM_NUCLEON_LAYERS, function() {
+      var nucleonLayer = new Node();
+      nucleonLayers.push( nucleonLayer );
+      thisView.addChild( nucleonLayer );
+    } );
+    nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
+
+    // Add the layer where the electrons will be maintained.
+    var electronLayer = new Node( { layerSplit: true } );
+    this.addChild( electronLayer );
+
+    // Add the nucleon particle views.
+    model.nucleons.forEach( function( nucleon ) {
+      nucleonLayers[nucleon.zLayer].addChild( new ParticleView( nucleon, mvt ) );
+      // Add a listener that adjusts a nucleon's z-order layering.
+      nucleon.zLayerProperty.link( function( zLayer ) {
+        assert && assert( nucleonLayers.length > zLayer, "zLayer for nucleon exceeds number of layers, max number may need increasing." );
+        // Determine whether nucleon view is on the correct layer.
+        var onCorrectLayer = false;
+        nucleonLayers[zLayer].children.forEach( function( particleView ) {
+          if ( particleView.particle === nucleon ) {
+            onCorrectLayer = true;
+          }
+        } );
+
+        if ( !onCorrectLayer ) {
+
+          // Remove particle view from its current layer.
+          var particleView = null;
+          for ( var layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
+            for ( var childIndex = 0; childIndex < nucleonLayers[layerIndex].children.length; childIndex++ ) {
+              if ( nucleonLayers[layerIndex].children[childIndex].particle === nucleon ) {
+                particleView = nucleonLayers[layerIndex].children[childIndex];
+                nucleonLayers[layerIndex].removeChildAt( childIndex );
+                break;
+              }
+            }
+          }
+
+          // Add the particle view to its new layer.
+          assert && assert( particleView !== null, "Particle view not found during relayering" );
+          nucleonLayers[ zLayer ].addChild( particleView );
+        }
+      } );
+    } );
+
+    // Add the electron particle views.
+    model.electrons.forEach( function( electron ) {
+      electronLayer.addChild( new ParticleView( electron, mvt ) );
+    } );
+
+    // When the electrons are represented as a cloud, the individual particles
+    // become invisible when added to the atom.
+    var updateElectronVisibility = function() {
+      electronLayer.getChildren().forEach( function( electronNode ) {
+        electronNode.visible = model.electronShellDepiction === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
+      } );
+    };
+    model.particleAtom.electrons.addListener( updateElectronVisibility );
+    model.electronShellDepictionProperty.link( updateElectronVisibility );
+
+    // Add the front portion of the buckets.  This is done separately from the
+    // bucket holes for layering purposes.
+    _.each( model.buckets, function( bucket ) {
+      var bucketFront = new BucketFront( bucket, mvt );
+      thisView.addChild( bucketFront );
+      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt ) );
+    } );
 
     // Add the particle count indicator.
     var particleCountDisplay = new ParticleCountDisplay( model.numberAtom, 13, 250 );  // Width arbitrarily chosen.
@@ -138,7 +226,7 @@ define( function( require ) {
     resetButton.centerX = ( labelVizControlPanel.right + this.periodicTableBox.right ) / 2;
     resetButton.centerY = labelVizControlPanel.centerY;
     electronViewButtonGroup.right = this.periodicTableBox.left - 30;
-    electronViewButtonGroup.top = atomNode.centerY + 45;
+    electronViewButtonGroup.bottom = atomNode.bottom + 5;
   }
 
   // Inherit from ScreenView.
