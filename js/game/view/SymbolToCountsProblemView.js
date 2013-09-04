@@ -50,7 +50,6 @@ define( function( require ) {
   inherit( ProblemView, SymbolToCountsProblemView,
     {
       checkAnswer: function() {
-
         this.problem.checkAnswer( this.interactiveSchematicAtom.numberAtom );
       },
 

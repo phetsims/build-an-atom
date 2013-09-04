@@ -72,7 +72,7 @@ define( function( require ) {
       this.problemIndex = 0;
       // TODO: Need to generate real problem set.
       this.problemSet = [
-        new SymbolToSchematicProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 1 } ) ),
+        new SymbolToSchematicProblem( this, new NumberAtom( { protonCount: 2, neutronCount: 2, electronCount: 1 } ) ),
         new SchematicToSymbolProblem( this, new NumberAtom( { protonCount: 1, neutronCount: 1, electronCount: 0 } ), true, false, false ),
         new SchematicToSymbolProblem( this, new NumberAtom( { protonCount: 2, neutronCount: 2, electronCount: 2 } ), false, true, false ),
         new SchematicToSymbolProblem( this, new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ), false, false, true ),

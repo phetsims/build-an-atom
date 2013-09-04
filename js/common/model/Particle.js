@@ -30,7 +30,6 @@ define( function( require ) {
       if ( !this.userControlled ) {
         var distanceToDestination = this.position.distance( this.destination );
         if ( distanceToDestination > dt * this.velocity ) {
-
           // This was broken up into individual steps in an attempt to solve
           // an issue where complex vector operations sometimes didn't work.
           var stepMagnitude = this.velocity * dt;

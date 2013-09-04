@@ -184,8 +184,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( PropertySet,
-    BuildAnAtomModel,
+  inherit( PropertySet, BuildAnAtomModel,
     {
       _nucleusJumpCount: 0,
 
@@ -248,6 +247,32 @@ define( function( require ) {
             electron.moveImmediatelyToDestination();
           }
         } );
+      },
+
+      // Set the atom to the specified configuration.
+      setAtomConfiguration: function( numberAtom ) {
+        // Define a function for transferring particles from buckets to atom.
+        var atomCenter = this.particleAtom.position;
+        var moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
+          while ( currentCountInAtom < targetCountInAtom ) {
+            var particle = bucket.extractClosestParticle( atomCenter );
+            particle.setPositionAndDestination( atomCenter );
+            particle.userControlled = false; // Necessary to make it look like user released particle.
+            currentCountInAtom++;
+          }
+          while ( currentCountInAtom > targetCountInAtom ) {
+            this._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
+            currentCountInAtom--;
+          }
+        }
+
+        // Move the particles.
+        moveParticlesToAtom( this.particleAtom.protons.length, numberAtom.protonCount, this.particleAtom.protons, this.buckets.protonBucket );
+        moveParticlesToAtom( this.particleAtom.neutrons.length, numberAtom.neutronCount, this.particleAtom.neutrons, this.buckets.neutronBucket );
+        moveParticlesToAtom( this.particleAtom.electrons.length, numberAtom.electronCount, this.particleAtom.electrons, this.buckets.electronBucket );
+
+        // Finalize particle positions.
+        this.particleAtom.moveAllParticlesToDestination();
       }
     } );
 

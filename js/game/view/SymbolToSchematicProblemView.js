@@ -57,16 +57,15 @@ define( function( require ) {
   inherit( ProblemView, SymbolToSchematicProblemView,
     {
       checkAnswer: function() {
-        // TODO - Implement
-        return true;
+        this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
       },
 
       clearAnswer: function() {
-        // TODO - Implement
+        this.problem.buildAnAtomModel.reset();
       },
 
       displayCorrectAnswer: function() {
-        // TODO - Implement
+        this.problem.buildAnAtomModel.setAtomConfiguration( this.problem.answerAtom );
       }
     }
   );

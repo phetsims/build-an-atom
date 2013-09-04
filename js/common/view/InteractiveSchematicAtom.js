@@ -103,7 +103,7 @@ define( function( require ) {
         electronNode.visible = model.electronShellDepiction === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
     };
-    model.particleAtom.electrons.addListener( updateElectronVisibility );
+    model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets.  This is done separately from the
