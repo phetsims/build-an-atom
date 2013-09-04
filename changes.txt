@@ -1,3 +1,4 @@
+8/28/2013 Ported the symbol-to-schematic problem.
 8/28/2013 Ported the schematic-to-symbol class of problems.
 8/28/2013 Added progress indicator (stars) to the game start buttons.  Not fully operational yet.
 8/27/2013 Added game start buttons that match (mostly) the spec.

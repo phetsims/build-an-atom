@@ -13,6 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
+  var BuildAnAtomModel = require( 'common/model/BuildAnAtomModel' );
   var SymbolToSchematicProblemView = require( 'game/view/SymbolToSchematicProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
@@ -24,13 +25,26 @@ define( function( require ) {
    */
   function SymbolToSchematicProblem( buildAnAtomGameModel, answerAtom ) {
     BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
+
+    // This problem is a bit unique in that it has a model of an atom with
+    // which the user can interact.
+    this.buildAnAtomModel = new BuildAnAtomModel();
+    this.buildAnAtomModel.showElementName = false;
+    this.buildAnAtomModel.showNeutralOrIon = false;
+    this.buildAnAtomModel.showStableOrUnstable = false;
   }
 
   // Inherit from base class and define the methods for this object.
   inherit( BAAGameProblem, SymbolToSchematicProblem, {
+
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
       return new SymbolToSchematicProblemView( this, layoutBounds );
+    },
+
+    // Step the atom model when the problem is stepped.
+    step: function( dt ) {
+      this.buildAnAtomModel.step( dt );
     }
   } );
 

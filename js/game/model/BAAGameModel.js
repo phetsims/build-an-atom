@@ -60,6 +60,10 @@ define( function( require ) {
     // Step function necessary to be used as a model in the Joist framework.
     step: function( dt ) {
       this.elapsedTime += dt;
+      // Step the current problem if it has any time-driven behavior.
+      if ( this.state && ( typeof( this.state.step ) !== 'undefined' ) ) {
+        this.state.step( dt );
+      }
     },
 
     // Start a new game.
