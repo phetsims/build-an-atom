@@ -62,6 +62,9 @@ define( function( require ) {
 
       clearAnswer: function() {
         this.problem.buildAnAtomModel.reset();
+        this.problem.buildAnAtomModel.showElementName = false;
+        this.problem.buildAnAtomModel.showNeutralOrIon = false;
+        this.problem.buildAnAtomModel.showStableOrUnstable = false;
       },
 
       displayCorrectAnswer: function() {
