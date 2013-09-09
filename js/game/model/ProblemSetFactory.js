@@ -28,7 +28,7 @@ define( function( require ) {
   var ALLOWED_PROBLEM_TYPES_BY_LEVEL = [
     [ 'schematic-to-element', 'counts-to-element'],
     [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass'],
-    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
+    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
     [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
   ];
 
@@ -158,7 +158,7 @@ define( function( require ) {
       case 'schematic-to-symbol-charge':
         problem = new SchematicToSymbolProblem( model, atomValue, false, false, true );
         break;
-      case 'schematic-to-symbol-mass':
+      case 'schematic-to-symbol-mass-number':
         problem = new SchematicToSymbolProblem( model, atomValue, false, true, false );
         break;
       case 'schematic-to-symbol-proton-count':
@@ -191,7 +191,7 @@ define( function( require ) {
              problemType === 'schematic-to-symbol-all' ||
              problemType === 'schematic-to-symbol-proton-count' ||
              problemType === 'schematic-to-symbol-charge' ||
-             problemType === 'schematic-to-symbol-proton-mass' ||
+             problemType === 'schematic-to-symbol-mass-number' ||
              problemType === 'symbol-to-schematic' );
   }
 
