@@ -264,7 +264,7 @@ define( function( require ) {
             this._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
             currentCountInAtom--;
           }
-        }
+        };
 
         // Move the particles.
         moveParticlesToAtom( this.particleAtom.protons.length, numberAtom.protonCount, this.particleAtom.protons, this.buckets.protonBucket );
