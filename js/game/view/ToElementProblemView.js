@@ -94,7 +94,13 @@ define( function( require ) {
       periodicTableAtom: new NumberAtom(),
       neutralOrIon: new Property( 'noSelection' ),
       checkAnswer: function() {
-        this.problem.checkAnswer( this.periodicTableAtom, this.neutralOrIon.value );
+        var submittedAtom = new NumberAtom(
+          {
+            protonCount: this.periodicTableAtom.protonCount,
+            neutronCount: this.problem.answerAtom.neutronCount,
+            electronCount: this.problem.answerAtom.electronCount
+          } );
+        this.problem.checkAnswer( submittedAtom, this.neutralOrIon.value );
       },
       clearAnswer: function() {
         this.periodicTableAtom.protonCount = 0;

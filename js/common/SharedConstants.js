@@ -21,6 +21,11 @@ define( function( require ) {
    */
   SharedConstants.CHARGE_TEXT_COLOR = function( charge ) { return charge > 0 ? 'red' : charge < 0 ? 'blue' : 'black'; };
 
-  return SharedConstants;
+  // Sub game types.
+  SharedConstants.SUB_GAME_TYPES = [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ];
 
+  // Sub-game to level converter.
+  SharedConstants.SUB_GAME_TO_LEVEL = function( subGameType ) { return this.SUB_GAME_TYPES.indexOf( subGameType ) };
+
+  return SharedConstants;
 } );

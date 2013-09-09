@@ -21,22 +21,22 @@ define( function( require ) {
     this.addChild( title );
     var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
       function() {
-        gameModel.startSubGame( 'periodicTableGame' );
+        gameModel.startSubGame( 'periodic-table-game' );
       } );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new GameStartButton( new Image( imageLoader.getImage( 'mass_charge_icon.png' ) ),
       function() {
-        gameModel.startSubGame( 'massAndChargeGame' );
+        gameModel.startSubGame( 'mass-and-charge-game' );
       } );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
       function() {
-        gameModel.startSubGame( 'symbolGame' );
+        gameModel.startSubGame( 'symbol-game' );
       } );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
       function() {
-        gameModel.startSubGame( 'advancedSymbolGame' );
+        gameModel.startSubGame( 'advanced-symbol-game' );
       } );
     this.addChild( advancedSymbolGameButton );
 
