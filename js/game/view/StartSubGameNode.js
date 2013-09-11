@@ -31,7 +31,7 @@ define( function( require ) {
       function() {
         gameModel.startSubGame( 'mass-and-charge-game' );
       },
-      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )] );
+      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )] );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
       function() {

@@ -24,6 +24,7 @@ define( function( require ) {
    *
    * @param width
    * @param height
+   * @param rounding
    * @param numStars
    * @param proportionFinishedProperty
    * @constructor
@@ -59,7 +60,7 @@ define( function( require ) {
 
     proportionFinishedProperty.link( function( proportionFinished ) {
       // This only handles integers, could be generalized if desired.
-      var numFilledStars = Math.floor( proportionFinished / numStars );
+      var numFilledStars = Math.floor( proportionFinished * numStars );
       for ( var i = 0; i < numStars; i++ ) {
         stars[i].fill = i < numFilledStars ? FILLED_STAR_COLOR : UNFILLED_STAR_COLOR;
       }

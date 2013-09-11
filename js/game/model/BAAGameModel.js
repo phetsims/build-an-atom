@@ -120,7 +120,6 @@ define( function( require ) {
         // Sub game over.
         this.state = 'subGameOver';
         // Update the property that tracks how much of this level has been completed.
-        debugger;
         var totalPointsThisRound = 0;
         this.problemSet.forEach( function( problem ) {
           totalPointsThisRound += problem.score;
