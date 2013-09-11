@@ -16,8 +16,10 @@ define( function( require ) {
 
   // Constants
   var BACKGROUND_COLOR = 'white';
-  var UNFILLED_STAR_COLOR = 'rgb( 220, 220, 220 )';
   var FILLED_STAR_COLOR = 'yellow';
+  var FILLED_STAR_STROKE = 'black';
+  var UNFILLED_STAR_COLOR = 'rgb( 220, 220, 220 )';
+  var UNFILLED_STAR_STROKE = 'rgb( 190, 190, 190 )';
 
   /**
    * Constructor.
@@ -51,6 +53,8 @@ define( function( require ) {
       stars.push( new Star( height * 0.8,
         {
           fill: UNFILLED_STAR_COLOR,
+          stroke: UNFILLED_STAR_STROKE,
+          lineWidth: 1,
           left: starLeft,
           centerY: height / 2
         } ) );
@@ -63,6 +67,7 @@ define( function( require ) {
       var numFilledStars = Math.floor( proportionFinished * numStars );
       for ( var i = 0; i < numStars; i++ ) {
         stars[i].fill = i < numFilledStars ? FILLED_STAR_COLOR : UNFILLED_STAR_COLOR;
+        stars[i].stroke = i < numFilledStars ? FILLED_STAR_STROKE : UNFILLED_STAR_STROKE;
       }
     } );
   }
