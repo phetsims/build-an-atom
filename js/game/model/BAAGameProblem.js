@@ -52,7 +52,6 @@ define( function( require ) {
       if ( this.answerAtom.equals( submittedAtom ) ) {
 
         // Update the score.
-        debugger;
         this.score = this.numSubmissions === 1 ? 2 : 1;
 
         // Move to the next state.

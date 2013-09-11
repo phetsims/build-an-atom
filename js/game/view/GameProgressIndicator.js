@@ -9,8 +9,9 @@ define( function( require ) {
 
   // Imports
   var Color = require( 'SCENERY/util/Color' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  var HalfStar = require( 'game/view/HalfStar' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Star = require( 'game/view/Star' );
 
@@ -48,9 +49,12 @@ define( function( require ) {
     var starDiameter = height * 0.8;
     var distanceBetweenStars = ( width - ( starDiameter * numStars ) ) / ( numStars + 1 );
     var starLeft = distanceBetweenStars;
-    var stars = [];
+    var unfilledStars = [];
+    var filledStars = [];
+    var filledHalfStars = [];
     for ( var i = 0; i < numStars; i++ ) {
-      stars.push( new Star( height * 0.8,
+      var starDiameter = height * 0.8;
+      unfilledStars.push( new Star( starDiameter,
         {
           fill: UNFILLED_STAR_COLOR,
           stroke: UNFILLED_STAR_STROKE,
@@ -58,16 +62,39 @@ define( function( require ) {
           left: starLeft,
           centerY: height / 2
         } ) );
-      boundingRectangle.addChild( stars[i] );
+      boundingRectangle.addChild( unfilledStars[i] );
+      filledStars.push( new Star( starDiameter,
+        {
+          fill: FILLED_STAR_COLOR,
+          stroke: FILLED_STAR_STROKE,
+          lineWidth: 1,
+          left: starLeft,
+          centerY: height / 2
+        } ) );
+      boundingRectangle.addChild( filledStars[i] );
+      filledHalfStars.push( new HalfStar( starDiameter,
+        {
+          fill: FILLED_STAR_COLOR,
+          stroke: FILLED_STAR_STROKE,
+          lineWidth: 1,
+          left: starLeft,
+          centerY: height / 2
+        } ) );
+      boundingRectangle.addChild( filledHalfStars[i] );
       starLeft += distanceBetweenStars + starDiameter;
     }
 
+    // Update star visibility based on proportion of game successfully completed.
     proportionFinishedProperty.link( function( proportionFinished ) {
-      // This only handles integers, could be generalized if desired.
       var numFilledStars = Math.floor( proportionFinished * numStars );
       for ( var i = 0; i < numStars; i++ ) {
-        stars[i].fill = i < numFilledStars ? FILLED_STAR_COLOR : UNFILLED_STAR_COLOR;
-        stars[i].stroke = i < numFilledStars ? FILLED_STAR_STROKE : UNFILLED_STAR_STROKE;
+        filledStars[i].visible = i < numFilledStars;
+      }
+      filledHalfStars.forEach( function( halfStar ) {
+        halfStar.visible = false;
+      } );
+      if ( proportionFinished * numStars - numFilledStars > 0.49 ) {
+        filledHalfStars[numFilledStars ].visible = true;
       }
     } );
   }
