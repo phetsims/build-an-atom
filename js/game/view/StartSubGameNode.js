@@ -10,6 +10,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var ResetAllButton = require( 'common/view/ResetAllButton' );
   var SharedConstants = require( 'common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -46,6 +47,12 @@ define( function( require ) {
       gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )] );
     this.addChild( advancedSymbolGameButton );
 
+    var resetButton = new ResetAllButton( function() {
+      gameModel.reset();
+    } );
+    resetButton.scale( 0.8 ); // Empirically determined scale factor.
+    this.addChild( resetButton );
+
     // Layout
     title.centerX = layoutBounds.width / 2;
     title.top = 20;
@@ -60,6 +67,8 @@ define( function( require ) {
     symbolGameButton.centerY = buttonCenterY;
     advancedSymbolGameButton.left = symbolGameButton.right + interButtonXSpace;
     advancedSymbolGameButton.centerY = buttonCenterY;
+    resetButton.right = layoutBounds.width - 20;
+    resetButton.bottom = layoutBounds.height - 20;
   };
 
   // Inherit from Node.
