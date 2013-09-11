@@ -7,6 +7,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var Property = require( 'AXON/Property' );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CountsToChargeProblem = require( 'game/model/CountsToChargeProblem' );
@@ -24,6 +25,7 @@ define( function( require ) {
 
   // Constants
   var PROBLEMS_PER_SUB_GAME = 5;
+  var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
    * Main constructor function.
@@ -42,14 +44,21 @@ define( function( require ) {
         score: 0,
         elapsedTime: 0,
         bestTimes: [],
-        playing: false, // TODO - This was added for prototyping and can probably be removed once game is working.
-        periodicTableGameCompleted: false,
-        massAndChargeGameCompleted: false,
-        symbolGameCompleted: false,
-        advancedSymbolGameCompleted: false
+        periodicTableGameProgress: 0,
+        massAndChargeGameProgress: 0,
+        symbolGameProgress: 0,
+        advancedSymbolGameProgress: 0
       } );
 
     var thisGameModel = this;
+
+    // Properties that track progress on each game level.
+    this.progressProperties = [
+      new Property( 0 ),
+      new Property( 0 ),
+      new Property( 0 ),
+      new Property( 0 )
+    ];
 
     // Initialize the array that tracks the best times for each sub-game.
     _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
@@ -76,6 +85,7 @@ define( function( require ) {
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
       this.elapsedTime = 0;
+      this.progressProperties[ this.level ].reset();
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];
       }
@@ -109,6 +119,13 @@ define( function( require ) {
       else {
         // Sub game over.
         this.state = 'subGameOver';
+        // Update the property that tracks how much of this level has been completed.
+        debugger;
+        var totalPointsThisRound = 0;
+        this.problemSet.forEach( function( problem ) {
+          totalPointsThisRound += problem.score;
+        } );
+        this.progressProperties[ this.level ].value = totalPointsThisRound / ( this.problemSet.length * POSSIBLE_POINTS_PER_PROBLEM )
       }
     }
 

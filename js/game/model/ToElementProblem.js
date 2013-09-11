@@ -37,9 +37,8 @@ define( function( require ) {
            submittedAtom.neutronCount === this.answerAtom.neutronCount &&
            ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.charge === 0 ) ||
              ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) ) ) {
-        // Answer is correct.
-        // Increment the score.
-        this.model.score += this.numSubmissions === 1 ? 2 : 1;
+        // Answer is correct. Record the score.
+        this.score = this.numSubmissions === 1 ? 2 : 1;
 
         // Move to the next state.
         this.problemState = 'problemSolvedCorrectly';

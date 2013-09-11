@@ -45,15 +45,25 @@ define( function( require ) {
     var starDiameter = height * 0.8;
     var distanceBetweenStars = ( width - ( starDiameter * numStars ) ) / ( numStars + 1 );
     var starLeft = distanceBetweenStars;
+    var stars = [];
     for ( var i = 0; i < numStars; i++ ) {
-      boundingRectangle.addChild( new Star( height * 0.8,
+      stars.push( new Star( height * 0.8,
         {
           fill: UNFILLED_STAR_COLOR,
           left: starLeft,
           centerY: height / 2
         } ) );
+      boundingRectangle.addChild( stars[i] );
       starLeft += distanceBetweenStars + starDiameter;
     }
+
+    proportionFinishedProperty.link( function( proportionFinished ) {
+      // This only handles integers, could be generalized if desired.
+      var numFilledStars = Math.floor( proportionFinished / numStars );
+      for ( var i = 0; i < numStars; i++ ) {
+        stars[i].fill = i < numFilledStars ? FILLED_STAR_COLOR : UNFILLED_STAR_COLOR;
+      }
+    } );
   }
 
   // Inherit from Node.

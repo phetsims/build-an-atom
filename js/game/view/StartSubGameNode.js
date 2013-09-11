@@ -10,6 +10,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var SharedConstants = require( 'common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   var StartSubGameNode = function StartSubGameNode( gameModel, layoutBounds ) {
@@ -22,22 +23,27 @@ define( function( require ) {
     var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'periodic-table-game' );
-      } );
+      },
+      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )]
+    );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new GameStartButton( new Image( imageLoader.getImage( 'mass_charge_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'mass-and-charge-game' );
-      } );
+      },
+      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )] );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'symbol-game' );
-      } );
+      },
+      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )] );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'advanced-symbol-game' );
-      } );
+      },
+      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )] );
     this.addChild( advancedSymbolGameButton );
 
     // Layout

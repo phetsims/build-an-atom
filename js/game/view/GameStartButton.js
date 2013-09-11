@@ -17,7 +17,7 @@ define( function( require ) {
   var DROP_SHADOW_OFFSET = WIDTH * 0.02;
   var CORNER_ROUNDING = 10;
 
-  var GameStartButton = function GameStartButton( icon, onFireFunction ) {
+  var GameStartButton = function GameStartButton( icon, onFireFunction, progressProperty ) {
 
     Node.call( this ); // Call super constructor.
     var thisNode = this;
@@ -52,7 +52,7 @@ define( function( require ) {
     buttonOutline.addChild( icon );
 
     // Add the progress indicator to the button.
-    buttonOutline.addChild( new GameProgressIndicator( WIDTH, HEIGHT * 0.2, CORNER_ROUNDING, 5 ).mutate( { bottom: HEIGHT } ) );
+    buttonOutline.addChild( new GameProgressIndicator( WIDTH, HEIGHT * 0.2, CORNER_ROUNDING, 5, progressProperty ).mutate( { bottom: HEIGHT } ) );
 
     // Add the listener to update the appearance and handle a click.
     thisNode._armed = false;

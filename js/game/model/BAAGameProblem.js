@@ -51,8 +51,9 @@ define( function( require ) {
       this.numSubmissions++;
       if ( this.answerAtom.equals( submittedAtom ) ) {
 
-        // Increment the score.
-        this.model.score += this.numSubmissions === 1 ? 2 : 1;
+        // Update the score.
+        debugger;
+        this.score = this.numSubmissions === 1 ? 2 : 1;
 
         // Move to the next state.
         this.problemState = 'problemSolvedCorrectly';
