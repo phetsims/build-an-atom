@@ -110,6 +110,7 @@ define( function( require ) {
     next: function() {
       if ( this.problemSet.length > this.problemIndex + 1 ) {
         // Next problem.
+        this.score += this.problemSet[ this.problemIndex ].score;
         this.problemIndex++;
         this.state = this.problemSet[ this.problemIndex ];
       }
