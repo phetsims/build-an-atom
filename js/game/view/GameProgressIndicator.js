@@ -87,7 +87,7 @@ define( function( require ) {
     // Update star visibility based on proportion of game successfully completed.
     scoreProperty.link( function( score ) {
       var proportion = score / maxPossibleScore;
-      var numFilledStars = Math.round( proportion * numStars );
+      var numFilledStars = Math.floor( proportion * numStars );
       for ( var i = 0; i < numStars; i++ ) {
         filledStars[i].visible = i < numFilledStars;
       }
