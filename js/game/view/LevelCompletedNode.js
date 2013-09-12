@@ -16,7 +16,7 @@ define( function( require ) {
   var Utils = require( 'common/Utils' );
 
   // Constants
-  var BACKGROUND_COLOR = new Color( 128, 223, 255 );
+  var BACKGROUND_COLOR = new Color( 180, 205, 255 );
   var DIVIDER_LINE_OPTIONS = { stroke: 'black', lineWidth: 2 };
   var INFO_TEXT_FONT = new PhetFont( 20 );
 
@@ -67,7 +67,7 @@ define( function( require ) {
       function() {
         gameModel.state = 'selectSubGame';
       },
-      { font: new PhetFont( 24 ), rectangleFillUp: new Color( 128, 223, 255 ) } );
+      { font: new PhetFont( 24 ), rectangleFillUp: new Color( 243, 243, 243 ) } );
     background.addChild( doneButton );
 
     // Layout
