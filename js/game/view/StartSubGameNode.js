@@ -26,7 +26,7 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @constructor
    */
-  var StartSubGameNode = function StartSubGameNode( gameModel, layoutBounds ) {
+  var StartSubGameNode = function( gameModel, layoutBounds ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -35,30 +35,37 @@ define( function( require ) {
     this.addChild( title );
 
     // Buttons for starting a sub-game (a.k.a. a level).
-    var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
+    var periodicTableGameButton = new GameStartButton(
+      new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'periodic-table-game' );
       },
-      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )]
-    );
+      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )],
+      gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton( new Image( imageLoader.getImage( 'mass_charge_icon.png' ) ),
+    var massAndChangeGameButton = new GameStartButton(
+      new Image( imageLoader.getImage( 'mass_charge_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'mass-and-charge-game' );
       },
-      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )] );
+      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )],
+      gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
+    var symbolGameButton = new GameStartButton(
+      new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'symbol-game' );
       },
-      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )] );
+      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )],
+      gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new GameStartButton( new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+    var advancedSymbolGameButton = new GameStartButton(
+      new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'advanced-symbol-game' );
       },
-      gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )] );
+      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )],
+      gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( advancedSymbolGameButton );
 
     // Sound and timer controls.

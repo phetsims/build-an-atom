@@ -29,10 +29,10 @@ define( function( require ) {
    * @param height
    * @param rounding
    * @param numStars
-   * @param proportionFinishedProperty
+   * @param scoreProperty
    * @constructor
    */
-  function GameProgressIndicator( width, height, rounding, numStars, proportionFinishedProperty ) {
+  function GameProgressIndicator( width, height, rounding, numStars, scoreProperty, maxPossibleScore ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -85,15 +85,16 @@ define( function( require ) {
     }
 
     // Update star visibility based on proportion of game successfully completed.
-    proportionFinishedProperty.link( function( proportionFinished ) {
-      var numFilledStars = Math.floor( proportionFinished * numStars );
+    scoreProperty.link( function( score ) {
+      var proportion = score / maxPossibleScore;
+      var numFilledStars = Math.round( proportion * numStars );
       for ( var i = 0; i < numStars; i++ ) {
         filledStars[i].visible = i < numFilledStars;
       }
       filledHalfStars.forEach( function( halfStar ) {
         halfStar.visible = false;
       } );
-      if ( proportionFinished * numStars - numFilledStars > 0.49 ) {
+      if ( proportion * numStars - numFilledStars > 0.49 ) {
         filledHalfStars[numFilledStars ].visible = true;
       }
     } );

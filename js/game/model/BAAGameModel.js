@@ -25,7 +25,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 1;
+  var PROBLEMS_PER_SUB_GAME = 5;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
@@ -50,7 +50,7 @@ define( function( require ) {
     var thisGameModel = this;
 
     // Properties that track progress on each game level.
-    this.progressProperties = [
+    this.scoreProperties = [
       new Property( 0 ),
       new Property( 0 ),
       new Property( 0 ),
@@ -82,7 +82,7 @@ define( function( require ) {
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
       this.elapsedTime = 0;
-      this.progressProperties[ this.level ].reset();
+      this.scoreProperties[ this.level ].reset();
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];
       }
@@ -114,21 +114,22 @@ define( function( require ) {
         this.state = this.problemSet[ this.problemIndex ];
       }
       else {
-        // Sub game over.
-        this.state = 'subGameOver';
-        // Update the property that tracks how much of this level has been completed.
+        // Sub game over - update score and state.
         var totalPointsThisRound = 0;
         this.problemSet.forEach( function( problem ) {
           totalPointsThisRound += problem.score;
         } );
-        this.progressProperties[ this.level ].value = totalPointsThisRound / ( this.problemSet.length * POSSIBLE_POINTS_PER_PROBLEM )
+        this.scoreProperties[ this.level ].value = totalPointsThisRound;
+        this.state = 'subGameOver';
       }
     },
 
     reset: function() {
       callSuper( PropertySet, 'reset', this );
-      this.progressProperties.forEach( function( progressProperty ) { progressProperty.reset() } );
-    }
+      this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset() } );
+    },
+
+    MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM
 
   } );
 
