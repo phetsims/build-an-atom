@@ -2,6 +2,8 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
+  var CheckBox = require( 'SUN/CheckBox' );
   var GameStartButton = require( 'game/view/GameStartButton' );
   var Image = require( 'SCENERY/nodes/Image' );
   var imageLoader = require( 'imageLoader' );
@@ -12,15 +14,27 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ResetAllButton = require( 'common/view/ResetAllButton' );
   var SharedConstants = require( 'common/SharedConstants' );
+  var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var TimerToggleButton = require( 'game/view/TimerToggleButton' );
 
+  // Constants
+  var CONTROL_INSET = 20;
+
+  /**
+   * @param {BAAGameModel} gameModel
+   * @param {Bounds2} layoutBounds
+   * @constructor
+   */
   var StartSubGameNode = function StartSubGameNode( gameModel, layoutBounds ) {
 
     Node.call( this ); // Call super constructor.
 
-    // Node creation
+    // Title
     var title = new Text( "Choose Your Challenge", { font: new PhetFont( 30 ) } );
     this.addChild( title );
+
+    // Buttons for starting a sub-game (a.k.a. a level).
     var periodicTableGameButton = new GameStartButton( new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
       function() {
         gameModel.startSubGame( 'periodic-table-game' );
@@ -47,6 +61,13 @@ define( function( require ) {
       gameModel.progressProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )] );
     this.addChild( advancedSymbolGameButton );
 
+    // Sound and timer controls.
+    var timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty );
+    this.addChild( timerToggleButton );
+    var soundToggleButton = new SoundToggleButton( gameModel.soundEnabledProperty );
+    this.addChild( soundToggleButton );
+
+    // Reset button.
     var resetButton = new ResetAllButton( function() {
       gameModel.reset();
     } );
@@ -67,8 +88,12 @@ define( function( require ) {
     symbolGameButton.centerY = buttonCenterY;
     advancedSymbolGameButton.left = symbolGameButton.right + interButtonXSpace;
     advancedSymbolGameButton.centerY = buttonCenterY;
-    resetButton.right = layoutBounds.width - 20;
-    resetButton.bottom = layoutBounds.height - 20;
+    resetButton.right = layoutBounds.width - CONTROL_INSET;
+    resetButton.bottom = layoutBounds.height - CONTROL_INSET;
+    soundToggleButton.left = CONTROL_INSET;
+    soundToggleButton.bottom = layoutBounds.height - CONTROL_INSET;
+    timerToggleButton.left = CONTROL_INSET;
+    timerToggleButton.bottom = soundToggleButton.top - 10;
   };
 
   // Inherit from Node.

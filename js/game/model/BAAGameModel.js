@@ -137,5 +137,4 @@ define( function( require ) {
   } );
 
   return BAAGameModel;
-} )
-;
+} );
