@@ -29,5 +29,18 @@ define( [], function() {
     return Math.abs( value1 - value2 ) < tolerance;
   };
 
+  /**
+   * Formats a value representing seconds into HH:MM:SS.
+   *
+   * @param {Number} secs
+   * @returns {string}
+   */
+  Utils.formatTime = function( secs ) {
+    var hours = Math.floor( secs / 3600 );
+    var minutes = Math.floor( (secs - (hours * 3600)) / 60 );
+    var seconds = Math.floor( secs - (hours * 3600) - (minutes * 60) );
+    return ( hours > 0 ? hours + ':' : '' ) + minutes + ':' + ( seconds > 9 ? seconds : '0' + seconds );
+  };
+
   return Utils;
 } );

@@ -25,7 +25,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 5;
+  var PROBLEMS_PER_SUB_GAME = 1;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
@@ -44,11 +44,7 @@ define( function( require ) {
         problemIndex: 0,
         score: 0,
         elapsedTime: 0,
-        bestTimes: [],
-        periodicTableGameProgress: 0,
-        massAndChargeGameProgress: 0,
-        symbolGameProgress: 0,
-        advancedSymbolGameProgress: 0
+        bestTimes: []
       } );
 
     var thisGameModel = this;

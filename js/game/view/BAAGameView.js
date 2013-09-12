@@ -14,7 +14,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var GameScoreboardNode = require( 'game/view/GameScoreboardNode' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
-  var SubGameOverNode = require( 'game/view/SubGameOverNode' );
+  var LevelCompletedNode = require( 'game/view/LevelCompletedNode' );
 
   /**
    * Constructor.
@@ -28,7 +28,7 @@ define( function( require ) {
     var thisScene = this;
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
-    var subGameOverNode = new SubGameOverNode( gameModel, this.layoutBounds );
+    var levelCompletedNode = new LevelCompletedNode( gameModel, this.layoutBounds ).mutate( {centerX: this.layoutBounds.width / 2, centerY: this.layoutBounds.height / 2 } );
     var scoreboard = new GameScoreboardNode( gameModel ).mutate( {centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
 
     // Monitor the game state and update the view accordingly.
@@ -39,7 +39,7 @@ define( function( require ) {
       }
       else if ( state === 'subGameOver' ) {
         thisScene.removeAllChildren();
-        thisScene.addChild( subGameOverNode );
+        thisScene.addChild( levelCompletedNode );
       }
       else if ( typeof( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be

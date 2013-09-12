@@ -19,6 +19,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var TextButton = require( 'SUN/TextButton' );
+  var Utils = require( 'common/Utils' );
 
   // Constants
   var FONT = new PhetFont( 20 );
@@ -64,9 +65,9 @@ define( function( require ) {
     var timerValue = new Text( '0', { font: FONT } );
     thisNode.addChild( timerValue );
     gameModel.elapsedTimeProperty.link( function( elapsedTime ) {
-      timerValue.text = thisNode._formatTime( elapsedTime );
+      timerValue.text = Utils.formatTime( elapsedTime );
       if ( gameModel.bestTimes[gameModel.level] ) {
-        timerValue.text += ( ' (Your best: ' + thisNode._formatTime( gameModel.bestTimes[gameModel.level] ) + ')' );
+        timerValue.text += ( ' (Your best: ' + Utils.formatTime( gameModel.bestTimes[gameModel.level] ) + ')' );
       }
     } );
 
@@ -104,14 +105,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, GameScoreboardNode, {
-    _formatTime: function( secs ) {
-      var hours = Math.floor( secs / 3600 );
-      var minutes = Math.floor( (secs - (hours * 3600)) / 60 );
-      var seconds = Math.floor( secs - (hours * 3600) - (minutes * 60) );
-      return ( hours > 0 ? hours + ':' : '' ) + minutes + ':' + ( seconds > 9 ? seconds : '0' + seconds );
-    }
-  } );
+  inherit( Node, GameScoreboardNode );
 
   return GameScoreboardNode;
 } );
