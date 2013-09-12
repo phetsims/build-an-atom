@@ -7,7 +7,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var GameStartButton = require( 'game/view/GameStartButton' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Line = require( 'SCENERY/nodes/Line' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -18,13 +18,15 @@ define( function( require ) {
   // Constants
   var BACKGROUND_COLOR = new Color( 128, 223, 255 );
   var SIZE = new Dimension2( 400, 500 ); // In screen coordinates (roughly pixels).
+  var DIVIDER_LINE_WIDTH = SIZE.width * 0.8;
+  var DIVIDER_LINE_OPTIONS = { stroke: 'black', lineWidth: 2 };
 
   /**
    * @param {BAAGameModel} gameModel
    * @param {Bounds2} layoutBounds
    * @constructor
    */
-  var LevelCompletedNode = function StartSubGameNode( gameModel, layoutBounds ) {
+  var LevelCompletedNode = function( gameModel ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -38,8 +40,14 @@ define( function( require ) {
 
     this.addChild( background );
 
-    var title = new Text( 'Level Completed', {font: new PhetFont( 20 )} ); // TODO: i18n
+    var title = new Text( 'Level Completed', {font: new PhetFont( { size: 32, weight: 'bold' } )} ); // TODO: i18n
+    title.scale( Math.min( 1, (SIZE.width * 0.9 ) / title.width ) );
     background.addChild( title );
+
+    var upperDividerLine = new Line( 0, 0, DIVIDER_LINE_WIDTH, 0, DIVIDER_LINE_OPTIONS );
+    background.addChild( upperDividerLine );
+    var lowerDividerLine = new Line( 0, 0, DIVIDER_LINE_WIDTH, 0, DIVIDER_LINE_OPTIONS );
+    background.addChild( lowerDividerLine );
 
     var score = new Text( 'Score: ' + gameModel.state.score, { font: new PhetFont( 20 ) } );
     background.addChild( score );
@@ -56,18 +64,22 @@ define( function( require ) {
 
     // Layout
     title.centerX = background.width / 2;
-    title.center.top = 20;
-    doneButton.centerX = background.width / 2;
-    doneButton.bottom = background.height - 20;
+    title.top = 20;
+    upperDividerLine.centerX = SIZE.width / 2;
+    upperDividerLine.top = title.bottom + 20;
+    doneButton.centerX = SIZE.width / 2;
+    doneButton.bottom = SIZE.height - 20;
+    lowerDividerLine.centerX = SIZE.width / 2;
+    lowerDividerLine.bottom = doneButton.top - 20;
     time.left = 20;
     score.left = 20;
     if ( gameModel.timerEnabled ) {
-      time.centerY = background.height * 0.33;
-      time.centerY = background.height * 0.67;
+      time.centerY = SIZE.height * 0.33;
+      score.centerY = SIZE.height * 0.67;
     }
     else {
       time.visible = false;
-      time.centerY = background.height * 0.67;
+      score.centerY = SIZE.height * 0.67;
     }
   };
 
