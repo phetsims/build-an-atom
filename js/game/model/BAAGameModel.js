@@ -127,7 +127,7 @@ define( function( require ) {
 
     reset: function() {
       callSuper( PropertySet, 'reset', this );
-      this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset() } );
+      this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset(); } );
     },
 
     MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM

@@ -30,6 +30,7 @@ define( function( require ) {
    * @param rounding
    * @param numStars
    * @param scoreProperty
+   * @param maxPossibleScore
    * @constructor
    */
   function GameProgressIndicator( width, height, rounding, numStars, scoreProperty, maxPossibleScore ) {
@@ -53,7 +54,6 @@ define( function( require ) {
     var filledStars = [];
     var filledHalfStars = [];
     for ( var i = 0; i < numStars; i++ ) {
-      var starDiameter = height * 0.8;
       unfilledStars.push( new Star( starDiameter,
         {
           fill: UNFILLED_STAR_COLOR,

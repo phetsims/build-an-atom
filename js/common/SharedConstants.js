@@ -25,7 +25,7 @@ define( function( require ) {
   SharedConstants.SUB_GAME_TYPES = [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ];
 
   // Sub-game to level converter.
-  SharedConstants.SUB_GAME_TO_LEVEL = function( subGameType ) { return this.SUB_GAME_TYPES.indexOf( subGameType ) };
+  SharedConstants.SUB_GAME_TO_LEVEL = function( subGameType ) { return this.SUB_GAME_TYPES.indexOf( subGameType ); };
 
   return SharedConstants;
 } );

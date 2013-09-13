@@ -55,7 +55,7 @@ define( function( require ) {
     // problem types associated with this level.
     for ( var i = 0; i < numProblems; i++ ) {
       var problem = this._generateProblem( level, atomValueList, model );
-      if ( problem != null ) {
+      if ( problem !== null ) {
         this.problems.push( problem );
       }
     }
@@ -83,7 +83,7 @@ define( function( require ) {
     // Randomly pick a problem type, but make sure that it isn't the same
     // as the previous problem type.
     var index = Math.floor( Math.random() * ( this._availableProblemTypes.length ) );
-    if ( this._previousProblemType != null && this._availableProblemTypes.get( index ) === this._previousProblemType ) {
+    if ( this._previousProblemType !== null && this._availableProblemTypes.get( index ) === this._previousProblemType ) {
       // This is the same as the previous prob type, so choose a different one.
       index = ( index + 1 ) % this._availableProblemTypes.length;
     }
@@ -113,7 +113,7 @@ define( function( require ) {
     var atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
     return this._createProblem( model, problemType, atomValue );
-  }
+  };
 
   /**
    * Create a single problem given a problem type (e.g. Schematic to
@@ -171,11 +171,10 @@ define( function( require ) {
         problem = new SymbolToSchematicProblem( model, atomValue );
         break;
       default:
-        throw "Error: Request to create unknown problem type, type = " + problemType;
-        break;
+        throw new Error( "Error: Request to create unknown problem type, type = " + problemType );
     }
     return problem;
-  }
+  };
 
   /**
    * Helper function to determine whether a given problem type has a
@@ -193,7 +192,7 @@ define( function( require ) {
              problemType === 'schematic-to-symbol-charge' ||
              problemType === 'schematic-to-symbol-mass-number' ||
              problemType === 'symbol-to-schematic' );
-  }
+  };
 
   /**
    * Helper function to determine whether a given problem is requesting an
@@ -203,12 +202,12 @@ define( function( require ) {
    * @return
    */
   ProblemSetFactory._isChargeProbType = function( problemType ) {
-    return ( problemType == 'schematic-to-charge' ||
-             problemType == 'counts-to-charge' ||
-             problemType == 'counts-to-symbol-charge' ||
-             problemType == 'schematic-to-symbol-charge'
+    return ( problemType === 'schematic-to-charge' ||
+             problemType === 'counts-to-charge' ||
+             problemType === 'counts-to-symbol-charge' ||
+             problemType === 'schematic-to-symbol-charge'
       );
-  }
+  };
 
   return ProblemSetFactory;
 

@@ -226,7 +226,7 @@ define( function( require ) {
    * @param atomValueToRemove
    */
   AtomValuePool.prototype.markAtomAsUsed = function( atomValueToRemove ) {
-    if ( this.remainingAtomValues.indexOf( atomValueToRemove ) != -1 ) {
+    if ( this.remainingAtomValues.indexOf( atomValueToRemove ) !== -1 ) {
       this.remainingAtomValues = _.without( this.remainingAtomValues, atomValueToRemove );
       this.usedAtomValues.push( atomValueToRemove );
     }
@@ -246,7 +246,7 @@ define( function( require ) {
     var meetsCriteria = function( numberAtom ) {
       return numberAtom.protonCount >= minProtonCount &&
              numberAtom.protonCount < maxProtonCount &&
-             ( !requireCharged || numberAtom.charge !== 0 )
+             ( !requireCharged || numberAtom.charge !== 0 );
     };
 
     // Make a list of the atoms that meet the criteria.

@@ -1,3 +1,8 @@
+9/12/2013 Got scoreboard to track the sub-game score.  Scoreboard is expected to change.
+9/12/2013 Got scoring working.
+9/12/2013 Implemented "level completed" screen.
+9/12/2013 Implemented progress indicators (stars) on the game start buttons.
+9/9/2013 Implemented problem set generation.
 9/4/2013 axon#5, rework ObservableArray
 8/28/2013 Ported the symbol-to-schematic problem.
 8/28/2013 Ported the schematic-to-symbol class of problems.
