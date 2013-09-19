@@ -13,6 +13,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
@@ -76,6 +77,23 @@ define( function( require ) {
     upArrowButton.bottom = totalHeight / 2 - interNodeSpacing / 2;
     downArrowButton.top = totalHeight / 2 + interNodeSpacing / 2;
     downArrowButton.left = answerValueBackground.right + interNodeSpacing;
+
+    // Set up extended touch areas for the up/down buttons.  The areas are
+    // set up such that they don't overlap with one another.
+    var extendedTouchAreaWidth = upArrowButton.width * 2.5;
+    var extendedTouchAreaHeight = upArrowButton.height * 2.5;
+    upArrowButton.touchArea = Shape.rectangle(
+      -extendedTouchAreaWidth / 2,
+      -extendedTouchAreaHeight + upArrowButton.height,
+      extendedTouchAreaWidth,
+      extendedTouchAreaHeight
+    );
+    downArrowButton.touchArea = Shape.rectangle(
+      -extendedTouchAreaWidth / 2,
+      0,
+      extendedTouchAreaWidth,
+      extendedTouchAreaHeight
+    );
 
     thisNode.mutate( options );
   }
