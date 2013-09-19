@@ -67,10 +67,15 @@ define( function( require ) {
       downArrowButton.setEnabled( newValue > options.minValue );
     } );
 
-    // Layout
-    downArrowButton.top = upArrowButton.bottom + 3;
-    answerValueBackground.left = upArrowButton.right + 3;
-    answerValueBackground.centerY = ( upArrowButton.bottom + downArrowButton.top ) / 2;
+    // Layout.  Upper left corner of overall node will be at (0,0).
+    var interNodeSpacing = upArrowButton.height * 0.1;
+    var totalHeight = Math.max( answerValueBackground.height, upArrowButton.height + downArrowButton.height + interNodeSpacing );
+    answerValueBackground.left = 0;
+    answerValueBackground.centerY = totalHeight / 2;
+    upArrowButton.left = answerValueBackground.right + interNodeSpacing;
+    upArrowButton.bottom = totalHeight / 2 - interNodeSpacing / 2;
+    downArrowButton.top = totalHeight / 2 + interNodeSpacing / 2;
+    downArrowButton.left = answerValueBackground.right + interNodeSpacing;
 
     thisNode.mutate( options );
   }
