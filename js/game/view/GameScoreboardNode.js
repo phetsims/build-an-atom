@@ -70,6 +70,10 @@ define( function( require ) {
         timerValue.text += ( ' (Your best: ' + Utils.formatTime( gameModel.bestTimes[gameModel.level] ) + ')' );
       }
     } );
+    gameModel.timerEnabledProperty.link( function( timerEnabled ) {
+      timerIcon.visible = timerEnabled;
+      timerValue.visible = timerEnabled;
+    } );
 
     // New Game button
     var newGameButton = new TextButton( 'New Game', // TODO: i18n
