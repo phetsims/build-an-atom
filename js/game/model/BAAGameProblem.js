@@ -13,6 +13,7 @@ define( function( require ) {
   // Imports
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var PropertySet = require( 'AXON/PropertySet' );
+  var GameAudioPlayer = require( 'game/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );
 
@@ -31,6 +32,7 @@ define( function( require ) {
       } );
     this.answerAtom = answerAtom;
     this.model = buildAnAtomGameModel;
+    this.gameAudioPlayer = new GameAudioPlayer( buildAnAtomGameModel.soundEnabledProperty );
   }
 
   // Inherit from base class and define the methods for this object.
@@ -51,8 +53,11 @@ define( function( require ) {
       this.numSubmissions++;
       if ( this.answerAtom.equals( submittedAtom ) ) {
 
-        // Update the score.
+        // Correct answer.  Update the score.
         this.score = this.numSubmissions === 1 ? 2 : 1;
+
+        // Play the audio feedback.
+        this.gameAudioPlayer.correctAnswer();
 
         // Move to the next state.
         this.problemState = 'problemSolvedCorrectly';

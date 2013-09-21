@@ -103,7 +103,7 @@ define( function( require ) {
 
     // Process a guess from the user.
     processGuess: function( numberAtom ) {
-      console.log( 'processGuess called, not implemented.' );
+      console.log( 'processGuess called, not implemented.' ); // TODO: This can probably be removed - it is now handled by the problems.
     },
 
     // Advance to the next problem or to the 'game over' screen if all problems finished.
