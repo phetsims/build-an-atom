@@ -130,6 +130,7 @@ define( function( require ) {
       this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset(); } );
     },
 
+    // Public constants.
     MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM
 
   } );

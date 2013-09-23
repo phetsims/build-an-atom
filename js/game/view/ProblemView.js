@@ -10,19 +10,20 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var Color = require( 'SCENERY/util/Color' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var TextButton = require( 'SUN/TextButton' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
+  var GameAudioPlayer = require( 'game/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'common/model/NumberAtom' );
   var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var TextButton = require( 'SUN/TextButton' );
 
   // Constants
   var BUTTON_FONT = new PhetFont( 20 );
@@ -37,6 +38,9 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
     var thisNode = this;
     this.problem = problem;
+
+    // Audio player used for audio feedback.
+    this.gameAudioPlayer = new GameAudioPlayer( problem.model.soundEnabledProperty );
 
     // Layout assumes that bounds start at (0,0), so verify that this is true.
     assert && assert( layoutBounds.minX === 0 && layoutBounds.minY === 0 );
@@ -107,18 +111,21 @@ define( function( require ) {
         faceNode.smile();
         faceNode.visible = true;
         thisNode.nextButton.visible = true;
+        thisNode.gameAudioPlayer.correctAnswer();
       },
       presentingTryAgain: function() {
         setAnswerNodeInteractive( false );
         faceNode.frown();
         faceNode.visible = true;
         thisNode.tryAgainButton.visible = true;
+        thisNode.gameAudioPlayer.wrongAnswer();
       },
       attemptsExhausted: function() {
         setAnswerNodeInteractive( false );
         thisNode.displayCorrectAnswerButton.visible = true;
         faceNode.frown();
         faceNode.visible = true;
+        thisNode.gameAudioPlayer.wrongAnswer();
       },
       displayingCorrectAnswer: function() {
         setAnswerNodeInteractive( false );

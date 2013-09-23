@@ -7,14 +7,15 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var ScreenView = require( 'JOIST/ScreenView' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  var GameAudioPlayer = require( 'game/GameAudioPlayer' );
   var GameScoreboardNode = require( 'game/view/GameScoreboardNode' );
-  var StartSubGameNode = require( 'game/view/StartSubGameNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'game/view/LevelCompletedNode' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var ScreenView = require( 'JOIST/ScreenView' );
+  var StartSubGameNode = require( 'game/view/StartSubGameNode' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * Constructor.
@@ -28,7 +29,8 @@ define( function( require ) {
     var thisScene = this;
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
-    var scoreboard = new GameScoreboardNode( gameModel ).mutate( {centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
+    var scoreboard = new GameScoreboardNode( gameModel ).mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
+    var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
@@ -39,6 +41,15 @@ define( function( require ) {
       else if ( state === 'subGameOver' ) {
         thisScene.removeAllChildren();
         thisScene.addChild( new LevelCompletedNode( gameModel, thisScene.layoutBounds ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
+        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
+          gameAudioPlayer.gameOverPerfectScore();
+        }
+        else if ( gameModel.score > 0 ) {
+          gameAudioPlayer.gameOverImperfectScore();
+        }
+        else {
+          gameAudioPlayer.gameOverZeroScore();
+        }
       }
       else if ( typeof( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be

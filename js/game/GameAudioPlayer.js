@@ -8,6 +8,9 @@ define( function( require ) {
 
   // Constants
   var CORRECT_ANSWER = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
+  var WRONG_ANSWER = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
+  var IMPERFECT_SCORE = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
+  var PERFECT_SCORE = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
 
   /**
    * @param soundEnabledProperty
@@ -20,6 +23,30 @@ define( function( require ) {
   GameAudioPlayer.prototype.correctAnswer = function() {
     if ( this.soundEnabledProperty.value ) {
       CORRECT_ANSWER.play();
+    }
+  }
+
+  GameAudioPlayer.prototype.wrongAnswer = function() {
+    if ( this.soundEnabledProperty.value ) {
+      WRONG_ANSWER.play();
+    }
+  }
+
+  GameAudioPlayer.prototype.gameOverZeroScore = function() {
+    if ( this.soundEnabledProperty.value ) {
+      WRONG_ANSWER.play();
+    }
+  }
+
+  GameAudioPlayer.prototype.gameOverImperfectScore = function() {
+    if ( this.soundEnabledProperty.value ) {
+      IMPERFECT_SCORE.play();
+    }
+  }
+
+  GameAudioPlayer.prototype.gameOverPerfectScore = function() {
+    if ( this.soundEnabledProperty.value ) {
+      PERFECT_SCORE.play();
     }
   }
 
