@@ -28,6 +28,7 @@ define( function( require ) {
   // Constants
   var BUTTON_FONT = new PhetFont( 20 );
   var BUTTON_FILL = new Color( 0, 255, 153 );
+  var POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
 
   /**
    * Main constructor function.
@@ -54,6 +55,8 @@ define( function( require ) {
 
     // Face node used to signal correct/incorrect answers.
     var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
+    var pointDisplay = new Text( "+0", POINT_TEXT_OPTIONS );
+    faceNode.addChild( pointDisplay );
     this.addChild( faceNode );
 
     // Buttons. TODO: i18n of all buttons.
