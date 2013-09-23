@@ -42,7 +42,7 @@ define( function( require ) {
         level: 0,
         problemSet: [],
         problemIndex: 0,
-        score: 0,
+        score: 0, // Score on current game level.
         elapsedTime: 0,
         bestTimes: []
       } );
@@ -82,6 +82,7 @@ define( function( require ) {
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
       this.elapsedTime = 0;
+      this.scroe = 0;
       this.scoreProperties[ this.level ].reset();
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];
@@ -99,6 +100,7 @@ define( function( require ) {
     // Start a new game.
     newGame: function( level ) {
       this.state = 'selectSubGame';
+      this.score = 0;
     },
 
     // Process a guess from the user.
@@ -110,7 +112,6 @@ define( function( require ) {
     next: function() {
       if ( this.problemSet.length > this.problemIndex + 1 ) {
         // Next problem.
-        this.score += this.problemSet[ this.problemIndex ].score;
         this.problemIndex++;
         this.state = this.problemSet[ this.problemIndex ];
       }

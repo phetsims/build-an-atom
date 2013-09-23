@@ -53,6 +53,7 @@ define( function( require ) {
 
         // Correct answer.  Update the score.
         this.score = this.numSubmissions === 1 ? 2 : 1;
+        this.model.score += this.score;
 
         // Move to the next state.
         this.problemState = 'problemSolvedCorrectly';

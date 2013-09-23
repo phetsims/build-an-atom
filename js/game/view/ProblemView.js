@@ -56,6 +56,8 @@ define( function( require ) {
     // Face node used to signal correct/incorrect answers.
     var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
     var pointDisplay = new Text( "+0", POINT_TEXT_OPTIONS );
+    pointDisplay.centerX = 0;
+    pointDisplay.top = faceNode.height / 2;
     faceNode.addChild( pointDisplay );
     this.addChild( faceNode );
 
@@ -112,6 +114,7 @@ define( function( require ) {
       problemSolvedCorrectly: function() {
         setAnswerNodeInteractive( true );
         faceNode.smile();
+        pointDisplay.text = '+' + problem.score;
         faceNode.visible = true;
         thisNode.nextButton.visible = true;
         thisNode.gameAudioPlayer.correctAnswer();
@@ -119,6 +122,7 @@ define( function( require ) {
       presentingTryAgain: function() {
         setAnswerNodeInteractive( false );
         faceNode.frown();
+        pointDisplay.text = '';
         faceNode.visible = true;
         thisNode.tryAgainButton.visible = true;
         thisNode.gameAudioPlayer.wrongAnswer();
@@ -127,6 +131,7 @@ define( function( require ) {
         setAnswerNodeInteractive( false );
         thisNode.displayCorrectAnswerButton.visible = true;
         faceNode.frown();
+        pointDisplay.text = '';
         faceNode.visible = true;
         thisNode.gameAudioPlayer.wrongAnswer();
       },
