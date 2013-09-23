@@ -7,10 +7,10 @@ define( function( require ) {
   var Sound = require( 'VIBE/Sound' );
 
   // Constants
-  var CORRECT_ANSWER = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
-  var WRONG_ANSWER = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
-  var IMPERFECT_SCORE = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
-  var PERFECT_SCORE = new Sound( 'audio/remove-battery.mp3' ); // TODO: Add correct sounds when available.
+  var CORRECT_ANSWER = new Sound( 'audio/correctAnswer.mp3' ); // TODO: Add correct sounds when available.
+  var WRONG_ANSWER = new Sound( 'audio/wrongAnswer.mp3' ); // TODO: Add correct sounds when available.
+  var IMPERFECT_SCORE = new Sound( 'audio/gameOver-imperfectScore.mp3' ); // TODO: Add correct sounds when available.
+  var PERFECT_SCORE = new Sound( 'audio/gameOver-imperfectScore.mp3' ); // TODO: Add correct sounds when available.
 
   /**
    * @param soundEnabledProperty
