@@ -1,3 +1,4 @@
+9/24/2013 Added stars that show proportion correct to the 'level completed' node, adjusted the layout and size.
 9/24/2013 Removed level indication and dividing lines from the 'level complete' screen, changed button to say 'continue', changed size.
 9/24/2013 Added different wording to the 'level complete' screen, e.g. 'Excellent!', or 'Great!'.
 9/23/2013 Made the scoreboard update as soon as user submits an answer.

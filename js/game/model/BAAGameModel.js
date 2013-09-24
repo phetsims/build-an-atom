@@ -25,7 +25,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 5;
+  var PROBLEMS_PER_SUB_GAME = 1;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
@@ -132,8 +132,8 @@ define( function( require ) {
     },
 
     // Public constants.
-    MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM
-
+    MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM,
+    PROBLEMS_PER_SUB_GAME : PROBLEMS_PER_SUB_GAME
   } );
 
   return BAAGameModel;
