@@ -1,3 +1,4 @@
+9/24/2013 Changed the shape of the stars used in the game to make them look more fun and a bit less aliased.
 9/24/2013 Changed the color of the 'Continue' button on the 'level completed' screen.
 9/24/2013 Added stars that show proportion correct to the 'level completed' node, adjusted the layout and size.
 9/24/2013 Removed level indication and dividing lines from the 'level complete' screen, changed button to say 'continue', changed size.

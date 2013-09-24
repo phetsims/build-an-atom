@@ -47,7 +47,8 @@ define( function( require ) {
           stroke: UNFILLED_STAR_STROKE,
           lineWidth: 1,
           left: starLeft,
-          centerY: starHeight / 2
+          centerY: starHeight / 2,
+          lineCap: 'round'
         } ) );
       this.addChild( unfilledStars[i] );
       filledStars.push( new Star( starDiameter,
@@ -56,7 +57,8 @@ define( function( require ) {
           stroke: FILLED_STAR_STROKE,
           lineWidth: 1,
           left: starLeft,
-          centerY: starHeight / 2
+          centerY: starHeight / 2,
+          lineCap: 'round'
         } ) );
       this.addChild( filledStars[i] );
       filledHalfStars.push( new HalfStar( starDiameter,
@@ -65,7 +67,8 @@ define( function( require ) {
           stroke: FILLED_STAR_STROKE,
           lineWidth: 1,
           left: starLeft,
-          centerY: starHeight / 2
+          centerY: starHeight / 2,
+          lineCap: 'round'
         } ) );
       this.addChild( filledHalfStars[i] );
       starLeft += distanceBetweenStars + starDiameter;
