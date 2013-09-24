@@ -69,7 +69,7 @@ define( function( require ) {
     // TODO: i18n of everything below
     var score = new Text( 'Score: ' + gameModel.scoreProperties[ gameModel.level ].value + ' out of ' + gameModel.MAX_POINTS_PER_GAME_LEVEL, { font: INFO_TEXT_FONT } );
     background.addChild( score );
-    var time = new Text( 'Time: ' + Utils.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT } );
+    var time = new Text( 'Time: ' + this.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT } );
     background.addChild( time );
 
     var continueButton = new TextButton( 'Continue',
@@ -102,7 +102,16 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, LevelCompletedNode );
+  inherit( Node, LevelCompletedNode, {
+    formatTime: function( timeInSeconds ){
+      if ( timeInSeconds < 90 ){
+        return Math.round( timeInSeconds ) + " seconds"; // TODO: i18n
+      }
+      else{
+        return Utils.formatTime( timeInSeconds );
+      }
+    }
+  } );
 
   return LevelCompletedNode;
 } );
