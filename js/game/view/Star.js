@@ -16,7 +16,7 @@ define( function( require ) {
     var starShape = new Shape();
     var angle = -Math.PI / 2;
     for ( var i = 0; i < 10; i++ ) {
-      var vector = Vector2.createPolar( i % 2 === 0 ? diameter / 2 : diameter / 4, angle );
+      var vector = Vector2.createPolar( i % 2 === 0 ? diameter / 2 : diameter * 0.27, angle );
       starShape.lineTo( vector.x, vector.y );
       angle += ( 2 * Math.PI ) / 10;
     }
