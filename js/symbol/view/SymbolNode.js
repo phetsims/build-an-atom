@@ -7,7 +7,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( 'imageLoader' );
+  var scaleIcon = require( 'image!BUILD_AN_ATOM/../images/scale.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -115,7 +115,7 @@ define( function( require ) {
     } );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( imageLoader.getImage( 'scale.png' ) );
+    var scaleImage = new Image( scaleIcon );
     scaleImage.scale( 0.32 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
