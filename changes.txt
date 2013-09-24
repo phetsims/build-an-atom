@@ -1,3 +1,9 @@
+9/23/2013 Made the scoreboard update as soon as user submits an answer.
+9/23/2013 Clear the score between sub-games.
+9/22/2013 Added sound.
+# 1.1.0-dev.1
+9/12/2013 Expanded touch areas for the arrows on the game entry dialogs (better for touch screens).
+9/12/2013 Switched the side where the arrows are on the game entry dialogs (better for right-handers on touch screens).
 9/12/2013 Got scoreboard to track the sub-game score.  Scoreboard is expected to change.
 9/12/2013 Got scoring working.
 9/12/2013 Implemented "level completed" screen.
