@@ -30,7 +30,7 @@ require(
               'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
-    SimLauncher.launch( {imageNames: []}, function() {
+    SimLauncher.launch( function() {
 
       //Create and start the sim
       //TODO: i18n
