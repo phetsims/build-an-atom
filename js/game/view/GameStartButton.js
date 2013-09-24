@@ -52,7 +52,14 @@ define( function( require ) {
     buttonOutline.addChild( icon );
 
     // Add the progress indicator to the button.
-    buttonOutline.addChild( new GameProgressIndicator( WIDTH, HEIGHT * 0.2, CORNER_ROUNDING, 5, scoreProperty, maxPossibleScore ).mutate( { bottom: HEIGHT } ) );
+    var progressIndicatorBackground = new Rectangle( 0, 0, WIDTH, HEIGHT * 0.2, CORNER_ROUNDING, CORNER_ROUNDING,
+      {
+        fill: 'white',
+        stroke: 'black',lineWidth: 1
+      } ).mutate( { bottom: HEIGHT } );
+    progressIndicatorBackground.addChild( new GameProgressIndicator( 5, WIDTH / 6, scoreProperty, maxPossibleScore ).mutate(
+      { centerX: buttonOutline.width / 2, centerY: progressIndicatorBackground.height / 2 } ) );
+    buttonOutline.addChild( progressIndicatorBackground );
 
     // Add the listener to update the appearance and handle a click.
     thisNode._armed = false;

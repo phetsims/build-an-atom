@@ -25,7 +25,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 1;
+  var PROBLEMS_PER_SUB_GAME = 5;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
@@ -82,7 +82,7 @@ define( function( require ) {
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
       this.elapsedTime = 0;
-      this.scroe = 0;
+      this.score = 0;
       this.scoreProperties[ this.level ].reset();
       if ( this.problemSet.length > 0 ) {
         this.state = this.problemSet[0];

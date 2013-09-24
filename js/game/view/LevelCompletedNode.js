@@ -50,20 +50,20 @@ define( function( require ) {
     //TODO: i18n
     var titleText = 'Level Completed';
     if ( proportionCorrect > 0.95 ){
-      titleText = 'Excellent!'
+      titleText = 'Excellent!';
     }
     else if ( proportionCorrect > 0.75 ){
-      titleText = 'Great!'
+      titleText = 'Great!';
     }
     else if ( proportionCorrect >= 0.5 ){
-      titleText = 'Good!'
+      titleText = 'Good!';
     }
     var title = new Text( titleText, {font: new PhetFont( { size: 28, weight: 'bold' } )} ); // TODO: i18n
     title.scale( Math.min( 1, (size.width * 0.9 ) / title.width ) );
     background.addChild( title );
 
-    var gameProgressIndicator = new GameProgressIndicator( size.width * 0.8, size.width * 0.2, size.width * 0.05, gameModel.PROBLEMS_PER_SUB_GAME,
-      new Property( gameModel.score ), gameModel.MAX_POINTS_PER_GAME_LEVEL );
+    var starDiameter = Math.min( size.width / gameModel.PROBLEMS_PER_SUB_GAME * 0.9, size.height * 0.2 );
+    var gameProgressIndicator = new GameProgressIndicator( gameModel.PROBLEMS_PER_SUB_GAME, starDiameter, new Property( gameModel.score ), gameModel.MAX_POINTS_PER_GAME_LEVEL );
     background.addChild( gameProgressIndicator );
 
     // TODO: i18n of everything below
