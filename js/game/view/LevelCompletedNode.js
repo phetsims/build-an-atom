@@ -1,4 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * Node that is shown when the user completes a level of the game.
+ */
 define( function( require ) {
   'use strict';
 
@@ -41,7 +45,19 @@ define( function( require ) {
 
     this.addChild( background );
 
-    var title = new Text( 'Level Completed', {font: new PhetFont( { size: 28, weight: 'bold' } )} ); // TODO: i18n
+    var proportionCorrect = gameModel.MAX_POINTS_PER_GAME_LEVEL / gameModel.score;
+    //TODO: i18n
+    var titleText = 'Level Completed';
+    if ( proportionCorrect > 0.95 ){
+      titleText = 'Excellent!'
+    }
+    else if ( proportionCorrect > 0.75 ){
+      titleText = 'Great!'
+    }
+    else if ( proportionCorrect > 0.5 ){
+      titleText = 'Good!'
+    }
+    var title = new Text( titleText, {font: new PhetFont( { size: 28, weight: 'bold' } )} ); // TODO: i18n
     title.scale( Math.min( 1, (size.width * 0.9 ) / title.width ) );
     background.addChild( title );
 
