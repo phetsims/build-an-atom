@@ -11,7 +11,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( 'imageLoader' );
+  var scaleIcon = require( 'image!BUILD_AN_ATOM/../images/scale.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -27,7 +27,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Add the background image, i.e. the scale.
-    var scaleImage = new Image( imageLoader.getImage( 'scale.png' ) );
+    var scaleImage = new Image( scaleIcon );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 

@@ -13,9 +13,11 @@ require(
     'SCENERY/nodes/Text' ,
     'JOIST/Sim',
     'JOIST/SimLauncher',
-    'imageLoader'
+    'image!BUILD_AN_ATOM/../images/baa_atom_icon.png',
+    'image!BUILD_AN_ATOM/../images/baa_element_icon.png',
+    'image!BUILD_AN_ATOM/../images/game_icon.png'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, PhetFont, BAAGameModel, BAAGameView, SymbolView, Circle, Image, Rectangle, Text, Sim, SimLauncher, imageLoader ) {
+  function( BuildAnAtomModel, BuildAnAtomView, PhetFont, BAAGameModel, BAAGameView, SymbolView, Circle, Image, Rectangle, Text, Sim, SimLauncher, atomIcon, elementIcon, gameIcon ) {
     'use strict';
 
     var simOptions = {
@@ -28,23 +30,23 @@ require(
               'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
-    SimLauncher.launch( imageLoader, function() {
+    SimLauncher.launch( function() {
 
       //Create and start the sim
       //TODO: i18n
       new Sim( 'Build an Atom', [
         { name: 'Atom',
-          icon: new Image( imageLoader.getImage( 'baa_atom_icon.png' ) ),
+          icon: new Image( atomIcon ),
           backgroundColor: 'white',
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new BuildAnAtomView( model ); } },
         { name: 'Symbol',
-          icon: new Image( imageLoader.getImage( 'baa_element_icon.png' ) ),
+          icon: new Image( elementIcon ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolView( model ); } },
         { name: 'Game',
-          icon: new Image( imageLoader.getImage( 'game_icon.png' ) ),
+          icon: new Image( gameIcon ),
           backgroundColor: 'rgb( 255, 254, 223 )',
           createModel: function() { return new BAAGameModel(); },
           createView: function( model ) { return new BAAGameView( model ); } }

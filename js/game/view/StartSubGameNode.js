@@ -6,13 +6,16 @@ define( function( require ) {
   var CheckBox = require( 'SUN/CheckBox' );
   var GameStartButton = require( 'game/view/GameStartButton' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( 'imageLoader' );
+  var periodicTableIcon = require( 'image!BUILD_AN_ATOM/../images/periodic_table_icon.png' );
+  var massChargeIcon = require( 'image!BUILD_AN_ATOM/../images/mass_charge_icon.png' );
+  var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/../images/symbol_question_icon.png' );
+  var questionMarkIcon = require( 'image!BUILD_AN_ATOM/../images/question_mark_icon.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var ResetAllButton = require( 'common/view/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var SharedConstants = require( 'common/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -36,7 +39,7 @@ define( function( require ) {
 
     // Buttons for starting a sub-game (a.k.a. a level).
     var periodicTableGameButton = new GameStartButton(
-      new Image( imageLoader.getImage( 'periodic_table_icon.png' ) ),
+      new Image( periodicTableIcon ),
       function() {
         gameModel.startSubGame( 'periodic-table-game' );
       },
@@ -44,7 +47,7 @@ define( function( require ) {
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new GameStartButton(
-      new Image( imageLoader.getImage( 'mass_charge_icon.png' ) ),
+      new Image( massChargeIcon ),
       function() {
         gameModel.startSubGame( 'mass-and-charge-game' );
       },
@@ -52,7 +55,7 @@ define( function( require ) {
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new GameStartButton(
-      new Image( imageLoader.getImage( 'symbol_question_icon.png' ) ),
+      new Image( symbolQuestionIcon ),
       function() {
         gameModel.startSubGame( 'symbol-game' );
       },
@@ -60,7 +63,7 @@ define( function( require ) {
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new GameStartButton(
-      new Image( imageLoader.getImage( 'question_mark_icon.png' ) ),
+      new Image( questionMarkIcon ),
       function() {
         gameModel.startSubGame( 'advanced-symbol-game' );
       },

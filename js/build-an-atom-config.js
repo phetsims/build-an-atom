@@ -7,11 +7,10 @@ require.config(
 
     paths: {
 
-      // third-party libs
+      // plugins
       i18n: '../../sherpa/i18n-2.0.4',
-
-      // PhET plugins
       image: '../../chipper/requirejs-plugins/image',
+      audio: '../../chipper/requirejs-plugins/audio',
 
       // PhET libs, uppercase names to identify them in require.js imports
       ASSERT: '../../assert/js',
@@ -24,7 +23,8 @@ require.config(
       SCENERY: '../../scenery/js',
       SCENERY_PHET: '../../scenery-phet/js',
       SUN: '../../sun/js',
-      VIBE: '../../vibe/js'
+      VIBE: '../../vibe/js',
+      BUILD_AN_ATOM: '.'
     },
 
     urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts

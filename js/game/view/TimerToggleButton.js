@@ -11,7 +11,7 @@ define( function( require ) {
   // Imports
   var FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var imageLoader = require( 'imageLoader' );
+  var blueStopwatchImage = require( 'image!BUILD_AN_ATOM/../images/blue-stopwatch.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -35,7 +35,7 @@ define( function( require ) {
     var tempSoundToggleButton = new FontAwesomeNode( 'volume_up' );
 
     // Create the node that represents the timer being on.
-    var timerOnNode = new Image( imageLoader.getImage( 'blue-stopwatch.png' ) );
+    var timerOnNode = new Image( blueStopwatchImage );
     var timerNodeScale = Math.min( tempSoundToggleButton.width / timerOnNode.width, tempSoundToggleButton.height / timerOnNode.height );
     timerOnNode.scale( timerNodeScale );
 
