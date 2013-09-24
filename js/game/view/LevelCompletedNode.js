@@ -76,7 +76,7 @@ define( function( require ) {
       function() {
         gameModel.state = 'selectSubGame';
       },
-      { font: new PhetFont( 24 ), rectangleFillUp: new Color( 243, 243, 243 ) } );
+      { font: new PhetFont( 28 ), rectangleFillUp: new Color( 255, 255, 0 ) } );
     background.addChild( continueButton );
 
     // Layout
