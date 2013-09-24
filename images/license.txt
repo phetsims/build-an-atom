@@ -1,4 +1,0 @@
-reset_button_disabled.png source=PhET author=Sharon
-reset_button_down.png source=PhET author=Sharon
-reset_button_over.png source=PhET author=Sharon
-reset_button_up.png source=PhET author=Sharon
