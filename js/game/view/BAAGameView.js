@@ -12,7 +12,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'game/view/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
   var Text = require( 'SCENERY/nodes/Text' );
