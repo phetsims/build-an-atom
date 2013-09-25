@@ -8,7 +8,6 @@ define( function( require ) {
 
   // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var callSuper = require( 'PHET_CORE/callSuper' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'common/model/NumberAtom' );
@@ -229,7 +228,7 @@ define( function( require ) {
       },
 
       reset: function() {
-        callSuper( PropertySet, 'reset', this );
+        PropertySet.prototype.reset.call( this );
 
         // Move all particles that are in the atom back into their respective buckets.
         this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );

@@ -10,7 +10,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var callSuper = require( 'PHET_CORE/callSuper' );
   var CountsToChargeProblem = require( 'game/model/CountsToChargeProblem' );
   var CountsToSymbolProblem = require( 'game/model/CountsToSymbolProblem' );
   var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
@@ -127,7 +126,7 @@ define( function( require ) {
     },
 
     reset: function() {
-      callSuper( PropertySet, 'reset', this );
+      PropertySet.prototype.reset.call( this );
       this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset(); } );
     },
 
