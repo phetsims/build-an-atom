@@ -66,7 +66,7 @@ define( function( require ) {
           // leveraged, revisit this line for potential improvement.
           var positionInModelSpace = mvt.viewToModelPosition( thisNode.getParents()[0].globalToLocalPoint( event.pointer.point ) );
 
-          var electron = atom.removeParticle( 'electron' );
+          var electron = atom.extractParticle( 'electron' );
           if ( electron !== null ) {
             electron.userControlled = true;
             electron.setPositionAndDestination( positionInModelSpace );

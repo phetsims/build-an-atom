@@ -218,13 +218,16 @@ define( function( require ) {
 
       _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
         var particlesToRemove = [];
+        // Copy the observable particle collection into a regular array.
         for ( var i = 0; i < particleCollection.length; i++ ) {
           particlesToRemove[i] = particleCollection.get( i );
         }
-        particleCollection.clear();
-        _.each( particlesToRemove, function( particle ) {
-          bucket.addParticleFirstOpen( particle );
-        }, this );
+        var thisModel = this;
+        particlesToRemove.forEach( function( particle ) {
+            thisModel.particleAtom.removeParticle( particle );
+            bucket.addParticleFirstOpen( particle );
+          }
+        );
       },
 
       reset: function() {
@@ -252,6 +255,7 @@ define( function( require ) {
       setAtomConfiguration: function( numberAtom ) {
         // Define a function for transferring particles from buckets to atom.
         var atomCenter = this.particleAtom.position;
+        var self = this;
         var moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
           while ( currentCountInAtom < targetCountInAtom ) {
             var particle = bucket.extractClosestParticle( atomCenter );
@@ -260,7 +264,7 @@ define( function( require ) {
             currentCountInAtom++;
           }
           while ( currentCountInAtom > targetCountInAtom ) {
-            this._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
+            self._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
             currentCountInAtom--;
           }
         };

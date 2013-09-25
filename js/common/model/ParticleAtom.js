@@ -112,29 +112,21 @@ define( function( require ) {
     addParticle: function( particle ) {
       var thisAtom = this;
 
-      if ( particle.type === 'proton' ) {
-        this.protons.add( particle );
+      if ( particle.type === 'proton' || particle.type === 'neutron' ) {
+        var particleArray = particle.type === 'proton' ? this.protons : this.neutrons;
+        particleArray.add( particle );
         this.reconfigureNucleus();
-        var userControlledProtonListener = function( userControlled ) {
-          if ( userControlled && thisAtom.protons.contains( particle ) ) {
-            thisAtom.protons.remove( particle );
+        var nucleonRemovedListener = function( userControlled ) {
+          if ( userControlled && particleArray.contains( particle ) ) {
+            particleArray.remove( particle );
             thisAtom.reconfigureNucleus();
             particle.zLayer = 0;
           }
-          particle.userControlledProperty.unlink( userControlledProtonListener );
+          particle.userControlledProperty.unlink( nucleonRemovedListener );
+          delete particle.particleAtomRemovalListener;
         };
-        particle.userControlledProperty.lazyLink( userControlledProtonListener );
-      }
-      else if ( particle.type === 'neutron' ) {
-        this.neutrons.add( particle );
-        this.reconfigureNucleus();
-        particle.userControlledProperty.once( function( userControlled ) {
-          if ( userControlled && thisAtom.neutrons.contains( particle ) ) {
-            thisAtom.neutrons.remove( particle );
-            thisAtom.reconfigureNucleus();
-            particle.zLayer = 0;
-          }
-        } );
+        particle.userControlledProperty.lazyLink( nucleonRemovedListener );
+        particle.particleAtomRemovalListener = nucleonRemovedListener; // Attach to the particle to aid unlinking in some cases.
       }
       else if ( particle.type === 'electron' ) {
         this.electrons.add( particle );
@@ -165,35 +157,68 @@ define( function( require ) {
         particle.destination = sortedOpenPositions[ 0 ].position;
 
         // Listen for removal of the electron and handle it.
-        particle.userControlledProperty.once( function( userControlled ) {
+        var electronRemovedListener = function( userControlled ) {
           if ( userControlled && thisAtom.electrons.contains( particle ) ) {
             thisAtom.electrons.remove( particle );
+            particle.zLayer = 0;
           }
-        } );
+          particle.userControlledProperty.unlink( electronRemovedListener );
+          delete particle.particleAtomRemovalListener;
+        };
+        particle.userControlledProperty.lazyLink( electronRemovedListener );
+        particle.particleAtomRemovalListener = electronRemovedListener; // Attach to the particle to aid unlinking in some cases.
+
       }
       else {
         assert && assert( false, "Unexpected particle type." );
       }
     },
 
-    removeParticle: function( particleType ) {
-      // TODO: Need to figure out how to remove the user controlled listener that was added when the particle was added to the atom.
-      var thisAtom = this;
+    // Remove the specified particle from this particle atom.
+    removeParticle: function( particle ){
+      if ( this.protons.contains( particle ) ){
+        this.protons.remove( particle );
+      }
+      else if ( this.neutrons.contains( particle ) ){
+        this.neutrons.remove( particle );
+      }
+      else if ( this.electrons.contains( particle ) ){
+        this.electrons.remove( particle );
+      }
+      else{
+        assert && assert( false, "Attempt to remove particle that is not in this particle atom.");
+      }
+      assert && assert( typeof( particle.particleAtomRemovalListener ) !== 'undefined' && particle.particleAtomRemovalListener != null,
+        "No particle removal listener attached to particle." );
+      particle.userControlledProperty.unlink( particle.particleAtomRemovalListener );
+      delete particle.particleAtomRemovalListener;
+    },
 
-      var particle;
-      if ( particleType === 'proton' ) {
-        particle = this.protons.pop();
-        this.reconfigureNucleus();
+    // Extract an arbitrary instance of the specified particle, assuming one exists.
+    extractParticle: function( particleType ) {
+      var particle = null;
+      switch( particleType ){
+        case 'proton':
+          particle = this.protons.pop();
+          this.reconfigureNucleus();
+          break;
+
+        case 'neutron':
+          particle = this.neutrons.pop();
+          this.reconfigureNucleus();
+          break;
+
+        case 'electron':
+          particle = this.electrons.pop();
+          break;
+
+        default:
+          throw new Error("Attempt to remove unknown particle type.");
+          break;
       }
-      else if ( particleType === 'neutron' ) {
-        particle = this.neutrons.pop();
-        this.reconfigureNucleus();
-      }
-      else if ( particleType === 'electron' ) {
-        particle = this.electrons.pop();
-      }
-      else {
-        assert && assert( false, "Unknown particle type in removeParticle." );
+
+      if ( particle !== null ){
+        this.removeParticle( particle );
       }
       return particle;
     },
