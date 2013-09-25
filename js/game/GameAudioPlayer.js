@@ -8,7 +8,7 @@ define( function( require ) {
   var correctAnswerSound = require( 'audio!BUILD_AN_ATOM/../audio/correctAnswer.mp3' );
   var wrongAnswerSound = require( 'audio!BUILD_AN_ATOM/../audio/wrongAnswer.mp3' );
   var imperfectScoreSound = require( 'audio!BUILD_AN_ATOM/../audio/gameOver-imperfectScore.mp3' );
-  var perfectScoreSound = require( 'audio!BUILD_AN_ATOM/../audio/gameOver-imperfectScore.mp3' );
+  var perfectScoreSound = require( 'audio!BUILD_AN_ATOM/../audio/gameOver-perfectScore.mp3' );
 
   // Constants
   var CORRECT_ANSWER = new Sound( correctAnswerSound ); // TODO: Add correct sounds when available.
