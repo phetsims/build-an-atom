@@ -1,4 +1,12 @@
 9/24/2013 replace phet-core.callSuper with Supertype.prototype.method.call( this,...)
+9/24/2013 Replaced level indicator on game scoreboard with progress indicator, removed progress indicator from main screen, changed layout of scoreboard.
+9/24/2013 Made the half star unclosed on its side, looks better in the game progress indicator.
+9/24/2013 Made the time value on the 'level completed' screen say, for example, '11 seconds' instead of 0:11 for times under 90 seconds.
+9/24/2013 Changed the shape of the stars used in the game to make them look more fun and a bit less aliased.
+9/24/2013 Changed the color of the 'Continue' button on the 'level completed' screen.
+9/24/2013 Added stars that show proportion correct to the 'level completed' node, adjusted the layout and size.
+9/24/2013 Removed level indication and dividing lines from the 'level complete' screen, changed button to say 'continue', changed size.
+9/24/2013 Added different wording to the 'level complete' screen, e.g. 'Excellent!', or 'Great!'.
 9/23/2013 Made the scoreboard update as soon as user submits an answer.
 9/23/2013 Clear the score between sub-games.
 9/22/2013 Added sound.
