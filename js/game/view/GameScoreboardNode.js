@@ -45,11 +45,11 @@ define( function( require ) {
         width: 700
       }, options );
 
-    // Level
-    var levelNode = new Text( '', { font: FONT } );
-    thisNode.addChild( levelNode );
-    gameModel.levelProperty.link( function( level ) {
-      levelNode.text = "Level: " + level;
+    // Progress indicator
+    var progressNode = new Text( '', { font: FONT } );
+    thisNode.addChild( progressNode );
+    gameModel.problemIndexProperty.link( function( problemIndex ) {
+      progressNode.text = 'Challenge ' + ( problemIndex + 1 ) + ' of ' + gameModel.PROBLEMS_PER_SUB_GAME;
     } );
 
     // Score
@@ -81,22 +81,23 @@ define( function( require ) {
       { font: new PhetFont( 20 ), rectangleFillUp: new Color( 235, 235, 235 ) } );
     thisNode.addChild( newGameButton );
 
-    // Layout - everything in a row, vertically centered, offsets were set by eyeballing them.
+    // Layout - everything in a row, vertically centered, evenly spaced.
     var maxChildHeight = 0;
     thisNode.children.forEach( function( childNode ) {
       maxChildHeight = childNode.height > maxChildHeight ? childNode.height : maxChildHeight;
     } );
     var backgroundHeight = maxChildHeight + 2 * Y_MARGIN;
-    levelNode.left = X_MARGIN;
-    levelNode.centerY = backgroundHeight / 2;
-    scoreNode.centerX = options.width * 0.28;
+    progressNode.left = X_MARGIN;
+    progressNode.centerY = backgroundHeight / 2;
+    newGameButton.right = options.width - X_MARGIN;
+    newGameButton.centerY = backgroundHeight / 2;
+    var spaceForMiddleIndicators = newGameButton.left - progressNode.right;
+    scoreNode.centerX = progressNode.right + spaceForMiddleIndicators * 0.3;
     scoreNode.centerY = backgroundHeight / 2;
-    timerIcon.right = options.width / 2;
+    timerIcon.right = progressNode.right + spaceForMiddleIndicators * 0.7;
     timerIcon.centerY = backgroundHeight / 2;
     timerValue.left = timerIcon.right + 5;
     timerValue.centerY = backgroundHeight / 2;
-    newGameButton.right = options.width - X_MARGIN;
-    newGameButton.centerY = backgroundHeight / 2;
 
     // Add background.  This is added last since it's sized to fit the child nodes above.
     var background = new Rectangle( 0, 0, options.width, backgroundHeight, 0, 0,

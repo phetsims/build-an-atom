@@ -56,8 +56,6 @@ define( function( require ) {
         // presenting a problem.
         thisScene.removeAllChildren();
         thisScene.addChild( state.createView( thisScene.layoutBounds ) );
-        thisScene.addChild( new Text( 'Problem ' + ( gameModel.problemIndex + 1 ) + ' of ' + gameModel.problemSet.length,
-          { font: new PhetFont( 16 ), top: 30, left: 10 } ) );
         thisScene.addChild( scoreboard );
       }
     } );
