@@ -22,6 +22,7 @@ require.config(
       PHET_CORE: '../../phet-core/js',
       SCENERY: '../../scenery/js',
       SCENERY_PHET: '../../scenery-phet/js',
+      SHERPA: '../../sherpa',
       SUN: '../../sun/js',
       VIBE: '../../vibe/js',
       BUILD_AN_ATOM: '.'
