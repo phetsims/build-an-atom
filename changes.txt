@@ -1,3 +1,4 @@
+9/24/2013 replace phet-core.callSuper with Supertype.prototype.method.call( this,...)
 9/23/2013 Made the scoreboard update as soon as user submits an answer.
 9/23/2013 Clear the score between sub-games.
 9/22/2013 Added sound.
