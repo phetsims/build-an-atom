@@ -7,4 +7,4 @@ Third Party Dependencies
 =============
 
 This simulation uses a number of third party libraries, which are enumerated in package.json.
-The dependencies and corresponding license are available in: https://github.com/phetsims/sherpa
+The dependencies and corresponding licenses are available in: https://github.com/phetsims/sherpa
