@@ -48,7 +48,7 @@ define( function( require ) {
 
     var proportionCorrect = gameModel.score / gameModel.MAX_POINTS_PER_GAME_LEVEL;
     //TODO: i18n
-    var titleText = 'Level Completed';
+    var titleText = 'Keep Trying!';
     if ( proportionCorrect > 0.95 ){
       titleText = 'Excellent!';
     }
@@ -56,7 +56,7 @@ define( function( require ) {
       titleText = 'Great!';
     }
     else if ( proportionCorrect >= 0.5 ){
-      titleText = 'Good!';
+      titleText = 'Good';
     }
     var title = new Text( titleText, {font: new PhetFont( { size: 28, weight: 'bold' } )} ); // TODO: i18n
     title.scale( Math.min( 1, (size.width * 0.9 ) / title.width ) );
