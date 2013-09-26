@@ -215,13 +215,10 @@ define( function( require ) {
           throw new Error("Attempt to remove unknown particle type.");
       }
 
-      if ( particle !== null ){
-        this.removeParticle( particle );
-      }
       return particle;
     },
 
-    // Move all the particles to their destinations.  This is gnerally used
+    // Move all the particles to their destinations.  This is generally used
     // when animation is not desired.
     moveAllParticlesToDestination: function() {
       this.protons.forEach( function( p ) { p.moveImmediatelyToDestination(); } );
