@@ -144,7 +144,6 @@ define( function( require ) {
 
     // Update the appearance of the problem as the state changes.
     problem.problemStateProperty.link( function( problemState ) {
-      console.log( 'Problem state changed, new state = ' + problemState );
       hideButtonsAndFace();
       if ( stateChangeHandlers[ problemState ] !== undefined ) {
         stateChangeHandlers[ problemState ]();

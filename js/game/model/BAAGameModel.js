@@ -76,7 +76,6 @@ define( function( require ) {
 
     // Start a new game.
     startSubGame: function( subGameType ) {
-      console.log( 'startGame called, sub game subGameType = ' + subGameType );
       this.level = SharedConstants.SUB_GAME_TO_LEVEL( subGameType );
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
