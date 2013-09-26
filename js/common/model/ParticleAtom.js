@@ -219,7 +219,7 @@ define( function( require ) {
           throw new Error("Attempt to remove unknown particle type.");
       }
 
-      if ( particle != null ){
+      if ( particle !== null ){
         this.removeParticle( particle );
       }
 
