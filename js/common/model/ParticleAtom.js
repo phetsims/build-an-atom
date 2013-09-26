@@ -198,21 +198,29 @@ define( function( require ) {
       var particle = null;
       switch( particleType ){
         case 'proton':
-          particle = this.protons.pop();
-          this.reconfigureNucleus();
+          if ( this.protons.length > 0 ){
+            particle = this.protons.get( this.protons.length - 1);
+          }
           break;
 
         case 'neutron':
-          particle = this.neutrons.pop();
-          this.reconfigureNucleus();
+          if ( this.neutrons.length > 0 ){
+            particle = this.neutrons.get( this.neutrons.length - 1);
+          }
           break;
 
         case 'electron':
-          particle = this.electrons.pop();
+          if ( this.electrons.length > 0 ){
+            particle = this.electrons.get( this.electrons.length - 1);
+          }
           break;
 
         default:
           throw new Error("Attempt to remove unknown particle type.");
+      }
+
+      if ( particle != null ){
+        this.removeParticle( particle );
       }
 
       return particle;
