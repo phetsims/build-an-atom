@@ -188,8 +188,7 @@ define( function( require ) {
       else{
         assert && assert( false, "Attempt to remove particle that is not in this particle atom.");
       }
-      assert && assert( typeof( particle.particleAtomRemovalListener ) !== 'undefined' && particle.particleAtomRemovalListener != null,
-        "No particle removal listener attached to particle." );
+      assert && assert( typeof( particle.particleAtomRemovalListener ) === 'function', "No particle removal listener attached to particle." );
       particle.userControlledProperty.unlink( particle.particleAtomRemovalListener );
       delete particle.particleAtomRemovalListener;
     },
@@ -214,7 +213,6 @@ define( function( require ) {
 
         default:
           throw new Error("Attempt to remove unknown particle type.");
-          break;
       }
 
       if ( particle !== null ){
