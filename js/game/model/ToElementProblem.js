@@ -29,7 +29,7 @@ define( function( require ) {
   inherit( BAAGameProblem, ToElementProblem, {
 
     // Override the method for checking the correct answer, since this problem
-    // has the additional step of user deciding whether atom is an ion.
+    // class has the additional step of user deciding whether atom is an ion.
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
       assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
       this.numSubmissions++;
@@ -39,6 +39,7 @@ define( function( require ) {
              ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) ) ) {
         // Answer is correct. Record the score.
         this.score = this.numSubmissions === 1 ? 2 : 1;
+        this.model.score += this.score;
 
         // Move to the next state.
         this.problemState = 'problemSolvedCorrectly';

@@ -1,3 +1,4 @@
+9/27/2013 Fixed an issue where the screen at the end of level 1 always showed a score of zero.
 9/27/2013 Adjusted layouts of several challenges.
 9/27/2013 Fixed an issue where sounds used in the game were too low.
 9/26/2013 Fixed an issue where the electrons behaved oddly when extracted from electron cloud.
