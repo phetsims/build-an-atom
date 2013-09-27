@@ -45,7 +45,7 @@ define( function( require ) {
     thisNode.addChild( numberEntryNode );
 
     // Layout
-    particleCountsNode.centerX = layoutBounds.width * 0.25;
+    particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
     questionPrompt.centerX = layoutBounds.width * 0.65;
     questionPrompt.centerY = layoutBounds.height * 0.5;

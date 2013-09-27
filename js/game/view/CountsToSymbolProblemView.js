@@ -45,7 +45,7 @@ define( function( require ) {
     this.problemPresentationNode.addChild( particleCountsNode );
 
     // Layout
-    particleCountsNode.centerX = layoutBounds.width * 0.25;
+    particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.40;
     this.interactiveSymbol.centerX = layoutBounds.width * 0.75;
     this.interactiveSymbol.centerY = layoutBounds.height * 0.45;

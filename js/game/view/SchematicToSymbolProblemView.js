@@ -53,7 +53,7 @@ define( function( require ) {
     this.addChild( schematicAtomNode );
 
     // Layout
-    schematicAtomNode.centerX = layoutBounds.width * 0.25;
+    schematicAtomNode.centerX = layoutBounds.width * 0.3;
     schematicAtomNode.centerY = layoutBounds.height * 0.4;
     this.interactiveSymbol.centerX = layoutBounds.width * 0.75;
     this.interactiveSymbol.centerY = layoutBounds.height * 0.45;

@@ -36,7 +36,7 @@ define( function( require ) {
 
     // Layout - Line labels up on left edge, numbers on right edge.
     var maxParticleLabelWidth = Math.max( Math.max( protonCountTitle.width, neutronCountTitle.width ), electronCountTitle.width );
-    var interLineSpacing = protonCountTitle.height * 0.7; // Multiplier empirically determined.
+    var interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
     var numberAreaWidth = new Text( '000', { font: options.font } ).width;
     protonCountTitle.left = 0;
     protonCountTitle.top = 0;

@@ -1,3 +1,7 @@
+9/27/2013 Adjusted layouts of several challenges.
+9/27/2013 Fixed an issue where sounds used in the game were too low.
+9/26/2013 Fixed an issue where the electrons behaved oddly when extracted from electron cloud.
+# 1.1.0-dev.2
 9/24/2013 replace phet-core.callSuper with Supertype.prototype.method.call( this,...)
 9/24/2013 Replaced level indicator on game scoreboard with progress indicator, removed progress indicator from main screen, changed layout of scoreboard.
 9/24/2013 Made the half star unclosed on its side, looks better in the game progress indicator.
