@@ -100,7 +100,7 @@ define( function( require ) {
     timerValue.centerY = backgroundHeight / 2;
 
     // Add background.  This is added last since it's sized to fit the child nodes above.
-    var background = new Rectangle( 0, 0, options.width, backgroundHeight, 0, 0,
+    var background = new Rectangle( 0, 0, options.width, backgroundHeight, 6, 6,
       {
         fill: options.backgroundFillColor,
         stroke: options.backgroundStroke,
