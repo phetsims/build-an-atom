@@ -11,7 +11,7 @@ define( function( require ) {
   // Imports
   var FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var blueStopwatchImage = require( 'image!BUILD_AN_ATOM/../images/blue-stopwatch.png' );
+  var SimpleClockIcon = require( 'game/view/SimpleClockIcon' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -35,18 +35,18 @@ define( function( require ) {
     var tempSoundToggleButton = new FontAwesomeNode( 'volume_up' );
 
     // Create the node that represents the timer being on.
-    var timerOnNode = new Image( blueStopwatchImage );
-    var timerNodeScale = Math.min( tempSoundToggleButton.width / timerOnNode.width, tempSoundToggleButton.height / timerOnNode.height );
-    timerOnNode.scale( timerNodeScale );
+    var clockRadius = tempSoundToggleButton.width * 0.44; // Multiplier tweaked so that size matches.  Need to generalize if used in common code.
+    var timerOnNode = new SimpleClockIcon( clockRadius );
 
     // Create the node that represents the timer being off.
     var timerOffNode = new Node();
-    timerOffNode.addChild( timerOnNode );
+    var timerOffNodeBackground = new SimpleClockIcon( clockRadius, { opacity: 0.6 } );
+    timerOffNode.addChild( timerOffNodeBackground );
     var xNode = new Shape();
     xNode.moveTo( 0, 0 );
-    xNode.lineTo( tempSoundToggleButton.width - X_STROKE_WIDTH / 2, tempSoundToggleButton.height );
-    xNode.moveTo( 0, tempSoundToggleButton.height );
-    xNode.lineTo( tempSoundToggleButton.width - X_STROKE_WIDTH / 2, 0 );
+    xNode.lineTo( timerOffNode.width, timerOffNode.height );
+    xNode.moveTo( 0, timerOffNode.height );
+    xNode.lineTo( timerOffNode.width, 0 );
     timerOffNode.addChild( new Path( xNode,
       {
         stroke: 'black',

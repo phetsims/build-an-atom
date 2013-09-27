@@ -13,7 +13,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var blueStopwatchImage = require( 'image!BUILD_AN_ATOM/../images/blue-stopwatch.png' );
+  var SimpleClockIcon = require( 'game/view/SimpleClockIcon' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -60,7 +60,7 @@ define( function( require ) {
     } );
 
     // Timer
-    var timerIcon = new Image( blueStopwatchImage );
+    var timerIcon = new SimpleClockIcon( 15 );
     thisNode.addChild( timerIcon );
     var timerValue = new Text( '0', { font: FONT } );
     thisNode.addChild( timerValue );
