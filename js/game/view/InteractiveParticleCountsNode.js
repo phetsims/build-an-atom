@@ -40,7 +40,8 @@ define( function( require ) {
 
     // Layout
     var maxParticleLabelWidth = Math.max( Math.max( protonCountPrompt.width, neutronCountPrompt.width ), electronCountPrompt.width );
-    var interLineSpacing = protonCountPrompt.height * 1.3; // Multiplier empirically determined.
+
+    var interLineSpacing = protonCountPrompt.height * 2; // Multiplier empirically determined.
     protonCountPrompt.left = 0;
     protonCountPrompt.top = 0;
     protonCountEntry.centerY = protonCountPrompt.centerY;
