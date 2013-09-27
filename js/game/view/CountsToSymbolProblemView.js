@@ -46,9 +46,9 @@ define( function( require ) {
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.25;
-    particleCountsNode.centerY = layoutBounds.height * 0.5;
+    particleCountsNode.centerY = layoutBounds.height * 0.40;
     this.interactiveSymbol.centerX = layoutBounds.width * 0.75;
-    this.interactiveSymbol.centerY = layoutBounds.height * 0.4;
+    this.interactiveSymbol.centerY = layoutBounds.height * 0.45;
   }
 
   // Inherit from ProblemView.
