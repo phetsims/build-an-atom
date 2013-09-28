@@ -226,6 +226,15 @@ define( function( require ) {
       return particle;
     },
 
+    // Remove all the particles but don't reconfigure the nucleus as they go.
+    // This makes it a quicker operation.
+    clear: function() {
+      var self = this;
+      this.protons.forEach( function ( particle ){ self.removeParticle( particle ); } );
+      this.neutrons.forEach( function ( particle ){ self.removeParticle( particle ); } );
+      this.electrons.forEach( function ( particle ){ self.removeParticle( particle ); } );
+    },
+
     // Move all the particles to their destinations.  This is generally used
     // when animation is not desired.
     moveAllParticlesToDestination: function() {

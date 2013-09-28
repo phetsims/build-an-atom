@@ -234,9 +234,9 @@ define( function( require ) {
         PropertySet.prototype.reset.call( this );
 
         // Move all particles that are in the atom back into their respective buckets.
-        this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
-        this._moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
-        this._moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
+//        this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
+//        this._moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
+//        this._moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
 
         // Move any particles that are in transit back to its bucket.
         this.nucleons.forEach( function( nucleon ) {
@@ -248,6 +248,29 @@ define( function( require ) {
           if ( !electron.position.equals( electron.destination ) ) {
             electron.moveImmediatelyToDestination();
           }
+        } );
+
+        // Remove all particles from the particle atom.
+        this.particleAtom.clear();
+
+        // Remove all particles from the buckets.
+        this.buckets.protonBucket.reset();
+        this.buckets.neutronBucket.reset();
+        this.buckets.electronBucket.reset();
+
+        // Add all the particles back to their buckets so that they are
+        // stacked in their original configurations.
+        var thisModel = this;
+        this.nucleons.forEach( function( nucleon ) {
+          if ( nucleon.type === 'proton' ) {
+            thisModel.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
+          }
+          else {
+            thisModel.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
+          }
+        } );
+        this.electrons.forEach( function( electron ) {
+          thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
         } );
       },
 
