@@ -34,7 +34,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Title
-    var title = new Text( "Choose Your Challenge", { font: new PhetFont( 30 ) } );
+    var title = new Text( "Choose Your Game!", { font: new PhetFont( 30 ) } );
     this.addChild( title );
 
     // Buttons for starting a sub-game (a.k.a. a level).

@@ -45,7 +45,7 @@ require(
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolView( model ); } },
-        { name: 'Game',
+        { name: 'Games',
           icon: new Image( gameIcon ),
           backgroundColor: 'rgb( 255, 254, 223 )',
           createModel: function() { return new BAAGameModel(); },

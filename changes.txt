@@ -1,4 +1,6 @@
+9/30/2013 Changed title text on main game tab to "Choose your Game!", change tab title to "Games".
 9/30/2013 Made the particles in the buckets return to original positions when reset pressed (if they had been moved).
+9/27/2013 Changed the clock icon to a simple, code-drawn clock.  Modified the time on/off button associated with this icon.
 9/27/2013 Rounded the corners of the scoreboard node.
 9/27/2013 Fixed an issue where the screen at the end of level 1 always showed a score of zero.
 9/27/2013 Adjusted layouts of several challenges.
