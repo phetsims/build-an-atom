@@ -48,7 +48,7 @@ define( function( require ) {
       function() {
         gameModel.startSubGame( 'periodic-table-game' );
       },
-      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )],
+      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new GameStartButton(
@@ -56,7 +56,7 @@ define( function( require ) {
       function() {
         gameModel.startSubGame( 'mass-and-charge-game' );
       },
-      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )],
+      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new GameStartButton(
@@ -64,7 +64,7 @@ define( function( require ) {
       function() {
         gameModel.startSubGame( 'symbol-game' );
       },
-      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )],
+      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new GameStartButton(
@@ -72,7 +72,7 @@ define( function( require ) {
       function() {
         gameModel.startSubGame( 'advanced-symbol-game' );
       },
-      gameModel.scoreProperties[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )],
+      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( advancedSymbolGameButton );
 

@@ -67,13 +67,13 @@ define( function( require ) {
     background.addChild( gameProgressIndicator );
 
     // TODO: i18n of everything below
-    var score = new Text( 'Score: ' + gameModel.scoreProperties[ gameModel.level ].value + ' out of ' + gameModel.MAX_POINTS_PER_GAME_LEVEL, { font: INFO_TEXT_FONT } );
+    var score = new Text( 'Score: ' + gameModel.score + ' out of ' + gameModel.MAX_POINTS_PER_GAME_LEVEL, { font: INFO_TEXT_FONT } );
     background.addChild( score );
     var time = new Text( 'Time: ' + this.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT } );
     if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ){
       time.text += ' (Your New Best!)'
     }
-    else{
+    else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ){
       time.text += ' (Your Best: ' + this.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
     }
     background.addChild( time );

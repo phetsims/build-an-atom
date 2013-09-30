@@ -47,10 +47,10 @@ define( function( require ) {
 
     var thisGameModel = this;
 
-    this.scoreProperties = []; // Properties that track progress on each game level.
+    this.bestScores = []; // Properties that track progress on each game level.
     thisGameModel.bestTimes = []; // Best times at each level.
     _.times( SharedConstants.SUB_GAME_TYPES.length, function() {
-      thisGameModel.scoreProperties.push( new Property( 0 ) );
+      thisGameModel.bestScores.push( new Property( 0 ) );
       thisGameModel.bestTimes.push( Number.POSITIVE_INFINITY );
     } );
   }
@@ -72,7 +72,6 @@ define( function( require ) {
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
       this.score = 0;
-      this.scoreProperties[ this.level ].reset();
       this._restartGameTimer();
       this.state = this.problemSet.length > 0 ? this.state = this.problemSet[0] : this.state = 'subGameOver';
     },
@@ -98,7 +97,9 @@ define( function( require ) {
       }
       else {
         // Sub game over - update score and state.
-        this.scoreProperties[ this.level ].value = this.score;
+        if ( this.score > this.bestScores[ this.level ].value ) {
+          this.bestScores[ this.level ].value = this.score;
+        }
         if ( this.timerEnabled && this.score === this.MAX_POINTS_PER_GAME_LEVEL && this.elapsedTime < this.bestTimes[ this.level ] ) {
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
@@ -109,22 +110,23 @@ define( function( require ) {
 
     reset: function() {
       PropertySet.prototype.reset.call( this );
-      this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset(); } );
+      var thisGameModel = this;
+      this.bestScores.forEach( function( progressProperty ) { progressProperty.reset(); } );
       _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
         thisGameModel.bestTimes[ subGameType ] = Number.POSITIVE_INFINITY;
       } );
     },
 
-    _restartGameTimer: function(){
-      if ( this.gameTimerId !== null ){
+    _restartGameTimer: function() {
+      if ( this.gameTimerId !== null ) {
         clearInterval( this.gameTimerId );
       }
       this.elapsedTime = 0;
       var thisModel = this;
-      this.gameTimerId = setInterval( function(){ thisModel.elapsedTime += 1; }, 1000 );
+      this.gameTimerId = setInterval( function() { thisModel.elapsedTime += 1; }, 1000 );
     },
 
-    _stopGameTimer: function(){
+    _stopGameTimer: function() {
       clearInterval( this.gameTimerId );
       this.gameTimerId = null;
     },

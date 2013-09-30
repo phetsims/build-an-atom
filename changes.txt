@@ -1,3 +1,4 @@
+9/30/2013 Modified the progress tracker indications on the game to represent the best score instead of the most recent.
 9/30/2013 Made time continue to run on the games if and when the user switches tabs.
 9/30/2013 Improved layout of game start screen based on input received at last design meeting.
 9/30/2013 Added display of best time information to the level-completed dialog.
