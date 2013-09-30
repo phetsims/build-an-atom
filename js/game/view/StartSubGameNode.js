@@ -1,4 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * Screen that is presented to the user that allows them to select from a set
+ * of sub-games (a.k.a. levels) to play.
+ */
 define( function( require ) {
   'use strict';
 
@@ -85,11 +90,9 @@ define( function( require ) {
     this.addChild( resetButton );
 
     // Layout
-    title.centerX = layoutBounds.width / 2;
-    title.top = 20;
     var buttonWidth = periodicTableGameButton.width; // Note: Assumes all buttons are the same size.
     var interButtonXSpace = buttonWidth * 0.2;
-    var buttonCenterY = layoutBounds.height * 0.4;
+    var buttonCenterY = layoutBounds.height * 0.45;
     periodicTableGameButton.right = layoutBounds.centerX - 1.5 * interButtonXSpace - buttonWidth;
     periodicTableGameButton.centerY = buttonCenterY;
     massAndChangeGameButton.left = periodicTableGameButton.right + interButtonXSpace;
@@ -100,6 +103,8 @@ define( function( require ) {
     advancedSymbolGameButton.centerY = buttonCenterY;
     resetButton.right = layoutBounds.width - CONTROL_INSET;
     resetButton.bottom = layoutBounds.height - CONTROL_INSET;
+    title.centerX = layoutBounds.width / 2;
+    title.centerY = periodicTableGameButton.top / 2;
     soundToggleButton.left = CONTROL_INSET;
     soundToggleButton.bottom = layoutBounds.height - CONTROL_INSET;
     timerToggleButton.left = CONTROL_INSET;

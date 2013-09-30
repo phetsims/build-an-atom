@@ -60,7 +60,6 @@ define( function( require ) {
 
     // Step function necessary to be used as a model in the Joist framework.
     step: function( dt ) {
-      this.elapsedTime += dt;
       // Step the current problem if it has any time-driven behavior.
       if ( this.state && ( typeof( this.state.step ) !== 'undefined' ) ) {
         this.state.step( dt );
@@ -72,26 +71,17 @@ define( function( require ) {
       this.level = SharedConstants.SUB_GAME_TO_LEVEL( subGameType );
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
-      this.elapsedTime = 0;
       this.score = 0;
       this.scoreProperties[ this.level ].reset();
-      if ( this.problemSet.length > 0 ) {
-        this.state = this.problemSet[0];
-      }
-      else {
-        this.state = 'subGameOver';
-      }
+      this._restartGameTimer();
+      this.state = this.problemSet.length > 0 ? this.state = this.problemSet[0] : this.state = 'subGameOver';
     },
 
-    // Stop the current game and show the totals.
-    stopGame: function() {
-      console.log( 'stopGame called, not implemented.' );
-    },
-
-    // Start a new game.
+    // State where the user selects a new game.
     newGame: function( level ) {
       this.state = 'selectSubGame';
       this.score = 0;
+      this._stopGameTimer();
     },
 
     // Process a guess from the user.
@@ -117,6 +107,7 @@ define( function( require ) {
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
         this.state = 'subGameOver';
+        this._stopGameTimer();
       }
     },
 
@@ -126,6 +117,20 @@ define( function( require ) {
       _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
         thisGameModel.bestTimes[ subGameType ] = Number.POSITIVE_INFINITY;
       } );
+    },
+
+    _restartGameTimer: function(){
+      if ( this.gameTimerId !== null ){
+        clearInterval( this.gameTimerId );
+      }
+      this.elapsedTime = 0;
+      var thisModel = this;
+      this.gameTimerId = setInterval( function(){ thisModel.elapsedTime += 1; }, 1000 );
+    },
+
+    _stopGameTimer: function(){
+      clearInterval( this.gameTimerId );
+      this.gameTimerId = null;
     },
 
     // Public constants.

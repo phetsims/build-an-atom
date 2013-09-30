@@ -1,4 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * A type that defines a specialized button for initiating sub-games and for
+ * depicting the progress made on each sub-game.
+ */
 define( function( require ) {
   'use strict';
 

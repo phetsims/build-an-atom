@@ -1,3 +1,5 @@
+9/30/2013 Made time continue to run on the games if and when the user switches tabs.
+9/30/2013 Improved layout of game start screen based on input received at last design meeting.
 9/30/2013 Added display of best time information to the level-completed dialog.
 9/30/2013 Changed title text on main game tab to "Choose your Game!", change tab title to "Games".
 9/30/2013 Made the particles in the buckets return to original positions when reset pressed (if they had been moved).
