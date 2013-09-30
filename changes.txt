@@ -1,4 +1,5 @@
-9/27/2013 Rounded to corners of the scoreboard node.
+9/30/2013 Made the particles in the buckets return to original positions when reset pressed (if they had been moved).
+9/27/2013 Rounded the corners of the scoreboard node.
 9/27/2013 Fixed an issue where the screen at the end of level 1 always showed a score of zero.
 9/27/2013 Adjusted layouts of several challenges.
 9/27/2013 Fixed an issue where sounds used in the game were too low.
