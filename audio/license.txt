@@ -1,6 +1,4 @@
 correctAnswer.mp3 source=PhET author=John B
 gameOver-imperfectScore.mp3 source=PhET author=John B
-gameOver-perfectScore.mp3 notes=copied from electric-hockey tada.WAV no license info
 gameOver-perfectScore2.mp3 source=PhET author=John B
-wrongAnswer.mp3 source=2000 Sound Effects CD purchased by M Dubson notes=copied from nuclear-physics 32_83.mp3
 incorrectAnswer.mp3 source=freesound.org, Creative Commons 0 license, modified by John B
