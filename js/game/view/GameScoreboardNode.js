@@ -66,9 +66,6 @@ define( function( require ) {
     thisNode.addChild( timerValue );
     gameModel.elapsedTimeProperty.link( function( elapsedTime ) {
       timerValue.text = Utils.formatTime( elapsedTime );
-      if ( gameModel.bestTimes[gameModel.level] ) {
-        timerValue.text += ( ' (Your best: ' + Utils.formatTime( gameModel.bestTimes[gameModel.level] ) + ')' );
-      }
     } );
     gameModel.timerEnabledProperty.link( function( timerEnabled ) {
       timerIcon.visible = timerEnabled;

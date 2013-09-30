@@ -1,3 +1,4 @@
+9/30/2013 Added display of best time information to the level-completed dialog.
 9/30/2013 Changed title text on main game tab to "Choose your Game!", change tab title to "Games".
 9/30/2013 Made the particles in the buckets return to original positions when reset pressed (if they had been moved).
 9/27/2013 Changed the clock icon to a simple, code-drawn clock.  Modified the time on/off button associated with this icon.

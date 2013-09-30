@@ -42,23 +42,16 @@ define( function( require ) {
         problemSet: [],
         problemIndex: 0,
         score: 0, // Score on current game level.
-        elapsedTime: 0,
-        bestTimes: []
+        elapsedTime: 0
       } );
 
     var thisGameModel = this;
 
-    // Properties that track progress on each game level.
-    this.scoreProperties = [
-      new Property( 0 ),
-      new Property( 0 ),
-      new Property( 0 ),
-      new Property( 0 )
-    ];
-
-    // Initialize the array that tracks the best times for each sub-game.
-    _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
-      thisGameModel.bestTimes[ subGameType ] = Number.POSITIVE_INFINITY;
+    this.scoreProperties = []; // Properties that track progress on each game level.
+    thisGameModel.bestTimes = []; // Best times at each level.
+    _.times( SharedConstants.SUB_GAME_TYPES.length, function() {
+      thisGameModel.scoreProperties.push( new Property( 0 ) );
+      thisGameModel.bestTimes.push( Number.POSITIVE_INFINITY );
     } );
   }
 
@@ -120,6 +113,9 @@ define( function( require ) {
           totalPointsThisRound += problem.score;
         } );
         this.scoreProperties[ this.level ].value = totalPointsThisRound;
+        if ( this.elapsedTime < this.bestTimes[ this.level ] ) {
+          this.bestTimes[ this.level ] = this.elapsedTime;
+        }
         this.state = 'subGameOver';
       }
     },
@@ -127,11 +123,14 @@ define( function( require ) {
     reset: function() {
       PropertySet.prototype.reset.call( this );
       this.scoreProperties.forEach( function( progressProperty ) { progressProperty.reset(); } );
+      _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
+        thisGameModel.bestTimes[ subGameType ] = Number.POSITIVE_INFINITY;
+      } );
     },
 
     // Public constants.
     MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM,
-    PROBLEMS_PER_SUB_GAME : PROBLEMS_PER_SUB_GAME
+    PROBLEMS_PER_SUB_GAME: PROBLEMS_PER_SUB_GAME
   } );
 
   return BAAGameModel;

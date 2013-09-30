@@ -70,6 +70,12 @@ define( function( require ) {
     var score = new Text( 'Score: ' + gameModel.scoreProperties[ gameModel.level ].value + ' out of ' + gameModel.MAX_POINTS_PER_GAME_LEVEL, { font: INFO_TEXT_FONT } );
     background.addChild( score );
     var time = new Text( 'Time: ' + this.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT } );
+    if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ){
+      time.text += ' (Your New Best!)'
+    }
+    else{
+      time.text += ' (Your Best: ' + this.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
+    }
     background.addChild( time );
 
     var continueButton = new TextButton( 'Continue',
@@ -104,12 +110,13 @@ define( function( require ) {
   // Inherit from Node.
   inherit( Node, LevelCompletedNode, {
     formatTime: function( timeInSeconds ){
-      if ( timeInSeconds < 90 ){
-        return Math.round( timeInSeconds ) + " seconds"; // TODO: i18n
-      }
-      else{
+      // TODO: This is in a state of flux (as of Sep 30 2013) waiting to resolve how to format the time.  Clean up when resolved.
+//      if ( timeInSeconds < 90 ){
+//        return Math.round( timeInSeconds ) + " seconds"; // TODO: i18n
+//      }
+//      else{
         return Utils.formatTime( timeInSeconds );
-      }
+//      }
     }
   } );
 
