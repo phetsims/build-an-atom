@@ -1,0 +1,8 @@
+baa_atom_icon.png source=PhET author=Sharon
+baa_element_icon.png source=PhET author=Sharon
+game_icon.png source=PhET author=Sharon
+mass_charge_icon.png source=PhET author=John B
+periodic_table_icon.png source=PhET author=John B
+question_mark_icon.png source=PhET author=John B
+scale.png source=PhET author=Sharon
+symbol_question_icon.png source=PhET author=John B
