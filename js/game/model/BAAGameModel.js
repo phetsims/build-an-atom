@@ -98,12 +98,8 @@ define( function( require ) {
       }
       else {
         // Sub game over - update score and state.
-        var totalPointsThisRound = 0;
-        this.problemSet.forEach( function( problem ) {
-          totalPointsThisRound += problem.score;
-        } );
-        this.scoreProperties[ this.level ].value = totalPointsThisRound;
-        if ( this.elapsedTime < this.bestTimes[ this.level ] ) {
+        this.scoreProperties[ this.level ].value = this.score;
+        if ( this.timerEnabled && this.score === this.MAX_POINTS_PER_GAME_LEVEL && this.elapsedTime < this.bestTimes[ this.level ] ) {
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
         this.state = 'subGameOver';
