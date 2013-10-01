@@ -40,15 +40,15 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, mvt ) );
+    thisNode.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, mvt ) );
 
     // Question TODO: i18n
     var questionPrompt = new MultiLineText( "What is the\nmass number?", { align: 'left', font: new PhetFont( 24 ) } );
-    this.addChild( questionPrompt );
+    thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer, false );
-    thisNode.addChild( numberEntryNode );
+    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
     questionPrompt.centerX = layoutBounds.width * 0.65;

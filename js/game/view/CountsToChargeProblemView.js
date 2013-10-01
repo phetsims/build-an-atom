@@ -34,15 +34,15 @@ define( function( require ) {
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
-    this.problemPresentationNode.addChild( particleCountsNode );
+    thisNode.problemPresentationNode.addChild( particleCountsNode );
 
     // Question TODO: i18n
     var questionPrompt = new MultiLineText( "What is the\ntotal charge?", { align: 'left', font: new PhetFont( 24 ) } );
-    this.addChild( questionPrompt );
+    thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, { prependPlusSign: true, getTextColor: SharedConstants.CHARGE_TEXT_COLOR } );
-    thisNode.addChild( numberEntryNode );
+    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
@@ -54,7 +54,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, CountsToChargeProblemView,
+  return inherit( ProblemView, CountsToChargeProblemView,
     {
       checkAnswer: function() {
         var userSubmittedAnswer = new NumberAtom(
@@ -75,6 +75,4 @@ define( function( require ) {
       }
     }
   );
-
-  return CountsToChargeProblemView;
 } );

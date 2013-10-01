@@ -50,7 +50,7 @@ define( function( require ) {
 
     // Add the schematic representation of the atom.
     var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, mvt );
-    this.addChild( schematicAtomNode );
+    this.problemPresentationNode.addChild( schematicAtomNode );
 
     // Layout
     schematicAtomNode.centerX = layoutBounds.width * 0.3;

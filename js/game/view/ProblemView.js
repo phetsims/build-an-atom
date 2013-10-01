@@ -101,6 +101,7 @@ define( function( require ) {
     var setAnswerNodeInteractive = function( interactive ) {
       // TODO: This doesn't seem to work, figure out why and fix.
       thisNode.interactiveAnswerNode.pickable = interactive;
+      console.log( 'thisNode.interactiveAnswerNode.pickable = ' + thisNode.interactiveAnswerNode.pickable );
     };
 
     // Updated the visibility of the various buttons and other nodes based on
@@ -112,7 +113,7 @@ define( function( require ) {
         thisNode.checkAnswerButton.visible = true;
       },
       problemSolvedCorrectly: function() {
-        setAnswerNodeInteractive( true );
+        setAnswerNodeInteractive( false );
         faceNode.smile();
         pointDisplay.text = '+' + problem.score;
         faceNode.visible = true;

@@ -33,15 +33,15 @@ define( function( require ) {
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToMassNumberProblem.answerAtom );
-    this.problemPresentationNode.addChild( particleCountsNode );
+    thisNode.problemPresentationNode.addChild( particleCountsNode );
 
     // Question TODO: i18n
     var questionPrompt = new MultiLineText( "What is the\nmass number?", { align: 'left', font: new PhetFont( 24 ) } );
-    this.addChild( questionPrompt );
+    thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer );
-    thisNode.addChild( numberEntryNode );
+    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;

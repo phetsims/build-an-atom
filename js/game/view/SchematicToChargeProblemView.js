@@ -41,11 +41,11 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, mvt ) );
+    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, mvt ) );
 
     // Question TODO: i18n
     var questionPrompt = new MultiLineText( "What is the\ntotal charge?", { align: 'left', font: new PhetFont( 24 ) } );
-    this.addChild( questionPrompt );
+    this.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer,
@@ -53,7 +53,7 @@ define( function( require ) {
         prependPlusSign: true,
         getTextColor: SharedConstants.CHARGE_TEXT_COLOR
       } );
-    thisNode.addChild( numberEntryNode );
+    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
     questionPrompt.centerX = layoutBounds.width * 0.65;
