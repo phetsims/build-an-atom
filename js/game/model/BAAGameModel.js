@@ -119,15 +119,15 @@ define( function( require ) {
 
     _restartGameTimer: function() {
       if ( this.gameTimerId !== null ) {
-        clearInterval( this.gameTimerId );
+        window.clearInterval( this.gameTimerId );
       }
       this.elapsedTime = 0;
       var thisModel = this;
-      this.gameTimerId = setInterval( function() { thisModel.elapsedTime += 1; }, 1000 );
+      this.gameTimerId = window.setInterval( function() { thisModel.elapsedTime += 1; }, 1000 );
     },
 
     _stopGameTimer: function() {
-      clearInterval( this.gameTimerId );
+      window.clearInterval( this.gameTimerId );
       this.gameTimerId = null;
     },
 

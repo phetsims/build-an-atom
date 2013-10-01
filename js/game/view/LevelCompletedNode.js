@@ -71,7 +71,7 @@ define( function( require ) {
     background.addChild( score );
     var time = new Text( 'Time: ' + this.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT } );
     if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ){
-      time.text += ' (Your New Best!)'
+      time.text += ' (Your New Best!)';
     }
     else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ){
       time.text += ' (Your Best: ' + this.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
