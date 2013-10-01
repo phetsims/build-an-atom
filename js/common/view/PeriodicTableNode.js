@@ -25,6 +25,7 @@ define( function( require ) {
    * Constructor.
    *
    * @param numberAtom - Atom that defines which element is currently highlighted.
+   * @param interactiveMax - Atomic number of the heaviest element that should be interactive.
    * @constructor
    */
   function PeriodicTableNode( numberAtom, interactiveMax ) {
