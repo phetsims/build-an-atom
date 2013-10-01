@@ -17,9 +17,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   /**
-   * @param numProtons
-   * @param numNeutrons
-   * @param numElectrons
+   * @param numberAtom
    * @param mvt
    * @constructor
    */
