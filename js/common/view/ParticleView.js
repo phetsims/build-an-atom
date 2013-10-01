@@ -26,7 +26,7 @@ define( function( require ) {
     // var particleNode = new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) ).mutate( { scale: scale } );
     var viewRadius = mvt.modelToViewDeltaX( particle.radius );
     var scaledRadius = viewRadius * scale;
-    
+
     var particleNode = new ParticleNode( particle.type, scaledRadius );
 
     var node = new Node( { cursor: 'pointer' } );
@@ -42,7 +42,7 @@ define( function( require ) {
 
   function ParticleView( particle, mvt ) {
 
-    Node.call( this, { renderer: 'svg' } ); // Call super constructor.
+    Node.call( this, { renderer: 'svg', rendererOptions: {cssTransform: true}} ); // Call super constructor.
     var thisParticleView = this;
 
     // Set up fields.
