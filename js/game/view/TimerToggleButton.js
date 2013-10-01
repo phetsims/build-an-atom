@@ -43,14 +43,16 @@ define( function( require ) {
     var timerOffNodeBackground = new SimpleClockIcon( clockRadius, { opacity: 0.6 } );
     timerOffNode.addChild( timerOffNodeBackground );
     var xNode = new Shape();
+    var xNodeWidth = timerOffNode.width * 0.85;
     xNode.moveTo( 0, 0 );
-    xNode.lineTo( timerOffNode.width, timerOffNode.height );
-    xNode.moveTo( 0, timerOffNode.height );
-    xNode.lineTo( timerOffNode.width, 0 );
+    xNode.lineTo( xNodeWidth, xNodeWidth );
+    xNode.moveTo( 0, xNodeWidth );
+    xNode.lineTo( xNodeWidth, 0 );
     timerOffNode.addChild( new Path( xNode,
       {
         stroke: 'black',
         lineWidth: X_STROKE_WIDTH,
+        lineCap: 'round',
         centerX: timerOffNode.width / 2,
         centerY: timerOffNode.height / 2
       } ) );
