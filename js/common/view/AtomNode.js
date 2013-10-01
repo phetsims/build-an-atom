@@ -58,7 +58,8 @@ define( function( require ) {
       centerMarker.lineTo( center.x + sizeInPixels / 2, center.y - sizeInPixels / 2 );
       var atomCenterMarker = new Path( centerMarker, {
         stroke: 'orange',
-        lineWidth: 5
+        lineWidth: 5,
+        pickable: false
       } );
       this.addChild( atomCenterMarker );
 
@@ -86,7 +87,8 @@ define( function( require ) {
       {
         font: new PhetFont( elementNameFontSize ),
         fill: 'red',
-        center: elementNameCenterPos
+        center: elementNameCenterPos,
+        pickable: false
       } );
     this.addChild( this.elementName );
 
@@ -118,7 +120,8 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         fill: 'black',
-        translation: ionIndicatorTranslation
+        translation: ionIndicatorTranslation,
+        pickable: false
       } );
     this.addChild( this.ionIndicator );
 
@@ -160,7 +163,8 @@ define( function( require ) {
       {
         font: new PhetFont( 24 ),
         fill: 'black',
-        center: stabilityIndicatorCenterPos
+        center: stabilityIndicatorCenterPos,
+        pickable: false
       } );
     this.addChild( this.stabilityIndicator );
 
