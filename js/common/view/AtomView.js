@@ -70,7 +70,7 @@ define( function( require ) {
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
-      thisView.addChild( new BucketHole( bucket, mvt ) );
+      thisView.addChild( new BucketHole( bucket, mvt ).mutate( { pickable: false } ) );
     } );
 
     // Add the layers where the nucleons will be maintained.
