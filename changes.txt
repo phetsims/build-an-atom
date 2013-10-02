@@ -1,3 +1,5 @@
+10/2/2013 Added names for more elements, which solves an issue where the user could get 'undefined' on the interactive symbol node if they went too high on the proton number.
+10/2/2013 Improved layout of the interactive symbol so that the interactive numbers line up better with the non-interactive ones.
 10/2/2013 Put feedback about time (e.g. "Your New Best!") on a separate line.
 10/1/2013 Fixed an issue where the element name could be overlapped by the nucleus in the first two tabs by making some layout adjustments.
 10/1/2013 Fixed an issue where the problem answers were still interactive when in "Try Again", "Correct Answer", "Incorrect Answer", and "Displaying Correct Answer" states.
