@@ -94,6 +94,7 @@ define( function( require ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.protonCount,
         {
           minValue: 0,
+          maxValue: 112,
           getTextColor: function() { return 'red'; },
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
