@@ -24,7 +24,7 @@ define( function( require ) {
     var thisAtom = this;
 
     options = _.extend( {
-      innerElectronShellRadius: 80,
+      innerElectronShellRadius: 90,
       outerElectronShellRadius: 150
     }, options );
 

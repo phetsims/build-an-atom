@@ -10,17 +10,21 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
   var AtomIdentifier = require( 'common/AtomIdentifier' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ElectronCloudView = require( 'common/view/ElectronCloudView' );
   var ElectronShellView = require( 'common/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // Constants
+  var ELEMENT_NAME_FONT_SIZE = 26;
 
   /**
    * @param particleAtom Model that represents the atom, including particle positions
@@ -81,11 +85,10 @@ define( function( require ) {
     } );
 
     // Create the textual readout for the element name.
-    var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius / 2 ) ) );
-    var elementNameFontSize = mvt.modelToViewDeltaX( particleAtom.innerElectronShellRadius ) * 0.35;
+    var elementNameCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, particleAtom.innerElectronShellRadius * 0.55 ) ) );
     this.elementName = new Text( '',
       {
-        font: new PhetFont( elementNameFontSize ),
+        font: new PhetFont( ELEMENT_NAME_FONT_SIZE ),
         fill: 'red',
         center: elementNameCenterPos,
         pickable: false

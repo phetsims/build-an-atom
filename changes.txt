@@ -1,4 +1,5 @@
-10/2/2013 Fixed an issue where the problem answers were still interactive when in "Try Again", "Correct Answer", "Incorrect Answer", and "Displaying Correct Answer" states.
+10/1/2013 Fixed an issue where the element name could be overlapped by the nucleus in the first two tabs by making some layout adjustments.
+10/1/2013 Fixed an issue where the problem answers were still interactive when in "Try Again", "Correct Answer", "Incorrect Answer", and "Displaying Correct Answer" states.
 10/1/2013 Changed transform type used for particle movement to be CSS transforms - performs better on iPads.
 9/30/2013 Modified the progress tracker indications on the game to represent the best score instead of the most recent.
 9/30/2013 Made time continue to run on the games if and when the user switches tabs.
