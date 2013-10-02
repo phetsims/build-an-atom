@@ -161,7 +161,7 @@ define( function( require ) {
     } );
 
     // Create the textual readout for the stability indicator.
-    var stabilityIndicatorCenterPos = mvt.modelToViewPosition( Vector2.ZERO ).add( new Vector2( 0, 40 ) );
+    var stabilityIndicatorCenterPos = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( 0, -particleAtom.innerElectronShellRadius * 0.55 ) ) );
     this.stabilityIndicator = new Text( '',
       {
         font: new PhetFont( 24 ),
