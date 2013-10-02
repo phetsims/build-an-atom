@@ -17,7 +17,8 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // Constants
-  var NUMBER_BOX_SIZE = { width: 50, height: 40 }; // Size empirically determined.
+  var NUMBER_BOX_SIZE = { width: 55, height: 48 }; // Size empirically determined.
+  var NUMBER_FONT = new PhetFont( 28 );
 
   /**
    * Main constructor.
@@ -33,7 +34,6 @@ define( function( require ) {
 
     options = _.extend(
       {
-        font: new PhetFont( 24 ),
         prependPlusSign: false, // Generally set to true when depicting charge.
         getTextColor: function() { return 'black'; },
         minValue: Number.NEGATIVE_INFINITY,
@@ -57,7 +57,7 @@ define( function( require ) {
       answerValueBackground.removeAllChildren();
       var prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue,
-        { font: new PhetFont( 22 ),
+        { font: NUMBER_FONT,
           fill: options.getTextColor( newValue )
         } );
       textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );

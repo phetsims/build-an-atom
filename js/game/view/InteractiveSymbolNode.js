@@ -23,8 +23,8 @@ define( function( require ) {
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
   var NUMBER_FONT = new PhetFont( 56 );
-  var NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
-  var NUMBER_ENTRY_NODE_INSET = 10; // In screen coords, which are roughly pixels.
+  var NUMBER_INSET = 15; // In screen coords, which are roughly pixels.
+  var NUMBER_ENTRY_NODE_SIDE_INSET = 10; // In screen coords, which are roughly pixels.
 
   /**
    * Constructor
@@ -85,14 +85,18 @@ define( function( require ) {
       elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
     };
 
+    // So that the interactive and non-interactive numbers are vertically
+    // aligned, we need to create a dummy number and look at its height.
+    var interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
+
     // Add the proton count display, either interactive or not.
     if ( options.interactiveProtonCount ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.protonCount,
         {
           minValue: 0,
           getTextColor: function() { return 'red'; },
-          bottom: SYMBOL_BOX_HEIGHT - NUMBER_ENTRY_NODE_INSET,
-          left: NUMBER_ENTRY_NODE_INSET
+          left: NUMBER_ENTRY_NODE_SIDE_INSET,
+          centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
         } ) );
       thisNode.protonCount.link( updateElement );
     }
@@ -113,8 +117,8 @@ define( function( require ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.massNumber,
         {
           minValue: 0,
-          top: NUMBER_ENTRY_NODE_INSET,
-          left: NUMBER_ENTRY_NODE_INSET
+          left: NUMBER_ENTRY_NODE_SIDE_INSET,
+          centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );
     }
     else {
@@ -134,8 +138,8 @@ define( function( require ) {
         {
           prependPlusSign: true,
           getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
-          top: NUMBER_ENTRY_NODE_INSET,
-          right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_INSET
+          right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
+          centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );
     }
     else {
