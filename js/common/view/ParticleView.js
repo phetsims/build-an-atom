@@ -17,15 +17,16 @@ define( function( require ) {
   var particleNodes = {};
 
   function getParticleNode( particle, mvt ) {
-    var id = 'id-' + particle.type + '-' + particle.radius;
-    if ( particleNodes[id] ) {
-      return particleNodes[id];
+    var id = 'id-' + particle.type + '-' + particle.radius + '-' + mvt.modelToViewDeltaX( particle.radius );
+    if ( !particleNodes[id] ) {
+      particleNodes[id] = new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) );
     }
 
-    return new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) );
+    return particleNodes[id];
+//    return new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) );
 
     // TODO: Below is an alternative way to create the particle nodes.  This
-    // method converts the node to an image.  It was used for a while, but
+    // approach converts the node to an image.  It was used for a while, but
     // was found to be incompatible with using CSS transforms to move the
     // particles because they became fuzzy.  However, I (jblanco) hate to
     // remove this code immediately in case using CSS transforms doesn't pan
