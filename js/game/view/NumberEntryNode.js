@@ -69,7 +69,7 @@ define( function( require ) {
     } );
 
     // Layout.  Upper left corner of overall node will be at (0,0).
-    var interNodeSpacing = upArrowButton.height * 0.1;
+    var interNodeSpacing = upArrowButton.height * 0.2;
     var totalHeight = Math.max( answerValueBackground.height, upArrowButton.height + downArrowButton.height + interNodeSpacing );
     answerValueBackground.left = 0;
     answerValueBackground.centerY = totalHeight / 2;
@@ -80,16 +80,16 @@ define( function( require ) {
 
     // Set up extended touch areas for the up/down buttons.  The areas are
     // set up such that they don't overlap with one another.
-    var extendedTouchAreaWidth = upArrowButton.width * 2.0;
+    var extendedTouchAreaWidth = upArrowButton.width * 2.5;
     var extendedTouchAreaHeight = upArrowButton.height * 2.0;
     upArrowButton.touchArea = Shape.rectangle(
-      -extendedTouchAreaWidth / 2,
+      -extendedTouchAreaWidth / 2 + upArrowButton.width / 2,
       -extendedTouchAreaHeight + upArrowButton.height,
       extendedTouchAreaWidth,
       extendedTouchAreaHeight
     );
     downArrowButton.touchArea = Shape.rectangle(
-      -extendedTouchAreaWidth / 2,
+      -extendedTouchAreaWidth / 2 + upArrowButton.width / 2,
       0,
       extendedTouchAreaWidth,
       extendedTouchAreaHeight

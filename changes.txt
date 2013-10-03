@@ -1,3 +1,4 @@
+10/3/2013 Fixed an error in the math for centering the extended hit area over the up/down buttons.
 10/2/2013 Started using particle caching as an optimization.
 10/2/2013 Added names for more elements, which solves an issue where the user could get 'undefined' on the interactive symbol node if they went too high on the proton number.
 10/2/2013 Improved layout of the interactive symbol so that the interactive numbers line up better with the non-interactive ones.
