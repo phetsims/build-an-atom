@@ -12,7 +12,6 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var AtomNode = require( 'common/view/AtomNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );

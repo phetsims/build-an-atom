@@ -11,7 +11,6 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var BAAGameProblem = require( 'game/model/BAAGameProblem' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'common/SharedConstants' );

@@ -11,7 +11,6 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var ToElementProblem = require( 'game/model/ToElementProblem' );
   var SchematicToElementProblemView = require( 'game/view/SchematicToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );

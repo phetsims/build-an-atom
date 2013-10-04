@@ -8,7 +8,6 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var AtomNode = require( 'common/view/AtomNode' );
   var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );

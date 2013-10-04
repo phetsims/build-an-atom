@@ -4,7 +4,6 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
   var SharedConstants = require( 'common/SharedConstants' );

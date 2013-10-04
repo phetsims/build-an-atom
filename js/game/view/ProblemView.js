@@ -11,7 +11,6 @@ define( function( require ) {
 
   // Imports
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var assert = require( 'ASSERT/assert' )( 'build-an-atom' );
   var Color = require( 'SCENERY/util/Color' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var GameAudioPlayer = require( 'game/GameAudioPlayer' );
