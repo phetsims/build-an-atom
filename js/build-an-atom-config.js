@@ -7,10 +7,13 @@ require.config(
 
     paths: {
 
+      // third party libs
+      text: '../../sherpa/text',
+
       // plugins
-      i18n: '../../sherpa/i18n-2.0.4',
-      image: '../../chipper/requirejs-plugins/image',
       audio: '../../chipper/requirejs-plugins/audio',
+      image: '../../chipper/requirejs-plugins/image',
+      string: '../../chipper/requirejs-plugins/string',
 
       // PhET libs, uppercase names to identify them in require.js imports
       ASSERT: '../../assert/js',
@@ -25,6 +28,8 @@ require.config(
       SHERPA: '../../sherpa',
       SUN: '../../sun/js',
       VIBE: '../../vibe/js',
+
+      // this sim
       BUILD_AN_ATOM: '.'
     },
 

@@ -3,21 +3,19 @@ require(
   [
     'common/model/BuildAnAtomModel',
     'buildanatom/view/BuildAnAtomView',
-    'SCENERY_PHET/PhetFont',
     'game/model/BAAGameModel',
     'game/view/BAAGameView',
     'symbol/view/SymbolView',
-    'SCENERY/nodes/Circle',
     'SCENERY/nodes/Image',
-    'SCENERY/nodes/Rectangle',
-    'SCENERY/nodes/Text' ,
     'JOIST/Sim',
     'JOIST/SimLauncher',
+    'string!BUILD_AN_ATOM/build-an-atom.name',
     'image!BUILD_AN_ATOM/../images/baa_atom_icon.png',
     'image!BUILD_AN_ATOM/../images/baa_element_icon.png',
     'image!BUILD_AN_ATOM/../images/game_icon.png'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, PhetFont, BAAGameModel, BAAGameView, SymbolView, Circle, Image, Rectangle, Text, Sim, SimLauncher, atomIcon, elementIcon, gameIcon ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView,
+            Image, Sim, SimLauncher, simTitle, atomIcon, elementIcon, gameIcon ) {
     'use strict';
 
     var simOptions = {
@@ -34,18 +32,18 @@ require(
 
       //Create and start the sim
       //TODO: i18n
-      new Sim( 'Build an Atom', [
-        { name: 'Atom',
+      new Sim( simTitle, [
+        { name: 'Atom', // TODO: i18n
           icon: new Image( atomIcon ),
           backgroundColor: 'white',
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new BuildAnAtomView( model ); } },
-        { name: 'Symbol',
+        { name: 'Symbol', // TODO: i18n
           icon: new Image( elementIcon ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolView( model ); } },
-        { name: 'Games',
+        { name: 'Games', // TODO: i18n
           icon: new Image( gameIcon ),
           backgroundColor: 'rgb( 255, 254, 223 )',
           createModel: function() { return new BAAGameModel(); },
