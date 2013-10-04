@@ -36,8 +36,8 @@ define( function( require ) {
     PropertySet.call( this,
       {
         state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
-        soundEnabled: 'false',
-        timerEnabled: 'true',
+        soundEnabled: false,
+        timerEnabled: true,
         level: 0,
         problemSet: [],
         problemIndex: 0,
