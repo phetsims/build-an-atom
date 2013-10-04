@@ -38,7 +38,7 @@ define( function( require ) {
     var clockRadius = tempSoundToggleButton.width * 0.48; // Multiplier tweaked so that size matches.  Need to generalize if used in common code.
     var timerOnNode = new SimpleClockIcon( clockRadius );
 
-    // Create the node that represents the timer being off.k
+    // Create the node that represents the timer being off.
     var timerOffNode = new Node();
     var timerOffNodeBackground = new SimpleClockIcon( clockRadius, { opacity: 0.6 } );
     timerOffNode.addChild( timerOffNodeBackground );
