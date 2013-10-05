@@ -337,7 +337,7 @@ define( function( require ) {
             // Move out to the next radius.
             level++;
             placementRadius += nucleonRadius * 1.35 / level;
-            placementAngle += Math.PI / 8; // Arbitrary value chosen based on looks.
+            placementAngle += 2 * Math.PI * 0.2 + level * Math.PI; // Arbitrary value chosen based on looks.
             numAtThisRadius = Math.floor( placementRadius * Math.PI / nucleonRadius );
             placementAngleDelta = 2 * Math.PI / numAtThisRadius;
           }

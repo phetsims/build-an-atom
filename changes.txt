@@ -1,3 +1,4 @@
+10/4/2013 Modified the nucleus config algorithm for a somewhat better look.
 10/4/2013 Made the timer control button the same width as the sound control on the game screen (just looks better).
 10/3/2013 Fixed an error in the math for centering the extended hit area over the up/down buttons.
 10/2/2013 Started using particle caching as an optimization.
