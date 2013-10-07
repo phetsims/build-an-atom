@@ -19,7 +19,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // Constants
-  var MIN_CHILD_NODE_WIDTH = 20;
+  var MIN_CHILD_NODE_WIDTH = 40;
   var MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
   var MIN_CHILD_VELOCITY = 100; // In pixels per second.
   var MAX_CHILD_VELOCITY = 200; // In pixels per second.
@@ -32,7 +32,7 @@ define( function( require ) {
     Node.call( this );
     var thisNode = this;
 
-    options = _.extend( { size: new Dimension2( 1000, 750 ), population: 100 }, options );
+    options = _.extend( { size: new Dimension2( 1000, 750 ), population: 50 }, options );
 
     this.size = options.size;
 
@@ -88,10 +88,11 @@ define( function( require ) {
 
     _createRandomStableAtom: function() {
       var atomicNumber = 1 + Math.floor( Math.random() * 10 );
+      debugger;
       return new NumberAtom(
         {
           protonCount: atomicNumber,
-          neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope(),
+          neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
           electronCount: atomicNumber
       } );
     }
