@@ -12,6 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'game/view/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var RewardNode = require( 'game/view/RewardNode' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartSubGameNode = require( 'game/view/StartSubGameNode' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -39,6 +40,10 @@ define( function( require ) {
       }
       else if ( state === 'subGameOver' ) {
         thisScene.removeAllChildren();
+        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ){
+          // Perfect score, add the reward node.
+          thisScene.addChild( new RewardNode() );
+        }
         thisScene.addChild( new LevelCompletedNode( gameModel, thisScene.layoutBounds ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
           gameAudioPlayer.gameOverPerfectScore();
