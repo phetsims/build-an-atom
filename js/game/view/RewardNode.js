@@ -29,7 +29,7 @@ define( function( require ) {
    * @constructor
    */
   function RewardNode( options ) {
-    Node.call( this );
+    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true } } );
     var thisNode = this;
 
     options = _.extend( { size: new Dimension2( 1000, 750 ), population: 50 }, options );
@@ -37,7 +37,7 @@ define( function( require ) {
     this.size = options.size;
 
     // Add an invisible background node that will serve as a means for positioning this node.
-    thisNode.addChild( new Rectangle( 0, 0, this.size.width, this.size.height ) );
+    thisNode.addChild( new Rectangle( 0, 0, this.size.width, this.size.height, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
 
     // List of moving nodes.  The positions of these nodes are updated at each time step.
     this.movingChildNodes = [];
@@ -51,15 +51,15 @@ define( function( require ) {
     var time;
     function animate() {
       var now = new Date().getTime();
-      var dt = ( now - (time || now) ) * 0.001; // Delta time, in milliseconds.
+      var dt = ( now - ( time || now ) ) * 0.001; // Delta time, in milliseconds.
       time = now;
       thisNode.movingChildNodes.forEach( function( childNode ) {
         childNode.top = childNode.top + childNode.velocity * dt;
         if ( childNode.bottom >= thisNode.size.height ) {
           // Back to the top.
-          childNode.bottom = 0;
+          childNode.top = 0;
+//          childNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / childNode.width );
           childNode.left = Math.random() * ( thisNode.size.width - childNode.width );
-          childNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / childNode.width );
           childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
         }
       } );
