@@ -42,7 +42,7 @@ define( function( require ) {
         thisScene.removeAllChildren();
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ){
           // Perfect score, add the reward node.
-          thisScene.addChild( new RewardNode() );
+          thisScene.addChild( new RewardNode().mutate( { centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
         }
         thisScene.addChild( new LevelCompletedNode( gameModel, thisScene.layoutBounds ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
