@@ -51,7 +51,6 @@ define( function( require ) {
     // Hook up to the step clock.
     stepClock.addStepListener( function( dt ){
       if ( thisNode.animationEnabled ){
-        console.log("animation step");
         for ( var i = 0; i< thisNode.movingChildNodes.length; i++ ){
           var childNode = thisNode.movingChildNodes[i];
           childNode.top = childNode.top + childNode.velocity * dt;
