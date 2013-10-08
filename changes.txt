@@ -1,3 +1,4 @@
+10/8/2013 Made the level completed screen a bit taller for better layout.
 10/8/2013 Added the reward screen.
 10/4/2013 Modified the nucleus config algorithm for a somewhat better look.
 10/4/2013 Made the timer control button the same width as the sound control on the game screen (just looks better).

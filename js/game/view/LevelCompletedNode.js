@@ -34,7 +34,7 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    var size = new Dimension2( layoutBounds.width * 0.5, layoutBounds.height * 0.6 );
+    var size = new Dimension2( layoutBounds.width * 0.5, layoutBounds.height * 0.7 );
 
     var rounding = size.width * 0.1;
     var background = new Rectangle( 0, 0, size.width, size.height, rounding, rounding,
@@ -62,7 +62,7 @@ define( function( require ) {
     title.scale( Math.min( 1, (size.width * 0.9 ) / title.width ) );
     background.addChild( title );
 
-    var starDiameter = Math.min( size.width / gameModel.PROBLEMS_PER_SUB_GAME * 0.9, size.height * 0.2 );
+    var starDiameter = Math.min( size.width / gameModel.PROBLEMS_PER_SUB_GAME * 0.8, size.width * 0.2 );
     var gameProgressIndicator = new GameProgressIndicator( gameModel.PROBLEMS_PER_SUB_GAME, starDiameter, new Property( gameModel.score ), gameModel.MAX_POINTS_PER_GAME_LEVEL );
     background.addChild( gameProgressIndicator );
 
