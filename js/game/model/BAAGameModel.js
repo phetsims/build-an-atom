@@ -65,7 +65,7 @@ define( function( require ) {
         this.state.step( dt );
       }
       // Step any external functions that need it.
-      this._stepListeners.forEach( function( stepListener ){ stepListener( dt ) } );
+      this._stepListeners.forEach( function( stepListener ){ stepListener( dt ); } );
     },
 
     // Start a new game.
