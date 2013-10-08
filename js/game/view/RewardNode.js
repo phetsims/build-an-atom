@@ -34,13 +34,13 @@ define( function( require ) {
 
     options = _.extend( { size: new Dimension2( 1000, 750 ), population: 50 }, options );
 
-    this.size = options.size;
+    thisNode.size = options.size;
 
     // Add an invisible background node that will serve as a means for positioning this node.
-    thisNode.addChild( new Rectangle( 0, 0, this.size.width, this.size.height, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
+    thisNode.addChild( new Rectangle( 0, 0, thisNode.size.width, thisNode.size.height, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
 
     // List of moving nodes.  The positions of these nodes are updated at each time step.
-    this.movingChildNodes = [];
+    thisNode.movingChildNodes = [];
 
     // Add the child nodes.
     _.times( options.population, function() {
@@ -48,12 +48,9 @@ define( function( require ) {
     } );
 
     // Add the animation capability.
-    var time;
-    this.animate = function() {
-      console.log( 'animating' );
+    thisNode.animate = function() {
       var now = new Date().getTime();
-      var dt = ( now - ( time || now ) ) * 0.001; // Delta time, in milliseconds.
-      time = now;
+      var dt = ( now - thisNode.lastFrameTime ) * 0.001; // Delta time, in milliseconds.
       thisNode.movingChildNodes.forEach( function( childNode ) {
         childNode.top = childNode.top + childNode.velocity * dt;
         if ( childNode.bottom >= thisNode.size.height ) {
@@ -63,10 +60,12 @@ define( function( require ) {
           childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
         }
       } );
+      thisNode.lastFrameTime = now;
       if ( thisNode.animating ) {
         requestAnimationFrame( thisNode.animate );
       }
     };
+    thisNode.lastFrameTime = new Date().getTime();
     thisNode.animating = false;
   }
 
@@ -76,6 +75,7 @@ define( function( require ) {
     startAnimation: function() {
       if ( !this.animating ) {
         this.animating = true;
+        this.lastFrameTime = new Date().getTime();
         this.animate();
       }
     },
