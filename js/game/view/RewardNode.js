@@ -29,7 +29,7 @@ define( function( require ) {
    * @constructor
    */
   function RewardNode( options ) {
-    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true } } );
+    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true }, pickable: false } );
     var thisNode = this;
 
     options = _.extend( { size: new Dimension2( 1000, 750 ), population: 50 }, options );
@@ -49,13 +49,15 @@ define( function( require ) {
 
     // Add the animation capability.
     thisNode.animate = function() {
-      var now = new Date().getTime();
+      var now = Date.now();
       var dt = ( now - thisNode.lastFrameTime ) * 0.001; // Delta time, in milliseconds.
+      //TODO: Factor out function.
       thisNode.movingChildNodes.forEach( function( childNode ) {
         childNode.top = childNode.top + childNode.velocity * dt;
         if ( childNode.bottom >= thisNode.size.height ) {
           // Back to the top.
-          childNode.top = 0;
+
+          childNode.top = 0; //
           childNode.left = Math.random() * ( thisNode.size.width - childNode.width );
           childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
         }
@@ -65,7 +67,7 @@ define( function( require ) {
         requestAnimationFrame( thisNode.animate );
       }
     };
-    thisNode.lastFrameTime = new Date().getTime();
+    thisNode.lastFrameTime = Date.now();
     thisNode.animating = false;
   }
 
@@ -102,7 +104,7 @@ define( function( require ) {
     },
 
     _createRandomStableAtom: function() {
-      var atomicNumber = 1 + Math.floor( Math.random() * 10 );
+      var atomicNumber = 1 + Math.floor( Math.random() * 108 );
       return new NumberAtom(
         {
           protonCount: atomicNumber,
