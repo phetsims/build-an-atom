@@ -24,7 +24,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 5;
+  var PROBLEMS_PER_SUB_GAME = 1;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
