@@ -43,13 +43,14 @@ define( function( require ) {
     this.movingChildNodes = [];
 
     // Add the child nodes.
-    _.times( options.population, function(){
+    _.times( options.population, function() {
       thisNode._addRandomNode();
-    });
+    } );
 
     // Add the animation capability.
     var time;
-    function animate() {
+    this.animate = function() {
+      console.log( 'animating' );
       var now = new Date().getTime();
       var dt = ( now - ( time || now ) ) * 0.001; // Delta time, in milliseconds.
       time = now;
@@ -58,17 +59,31 @@ define( function( require ) {
         if ( childNode.bottom >= thisNode.size.height ) {
           // Back to the top.
           childNode.top = 0;
-//          childNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / childNode.width );
           childNode.left = Math.random() * ( thisNode.size.width - childNode.width );
           childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
         }
       } );
-      requestAnimationFrame( animate );
-    }
-    animate();
+      if ( thisNode.animating ) {
+        requestAnimationFrame( thisNode.animate );
+      }
+    };
+    thisNode.animating = false;
   }
 
   return inherit( Node, RewardNode, {
+
+    // Call this function before releasing reference to this
+    startAnimation: function() {
+      if ( !this.animating ) {
+        this.animating = true;
+        this.animate();
+      }
+    },
+
+    stopAnimation: function() {
+      this.animating = false;
+    },
+
     _addRandomNode: function() {
       var childNode;
       if ( Math.random() > 0.2 ) {
@@ -76,7 +91,7 @@ define( function( require ) {
         childNode = new InteractiveSymbolNode( this._createRandomStableAtom() );
         childNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / childNode.width );
       }
-      else{
+      else {
         // Add a smiley face.
         childNode = new FaceNode( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) );
       }
@@ -88,13 +103,12 @@ define( function( require ) {
 
     _createRandomStableAtom: function() {
       var atomicNumber = 1 + Math.floor( Math.random() * 10 );
-      debugger;
       return new NumberAtom(
         {
           protonCount: atomicNumber,
           neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
           electronCount: atomicNumber
-      } );
+        } );
     }
   } );
 } );
