@@ -25,14 +25,15 @@ define( function( require ) {
   var MAX_CHILD_VELOCITY = 200; // In pixels per second.
 
   /**
+   * @param stepClock
    * @param options
    * @constructor
    */
-  function RewardNode( options ) {
+  function RewardNode( stepClock, options ) {
     Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true }, pickable: false } );
     var thisNode = this;
 
-    options = _.extend( { size: new Dimension2( 1000, 750 ), population: 50 }, options );
+    options = _.extend( { size: new Dimension2( 1000, 850 ), population: 50 }, options );
 
     thisNode.size = options.size;
 
@@ -47,44 +48,28 @@ define( function( require ) {
       thisNode._addRandomNode();
     } );
 
-    // Add the animation capability.
-    thisNode.animate = function() {
-      var now = Date.now();
-      var dt = ( now - thisNode.lastFrameTime ) * 0.001; // Delta time, in milliseconds.
-      //TODO: Factor out function.
-      thisNode.movingChildNodes.forEach( function( childNode ) {
-        childNode.top = childNode.top + childNode.velocity * dt;
-        if ( childNode.bottom >= thisNode.size.height ) {
-          // Back to the top.
-
-          childNode.top = 0; //
-          childNode.left = Math.random() * ( thisNode.size.width - childNode.width );
-          childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
+    // Hook up to the step clock.
+    stepClock.addStepListener( function( dt ){
+      if ( thisNode.animationEnabled ){
+        console.log("animation step");
+        for ( var i = 0; i< thisNode.movingChildNodes.length; i++ ){
+          var childNode = thisNode.movingChildNodes[i];
+          childNode.top = childNode.top + childNode.velocity * dt;
+          if ( childNode.bottom >= thisNode.size.height ) {
+            // Back to the top.
+            childNode.top = 0;
+            childNode.left = Math.random() * ( thisNode.size.width - childNode.width );
+            childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
+          }
         }
-      } );
-      thisNode.lastFrameTime = now;
-      if ( thisNode.animating ) {
-        requestAnimationFrame( thisNode.animate );
       }
-    };
-    thisNode.lastFrameTime = Date.now();
-    thisNode.animating = false;
+    } );
   }
 
   return inherit( Node, RewardNode, {
 
-    // Call this function before releasing reference to this
-    startAnimation: function() {
-      if ( !this.animating ) {
-        this.animating = true;
-        this.lastFrameTime = new Date().getTime();
-        this.animate();
-      }
-    },
-
-    stopAnimation: function() {
-      this.animating = false;
-    },
+    // Turns on/off the animation.
+    animationEnabled: false,
 
     _addRandomNode: function() {
       var childNode;

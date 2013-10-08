@@ -24,7 +24,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 5;
+  var PROBLEMS_PER_SUB_GAME = 1;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
@@ -64,6 +64,8 @@ define( function( require ) {
       if ( this.state && ( typeof( this.state.step ) !== 'undefined' ) ) {
         this.state.step( dt );
       }
+      // Step any external functions that need it.
+      this._stepListeners.forEach( function( stepListener ){ stepListener( dt ) } );
     },
 
     // Start a new game.
@@ -115,6 +117,17 @@ define( function( require ) {
       _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
         thisGameModel.bestTimes[ subGameType ] = Number.POSITIVE_INFINITY;
       } );
+    },
+
+    // Set of external functions that the model will step.
+    _stepListeners: [],
+
+    addStepListener: function( stepListener ){
+      this._stepListeners.push( stepListener );
+    },
+
+    removeStepListener: function( stepListener ){
+      this._stepListeners = _.without( this._stepListeners, stepListener );
     },
 
     _restartGameTimer: function() {

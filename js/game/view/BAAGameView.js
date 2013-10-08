@@ -31,12 +31,12 @@ define( function( require ) {
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
     var scoreboard = new GameScoreboardNode( gameModel ).mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
-    var rewardNode = new RewardNode();
+    var rewardNode = new RewardNode( gameModel );
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
       if ( state === 'selectSubGame' ) {
-        rewardNode.stopAnimation();
+        rewardNode.animationEnabled = false;
         thisScene.removeAllChildren();
         thisScene.addChild( startSubGameNode );
       }
@@ -46,7 +46,7 @@ define( function( require ) {
           // Perfect score, add the reward node.
           thisScene.addChild( rewardNode );
           rewardNode.mutate( { centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } );
-          rewardNode.startAnimation();
+          rewardNode.animationEnabled = true;
         }
         thisScene.addChild( new LevelCompletedNode( gameModel, thisScene.layoutBounds ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
