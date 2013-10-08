@@ -30,7 +30,8 @@ define( function( require ) {
    * @constructor
    */
   function RewardNode( stepClock, options ) {
-    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true }, pickable: false } );
+//    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true }, pickable: false } );
+    Node.call( this, { renderer: 'svg', pickable: false } );
     var thisNode = this;
 
     options = _.extend( { size: new Dimension2( 1000, 850 ), population: 50 }, options );
@@ -38,7 +39,7 @@ define( function( require ) {
     thisNode.size = options.size;
 
     // Add an invisible background node that will serve as a means for positioning this node.
-    thisNode.addChild( new Rectangle( 0, 0, thisNode.size.width, thisNode.size.height, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
+    thisNode.addChild( new Rectangle( 0, 0, thisNode.size.width, thisNode.size.height, 0, 0, { fill: 'rgba( 0, 0, 0, 255 )' } ) );
 
     // List of moving nodes.  The positions of these nodes are updated at each time step.
     thisNode.movingChildNodes = [];
