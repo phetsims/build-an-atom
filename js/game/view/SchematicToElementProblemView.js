@@ -38,7 +38,5 @@ define( function( require ) {
   }
 
   // Inherit from ToElementProblemView.
-  inherit( ToElementProblemView, SchematicToElementProblemView );
-
-  return SchematicToElementProblemView;
+  return inherit( ToElementProblemView, SchematicToElementProblemView );
 } );

@@ -210,5 +210,4 @@ define( function( require ) {
   };
 
   return ProblemSetFactory;
-
 } );

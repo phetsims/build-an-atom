@@ -36,7 +36,5 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ToElementProblemView, CountsToElementProblemView );
-
-  return CountsToElementProblemView;
+  return inherit( ToElementProblemView, CountsToElementProblemView );
 } );

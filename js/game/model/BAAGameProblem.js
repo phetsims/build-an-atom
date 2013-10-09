@@ -33,7 +33,7 @@ define( function( require ) {
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( PropertySet, BAAGameProblem, {
+  return inherit( PropertySet, BAAGameProblem, {
 
     //------------------------------------------------------------------------
     // The following functions comprise the API used by the problem view to
@@ -91,6 +91,4 @@ define( function( require ) {
       this.problemState = 'displayingCorrectAnswer';
     }
   } );
-
-  return BAAGameProblem;
 } );

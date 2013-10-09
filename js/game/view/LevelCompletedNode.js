@@ -70,24 +70,13 @@ define( function( require ) {
     var score = new Text( 'Score: ' + gameModel.score + ' out of ' + gameModel.MAX_POINTS_PER_GAME_LEVEL, { font: INFO_TEXT_FONT } );
     background.addChild( score );
 
-    // TODO: Implemented time as multi-line on Oct 2 2013.  If kept, remove the commented code
-    // immediately below.  If reverted, restore this code and remove the multi-line code.
-//    var time = new Text( 'Time: ' + this.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT } );
-//    if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ){
-//      time.text += ' (Your New Best!)';
-//    }
-//    else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ){
-//      time.text += ' (Your Best: ' + this.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
-//    }
-//    background.addChild( time );
-
     var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-    var time = new MultiLineText( 'Time: ' + this.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
+    var time = new MultiLineText( 'Time: ' + Utils.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
     if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ){
       time.text += '\n(Your New Best!)';
     }
     else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ){
-      time.text += '\n(Your Best: ' + this.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
+      time.text += '\n(Your Best: ' + Utils.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
     }
     background.addChild( time );
 
@@ -121,17 +110,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, LevelCompletedNode, {
-    formatTime: function( timeInSeconds ){
-      // TODO: This is in a state of flux (as of Sep 30 2013) waiting to resolve how to format the time.  Clean up when resolved.
-//      if ( timeInSeconds < 90 ){
-//        return Math.round( timeInSeconds ) + " seconds"; // TODO: i18n
-//      }
-//      else{
-        return Utils.formatTime( timeInSeconds );
-//      }
-    }
-  } );
-
-  return LevelCompletedNode;
+  return inherit( Node, LevelCompletedNode );
 } );

@@ -78,7 +78,5 @@ define( function( require ) {
     massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + INTER_BOX_SPACING;
   }
 
-  inherit( AtomView, BuildAnAtomView );
-
-  return BuildAnAtomView;
+  return inherit( AtomView, BuildAnAtomView );
 } );

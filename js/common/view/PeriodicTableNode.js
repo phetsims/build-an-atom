@@ -61,8 +61,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, PeriodicTableNode );
-
-  return PeriodicTableNode;
-
+  return inherit( Node, PeriodicTableNode );
 } );

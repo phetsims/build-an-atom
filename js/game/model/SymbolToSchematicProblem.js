@@ -34,7 +34,7 @@ define( function( require ) {
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( BAAGameProblem, SymbolToSchematicProblem, {
+  return inherit( BAAGameProblem, SymbolToSchematicProblem, {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
@@ -46,6 +46,4 @@ define( function( require ) {
       this.buildAnAtomModel.step( dt );
     }
   } );
-
-  return SymbolToSchematicProblem;
 } );

@@ -157,7 +157,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, InteractiveSymbolNode,
+  return inherit( Node, InteractiveSymbolNode,
     {
       reset: function() {
         this.protonCount.reset();
@@ -165,6 +165,4 @@ define( function( require ) {
         this.charge.reset();
       }
     } );
-
-  return InteractiveSymbolNode;
 } );

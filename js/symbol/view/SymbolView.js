@@ -47,7 +47,5 @@ define( function( require ) {
     symbolBox.left = this.periodicTableBox.left;
   }
 
-  inherit( AtomView, SymbolView );
-
-  return SymbolView;
+  return inherit( AtomView, SymbolView );
 } );

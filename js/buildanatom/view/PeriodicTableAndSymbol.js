@@ -59,7 +59,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, PeriodicTableAndSymbol );
-
-  return PeriodicTableAndSymbol;
+  return inherit( Node, PeriodicTableAndSymbol );
 } );

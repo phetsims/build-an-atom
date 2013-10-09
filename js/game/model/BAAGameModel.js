@@ -55,8 +55,8 @@ define( function( require ) {
     } );
   }
 
-// Inherit from base class and define the methods for this object.
-  inherit( PropertySet, BAAGameModel, {
+  // Inherit from base class and define the methods for this object.
+  return inherit( PropertySet, BAAGameModel, {
 
     // Step function necessary to be used as a model in the Joist framework.
     step: function( dt ) {
@@ -65,7 +65,7 @@ define( function( require ) {
         this.state.step( dt );
       }
       // Step any external functions that need it.
-      this._stepListeners.forEach( function( stepListener ){ stepListener( dt ); } );
+      this._stepListeners.forEach( function( stepListener ) { stepListener( dt ); } );
     },
 
     // Start a new game.
@@ -122,11 +122,11 @@ define( function( require ) {
     // Set of external functions that the model will step.
     _stepListeners: [],
 
-    addStepListener: function( stepListener ){
+    addStepListener: function( stepListener ) {
       this._stepListeners.push( stepListener );
     },
 
-    removeStepListener: function( stepListener ){
+    removeStepListener: function( stepListener ) {
       this._stepListeners = _.without( this._stepListeners, stepListener );
     },
 

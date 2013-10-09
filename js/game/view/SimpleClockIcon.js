@@ -32,7 +32,5 @@ define( function( require ) {
     this.mutate( options );
   }
 
-  return inherit( Node, SimpleClockIcon, {
-    //TODO prototypes
-  } );
+  return inherit( Node, SimpleClockIcon );
 } );

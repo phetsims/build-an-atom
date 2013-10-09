@@ -70,7 +70,5 @@ define( function( require ) {
   }
 
   // Inherit from ScreenView.
-  inherit( ScreenView, BAAGameView );
-
-  return BAAGameView;
+  return inherit( ScreenView, BAAGameView );
 } );

@@ -64,7 +64,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, MassNumberDisplay );
-
-  return MassNumberDisplay;
+  return inherit( Node, MassNumberDisplay );
 } );

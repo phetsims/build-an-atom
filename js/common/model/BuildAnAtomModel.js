@@ -183,7 +183,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( PropertySet, BuildAnAtomModel,
+  return inherit( PropertySet, BuildAnAtomModel,
     {
       _nucleusJumpCount: 0,
 
@@ -232,11 +232,6 @@ define( function( require ) {
 
       reset: function() {
         PropertySet.prototype.reset.call( this );
-
-        // Move all particles that are in the atom back into their respective buckets.
-//        this._moveParticlesFromAtomToBucket( this.particleAtom.protons, this.buckets.protonBucket );
-//        this._moveParticlesFromAtomToBucket( this.particleAtom.neutrons, this.buckets.neutronBucket );
-//        this._moveParticlesFromAtomToBucket( this.particleAtom.electrons, this.buckets.electronBucket );
 
         // Move any particles that are in transit back to its bucket.
         this.nucleons.forEach( function( nucleon ) {
@@ -301,6 +296,4 @@ define( function( require ) {
         this.particleAtom.moveAllParticlesToDestination();
       }
     } );
-
-  return BuildAnAtomModel;
 } );

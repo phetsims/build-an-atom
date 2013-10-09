@@ -65,7 +65,5 @@ define( function( require ) {
       _.extend( { addRectangle: true, label: 'Timer' }, options ) ); // TODO: i18n
   }
 
-  inherit( ToggleButton, TimerToggleButton );
-
-  return TimerToggleButton;
+  return inherit( ToggleButton, TimerToggleButton );
 } );

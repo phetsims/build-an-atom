@@ -91,7 +91,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, GameProgressIndicator );
-
-  return GameProgressIndicator;
+  return inherit( Node, GameProgressIndicator );
 } );

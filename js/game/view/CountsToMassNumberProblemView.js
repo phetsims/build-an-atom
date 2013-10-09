@@ -53,7 +53,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, CountsToMassNumberProblemView,
+  return inherit( ProblemView, CountsToMassNumberProblemView,
     {
       checkAnswer: function() {
         var userSubmittedAnswer = new NumberAtom(
@@ -74,6 +74,4 @@ define( function( require ) {
       }
     }
   );
-
-  return CountsToMassNumberProblemView;
 } );

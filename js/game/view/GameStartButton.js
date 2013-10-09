@@ -94,7 +94,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, GameStartButton );
-
-  return GameStartButton;
+  return inherit( Node, GameStartButton );
 } );

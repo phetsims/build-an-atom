@@ -54,7 +54,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, SymbolToSchematicProblemView,
+  return inherit( ProblemView, SymbolToSchematicProblemView,
     {
       checkAnswer: function() {
         this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
@@ -70,6 +70,4 @@ define( function( require ) {
       }
     }
   );
-
-  return SymbolToSchematicProblemView;
 } );

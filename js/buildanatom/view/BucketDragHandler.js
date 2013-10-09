@@ -51,7 +51,5 @@ define( function( require ) {
   };
 
   // Inherit from base class.
-  inherit( SimpleDragHandler, BucketDragHandler );
-
-  return BucketDragHandler;
+  return inherit( SimpleDragHandler, BucketDragHandler );
 } );

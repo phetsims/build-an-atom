@@ -71,7 +71,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, NonInteractiveSchematicAtomNode );
-
-  return NonInteractiveSchematicAtomNode;
+  return inherit( Node, NonInteractiveSchematicAtomNode );
 } );

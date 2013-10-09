@@ -152,7 +152,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, ChargeMeter );
-
-  return ChargeMeter;
+  return inherit( Node, ChargeMeter );
 } );

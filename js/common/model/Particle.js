@@ -24,7 +24,7 @@ define( function( require ) {
       } );
   }
 
-  inherit( PropertySet, Particle, {
+  return inherit( PropertySet, Particle, {
     step: function( dt ) {
       if ( !this.userControlled ) {
         var distanceToDestination = this.position.distance( this.destination );
@@ -61,6 +61,4 @@ define( function( require ) {
       }
     }
   } );
-
-  return Particle;
 } );

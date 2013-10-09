@@ -132,7 +132,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, ChargeComparisonDisplay );
-
-  return ChargeComparisonDisplay;
+  return inherit( Node, ChargeComparisonDisplay );
 } );

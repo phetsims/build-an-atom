@@ -25,7 +25,7 @@ define( function( require ) {
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( BAAGameProblem, ToElementProblem, {
+  return inherit( BAAGameProblem, ToElementProblem, {
 
     // Override the method for checking the correct answer, since this problem
     // class has the additional step of user deciding whether atom is an ion.
@@ -59,6 +59,4 @@ define( function( require ) {
       }
     }
   } );
-
-  return ToElementProblem;
 } );

@@ -87,7 +87,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, ElectronCloudView );
-
-  return ElectronCloudView;
+  return inherit( Node, ElectronCloudView );
 } );

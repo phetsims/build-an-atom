@@ -88,7 +88,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView,
+  return inherit( ProblemView,
     CountsToElementProblemView,
     {
       periodicTableAtom: new NumberAtom(),
@@ -115,6 +115,4 @@ define( function( require ) {
         this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
       }
     } );
-
-  return CountsToElementProblemView;
 } );

@@ -229,7 +229,5 @@ define( function( require ) {
   }
 
   // Inherit from ScreenView.
-  inherit( ScreenView, AtomView );
-
-  return AtomView;
+  return inherit( ScreenView, AtomView );
 } );

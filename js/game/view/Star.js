@@ -26,7 +26,5 @@ define( function( require ) {
   };
 
   // Inherit from Path.
-  inherit( Path, Star );
-
-  return Star;
+  return inherit( Path, Star );
 } );

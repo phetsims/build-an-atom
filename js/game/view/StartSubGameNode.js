@@ -112,7 +112,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, StartSubGameNode );
-
-  return StartSubGameNode;
+  return inherit( Node, StartSubGameNode );
 } );

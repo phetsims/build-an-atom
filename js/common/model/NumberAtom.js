@@ -40,13 +40,11 @@ define( function( require ) {
     } );
   }
 
-  inherit( PropertySet, NumberAtom, {
+  return inherit( PropertySet, NumberAtom, {
     equals: function( otherAtom ) {
       return ( this.protonCount === otherAtom.protonCount &&
                this.neutronCount === otherAtom.neutronCount &&
                this.electronCount === otherAtom.electronCount );
     }
   } );
-
-  return NumberAtom;
 } );

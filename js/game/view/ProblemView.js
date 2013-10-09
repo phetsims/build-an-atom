@@ -156,8 +156,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node,
-    ProblemView,
+  return inherit( Node, ProblemView,
     {
       // Function to clear the user's answer, generally used when
       // giving the user another chance to answer.  Must be implemented
@@ -181,6 +180,4 @@ define( function( require ) {
       }
     }
   );
-
-  return ProblemView;
 } );

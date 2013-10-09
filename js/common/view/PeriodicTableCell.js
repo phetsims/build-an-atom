@@ -56,7 +56,7 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, PeriodicTableCell, {
+  return inherit( Node, PeriodicTableCell, {
     setHighlighted: function( highLighted ) {
       this.cell.fill = highLighted ? this.highlightedFill : this.normalFill;
       this.cell.stroke = highLighted ? 'red' : 'black';
@@ -64,6 +64,4 @@ define( function( require ) {
       this.label.fontWeight = highLighted ? 'bold' : 'normal';
     }
   } );
-
-  return PeriodicTableCell;
 } );

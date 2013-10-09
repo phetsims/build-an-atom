@@ -26,13 +26,11 @@ define( function( require ) {
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( BAAGameProblem, SchematicToMassNumberProblem, {
+  return inherit( BAAGameProblem, SchematicToMassNumberProblem, {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
       return new SchematicToMassNumberProblemView( this, layoutBounds );
     }
   } );
-
-  return SchematicToMassNumberProblem;
 } );

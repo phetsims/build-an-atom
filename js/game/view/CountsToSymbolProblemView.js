@@ -52,7 +52,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, CountsToSymbolProblemView,
+  return inherit( ProblemView, CountsToSymbolProblemView,
     {
       checkAnswer: function() {
         var userSubmittedAtom = new NumberAtom(
@@ -75,6 +75,4 @@ define( function( require ) {
       }
     }
   );
-
-  return CountsToSymbolProblemView;
 } );

@@ -140,7 +140,5 @@ define( function( require ) {
   };
 
   // Inherit from Node.
-  inherit( Node, ParticleCountDisplay );
-
-  return ParticleCountDisplay;
+  return inherit( Node, ParticleCountDisplay );
 } );

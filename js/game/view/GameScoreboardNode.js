@@ -107,7 +107,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, GameScoreboardNode );
-
-  return GameScoreboardNode;
+  return inherit( Node, GameScoreboardNode );
 } );

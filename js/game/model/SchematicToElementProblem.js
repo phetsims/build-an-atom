@@ -26,13 +26,11 @@ define( function( require ) {
   }
 
   // Inherit from base class and define the methods for this object.
-  inherit( ToElementProblem, SchematicToElementProblem, {
+  return inherit( ToElementProblem, SchematicToElementProblem, {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds ) {
       return new SchematicToElementProblemView( this, layoutBounds );
     }
   } );
-
-  return SchematicToElementProblem;
 } );

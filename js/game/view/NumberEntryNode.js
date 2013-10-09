@@ -99,7 +99,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  inherit( Node, NumberEntryNode );
-
-  return NumberEntryNode;
+  return inherit( Node, NumberEntryNode );
 } );
