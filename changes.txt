@@ -1,3 +1,4 @@
+10/8/2013 Made the symbol-to-counts problem not reset the counts if the user doesn't get the answer correct the 1st time.
 10/8/2013 Made the level completed screen a bit taller for better layout.
 10/8/2013 Added the reward screen.
 10/4/2013 Modified the nucleus config algorithm for a somewhat better look.

@@ -161,7 +161,7 @@ define( function( require ) {
     {
       // Function to clear the user's answer, generally used when
       // giving the user another chance to answer.  Must be implemented
-      // in subclasses.
+      // in subclasses if any action is desired.
       clearAnswer: function() {},
 
       // Function to display the correct answer.  Must be implemented

@@ -26,13 +26,13 @@ define( function( require ) {
   function SymbolToCountsProblemView( symbolToCountsProblem, layoutBounds ) {
 
     // Interactive particle count node - must be defined before call to super constructor.
-    this.interactiveSchematicAtom = new InteractiveParticleCountsNode();
+    this.interactiveParticleCountsNode = new InteractiveParticleCountsNode();
 
     // Call super constructor.
     ProblemView.call( this, symbolToCountsProblem, layoutBounds );
 
     // Add interactive particle count.
-    this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
+    this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );
 
     // Symbol
     var symbol = new InteractiveSymbolNode( symbolToCountsProblem.answerAtom );
@@ -42,28 +42,22 @@ define( function( require ) {
     // Layout
     symbol.centerX = layoutBounds.width * 0.25;
     symbol.centerY = layoutBounds.height * 0.5;
-    this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.75;
-    this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.45;
+    this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
+    this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.45;
   }
 
   // Inherit from ProblemView.
-  inherit( ProblemView, SymbolToCountsProblemView,
+  return inherit( ProblemView, SymbolToCountsProblemView,
     {
       checkAnswer: function() {
-        this.problem.checkAnswer( this.interactiveSchematicAtom.numberAtom );
-      },
-
-      clearAnswer: function() {
-        this.interactiveSchematicAtom.numberAtom.reset();
+        this.problem.checkAnswer( this.interactiveParticleCountsNode.numberAtom );
       },
 
       displayCorrectAnswer: function() {
-        this.interactiveSchematicAtom.numberAtom.protonCount = this.problem.answerAtom.protonCount;
-        this.interactiveSchematicAtom.numberAtom.neutronCount = this.problem.answerAtom.neutronCount;
-        this.interactiveSchematicAtom.numberAtom.electronCount = this.problem.answerAtom.electronCount;
+        this.interactiveParticleCountsNode.numberAtom.protonCount = this.problem.answerAtom.protonCount;
+        this.interactiveParticleCountsNode.numberAtom.neutronCount = this.problem.answerAtom.neutronCount;
+        this.interactiveParticleCountsNode.numberAtom.electronCount = this.problem.answerAtom.electronCount;
       }
     }
   );
-
-  return SymbolToCountsProblemView;
 } );
