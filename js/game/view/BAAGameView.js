@@ -7,7 +7,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var GameAudioPlayer = require( 'game/GameAudioPlayer' );
+  var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var GameScoreboardNode = require( 'game/view/GameScoreboardNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'game/view/LevelCompletedNode' );

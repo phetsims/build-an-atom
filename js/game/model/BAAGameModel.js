@@ -148,6 +148,4 @@ define( function( require ) {
     MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM,
     PROBLEMS_PER_SUB_GAME: PROBLEMS_PER_SUB_GAME
   } );
-
-  return BAAGameModel;
 } );
