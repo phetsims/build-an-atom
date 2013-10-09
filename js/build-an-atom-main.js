@@ -10,9 +10,9 @@ require(
     'JOIST/Sim',
     'JOIST/SimLauncher',
     'string!BUILD_AN_ATOM/build-an-atom.name',
-    'image!BUILD_AN_ATOM/../images/baa_atom_icon.png',
-    'image!BUILD_AN_ATOM/../images/baa_element_icon.png',
-    'image!BUILD_AN_ATOM/../images/game_icon.png'
+    'image!BUILD_AN_ATOM/baa_atom_icon.png',
+    'image!BUILD_AN_ATOM/baa_element_icon.png',
+    'image!BUILD_AN_ATOM/game_icon.png'
   ],
   function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView,
             Image, Sim, SimLauncher, simTitle, atomIcon, elementIcon, gameIcon ) {

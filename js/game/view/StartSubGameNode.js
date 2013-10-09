@@ -11,10 +11,10 @@ define( function( require ) {
   var CheckBox = require( 'SUN/CheckBox' );
   var GameStartButton = require( 'game/view/GameStartButton' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var periodicTableIcon = require( 'image!BUILD_AN_ATOM/../images/periodic_table_icon.png' );
-  var massChargeIcon = require( 'image!BUILD_AN_ATOM/../images/mass_charge_icon.png' );
-  var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/../images/symbol_question_icon.png' );
-  var questionMarkIcon = require( 'image!BUILD_AN_ATOM/../images/question_mark_icon.png' );
+  var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
+  var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
+  var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
+  var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );

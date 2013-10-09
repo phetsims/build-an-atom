@@ -7,7 +7,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeMeter = require( 'common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var scaleIcon = require( 'image!BUILD_AN_ATOM/../images/scale.png' );
+  var scaleIcon = require( 'image!BUILD_AN_ATOM/scale.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
