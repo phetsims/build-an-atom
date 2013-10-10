@@ -22,7 +22,8 @@ require(
       credits: 'PhET Development Team -\n' +
                'Lead Design: Kelly Lancaster\n' +
                'Software Development: John Blanco, Sam Reid\n' +
-               'Design Team: Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter, Patricia Loeblein, Emily B. Moore, Robert Parson, Ariel Paul, Kathy Perkins, Sharon Siman-Tov\n' +
+               'Design Team: Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter,\n' +
+               'Patricia Loeblein, Emily B. Moore, Robert Parson, Ariel Paul, Kathy Perkins, Sharon Siman-Tov\n' +
                'Interviews: Emily B. Moore, Kelly Lancaster, Ariel Paul',
       thanks: 'Thanks -\n' +
               'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
