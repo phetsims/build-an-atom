@@ -1,3 +1,4 @@
+10/10/2013 Fixed several cases in the game where the user's answer was being reset between solution attempts.
 10/10/2013 Fixed an issue where the interactive symbol was being reset between solution attempts.
 # 1.1.0-rc.2
 10/8/2013 Made the symbol-to-counts problem not reset the counts if the user doesn't get the answer correct the 1st time.

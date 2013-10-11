@@ -70,10 +70,6 @@ define( function( require ) {
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
-      clearAnswer: function() {
-        this.massNumberAnswer.reset();
-      },
-
       displayCorrectAnswer: function() {
         this.massNumberAnswer.value = this.problem.answerAtom.massNumber;
       }

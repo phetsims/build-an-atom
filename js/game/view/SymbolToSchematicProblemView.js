@@ -60,11 +60,6 @@ define( function( require ) {
         this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
       },
 
-      clearAnswer: function() {
-        // Does nothing in this problem, since we want to preserve anything
-        // that the user has produced so far.
-      },
-
       displayCorrectAnswer: function() {
         this.problem.buildAnAtomModel.setAtomConfiguration( this.problem.answerAtom );
       }

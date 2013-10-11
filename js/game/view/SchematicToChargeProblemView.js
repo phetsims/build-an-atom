@@ -75,10 +75,6 @@ define( function( require ) {
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
-      clearAnswer: function() {
-        this.chargeAnswer.reset();
-      },
-
       displayCorrectAnswer: function() {
         this.chargeAnswer.value = this.problem.answerAtom.charge;
       }
