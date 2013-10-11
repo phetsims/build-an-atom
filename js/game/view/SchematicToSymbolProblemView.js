@@ -72,10 +72,6 @@ define( function( require ) {
         this.problem.checkAnswer( userSubmittedAtom );
       },
 
-      clearAnswer: function() {
-        this.interactiveSymbol.reset();
-      },
-
       displayCorrectAnswer: function() {
         this.interactiveSymbol.protonCount.value = this.problem.answerAtom.protonCount;
         this.interactiveSymbol.massNumber.value = this.problem.answerAtom.massNumber;
