@@ -24,7 +24,7 @@ define( function( require ) {
   var SharedConstants = require( 'common/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TimerToggleButton = require( 'game/view/TimerToggleButton' );
+  var TimerToggleButton = require( 'SCENERY_PHET/TimerToggleButton' );
 
   // Constants
   var CONTROL_INSET = 20;
