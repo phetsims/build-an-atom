@@ -13,7 +13,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var SimpleClockIcon = require( 'game/view/SimpleClockIcon' );
+  var SimpleClockIcon = require( 'SCENERY_PHET/SimpleClockIcon' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );

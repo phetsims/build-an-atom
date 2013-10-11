@@ -11,7 +11,7 @@ define( function( require ) {
   // Imports
   var FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var SimpleClockIcon = require( 'game/view/SimpleClockIcon' );
+  var SimpleClockIcon = require( 'SCENERY_PHET/SimpleClockIcon' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
