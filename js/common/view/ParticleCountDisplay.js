@@ -3,7 +3,7 @@
 /**
  * A node that presents a graphical representation of an atom's configuration.
  * It looks somewhat like a bar graph that grows to the right except that the
- * "bars" are actually a line of particles.
+ * "bars" are actually lines of particles.
  *
  * @author John Blanco
  */
@@ -55,7 +55,7 @@ define( function( require ) {
 
     // Figure out the sizes of the particles and the inter-particle
     // spacing based on the max width.
-    var totalParticleSpace = maxWidth - protonTitle.right - 10; // TODO: The value of 10 comes from something hard-coded into Panel, fix when Panel is finalized.
+    var totalParticleSpace = maxWidth - protonTitle.right - 10;
     var nucleonRadius = totalParticleSpace / ( (maxParticles * 2) + ( maxParticles - 1) + 2);
     var electronRadius = nucleonRadius * 0.6; // Arbitrarily chosen.
     var interParticleSpacing = nucleonRadius * 3;

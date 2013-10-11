@@ -37,7 +37,7 @@ define( function( require ) {
   var LABEL_CONTROL_FONT = new PhetFont( 32 );
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );
   var ACCORDION_BOX_FONT = new PhetFont( 18 );
-  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes. TODO: Refine.
+  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
   /**
    * Constructor.

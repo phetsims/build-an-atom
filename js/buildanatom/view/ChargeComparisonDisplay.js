@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/shape' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -30,7 +31,7 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    var MAX_CHARGE = 10; // TODO: is this correct always?
+    var MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
     var i;
 
     // Parent node for all symbols.

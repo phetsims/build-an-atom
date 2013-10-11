@@ -183,6 +183,10 @@ define( function( require ) {
     } );
   }
 
+  // Externally visible constants
+  BuildAnAtomModel.MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
+  BuildAnAtomModel.MAX_ELECTRONS = NUM_ELECTRONS;
+
   return inherit( PropertySet, BuildAnAtomModel,
     {
       _nucleusJumpCount: 0,

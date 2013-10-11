@@ -26,7 +26,11 @@ define( function( require ) {
   var CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
   var SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
-  // TODO: Document options.
+  /**
+   * @param numberAtom
+   * @param options
+   * @constructor
+   */
   var ChargeMeter = function ChargeMeter( numberAtom, options ) {
 
     Node.call( this ); // Call super constructor.
@@ -142,7 +146,7 @@ define( function( require ) {
         if ( newText !== readoutText.text ) {
           readoutText.text = newText;
 
-          // reposition as necessary. TODO: optimize this into one transform change (instead of 3)
+          // reposition as necessary.
           readoutText.resetTransform();
           readoutText.scale( Math.min( Math.min( readoutSize.width * 0.8 / readoutText.width, readoutSize.height * 0.8 / readoutText.height ), 1 ) );
           readoutText.center = new Vector2( readoutSize.width / 2, readoutSize.height / 2 );

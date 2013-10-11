@@ -147,7 +147,6 @@ define( function( require ) {
         }
       }
       else {
-        // TODO: Make the text a zero-length string once supported.
         thisAtomView.ionIndicator.text = '';
         thisAtomView.ionIndicator.fill = 'black';
       }
@@ -183,7 +182,6 @@ define( function( require ) {
         }
       }
       else {
-        // TODO: Make the text a zero-length string once supported.
         thisAtomView.stabilityIndicator.text = '';
       }
       thisAtomView.stabilityIndicator.center = stabilityIndicatorCenterPos;

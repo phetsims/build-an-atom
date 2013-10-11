@@ -17,7 +17,7 @@ define( function( require ) {
   var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
 
   // Constants
-  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes. TODO: Refine.
+  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
   /**
    * @param model

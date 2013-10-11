@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
@@ -40,7 +41,7 @@ define( function( require ) {
       else {
         var minRadius = mvt.modelToViewDeltaX( atom.innerElectronShellRadius ) * 0.5;
         var maxRadius = mvt.modelToViewDeltaX( atom.outerElectronShellRadius );
-        var radius = minRadius + ( ( maxRadius - minRadius ) / 10 ) * numElectrons; // TODO: Divisor should be max electrons, pull from a constant somewhere.;
+        var radius = minRadius + ( ( maxRadius - minRadius ) / BuildAnAtomModel.MAX_ELECTRONS ) * numElectrons;
         electronCloud.radius = radius;
         electronCloud.fill = new RadialGradient( 0, 0, 0, 0, 0, radius )
           .addColorStop( 0, 'rgba( 0, 0, 255, 200 )' )

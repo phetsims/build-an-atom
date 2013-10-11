@@ -85,11 +85,6 @@ define( function( require ) {
       this._stopGameTimer();
     },
 
-    // Process a guess from the user.
-    processGuess: function( numberAtom ) {
-      console.log( 'processGuess called, not implemented.' ); // TODO: This can probably be removed - it is now handled by the problems.
-    },
-
     // Advance to the next problem or to the 'game over' screen if all problems finished.
     next: function() {
       if ( this.problemSet.length > this.problemIndex + 1 ) {

@@ -55,10 +55,6 @@ define( function( require ) {
         this.destination = newPosition;
         this.moveImmediatelyToDestination();
       }
-      else {
-        // TODO: Remove this log before publication.
-        console.log( "Error: Attempt to set position that is not a vector" );
-      }
     }
   } );
 } );
