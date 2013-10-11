@@ -8,12 +8,12 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomNode = require( 'common/view/AtomNode' );
+  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
-  var ParticleView = require( 'common/view/ParticleView' );
-  var Particle = require( 'common/model/Particle' );
+  var ParticleAtom = require( 'BUILD_AN_ATOM/common/model/ParticleAtom' );
+  var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
+  var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
   var Property = require( 'AXON/Property' );
 
   /**

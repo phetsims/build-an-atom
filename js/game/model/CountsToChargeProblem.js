@@ -10,10 +10,10 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAGameProblem = require( 'game/model/BAAGameProblem' );
-  var CountsToChargeProblemView = require( 'game/view/CountsToChargeProblemView' );
+  var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
+  var CountsToChargeProblemView = require( 'BUILD_AN_ATOM/game/view/CountsToChargeProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.

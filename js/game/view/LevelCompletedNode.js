@@ -9,8 +9,8 @@ define( function( require ) {
   // Imports
   var Color = require( 'SCENERY/util/Color' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var GameProgressIndicator = require( 'game/view/GameProgressIndicator' );
-  var GameStartButton = require( 'game/view/GameStartButton' );
+  var GameProgressIndicator = require( 'BUILD_AN_ATOM/game/view/GameProgressIndicator' );
+  var GameStartButton = require( 'BUILD_AN_ATOM/game/view/GameStartButton' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Line = require( 'SCENERY/nodes/Line' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -19,7 +19,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var TextButton = require( 'SUN/TextButton' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Utils = require( 'common/Utils' );
+  var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
 
   // Constants
   var BACKGROUND_COLOR = new Color( 180, 205, 255 );

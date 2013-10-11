@@ -9,7 +9,7 @@ define( function( require ) {
 
   // Imports
   var CheckBox = require( 'SUN/CheckBox' );
-  var GameStartButton = require( 'game/view/GameStartButton' );
+  var GameStartButton = require( 'BUILD_AN_ATOM/game/view/GameStartButton' );
   var Image = require( 'SCENERY/nodes/Image' );
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
   var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
@@ -21,7 +21,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
   var Text = require( 'SCENERY/nodes/Text' );
   var TimerToggleButton = require( 'SCENERY_PHET/TimerToggleButton' );

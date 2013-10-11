@@ -6,7 +6,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Vector2 = require( 'DOT/Vector2' );
-  var PeriodicTableCell = require( 'common/view/PeriodicTableCell' );
+  var PeriodicTableCell = require( 'BUILD_AN_ATOM/common/view/PeriodicTableCell' );
 
   // 2D array that defines the table structure.
   var POPULATED_CELLS = [

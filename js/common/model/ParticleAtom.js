@@ -10,12 +10,12 @@ define( function( require ) {
 
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Particle = require( 'common/model/Particle' );
+  var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
   var ObservableArray = require( 'AXON/ObservableArray' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Utils = require( 'common/Utils' );
+  var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
 
   function ParticleAtom( options ) {
     PropertySet.call( this, { position: Vector2.ZERO, nucleusOffset: Vector2.ZERO } );

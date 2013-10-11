@@ -13,10 +13,10 @@ define( function( require ) {
   // Imports
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var InteractiveSymbolNode = require( 'game/view/InteractiveSymbolNode' );
-  var ParticleCountsNode = require( 'game/view/ParticleCountsNode' );
-  var ProblemView = require( 'game/view/ProblemView' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
+  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
+  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
 
   /**
    * Main constructor function.

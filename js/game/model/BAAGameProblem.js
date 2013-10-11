@@ -13,7 +13,7 @@ define( function( require ) {
   // Imports
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.

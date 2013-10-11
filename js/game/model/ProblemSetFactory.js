@@ -10,18 +10,18 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomValuePool = require( 'game/model/AtomValuePool' );
-  var CountsToChargeProblem = require( 'game/model/CountsToChargeProblem' );
-  var CountsToSymbolProblem = require( 'game/model/CountsToSymbolProblem' );
-  var CountsToElementProblem = require( 'game/model/CountsToElementProblem' );
-  var CountsToMassNumberProblem = require( 'game/model/CountsToMassNumberProblem' );
-  var SchematicToChargeProblem = require( 'game/model/SchematicToChargeProblem' );
-  var SchematicToElementProblem = require( 'game/model/SchematicToElementProblem' );
-  var SchematicToMassNumberProblem = require( 'game/model/SchematicToMassNumberProblem' );
-  var SchematicToSymbolProblem = require( 'game/model/SchematicToSymbolProblem' );
-  var SharedConstants = require( 'common/SharedConstants' );
-  var SymbolToCountsProblem = require( 'game/model/SymbolToCountsProblem' );
-  var SymbolToSchematicProblem = require( 'game/model/SymbolToSchematicProblem' );
+  var AtomValuePool = require( 'BUILD_AN_ATOM/game/model/AtomValuePool' );
+  var CountsToChargeProblem = require( 'BUILD_AN_ATOM/game/model/CountsToChargeProblem' );
+  var CountsToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolProblem' );
+  var CountsToElementProblem = require( 'BUILD_AN_ATOM/game/model/CountsToElementProblem' );
+  var CountsToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/CountsToMassNumberProblem' );
+  var SchematicToChargeProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToChargeProblem' );
+  var SchematicToElementProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToElementProblem' );
+  var SchematicToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberProblem' );
+  var SchematicToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToSymbolProblem' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SymbolToCountsProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToCountsProblem' );
+  var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
 
   // Constants
   var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.

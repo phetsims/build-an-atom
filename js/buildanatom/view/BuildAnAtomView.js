@@ -8,14 +8,14 @@ define( function( require ) {
 
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
-  var AtomView = require( 'common/view/AtomView' );
+  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ChargeComparisonDisplay = require( 'buildanatom/view/ChargeComparisonDisplay' );
-  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
+  var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MassNumberDisplay = require( 'buildanatom/view/MassNumberDisplay' );
+  var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   // Constants
   var INTER_BOX_SPACING = 7;

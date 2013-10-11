@@ -7,14 +7,14 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var Particle = require( 'common/model/Particle' );
-  var ParticleAtom = require( 'common/model/ParticleAtom' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
+  var ParticleAtom = require( 'BUILD_AN_ATOM/common/model/ParticleAtom' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 

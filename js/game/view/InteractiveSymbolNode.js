@@ -8,14 +8,14 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberEntryNode = require( 'game/view/NumberEntryNode' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var Property = require( 'AXON/Property' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 

@@ -16,9 +16,9 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ParticleNode = require( 'common/view/ParticleNode' );
+  var ParticleNode = require( 'BUILD_AN_ATOM/common/view/ParticleNode' );
   var Panel = require( 'SUN/Panel' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   // Constants
   var FONT = new PhetFont( 14 );

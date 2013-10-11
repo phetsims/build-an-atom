@@ -16,8 +16,8 @@ define( function( require ) {
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var PeriodicTableNode = require( 'BUILD_AN_ATOM/common/view/PeriodicTableNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );

@@ -9,10 +9,10 @@ define( function( require ) {
 
   // Imports
   var Color = require( 'SCENERY/util/Color' );
-  var HalfStar = require( 'game/view/HalfStar' );
+  var HalfStar = require( 'BUILD_AN_ATOM/game/view/HalfStar' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Star = require( 'game/view/Star' );
+  var Star = require( 'BUILD_AN_ATOM/game/view/Star' );
 
   // Constants
   var FILLED_STAR_COLOR = 'yellow';

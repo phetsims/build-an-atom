@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var NumberAtom = require( 'common/model/NumberAtom' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
 
   // Problem pools for creating game problems, extracted from the design doc.
   // These define the configuration for each of the problems that can be used

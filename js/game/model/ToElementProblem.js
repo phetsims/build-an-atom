@@ -11,9 +11,9 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAGameProblem = require( 'game/model/BAAGameProblem' );
+  var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.

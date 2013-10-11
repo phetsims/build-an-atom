@@ -11,10 +11,10 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var ToElementProblem = require( 'game/model/ToElementProblem' );
-  var CountsToElementProblemView = require( 'game/view/CountsToElementProblemView' );
+  var ToElementProblem = require( 'BUILD_AN_ATOM/game/model/ToElementProblem' );
+  var CountsToElementProblemView = require( 'BUILD_AN_ATOM/game/view/CountsToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.

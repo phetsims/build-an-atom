@@ -3,9 +3,9 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ChargeMeter = require( 'common/view/ChargeMeter' );
+  var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
   var scaleIcon = require( 'image!BUILD_AN_ATOM/scale.png' );
   var inherit = require( 'PHET_CORE/inherit' );

@@ -14,10 +14,10 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var NumberEntryNode = require( 'game/view/NumberEntryNode' );
-  var ParticleCountsNode = require( 'game/view/ParticleCountsNode' );
-  var ProblemView = require( 'game/view/ProblemView' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
+  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
 
   /**

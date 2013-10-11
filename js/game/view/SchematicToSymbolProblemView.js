@@ -15,10 +15,10 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var InteractiveSymbolNode = require( 'game/view/InteractiveSymbolNode' );
-  var NonInteractiveSchematicAtomNode = require( 'game/view/NonInteractiveSchematicAtomNode' );
-  var ProblemView = require( 'game/view/ProblemView' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
+  var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
+  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
 
   /**
    * Main constructor function.

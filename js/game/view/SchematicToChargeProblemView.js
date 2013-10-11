@@ -16,12 +16,12 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NonInteractiveSchematicAtomNode = require( 'game/view/NonInteractiveSchematicAtomNode' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var NumberEntryNode = require( 'game/view/NumberEntryNode' );
-  var ProblemView = require( 'game/view/ProblemView' );
+  var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.

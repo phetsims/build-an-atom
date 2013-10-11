@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PeriodicTableNode = require( 'common/view/PeriodicTableNode' );
+  var PeriodicTableNode = require( 'BUILD_AN_ATOM/common/view/PeriodicTableNode' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );

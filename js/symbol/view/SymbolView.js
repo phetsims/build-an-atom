@@ -7,12 +7,12 @@ define( function( require ) {
   'use strict';
 
   var AccordionBox = require( 'SUN/AccordionBox' );
-  var AtomView = require( 'common/view/AtomView' );
+  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var SharedConstants = require( 'common/SharedConstants' );
-  var SymbolNode = require( 'symbol/view/SymbolNode' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
 
   /**
    * Constructor.

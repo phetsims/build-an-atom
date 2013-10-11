@@ -1,11 +1,11 @@
 // Copyright 2002-2013, University of Colorado Boulder
 require(
   [
-    'common/model/BuildAnAtomModel',
+    'BUILD_AN_ATOM/common/model/BuildAnAtomModel',
     'buildanatom/view/BuildAnAtomView',
-    'game/model/BAAGameModel',
-    'game/view/BAAGameView',
-    'symbol/view/SymbolView',
+    'BUILD_AN_ATOM/game/model/BAAGameModel',
+    'BUILD_AN_ATOM/game/view/BAAGameView',
+    'BUILD_AN_ATOM/symbol/view/SymbolView',
     'SCENERY/nodes/Image',
     'JOIST/Sim',
     'JOIST/SimLauncher',

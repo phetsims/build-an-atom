@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomIdentifier = require( 'common/AtomIdentifier' );
+  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'common/model/NumberAtom' );
-  var InteractiveSymbolNode = require( 'game/view/InteractiveSymbolNode' );
+  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // Constants

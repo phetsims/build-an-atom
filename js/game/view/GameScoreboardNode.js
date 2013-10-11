@@ -19,7 +19,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var TextButton = require( 'SUN/TextButton' );
-  var Utils = require( 'common/Utils' );
+  var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
 
   // Constants
   var FONT = new PhetFont( 20 );

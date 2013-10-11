@@ -8,7 +8,7 @@ define( function( require ) {
   'use strict';
 
   var inherit = require( 'PHET_CORE/inherit' );
-  var GameProgressIndicator = require( 'game/view/GameProgressIndicator' );
+  var GameProgressIndicator = require( 'BUILD_AN_ATOM/game/view/GameProgressIndicator' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );

@@ -12,23 +12,23 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var AtomNode = require( 'common/view/AtomNode' );
+  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var BucketDragHandler = require( 'buildanatom/view/BucketDragHandler' );
+  var BucketDragHandler = require( 'BUILD_AN_ATOM/buildanatom/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
-  var ParticleCountDisplay = require( 'common/view/ParticleCountDisplay' );
-  var ParticleView = require( 'common/view/ParticleView' );
+  var ParticleCountDisplay = require( 'BUILD_AN_ATOM/common/view/ParticleCountDisplay' );
+  var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
-  var PeriodicTableAndSymbol = require( 'buildanatom/view/PeriodicTableAndSymbol' );
+  var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
 

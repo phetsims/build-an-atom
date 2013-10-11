@@ -11,11 +11,11 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var BAAGameProblem = require( 'game/model/BAAGameProblem' );
-  var BuildAnAtomModel = require( 'common/model/BuildAnAtomModel' );
-  var SymbolToSchematicProblemView = require( 'game/view/SymbolToSchematicProblemView' );
+  var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
+  var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
+  var SymbolToSchematicProblemView = require( 'BUILD_AN_ATOM/game/view/SymbolToSchematicProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'common/SharedConstants' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.
