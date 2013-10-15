@@ -52,6 +52,7 @@ define( function( require ) {
     numberAtom.protonCountProperty.link( function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
       symbolText.text = protonCount > 0 ? symbol : '';
+      //REVIEW: JO: this is a constant vector being recreated in an inner loop (extra garbage collection). Extract it
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     } );
     boundingBox.addChild( symbolText );
