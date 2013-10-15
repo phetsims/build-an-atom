@@ -39,6 +39,7 @@ define( function( require ) {
     thisNode.size = options.size;
 
     // Add an invisible background node that will serve as a means for positioning this node.
+    //REVIEW: JO: for performance, this should be invisible, or just have no fill. a transparent fill might be getting 'painted' slowing things down
     thisNode.addChild( new Rectangle( 0, 0, thisNode.size.width, thisNode.size.height, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
 
     // List of moving nodes.  The positions of these nodes are updated at each time step.
@@ -54,6 +55,7 @@ define( function( require ) {
       if ( thisNode.animationEnabled ){
         for ( var i = 0; i< thisNode.movingChildNodes.length; i++ ){
           var childNode = thisNode.movingChildNodes[i];
+          //REVIEW: JO: getting and setting top would be a performance bottleneck here. just childNode.translate( 0, childNode.velocity * dt );
           childNode.top = childNode.top + childNode.velocity * dt;
           if ( childNode.bottom >= thisNode.size.height ) {
             // Back to the top.

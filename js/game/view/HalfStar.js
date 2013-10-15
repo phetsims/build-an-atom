@@ -12,6 +12,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  //REVIEW: JO: Should be HalfStar?
   var Star = function Star( diameter, options ) {
     var starShape = new Shape();
     var angle = -Math.PI / 2;
