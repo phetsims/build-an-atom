@@ -25,17 +25,17 @@ define( function( require ) {
     // TODO: i18n
     var protonCountPrompt = new Text( 'Protons:', options.font );
     this.addChild( protonCountPrompt );
-    var protonCountEntry = new NumberEntryNode( this.numberAtom.protonCountProperty );
+    var protonCountEntry = new NumberEntryNode( this.numberAtom.protonCountProperty, { minValue: 0 }  );
     this.addChild( protonCountEntry );
 
     var neutronCountPrompt = new Text( 'Neutrons:', options.font );
     this.addChild( neutronCountPrompt );
-    var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty );
+    var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0 }  );
     this.addChild( neutronCountEntry );
 
     var electronCountPrompt = new Text( 'Electrons:', options.font );
     this.addChild( electronCountPrompt );
-    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty );
+    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0 }  );
     this.addChild( electronCountEntry );
 
     // Layout

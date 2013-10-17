@@ -47,7 +47,7 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer, false );
+    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer, { minValue: 0 } );
     thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
