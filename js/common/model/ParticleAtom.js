@@ -46,14 +46,13 @@ define( function( require ) {
     angle += Math.PI;
     this.validElectronPositions[ 1 ] = { electron: null, position: new Vector2( -thisAtom.innerElectronShellRadius, 0 ) };
     var numSlotsInOuterShell = 8;
-    angle += Math.PI / numSlotsInOuterShell / 2; // Stagger inner and outer electron shell positions.
+    angle = Math.PI / numSlotsInOuterShell * 1.2; // Stagger inner and outer electron shell positions, tweaked a bit for better interaction with labels.
     for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
       this.validElectronPositions[ i + 2 ] = {
         electron: null,
-        position: new Vector2( Math.cos( angle ) * thisAtom.outerElectronShellRadius,
-          Math.sin( angle ) * thisAtom.outerElectronShellRadius )
+        position: new Vector2( Math.cos( angle ) * thisAtom.outerElectronShellRadius, Math.sin( angle ) * thisAtom.outerElectronShellRadius )
       };
-      angle += Math.PI / numSlotsInOuterShell * 2;
+      angle += 2 * Math.PI / numSlotsInOuterShell;
     }
 
     // When an electron is removed, clear the corresponding shell position.

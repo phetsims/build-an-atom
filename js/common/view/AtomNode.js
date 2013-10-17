@@ -117,8 +117,8 @@ define( function( require ) {
       thisAtomView.elementName.visible = visible;
     } );
 
-    // Create the textual readout for the ion indicator.
-    var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.40 ) ) );
+    // Create the textual readout for the ion indicator, set by trial and error.
+    var ionIndicatorTranslation = mvt.modelToViewPosition( particleAtom.position.plus( new Vector2( particleAtom.outerElectronShellRadius * 1.05, 0 ).rotated( Math.PI * 0.3 ) ) );
     this.ionIndicator = new Text( '',
       {
         font: new PhetFont( 24 ),
