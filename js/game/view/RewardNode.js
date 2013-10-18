@@ -49,7 +49,8 @@ define( function( require ) {
     // List of moving nodes.  The positions of these nodes are updated at each time step.
     thisNode.movingChildNodes = [];
 
-    // Function for adding multiple instances of an image.
+    // Function for adding multiple instances of an image.  Reusing the same
+    // node multiple times requires less resources and thus runs smoother.
     function addImage( image ){
       var imageNode = new Image( image );
       _.times( NUM_TIMES_TO_REUSE_NODES, function(){
@@ -63,8 +64,7 @@ define( function( require ) {
       });
     }
 
-    // Create the symbol and smiley face nodes that will be used multiple
-    // times to create the cascade effect.
+    // Create the symbol and smiley face nodes.
     thisNode.symbolNodes = [];
     _.times( NUM_SYMBOL_NODES_TO_CREATE, function() {
       var symbolNode = new InteractiveSymbolNode( thisNode._createRandomStableAtom() );
@@ -77,7 +77,7 @@ define( function( require ) {
       faceNode.toImage( addImage );
     }
 
-    // Hook up to the step clock.
+    // Hook up the step clock to drive the animation.
     stepClock.addStepListener( function( dt ) {
       if ( thisNode.animationEnabled ) {
         for ( var i = 0; i < thisNode.movingChildNodes.length; i++ ) {
@@ -98,26 +98,6 @@ define( function( require ) {
 
     // Turns on/off the animation.
     animationEnabled: false,
-
-    _addRandomNode: function() {
-      var rootNode = new Node();
-      var childNode;
-      var proportion = Math.random();
-      if ( Math.random() > 0.2 ) {
-        // Add a symbol node.
-        childNode = SYMBOL_NODES[ Math.floor( Math.random() * NUM_SYMBOL_NODES_TO_CREATE ) ];
-      }
-      else {
-        // Add a smiley face.
-        childNode = FACE_NODES[ Math.floor( Math.random() * NUM_FACE_NODES_CREATED ) ];
-      }
-      rootNode.addChild( childNode );
-      rootNode.mutate( { centerX: Math.random() * ( this.size.width - childNode.width ),
-        centerY: Math.random() * ( this.size.height - childNode.height ) } );
-      rootNode.velocity = MIN_CHILD_VELOCITY + proportion * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
-      this.addChild( rootNode );
-      this.movingChildNodes.push( rootNode );
-    },
 
     _createRandomStableAtom: function() {
       var atomicNumber = 1 + Math.floor( Math.random() * 108 );
