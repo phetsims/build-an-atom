@@ -43,7 +43,6 @@ define( function( require ) {
     thisNode.size = options.size;
 
     // Add an invisible background node that will serve as a means for positioning this node.
-    //REVIEW: JO: for performance, this should be invisible, or just have no fill. a transparent fill might be getting 'painted' slowing things down
     thisNode.addChild( new Rectangle( 0, 0, thisNode.size.width, thisNode.size.height, 0, 0, { visible: false } ) );
 
     // List of moving nodes.  The positions of these nodes are updated at each time step.
