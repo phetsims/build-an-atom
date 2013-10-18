@@ -12,6 +12,7 @@ define( function( require ) {
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
@@ -23,6 +24,9 @@ define( function( require ) {
   var MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
   var MIN_CHILD_VELOCITY = 100; // In pixels per second.
   var MAX_CHILD_VELOCITY = 200; // In pixels per second.
+  var NUM_SYMBOL_NODES_TO_CREATE = 8;
+  var NUM_FACE_NODES_CREATED = 3;
+  var NUM_TIMES_TO_REUSE_NODES = 3;
 
   /**
    * @param stepClock
@@ -45,15 +49,38 @@ define( function( require ) {
     // List of moving nodes.  The positions of these nodes are updated at each time step.
     thisNode.movingChildNodes = [];
 
-    // Add the child nodes.
-    _.times( options.population, function() {
-      thisNode._addRandomNode();
+    // Function for adding multiple instances of an image.
+    function addImage( image ){
+      var imageNode = new Image( image );
+      _.times( NUM_TIMES_TO_REUSE_NODES, function(){
+        var rootNode = new Node();
+        rootNode.addChild( imageNode );
+        rootNode.mutate( { centerX: Math.random() * ( thisNode.size.width - imageNode.width ),
+          centerY: Math.random() * ( thisNode.size.height - imageNode.height ) } );
+        rootNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
+        thisNode.movingChildNodes.push( rootNode );
+        thisNode.addChild( rootNode );
+      });
+    }
+
+    // Create the symbol and smiley face nodes that will be used multiple
+    // times to create the cascade effect.
+    thisNode.symbolNodes = [];
+    _.times( NUM_SYMBOL_NODES_TO_CREATE, function() {
+      var symbolNode = new InteractiveSymbolNode( thisNode._createRandomStableAtom() );
+      symbolNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / symbolNode.width );
+      symbolNode.toImage( addImage );
     } );
+    thisNode.faceNodes = [];
+    for ( var i = 0; i < NUM_FACE_NODES_CREATED; i++ ) {
+      var faceNode = new FaceNode( MIN_CHILD_NODE_WIDTH + ( ( i + 1 ) / NUM_FACE_NODES_CREATED ) * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) );
+      faceNode.toImage( addImage );
+    }
 
     // Hook up to the step clock.
-    stepClock.addStepListener( function( dt ){
-      if ( thisNode.animationEnabled ){
-        for ( var i = 0; i< thisNode.movingChildNodes.length; i++ ){
+    stepClock.addStepListener( function( dt ) {
+      if ( thisNode.animationEnabled ) {
+        for ( var i = 0; i < thisNode.movingChildNodes.length; i++ ) {
           var childNode = thisNode.movingChildNodes[i];
           childNode.translate( 0, childNode.velocity * dt / childNode.getScaleVector().y );
           if ( childNode.bottom >= thisNode.size.height ) {
@@ -73,20 +100,23 @@ define( function( require ) {
     animationEnabled: false,
 
     _addRandomNode: function() {
+      var rootNode = new Node();
       var childNode;
+      var proportion = Math.random();
       if ( Math.random() > 0.2 ) {
         // Add a symbol node.
-        childNode = new InteractiveSymbolNode( this._createRandomStableAtom() );
-        childNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / childNode.width );
+        childNode = SYMBOL_NODES[ Math.floor( Math.random() * NUM_SYMBOL_NODES_TO_CREATE ) ];
       }
       else {
         // Add a smiley face.
-        childNode = new FaceNode( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) );
+        childNode = FACE_NODES[ Math.floor( Math.random() * NUM_FACE_NODES_CREATED ) ];
       }
-      childNode.mutate( { centerX: Math.random() * ( this.size.width - childNode.width ), centerY: Math.random() * ( this.size.height - childNode.height ) } );
-      this.addChild( childNode );
-      childNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
-      this.movingChildNodes.push( childNode );
+      rootNode.addChild( childNode );
+      rootNode.mutate( { centerX: Math.random() * ( this.size.width - childNode.width ),
+        centerY: Math.random() * ( this.size.height - childNode.height ) } );
+      rootNode.velocity = MIN_CHILD_VELOCITY + proportion * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
+      this.addChild( rootNode );
+      this.movingChildNodes.push( rootNode );
     },
 
     _createRandomStableAtom: function() {
