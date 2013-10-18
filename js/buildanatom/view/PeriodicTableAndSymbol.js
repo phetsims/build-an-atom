@@ -3,7 +3,6 @@
 /**
  * Combination of a periodic table and an enlarged, dynamic, element symbol
  * sitting above the table.
- *
  */
 define( function( require ) {
   'use strict';
@@ -22,6 +21,10 @@ define( function( require ) {
   var SYMBOL_WIDTH_PROPORTION = 0.2;
   var SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
+  /**
+   * @param numberAtom
+   * @constructor
+   */
   function PeriodicTableAndSymbol( numberAtom ) {
 
     Node.call( this ); // Call super constructor.

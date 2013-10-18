@@ -1,5 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+/**
+ * Scenery node that defines a periodic table of the elements.
+ */
 define( function( require ) {
   'use strict';
 

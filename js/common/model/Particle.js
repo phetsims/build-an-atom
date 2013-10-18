@@ -1,5 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+/**
+ * Model representation of a particle.
+ */
 define( function( require ) {
   'use strict';
 
@@ -12,6 +15,10 @@ define( function( require ) {
   // Constants
   var DEFAULT_PARTICLE_VELOCITY = 200; // Basically in pixels/sec.
 
+  /**
+   * @param type
+   * @constructor
+   */
   function Particle( type ) {
     PropertySet.call( this,
       { type: type,

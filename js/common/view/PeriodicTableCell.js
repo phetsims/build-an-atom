@@ -1,5 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+/**
+ * Scenery that defines a single cell in a periodic table.
+ */
 define( function( require ) {
   'use strict';
 

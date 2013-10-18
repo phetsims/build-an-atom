@@ -1,4 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * Scenery node that represents an atomic symbol, meaning that it shows the
+ * symbol text, the proton count, atomic number, and charge.
+ */
 define( function( require ) {
   'use strict';
 
@@ -25,7 +30,7 @@ define( function( require ) {
    * @param numberAtom
    * @constructor
    */
-  var SymbolNode = function SymbolNode( numberAtom ) {
+  function SymbolNode( numberAtom ) {
 
     Node.call( this, { pickable: false } ); // Call super constructor.
     var thisSymbolNode = this;
@@ -110,7 +115,6 @@ define( function( require ) {
         textColor = 'black';
       }
       chargeDisplay.text = sign + charge;
-//      chargeDisplay.fill = textColor;
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;
     } );

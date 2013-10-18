@@ -1,4 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * Shared constants used in various places.  This is static, and is not
+ * intended to be constructed.
+ */
 define( function( require ) {
   'use strict';
 
