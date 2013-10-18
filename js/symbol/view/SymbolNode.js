@@ -136,7 +136,7 @@ define( function( require ) {
     boundingBox.left = scaleImage.right + 10;
     chargeMeter.left = boundingBox.right + 10;
     chargeMeter.centerY = chargeDisplay.centerY;
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, SymbolNode );
