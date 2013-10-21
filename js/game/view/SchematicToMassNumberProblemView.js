@@ -45,7 +45,7 @@ define( function( require ) {
     // Add the schematic representation of the atom.
     thisNode.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, mvt ) );
 
-    // Question TODO: i18n
+    // Question
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, { align: 'left', font: new PhetFont( 24 ) } );
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
