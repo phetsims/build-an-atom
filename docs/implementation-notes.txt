@@ -1,5 +1,11 @@
 Scale
 
-There are so many size relationships in this simulation that are not to scale that it is difficult to choose a scaling unit.  One could choose something like femtometers, and then use appropriate diameter values for neutrons and protons, but the electron diameter would need to be way off, and the overall atom diameter would be too.  So the scale that has been chosen is roughly pixels on the default size screen.  This was called "screen units" back in the Java/Piccolo days.
+There are so many size relationships in this simulation that are not to scale that it is difficult to
+choose a scaling unit.  One could choose something like femtometers, and then use appropriate diameter
+values for neutrons and protons, but the electron diameter would need to be way off, and the overall
+atom diameter would be too.  So the scale that has been chosen is roughly pixels on the default size screen.
+This was called "screen units" back in the Java/Piccolo days.
 
-There are two main ways of representing an atom in the model, one where it is represented only by a set of numbers for each type of constituent particle, and one that contains and manages references to constituent particles.  The former is called
+There are two main ways of representing an atom in the model, one where it is represented only by a set
+of numbers for each type of constituent particle, and one that contains and manages references to
+constituent particles.  The former is called
