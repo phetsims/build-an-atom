@@ -31,6 +31,7 @@ define( function( require ) {
    * @param options
    * @constructor
    */
+  //REVIEW this var is redundant, naming the constructor is sufficient
   var ChargeMeter = function ChargeMeter( numberAtom, options ) {
 
     Node.call( this ); // Call super constructor.

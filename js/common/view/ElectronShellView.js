@@ -17,6 +17,7 @@ define( function( require ) {
   // Constants
   var LINE_DASH = [ 4, 5 ];
 
+  //REVIEW this var is redundant, naming the constructor is sufficient
   //REVIEW @param tags
   var ElectronShellView = function ElectronShellView( atom, mvt ) {
 

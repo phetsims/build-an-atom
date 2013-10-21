@@ -21,6 +21,7 @@ define( function( require ) {
   /**
    * @constructor
    */
+  //REVIEW this var is redundant, naming the constructor is sufficient
   var BucketDragHandler = function BucketDragHandler( bucket, bucketView, mvt ) {
     var activeParticle = null;
     var options = {

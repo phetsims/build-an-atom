@@ -184,7 +184,6 @@ define( function( require ) {
       else if ( this.electrons.contains( particle ) ) {
         this.electrons.remove( particle );
       }
-      //REVIEW has your code been formatted using the PhET formatter?
       else {
         //REVIEW Why are you using an assert here?  Why not throw Error, as you've done below?
         assert && assert( false, "Attempt to remove particle that is not in this particle atom." );

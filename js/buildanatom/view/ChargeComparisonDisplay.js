@@ -27,6 +27,7 @@ define( function( require ) {
    * @param numberAtom Model representation of the atom
    * @constructor
    */
+  //REVIEW this var is redundant, naming the constructor is sufficient
   var ChargeComparisonDisplay = function ChargeComparisonDisplay( numberAtom ) {
 
     Node.call( this ); // Call super constructor.

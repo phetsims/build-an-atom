@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+//REVIEW Could rewrite this in the same way as suggested for SharedConstants.
 define( [], function() {
   'use strict';
 

@@ -103,7 +103,7 @@ define( function( require ) {
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( function( charge ) {
       var sign = '';
-      var textColor;
+      var textColor; //REVIEW textColor appears to be unused.
       if ( charge > 0 ) {
         sign = '+';
         textColor = 'red';

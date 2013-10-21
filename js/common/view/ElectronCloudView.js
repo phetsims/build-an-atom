@@ -18,6 +18,7 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  //REVIEW this var is redundant, naming the constructor is sufficient
   //REVIEW @param tags
   var ElectronCloudView = function ElectronCloudView( atom, mvt ) {
 
