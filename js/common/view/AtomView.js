@@ -40,6 +40,7 @@ define( function( require ) {
   var showString = require( 'string!BUILD_AN_ATOM/show' );
   var orbitsString = require( 'string!BUILD_AN_ATOM/electron.model.orbits' );
   var cloudString = require( 'string!BUILD_AN_ATOM/electron.model.cloud' );
+  var modelString = require( 'string!BUILD_AN_ATOM/electron.model' );
 
   // Constants
   var CONTROLS_INSET = 10;
@@ -198,7 +199,7 @@ define( function( require ) {
     var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
-    electronViewButtonGroup.addChild( new Text( 'Model:', { font: new PhetFont( { size: 18, weight: 'bold' } ) } ) );
+    electronViewButtonGroup.addChild( new Text( modelString, { font: new PhetFont( { size: 18, weight: 'bold' } ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
     orbitsButton.left = electronViewButtonGroup.left + 5;
     electronViewButtonGroup.addChild( orbitsButton );
