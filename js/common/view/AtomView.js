@@ -32,6 +32,13 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
 
+  // Strings
+  var elementString = require( 'string!BUILD_AN_ATOM/indicator.element' );
+  var elementNameString = require( 'string!BUILD_AN_ATOM/element.name' );
+  var neutralIonString = require( 'string!BUILD_AN_ATOM/neutralIon' );
+  var stableUnstableString = require( 'string!BUILD_AN_ATOM/stableUnstable' );
+  var xxxString = require( 'string!BUILD_AN_ATOM/xxx' );
+
   // Constants
   var CONTROLS_INSET = 10;
   var LABEL_CONTROL_FONT = new PhetFont( 32 );
@@ -152,7 +159,7 @@ define( function( require ) {
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable,
       {
-        title: 'Element', // TODO: i18n
+        title: elementString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         contentPosition: 'left',
         titlePosition: 'left',
@@ -164,9 +171,9 @@ define( function( require ) {
     // Add the control panel for label visibility. TODO: i18n
     var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
       [
-        { content: new Text( 'Element Name', {font: LABEL_CONTROL_FONT} ), property: model.showElementNameProperty, label: 'Element Name' },
-        { content: new Text( 'Neutral/Ion', {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIonProperty, label: 'Neutral/Ion' },
-        { content: new Text( 'Stable/Unstable', {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstableProperty, label: 'Stable/Unstable' }
+        { content: new Text( elementNameString, {font: LABEL_CONTROL_FONT} ), property: model.showElementNameProperty },
+        { content: new Text( neutralIonString, {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIonProperty },
+        { content: new Text( stableUnstableString, {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstableProperty }
       ] ), { fill: 'rgb( 245, 245, 245 )', xMargin: 15 } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
