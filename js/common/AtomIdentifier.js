@@ -4,7 +4,7 @@
  * Object that can be used to identify various things about an atom given its
  * configuration, i.e. number of protons, neutrons, and/or electrons.
  */
-define( [], function() {
+define( function( require ) {
   'use strict';
 
   // Not meant to be instantiated.
@@ -46,24 +46,24 @@ define( [], function() {
 
   var _nameTable = [
     '',
-    'Hydrogen',
-    'Helium',
-    'Lithium',
-    'Beryllium',
-    'Boron',
-    'Carbon',
-    'Nitrogen',
-    'Oxygen',
-    'Fluorine',
-    'Neon',
-    'Sodium',
-    'Magnesium',
-    'Aluminium',
-    'Silicon',
-    'Phosphorus',
-    'Sulfur',
-    'Chlorine',
-    'Argon',
+    require( 'string!BUILD_AN_ATOM/element.hydrogen.name' ),
+    require( 'string!BUILD_AN_ATOM/element.helium.name' ),
+    require( 'string!BUILD_AN_ATOM/element.lithium.name' ),
+    require( 'string!BUILD_AN_ATOM/element.beryllium.name' ),
+    require( 'string!BUILD_AN_ATOM/element.boron.name' ),
+    require( 'string!BUILD_AN_ATOM/element.carbon.name' ),
+    require( 'string!BUILD_AN_ATOM/element.nitrogen.name' ),
+    require( 'string!BUILD_AN_ATOM/element.oxygen.name' ),
+    require( 'string!BUILD_AN_ATOM/element.fluorine.name' ),
+    require( 'string!BUILD_AN_ATOM/element.neon.name' ),
+    require( 'string!BUILD_AN_ATOM/element.sodium.name' ),
+    require( 'string!BUILD_AN_ATOM/element.magnesium.name' ),
+    require( 'string!BUILD_AN_ATOM/element.aluminum.name' ),
+    require( 'string!BUILD_AN_ATOM/element.silicon.name' ),
+    require( 'string!BUILD_AN_ATOM/element.phosphorus.name' ),
+    require( 'string!BUILD_AN_ATOM/element.sulfur.name' ),
+    require( 'string!BUILD_AN_ATOM/element.chlorine.name' ),
+    require( 'string!BUILD_AN_ATOM/element.argon.name' ),
     'Potassium',
     'Calcium',
     'Scandium',
