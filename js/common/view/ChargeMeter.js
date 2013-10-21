@@ -116,6 +116,7 @@ define( function( require ) {
         } );
       this.addChild( numericalReadout );
 
+      //REVIEW Comment says 'empty-string' but it's create with a space. Any reason? Needed for layout?...
       // created with placeholder empty-string, which will be changed
       readoutText = new Text( " ", {
         font: new PhetFont( { size: 24, weight: 'bold' } )

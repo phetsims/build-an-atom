@@ -1,5 +1,12 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+//REVIEW no need to for this to have a constructor, rewrite as:
+//  return {
+//     NUCLEON_RADIUS: 10,
+//     ELECTRON_RADIUS: 8,
+//     DISPLAY_PANEL_BACKGROUND_COLOR: 'rgb( 254, 255, 153 )',
+//     ...
+//  };
 /**
  * Shared constants used in various places.  This is static, and is not
  * intended to be constructed.

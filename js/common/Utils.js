@@ -6,6 +6,7 @@ define( [], function() {
   // Not meant to be instantiated.
   var Utils = { };
 
+  //REVIEW use dot.Vector2.distanceXY, or move this someplace general like dot.Util
   /**
    * Returns the distance between two points, p1 and p2.
    *
@@ -29,6 +30,7 @@ define( [], function() {
     return Math.abs( value1 - value2 ) < tolerance;
   };
 
+  //REVIEW Delete this, use vegas.GameTimer.formatTime
   /**
    * Formats a value representing seconds into HH:MM:SS.
    *

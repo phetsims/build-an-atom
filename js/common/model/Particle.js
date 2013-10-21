@@ -21,6 +21,7 @@ define( function( require ) {
    */
   function Particle( type ) {
     PropertySet.call( this,
+      //REVIEW a different style of braces for object literal.
       { type: type,
         position: Vector2.ZERO,
         destination: Vector2.ZERO,

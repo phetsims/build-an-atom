@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+//REVIEW Add @author annotation, missing from most (all?) of your files.
 /**
  * Main model class for the first tab of the Build an Atom simulation.
  */
@@ -55,6 +56,7 @@ define( function( require ) {
         electronShellDepiction: 'orbits'
       } );
 
+    //REVIEW I typically define this as the first line of my constructor, then use it everywhere instead of 'this', not just in closures. I see this in other places, only mentioned here.
     var thisModel = this;
 
     // Create the atom that the user will build, modify, and generally play with.
@@ -63,6 +65,7 @@ define( function( require ) {
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
       protonBucket: new SphereBucket(
+        //REVIEW Style discussion? I usually see this { on the previous line, which shifts the code it contains left 2 spaces. I see this in other places, only mentioned here.
         {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),

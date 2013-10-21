@@ -18,6 +18,7 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  //REVIEW @param tags
   var ElectronCloudView = function ElectronCloudView( atom, mvt ) {
 
     // Call super constructor.

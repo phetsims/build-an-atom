@@ -64,6 +64,7 @@ define( function( require ) {
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+      //REVIEW unsafe use of duck-typing, JSdoc for first 2 parameters is {Vector2}
       { x: 0, y: 0 },
       { x: thisView.layoutBounds.width * 0.275, y: thisView.layoutBounds.height * 0.45 },
       1.0 );

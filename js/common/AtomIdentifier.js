@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+//REVIEW Could rewrite this in the same way as suggested for SharedConstants. Ditto for any fully 'static' collection of constants and functions.
 /**
  * Object that can be used to identify various things about an atom given its
  * configuration, i.e. number of protons, neutrons, and/or electrons.
