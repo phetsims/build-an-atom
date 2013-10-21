@@ -41,6 +41,7 @@ define( function( require ) {
         thisScene.addChild( startSubGameNode );
       }
       else if ( state === 'subGameOver' ) {
+        //REVIEW see #55, don't removeAllChildren on a supertype that may be adding its own children
         thisScene.removeAllChildren();
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ){
           // Perfect score, add the reward node.
@@ -62,6 +63,7 @@ define( function( require ) {
       else if ( typeof( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a problem.
+        //REVIEW see #55, don't removeAllChildren on a supertype that may be adding its own children
         thisScene.removeAllChildren();
         thisScene.addChild( state.createView( thisScene.layoutBounds ) );
         thisScene.addChild( scoreboard );
