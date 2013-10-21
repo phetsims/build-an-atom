@@ -82,5 +82,6 @@
   "naturesMixOfIsotopes": "Nature's mix of isotopes",
   "protons.name": "Protons",
   "element.sulfur.name": "Sulfur",
-  "indicator.mass.number": "Mass Number"
+  "indicator.mass.number": "Mass Number",
+  "show": "Show"
 }

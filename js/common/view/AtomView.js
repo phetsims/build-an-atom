@@ -37,7 +37,9 @@ define( function( require ) {
   var elementNameString = require( 'string!BUILD_AN_ATOM/element.name' );
   var neutralIonString = require( 'string!BUILD_AN_ATOM/neutralIon' );
   var stableUnstableString = require( 'string!BUILD_AN_ATOM/stableUnstable' );
-  var xxxString = require( 'string!BUILD_AN_ATOM/xxx' );
+  var showString = require( 'string!BUILD_AN_ATOM/show' );
+  var orbitsString = require( 'string!BUILD_AN_ATOM/electron.model.orbits' );
+  var cloudString = require( 'string!BUILD_AN_ATOM/electron.model.cloud' );
 
   // Constants
   var CONTROLS_INSET = 10;
@@ -168,7 +170,6 @@ define( function( require ) {
       } );
     this.addChild( this.periodicTableBox );
 
-    // Add the control panel for label visibility. TODO: i18n
     var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
       [
         { content: new Text( elementNameString, {font: LABEL_CONTROL_FONT} ), property: model.showElementNameProperty },
@@ -189,13 +190,13 @@ define( function( require ) {
 
     labelVizControlPanel.scale( 0.55 );  // Use a large font, then scale down to get smaller checkboxes.
     this.addChild( labelVizControlPanel );
-    var labelVizControlPanelTitle = new Text( 'Show', new PhetFont( { size: 16, weight: 'bold' } ) ); // TODO: i18n
+    var labelVizControlPanelTitle = new Text( showString, new PhetFont( { size: 16, weight: 'bold' } ) );
     this.addChild( labelVizControlPanelTitle );
 
-    // Add the radio buttons that control the electron representation in the atom. TODO: i18n
+    // Add the radio buttons that control the electron representation in the atom.
     var radioButtonRadius = 6;
-    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( 'Orbits', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( 'Cloud', ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( 'Model:', { font: new PhetFont( { size: 18, weight: 'bold' } ) } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
