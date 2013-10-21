@@ -23,6 +23,13 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // Strings
+  var negativeIonString = require( 'string!BUILD_AN_ATOM/negative.ion' );
+  var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutral.atom' );
+  var positiveIonString = require( 'string!BUILD_AN_ATOM/positive.ion' );
+  var stableString = require( 'string!BUILD_AN_ATOM/stable' );
+  var unstableString = require( 'string!BUILD_AN_ATOM/unstable' );
+
   // Constants
   var ELEMENT_NAME_FONT_SIZE = 26;
 
@@ -132,17 +139,16 @@ define( function( require ) {
     var updateIonIndicator = function() {
       if ( thisAtomView.atom.protons.length > 0 ) {
         var charge = thisAtomView.atom.getCharge();
-        // TODO: i18n of all labels below
         if ( charge < 0 ) {
-          thisAtomView.ionIndicator.text = '- Ion';
+          thisAtomView.ionIndicator.text = negativeIonString;
           thisAtomView.ionIndicator.fill = 'blue';
         }
         else if ( charge > 0 ) {
-          thisAtomView.ionIndicator.text = '+ Ion';
+          thisAtomView.ionIndicator.text = positiveIonString;
           thisAtomView.ionIndicator.fill = 'red';
         }
         else {
-          thisAtomView.ionIndicator.text = 'Neutral Atom';
+          thisAtomView.ionIndicator.text = neutralAtomString;
           thisAtomView.ionIndicator.fill = 'black';
         }
       }
@@ -173,12 +179,11 @@ define( function( require ) {
     // Define the update function for the stability indicator.
     var updateStabilityIndicator = function() {
       if ( thisAtomView.atom.protons.length > 0 ) {
-        // TODO: i18n of the indicators below.
         if ( AtomIdentifier.isStable( thisAtomView.atom.protons.length, thisAtomView.atom.neutrons.length ) ) {
-          thisAtomView.stabilityIndicator.text = 'Stable';
+          thisAtomView.stabilityIndicator.text = stableString;
         }
         else {
-          thisAtomView.stabilityIndicator.text = 'Unstable';
+          thisAtomView.stabilityIndicator.text = unstableString;
         }
       }
       else {

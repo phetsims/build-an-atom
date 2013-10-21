@@ -15,7 +15,7 @@
   "element.silicon.name": "Silīcijs",
   "element.beryllium.name": "Berilijs",
   "game.problemIndexReadout.pattern": "{0}. problēma no {1}",
-  "title.buildAtomModule": "Izveidot atomu",
+  "title.atomModule": "Izveidot atomu",
   "game.completeTheModel": "Pabeidziet modeli:",
   "abundanceInNature": "Izplatība dabā",
   "game.tryAgain": "Mēģināt vēlreiz",

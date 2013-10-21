@@ -16,7 +16,7 @@
   "element.silicon.name": "سیلیکون",
   "element.beryllium.name": "بریلیوم",
   "game.problemIndexReadout.pattern": "Problem {0} of {1}",
-  "title.buildAtomModule": "ساخت اتم",
+  "title.atomModule": "ساخت اتم",
   "game.completeTheModel": ": مدل را کامل کن ",
   "abundanceInNature": "فراوانی در طبیعت",
   "game.tryAgain": "دوباره سعی کن",

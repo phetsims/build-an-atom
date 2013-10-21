@@ -13,7 +13,7 @@
   "element.silicon.name": "Silicio",
   "element.beryllium.name": "Berillio",
   "game.problemIndexReadout.pattern": "Problema {0} di {1}",
-  "title.buildAtomModule": "Costruisci l'atomo",
+  "title.atomModule": "Costruisci l'atomo",
   "game.completeTheModel": "Completa il modello:",
   "abundanceInNature": "Abbondanza in Natura",
   "game.tryAgain": "Riprova",

@@ -15,7 +15,7 @@
   "element.silicon.name": "Silikon",
   "element.beryllium.name": "Berilium",
   "game.problemIndexReadout.pattern": "Soal {0} dari {1}",
-  "title.buildAtomModule": "Buat Atom",
+  "title.atomModule": "Buat Atom",
   "game.completeTheModel": "Lengkapi model:",
   "abundanceInNature": "Kelimpahan di Alam",
   "game.tryAgain": "Coba Lagi",

@@ -15,7 +15,7 @@
   "element.silicon.name": "Silic",
   "element.beryllium.name": "Beryllium",
   "game.problemIndexReadout.pattern": "Bài {0} / {1}",
-  "title.buildAtomModule": "Tạo dựng nguyên tử",
+  "title.atomModule": "Tạo dựng nguyên tử",
   "game.completeTheModel": "Hoàn thành Mô hình:",
   "abundanceInNature": "Tỷ lệ đồng vị trong thiên nhiên",
   "game.tryAgain": "Thử lại",

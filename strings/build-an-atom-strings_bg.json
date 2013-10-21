@@ -16,7 +16,7 @@
   "element.silicon.name": "Силиций",
   "element.beryllium.name": "Берилий",
   "game.problemIndexReadout.pattern": "Задача {0} от {1}",
-  "title.buildAtomModule": "Построяване на атом",
+  "title.atomModule": "Построяване на атом",
   "game.completeTheModel": "Завършаване на модела:",
   "abundanceInNature": "Разнообразие в природата",
   "game.tryAgain": "Опитай отново",

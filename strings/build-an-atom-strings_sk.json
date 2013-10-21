@@ -16,7 +16,7 @@
   "element.silicon.name": "Kremík",
   "element.beryllium.name": "Berýlium",
   "game.problemIndexReadout.pattern": "Úloha {0} z {1}",
-  "title.buildAtomModule": "Stavba atómu",
+  "title.atomModule": "Stavba atómu",
   "game.completeTheModel": "Zostavte model atómu:",
   "abundanceInNature": "Výskyt v prírode",
   "game.tryAgain": "Skúsiť znova",

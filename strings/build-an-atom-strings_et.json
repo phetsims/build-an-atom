@@ -15,7 +15,7 @@
   "element.silicon.name": "Räni",
   "element.beryllium.name": "Berülleum",
   "game.problemIndexReadout.pattern": "Ülesanne {0} {1}st",
-  "title.buildAtomModule": "Ehita aatom",
+  "title.atomModule": "Ehita aatom",
   "game.completeTheModel": "Lõpeta mudel:",
   "abundanceInNature": "Saadavus looduses",
   "game.tryAgain": "Proovi uuesti",

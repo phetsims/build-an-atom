@@ -15,7 +15,7 @@
   "element.silicon.name": "Silizio",
   "element.beryllium.name": "Berilio",
   "game.problemIndexReadout.pattern": "{1}-tik {0} Ariketa",
-  "title.buildAtomModule": "Eraiki Atomoa",
+  "title.atomModule": "Eraiki Atomoa",
   "game.completeTheModel": "Osatu eredua:",
   "abundanceInNature": "Ugaritasuna Naturan",
   "game.tryAgain": "Froga berriro",

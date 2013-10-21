@@ -15,7 +15,7 @@
   "element.silicon.name": "سليسيوم",
   "element.beryllium.name": "بريليوم",
   "game.problemIndexReadout.pattern": "مسألة {0} من {1} ",
-  "title.buildAtomModule": "بناء ذرة",
+  "title.atomModule": "بناء ذرة",
   "game.completeTheModel": ": أتمم النموذج",
   "abundanceInNature": "الوفرة في الطبيعة",
   "game.tryAgain": "حاول مجددا",

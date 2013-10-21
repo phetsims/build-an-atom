@@ -15,7 +15,7 @@
   "element.silicon.name": "Siliciu",
   "element.beryllium.name": "Beriliu",
   "game.problemIndexReadout.pattern": "Problema {0} of {1}",
-  "title.buildAtomModule": "Construieste atom",
+  "title.atomModule": "Construieste atom",
   "game.completeTheModel": "Completeaza modelul:",
   "abundanceInNature": "Existenta in natura",
   "game.tryAgain": "Incearca inca odata",

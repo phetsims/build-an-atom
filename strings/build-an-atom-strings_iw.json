@@ -13,7 +13,7 @@
   "element.silicon.name": "צורן",
   "element.beryllium.name": "בריליום",
   "game.problemIndexReadout.pattern": "בעיה {0} מתוך {1}",
-  "title.buildAtomModule": "בנה אטום",
+  "title.atomModule": "בנה אטום",
   "game.completeTheModel": ":השלם את המודל",
   "abundanceInNature": "שכיחות בטבע",
   "game.tryAgain": "נסה שוב",

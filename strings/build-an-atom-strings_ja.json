@@ -14,7 +14,7 @@
   "element.silicon.name": "シリコン",
   "element.beryllium.name": "ベリリウム",
   "game.problemIndexReadout.pattern": " {1}中の{0} ",
-  "title.buildAtomModule": "原子の生成",
+  "title.atomModule": "原子の生成",
   "game.completeTheModel": "モデルを完成させてください",
   "abundanceInNature": "自然界での存在度",
   "game.tryAgain": "もう一度",

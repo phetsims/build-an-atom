@@ -14,7 +14,7 @@
   "element.silicon.name": "Πυρίτιο",
   "element.beryllium.name": "Βηρύλλιο",
   "game.problemIndexReadout.pattern": "Πρόβλημα {0} από {1}",
-  "title.buildAtomModule": "\"Κατασκευή\" ατόμου",
+  "title.atomModule": "\"Κατασκευή\" ατόμου",
   "game.completeTheModel": "Συμπλήρωσε το μοντέλο:",
   "abundanceInNature": "Αφθονία στη φύση",
   "game.tryAgain": "Νέα προσπάθεια",

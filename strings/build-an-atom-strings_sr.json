@@ -13,7 +13,7 @@
   "element.silicon.name": "Силицијум",
   "element.beryllium.name": "Берилијум",
   "game.problemIndexReadout.pattern": "Проблем {0} од {1}",
-  "title.buildAtomModule": "Направи атом",
+  "title.atomModule": "Направи атом",
   "game.completeTheModel": "Комплетирај модел:",
   "abundanceInNature": "Распрострањеност у природи",
   "game.tryAgain": "Покушај поново",

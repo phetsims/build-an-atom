@@ -15,7 +15,7 @@
   "element.silicon.name": "Pii",
   "element.beryllium.name": "Beryllium",
   "game.problemIndexReadout.pattern": "Tehtävä {0} / {1}",
-  "title.buildAtomModule": "Rakenna atomeja",
+  "title.atomModule": "Rakenna atomeja",
   "game.completeTheModel": "Täydennä malli:",
   "abundanceInNature": "Määrä luonnossa",
   "game.tryAgain": "Yritä uudelleen",

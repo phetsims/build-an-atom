@@ -14,7 +14,7 @@
   "element.silicon.name": "silicium",
   "element.beryllium.name": "beryllyum",
   "game.problemIndexReadout.pattern": "probleem {0} of {1}",
-  "title.buildAtomModule": "Bouw een atoom",
+  "title.atomModule": "Bouw een atoom",
   "game.completeTheModel": "maak het model compleet",
   "abundanceInNature": "komt vaak voor ",
   "game.tryAgain": "probeer het nog eens",

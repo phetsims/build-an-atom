@@ -14,6 +14,8 @@ define( function( require ) {
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
+  var massNumberString = require( 'string!BUILD_AN_ATOM/indicator.mass.number' );
+  var netChargeString = require( 'string!BUILD_AN_ATOM/indicator.charge' );
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
@@ -40,7 +42,7 @@ define( function( require ) {
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
     var chargeMeterBox = new AccordionBox( chargeMeterBoxContents,
       {
-        title: 'Net Charge', // TODO: i18n
+        title: netChargeString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         initiallyOpen: false,
         minWidth: this.periodicTableBox.width,
@@ -54,7 +56,7 @@ define( function( require ) {
     // Add the mass indicator inside of an accordion box.
     var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } ),
       {
-        title: 'Mass Number', // TODO: i18n
+        title: massNumberString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         initiallyOpen: false,
         minWidth: this.periodicTableBox.width,

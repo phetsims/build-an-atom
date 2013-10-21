@@ -13,7 +13,7 @@
   "element.silicon.name": "Szilícium",
   "element.beryllium.name": "Berillium",
   "game.problemIndexReadout.pattern": "{0}. probléma {1} közül",
-  "title.buildAtomModule": "Atomépítés",
+  "title.atomModule": "Atomépítés",
   "game.completeTheModel": "Egészítsd ki a modellt:",
   "abundanceInNature": "Természetes előfordulás",
   "game.tryAgain": "Próbáljuk újra",

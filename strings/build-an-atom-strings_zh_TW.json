@@ -15,7 +15,7 @@
   "element.silicon.name": "Silicon 矽",
   "element.beryllium.name": "Beryllium 鈹",
   "game.problemIndexReadout.pattern": "Problem {0} of {1}",
-  "title.buildAtomModule": "建立原子",
+  "title.atomModule": "建立原子",
   "game.completeTheModel": "完成該模型:",
   "abundanceInNature": "在自然界的含量",
   "game.tryAgain": "再試一次",

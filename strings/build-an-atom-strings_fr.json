@@ -15,7 +15,7 @@
   "element.silicon.name": "Silicium",
   "element.beryllium.name": "Béryllium",
   "game.problemIndexReadout.pattern": "Problème {0} de {1}",
-  "title.buildAtomModule": "Construire un atome",
+  "title.atomModule": "Construire un atome",
   "game.completeTheModel": "Compléter le modèle:",
   "abundanceInNature": "Abondance naturelle",
   "game.tryAgain": "Nouvel essai",

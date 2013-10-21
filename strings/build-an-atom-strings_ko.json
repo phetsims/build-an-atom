@@ -15,7 +15,7 @@
   "element.silicon.name": "규소",
   "element.beryllium.name": "베릴륨",
   "game.problemIndexReadout.pattern": "문제 {1} 의 {0}",
-  "title.buildAtomModule": "원자 만들기",
+  "title.atomModule": "원자 만들기",
   "game.completeTheModel": "모형 완성하기",
   "abundanceInNature": "자연의 존재량",
   "game.tryAgain": "다시 시도",

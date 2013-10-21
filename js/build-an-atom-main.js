@@ -10,12 +10,15 @@ require(
     'JOIST/Sim',
     'JOIST/SimLauncher',
     'string!BUILD_AN_ATOM/build-an-atom.name',
+    'string!BUILD_AN_ATOM/title.atomModule',
+    'string!BUILD_AN_ATOM/title.symbolModule',
+    'string!BUILD_AN_ATOM/title.gameModule',
     'image!BUILD_AN_ATOM/baa_atom_icon.png',
     'image!BUILD_AN_ATOM/baa_element_icon.png',
     'image!BUILD_AN_ATOM/game_icon.png'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView,
-            Image, Sim, SimLauncher, simTitle, atomIcon, elementIcon, gameIcon ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView, Image, Sim, SimLauncher, simTitle, atomModuleString,
+            symbolModuleString, gameModuleString, atomIcon, elementIcon, gameIcon ) {
     'use strict';
 
     var simOptions = {
@@ -32,19 +35,18 @@ require(
     SimLauncher.launch( function() {
 
       //Create and start the sim
-      //TODO: i18n
       new Sim( simTitle, [
-        { name: 'Atom', // TODO: i18n
+        { name: atomModuleString,
           icon: new Image( atomIcon ),
           backgroundColor: 'white',
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new BuildAnAtomView( model ); } },
-        { name: 'Symbol', // TODO: i18n
+        { name: symbolModuleString,
           icon: new Image( elementIcon ),
           backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
           createModel: function() { return new BuildAnAtomModel(); },
           createView: function( model ) { return new SymbolView( model ); } },
-        { name: 'Games', // TODO: i18n
+        { name: gameModuleString,
           icon: new Image( gameIcon ),
           backgroundColor: 'rgb( 255, 254, 223 )',
           createModel: function() { return new BAAGameModel(); },

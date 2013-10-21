@@ -14,7 +14,7 @@
   "element.silicon.name": "सिलिकॉन",
   "element.beryllium.name": "बेरेलिअम",
   "game.problemIndexReadout.pattern": "समस्या {0} of {1}",
-  "title.buildAtomModule": "अणु बनवा",
+  "title.atomModule": "अणु बनवा",
   "game.completeTheModel": "नमूना बनवा",
   "abundanceInNature": "निसर्गात विपूल आढळ",
   "game.tryAgain": "पुन्हा प्रयत्न करा",

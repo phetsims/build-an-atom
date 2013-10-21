@@ -15,7 +15,7 @@
   "element.silicon.name": "Кремний ",
   "element.beryllium.name": "Бериллий ",
   "game.problemIndexReadout.pattern": "Проблема {0} of {1}",
-  "title.buildAtomModule": "Создать атом ",
+  "title.atomModule": "Создать атом ",
   "game.completeTheModel": "Завершить модель:",
   "abundanceInNature": "Наличие в природе ",
   "game.tryAgain": "Повторная попытка ",
