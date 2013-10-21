@@ -34,6 +34,7 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @constructor
    */
+  //REVIEW name the constructor instead of doing var assignment
   var StartSubGameNode = function( gameModel, layoutBounds ) {
 
     Node.call( this ); // Call super constructor.

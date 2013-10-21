@@ -28,6 +28,7 @@ define( function( require ) {
 
     // Create the model-view transform used by the schematic atom.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+      //REVIEW unsafe use of duck-typing, JSdoc for first 2 parameters is {Vector2}
       { x: 0, y: 0 },
       { x: layoutBounds.width * 0.275, y: layoutBounds.height * 0.45 },
       0.75 );
