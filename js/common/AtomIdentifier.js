@@ -175,7 +175,7 @@ define( function( require ) {
     'Ne', // 10, NEON
     'Na', // 11, SODIUM
     'Mg', // 12, MAGNESIUM
-    'Al', // 13, ALUMINIUM
+    'Al', // 13, ALUMINUM
     'Si', // 14, SILICON
     'P', // 15, PHOSPHORUS
     'S', // 16, SULFUR
