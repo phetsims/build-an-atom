@@ -174,20 +174,20 @@ define( function( require ) {
     },
 
     // Remove the specified particle from this particle atom.
-    removeParticle: function( particle ){
-      if ( this.protons.contains( particle ) ){
+    removeParticle: function( particle ) {
+      if ( this.protons.contains( particle ) ) {
         this.protons.remove( particle );
       }
-      else if ( this.neutrons.contains( particle ) ){
+      else if ( this.neutrons.contains( particle ) ) {
         this.neutrons.remove( particle );
       }
-      else if ( this.electrons.contains( particle ) ){
+      else if ( this.electrons.contains( particle ) ) {
         this.electrons.remove( particle );
       }
       //REVIEW has your code been formatted using the PhET formatter?
-      else{
+      else {
         //REVIEW Why are you using an assert here?  Why not throw Error, as you've done below?
-        assert && assert( false, "Attempt to remove particle that is not in this particle atom.");
+        assert && assert( false, "Attempt to remove particle that is not in this particle atom." );
       }
       assert && assert( typeof( particle.particleAtomRemovalListener ) === 'function', "No particle removal listener attached to particle." );
       particle.userControlledProperty.unlink( particle.particleAtomRemovalListener );
@@ -197,30 +197,30 @@ define( function( require ) {
     // Extract an arbitrary instance of the specified particle, assuming one exists.
     extractParticle: function( particleType ) {
       var particle = null;
-      switch( particleType ){
+      switch( particleType ) {
         case 'proton':
-          if ( this.protons.length > 0 ){
-            particle = this.protons.get( this.protons.length - 1);
+          if ( this.protons.length > 0 ) {
+            particle = this.protons.get( this.protons.length - 1 );
           }
           break;
 
         case 'neutron':
-          if ( this.neutrons.length > 0 ){
-            particle = this.neutrons.get( this.neutrons.length - 1);
+          if ( this.neutrons.length > 0 ) {
+            particle = this.neutrons.get( this.neutrons.length - 1 );
           }
           break;
 
         case 'electron':
-          if ( this.electrons.length > 0 ){
-            particle = this.electrons.get( this.electrons.length - 1);
+          if ( this.electrons.length > 0 ) {
+            particle = this.electrons.get( this.electrons.length - 1 );
           }
           break;
 
         default:
-          throw new Error("Attempt to remove unknown particle type.");
+          throw new Error( "Attempt to remove unknown particle type." );
       }
 
-      if ( particle !== null ){
+      if ( particle !== null ) {
         this.removeParticle( particle );
       }
 
@@ -231,9 +231,9 @@ define( function( require ) {
     // This makes it a quicker operation.
     clear: function() {
       var self = this; //REVIEW 'self' convention differs from what you've done elsewhere
-      this.protons.forEach( function ( particle ){ self.removeParticle( particle ); } );
-      this.neutrons.forEach( function ( particle ){ self.removeParticle( particle ); } );
-      this.electrons.forEach( function ( particle ){ self.removeParticle( particle ); } );
+      this.protons.forEach( function( particle ) { self.removeParticle( particle ); } );
+      this.neutrons.forEach( function( particle ) { self.removeParticle( particle ); } );
+      this.electrons.forEach( function( particle ) { self.removeParticle( particle ); } );
     },
 
     // Move all the particles to their destinations.  This is generally used

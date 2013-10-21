@@ -50,9 +50,9 @@ define( function( require ) {
 
     // Function for adding multiple instances of an image.  Reusing the same
     // node multiple times requires less resources and thus runs smoother.
-    function addImage( image ){
+    function addImage( image ) {
       var imageNode = new Image( image );
-      _.times( NUM_TIMES_TO_REUSE_NODES, function(){
+      _.times( NUM_TIMES_TO_REUSE_NODES, function() {
         var rootNode = new Node();
         rootNode.addChild( imageNode );
         rootNode.mutate( { centerX: Math.random() * ( thisNode.size.width - imageNode.width ),
@@ -60,7 +60,7 @@ define( function( require ) {
         rootNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
         thisNode.movingChildNodes.push( rootNode );
         thisNode.addChild( rootNode );
-      });
+      } );
     }
 
     // Create the symbol and smiley face nodes.

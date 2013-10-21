@@ -33,17 +33,17 @@ define( function( require ) {
 
     var protonCountPrompt = new Text( protonsString, options.font );
     this.addChild( protonCountPrompt );
-    var protonCountEntry = new NumberEntryNode( this.numberAtom.protonCountProperty, { minValue: 0 }  );
+    var protonCountEntry = new NumberEntryNode( this.numberAtom.protonCountProperty, { minValue: 0 } );
     this.addChild( protonCountEntry );
 
     var neutronCountPrompt = new Text( neutronsString, options.font );
     this.addChild( neutronCountPrompt );
-    var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0 }  );
+    var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0 } );
     this.addChild( neutronCountEntry );
 
     var electronCountPrompt = new Text( electronsString, options.font );
     this.addChild( electronCountPrompt );
-    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0 }  );
+    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0 } );
     this.addChild( electronCountEntry );
 
     // Layout

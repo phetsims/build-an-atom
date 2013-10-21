@@ -17,8 +17,7 @@ require(
     'image!BUILD_AN_ATOM/baa_element_icon.png',
     'image!BUILD_AN_ATOM/game_icon.png'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView, Image, Sim, SimLauncher, simTitle, atomModuleString,
-            symbolModuleString, gameModuleString, atomIcon, elementIcon, gameIcon ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView, Image, Sim, SimLauncher, simTitle, atomModuleString, symbolModuleString, gameModuleString, atomIcon, elementIcon, gameIcon ) {
     'use strict';
 
     var simOptions = {

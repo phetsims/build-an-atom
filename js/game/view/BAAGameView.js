@@ -43,7 +43,7 @@ define( function( require ) {
       else if ( state === 'subGameOver' ) {
         //REVIEW see #55, don't removeAllChildren on a supertype that may be adding its own children
         thisScene.removeAllChildren();
-        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ){
+        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
           // Perfect score, add the reward node.
           thisScene.addChild( rewardNode );
           rewardNode.mutate( { centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } );

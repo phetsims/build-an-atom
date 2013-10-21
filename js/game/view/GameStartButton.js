@@ -60,7 +60,7 @@ define( function( require ) {
     var progressIndicatorBackground = new Rectangle( 0, 0, WIDTH, HEIGHT * 0.2, CORNER_ROUNDING, CORNER_ROUNDING,
       {
         fill: 'white',
-        stroke: 'black',lineWidth: 1
+        stroke: 'black', lineWidth: 1
       } ).mutate( { bottom: HEIGHT } );
     progressIndicatorBackground.addChild( new GameProgressIndicator( 5, WIDTH / 6, scoreProperty, maxPossibleScore ).mutate(
       { centerX: buttonOutline.width / 2, centerY: progressIndicatorBackground.height / 2 } ) );

@@ -54,13 +54,13 @@ define( function( require ) {
 
     var proportionCorrect = gameModel.score / gameModel.MAX_POINTS_PER_GAME_LEVEL;
     var titleText = keepTryingString;
-    if ( proportionCorrect > 0.95 ){
+    if ( proportionCorrect > 0.95 ) {
       titleText = excellentString;
     }
-    else if ( proportionCorrect > 0.75 ){
+    else if ( proportionCorrect > 0.75 ) {
       titleText = greatString;
     }
-    else if ( proportionCorrect >= 0.5 ){
+    else if ( proportionCorrect >= 0.5 ) {
       titleText = goodString;
     }
     var title = new Text( titleText, {font: new PhetFont( { size: 28, weight: 'bold' } )} ); // TODO: i18n
@@ -77,10 +77,10 @@ define( function( require ) {
 
     var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
     var time = new MultiLineText( 'Time: ' + Utils.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
-    if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ){
+    if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ) {
       time.text += '\n(Your New Best!)';
     }
-    else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ){
+    else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ) {
       time.text += '\n(Your Best: ' + Utils.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
     }
     background.addChild( time );
