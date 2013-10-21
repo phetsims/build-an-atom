@@ -99,7 +99,7 @@ define( function( require ) {
     animationEnabled: false,
 
     _createRandomStableAtom: function() {
-      var atomicNumber = 1 + Math.floor( Math.random() * 108 );
+      var atomicNumber = 1 + Math.floor( Math.random() * 18 ); // Limit to Argon, since that's as high as translations go.
       return new NumberAtom(
         {
           protonCount: atomicNumber,
