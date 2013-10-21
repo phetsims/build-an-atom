@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Scenery that defines a single cell in a periodic table.
+ * Scenery node that defines a single cell in a periodic table.
  */
 define( function( require ) {
   'use strict';
@@ -17,6 +17,7 @@ define( function( require ) {
   var NOMINAL_CELL_DIMENSION = 25;
   var NOMINAL_FONT_SIZE = 14;
 
+  //REVIEW consider changing dimension to length. A square is defined by the length of its sides, see http://en.wikipedia.org/wiki/Square.
   /**
    * Constructor.
    *

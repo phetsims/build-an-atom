@@ -25,6 +25,7 @@ define( function( require ) {
     return particleNodes[id];
 //    return new ParticleNode( particle.type, mvt.modelToViewDeltaX( particle.radius ) );
 
+    //REVIEW consider cleaning this up by pulling this alternative out as an entirely separate function
     // TODO: Below is an alternative way to create the particle nodes.  This
     // approach converts the node to an image.  It was used for a while, but
     // was found to be incompatible with using CSS transforms to move the

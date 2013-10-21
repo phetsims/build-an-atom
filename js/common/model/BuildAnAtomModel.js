@@ -1,6 +1,6 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
-//REVIEW Add @author annotation, missing from most (all?) of your files.
+//REVIEW Add @author annotation? Is it important? Missing from most files.
 /**
  * Main model class for the first tab of the Build an Atom simulation.
  */
