@@ -24,6 +24,12 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var TextButton = require( 'SUN/TextButton' );
 
+  // Strings
+  var checkString = require( 'string!VEGAS/check' );
+  var tryAgainString = require( 'string!VEGAS/tryAgain' );
+  var showAnswerString = require( 'string!VEGAS/showAnswer' );
+  var nextString = require( 'string!VEGAS/next' );
+
   // Constants
   var BUTTON_FONT = new PhetFont( 20 );
   var BUTTON_FILL = new Color( 0, 255, 153 );
@@ -60,27 +66,27 @@ define( function( require ) {
     faceNode.addChild( pointDisplay );
     this.addChild( faceNode );
 
-    // Buttons. TODO: i18n of all buttons.
+    // Buttons.
     this.buttons = [];
-    this.checkAnswerButton = new TextButton( 'Check',
+    this.checkAnswerButton = new TextButton( checkString,
       function() { thisNode.checkAnswer(); },
       { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
-    this.nextButton = new TextButton( 'Next',
+    this.nextButton = new TextButton( nextString,
       function() { problem.next(); },
       { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
-    this.tryAgainButton = new TextButton( 'Try Again',
+    this.tryAgainButton = new TextButton( tryAgainString,
       function() { problem.tryAgain(); },
       { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextButton( 'Display Correct Answer',
+    this.displayCorrectAnswerButton = new TextButton( showAnswerString,
       function() { problem.displayCorrectAnswer(); },
       { font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL } );
     this.addChild( this.displayCorrectAnswerButton );

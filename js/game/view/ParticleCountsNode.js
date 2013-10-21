@@ -14,22 +14,26 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  // Strings
+  var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
+  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
+  var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
+
   function ParticleCountsNode( numberAtom, options ) {
 
     Node.call( this, options ); // Call super constructor.
 
     options = _.extend( { font: new PhetFont( 24 )}, options );
 
-    // TODO: i18n
-    var protonCountTitle = new Text( 'Protons:', options.font );
+    var protonCountTitle = new Text( protonsString, options.font );
     this.addChild( protonCountTitle );
     var protonCountText = new Text( numberAtom.protonCount, options.font );
     this.addChild( protonCountText );
-    var neutronCountTitle = new Text( 'Neutrons:', options.font );
+    var neutronCountTitle = new Text( neutronsString, options.font );
     this.addChild( neutronCountTitle );
     var neutronCountText = new Text( numberAtom.neutronCount, options.font );
     this.addChild( neutronCountText );
-    var electronCountTitle = new Text( 'Electrons:', options.font );
+    var electronCountTitle = new Text( electronsString, options.font );
     this.addChild( electronCountTitle );
     var electronCountText = new Text( numberAtom.electronCount, options.font );
     this.addChild( electronCountText );

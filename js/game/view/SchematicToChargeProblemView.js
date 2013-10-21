@@ -23,6 +23,9 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
+  // Strings
+  var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/game.whatIsTheTotalChargeBr' );
+
   /**
    * Main constructor function.
    *
@@ -43,8 +46,8 @@ define( function( require ) {
     // Add the schematic representation of the atom.
     this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, mvt ) );
 
-    // Question TODO: i18n
-    var questionPrompt = new MultiLineText( "What is the\ntotal charge?", { align: 'left', font: new PhetFont( 24 ) } );
+    // Question
+    var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, { align: 'left', font: new PhetFont( 24 ) } );
     this.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer

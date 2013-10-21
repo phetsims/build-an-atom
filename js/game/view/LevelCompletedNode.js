@@ -21,6 +21,12 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
 
+  // Strings
+  var keepTryingString = require( 'string!BUILD_AN_ATOM/game.keepTryingString' );
+  var goodString = require( 'string!BUILD_AN_ATOM/game.goodString' );
+  var greatString = require( 'string!BUILD_AN_ATOM/game.greatString' );
+  var excellentString = require( 'string!BUILD_AN_ATOM/game.excellentString' );
+
   // Constants
   var BACKGROUND_COLOR = new Color( 180, 205, 255 );
   var INFO_TEXT_FONT = new PhetFont( { size: 22, weight: 'bold' } );
@@ -47,16 +53,15 @@ define( function( require ) {
     this.addChild( background );
 
     var proportionCorrect = gameModel.score / gameModel.MAX_POINTS_PER_GAME_LEVEL;
-    //TODO: i18n
-    var titleText = 'Keep Trying!';
+    var titleText = keepTryingString;
     if ( proportionCorrect > 0.95 ){
-      titleText = 'Excellent!';
+      titleText = excellentString;
     }
     else if ( proportionCorrect > 0.75 ){
-      titleText = 'Great!';
+      titleText = greatString;
     }
     else if ( proportionCorrect >= 0.5 ){
-      titleText = 'Good';
+      titleText = goodString;
     }
     var title = new Text( titleText, {font: new PhetFont( { size: 28, weight: 'bold' } )} ); // TODO: i18n
     title.scale( Math.min( 1, (size.width * 0.9 ) / title.width ) );

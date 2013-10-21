@@ -10,7 +10,7 @@
   "whiteIsotopeBox": "White Isotope Box",
   "element.none.name": "--",
   "massNumber": "Mass Number",
-  "game.whatIsTheTotalChargeBr": "<html>What is the<br>total charge</html>?",
+  "game.whatIsTheTotalChargeBr": "What is the\ntotal charge?",
   "element.name": "Element Name",
   "negative.ion": "- Ion",
   "element.silicon.name": "Silicon",
@@ -38,7 +38,7 @@
   "electron.model.orbits": "Orbits",
   "electron.model": "Model:",
   "thisIsotope": "This Isotope",
-  "game.whatIsTheMassNumber": "What is the mass number?",
+  "game.whatIsTheMassNumber": "What is the\nmass number?",
   "stable": "Stable",
   "unstable": "Unstable",
   "build-an-atom.name": "Build an Atom",
@@ -70,7 +70,7 @@
   "element.hydrogen.name": "Hydrogen",
   "element.helium.name": "Helium",
   "element.oxygen.name": "Oxygen",
-  "game.whatIsTheMassNumberBr": "<html>What is the<br>mass number</html>?",
+  "game.whatIsTheMassNumberBr": "What is the\nmass number?",
   "game.next": "Next",
   "title.isotopeMixtures": "Mix Isotopes",
   "neutrons.readout": "Neutrons:",
@@ -83,5 +83,9 @@
   "protons.name": "Protons",
   "element.sulfur.name": "Sulfur",
   "indicator.mass.number": "Mass Number",
-  "show": "Show"
+  "show": "Show",
+  "game.keepTrying": "Keep Trying",
+  "game.good": "Good!",
+  "game.great": "Great!",
+  "game.excellent": "Excellent!"
 }

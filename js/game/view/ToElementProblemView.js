@@ -21,6 +21,12 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
 
+  // Strings
+  var findTheElementString = require( 'string!BUILD_AN_ATOM/game.findTheElement' );
+  var ionString = require( 'string!BUILD_AN_ATOM/game.ion' );
+  var neutralAtomString = require( 'string!BUILD_AN_ATOM/game.neutralAtom' );
+  var isItString = require( 'string!BUILD_AN_ATOM/game.isIt' );
+
   // Constants
   var TITLE_FONT = new PhetFont( 30 );
   var INSET = 10;
@@ -35,7 +41,7 @@ define( function( require ) {
     var thisNode = this;
 
     // Problem title
-    var problemTitle = new Text( 'Find the element:', { font: TITLE_FONT } ); // TODO: i18n
+    var problemTitle = new Text( findTheElementString, { font: TITLE_FONT } );
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
@@ -43,10 +49,10 @@ define( function( require ) {
     this.periodicTable.scale( 0.85 );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
-    // Neutral atom versus ion question. TODO i18n of this section.
-    var neutralVersusIonPrompt = new Text( 'Is it:', { font: new PhetFont( 24 )} );
-    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( 'Neutral Atom', {font: new PhetFont( 18 )} ), { radius: 8 } );
-    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( 'Ion', {font: new PhetFont( 18 )} ), { radius: 8 } );
+    // Neutral atom versus ion question.
+    var neutralVersusIonPrompt = new Text( isItString, { font: new PhetFont( 24 )} );
+    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, {font: new PhetFont( 18 )} ), { radius: 8 } );
+    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, {font: new PhetFont( 18 )} ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;

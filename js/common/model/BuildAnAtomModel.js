@@ -18,6 +18,11 @@ define( function( require ) {
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // Strings
+  var protonsString = require( 'string!BUILD_AN_ATOM/protons.name' );
+  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.name' );
+  var electronsString = require( 'string!BUILD_AN_ATOM/electrons.name' );
+
   // Constants
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 13;
@@ -63,7 +68,7 @@ define( function( require ) {
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'red',
-          caption: 'Protons',
+          caption: protonsString,
           captionColor: 'white'
         }
       ),
@@ -73,7 +78,7 @@ define( function( require ) {
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'rgb( 100, 100, 100 )',
-          caption: 'Neutrons',
+          caption: neutronsString,
           captionColor: 'white'
         }
       ),
@@ -84,7 +89,7 @@ define( function( require ) {
           sphereRadius: SharedConstants.ELECTRON_RADIUS,
           usableWidthProportion: 0.8,
           baseColor: 'blue',
-          caption: 'Electrons',
+          caption: electronsString,
           captionColor: 'white'
         }
       )

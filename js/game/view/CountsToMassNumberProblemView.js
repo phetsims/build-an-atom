@@ -20,6 +20,9 @@ define( function( require ) {
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
 
+  // Strings
+  var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/game.whatIsTheMassNumber' );
+
   /**
    * Main constructor function.
    *
@@ -35,8 +38,7 @@ define( function( require ) {
     var particleCountsNode = new ParticleCountsNode( countsToMassNumberProblem.answerAtom );
     thisNode.problemPresentationNode.addChild( particleCountsNode );
 
-    // Question TODO: i18n
-    var questionPrompt = new MultiLineText( "What is the\nmass number?", { align: 'left', font: new PhetFont( 24 ) } );
+    var questionPrompt = new MultiLineText( whatIsTheMassNumberString, { align: 'left', font: new PhetFont( 24 ) } );
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer

@@ -6,6 +6,7 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -13,6 +14,9 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
+
+  // Strings
+  var symbolString = require( 'string!BUILD_AN_ATOM/indicator.symbol' );
 
   /**
    * Constructor.
@@ -29,7 +33,7 @@ define( function( require ) {
     symbolNode.scale( 0.43 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode,
       {
-        title: 'Symbol', // TODO: i18n
+        title: symbolString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         minWidth: this.periodicTableBox.width,
         contentPosition: 'center',

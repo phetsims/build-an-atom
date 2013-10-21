@@ -20,8 +20,10 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
-  // Constants
-  var FONT = new PhetFont( 14 );
+  // Strings
+  var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
+  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
+  var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
 
   /**
    * @param numberAtom Model representation of the atom
@@ -35,13 +37,12 @@ define( function( require ) {
 
     var panelContents = new Node();
 
-    //TODO: i18n
-    var titleOptions = { font: new PhetFont( 14 ) };
-    var protonTitle = new Text( 'Protons:', titleOptions );
+    var labelOptions = { font: new PhetFont( 14 ) };
+    var protonTitle = new Text( protonsString, labelOptions );
     panelContents.addChild( protonTitle );
-    var neutronTitle = new Text( 'Neutrons:', titleOptions );
+    var neutronTitle = new Text( neutronsString, labelOptions );
     panelContents.addChild( neutronTitle );
-    var electronTitle = new Text( 'Electrons:', titleOptions );
+    var electronTitle = new Text( electronsString, labelOptions );
     panelContents.addChild( electronTitle );
 
     // Lay out the labels.

@@ -14,6 +14,15 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  // Strings
+  var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
+  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
+  var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
+
+  /**
+   * @param options
+   * @constructor
+   */
   function InteractiveParticleCountsNode( options ) {
 
     Node.call( this, options ); // Call super constructor.
@@ -22,18 +31,17 @@ define( function( require ) {
 
     this.numberAtom = new NumberAtom();
 
-    // TODO: i18n
-    var protonCountPrompt = new Text( 'Protons:', options.font );
+    var protonCountPrompt = new Text( protonsString, options.font );
     this.addChild( protonCountPrompt );
     var protonCountEntry = new NumberEntryNode( this.numberAtom.protonCountProperty, { minValue: 0 }  );
     this.addChild( protonCountEntry );
 
-    var neutronCountPrompt = new Text( 'Neutrons:', options.font );
+    var neutronCountPrompt = new Text( neutronsString, options.font );
     this.addChild( neutronCountPrompt );
     var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0 }  );
     this.addChild( neutronCountEntry );
 
-    var electronCountPrompt = new Text( 'Electrons:', options.font );
+    var electronCountPrompt = new Text( electronsString, options.font );
     this.addChild( electronCountPrompt );
     var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0 }  );
     this.addChild( electronCountEntry );
