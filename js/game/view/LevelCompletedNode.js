@@ -79,8 +79,8 @@ define( function( require ) {
     background.addChild( gameProgressIndicator );
 
     // TODO: i18n of everything below
-    var score = new Text( 'Score: ' + score + ' out of ' + maxPossibleScore, { font: INFO_TEXT_FONT } );
-    background.addChild( score );
+    var scoreText = new Text( 'Score: ' + score + ' out of ' + maxPossibleScore, { font: INFO_TEXT_FONT } );
+    background.addChild( scoreText );
 
     var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
     var time = new MultiLineText( 'Time: ' + GameTimer.formatTime( elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
@@ -105,15 +105,15 @@ define( function( require ) {
     continueButton.centerX = centerX;
     continueButton.bottom = size.height - inset;
     var verticalSpaceForInfoText = continueButton.top - gameProgressIndicator.bottom;
-    score.centerX = centerX;
+    scoreText.centerX = centerX;
     time.centerX = centerX;
     if ( timerEnabled ) {
-      score.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.3;
+      scoreText.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.3;
       time.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.7;
     }
     else {
       time.visible = false;
-      score.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.5;
+      scoreText.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.5;
     }
   };
 
