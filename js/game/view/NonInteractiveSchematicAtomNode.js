@@ -23,7 +23,6 @@ define( function( require ) {
    * @param mvt
    * @constructor
    */
-    //REVIEW this var is redundant, named constructor is sufficient.
   function NonInteractiveSchematicAtomNode( numberAtom, mvt ) {
     Node.call( this, { pickable: false } ); // Call super constructor.
     var thisNode = this;
