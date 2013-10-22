@@ -105,10 +105,6 @@ define( function( require ) {
 
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( function( charge ) {
-      var sign = '';
-      if ( charge > 0 ) {
-        sign = '+';
-      }
       chargeDisplay.text = ( charge > 0 ? '+' : '' ) + charge;
       chargeDisplay.fill = SharedConstants.CHARGE_TEXT_COLOR( charge );
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
