@@ -12,7 +12,7 @@ define( function( require ) {
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var GameScoreboardNode = require( 'BUILD_AN_ATOM/game/view/GameScoreboardNode' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LevelCompletedNode = require( 'BUILD_AN_ATOM/game/view/LevelCompletedNode' );
+  var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var RewardNode = require( 'BUILD_AN_ATOM/game/view/RewardNode' );
   var ScreenView = require( 'JOIST/ScreenView' );
