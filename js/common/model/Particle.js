@@ -22,16 +22,15 @@ define( function( require ) {
    * @constructor
    */
   function Particle( type ) {
-    PropertySet.call( this,
-      //REVIEW a different style of braces for object literal.
-      { type: type,
-        position: Vector2.ZERO,
-        destination: Vector2.ZERO,
-        radius: type === 'electron' ? SharedConstants.ELECTRON_RADIUS : SharedConstants.NUCLEON_RADIUS,
-        velocity: DEFAULT_PARTICLE_VELOCITY,
-        userControlled: false,
-        zLayer: 0 // Used in view, integer value, higher means further back.
-      } );
+    PropertySet.call( this, {
+      type: type,
+      position: Vector2.ZERO,
+      destination: Vector2.ZERO,
+      radius: type === 'electron' ? SharedConstants.ELECTRON_RADIUS : SharedConstants.NUCLEON_RADIUS,
+      velocity: DEFAULT_PARTICLE_VELOCITY,
+      userControlled: false,
+      zLayer: 0 // Used in view, integer value, higher means further back.
+    } );
   }
 
   return inherit( PropertySet, Particle, {

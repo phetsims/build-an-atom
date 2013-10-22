@@ -45,6 +45,8 @@ define( function( require ) {
    */
   function BuildAnAtomModel() {
 
+    var thisModel = this;
+
     // Call the super constructor.
     PropertySet.call( this,
       {
@@ -57,17 +59,12 @@ define( function( require ) {
         electronShellDepiction: 'orbits'
       } );
 
-    //REVIEW I typically define this as the first line of my constructor, then use it everywhere instead of 'this', not just in closures. I see this in other places, only mentioned here.
-    var thisModel = this;
-
     // Create the atom that the user will build, modify, and generally play with.
-    this.particleAtom = new ParticleAtom();
+    thisModel.particleAtom = new ParticleAtom();
 
     // Create the buckets that will hold the sub-atomic particles.
-    this.buckets = {
-      protonBucket: new SphereBucket(
-        //REVIEW Style discussion? I usually see this { on the previous line, which shifts the code it contains left 2 spaces. I see this in other places, only mentioned here.
-        {
+    thisModel.buckets = {
+      protonBucket: new SphereBucket( {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
@@ -76,8 +73,7 @@ define( function( require ) {
           captionColor: 'white'
         }
       ),
-      neutronBucket: new SphereBucket(
-        {
+      neutronBucket: new SphereBucket( {
           position: new Vector2( 0, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
@@ -86,8 +82,7 @@ define( function( require ) {
           captionColor: 'white'
         }
       ),
-      electronBucket: new SphereBucket(
-        {
+      electronBucket: new SphereBucket( {
           position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.ELECTRON_RADIUS,
@@ -110,8 +105,8 @@ define( function( require ) {
     };
 
     // Define the arrays where the subatomic particles will reside.
-    this.nucleons = [];
-    this.electrons = [];
+    thisModel.nucleons = [];
+    thisModel.electrons = [];
 
     // Add the protons.
     _.times( NUM_PROTONS, function() {
@@ -155,7 +150,7 @@ define( function( require ) {
     } );
 
     // Make available a 'number atom' that tracks the state of the particle atom.
-    this.numberAtom = new NumberAtom();
+    thisModel.numberAtom = new NumberAtom();
     var updateNumberAtom = function() {
       thisModel.numberAtom.protonCount = thisModel.particleAtom.protons.length;
       thisModel.numberAtom.neutronCount = thisModel.particleAtom.neutrons.length;
@@ -163,15 +158,15 @@ define( function( require ) {
     };
 
     // Update the number atom when the particle atom changes.
-    this.particleAtom.protons.lengthProperty.link( updateNumberAtom );
-    this.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
-    this.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
+    thisModel.particleAtom.protons.lengthProperty.link( updateNumberAtom );
+    thisModel.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
+    thisModel.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
 
     // Update the stability state and counter on changes.
-    this.nucleusStable = true;
-    this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-    this.nucleusOffset = Vector2.ZERO;
-    this.numberAtom.massNumberProperty.link( function( massNumber ) {
+    thisModel.nucleusStable = true;
+    thisModel.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    thisModel.nucleusOffset = Vector2.ZERO;
+    thisModel.numberAtom.massNumberProperty.link( function( massNumber ) {
       var stable = massNumber > 0 ? AtomIdentifier.isStable( thisModel.numberAtom.protonCount, thisModel.numberAtom.neutronCount ) : true;
       if ( thisModel.nucleusStable !== stable ) {
         // Stability has changed.
@@ -185,7 +180,7 @@ define( function( require ) {
 
     // If stability label visibility is turned off when nucleus animation is
     // in progress, reset the animation.
-    this.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
+    thisModel.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
       if ( !showStableOrUnstable ) {
         thisModel.particleAtom.nucleusOffset = Vector2.ZERO;
       }

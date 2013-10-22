@@ -168,8 +168,7 @@ define( function( require ) {
 
       }
       else {
-        //REVIEW Why are you using an assert here? Why not throw Error, as you've done below?
-        assert && assert( false, "Unexpected particle type." );
+        throw new Error( 'Unexpected particle type.' );
       }
     },
 
@@ -185,8 +184,7 @@ define( function( require ) {
         this.electrons.remove( particle );
       }
       else {
-        //REVIEW Why are you using an assert here?  Why not throw Error, as you've done below?
-        assert && assert( false, "Attempt to remove particle that is not in this particle atom." );
+        throw new Error( 'Attempt to remove particle that is not in this particle atom.' );
       }
       assert && assert( typeof( particle.particleAtomRemovalListener ) === 'function', "No particle removal listener attached to particle." );
       particle.userControlledProperty.unlink( particle.particleAtomRemovalListener );
@@ -229,10 +227,10 @@ define( function( require ) {
     // Remove all the particles but don't reconfigure the nucleus as they go.
     // This makes it a quicker operation.
     clear: function() {
-      var self = this; //REVIEW 'self' convention differs from what you've done elsewhere
-      this.protons.forEach( function( particle ) { self.removeParticle( particle ); } );
-      this.neutrons.forEach( function( particle ) { self.removeParticle( particle ); } );
-      this.electrons.forEach( function( particle ) { self.removeParticle( particle ); } );
+      var thisAtom = this; //REVIEW 'self' convention differs from what you've done elsewhere
+      this.protons.forEach( function( particle ) { thisAtom.removeParticle( particle ); } );
+      this.neutrons.forEach( function( particle ) { thisAtom.removeParticle( particle ); } );
+      this.electrons.forEach( function( particle ) { thisAtom.removeParticle( particle ); } );
     },
 
     // Move all the particles to their destinations.  This is generally used
@@ -276,9 +274,7 @@ define( function( require ) {
       }
 
       if ( nucleons.length === 1 ) {
-        //REVIEW why the 2-line comment here? I see this in other places, wondering if you're using something 'automatic' that results in odd breaks.
-        // There is only one nucleon present, so place it in the center
-        // of the atom.
+        // There is only one nucleon present, so place it in the center of the atom.
         nucleons[0].destination = new Vector2( centerX, centerY );
         nucleons[0].zLayer = 0;
       }
@@ -319,9 +315,7 @@ define( function( require ) {
         nucleons[3].zLayer = 1;
       }
       else if ( nucleons.length >= 5 ) {
-        //REVIEW another odd comment break
-        // This is a generalized algorithm that should work for five or
-        // more nucleons.
+        // This is a generalized algorithm that should work for five or more nucleons.
         var placementRadius = 0;
         var numAtThisRadius = 1;
         var level = 0;

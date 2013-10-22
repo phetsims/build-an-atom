@@ -31,8 +31,7 @@ define( function( require ) {
    * @param maxWidth The maximum width that this display should reach
    * @constructor
    */
-  //REVIEW this var is redundant, sufficient to name the constructor
-  var ParticleCountDisplay = function ParticleCountDisplay( numberAtom, maxParticles, maxWidth ) {
+  function ParticleCountDisplay( numberAtom, maxParticles, maxWidth ) {
 
     Node.call( this, { pickable: false } ); // Call super constructor.
 

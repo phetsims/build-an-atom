@@ -31,8 +31,7 @@ define( function( require ) {
    * @param options
    * @constructor
    */
-  //REVIEW this var is redundant, naming the constructor is sufficient
-  var ChargeMeter = function ChargeMeter( numberAtom, options ) {
+  function ChargeMeter( numberAtom, options ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -117,9 +116,8 @@ define( function( require ) {
         } );
       this.addChild( numericalReadout );
 
-      //REVIEW Comment says 'empty-string' but it's create with a space. Any reason? Needed for layout?...
-      // created with placeholder empty-string, which will be changed
-      readoutText = new Text( " ", {
+      // Created with placeholder empty-string, which will be changed.
+      readoutText = new Text( '', {
         font: new PhetFont( { size: 24, weight: 'bold' } )
       } );
       numericalReadout.addChild( readoutText );

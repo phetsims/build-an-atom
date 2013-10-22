@@ -18,9 +18,12 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  //REVIEW this var is redundant, naming the constructor is sufficient
-  //REVIEW @param tags
-  var ElectronCloudView = function ElectronCloudView( atom, mvt ) {
+  /**
+   * @param {ParticleAtom} atom
+   * @param {ModelViewTransform2} mvt
+   * @constructor
+   */
+  function ElectronCloudView( atom, mvt ) {
 
     // Call super constructor.
     Node.call( this, { cursor: 'pointer' } );
@@ -87,7 +90,7 @@ define( function( require ) {
           }
         }
       } ) );
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, ElectronCloudView );

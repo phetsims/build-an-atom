@@ -30,6 +30,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
 
   // Strings
@@ -64,9 +65,8 @@ define( function( require ) {
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
-      //REVIEW unsafe use of duck-typing, JSdoc for first 2 parameters is {Vector2}
-      { x: 0, y: 0 },
-      { x: thisView.layoutBounds.width * 0.275, y: thisView.layoutBounds.height * 0.45 },
+      Vector2.ZERO,
+      new Vector2( thisView.layoutBounds.width * 0.275, thisView.layoutBounds.height * 0.45 ),
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
