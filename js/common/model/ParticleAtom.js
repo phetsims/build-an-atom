@@ -136,8 +136,7 @@ define( function( require ) {
         if ( this.electronAddMode === 'proximal' ) {
           sortedOpenPositions = openPositions.sort( function( p1, p2 ) {
             // Sort first by distance to particle.
-            return( Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p1.position.x, p1.position.y ) -
-                    Utils.distanceBetweenPoints( particle.position.x, particle.position.y, p2.position.x, p2.position.y ));
+            return( particle.position.distance( p1.position ) - particle.position.distance( p2.position ) );
           } );
         }
         else {
@@ -146,8 +145,7 @@ define( function( require ) {
 
         // Put the inner shell positions in front.
         sortedOpenPositions = sortedOpenPositions.sort( function( p1, p2 ) {
-          return( Math.round( Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p1.position.x, p1.position.y ) -
-                              Utils.distanceBetweenPoints( thisAtom.position.x, thisAtom.position.y, p2.position.x, p2.position.y ) ) );
+          return( thisAtom.position.distance( p1.position ) - thisAtom.position.distance( p2.position ) );
         } );
 
         assert && assert( sortedOpenPositions.length > 0, "No open positions found for electrons" );
