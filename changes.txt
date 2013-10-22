@@ -1,3 +1,5 @@
+10/22/2013 Cleaned up code and fixed several issues, all based on code review.
+10/21/2013 Implemented internationalization for all code except the game, since that will be moving to common code.
 10/18/2013 Another optimization to the reward screen - made the bounding rectangle invisible rather than transparent.
 # 1.1.0-rc.3
 10/18/2013 Added several optimizations to the 'reward screen' in the game - significantly improves performance on Firefox and iPad.
