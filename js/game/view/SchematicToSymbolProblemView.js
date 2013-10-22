@@ -19,6 +19,7 @@ define( function( require ) {
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * Main constructor function.
@@ -44,9 +45,8 @@ define( function( require ) {
 
     // Create the model-view transform used by the schematic atom.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
-      //REVIEW unsafe use of duck-typing, JSdoc for first 2 parameters is {Vector2}
-      { x: 0, y: 0 },
-      { x: layoutBounds.width * 0.275, y: layoutBounds.height * 0.45 },
+      Vector2.ZERO,
+      new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
       0.8 );
 
     // Add the schematic representation of the atom.

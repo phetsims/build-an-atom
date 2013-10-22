@@ -227,7 +227,7 @@ define( function( require ) {
     // Remove all the particles but don't reconfigure the nucleus as they go.
     // This makes it a quicker operation.
     clear: function() {
-      var thisAtom = this; //REVIEW 'self' convention differs from what you've done elsewhere
+      var thisAtom = this;
       this.protons.forEach( function( particle ) { thisAtom.removeParticle( particle ); } );
       this.neutrons.forEach( function( particle ) { thisAtom.removeParticle( particle ); } );
       this.electrons.forEach( function( particle ) { thisAtom.removeParticle( particle ); } );

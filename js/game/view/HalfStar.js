@@ -14,8 +14,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  //REVIEW: JO: Should be HalfStar?
-  var Star = function Star( diameter, options ) {
+  function HalfStar( diameter, options ) {
     var starShape = new Shape();
     var angle = -Math.PI / 2;
     for ( var i = 0; i < 6; i++ ) {
@@ -23,10 +22,9 @@ define( function( require ) {
       starShape.lineTo( vector.x, vector.y );
       angle -= ( 2 * Math.PI ) / 10;
     }
-
     Path.call( this, starShape, options ); // Call super constructor.
-  };
+  }
 
   // Inherit from Path.
-  return inherit( Path, Star );
+  return inherit( Path, HalfStar );
 } );
