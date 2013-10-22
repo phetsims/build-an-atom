@@ -2,6 +2,8 @@
 
 /**
  * Model representation of a particle.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

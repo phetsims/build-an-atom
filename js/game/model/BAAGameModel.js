@@ -2,6 +2,8 @@
 
 /**
  * Primary model class for the Build and Atom Game tab.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

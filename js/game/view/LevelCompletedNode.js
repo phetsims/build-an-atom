@@ -2,6 +2,8 @@
 
 /**
  * Node that is shown when the user completes a level of the game.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';
@@ -11,6 +13,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var GameProgressIndicator = require( 'BUILD_AN_ATOM/game/view/GameProgressIndicator' );
   var GameStartButton = require( 'BUILD_AN_ATOM/game/view/GameStartButton' );
+  var GameTimer = require( 'VEGAS/GameTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Line = require( 'SCENERY/nodes/Line' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -19,13 +22,12 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var TextButton = require( 'SUN/TextButton' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
 
   // Strings
-  var keepTryingString = require( 'string!BUILD_AN_ATOM/game.keepTryingString' );
-  var goodString = require( 'string!BUILD_AN_ATOM/game.goodString' );
-  var greatString = require( 'string!BUILD_AN_ATOM/game.greatString' );
-  var excellentString = require( 'string!BUILD_AN_ATOM/game.excellentString' );
+  var keepTryingString = require( 'string!BUILD_AN_ATOM/game.keepTrying' );
+  var goodString = require( 'string!BUILD_AN_ATOM/game.good' );
+  var greatString = require( 'string!BUILD_AN_ATOM/game.great' );
+  var excellentString = require( 'string!BUILD_AN_ATOM/game.excellent' );
 
   // Constants
   var BACKGROUND_COLOR = new Color( 180, 205, 255 );
@@ -76,12 +78,12 @@ define( function( require ) {
     background.addChild( score );
 
     var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-    var time = new MultiLineText( 'Time: ' + Utils.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
+    var time = new MultiLineText( 'Time: ' + GameTimer.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
     if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ) {
       time.text += '\n(Your New Best!)';
     }
     else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ) {
-      time.text += '\n(Your Best: ' + Utils.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
+      time.text += '\n(Your Best: ' + GameTimer.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
     }
     background.addChild( time );
 

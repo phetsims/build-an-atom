@@ -6,6 +6,8 @@
  * this class is that it removes items from the enclosed list automatically,
  * and it keeps track of what we removed in case it ends up being needed
  * again.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

@@ -4,6 +4,8 @@
  * Model of an atom that represents the atom as a set of numbers which
  * represent the quantity of the various subatomic particles (i.e. protons,
  * neutrons, and electrons).
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

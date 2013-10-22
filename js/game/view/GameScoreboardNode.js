@@ -11,15 +11,15 @@ define( function( require ) {
 
   // Imports
   var Color = require( 'SCENERY/util/Color' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var GameTimer = require( 'VEGAS/GameTimer' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var SimpleClockIcon = require( 'SCENERY_PHET/SimpleClockIcon' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var SimpleClockIcon = require( 'SCENERY_PHET/SimpleClockIcon' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var TextButton = require( 'SUN/TextButton' );
-  var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
 
   // Constants
   var FONT = new PhetFont( 20 );
@@ -65,7 +65,7 @@ define( function( require ) {
     var timerValue = new Text( '0', { font: FONT } );
     thisNode.addChild( timerValue );
     gameModel.elapsedTimeProperty.link( function( elapsedTime ) {
-      timerValue.text = Utils.formatTime( elapsedTime );
+      timerValue.text = GameTimer.formatTime( elapsedTime );
     } );
     gameModel.timerEnabledProperty.link( function( timerEnabled ) {
       timerIcon.visible = timerEnabled;

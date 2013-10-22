@@ -3,6 +3,8 @@
 /**
  * Node that represents an element symbol where each of the numbers on the
  * symbol, i.e. proton count, mass number, and charge, can be interactive.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

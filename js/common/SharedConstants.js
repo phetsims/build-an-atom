@@ -2,6 +2,8 @@
 
 /**
  * Shared constants used in various places.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

@@ -2,6 +2,8 @@
 
 /**
  * Main view for the second tab of the Build an Atom simulation.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

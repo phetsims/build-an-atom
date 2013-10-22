@@ -3,6 +3,8 @@
 /**
  * Screen that is presented to the user that allows them to select from a set
  * of sub-games (a.k.a. levels) to play.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

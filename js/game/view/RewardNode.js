@@ -4,6 +4,8 @@
  * This type defines an animated screen which is displayed as a sort of
  * 'reward' when the user gets a perfect score on a game level.  It animates
  * a set of chemical symbols falling from the sky.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

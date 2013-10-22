@@ -3,6 +3,8 @@
 /**
  * Node that indicates a user's progress on a game or game level by
  * illuminating stars.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

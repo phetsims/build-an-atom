@@ -3,6 +3,8 @@
 /**
  * A type that defines a specialized button for initiating sub-games and for
  * depicting the progress made on each sub-game.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

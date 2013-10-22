@@ -2,6 +2,8 @@
 
 /**
  * Node that represents a half-star shape.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

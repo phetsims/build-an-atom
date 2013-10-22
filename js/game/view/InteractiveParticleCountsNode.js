@@ -2,6 +2,8 @@
 
 /**
  * Node for entering numbers of protons, neutrons, electrons.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

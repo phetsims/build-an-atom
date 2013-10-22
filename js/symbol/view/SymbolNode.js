@@ -3,6 +3,8 @@
 /**
  * Scenery node that represents an atomic symbol, meaning that it shows the
  * symbol text, the proton count, atomic number, and charge.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

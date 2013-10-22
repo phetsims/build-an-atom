@@ -3,6 +3,8 @@
 /**
  * Node that allows a user to enter a numerical value using up/down arrow
  * buttons.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

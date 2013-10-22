@@ -3,6 +3,8 @@
 /**
  * A non-interactive representation of an atom where the individual sub-atomic
  * particles are visible.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';

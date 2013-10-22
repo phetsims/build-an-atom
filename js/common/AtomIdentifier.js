@@ -3,6 +3,8 @@
 /**
  * Object that can be used to identify various things about an atom given its
  * configuration, i.e. number of protons, neutrons, and/or electrons.
+ *
+ * @author John Blanco
  */
 define( function( require ) {
   'use strict';
