@@ -54,8 +54,9 @@ define( function( require ) {
       symbolRectangle.addChild( symbolText );
     } );
 
-    //REVIEW do the constants below have any significance, or is this just the end-product of visual tweaking?
-    // Do the layout.  This positions the symbol to fit into the top portion of the table.
+    // Do the layout.  This positions the symbol to fit into the top portion
+    // of the table.  The periodic table is 18 cells wide, and this needs
+    // to be centered over the 8th column to be in the right place.
     symbolRectangle.centerX = (7.5 / 18 ) * periodicTable.width;
     symbolRectangle.top = 0;
     periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5);
