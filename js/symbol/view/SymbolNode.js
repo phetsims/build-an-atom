@@ -19,6 +19,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // Constants
@@ -56,11 +57,11 @@ define( function( require ) {
       } );
 
     // Add the listener to update the symbol text.
+    var textCenter = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     numberAtom.protonCountProperty.link( function( protonCount ) {
       var symbol = AtomIdentifier.getSymbol( protonCount );
       symbolText.text = protonCount > 0 ? symbol : '';
-      //REVIEW: JO: this is a constant vector being recreated in an inner loop (extra garbage collection). Extract it
-      symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
+      symbolText.center = textCenter;
     } );
     boundingBox.addChild( symbolText );
 
@@ -105,18 +106,11 @@ define( function( require ) {
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( function( charge ) {
       var sign = '';
-      var textColor; //REVIEW textColor appears to be unused.
       if ( charge > 0 ) {
         sign = '+';
-        textColor = 'red';
       }
-      else if ( charge < 0 ) {
-        textColor = 'blue';
-      }
-      else {
-        textColor = 'black';
-      }
-      chargeDisplay.text = sign + charge;
+      chargeDisplay.text = ( charge > 0 ? '+' : '' ) + charge;
+      chargeDisplay.fill = SharedConstants.CHARGE_TEXT_COLOR( charge );
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;
     } );
