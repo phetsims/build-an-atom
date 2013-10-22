@@ -11,20 +11,20 @@ define( function( require ) {
 
   // Imports
   var CheckBox = require( 'SUN/CheckBox' );
-  var GameStartButton = require( 'BUILD_AN_ATOM/game/view/GameStartButton' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
-  var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
-  var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
-  var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var LevelStartButton = require( 'VEGAS/LevelStartButton' );
+  var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
+  var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
   var Text = require( 'SCENERY/nodes/Text' );
   var TimerToggleButton = require( 'SCENERY_PHET/TimerToggleButton' );
 
@@ -33,6 +33,7 @@ define( function( require ) {
 
   // Constants
   var CONTROL_INSET = 20;
+  var NUM_STARS_ON_BUTTON = 5;
 
   /**
    * @param {BAAGameModel} gameModel
@@ -48,32 +49,36 @@ define( function( require ) {
     this.addChild( title );
 
     // Buttons for starting a sub-game (a.k.a. a level).
-    var periodicTableGameButton = new GameStartButton(
+    var periodicTableGameButton = new LevelStartButton(
       new Image( periodicTableIcon ),
+      NUM_STARS_ON_BUTTON,
       function() {
         gameModel.startSubGame( 'periodic-table-game' );
       },
       gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new GameStartButton(
+    var massAndChangeGameButton = new LevelStartButton(
       new Image( massChargeIcon ),
+      NUM_STARS_ON_BUTTON,
       function() {
         gameModel.startSubGame( 'mass-and-charge-game' );
       },
       gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new GameStartButton(
+    var symbolGameButton = new LevelStartButton(
       new Image( symbolQuestionIcon ),
+      NUM_STARS_ON_BUTTON,
       function() {
         gameModel.startSubGame( 'symbol-game' );
       },
       gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new GameStartButton(
+    var advancedSymbolGameButton = new LevelStartButton(
       new Image( questionMarkIcon ),
+      NUM_STARS_ON_BUTTON,
       function() {
         gameModel.startSubGame( 'advanced-symbol-game' );
       },

@@ -11,8 +11,7 @@ define( function( require ) {
   // Imports
   var Color = require( 'SCENERY/util/Color' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var GameProgressIndicator = require( 'BUILD_AN_ATOM/game/view/GameProgressIndicator' );
-  var GameStartButton = require( 'BUILD_AN_ATOM/game/view/GameStartButton' );
+  var ProgressIndicator = require( 'VEGAS/ProgressIndicator' );
   var GameTimer = require( 'VEGAS/GameTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Line = require( 'SCENERY/nodes/Line' );
@@ -70,7 +69,7 @@ define( function( require ) {
     background.addChild( title );
 
     var starDiameter = Math.min( size.width / gameModel.PROBLEMS_PER_SUB_GAME * 0.8, size.width * 0.2 );
-    var gameProgressIndicator = new GameProgressIndicator( gameModel.PROBLEMS_PER_SUB_GAME, starDiameter, new Property( gameModel.score ), gameModel.MAX_POINTS_PER_GAME_LEVEL );
+    var gameProgressIndicator = new ProgressIndicator( gameModel.PROBLEMS_PER_SUB_GAME, starDiameter, new Property( gameModel.score ), gameModel.MAX_POINTS_PER_GAME_LEVEL );
     background.addChild( gameProgressIndicator );
 
     // TODO: i18n of everything below
