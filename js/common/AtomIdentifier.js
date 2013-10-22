@@ -1,6 +1,5 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
-//REVIEW Could rewrite this in the same way as suggested for SharedConstants. Ditto for any fully 'static' collection of constants and functions.
 /**
  * Object that can be used to identify various things about an atom given its
  * configuration, i.e. number of protons, neutrons, and/or electrons.
@@ -8,44 +7,7 @@
 define( function( require ) {
   'use strict';
 
-  // Not meant to be instantiated.
-  var AtomIdentifier = { };
-
-  /**
-   * @param numProtons
-   * @return string
-   */
-  AtomIdentifier.getSymbol = function( numProtons ) {
-    return _symbolTable[ numProtons ];
-  };
-
-  /**
-   * @param numProtons
-   * @return string
-   */
-  AtomIdentifier.getName = function( numProtons ) {
-    return _nameTable[numProtons];
-  };
-
-  /**
-   * Identifies whether a given atomic nucleus is stable.
-   * @param numProtons
-   * @param numNeutrons
-   */
-  AtomIdentifier.isStable = function( numProtons, numNeutrons ) {
-    var tableEntry = _stableElementTable[ numProtons ];
-    if ( typeof( tableEntry ) === 'undefined' ) {
-      return false;
-    }
-    return $.inArray( numNeutrons, tableEntry ) > -1;
-  };
-
-  AtomIdentifier.getNumNeutronsInMostCommonIsotope = function( atomicNumber ) {
-    return _numNeutronsInMostStableIsotope[ atomicNumber ];
-  };
-
-
-  var _nameTable = [
+  var nameTable = [
     '',
     require( 'string!BUILD_AN_ATOM/element.hydrogen.name' ),
     require( 'string!BUILD_AN_ATOM/element.helium.name' ),
@@ -161,7 +123,7 @@ define( function( require ) {
     'Ununbium'
   ];
 
-  var _symbolTable = [
+  var symbolTable = [
     '-', // 0, NO ELEMENT
     'H', // 1, HYDROGEN
     'He', // 2, HELIUM
@@ -278,7 +240,7 @@ define( function( require ) {
   ];
 
   // Table of stable elements, indexed by atomic number to a list of viable numbers of neutrons.
-  var _stableElementTable = [
+  var stableElementTable = [
     // No element
     [],
     // Hydrogen
@@ -303,7 +265,7 @@ define( function( require ) {
     [10, 11, 12]
   ];
 
-  var _numNeutronsInMostStableIsotope = [
+  var numNeutronsInMostStableIsotope = [
     // No element
     0,
     // Hydrogen
@@ -426,5 +388,28 @@ define( function( require ) {
     161
   ];
 
-  return AtomIdentifier;
+  return {
+    // Get the chemical symbol for an atom with the specified number of protons.
+    getSymbol: function( numProtons ) {
+      return symbolTable[ numProtons ];
+    },
+
+    // Get the chemical name for an atom with the specified number of protons.
+    getName: function( numProtons ) {
+      return nameTable[numProtons];
+    },
+
+    // Identifies whether a given atomic nucleus is stable.
+    isStable: function( numProtons, numNeutrons ) {
+      var tableEntry = stableElementTable[ numProtons ];
+      if ( typeof( tableEntry ) === 'undefined' ) {
+        return false;
+      }
+      return $.inArray( numNeutrons, tableEntry ) > -1;
+    },
+
+    getNumNeutronsInMostCommonIsotope: function( atomicNumber ) {
+      return numNeutronsInMostStableIsotope[ atomicNumber ];
+    }
+  };
 } );
