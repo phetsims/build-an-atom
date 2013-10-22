@@ -54,7 +54,13 @@ define( function( require ) {
           rewardNode.mutate( { centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } );
           rewardNode.animationEnabled = true;
         }
-        rootNode.addChild( new LevelCompletedNode( gameModel, thisScene.layoutBounds ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
+
+        // Add the dialog node that indicates that the level has been completed.
+        rootNode.addChild( new LevelCompletedNode( gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL, gameModel.PROBLEMS_PER_SUB_GAME,
+          gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ],
+          thisScene.layoutBounds, function() { gameModel.state = 'selectSubGame'} ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
+
+        // Play the appropriate audio feedback.
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
           gameAudioPlayer.gameOverPerfectScore();
         }

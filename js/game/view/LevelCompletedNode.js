@@ -33,11 +33,17 @@ define( function( require ) {
   var INFO_TEXT_FONT = new PhetFont( { size: 22, weight: 'bold' } );
 
   /**
-   * @param {BAAGameModel} gameModel
+   * @param {number} score
+   * @param {number} maxPossibleScore
+   * @param {number} numStars
+   * @param {boolean} timerEnabled
+   * @param {number} elapsedTime In seconds
+   * @param {number} bestTimeAtThisLevel In seconds
    * @param {Bounds2} layoutBounds
+   * @param {function} continueFunction Function to call when the user presses the 'Continue' button.
    * @constructor
    */
-  var LevelCompletedNode = function( gameModel, layoutBounds ) {
+  var LevelCompletedNode = function( score, maxPossibleScore, numStars, timerEnabled, elapsedTime, bestTimeAtThisLevel, layoutBounds, continueFunction ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -53,7 +59,7 @@ define( function( require ) {
 
     this.addChild( background );
 
-    var proportionCorrect = gameModel.score / gameModel.MAX_POINTS_PER_GAME_LEVEL;
+    var proportionCorrect = score / maxPossibleScore;
     var titleText = keepTryingString;
     if ( proportionCorrect > 0.95 ) {
       titleText = excellentString;
@@ -68,29 +74,25 @@ define( function( require ) {
     title.scale( Math.min( 1, (size.width * 0.9 ) / title.width ) );
     background.addChild( title );
 
-    var starDiameter = Math.min( size.width / gameModel.PROBLEMS_PER_SUB_GAME * 0.8, size.width * 0.2 );
-    var gameProgressIndicator = new ProgressIndicator( gameModel.PROBLEMS_PER_SUB_GAME, starDiameter, new Property( gameModel.score ), gameModel.MAX_POINTS_PER_GAME_LEVEL );
+    var starDiameter = Math.min( size.width / numStars * 0.8, size.width * 0.2 );
+    var gameProgressIndicator = new ProgressIndicator( numStars, starDiameter, new Property( score ), maxPossibleScore );
     background.addChild( gameProgressIndicator );
 
     // TODO: i18n of everything below
-    var score = new Text( 'Score: ' + gameModel.score + ' out of ' + gameModel.MAX_POINTS_PER_GAME_LEVEL, { font: INFO_TEXT_FONT } );
+    var score = new Text( 'Score: ' + score + ' out of ' + maxPossibleScore, { font: INFO_TEXT_FONT } );
     background.addChild( score );
 
     var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-    var time = new MultiLineText( 'Time: ' + GameTimer.formatTime( gameModel.elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
-    if ( gameModel.elapsedTime === gameModel.bestTimes[ gameModel.level ] ) {
+    var time = new MultiLineText( 'Time: ' + GameTimer.formatTime( elapsedTime ), { font: INFO_TEXT_FONT, align: 'center' } );
+    if ( elapsedTime === bestTimeAtThisLevel ) {
       time.text += '\n(Your New Best!)';
     }
-    else if ( gameModel.bestTimes[ gameModel.level ] < Number.POSITIVE_INFINITY ) {
-      time.text += '\n(Your Best: ' + GameTimer.formatTime( gameModel.bestTimes[ gameModel.level ] ) + ')';
+    else {
+      time.text += '\n(Your Best: ' + GameTimer.formatTime( bestTimeAtThisLevel ) + ')';
     }
     background.addChild( time );
 
-    var continueButton = new TextButton( 'Continue',
-      function() {
-        gameModel.state = 'selectSubGame';
-      },
-      { font: new PhetFont( 28 ), rectangleFillUp: new Color( 255, 255, 0 ) } );
+    var continueButton = new TextButton( 'Continue', continueFunction, { font: new PhetFont( 28 ), rectangleFillUp: new Color( 255, 255, 0 ) } );
     background.addChild( continueButton );
 
     // Layout
@@ -105,7 +107,7 @@ define( function( require ) {
     var verticalSpaceForInfoText = continueButton.top - gameProgressIndicator.bottom;
     score.centerX = centerX;
     time.centerX = centerX;
-    if ( gameModel.timerEnabled ) {
+    if ( timerEnabled ) {
       score.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.3;
       time.centerY = gameProgressIndicator.bottom + verticalSpaceForInfoText * 0.7;
     }
