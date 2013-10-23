@@ -7,6 +7,7 @@ require(
     'BUILD_AN_ATOM/game/view/BAAGameView',
     'BUILD_AN_ATOM/symbol/view/SymbolView',
     'SCENERY/nodes/Image',
+    'JOIST/Screen',
     'JOIST/Sim',
     'JOIST/SimLauncher',
     'string!BUILD_AN_ATOM/build-an-atom.name',
@@ -17,7 +18,7 @@ require(
     'image!BUILD_AN_ATOM/baa_element_icon.png',
     'image!BUILD_AN_ATOM/game_icon.png'
   ],
-  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView, Image, Sim, SimLauncher, simTitle, atomModuleString, symbolModuleString, gameModuleString, atomIcon, elementIcon, gameIcon ) {
+  function( BuildAnAtomModel, BuildAnAtomView, BAAGameModel, BAAGameView, SymbolView, Image, Screen, Sim, SimLauncher, simTitle, atomModuleString, symbolModuleString, gameModuleString, atomIcon, elementIcon, gameIcon ) {
     'use strict';
 
     var simOptions = {
@@ -35,21 +36,20 @@ require(
 
       //Create and start the sim
       new Sim( simTitle, [
-        { name: atomModuleString,
-          icon: new Image( atomIcon ),
-          backgroundColor: 'white',
-          createModel: function() { return new BuildAnAtomModel(); },
-          createView: function( model ) { return new BuildAnAtomView( model ); } },
-        { name: symbolModuleString,
-          icon: new Image( elementIcon ),
-          backgroundColor: 'rgb( 242, 255, 204 )', // Light yellow-green.
-          createModel: function() { return new BuildAnAtomModel(); },
-          createView: function( model ) { return new SymbolView( model ); } },
-        { name: gameModuleString,
-          icon: new Image( gameIcon ),
-          backgroundColor: 'rgb( 255, 254, 223 )',
-          createModel: function() { return new BAAGameModel(); },
-          createView: function( model ) { return new BAAGameView( model ); } }
+        new Screen( atomModuleString, new Image( atomIcon ),
+          function() { return new BuildAnAtomModel(); },
+          function( model ) { return new BuildAnAtomView( model ); }
+        ),
+        new Screen( symbolModuleString, new Image( elementIcon ),
+          function() { return new BuildAnAtomModel(); },
+          function( model ) { return new SymbolView( model ); },
+          { backgroundColor: 'rgb( 242, 255, 204 )' /* Light yellow-green */ }
+        ),
+        new Screen( gameModuleString, new Image( gameIcon ),
+          function() { return new BAAGameModel(); },
+          function( model ) { return new BAAGameView( model ); },
+          { backgroundColor: 'rgb( 255, 254, 223 )' }
+        )
       ], simOptions ).start();
     } );
   } );
