@@ -153,7 +153,7 @@ define( function( require ) {
         }
       }
     } );
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, ChargeMeter );

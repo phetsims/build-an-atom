@@ -138,7 +138,7 @@ define( function( require ) {
 
     // Add it all to a panel.
     this.addChild( new Panel( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, ParticleCountDisplay );

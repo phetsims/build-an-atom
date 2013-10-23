@@ -48,7 +48,7 @@ define( function( require ) {
       }
     };
     SimpleDragHandler.call( this, options ); // Call super constructor.
-  };
+  }
 
   // Inherit from base class.
   return inherit( SimpleDragHandler, BucketDragHandler );

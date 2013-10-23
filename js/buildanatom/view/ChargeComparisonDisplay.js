@@ -130,7 +130,7 @@ define( function( require ) {
     } );
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, ChargeComparisonDisplay );

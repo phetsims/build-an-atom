@@ -51,7 +51,7 @@ define( function( require ) {
       }
     );
     this.addChild( innerRing );
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, ElectronShellView );

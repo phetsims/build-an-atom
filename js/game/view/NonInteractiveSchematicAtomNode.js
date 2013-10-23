@@ -70,7 +70,7 @@ define( function( require ) {
         particleLayer.addChild( particleView );
       } );
     }
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, NonInteractiveSchematicAtomNode );

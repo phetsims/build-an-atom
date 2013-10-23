@@ -119,7 +119,7 @@ define( function( require ) {
     soundToggleButton.bottom = layoutBounds.height - CONTROL_INSET;
     timerToggleButton.left = CONTROL_INSET;
     timerToggleButton.bottom = soundToggleButton.top - 10;
-  };
+  }
 
   // Inherit from Node.
   return inherit( Node, StartSubGameNode );

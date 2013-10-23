@@ -28,5 +28,5 @@ define( function( require ) {
 
     // Sub-game to level converter.
     SUB_GAME_TO_LEVEL: function( subGameType ) { return this.SUB_GAME_TYPES.indexOf( subGameType ); }
-  }
+  };
 } );
