@@ -57,8 +57,8 @@ define( function( require ) {
 
         // Add the dialog node that indicates that the level has been completed.
         rootNode.addChild( new LevelCompletedNode( gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL, gameModel.PROBLEMS_PER_SUB_GAME,
-          gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ],
-          thisScene.layoutBounds, function() { gameModel.state = 'selectSubGame'} ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
+          gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ], thisScene.layoutBounds,
+          function() { gameModel.state = 'selectSubGame'} ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
 
         // Play the appropriate audio feedback.
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
