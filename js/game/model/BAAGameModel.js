@@ -81,7 +81,7 @@ define( function( require ) {
     },
 
     // State where the user selects a new game.
-    newGame: function( level ) {
+    newGame: function() {
       this.state = 'selectSubGame';
       this.score = 0;
       this._stopGameTimer();

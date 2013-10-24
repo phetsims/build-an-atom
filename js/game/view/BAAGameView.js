@@ -10,11 +10,12 @@ define( function( require ) {
 
   // Imports
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
-  var GameScoreboardNode = require( 'BUILD_AN_ATOM/game/view/GameScoreboardNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var Property = require( 'AXON/Property' );
   var RewardNode = require( 'BUILD_AN_ATOM/game/view/RewardNode' );
+  var Scoreboard = require( 'VEGAS/Scoreboard' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartSubGameNode = require( 'BUILD_AN_ATOM/game/view/StartSubGameNode' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -35,7 +36,17 @@ define( function( require ) {
     thisScene.addChild( rootNode );
 
     var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
-    var scoreboard = new GameScoreboardNode( gameModel ).mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
+    var scoreboard = new Scoreboard(
+      gameModel.problemIndexProperty,
+      new Property( gameModel.PROBLEMS_PER_SUB_GAME ),
+      gameModel.levelProperty,
+      gameModel.scoreProperty,
+      gameModel.elapsedTimeProperty,
+      gameModel.timerEnabledProperty,
+      function() { gameModel.newGame(); },
+      { levelVisible: false }
+    );
+    scoreboard.mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     var rewardNode = new RewardNode( gameModel );
 
