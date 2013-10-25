@@ -2,7 +2,7 @@
 
 /**
  * Screen that is presented to the user that allows them to select from a set
- * of sub-games (a.k.a. levels) to play.
+ * of different game levels to play.
  *
  * @author John Blanco
  */
@@ -40,7 +40,7 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @constructor
    */
-  function StartSubGameNode( gameModel, layoutBounds ) {
+  function StartGameLevelNode( gameModel, layoutBounds ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -48,41 +48,41 @@ define( function( require ) {
     var title = new Text( chooseYourGameString, { font: new PhetFont( 30 ) } );
     this.addChild( title );
 
-    // Buttons for starting a sub-game (a.k.a. a level).
+    // Buttons for starting a game level.
     var periodicTableGameButton = new LevelStartButton(
       new Image( periodicTableIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startSubGame( 'periodic-table-game' );
+        gameModel.startGameLevel( 'periodic-table-game' );
       },
-      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'periodic-table-game' )],
+      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new LevelStartButton(
       new Image( massChargeIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startSubGame( 'mass-and-charge-game' );
+        gameModel.startGameLevel( 'mass-and-charge-game' );
       },
-      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'mass-and-charge-game' )],
+      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new LevelStartButton(
       new Image( symbolQuestionIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startSubGame( 'symbol-game' );
+        gameModel.startGameLevel( 'symbol-game' );
       },
-      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'symbol-game' )],
+      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new LevelStartButton(
       new Image( questionMarkIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startSubGame( 'advanced-symbol-game' );
+        gameModel.startGameLevel( 'advanced-symbol-game' );
       },
-      gameModel.bestScores[ SharedConstants.SUB_GAME_TO_LEVEL( 'advanced-symbol-game' )],
+      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' )],
       gameModel.MAX_POINTS_PER_GAME_LEVEL );
     this.addChild( advancedSymbolGameButton );
 
@@ -122,5 +122,5 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  return inherit( Node, StartSubGameNode );
+  return inherit( Node, StartGameLevelNode );
 } );

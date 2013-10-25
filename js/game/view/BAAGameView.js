@@ -17,7 +17,7 @@ define( function( require ) {
   var RewardNode = require( 'BUILD_AN_ATOM/game/view/RewardNode' );
   var Scoreboard = require( 'VEGAS/Scoreboard' );
   var ScreenView = require( 'JOIST/ScreenView' );
-  var StartSubGameNode = require( 'BUILD_AN_ATOM/game/view/StartSubGameNode' );
+  var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   /**
@@ -35,10 +35,10 @@ define( function( require ) {
     var rootNode = new Node();
     thisScene.addChild( rootNode );
 
-    var startSubGameNode = new StartSubGameNode( gameModel, this.layoutBounds );
+    var startGameLevelNode = new StartGameLevelNode( gameModel, this.layoutBounds );
     var scoreboard = new Scoreboard(
       gameModel.problemIndexProperty,
-      new Property( gameModel.PROBLEMS_PER_SUB_GAME ),
+      new Property( gameModel.PROBLEMS_PER_LEVEL ),
       gameModel.levelProperty,
       gameModel.scoreProperty,
       gameModel.elapsedTimeProperty,
@@ -52,12 +52,12 @@ define( function( require ) {
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
-      if ( state === 'selectSubGame' ) {
+      if ( state === 'selectGameLevel' ) {
         rewardNode.animationEnabled = false;
         rootNode.removeAllChildren();
-        rootNode.addChild( startSubGameNode );
+        rootNode.addChild( startGameLevelNode );
       }
-      else if ( state === 'subGameOver' ) {
+      else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
           // Perfect score, add the reward node.
@@ -67,9 +67,9 @@ define( function( require ) {
         }
 
         // Add the dialog node that indicates that the level has been completed.
-        rootNode.addChild( new LevelCompletedNode( gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL, gameModel.PROBLEMS_PER_SUB_GAME,
+        rootNode.addChild( new LevelCompletedNode( gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL, gameModel.PROBLEMS_PER_LEVEL,
           gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ], thisScene.layoutBounds,
-          function() { gameModel.state = 'selectSubGame'; } ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
+          function() { gameModel.state = 'selectGameLevel'; } ).mutate( {centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } ) );
 
         // Play the appropriate audio feedback.
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {

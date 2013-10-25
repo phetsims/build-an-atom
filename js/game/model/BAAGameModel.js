@@ -26,7 +26,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
 
   // Constants
-  var PROBLEMS_PER_SUB_GAME = 5;
+  var PROBLEMS_PER_LEVEL = 5;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 
   /**
@@ -37,7 +37,7 @@ define( function( require ) {
   function BAAGameModel() {
     PropertySet.call( this,
       {
-        state: 'selectSubGame', // Current state of the game.  Each problem is a unique state.
+        state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
         soundEnabled: true,
         timerEnabled: true,
         level: 0,
@@ -51,7 +51,7 @@ define( function( require ) {
 
     this.bestScores = []; // Properties that track progress on each game level.
     thisGameModel.bestTimes = []; // Best times at each level.
-    _.times( SharedConstants.SUB_GAME_TYPES.length, function() {
+    _.times( SharedConstants.LEVEL_NAMES.length, function() {
       thisGameModel.bestScores.push( new Property( 0 ) );
       thisGameModel.bestTimes.push( Number.POSITIVE_INFINITY );
     } );
@@ -71,18 +71,18 @@ define( function( require ) {
     },
 
     // Start a new game.
-    startSubGame: function( subGameType ) {
-      this.level = SharedConstants.SUB_GAME_TO_LEVEL( subGameType );
+    startGameLevel: function( levelName ) {
+      this.level = SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
       this.problemIndex = 0;
-      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_SUB_GAME, this );
+      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this );
       this.score = 0;
       this._restartGameTimer();
-      this.state = this.problemSet.length > 0 ? this.state = this.problemSet[0] : this.state = 'subGameOver';
+      this.state = this.problemSet.length > 0 ? this.state = this.problemSet[0] : this.state = 'levelCompleted';
     },
 
     // State where the user selects a new game.
     newGame: function() {
-      this.state = 'selectSubGame';
+      this.state = 'selectGameLevel';
       this.score = 0;
       this._stopGameTimer();
     },
@@ -95,14 +95,14 @@ define( function( require ) {
         this.state = this.problemSet[ this.problemIndex ];
       }
       else {
-        // Sub game over - update score and state.
+        // Game level completed - update score and state.
         if ( this.score > this.bestScores[ this.level ].value ) {
           this.bestScores[ this.level ].value = this.score;
         }
         if ( this.timerEnabled && this.score === this.MAX_POINTS_PER_GAME_LEVEL && this.elapsedTime < this.bestTimes[ this.level ] ) {
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
-        this.state = 'subGameOver';
+        this.state = 'levelCompleted';
         this._stopGameTimer();
       }
     },
@@ -111,8 +111,8 @@ define( function( require ) {
       PropertySet.prototype.reset.call( this );
       var thisGameModel = this;
       this.bestScores.forEach( function( progressProperty ) { progressProperty.reset(); } );
-      _.each( SharedConstants.SUB_GAME_TYPES, function( subGameType ) {
-        thisGameModel.bestTimes[ subGameType ] = Number.POSITIVE_INFINITY;
+      _.each( SharedConstants.LEVEL_NAMES, function( levelName ) {
+        thisGameModel.bestTimes[ levelName ] = Number.POSITIVE_INFINITY;
       } );
     },
 
@@ -142,7 +142,7 @@ define( function( require ) {
     },
 
     // Public constants.
-    MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_SUB_GAME * POSSIBLE_POINTS_PER_PROBLEM,
-    PROBLEMS_PER_SUB_GAME: PROBLEMS_PER_SUB_GAME
+    MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_LEVEL * POSSIBLE_POINTS_PER_PROBLEM,
+    PROBLEMS_PER_LEVEL: PROBLEMS_PER_LEVEL
   } );
 } );

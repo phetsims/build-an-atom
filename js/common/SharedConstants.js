@@ -23,10 +23,10 @@ define( function( require ) {
     // Function for choosing text color based on charge value.
     CHARGE_TEXT_COLOR: function( charge ) { return charge > 0 ? 'red' : charge < 0 ? 'blue' : 'black'; },
 
-    // Sub game types.
-    SUB_GAME_TYPES: [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ],
+    // Names of the various game levels.
+    LEVEL_NAMES: [ 'periodic-table-game', 'mass-and-charge-game', 'symbol-game', 'advanced-symbol-game' ],
 
-    // Sub-game to level converter.
-    SUB_GAME_TO_LEVEL: function( subGameType ) { return this.SUB_GAME_TYPES.indexOf( subGameType ); }
+    // Level name to level number converter.
+    MAP_LEVEL_NAME_TO_NUMBER: function( levelName ) { return this.LEVEL_NAMES.indexOf( levelName ); }
   };
 } );
