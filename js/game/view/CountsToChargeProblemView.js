@@ -43,7 +43,13 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, { prependPlusSign: true, getTextColor: SharedConstants.CHARGE_TEXT_COLOR } );
+    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer,
+      {
+        prependPlusSign: true,
+        getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
+        maxValue: 99,
+        minValue: -99
+      } );
     thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout

@@ -54,6 +54,8 @@ define( function( require ) {
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer,
       {
+        minValue: -99,
+        maxValue: 99,
         prependPlusSign: true,
         getTextColor: SharedConstants.CHARGE_TEXT_COLOR
       } );

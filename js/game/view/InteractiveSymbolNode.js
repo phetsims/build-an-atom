@@ -96,7 +96,7 @@ define( function( require ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.protonCount,
         {
           minValue: 0,
-          maxValue: 112,
+          maxValue: 99,
           getTextColor: function() { return 'red'; },
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
@@ -120,6 +120,7 @@ define( function( require ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.massNumber,
         {
           minValue: 0,
+          maxValue: 99,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );
@@ -139,6 +140,8 @@ define( function( require ) {
     if ( options.interactiveCharge ) {
       boundingBox.addChild( new NumberEntryNode( thisNode.charge,
         {
+          minValue: -99,
+          maxValue: 99,
           prependPlusSign: true,
           getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
