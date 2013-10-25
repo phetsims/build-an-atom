@@ -111,9 +111,9 @@ define( function( require ) {
       PropertySet.prototype.reset.call( this );
       var thisGameModel = this;
       this.bestScores.forEach( function( progressProperty ) { progressProperty.reset(); } );
-      _.each( SharedConstants.LEVEL_NAMES, function( levelName ) {
-        thisGameModel.bestTimes[ levelName ] = Number.POSITIVE_INFINITY;
-      } );
+      for ( var i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
+        thisGameModel.bestTimes[ i ] = Number.POSITIVE_INFINITY;
+      }
     },
 
     // Set of external functions that the model will step.
