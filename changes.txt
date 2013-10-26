@@ -1,5 +1,9 @@
+10/25/2013 Added smaller icons for the nav bar, looks much better on Firefox and IE.
 10/25/2013 Made the cursor change to a pointer when hovering over the bucket front.
-10/25/2013 Cleaned up code and fixed several issues, all based on code review.
+10/25/2013 Fixed an issue where the reset all button wouldn't work in some cases on some browsers.
+10/25/2013 Added upper limiting value of 99 to all number entry dialogs in the game, and a lower value of -99 for charge values.
+10/24/2013 Replaced the scoreboard with the common version.  Should not change the functionality.
+10/24/2013 Fixed an issue where the reset button wasn't resetting the best times on the game screen.
 10/22/2013 Cleaned up code and fixed several issues, all based on code review.
 10/21/2013 Implemented internationalization for all code except the game, since that will be moving to common code.
 10/18/2013 Another optimization to the reward screen - made the bounding rectangle invisible rather than transparent.
