@@ -28,7 +28,7 @@ define( function( require ) {
   var checkString = require( 'string!VEGAS/check' );
   var tryAgainString = require( 'string!VEGAS/tryAgain' );
   var showAnswerString = require( 'string!VEGAS/showAnswer' );
-  var nextString = require( 'string!VEGAS/next' );
+  var nextString = require( 'string!VEGAS/Games.next' );
 
   // Constants
   var BUTTON_FONT = new PhetFont( 20 );
