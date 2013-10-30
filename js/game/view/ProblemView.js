@@ -25,9 +25,9 @@ define( function( require ) {
   var TextButton = require( 'SUN/TextButton' );
 
   // Strings
-  var checkString = require( 'string!VEGAS/check' );
-  var tryAgainString = require( 'string!VEGAS/tryAgain' );
-  var showAnswerString = require( 'string!VEGAS/showAnswer' );
+  var checkString = require( 'string!VEGAS/Games.check' );
+  var tryAgainString = require( 'string!VEGAS/Games.tryAgain' );
+  var showAnswerString = require( 'string!VEGAS/Games.showAnswer' );
   var nextString = require( 'string!VEGAS/Games.next' );
 
   // Constants

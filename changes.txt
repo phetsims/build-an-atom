@@ -1,3 +1,5 @@
+10/30/2013 Changed strings used to be the ones converted from Java.
+# 1.1.0-rc.4
 10/25/2013 Added smaller icons for the nav bar, looks much better on Firefox and IE.
 10/25/2013 Made the cursor change to a pointer when hovering over the bucket front.
 10/25/2013 Fixed an issue where the reset all button wouldn't work in some cases on some browsers.
