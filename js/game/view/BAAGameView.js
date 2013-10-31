@@ -78,9 +78,6 @@ define( function( require ) {
         else if ( gameModel.score > 0 ) {
           gameAudioPlayer.gameOverImperfectScore();
         }
-        else {
-          gameAudioPlayer.gameOverZeroScore();
-        }
       }
       else if ( typeof( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be
