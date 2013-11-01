@@ -56,8 +56,8 @@
     "branch": "master"
   },
   "build-an-atom": {
-    "sha": "25b0b23726105c35d260bf519a9d968c7772d5a1",
+    "sha": "cfd1e6ef47e571d6ef3dc3da89db58501e47944d",
     "branch": "1.1"
   },
-  "comment": "# build-an-atom 1.1.0-rc.4 Mon Oct 28 2013 10:17:35 GMT-0700 (Pacific Daylight Time)"
+  "comment": "# build-an-atom 1.1.0"
 }
