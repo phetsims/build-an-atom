@@ -56,8 +56,7 @@
     "branch": "master"
   },
   "build-an-atom": {
-    "sha": "f0176fada466606e3a56f35b825142e0cfdc5a49",
+    "sha": "cad723087b24cc2de6bd6d90e87047051ac70182",
     "branch": "1.1"
-  },
-  "comment": "# build-an-atom 1.1.0-rc.5"
+  }
 }
