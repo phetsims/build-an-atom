@@ -54,9 +54,5 @@
   "vegas": {
     "sha": "155f3c9b4070ce7f7d5247dd3768d3341e772adc",
     "branch": "master"
-  },
-  "build-an-atom": {
-    "sha": "cad723087b24cc2de6bd6d90e87047051ac70182",
-    "branch": "1.1"
   }
 }
