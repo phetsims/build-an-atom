@@ -69,28 +69,28 @@ define( function( require ) {
     // Buttons.
     this.buttons = [];
     this.checkAnswerButton = new TextButton( checkString, {
-      callback: function() { thisNode.checkAnswer(); },
+      listener: function() { thisNode.checkAnswer(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
     this.nextButton = new TextButton( nextString, {
-      callback: function() { problem.next(); },
+      listener: function() { problem.next(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
     this.tryAgainButton = new TextButton( tryAgainString, {
-      callback: function() { problem.tryAgain(); },
+      listener: function() { problem.tryAgain(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
     this.displayCorrectAnswerButton = new TextButton( showAnswerString, {
-      callback: function() { problem.displayCorrectAnswer(); },
+      listener: function() { problem.displayCorrectAnswer(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.displayCorrectAnswerButton );
