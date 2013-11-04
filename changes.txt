@@ -1,3 +1,9 @@
+# 1.1.0-rc.6
+11/4/2013 Made the fonts the same in all accordion boxes.
+11/4/2013 Fixed an issues with the center nav bar icon (symbol was for hydrogen, numbers were for helium).
+# 1.1.0-rc.5
+11/1/2013 Fixed an issue where best times were being set and displayed when user hadn't gotten all answers correct.
+11/1/2013 Fixed several issues with icons on the home screen and the nav bar.
 10/30/2013 Changed strings used to be the ones converted from Java.
 # 1.1.0-rc.4
 10/25/2013 Added smaller icons for the nav bar, looks much better on Firefox and IE.
