@@ -22,7 +22,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TextButton = require( 'SUN/TextButton' );
+  var TextPushButton = require( 'SUN/TextPushButton' );
 
   // Strings
   var checkString = require( 'string!VEGAS/check' );
@@ -68,28 +68,28 @@ define( function( require ) {
 
     // Buttons.
     this.buttons = [];
-    this.checkAnswerButton = new TextButton( checkString, {
+    this.checkAnswerButton = new TextPushButton( checkString, {
       listener: function() { thisNode.checkAnswer(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
-    this.nextButton = new TextButton( nextString, {
+    this.nextButton = new TextPushButton( nextString, {
       listener: function() { problem.next(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
-    this.tryAgainButton = new TextButton( tryAgainString, {
+    this.tryAgainButton = new TextPushButton( tryAgainString, {
       listener: function() { problem.tryAgain(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextButton( showAnswerString, {
+    this.displayCorrectAnswerButton = new TextPushButton( showAnswerString, {
       listener: function() { problem.displayCorrectAnswer(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
