@@ -21,7 +21,6 @@ define( function( require ) {
 
   // Constants
   var INTER_BOX_SPACING = 7;
-  var ACCORDION_BOX_FONT = new PhetFont( 18 );
 
   /**
    * Constructor.
@@ -49,7 +48,7 @@ define( function( require ) {
         contentPosition: 'left',
         titlePosition: 'left',
         buttonPosition: 'right',
-        font: ACCORDION_BOX_FONT
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( chargeMeterBox );
 
@@ -62,7 +61,8 @@ define( function( require ) {
         minWidth: this.periodicTableBox.width,
         contentPosition: 'left',
         titlePosition: 'left',
-        buttonPosition: 'right'
+        buttonPosition: 'right',
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( massNumberBox );
 

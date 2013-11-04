@@ -47,7 +47,6 @@ define( function( require ) {
   var CONTROLS_INSET = 10;
   var LABEL_CONTROL_FONT = new PhetFont( 32 );
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );
-  var ACCORDION_BOX_FONT = new PhetFont( 18 );
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
   /**
@@ -168,7 +167,7 @@ define( function( require ) {
         contentPosition: 'left',
         titlePosition: 'left',
         buttonPosition: 'right',
-        font: ACCORDION_BOX_FONT
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( this.periodicTableBox );
 
