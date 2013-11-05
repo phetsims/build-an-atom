@@ -53,8 +53,11 @@ define( function( require ) {
     thisGameModel.bestTimes = []; // Best times at each level.
     _.times( SharedConstants.LEVEL_NAMES.length, function() {
       thisGameModel.bestScores.push( new Property( 0 ) );
-      thisGameModel.bestTimes.push( Number.POSITIVE_INFINITY );
+      thisGameModel.bestTimes.push( null );
     } );
+
+    // Flag set to indicate new best time, cleared each time a level is started.
+    this.newBestTime = false;
   }
 
   // Inherit from base class and define the methods for this object.
@@ -76,6 +79,7 @@ define( function( require ) {
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this );
       this.score = 0;
+      this.newBestTime = false;
       this._restartGameTimer();
       this.state = this.problemSet.length > 0 ? this.state = this.problemSet[0] : this.state = 'levelCompleted';
     },
@@ -99,7 +103,8 @@ define( function( require ) {
         if ( this.score > this.bestScores[ this.level ].value ) {
           this.bestScores[ this.level ].value = this.score;
         }
-        if ( this.timerEnabled && this.score === this.MAX_POINTS_PER_GAME_LEVEL && this.elapsedTime < this.bestTimes[ this.level ] ) {
+        if ( this.timerEnabled && this.score === this.MAX_POINTS_PER_GAME_LEVEL && ( this.bestTimes[ this.level ] === null || this.elapsedTime < this.bestTimes[ this.level ] ) ) {
+          this.newBestTime = this.bestTimes[ this.level ] === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
         this.state = 'levelCompleted';
@@ -112,7 +117,7 @@ define( function( require ) {
       var thisGameModel = this;
       this.bestScores.forEach( function( progressProperty ) { progressProperty.reset(); } );
       for ( var i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
-        thisGameModel.bestTimes[ i ] = Number.POSITIVE_INFINITY;
+        thisGameModel.bestTimes[ i ] = null;
       }
     },
 

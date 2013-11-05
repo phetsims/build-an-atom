@@ -67,10 +67,8 @@ define( function( require ) {
         }
 
         // Add the dialog node that indicates that the level has been completed.
-        var isNewBestTime = ( gameModel.elapsedTime >= gameModel.bestTimes[ gameModel.level ] ); //TODO this is not correct, needs to be computed before best time is set
-        var bestTime = ( gameModel.bestTimes[ gameModel.level ] === Number.POSITIVE_INFINITY ) ? null: gameModel.bestTimes[ gameModel.level ]; //TODO use null to indicate no best time
-        rootNode.addChild( new LevelCompletedNode( gameModel.level, gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL, gameModel.PROBLEMS_PER_LEVEL,
-          gameModel.timerEnabled, gameModel.elapsedTime, bestTime, isNewBestTime,
+        rootNode.addChild( new LevelCompletedNode( gameModel.level, gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL,
+          gameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ], gameModel.newBestTime,
           function() { gameModel.state = 'selectGameLevel'; }, {
             centerX: thisScene.layoutBounds.width / 2,
             centerY: thisScene.layoutBounds.height / 2,
