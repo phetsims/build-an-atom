@@ -1,4 +1,5 @@
 # 1.1.1
+11/6/2013 Fixed an issue where game level start buttons looked unfilled when moused over, see https://github.com/phetsims/build-an-atom/issues/74
 11/6/2013 Fixed an issue where a game level could get inadvertently started from the home screen, see https://github.com/phetsims/build-an-atom/issues/72
 # 1.1.0
 # 1.1.0-rc.6
