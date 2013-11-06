@@ -13,5 +13,7 @@
     "requirejs": "~2.1.8",
     "esprima": "~1.0.4",
     "escodegen": "~0.0.27"
-  }
+  },
+  "requirejsNamespace": "BUILD_AN_ATOM",
+  "simTitleStringKey": "BUILD_AN_ATOM/build-an-atom.name"
 }
