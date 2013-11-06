@@ -1,3 +1,6 @@
+# 1.1.1
+11/6/2013 Fixed an issue where a game level could get inadvertently started from the home screen, see https://github.com/phetsims/build-an-atom/issues/72
+# 1.1.0
 # 1.1.0-rc.6
 11/4/2013 Made the fonts the same in all accordion boxes.
 11/4/2013 Fixed an issues with the center nav bar icon (symbol was for hydrogen, numbers were for helium).

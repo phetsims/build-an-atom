@@ -36,8 +36,8 @@
     "branch": "master"
   },
   "joist": {
-    "sha": "c8a3dd4ce7feb7a0fc27c4deb2940ed6f3dc0a7a",
-    "branch": "master"
+    "sha": "913a284acd924fb34edeebb7848543d3be59467c",
+    "branch": "select-on-mouse-up"
   },
   "dot": {
     "sha": "15d9ede7cc6901b76738406c957fe40b35fad466",
