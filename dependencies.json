@@ -52,7 +52,7 @@
     "branch": "master"
   },
   "vegas": {
-    "sha": "155f3c9b4070ce7f7d5247dd3768d3341e772adc",
-    "branch": "master"
+    "sha": "ce8689125f57525944139f39cb567ea422eedb23",
+    "branch": "fix-highlight"
   }
 }
