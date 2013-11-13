@@ -16,8 +16,8 @@
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "4b04738f94080b37d511705b652ae7d1ba66d23f",
-    "branch": "master"
+    "sha": "e33f041a196f407deb61cc16d2d39aad4a00fea2",
+    "branch": "baa-no-forcing-acceleration"
   },
   "scenery": {
     "sha": "15b60a755786a8dd11164c61aa246f02af12e9ec",
