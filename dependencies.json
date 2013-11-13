@@ -7,6 +7,10 @@
     "sha": "f3e7e33c10bcfc332bc404ed495041b408eca897",
     "branch": "master"
   },
+  "vegas": {
+    "sha": "31379697a6bd6757ed5cb5fc6b4779a4a58ec5e4",
+    "branch": "fix-highlight"
+  },
   "sherpa": {
     "sha": "71d59ca730a951e5faee5d10144b99da954bd8d2",
     "branch": "master"
@@ -50,9 +54,5 @@
   "assert": {
     "sha": "ce8013d3c65c140de3ec4c6f8ab508f8098793db",
     "branch": "master"
-  },
-  "vegas": {
-    "sha": "31379697a6bd6757ed5cb5fc6b4779a4a58ec5e4",
-    "branch": "fix-highlight"
   }
 }
