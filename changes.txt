@@ -1,3 +1,5 @@
+11/14/2013 Changed the icon on the home screen an nav bar to be a common ion of lithium in order to be a bit more realistic.
+11/13/2013 Integrated a fix from Scenery for an issue where the screen could turn black or mostly black.
 # 1.1.1
 11/6/2013 Fixed an issue where game level start buttons looked unfilled when moused over, see https://github.com/phetsims/build-an-atom/issues/74
 11/6/2013 Fixed an issue where a game level could get inadvertently started from the home screen, see https://github.com/phetsims/build-an-atom/issues/72
