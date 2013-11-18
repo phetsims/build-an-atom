@@ -8,6 +8,9 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+
   return{
 
     // Sizes of the various particles.
@@ -16,6 +19,9 @@ define( function( require ) {
 
     // Background color used on several displays.
     DISPLAY_PANEL_BACKGROUND_COLOR: 'rgb( 254, 255, 153 )',
+
+    // Font used in accordion box titles throughout the sim.
+    ACCORDION_BOX_TITLE_FONT: new PhetFont( 18 ),
 
     // Max attempts for each problem on the game tab.
     MAX_PROBLEM_ATTEMPTS: 2,

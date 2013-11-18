@@ -41,7 +41,7 @@ define( function( require ) {
         contentPosition: 'center',
         titlePosition: 'left',
         buttonPosition: 'right',
-        font: new PhetFont( 20 )
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( symbolBox );
 
