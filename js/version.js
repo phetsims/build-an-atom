@@ -4,6 +4,6 @@
 define( function( require ) {
   'use strict';
   return function() {
-    return '1.1.2-rc.2';
+    return '1.1.2';
   };
 } );
