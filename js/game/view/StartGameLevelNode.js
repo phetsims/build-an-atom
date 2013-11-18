@@ -34,6 +34,7 @@ define( function( require ) {
   // Constants
   var CONTROL_INSET = 20;
   var NUM_STARS_ON_BUTTON = 5;
+  var START_BUTTON_OPTIONS = { backgroundColor: 'rgb( 242, 255, 204 )', highlightedBackgroundColor: 'rgb( 224, 255, 122 )' };
 
   /**
    * @param {BAAGameModel} gameModel
@@ -56,7 +57,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'periodic-table-game' );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' )],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL );
+      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      START_BUTTON_OPTIONS );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new LevelStartButton(
       new Image( massChargeIcon ),
@@ -65,7 +67,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'mass-and-charge-game' );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' )],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL );
+      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      START_BUTTON_OPTIONS );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new LevelStartButton(
       new Image( symbolQuestionIcon ),
@@ -74,7 +77,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'symbol-game' );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' )],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL );
+      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      START_BUTTON_OPTIONS );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new LevelStartButton(
       new Image( questionMarkIcon ),
@@ -83,7 +87,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'advanced-symbol-game' );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' )],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL );
+      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      START_BUTTON_OPTIONS );
     this.addChild( advancedSymbolGameButton );
 
     // Sound and timer controls.

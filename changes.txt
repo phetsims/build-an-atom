@@ -1,3 +1,4 @@
+11/18/2013 Fixed an issue where the game start button highlight colors made the buttons look washed out.
 11/18/2013 Propagated a fix for inconsistent fonts in accordion boxes from 1.1 branch to master.
 11/18/2013 Propagated changes to icons used on home screen and nav bar from 1.1 branch to master.
 10/30/2013 Changed strings used to be the ones converted from Java.
