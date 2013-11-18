@@ -1,3 +1,4 @@
+11/18/2013 Propagated changes to icons used on home screen and nav bar from 1.1 branch to master.
 10/30/2013 Changed strings used to be the ones converted from Java.
 # 1.1.0-rc.4
 10/25/2013 Added smaller icons for the nav bar, looks much better on Firefox and IE.
