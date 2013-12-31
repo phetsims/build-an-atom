@@ -14,7 +14,6 @@ define( function( require ) {
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var SchematicToSymbolProblemView = require( 'BUILD_AN_ATOM/game/view/SchematicToSymbolProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Main constructor function.

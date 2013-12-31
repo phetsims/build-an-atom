@@ -9,7 +9,6 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -30,7 +29,6 @@ define( function( require ) {
    */
   function BuildAnAtomView( model ) {
     AtomView.call( this, model ); // Call super constructor.
-    var thisView = this;
 
     // Add the charge meter and charge comparison display inside of an accordion box.
     var chargeMeterBoxContents = new Node( { pickable: false } );

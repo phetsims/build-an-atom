@@ -14,7 +14,6 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
   var ObservableArray = require( 'AXON/ObservableArray' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Utils = require( 'BUILD_AN_ATOM/common/Utils' );

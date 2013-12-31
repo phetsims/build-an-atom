@@ -19,7 +19,6 @@ define( function( require ) {
   var SchematicToElementProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToElementProblem' );
   var SchematicToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberProblem' );
   var SchematicToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToSymbolProblem' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SymbolToCountsProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToCountsProblem' );
   var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
 

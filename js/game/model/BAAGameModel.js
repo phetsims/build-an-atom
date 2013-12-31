@@ -12,18 +12,8 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var CountsToChargeProblem = require( 'BUILD_AN_ATOM/game/model/CountsToChargeProblem' );
-  var CountsToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolProblem' );
-  var CountsToElementProblem = require( 'BUILD_AN_ATOM/game/model/CountsToElementProblem' );
-  var CountsToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/CountsToMassNumberProblem' );
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
-  var SchematicToChargeProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToChargeProblem' );
-  var SchematicToElementProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToElementProblem' );
-  var SchematicToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberProblem' );
-  var SchematicToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToSymbolProblem' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
-  var SymbolToCountsProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToCountsProblem' );
-  var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
 
   // Constants
   var PROBLEMS_PER_LEVEL = 5;

@@ -25,7 +25,6 @@ define( function( require ) {
    */
   function NonInteractiveSchematicAtomNode( numberAtom, mvt ) {
     Node.call( this, { pickable: false } ); // Call super constructor.
-    var thisNode = this;
 
     // Add the electron shells.
     var particleAtom = new ParticleAtom();

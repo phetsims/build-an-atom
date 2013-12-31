@@ -18,7 +18,6 @@ define( function( require ) {
   var Scoreboard = require( 'VEGAS/Scoreboard' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
-  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * Constructor.

@@ -43,7 +43,7 @@ define( function( require ) {
     this.addChild( symbolRectangle );
 
     // Add the text that represents the chosen element.
-    numberAtom.protonCountProperty.link( function( numProtons ) {
+    numberAtom.protonCountProperty.link( function() {
       symbolRectangle.removeAllChildren();
       var symbolText = new Text( AtomIdentifier.getSymbol( numberAtom.protonCount ),
         {

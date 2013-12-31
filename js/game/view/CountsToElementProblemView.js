@@ -11,12 +11,9 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );
-  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * Main constructor function.
