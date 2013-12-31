@@ -11,9 +11,7 @@ define( function( require ) {
   // Imports
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
 
@@ -28,7 +26,6 @@ define( function( require ) {
    */
   function SymbolView( model ) {
     AtomView.call( this, model ); // Call super constructor.
-    var thisView = this;
 
     // Add the symbol node within an accordion box.
     var symbolNode = new SymbolNode( model.numberAtom );

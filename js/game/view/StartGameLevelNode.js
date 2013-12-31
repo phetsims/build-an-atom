@@ -10,17 +10,14 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var CheckBox = require( 'SUN/CheckBox' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelStartButton = require( 'VEGAS/LevelStartButton' );
   var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );

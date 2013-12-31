@@ -12,10 +12,8 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
   var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );
   var Vector2 = require( 'DOT/Vector2' );

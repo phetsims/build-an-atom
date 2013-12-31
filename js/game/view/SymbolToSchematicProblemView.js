@@ -15,8 +15,6 @@ define( function( require ) {
   var InteractiveSchematicAtom = require( 'BUILD_AN_ATOM/common/view/InteractiveSchematicAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Vector2 = require( 'DOT/Vector2' );
 

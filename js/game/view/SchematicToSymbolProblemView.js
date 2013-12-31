@@ -14,7 +14,6 @@ define( function( require ) {
   // Imports
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
@@ -37,7 +36,6 @@ define( function( require ) {
       } );
 
     ProblemView.call( this, toSymbolProblem, layoutBounds ); // Call super constructor.
-    var thisNode = this;
 
     // Add the interactive symbol.
     this.interactiveSymbol.scale( 0.75 );
