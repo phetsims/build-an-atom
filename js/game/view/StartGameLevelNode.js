@@ -2,7 +2,7 @@
 
 /**
  * Screen that is presented to the user that allows them to select from a set
- * of different game levels to play.
+ * of game levels to play.
  *
  * @author John Blanco
  */
