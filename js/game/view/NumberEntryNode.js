@@ -43,7 +43,7 @@ define( function( require ) {
       }, options );
 
     // Node creation
-    var arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15 };
+    var arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15, timerDelay: 200 };
     var upArrowButton = new ArrowButton( 'up', function() { numberProperty.value = numberProperty.value + 1; }, arrowButtonOptions );
     thisNode.addChild( upArrowButton );
     var downArrowButton = new ArrowButton( 'down', function() { numberProperty.value = numberProperty.value - 1; }, arrowButtonOptions );
