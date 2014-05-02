@@ -18,7 +18,7 @@ define( function( require ) {
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButtonDeprecated = require( 'SCENERY_PHET/ResetAllButtonDeprecated' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
   var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
@@ -95,7 +95,7 @@ define( function( require ) {
     this.addChild( soundToggleButton );
 
     // Reset button.
-    var resetButton = new ResetAllButton( function() {
+    var resetButton = new ResetAllButtonDeprecated( function() {
       gameModel.reset();
     } );
     resetButton.scale( 0.8 ); // Empirically determined scale factor.
