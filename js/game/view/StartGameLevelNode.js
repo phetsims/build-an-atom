@@ -20,10 +20,10 @@ define( function( require ) {
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var ResetAllButtonDeprecated = require( 'SCENERY_PHET/ResetAllButtonDeprecated' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
-  var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
+  var SoundToggleButtonDeprecated = require( 'SCENERY_PHET/SoundToggleButtonDeprecated' );
   var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TimerToggleButton = require( 'SCENERY_PHET/TimerToggleButton' );
+  var TimerToggleButtonDeprecated = require( 'SCENERY_PHET/TimerToggleButtonDeprecated' );
 
   // Strings
   var chooseYourGameString = require( 'string!BUILD_AN_ATOM/game.chooseYourGame' );
@@ -89,9 +89,9 @@ define( function( require ) {
     this.addChild( advancedSymbolGameButton );
 
     // Sound and timer controls.
-    var timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty );
+    var timerToggleButton = new TimerToggleButtonDeprecated( gameModel.timerEnabledProperty );
     this.addChild( timerToggleButton );
-    var soundToggleButton = new SoundToggleButton( gameModel.soundEnabledProperty );
+    var soundToggleButton = new SoundToggleButtonDeprecated( gameModel.soundEnabledProperty );
     this.addChild( soundToggleButton );
 
     // Reset button.
