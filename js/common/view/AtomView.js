@@ -25,7 +25,7 @@ define( function( require ) {
   var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
-  var ResetAllButtonDeprecated = require( 'SCENERY_PHET/ResetAllButtonDeprecated' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
@@ -214,12 +214,12 @@ define( function( require ) {
         thisView.periodicTableBox.open.reset();
       }
     );
-    var resetButton = new ResetAllButtonDeprecated( function() {
-      thisView.resetFunctions.forEach( function( resetFunction ) {
-        resetFunction();
+    var resetButton = new ResetAllButton(
+      {
+        listener: function() {
+          thisView.resetFunctions.forEach( function( resetFunction ) { resetFunction(); } );
+        }
       } );
-    } );
-    resetButton.scale( 0.8 ); // Empirically determined scale factor.
     this.addChild( resetButton );
 
     // Do the layout.
