@@ -17,7 +17,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TextPushButton = require( 'SUN/TextPushButton' );
+  var TextPushButtonDeprecated = require( 'SUN/TextPushButtonDeprecated' );
 
   // Strings
   var checkString = require( 'string!VEGAS/check' );
@@ -63,28 +63,28 @@ define( function( require ) {
 
     // Buttons.
     this.buttons = [];
-    this.checkAnswerButton = new TextPushButton( checkString, {
+    this.checkAnswerButton = new TextPushButtonDeprecated( checkString, {
       listener: function() { thisNode.checkAnswer(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
-    this.nextButton = new TextPushButton( nextString, {
+    this.nextButton = new TextPushButtonDeprecated( nextString, {
       listener: function() { problem.next(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
-    this.tryAgainButton = new TextPushButton( tryAgainString, {
+    this.tryAgainButton = new TextPushButtonDeprecated( tryAgainString, {
       listener: function() { problem.tryAgain(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextPushButton( showAnswerString, {
+    this.displayCorrectAnswerButton = new TextPushButtonDeprecated( showAnswerString, {
       listener: function() { problem.displayCorrectAnswer(); },
       font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
     } );
