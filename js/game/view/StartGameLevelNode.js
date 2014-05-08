@@ -99,7 +99,8 @@ define( function( require ) {
       {
         listener: function() {
           gameModel.reset();
-        }
+        },
+        scale: 0.85
       } );
     this.addChild( resetButton );
 
