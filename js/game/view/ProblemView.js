@@ -17,7 +17,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TextPushButtonDeprecated = require( 'SUN/TextPushButtonDeprecated' );
+  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // Strings
   var checkString = require( 'string!VEGAS/check' );
@@ -63,30 +63,34 @@ define( function( require ) {
 
     // Buttons.
     this.buttons = [];
-    this.checkAnswerButton = new TextPushButtonDeprecated( checkString, {
+    this.checkAnswerButton = new TextPushButton( checkString, {
       listener: function() { thisNode.checkAnswer(); },
-      font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
+      font: BUTTON_FONT,
+      baseColor: BUTTON_FILL
     } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
-    this.nextButton = new TextPushButtonDeprecated( nextString, {
+    this.nextButton = new TextPushButton( nextString, {
       listener: function() { problem.next(); },
-      font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
+      font: BUTTON_FONT,
+      baseColor: BUTTON_FILL
     } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
-    this.tryAgainButton = new TextPushButtonDeprecated( tryAgainString, {
+    this.tryAgainButton = new TextPushButton( tryAgainString, {
       listener: function() { problem.tryAgain(); },
-      font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
+      font: BUTTON_FONT,
+      baseColor: BUTTON_FILL
     } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextPushButtonDeprecated( showAnswerString, {
+    this.displayCorrectAnswerButton = new TextPushButton( showAnswerString, {
       listener: function() { problem.displayCorrectAnswer(); },
-      font: BUTTON_FONT, rectangleFillUp: BUTTON_FILL
+      font: BUTTON_FONT,
+      baseColor: BUTTON_FILL
     } );
     this.addChild( this.displayCorrectAnswerButton );
     this.buttons.push( this.displayCorrectAnswerButton );
