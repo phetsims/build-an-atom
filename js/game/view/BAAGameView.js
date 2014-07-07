@@ -15,7 +15,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Property = require( 'AXON/Property' );
   var RewardNode = require( 'BUILD_AN_ATOM/game/view/RewardNode' );
-  var Scoreboard = require( 'VEGAS/Scoreboard' );
+  var ScoreboardPanel = require( 'VEGAS/ScoreboardPanel' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
 
@@ -35,7 +35,7 @@ define( function( require ) {
     thisScene.addChild( rootNode );
 
     var startGameLevelNode = new StartGameLevelNode( gameModel, this.layoutBounds );
-    var scoreboard = new Scoreboard(
+    var scoreboard = new ScoreboardPanel(
       gameModel.problemIndexProperty,
       new Property( gameModel.PROBLEMS_PER_LEVEL ),
       gameModel.levelProperty,
