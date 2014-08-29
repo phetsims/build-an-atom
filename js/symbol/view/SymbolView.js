@@ -35,9 +35,9 @@ define( function( require ) {
         title: symbolString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         minWidth: this.periodicTableBox.width,
-        contentPosition: 'center',
-        titlePosition: 'left',
-        buttonPosition: 'right',
+        contentAlign: 'center',
+        titleAlign: 'left',
+        buttonAlign: 'right',
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( symbolBox );

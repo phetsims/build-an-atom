@@ -164,9 +164,9 @@ define( function( require ) {
       {
         title: elementString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        contentPosition: 'left',
-        titlePosition: 'left',
-        buttonPosition: 'right',
+        contentAlign: 'left',
+        titleAlign: 'left',
+        buttonAlign: 'right',
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( this.periodicTableBox );

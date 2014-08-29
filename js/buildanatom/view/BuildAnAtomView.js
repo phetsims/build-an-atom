@@ -43,9 +43,9 @@ define( function( require ) {
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         initiallyOpen: false,
         minWidth: this.periodicTableBox.width,
-        contentPosition: 'left',
-        titlePosition: 'left',
-        buttonPosition: 'right',
+        contentAlign: 'left',
+        titleAlign: 'left',
+        buttonAlign: 'right',
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( chargeMeterBox );
@@ -57,9 +57,9 @@ define( function( require ) {
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         initiallyOpen: false,
         minWidth: this.periodicTableBox.width,
-        contentPosition: 'left',
-        titlePosition: 'left',
-        buttonPosition: 'right',
+        contentAlign: 'left',
+        titleAlign: 'left',
+        buttonAlign: 'right',
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( massNumberBox );
