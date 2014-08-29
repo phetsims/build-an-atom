@@ -168,12 +168,11 @@ define( function( require ) {
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable,
       {
-        title: elementString,
+        titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         contentAlign: 'left',
         titleAlign: 'left',
         buttonAlign: 'right',
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
         expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
       } );
     this.addChild( this.periodicTableBox );
