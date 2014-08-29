@@ -41,7 +41,7 @@ define( function( require ) {
       {
         title: netChargeString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        initiallyOpen: false,
+        initiallyExpanded: false,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'left',
         titleAlign: 'left',
@@ -55,7 +55,7 @@ define( function( require ) {
       {
         title: massNumberString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        initiallyOpen: false,
+        initiallyExpanded: false,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'left',
         titleAlign: 'left',
@@ -67,15 +67,15 @@ define( function( require ) {
     // Add additional reset functionality.
     this.resetFunctions.push(
       function() {
-        chargeMeterBox.open.reset();
-        massNumberBox.open.reset();
+        chargeMeterBox.expandedProperty.reset();
+        massNumberBox.expandedProperty.reset();
       } );
 
     // Do the layout.
     chargeMeterBox.right = this.periodicTableBox.right;
     chargeMeterBox.top = this.periodicTableBox.bottom + INTER_BOX_SPACING;
     massNumberBox.right = this.periodicTableBox.right;
-    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.openHeight + INTER_BOX_SPACING;
+    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.expandedHeight + INTER_BOX_SPACING;
   }
 
   return inherit( AtomView, BuildAnAtomView );

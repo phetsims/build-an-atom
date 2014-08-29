@@ -211,7 +211,7 @@ define( function( require ) {
     // Add the reset button.
     this.resetFunctions.push( function() {
         thisView.model.reset();
-        thisView.periodicTableBox.open.reset();
+        thisView.periodicTableBox.expandedProperty.reset();
       }
     );
     var resetButton = new ResetAllButton(
