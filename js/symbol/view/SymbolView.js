@@ -27,6 +27,8 @@ define( function( require ) {
   function SymbolView( model ) {
     AtomView.call( this, model ); // Call super constructor.
 
+    this.viewProperties.addProperty( 'symbolBoxExpanded', true );
+
     // Add the symbol node within an accordion box.
     var symbolNode = new SymbolNode( model.numberAtom );
     symbolNode.scale( 0.43 ); // Scale empirically determined.
@@ -38,12 +40,10 @@ define( function( require ) {
         contentAlign: 'center',
         titleAlign: 'left',
         buttonAlign: 'right',
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
+        expandedProperty: this.viewProperties.symbolBoxExpandedProperty
       } );
     this.addChild( symbolBox );
-
-    // Add additional reset functionality.
-    this.resetFunctions.push( function() { symbolBox.expandedProperty.reset(); } );
 
     // Do the layout.
     symbolBox.top = this.periodicTableBox.top + this.periodicTableBox.expandedHeight + 10;

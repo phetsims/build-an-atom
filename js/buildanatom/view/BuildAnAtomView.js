@@ -30,6 +30,9 @@ define( function( require ) {
   function BuildAnAtomView( model ) {
     AtomView.call( this, model ); // Call super constructor.
 
+    this.viewProperties.addProperty( 'chargeMeterBoxExpanded', false );
+    this.viewProperties.addProperty( 'massNumberBoxExpanded', false );
+
     // Add the charge meter and charge comparison display inside of an accordion box.
     var chargeMeterBoxContents = new Node( { pickable: false } );
     chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom ) );
@@ -41,7 +44,7 @@ define( function( require ) {
       {
         title: netChargeString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        initiallyExpanded: false,
+        expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'left',
         titleAlign: 'left',
@@ -55,7 +58,7 @@ define( function( require ) {
       {
         title: massNumberString,
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        initiallyExpanded: false,
+        expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'left',
         titleAlign: 'left',
@@ -63,13 +66,6 @@ define( function( require ) {
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT
       } );
     this.addChild( massNumberBox );
-
-    // Add additional reset functionality.
-    this.resetFunctions.push(
-      function() {
-        chargeMeterBox.expandedProperty.reset();
-        massNumberBox.expandedProperty.reset();
-      } );
 
     // Do the layout.
     chargeMeterBox.right = this.periodicTableBox.right;

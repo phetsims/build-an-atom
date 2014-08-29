@@ -32,6 +32,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
+  var PropertySet = require( 'AXON/PropertySet' );
 
   // Strings
   var elementString = require( 'string!BUILD_AN_ATOM/indicator.element' );
@@ -61,6 +62,11 @@ define( function( require ) {
     var thisView = this;
     this.model = model;
     this.resetFunctions = [];
+
+    // @protected
+    this.viewProperties = new PropertySet( {
+      periodicTableBoxExpanded: true
+    } );
 
     // Create the model-view transform.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -167,7 +173,8 @@ define( function( require ) {
         contentAlign: 'left',
         titleAlign: 'left',
         buttonAlign: 'right',
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
+        expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
       } );
     this.addChild( this.periodicTableBox );
 
@@ -209,15 +216,11 @@ define( function( require ) {
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    this.resetFunctions.push( function() {
-        thisView.model.reset();
-        thisView.periodicTableBox.expandedProperty.reset();
-      }
-    );
     var resetButton = new ResetAllButton(
       {
         listener: function() {
-          thisView.resetFunctions.forEach( function( resetFunction ) { resetFunction(); } );
+          thisView.model.reset();
+          thisView.viewProperties.reset();
         }
       } );
     this.addChild( resetButton );
