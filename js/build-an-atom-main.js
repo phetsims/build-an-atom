@@ -33,9 +33,9 @@ define( function( require ) {
     credits: {
       leadDesign: 'Kelly Lancaster',
       softwareDevelopment: 'John Blanco, Sam Reid',
-      designTeam: 'Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter,\n' +
-                  'Patricia Loeblein, Emily B. Moore, Robert Parson, Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
-      interviews: 'Emily B. Moore, Kelly Lancaster, Ariel Paul',
+      team: 'Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter,\n' +
+            'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Ariel Paul, Robert Parson,\n' +
+            'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     }
   };
