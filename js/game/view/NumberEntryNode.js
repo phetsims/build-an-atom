@@ -66,8 +66,8 @@ define( function( require ) {
       textNode.centerX = answerValueBackground.width / 2;
       textNode.centerY = answerValueBackground.height / 2;
       answerValueBackground.addChild( textNode );
-      upArrowButton.setEnabled( newValue < options.maxValue );
-      downArrowButton.setEnabled( newValue > options.minValue );
+      upArrowButton.enabled = ( newValue < options.maxValue );
+      downArrowButton.enabled = ( newValue > options.minValue );
     } );
 
     // Layout.  Upper left corner of overall node will be at (0,0).
