@@ -15,6 +15,5 @@
     "uglify-js": "~2.4.0",
     "requirejs": "~2.1.8"
   },
-  "requirejsNamespace": "BUILD_AN_ATOM",
   "simTitleStringKey": "BUILD_AN_ATOM/build-an-atom.name"
 }
