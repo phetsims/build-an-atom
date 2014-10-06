@@ -25,7 +25,7 @@ define( function( require ) {
   var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );

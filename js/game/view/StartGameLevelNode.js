@@ -18,12 +18,12 @@ define( function( require ) {
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
-  var SoundToggleButton = require( 'SCENERY_PHET/SoundToggleButton' );
+  var SoundToggleButton = require( 'SCENERY_PHET/buttons/SoundToggleButton' );
   var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TimerToggleButton = require( 'SCENERY_PHET/TimerToggleButton' );
+  var TimerToggleButton = require( 'SCENERY_PHET/buttons/TimerToggleButton' );
 
   // Strings
   var chooseYourGameString = require( 'string!BUILD_AN_ATOM/game.chooseYourGame' );
