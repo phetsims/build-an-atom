@@ -70,7 +70,7 @@ define( function( require ) {
     chargeMeterBox.right = this.periodicTableBox.right;
     chargeMeterBox.top = this.periodicTableBox.bottom + INTER_BOX_SPACING;
     massNumberBox.right = this.periodicTableBox.right;
-    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.expandedHeight + INTER_BOX_SPACING;
+    massNumberBox.top = chargeMeterBox.top + chargeMeterBox.height + INTER_BOX_SPACING;
   }
 
   return inherit( AtomView, BuildAnAtomView );
