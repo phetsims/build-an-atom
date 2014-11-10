@@ -172,8 +172,7 @@ define( function( require ) {
         contentAlign: 'left',
         titleAlign: 'left',
         buttonAlign: 'right',
-      expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty,
-      titleBarFill: 'orange'
+      expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
       } );
     this.addChild( this.periodicTableBox );
 
