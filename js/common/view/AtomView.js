@@ -166,14 +166,14 @@ define( function( require ) {
     // Add the periodic table display inside of an accordion box.
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom ).mutate( { pickable: false } );
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
-    this.periodicTableBox = new AccordionBox( periodicTable,
-      {
-        titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+    this.periodicTableBox = new AccordionBox( periodicTable, {
+      titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         contentAlign: 'left',
         titleAlign: 'left',
         buttonAlign: 'right',
-        expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
+      expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty,
+      titleBarFill: 'orange'
       } );
     this.addChild( this.periodicTableBox );
 
