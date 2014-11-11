@@ -8,13 +8,13 @@ define( function( require ) {
   'use strict';
 
   // Imports
-  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
-  var BucketDragHandler = require( 'BUILD_AN_ATOM/buildanatom/view/BucketDragHandler' );
+  var AtomNode = require( 'SHRED/view/AtomNode' );
+  var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
+  var ParticleView = require( 'SHRED/view/ParticleView' );
 
   // Constants
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
