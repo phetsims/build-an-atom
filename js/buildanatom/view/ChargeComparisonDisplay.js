@@ -12,7 +12,7 @@ define( function( require ) {
   // Imports
   var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Shape = require( 'KITE/shape' );
+  var Shape = require( 'KITE/Shape' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Path = require( 'SCENERY/nodes/Path' );
   var inherit = require( 'PHET_CORE/inherit' );
