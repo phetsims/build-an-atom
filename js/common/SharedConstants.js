@@ -14,7 +14,7 @@ define( function( require ) {
 
   return{
 
-    LAYOUT_BOUNDS: new Bounds2(  0, 0, 768, 504 ),
+    LAYOUT_BOUNDS: new Bounds2( 0, 0, 768, 504 ),
 
     // Sizes of the various particles.
     NUCLEON_RADIUS: 10, // In screen coordinates, which are roughly pixels.
