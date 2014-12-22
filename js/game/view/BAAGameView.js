@@ -18,6 +18,7 @@ define( function( require ) {
   var ScoreboardPanel = require( 'VEGAS/ScoreboardPanel' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
+  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   /**
    * Constructor.
@@ -27,7 +28,7 @@ define( function( require ) {
    */
   function BAAGameView( gameModel ) {
 
-    ScreenView.call( this ); // Call super constructor.
+    ScreenView.call( this, { layout: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
     var thisScene = this;
 
     // Add a root node where all of the game-related nodes will live.
