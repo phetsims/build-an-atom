@@ -71,7 +71,7 @@ define( function( require ) {
       this.score = 0;
       this.newBestTime = false;
       this._restartGameTimer();
-      this.state = this.problemSet.length > 0 ? this.state = this.problemSet[0] : this.state = 'levelCompleted';
+      this.state = this.problemSet.length > 0 ? this.state = this.problemSet[ 0 ] : this.state = 'levelCompleted';
     },
 
     // State where the user selects a new game.

@@ -59,7 +59,8 @@ define( function( require ) {
       answerValueBackground.removeAllChildren();
       var prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue,
-        { font: NUMBER_FONT,
+        {
+          font: NUMBER_FONT,
           fill: options.getTextColor( newValue )
         } );
       textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );

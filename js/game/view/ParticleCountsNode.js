@@ -25,7 +25,7 @@ define( function( require ) {
 
     Node.call( this, options ); // Call super constructor.
 
-    options = _.extend( { font: new PhetFont( 24 )}, options );
+    options = _.extend( { font: new PhetFont( 24 ) }, options );
 
     var protonCountTitle = new Text( protonsString, options.font );
     this.addChild( protonCountTitle );

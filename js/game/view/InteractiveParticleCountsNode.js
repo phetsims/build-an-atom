@@ -29,7 +29,7 @@ define( function( require ) {
 
     Node.call( this, options ); // Call super constructor.
 
-    options = _.extend( { font: new PhetFont( 24 )}, options );
+    options = _.extend( { font: new PhetFont( 24 ) }, options );
 
     this.numberAtom = new NumberAtom();
 
@@ -40,12 +40,12 @@ define( function( require ) {
 
     var neutronCountPrompt = new Text( neutronsString, options.font );
     this.addChild( neutronCountPrompt );
-    var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0, maxValue: 99  } );
+    var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0, maxValue: 99 } );
     this.addChild( neutronCountEntry );
 
     var electronCountPrompt = new Text( electronsString, options.font );
     this.addChild( electronCountPrompt );
-    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0, maxValue: 99  } );
+    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0, maxValue: 99 } );
     this.addChild( electronCountEntry );
 
     // Layout

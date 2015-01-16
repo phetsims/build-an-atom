@@ -12,7 +12,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
-  return{
+  return {
 
     LAYOUT_BOUNDS: new Bounds2( 0, 0, 768, 504 ),
 

@@ -3,7 +3,7 @@
 // RequireJS configuration file for Build an Atom.
 require.config(
   {
-    deps: ['build-an-atom-main'],
+    deps: [ 'build-an-atom-main' ],
 
     paths: {
 
@@ -16,7 +16,7 @@ require.config(
       string: '../../chipper/requirejs-plugins/string',
 
       // PhET libs, uppercase names to identify them in require.js imports
-        AXON: '../../axon/js',
+      AXON: '../../axon/js',
       BRAND: '../../brand/js',
       DOT: '../../dot/js',
       JOIST: '../../joist/js',

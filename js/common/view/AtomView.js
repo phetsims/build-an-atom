@@ -76,7 +76,8 @@ define( function( require ) {
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
     var atomNode = new AtomNode( model.particleAtom, mvt,
-      { showElementNameProperty: model.showElementNameProperty,
+      {
+        showElementNameProperty: model.showElementNameProperty,
         showNeutralOrIonProperty: model.showNeutralOrIonProperty,
         showStableOrUnstableProperty: model.showStableOrUnstableProperty,
         electronShellDepictionProperty: model.electronShellDepictionProperty
@@ -103,13 +104,13 @@ define( function( require ) {
 
     // Add the nucleon particle views.
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[nucleon.zLayer].addChild( new ParticleView( nucleon, mvt ) );
+      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt ) );
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
         assert && assert( nucleonLayers.length > zLayer, "zLayer for nucleon exceeds number of layers, max number may need increasing." );
         // Determine whether nucleon view is on the correct layer.
         var onCorrectLayer = false;
-        nucleonLayers[zLayer].children.forEach( function( particleView ) {
+        nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
           if ( particleView.particle === nucleon ) {
             onCorrectLayer = true;
           }
@@ -120,10 +121,10 @@ define( function( require ) {
           // Remove particle view from its current layer.
           var particleView = null;
           for ( var layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
-            for ( var childIndex = 0; childIndex < nucleonLayers[layerIndex].children.length; childIndex++ ) {
-              if ( nucleonLayers[layerIndex].children[childIndex].particle === nucleon ) {
-                particleView = nucleonLayers[layerIndex].children[childIndex];
-                nucleonLayers[layerIndex].removeChildAt( childIndex );
+            for ( var childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
+              if ( nucleonLayers[ layerIndex ].children[ childIndex ].particle === nucleon ) {
+                particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
+                nucleonLayers[ layerIndex ].removeChildAt( childIndex );
                 break;
               }
             }
@@ -168,19 +169,19 @@ define( function( require ) {
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable, {
       titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
-        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        contentAlign: 'left',
-        titleAlign: 'left',
-        buttonAlign: 'right',
+      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      contentAlign: 'left',
+      titleAlign: 'left',
+      buttonAlign: 'right',
       expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
-      } );
+    } );
     this.addChild( this.periodicTableBox );
 
     var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
       [
-        { content: new Text( elementNameString, {font: LABEL_CONTROL_FONT} ), property: model.showElementNameProperty },
-        { content: new Text( neutralIonString, {font: LABEL_CONTROL_FONT} ), property: model.showNeutralOrIonProperty },
-        { content: new Text( stableUnstableString, {font: LABEL_CONTROL_FONT} ), property: model.showStableOrUnstableProperty }
+        { content: new Text( elementNameString, { font: LABEL_CONTROL_FONT } ), property: model.showElementNameProperty },
+        { content: new Text( neutralIonString, { font: LABEL_CONTROL_FONT } ), property: model.showNeutralOrIonProperty },
+        { content: new Text( stableUnstableString, { font: LABEL_CONTROL_FONT } ), property: model.showStableOrUnstableProperty }
       ] ), { fill: 'rgb( 245, 245, 245 )', xMargin: 15 } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );

@@ -74,8 +74,8 @@ define( function( require ) {
             } );
             if ( occupiedOuterShellPositions.length > 0 ) {
               // Move outer electron to inner spot.
-              validElectronPosition.electron = occupiedOuterShellPositions[0].electron;
-              occupiedOuterShellPositions[0].electron = null;
+              validElectronPosition.electron = occupiedOuterShellPositions[ 0 ].electron;
+              occupiedOuterShellPositions[ 0 ].electron = null;
               validElectronPosition.electron.destination = validElectronPosition.position;
             }
           }
@@ -137,7 +137,7 @@ define( function( require ) {
         if ( this.electronAddMode === 'proximal' ) {
           sortedOpenPositions = openPositions.sort( function( p1, p2 ) {
             // Sort first by distance to particle.
-            return( particle.position.distance( p1.position ) - particle.position.distance( p2.position ) );
+            return ( particle.position.distance( p1.position ) - particle.position.distance( p2.position ) );
           } );
         }
         else {
@@ -146,11 +146,11 @@ define( function( require ) {
 
         // Put the inner shell positions in front.
         sortedOpenPositions = sortedOpenPositions.sort( function( p1, p2 ) {
-          return( thisAtom.position.distance( p1.position ) - thisAtom.position.distance( p2.position ) );
+          return ( thisAtom.position.distance( p1.position ) - thisAtom.position.distance( p2.position ) );
         } );
 
         assert && assert( sortedOpenPositions.length > 0, "No open positions found for electrons" );
-        sortedOpenPositions[0].electron = particle;
+        sortedOpenPositions[ 0 ].electron = particle;
         particle.destination = sortedOpenPositions[ 0 ].position;
 
         // Listen for removal of the electron and handle it.
@@ -274,44 +274,44 @@ define( function( require ) {
 
       if ( nucleons.length === 1 ) {
         // There is only one nucleon present, so place it in the center of the atom.
-        nucleons[0].destination = new Vector2( centerX, centerY );
-        nucleons[0].zLayer = 0;
+        nucleons[ 0 ].destination = new Vector2( centerX, centerY );
+        nucleons[ 0 ].zLayer = 0;
       }
       else if ( nucleons.length === 2 ) {
         // Two nucleons - place them side by side with their meeting point in the center.
         angle = 0.2 * 2 * Math.PI; // Angle arbitrarily chosen.
-        nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
-        nucleons[0].zLayer = 0;
-        nucleons[1].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
-        nucleons[1].zLayer = 0;
+        nucleons[ 0 ].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+        nucleons[ 0 ].zLayer = 0;
+        nucleons[ 1 ].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+        nucleons[ 1 ].zLayer = 0;
       }
       else if ( nucleons.length === 3 ) {
         // Three nucleons - form a triangle where they all touch.
         angle = 0.7 * 2 * Math.PI; // Angle arbitrarily chosen.
         distFromCenter = nucleonRadius * 1.155;
-        nucleons[0].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ), centerY + distFromCenter * Math.sin( angle ) );
-        nucleons[0].zLayer = 0;
-        nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
+        nucleons[ 0 ].destination = new Vector2( centerX + distFromCenter * Math.cos( angle ), centerY + distFromCenter * Math.sin( angle ) );
+        nucleons[ 0 ].zLayer = 0;
+        nucleons[ 1 ].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 2 * Math.PI / 3 ),
           centerY + distFromCenter * Math.sin( angle + 2 * Math.PI / 3 ) );
-        nucleons[1].zLayer = 0;
-        nucleons[2].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
+        nucleons[ 1 ].zLayer = 0;
+        nucleons[ 2 ].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + 4 * Math.PI / 3 ),
           centerY + distFromCenter * Math.sin( angle + 4 * Math.PI / 3 ) );
-        nucleons[2].zLayer = 0;
+        nucleons[ 2 ].zLayer = 0;
       }
       else if ( nucleons.length === 4 ) {
         // Four nucleons - make a sort of diamond shape with some overlap.
         angle = 1.4 * 2 * Math.PI; // Angle arbitrarily chosen.
-        nucleons[0].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
-        nucleons[0].zLayer = 0;
-        nucleons[2].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
-        nucleons[2].zLayer = 0;
+        nucleons[ 0 ].destination = new Vector2( centerX + nucleonRadius * Math.cos( angle ), centerY + nucleonRadius * Math.sin( angle ) );
+        nucleons[ 0 ].zLayer = 0;
+        nucleons[ 2 ].destination = new Vector2( centerX - nucleonRadius * Math.cos( angle ), centerY - nucleonRadius * Math.sin( angle ) );
+        nucleons[ 2 ].zLayer = 0;
         distFromCenter = nucleonRadius * 2 * Math.cos( Math.PI / 3 );
-        nucleons[1].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
+        nucleons[ 1 ].destination = new Vector2( centerX + distFromCenter * Math.cos( angle + Math.PI / 2 ),
           centerY + distFromCenter * Math.sin( angle + Math.PI / 2 ) );
-        nucleons[1].zLayer = 1;
-        nucleons[3].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
+        nucleons[ 1 ].zLayer = 1;
+        nucleons[ 3 ].destination = new Vector2( centerX - distFromCenter * Math.cos( angle + Math.PI / 2 ),
           centerY - distFromCenter * Math.sin( angle + Math.PI / 2 ) );
-        nucleons[3].zLayer = 1;
+        nucleons[ 3 ].zLayer = 1;
       }
       else if ( nucleons.length >= 5 ) {
         // This is a generalized algorithm that should work for five or more nucleons.
@@ -321,9 +321,9 @@ define( function( require ) {
         var placementAngle = 0;
         var placementAngleDelta = 0;
         for ( var i = 0; i < nucleons.length; i++ ) {
-          nucleons[i].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
+          nucleons[ i ].destination = new Vector2( centerX + placementRadius * Math.cos( placementAngle ),
             centerY + placementRadius * Math.sin( placementAngle ) );
-          nucleons[i].zLayer = level;
+          nucleons[ i ].zLayer = level;
           numAtThisRadius--;
           if ( numAtThisRadius > 0 ) {
             // Stay at the same radius and update the placement angle.

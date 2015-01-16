@@ -13,13 +13,13 @@ define( function( require ) {
 
   // 2D array that defines the table structure.
   var POPULATED_CELLS = [
-    [0, 17],
-    [0, 1, 12, 13, 14, 15, 16, 17],
-    [0, 1, 12, 13, 14, 15, 16, 17],
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    [ 0, 17 ],
+    [ 0, 1, 12, 13, 14, 15, 16, 17 ],
+    [ 0, 1, 12, 13, 14, 15, 16, 17 ],
+    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
   ];
 
   var CELL_DIMENSION = 25;
@@ -39,10 +39,10 @@ define( function( require ) {
     this.cells = [];
     var elementIndex = 1;
     for ( var i = 0; i < POPULATED_CELLS.length; i++ ) {
-      var populatedCellsInRow = POPULATED_CELLS[i];
+      var populatedCellsInRow = POPULATED_CELLS[ i ];
       for ( var j = 0; j < populatedCellsInRow.length; j++ ) {
         var cell = new PeriodicTableCell( elementIndex, CELL_DIMENSION, interactiveMax >= elementIndex, numberAtom );
-        cell.translation = new Vector2( populatedCellsInRow[j] * CELL_DIMENSION, i * CELL_DIMENSION );
+        cell.translation = new Vector2( populatedCellsInRow[ j ] * CELL_DIMENSION, i * CELL_DIMENSION );
         this.addChild( cell );
         this.cells.push( cell );
         elementIndex++;
@@ -56,7 +56,7 @@ define( function( require ) {
         highlightedCell.setHighlighted( false );
       }
       if ( protonCount > 0 && protonCount <= thisPeriodicTable.cells.length ) {
-        highlightedCell = thisPeriodicTable.cells[protonCount - 1];
+        highlightedCell = thisPeriodicTable.cells[ protonCount - 1 ];
         highlightedCell.moveToFront();
         highlightedCell.setHighlighted( true );
       }

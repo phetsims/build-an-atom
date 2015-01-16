@@ -47,7 +47,7 @@ define( function( require ) {
       new Screen( atomModuleString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
         function( model ) { return new BuildAnAtomView( model ); },
-        { navigationBarIcon: new Image( atomIconSmall )}
+        { navigationBarIcon: new Image( atomIconSmall ) }
       ),
       new Screen( symbolModuleString, new Image( elementIcon ),
         function() { return new BuildAnAtomModel(); },
@@ -60,7 +60,8 @@ define( function( require ) {
       new Screen( gameModuleString, new Image( gameIcon ),
         function() { return new BAAGameModel(); },
         function( model ) { return new BAAGameView( model ); },
-        { backgroundColor: 'rgb( 255, 254, 223 )',
+        {
+          backgroundColor: 'rgb( 255, 254, 223 )',
           navigationBarIcon: new Image( gameIconSmall )
         }
       )

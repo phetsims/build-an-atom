@@ -55,7 +55,7 @@ define( function( require ) {
     var minuses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       var minusSymbol = new Node( {
-        children: [minusSymbolPath],
+        children: [ minusSymbolPath ],
         x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE )
       } );
       minuses.push( minusSymbol );
@@ -88,7 +88,7 @@ define( function( require ) {
     var plusses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       var plusSymbol = new Node( {
-        children: [plusSymbolPath],
+        children: [ plusSymbolPath ],
         x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE )
       } );
       plusses.push( plusSymbol );
@@ -107,12 +107,12 @@ define( function( require ) {
     var update = function( atom ) {
       // toggle plus visibility
       for ( var numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
-        plusses[numProtons].visible = numProtons < atom.protonCount;
+        plusses[ numProtons ].visible = numProtons < atom.protonCount;
       }
 
       // toggle minus visibility
       for ( var numElectrons = 0; numElectrons < MAX_CHARGE; numElectrons++ ) {
-        minuses[numElectrons].visible = numElectrons < atom.electronCount;
+        minuses[ numElectrons ].visible = numElectrons < atom.electronCount;
       }
 
       // matching box
@@ -122,7 +122,7 @@ define( function( require ) {
     };
 
     // Workaround for issue where location can't be set if no bounds exist.
-    this.addChild( new Rectangle( 0, 0, SYMBOL_WIDTH, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )'} ) );
+    this.addChild( new Rectangle( 0, 0, SYMBOL_WIDTH, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
 
     // Hook up the update function.
     numberAtom.particleCountProperty.link( function() {

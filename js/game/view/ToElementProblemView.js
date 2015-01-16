@@ -50,9 +50,9 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Neutral atom versus ion question.
-    var neutralVersusIonPrompt = new Text( isItString, { font: new PhetFont( 24 )} );
-    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, {font: new PhetFont( 18 )} ), { radius: 8 } );
-    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, {font: new PhetFont( 18 )} ), { radius: 8 } );
+    var neutralVersusIonPrompt = new Text( isItString, { font: new PhetFont( 24 ) } );
+    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, { font: new PhetFont( 18 ) } ), { radius: 8 } );
+    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, { font: new PhetFont( 18 ) } ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;

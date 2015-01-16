@@ -37,7 +37,7 @@ define( function( require ) {
         stroke: 'blue',
         lineWidth: 1.5,
         lineDash: LINE_DASH,
-        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+        translation: mvt.modelToViewPosition( { x: 0, y: 0 } )
       }
     );
     this.addChild( outerRing );
@@ -47,7 +47,7 @@ define( function( require ) {
         stroke: 'blue',
         lineWidth: 1.5,
         lineDash: LINE_DASH,
-        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+        translation: mvt.modelToViewPosition( { x: 0, y: 0 } )
       }
     );
     this.addChild( innerRing );

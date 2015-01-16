@@ -65,7 +65,7 @@ define( function( require ) {
     var spacer = new Rectangle( maxLabelWidth, 0, interParticleSpacing * 3, 1 );
 
     // Add the layer where the particles will live.
-    var particleLayer = new Node( { children: [spacer] } );
+    var particleLayer = new Node( { children: [ spacer ] } );
     panelContents.addChild( particleLayer );
 
     // stored ParticleNode instances that are positioned correctly, so we just have to add/remove the changed ones (faster than full rebuild)
@@ -88,7 +88,7 @@ define( function( require ) {
           y: startY
         } ) );
       }
-      particleLayer.addChild( array[newIndex] );
+      particleLayer.addChild( array[ newIndex ] );
       currentQuantity += 1;
       return currentQuantity;
     }
@@ -96,7 +96,7 @@ define( function( require ) {
     // decrease the particle count by 1, and return the currently displayed quantity. array should be protons, neutrons, or electrons
     function decrementParticle( array, currentQuantity ) {
       currentQuantity -= 1;
-      particleLayer.removeChild( array[currentQuantity] );
+      particleLayer.removeChild( array[ currentQuantity ] );
       return currentQuantity;
     }
 
@@ -137,7 +137,7 @@ define( function( require ) {
     updateParticles( numberAtom );
 
     // Add it all to a panel.
-    this.addChild( new Panel( panelContents, {fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR} ) );
+    this.addChild( new Panel( panelContents, { fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR } ) );
   }
 
   // Inherit from Node.

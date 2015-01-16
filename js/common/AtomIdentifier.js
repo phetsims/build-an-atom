@@ -246,25 +246,25 @@ define( function( require ) {
     // No element
     [],
     // Hydrogen
-    [0, 1],
+    [ 0, 1 ],
     // Helium
-    [1, 2],
+    [ 1, 2 ],
     // Lithium
-    [3, 4] ,
+    [ 3, 4 ],
     // Beryllium
-    [5],
+    [ 5 ],
     // Boron
-    [5, 6],
+    [ 5, 6 ],
     // Carbon
-    [6, 7],
+    [ 6, 7 ],
     // Nitrogen
-    [7, 8],
+    [ 7, 8 ],
     // Oxygen
-    [8, 9, 10],
+    [ 8, 9, 10 ],
     // Fluorine
-    [10],
+    [ 10 ],
     // Neon
-    [10, 11, 12]
+    [ 10, 11, 12 ]
   ];
 
   var numNeutronsInMostStableIsotope = [
@@ -398,7 +398,7 @@ define( function( require ) {
 
     // Get the chemical name for an atom with the specified number of protons.
     getName: function( numProtons ) {
-      return nameTable[numProtons];
+      return nameTable[ numProtons ];
     },
 
     // Identifies whether a given atomic nucleus is stable.

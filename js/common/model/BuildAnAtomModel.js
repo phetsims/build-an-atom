@@ -228,7 +228,7 @@ define( function( require ) {
         var particlesToRemove = [];
         // Copy the observable particle collection into a regular array.
         for ( var i = 0; i < particleCollection.length; i++ ) {
-          particlesToRemove[i] = particleCollection.get( i );
+          particlesToRemove[ i ] = particleCollection.get( i );
         }
         var thisModel = this;
         particlesToRemove.forEach( function( particle ) {

@@ -32,7 +32,7 @@ define( function( require ) {
     var electronCloud = new Circle( mvt.modelToViewDeltaX( atom.outerElectronShellRadius ),
       {
         fill: 'pink',
-        translation: mvt.modelToViewPosition( {x: 0, y: 0 } )
+        translation: mvt.modelToViewPosition( { x: 0, y: 0 } )
       }
     );
     this.addChild( electronCloud );
@@ -70,7 +70,7 @@ define( function( require ) {
           // relies on the topology of the scene graph.  JB, SR, and JO
           // discussed potentially better ways to do it.  If this code is
           // leveraged, revisit this line for potential improvement.
-          var positionInModelSpace = mvt.viewToModelPosition( thisNode.getParents()[0].globalToLocalPoint( event.pointer.point ) );
+          var positionInModelSpace = mvt.viewToModelPosition( thisNode.getParents()[ 0 ].globalToLocalPoint( event.pointer.point ) );
 
           var electron = atom.extractParticle( 'electron' );
           if ( electron !== null ) {

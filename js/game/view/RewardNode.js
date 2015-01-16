@@ -57,8 +57,10 @@ define( function( require ) {
       _.times( NUM_TIMES_TO_REUSE_NODES, function() {
         var rootNode = new Node();
         rootNode.addChild( imageNode );
-        rootNode.mutate( { centerX: Math.random() * ( thisNode.size.width - imageNode.width ),
-          centerY: Math.random() * ( thisNode.size.height - imageNode.height ) } );
+        rootNode.mutate( {
+          centerX: Math.random() * ( thisNode.size.width - imageNode.width ),
+          centerY: Math.random() * ( thisNode.size.height - imageNode.height )
+        } );
         rootNode.velocity = MIN_CHILD_VELOCITY + Math.random() * ( MAX_CHILD_VELOCITY - MIN_CHILD_VELOCITY );
         thisNode.movingChildNodes.push( rootNode );
         thisNode.addChild( rootNode );
@@ -82,7 +84,7 @@ define( function( require ) {
     stepClock.addStepListener( function( dt ) {
       if ( thisNode.animationEnabled ) {
         for ( var i = 0; i < thisNode.movingChildNodes.length; i++ ) {
-          var childNode = thisNode.movingChildNodes[i];
+          var childNode = thisNode.movingChildNodes[ i ];
           childNode.translate( 0, childNode.velocity * dt / childNode.getScaleVector().y );
           if ( childNode.bottom >= thisNode.size.height ) {
             // Back to the top.

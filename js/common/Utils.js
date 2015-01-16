@@ -8,7 +8,7 @@
 define( [], function() {
   'use strict';
 
-  return{
+  return {
     /**
      * Determine if two values are equal within a tolerance.
      *
