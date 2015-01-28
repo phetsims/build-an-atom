@@ -12,7 +12,7 @@ define( function( require ) {
   // Imports
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LevelStartButtonDeprecated = require( 'VEGAS/LevelStartButtonDeprecated' );
+  var LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
   var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
   var Node = require( 'SCENERY/nodes/Node' );
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
@@ -47,7 +47,7 @@ define( function( require ) {
     this.addChild( title );
 
     // Buttons for starting a game level.
-    var periodicTableGameButton = new LevelStartButtonDeprecated(
+    var periodicTableGameButton = new LevelSelectionButton(
       new Image( periodicTableIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
@@ -57,7 +57,7 @@ define( function( require ) {
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( periodicTableGameButton );
-    var massAndChangeGameButton = new LevelStartButtonDeprecated(
+    var massAndChangeGameButton = new LevelSelectionButton(
       new Image( massChargeIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
@@ -67,7 +67,7 @@ define( function( require ) {
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( massAndChangeGameButton );
-    var symbolGameButton = new LevelStartButtonDeprecated(
+    var symbolGameButton = new LevelSelectionButton(
       new Image( symbolQuestionIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
@@ -77,7 +77,7 @@ define( function( require ) {
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new LevelStartButtonDeprecated(
+    var advancedSymbolGameButton = new LevelSelectionButton(
       new Image( questionMarkIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
