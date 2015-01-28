@@ -57,7 +57,7 @@ define( function( require ) {
    * @constructor
    */
   function AtomView( model ) {
-    ScreenView.call( this, { renderer: 'svg', layout: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
+    ScreenView.call( this, { renderer: 'svg', layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
 //    ScreenView.call( this ); // Call super constructor.
     var thisView = this;
     this.model = model;

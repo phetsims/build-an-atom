@@ -28,7 +28,7 @@ define( function( require ) {
    */
   function BAAGameView( gameModel ) {
 
-    ScreenView.call( this, { layout: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
+    ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
     var thisScene = this;
 
     // Add a root node where all of the game-related nodes will live.
