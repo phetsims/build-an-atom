@@ -48,7 +48,7 @@ define( function( require ) {
 
   function ParticleView( particle, mvt ) {
 
-    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true } } ); // Call super constructor.
+    Node.call( this ); // Call super constructor.
     var thisParticleView = this;
 
     // Set up fields.
