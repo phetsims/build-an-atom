@@ -39,7 +39,7 @@ define( function( require ) {
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'center',
-        titleAlign: 'left',
+        titleAlignX: 'left',
         buttonAlign: 'right',
         expandedProperty: this.viewProperties.symbolBoxExpandedProperty
       } );

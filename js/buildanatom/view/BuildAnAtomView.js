@@ -48,7 +48,7 @@ define( function( require ) {
         expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'left',
-        titleAlign: 'left',
+        titleAlignX: 'left',
         buttonAlign: 'right'
       } );
     this.addChild( chargeMeterBox );
@@ -61,7 +61,7 @@ define( function( require ) {
         expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'left',
-        titleAlign: 'left',
+        titleAlignX: 'left',
         buttonAlign: 'right'
       } );
     this.addChild( massNumberBox );

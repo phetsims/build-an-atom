@@ -171,7 +171,7 @@ define( function( require ) {
       titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
-      titleAlign: 'left',
+      titleAlignX: 'left',
       buttonAlign: 'right',
       expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
     } );
