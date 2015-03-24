@@ -36,7 +36,7 @@ define( function( require ) {
   /**
    * @param particleAtom Model that represents the atom, including particle positions
    * @param mvt Model-View transform
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function AtomNode( particleAtom, mvt, options ) {

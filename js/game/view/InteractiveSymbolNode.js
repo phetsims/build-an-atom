@@ -31,7 +31,7 @@ define( function( require ) {
   /**
    * Constructor
    * @param numberAtom
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function InteractiveSymbolNode( numberAtom, options ) {

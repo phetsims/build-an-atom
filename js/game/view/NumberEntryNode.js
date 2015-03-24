@@ -26,7 +26,7 @@ define( function( require ) {
    * Main constructor.
    *
    * @param numberProperty
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function NumberEntryNode( numberProperty, options ) {

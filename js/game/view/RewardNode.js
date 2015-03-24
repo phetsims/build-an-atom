@@ -32,7 +32,7 @@ define( function( require ) {
 
   /**
    * @param stepClock
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function RewardNode( stepClock, options ) {

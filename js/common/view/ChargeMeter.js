@@ -28,7 +28,7 @@ define( function( require ) {
 
   /**
    * @param numberAtom
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function ChargeMeter( numberAtom, options ) {

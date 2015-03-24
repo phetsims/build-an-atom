@@ -22,7 +22,7 @@ define( function( require ) {
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
 
   /**
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function InteractiveParticleCountsNode( options ) {

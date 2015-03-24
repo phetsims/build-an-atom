@@ -15,7 +15,7 @@ define( function( require ) {
   /**
    * @param particleType - proton, neutron, or electron
    * @param radius
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function ParticleNode( particleType, radius, options ) {
