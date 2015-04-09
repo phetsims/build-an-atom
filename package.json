@@ -1,6 +1,6 @@
 {
   "name": "build-an-atom",
-  "version": "1.1.0-rc.5",
+  "version": "1.2.0-dev.1",
   "license": "GPLv3",
   "simTitleStringKey": "BUILD_AN_ATOM/build-an-atom.name",
   "phetLibs": [
