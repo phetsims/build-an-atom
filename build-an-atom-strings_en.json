@@ -1,0 +1,260 @@
+{
+  "game.ion": {
+    "value": "Ion"
+  },
+  "stableUnstable": {
+    "value": "Stable/Unstable"
+  },
+  "verySmall": {
+    "value": "very small"
+  },
+  "element.argon.name": {
+    "value": "Argon"
+  },
+  "indicator.symbol": {
+    "value": "Symbol"
+  },
+  "game.findTheElement": {
+    "value": "Find the element:"
+  },
+  "element.magnesium.name": {
+    "value": "Magnesium"
+  },
+  "int.minControlPanelWidth": {
+    "value": "215"
+  },
+  "whiteIsotopeBox": {
+    "value": "White Isotope Box"
+  },
+  "element.none.name": {
+    "value": "--"
+  },
+  "massNumber": {
+    "value": "Mass Number"
+  },
+  "game.whatIsTheTotalChargeBr": {
+    "value": "What is the\ntotal charge?"
+  },
+  "element.name": {
+    "value": "Element Name"
+  },
+  "negative.ion": {
+    "value": "- Ion"
+  },
+  "element.silicon.name": {
+    "value": "Silicon"
+  },
+  "element.beryllium.name": {
+    "value": "Beryllium"
+  },
+  "game.problemIndexReadout.pattern": {
+    "value": "Problem {0} of {1}"
+  },
+  "title.atomModule": {
+    "value": "Atom"
+  },
+  "title.symbolModule": {
+    "value": "Symbol"
+  },
+  "game.completeTheModel": {
+    "value": "Complete the model:"
+  },
+  "abundanceInNature": {
+    "value": "Abundance in Nature"
+  },
+  "game.tryAgain": {
+    "value": "Try Again"
+  },
+  "game.check": {
+    "value": "Check"
+  },
+  "game.howManyProtons": {
+    "value": "How many protons?"
+  },
+  "indicator.charge": {
+    "value": "Net Charge"
+  },
+  "indicator.element": {
+    "value": "Element"
+  },
+  "isotopes": {
+    "value": "Isotopes"
+  },
+  "percentComposition": {
+    "value": "Percent Composition"
+  },
+  "element.fluorine.name": {
+    "value": "Fluorine"
+  },
+  "more": {
+    "value": "More"
+  },
+  "element.boron.name": {
+    "value": "Boron"
+  },
+  "myIsotope": {
+    "value": "My Isotope"
+  },
+  "less": {
+    "value": "Less"
+  },
+  "element.carbon.name": {
+    "value": "Carbon"
+  },
+  "atomicMass": {
+    "value": "Atomic Mass (amu)"
+  },
+  "title.interactiveIsotopeModule": {
+    "value": "Make Isotopes"
+  },
+  "electron.model.orbits": {
+    "value": "Orbits"
+  },
+  "electron.model": {
+    "value": "Model:"
+  },
+  "thisIsotope": {
+    "value": "This Isotope"
+  },
+  "game.whatIsTheMassNumber": {
+    "value": "What is the\nmass number?"
+  },
+  "stable": {
+    "value": "Stable"
+  },
+  "unstable": {
+    "value": "Unstable"
+  },
+  "build-an-atom.name": {
+    "value": "Build an Atom"
+  },
+  "element.chlorine.name": {
+    "value": "Chlorine"
+  },
+  "element.none.symbol": {
+    "value": "-"
+  },
+  "isotopes-and-atomic-mass.name": {
+    "value": "Isotopes and Atomic Mass"
+  },
+  "myMixOfIsotopes": {
+    "value": "My mix of isotopes"
+  },
+  "game.whatIsTheTotalCharge": {
+    "value": "What is the total charge?"
+  },
+  "element.aluminum.name": {
+    "value": "Aluminum"
+  },
+  "game.howManyParticles": {
+    "value": "How many particles?"
+  },
+  "electrons.readout": {
+    "value": "Electrons:"
+  },
+  "title.gameModule": {
+    "value": "Game"
+  },
+  "element.sodium.name": {
+    "value": "Sodium"
+  },
+  "pattern.0element.1massNumber": {
+    "value": "{0}-{1}"
+  },
+  "game.neutralAtom": {
+    "value": "Neutral Atom"
+  },
+  "game.showAnswer": {
+    "value": "Show Answer"
+  },
+  "game.completeTheSymbol": {
+    "value": "Complete the symbol:"
+  },
+  "clearBox": {
+    "value": "Clear Box"
+  },
+  "neutralIon": {
+    "value": "Neutral/Ion"
+  },
+  "positive.ion": {
+    "value": "+ Ion"
+  },
+  "neutrons.name": {
+    "value": "Neutrons"
+  },
+  "element.phosphorus.name": {
+    "value": "Phosphorus"
+  },
+  "element.nitrogen.name": {
+    "value": "Nitrogen"
+  },
+  "protons.readout": {
+    "value": "Protons:"
+  },
+  "element.neon.name": {
+    "value": "Neon"
+  },
+  "units.amu": {
+    "value": "amu"
+  },
+  "electron.model.cloud": {
+    "value": "Cloud"
+  },
+  "averageAtomicMass": {
+    "value": "Average Atomic Mass"
+  },
+  "element.hydrogen.name": {
+    "value": "Hydrogen"
+  },
+  "element.helium.name": {
+    "value": "Helium"
+  },
+  "element.oxygen.name": {
+    "value": "Oxygen"
+  },
+  "game.whatIsTheMassNumberBr": {
+    "value": "What is the\nmass number?"
+  },
+  "game.next": {
+    "value": "Next"
+  },
+  "title.isotopeMixtures": {
+    "value": "Mix Isotopes"
+  },
+  "neutrons.readout": {
+    "value": "Neutrons:"
+  },
+  "electrons.name": {
+    "value": "Electrons"
+  },
+  "element.lithium.name": {
+    "value": "Lithium"
+  },
+  "neutral.atom": {
+    "value": "Neutral Atom"
+  },
+  "other": {
+    "value": "Other"
+  },
+  "game.isIt": {
+    "value": "Is it:"
+  },
+  "naturesMixOfIsotopes": {
+    "value": "Nature's mix of isotopes"
+  },
+  "protons.name": {
+    "value": "Protons"
+  },
+  "element.sulfur.name": {
+    "value": "Sulfur"
+  },
+  "indicator.mass.number": {
+    "value": "Mass Number"
+  },
+  "show": {
+    "value": "Show"
+  },
+  "game.chooseYourGame": {
+    "value": "Choose Your Game!"
+  }
+}
