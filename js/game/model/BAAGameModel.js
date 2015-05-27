@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Primary model class for the Build and Atom Game tab.
+ * Primary model class for the Build an Atom Game tab.
  *
  * @author John Blanco
  */
