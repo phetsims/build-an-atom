@@ -32,7 +32,7 @@ define( function( require ) {
    * @constructor
    */
   function PeriodicTableNode( numberAtom, interactiveMax ) {
-    Node.call( this, { renderer: 'svg' } ); // Call super constructor.
+    Node.call( this ); // Call super constructor.
     var thisPeriodicTable = this;
 
     // Add the cells of the table.

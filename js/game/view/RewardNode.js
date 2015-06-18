@@ -36,8 +36,7 @@ define( function( require ) {
    * @constructor
    */
   function RewardNode( stepClock, options ) {
-//    Node.call( this, { renderer: 'svg', rendererOptions: { cssTransform: true }, pickable: false } );
-    Node.call( this, { renderer: 'svg', pickable: false } );
+    Node.call( this, { pickable: false } );
     var thisNode = this;
 
     options = _.extend( { size: new Dimension2( 1000, 850 ), population: 50 }, options );
