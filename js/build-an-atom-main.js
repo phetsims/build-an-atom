@@ -22,10 +22,10 @@ define( function( require ) {
   var atomModuleString = require( 'string!BUILD_AN_ATOM/title.atomModule' );
   var symbolModuleString = require( 'string!BUILD_AN_ATOM/title.symbolModule' );
   var gameModuleString = require( 'string!BUILD_AN_ATOM/title.gameModule' );
-  var atomIcon = require( 'image!BUILD_AN_ATOM/baa_atom_icon.png' );
-  var atomIconSmall = require( 'image!BUILD_AN_ATOM/baa_atom_icon_small.png' );
-  var elementIcon = require( 'image!BUILD_AN_ATOM/baa_element_icon.png' );
-  var elementIconSmall = require( 'image!BUILD_AN_ATOM/baa_element_icon_small.png' );
+  var atomIcon = require( 'image!BUILD_AN_ATOM/atom_icon.png' );
+  var atomIconSmall = require( 'image!BUILD_AN_ATOM/atom_icon_small.png' );
+  var elementIcon = require( 'image!BUILD_AN_ATOM/element_icon.png' );
+  var elementIconSmall = require( 'image!BUILD_AN_ATOM/element_icon_small.png' );
   var gameIcon = require( 'image!BUILD_AN_ATOM/game_icon.png' );
   var gameIconSmall = require( 'image!BUILD_AN_ATOM/game_icon_small.png' );
 
