@@ -1,5 +1,5 @@
 {
-  "baa_atom_icon.png": {
+  "atom_icon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -7,7 +7,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Sharon Siman-Tov"
   },
-  "baa_atom_icon_small.png": {
+  "atom_icon_small.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -15,7 +15,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by John Blanco"
   },
-  "baa_element_icon.png": {
+  "element_icon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -23,7 +23,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Sharon Siman-Tov"
   },
-  "baa_element_icon_small.png": {
+  "element_icon_small.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
