@@ -17,7 +17,7 @@ require.config( {
 
     // PhET libs, uppercase names to identify them in require.js imports
     AXON: '../../axon/js',
-    BRAND: '../../brand/js',
+    BRAND: '../../brand/' + phet.chipper.getBrandName() + '/js',
     DOT: '../../dot/js',
     JOIST: '../../joist/js',
     KITE: '../../kite/js',
