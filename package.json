@@ -2,6 +2,7 @@
   "name": "build-an-atom",
   "version": "1.2.0-dev.1",
   "license": "GPLv3",
+  "requirejsNamespace": "BUILD_AN_ATOM",
   "simTitleStringKey": "BUILD_AN_ATOM/build-an-atom.name",
   "phetLibs": [
     "build-an-atom",
