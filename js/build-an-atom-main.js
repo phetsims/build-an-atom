@@ -18,7 +18,7 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' );
 
   // Strings
-  var simTitle = require( 'string!BUILD_AN_ATOM/build-an-atom.name' );
+  var simTitle = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
   var atomModuleString = require( 'string!BUILD_AN_ATOM/title.atomModule' );
   var symbolModuleString = require( 'string!BUILD_AN_ATOM/title.symbolModule' );
   var gameModuleString = require( 'string!BUILD_AN_ATOM/title.gameModule' );
