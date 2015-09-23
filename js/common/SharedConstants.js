@@ -26,7 +26,7 @@ define( function( require ) {
     // Font used in accordion box titles throughout the sim.
     ACCORDION_BOX_TITLE_FONT: new PhetFont( 18 ),
 
-    // Max attempts for each problem on the game tab.
+    // Max attempts for each problem on the game screen.
     MAX_PROBLEM_ATTEMPTS: 2,
 
     // Function for choosing text color based on charge value.
