@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var ToElementProblem = require( 'BUILD_AN_ATOM/game/model/ToElementProblem' );
   var SchematicToElementProblemView = require( 'BUILD_AN_ATOM/game/view/SchematicToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );

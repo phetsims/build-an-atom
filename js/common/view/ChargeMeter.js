@@ -7,7 +7,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Dimension2 = require( 'DOT/Dimension2' );

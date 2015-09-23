@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var CountsToMassNumberProblemView = require( 'BUILD_AN_ATOM/game/view/CountsToMassNumberProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );

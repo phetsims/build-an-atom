@@ -12,7 +12,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
 
   // Problem pools for creating game problems, extracted from the design doc.

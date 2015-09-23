@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
@@ -34,7 +34,7 @@ define( function( require ) {
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
   var PropertySet = require( 'AXON/PropertySet' );
 
-  // Strings
+  // strings
   var elementString = require( 'string!BUILD_AN_ATOM/indicator.element' );
   var elementNameString = require( 'string!BUILD_AN_ATOM/element.name' );
   var neutralIonString = require( 'string!BUILD_AN_ATOM/neutralIon' );

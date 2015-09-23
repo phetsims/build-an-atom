@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
@@ -25,7 +25,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var TimerToggleButton = require( 'SCENERY_PHET/buttons/TimerToggleButton' );
 
-  // Strings
+  // strings
   var chooseYourGameString = require( 'string!BUILD_AN_ATOM/game.chooseYourGame' );
 
   // Constants

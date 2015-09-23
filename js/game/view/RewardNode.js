@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );

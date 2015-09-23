@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var SchematicToSymbolProblemView = require( 'BUILD_AN_ATOM/game/view/SchematicToSymbolProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );

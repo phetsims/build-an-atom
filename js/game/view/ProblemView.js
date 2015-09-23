@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var Color = require( 'SCENERY/util/Color' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
@@ -19,7 +19,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
-  // Strings
+  // strings
   var checkString = require( 'string!VEGAS/check' );
   var tryAgainString = require( 'string!VEGAS/tryAgain' );
   var showAnswerString = require( 'string!VEGAS/showAnswer' );

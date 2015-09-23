@@ -6,7 +6,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );

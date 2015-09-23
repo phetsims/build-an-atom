@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -20,7 +20,7 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
-  // Strings
+  // strings
   var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
   var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );

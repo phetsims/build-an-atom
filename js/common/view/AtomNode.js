@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var ElectronCloudView = require( 'BUILD_AN_ATOM/common/view/ElectronCloudView' );
   var ElectronShellView = require( 'BUILD_AN_ATOM/common/view/ElectronShellView' );
@@ -23,7 +23,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // Strings
+  // strings
   var negativeIonString = require( 'string!BUILD_AN_ATOM/negative.ion' );
   var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutral.atom' );
   var positiveIonString = require( 'string!BUILD_AN_ATOM/positive.ion' );

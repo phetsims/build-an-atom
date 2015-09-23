@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var PropertySet = require( 'AXON/PropertySet' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );

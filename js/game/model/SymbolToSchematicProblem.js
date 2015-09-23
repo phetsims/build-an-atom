@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var SymbolToSchematicProblemView = require( 'BUILD_AN_ATOM/game/view/SymbolToSchematicProblemView' );

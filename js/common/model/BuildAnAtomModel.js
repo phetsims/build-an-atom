@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -20,7 +20,7 @@ define( function( require ) {
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // Strings
+  // strings
   var protonsString = require( 'string!BUILD_AN_ATOM/protons.name' );
   var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.name' );
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons.name' );

@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
@@ -20,7 +20,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
-  // Strings
+  // strings
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/game.whatIsTheTotalChargeBr' );
 
   /**

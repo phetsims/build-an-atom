@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );

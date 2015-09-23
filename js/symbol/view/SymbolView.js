@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -16,7 +16,7 @@ define( function( require ) {
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // Strings
+  // strings
   var symbolString = require( 'string!BUILD_AN_ATOM/indicator.symbol' );
 
   /**

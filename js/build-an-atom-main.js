@@ -6,7 +6,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var BuildAnAtomView = require( 'buildanatom/view/BuildAnAtomView' );
   var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
@@ -17,7 +17,7 @@ define( function( require ) {
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
 
-  // Strings
+  // strings
   var simTitle = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
   var atomModuleString = require( 'string!BUILD_AN_ATOM/title.atomModule' );
   var symbolModuleString = require( 'string!BUILD_AN_ATOM/title.symbolModule' );

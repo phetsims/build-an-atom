@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AtomValuePool = require( 'BUILD_AN_ATOM/game/model/AtomValuePool' );
   var CountsToChargeProblem = require( 'BUILD_AN_ATOM/game/model/CountsToChargeProblem' );
   var CountsToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolProblem' );

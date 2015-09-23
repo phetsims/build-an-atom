@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -21,7 +21,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // Strings
+  // strings
   var findTheElementString = require( 'string!BUILD_AN_ATOM/game.findTheElement' );
   var ionString = require( 'string!BUILD_AN_ATOM/game.ion' );
   var neutralAtomString = require( 'string!BUILD_AN_ATOM/game.neutralAtom' );

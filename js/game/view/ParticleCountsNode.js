@@ -10,13 +10,13 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  // Strings
+  // strings
   var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
   var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
