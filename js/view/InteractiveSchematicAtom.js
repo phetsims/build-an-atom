@@ -7,7 +7,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var AtomNode = require( 'SHRED/view/AtomNode' );
   var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
