@@ -19,7 +19,7 @@ define( function( require ) {
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // Constants
+  // constants
   var INTER_BOX_SPACING = 7;
 
   /**

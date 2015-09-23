@@ -22,7 +22,7 @@ define( function( require ) {
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // Constants
+  // constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
   var NUMBER_FONT = new PhetFont( 56 );

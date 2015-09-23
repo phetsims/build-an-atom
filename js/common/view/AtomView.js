@@ -44,7 +44,7 @@ define( function( require ) {
   var cloudString = require( 'string!BUILD_AN_ATOM/electron.model.cloud' );
   var modelString = require( 'string!BUILD_AN_ATOM/electron.model' );
 
-  // Constants
+  // constants
   var CONTROLS_INSET = 10;
   var LABEL_CONTROL_FONT = new PhetFont( 32 );
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 14 );

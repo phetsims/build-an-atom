@@ -15,7 +15,7 @@ define( function( require ) {
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
-  // Constants
+  // constants
   var PROBLEMS_PER_LEVEL = 5;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
 

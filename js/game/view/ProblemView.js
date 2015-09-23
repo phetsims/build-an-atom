@@ -25,7 +25,7 @@ define( function( require ) {
   var showAnswerString = require( 'string!VEGAS/showAnswer' );
   var nextString = require( 'string!VEGAS/next' );
 
-  // Constants
+  // constants
   var BUTTON_FONT = new PhetFont( 20 );
   var BUTTON_FILL = new Color( 0, 255, 153 );
   var POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };

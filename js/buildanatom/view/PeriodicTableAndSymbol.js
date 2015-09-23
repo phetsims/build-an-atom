@@ -17,7 +17,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // Constants
+  // constants
   var SYMBOL_WIDTH_PROPORTION = 0.2;
   var SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 

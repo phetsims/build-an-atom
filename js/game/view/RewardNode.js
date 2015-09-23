@@ -21,7 +21,7 @@ define( function( require ) {
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
-  // Constants
+  // constants
   var MIN_CHILD_NODE_WIDTH = 40;
   var MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
   var MIN_CHILD_VELOCITY = 100; // In pixels per second.

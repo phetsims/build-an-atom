@@ -18,7 +18,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // Constants
+  // constants
   var NUMBER_BOX_SIZE = { width: 55, height: 48 }; // Size empirically determined.
   var NUMBER_FONT = new PhetFont( 28 );
 

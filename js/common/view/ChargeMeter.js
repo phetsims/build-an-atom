@@ -20,7 +20,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // Constants
+  // constants
   var WIDTH = 70; // In screen coords, which are roughly pixels.
   var _MAX_CHARGE = 10;
   var CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.

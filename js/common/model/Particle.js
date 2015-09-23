@@ -14,7 +14,7 @@ define( function( require ) {
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  // Constants
+  // constants
   var DEFAULT_PARTICLE_VELOCITY = 200; // Basically in pixels/sec.
 
   /**

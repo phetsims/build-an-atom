@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
 
-  // Constants
+  // constants
   var LINE_DASH = [ 4, 5 ];
 
   /**

@@ -25,7 +25,7 @@ define( function( require ) {
   var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.name' );
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons.name' );
 
-  // Constants
+  // constants
   var NUM_PROTONS = 10;
   var NUM_NEUTRONS = 13;
   var NUM_ELECTRONS = 10;

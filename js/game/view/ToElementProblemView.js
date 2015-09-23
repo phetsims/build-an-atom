@@ -27,7 +27,7 @@ define( function( require ) {
   var neutralAtomString = require( 'string!BUILD_AN_ATOM/game.neutralAtom' );
   var isItString = require( 'string!BUILD_AN_ATOM/game.isIt' );
 
-  // Constants
+  // constants
   var TITLE_FONT = new PhetFont( 30 );
   var INSET = 10;
 

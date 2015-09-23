@@ -30,7 +30,7 @@ define( function( require ) {
   var stableString = require( 'string!BUILD_AN_ATOM/stable' );
   var unstableString = require( 'string!BUILD_AN_ATOM/unstable' );
 
-  // Constants
+  // constants
   var ELEMENT_NAME_FONT_SIZE = 26;
 
   /**

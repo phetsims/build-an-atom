@@ -17,7 +17,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  // Constants
+  // constants
   var SYMBOL_WIDTH = 12;
   var VERTICAL_INSET = 5;
   var INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
