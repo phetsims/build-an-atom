@@ -59,7 +59,7 @@ define( function( require ) {
     },
 
     setPositionAndDestination: function( newPosition ) {
-      assert && assert( newPosition instanceof Vector2, "Attempt to set non-vector position." );
+      assert && assert( newPosition instanceof Vector2, 'Attempt to set non-vector position.' );
       if ( newPosition instanceof Vector2 ) {
         this.destination = newPosition;
         this.moveImmediatelyToDestination();

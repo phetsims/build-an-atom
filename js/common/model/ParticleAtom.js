@@ -149,7 +149,7 @@ define( function( require ) {
           return ( thisAtom.position.distance( p1.position ) - thisAtom.position.distance( p2.position ) );
         } );
 
-        assert && assert( sortedOpenPositions.length > 0, "No open positions found for electrons" );
+        assert && assert( sortedOpenPositions.length > 0, 'No open positions found for electrons' );
         sortedOpenPositions[ 0 ].electron = particle;
         particle.destination = sortedOpenPositions[ 0 ].position;
 
@@ -185,7 +185,7 @@ define( function( require ) {
       else {
         throw new Error( 'Attempt to remove particle that is not in this particle atom.' );
       }
-      assert && assert( typeof( particle.particleAtomRemovalListener ) === 'function', "No particle removal listener attached to particle." );
+      assert && assert( typeof( particle.particleAtomRemovalListener ) === 'function', 'No particle removal listener attached to particle.' );
       particle.userControlledProperty.unlink( particle.particleAtomRemovalListener );
       delete particle.particleAtomRemovalListener;
     },
@@ -213,7 +213,7 @@ define( function( require ) {
           break;
 
         default:
-          throw new Error( "Attempt to remove unknown particle type." );
+          throw new Error( 'Attempt to remove unknown particle type.' );
       }
 
       if ( particle !== null ) {

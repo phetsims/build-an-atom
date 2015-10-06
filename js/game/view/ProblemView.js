@@ -55,7 +55,7 @@ define( function( require ) {
 
     // Face node used to signal correct/incorrect answers.
     var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
-    var pointDisplay = new Text( "+0", POINT_TEXT_OPTIONS );
+    var pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
     pointDisplay.centerX = 0;
     pointDisplay.top = faceNode.height / 2;
     faceNode.addChild( pointDisplay );

@@ -61,7 +61,7 @@ define( function( require ) {
       nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt ) );
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
-        assert && assert( nucleonLayers.length > zLayer, "zLayer for nucleon exceeds number of layers, max number may need increasing." );
+        assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
         // Determine whether nucleon view is on the correct layer.
         var onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
@@ -85,7 +85,7 @@ define( function( require ) {
           }
 
           // Add the particle view to its new layer.
-          assert && assert( particleView !== null, "Particle view not found during relayering" );
+          assert && assert( particleView !== null, 'Particle view not found during relayering' );
           nucleonLayers[ zLayer ].addChild( particleView );
         }
       } );

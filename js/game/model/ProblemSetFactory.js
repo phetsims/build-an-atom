@@ -170,7 +170,7 @@ define( function( require ) {
         problem = new SymbolToSchematicProblem( model, atomValue );
         break;
       default:
-        throw new Error( "Error: Request to create unknown problem type, type = " + problemType );
+        throw new Error( 'Error: Request to create unknown problem type, type = ' + problemType );
     }
     return problem;
   };

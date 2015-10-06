@@ -275,7 +275,7 @@ define( function( require ) {
       atomValue = allowableAtomValues[ Math.floor( Math.random() * allowableAtomValues.length ) ];
     }
     else {
-      throw "Error: No atoms found that match the specified criteria";
+      throw 'Error: No atoms found that match the specified criteria';
     }
     return atomValue;
   };
