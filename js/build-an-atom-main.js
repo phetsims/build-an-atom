@@ -16,6 +16,7 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   var simTitle = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
@@ -29,6 +30,8 @@ define( function( require ) {
   var gameIcon = require( 'image!BUILD_AN_ATOM/game_icon.png' );
   var gameIconSmall = require( 'image!BUILD_AN_ATOM/game_icon_small.png' );
 
+  var tandem = new Tandem( 'buildAnAtom' );
+
   var simOptions = {
     credits: {
       leadDesign: 'Kelly Lancaster',
@@ -37,7 +40,8 @@ define( function( require ) {
             'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Ariel Paul, Robert Parson,\n' +
             'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    }
+    },
+    tandem: tandem
   };
 
   SimLauncher.launch( function() {
@@ -46,23 +50,25 @@ define( function( require ) {
     new Sim( simTitle, [
       new Screen( atomModuleString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new BuildAnAtomView( model ); },
-        { navigationBarIcon: new Image( atomIconSmall ) }
+        function( model ) { return new BuildAnAtomView( model ); }, {
+          tandemScreenName: 'atomScreen',
+          navigationBarIcon: new Image( atomIconSmall )
+        }
       ),
       new Screen( symbolModuleString, new Image( elementIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new SymbolView( model ); },
-        {
+        function( model ) { return new SymbolView( model ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
-          navigationBarIcon: new Image( elementIconSmall )
+          navigationBarIcon: new Image( elementIconSmall ),
+          tandemScreenName: 'symbolScreen'
         }
       ),
       new Screen( gameModuleString, new Image( gameIcon ),
         function() { return new BAAGameModel(); },
-        function( model ) { return new BAAGameView( model ); },
-        {
+        function( model ) { return new BAAGameView( model ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',
-          navigationBarIcon: new Image( gameIconSmall )
+          navigationBarIcon: new Image( gameIconSmall ),
+          tandemScreenName: 'gameScreen'
         }
       )
     ], simOptions ).start();
