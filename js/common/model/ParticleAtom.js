@@ -254,11 +254,13 @@ define( function( require ) {
       var centerX = this.position.x + this.nucleusOffset.x;
       var centerY = this.position.y + this.nucleusOffset.y;
       var nucleonRadius = SharedConstants.NUCLEON_RADIUS;
-      var angle, distFromCenter;
+      var angle;
+      var distFromCenter;
 
       // Create an array of interspersed protons and neutrons for configuring.
       var nucleons = [];
-      var protonIndex = 0, neutronIndex = 0;
+      var protonIndex = 0;
+      var neutronIndex = 0;
       var neutronsPerProton = this.neutrons.length / this.protons.length;
       var neutronsToAdd = 0;
       while ( nucleons.length < this.neutrons.length + this.protons.length ) {
