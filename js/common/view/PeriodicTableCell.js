@@ -1,4 +1,4 @@
-// Copyright 2013, University of Colorado Boulder
+// Copyright 2013-2015, University of Colorado Boulder
 
 /**
  * Scenery node that defines a single cell in a periodic table.
