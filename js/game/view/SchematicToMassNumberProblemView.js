@@ -23,7 +23,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var gameWhatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/game.whatIsTheMassNumber' );
+  var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
 
   /**
    * Main constructor function.
@@ -46,7 +46,7 @@ define( function( require ) {
     thisNode.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, mvt ) );
 
     // Question
-    var questionPrompt = new MultiLineText( gameWhatIsTheMassNumberString, {
+    var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
       font: new PhetFont( 24 )
     } );

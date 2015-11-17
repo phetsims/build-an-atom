@@ -20,9 +20,9 @@ define( function( require ) {
 
   // strings
   var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
-  var titleAtomModuleString = require( 'string!BUILD_AN_ATOM/title.atomModule' );
-  var titleSymbolModuleString = require( 'string!BUILD_AN_ATOM/title.symbolModule' );
-  var titleGameModuleString = require( 'string!BUILD_AN_ATOM/title.gameModule' );
+  var atomString = require( 'string!BUILD_AN_ATOM/atom' );
+  var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
+  var gameString = require( 'string!BUILD_AN_ATOM/game' );
 
   // images
   var atomIcon = require( 'image!BUILD_AN_ATOM/atom_icon.png' );
@@ -50,14 +50,14 @@ define( function( require ) {
 
     // Create and start the sim
     new Sim( buildAnAtomTitleString, [
-      new Screen( titleAtomModuleString, new Image( atomIcon ),
+      new Screen( atomString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
         function( model ) { return new BuildAnAtomView( model ); }, {
           tandemScreenName: 'atomScreen',
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
-      new Screen( titleSymbolModuleString, new Image( elementIcon ),
+      new Screen( symbolString, new Image( elementIcon ),
         function() { return new BuildAnAtomModel(); },
         function( model ) { return new SymbolView( model ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
@@ -65,7 +65,7 @@ define( function( require ) {
           tandemScreenName: 'symbolScreen'
         }
       ),
-      new Screen( titleGameModuleString, new Image( gameIcon ),
+      new Screen( gameString, new Image( gameIcon ),
         function() { return new BAAGameModel(); },
         function( model ) { return new BAAGameView( model ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',

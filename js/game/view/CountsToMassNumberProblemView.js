@@ -20,7 +20,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   // strings
-  var gameWhatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/game.whatIsTheMassNumber' );
+  var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
 
   /**
    * Main constructor function.
@@ -37,7 +37,7 @@ define( function( require ) {
     var particleCountsNode = new ParticleCountsNode( countsToMassNumberProblem.answerAtom );
     thisNode.problemPresentationNode.addChild( particleCountsNode );
 
-    var questionPrompt = new MultiLineText( gameWhatIsTheMassNumberString, {
+    var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
       font: new PhetFont( 24 )
     } );

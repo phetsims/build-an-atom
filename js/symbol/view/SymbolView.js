@@ -17,7 +17,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var indicatorSymbolString = require( 'string!BUILD_AN_ATOM/indicator.symbol' );
+  var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
 
   /**
    * Constructor.
@@ -35,7 +35,7 @@ define( function( require ) {
     symbolNode.scale( 0.43 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode,
       {
-        titleNode: new Text( indicatorSymbolString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+        titleNode: new Text( symbolString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         minWidth: this.periodicTableBox.width,
         contentAlign: 'center',

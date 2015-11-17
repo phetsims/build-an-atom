@@ -21,9 +21,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var protonsNameString = require( 'string!BUILD_AN_ATOM/protons.name' );
-  var neutronsNameString = require( 'string!BUILD_AN_ATOM/neutrons.name' );
-  var electronsNameString = require( 'string!BUILD_AN_ATOM/electrons.name' );
+  var protonsString = require( 'string!BUILD_AN_ATOM/protons' );
+  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons' );
+  var electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
 
   // constants
   var NUM_PROTONS = 10;
@@ -69,7 +69,7 @@ define( function( require ) {
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'red',
-          caption: protonsNameString,
+          caption: protonsString,
           captionColor: 'white'
         }
       ),
@@ -78,7 +78,7 @@ define( function( require ) {
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'rgb( 100, 100, 100 )',
-          caption: neutronsNameString,
+          caption: neutronsString,
           captionColor: 'white'
         }
       ),
@@ -88,7 +88,7 @@ define( function( require ) {
           sphereRadius: SharedConstants.ELECTRON_RADIUS,
           usableWidthProportion: 0.8,
           baseColor: 'blue',
-          caption: electronsNameString,
+          caption: electronsString,
           captionColor: 'white'
         }
       )

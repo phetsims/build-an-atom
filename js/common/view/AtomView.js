@@ -35,14 +35,13 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
 
   // strings
-  var indicatorElementString = require( 'string!BUILD_AN_ATOM/indicator.element' );
-  var elementNameString = require( 'string!BUILD_AN_ATOM/element.name' );
-  var neutralIonString = require( 'string!BUILD_AN_ATOM/neutralIon' );
-  var stableUnstableString = require( 'string!BUILD_AN_ATOM/stableUnstable' );
+  var elementString = require( 'string!BUILD_AN_ATOM/element' );
+  var neutralSlashIonString = require( 'string!BUILD_AN_ATOM/neutralSlashIon' );
+  var stableSlashUnstableString = require( 'string!BUILD_AN_ATOM/stableSlashUnstable' );
   var showString = require( 'string!BUILD_AN_ATOM/show' );
-  var electronModelOrbitsString = require( 'string!BUILD_AN_ATOM/electron.model.orbits' );
-  var electronModelCloudString = require( 'string!BUILD_AN_ATOM/electron.model.cloud' );
-  var electronModelString = require( 'string!BUILD_AN_ATOM/electron.model' );
+  var orbitsString = require( 'string!BUILD_AN_ATOM/orbits' );
+  var cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
+  var modelString = require( 'string!BUILD_AN_ATOM/model' );
 
   // constants
   var CONTROLS_INSET = 10;
@@ -168,7 +167,7 @@ define( function( require ) {
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom ).mutate( { pickable: false } );
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable, {
-      titleNode: new Text( indicatorElementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
       titleAlignX: 'left',
@@ -179,9 +178,15 @@ define( function( require ) {
 
     var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
       [
-        { content: new Text( elementNameString, { font: LABEL_CONTROL_FONT } ), property: model.showElementNameProperty },
-        { content: new Text( neutralIonString, { font: LABEL_CONTROL_FONT } ), property: model.showNeutralOrIonProperty },
-        { content: new Text( stableUnstableString, { font: LABEL_CONTROL_FONT } ), property: model.showStableOrUnstableProperty }
+        { content: new Text( elementString, { font: LABEL_CONTROL_FONT } ), property: model.showElementNameProperty },
+        {
+          content: new Text( neutralSlashIonString, { font: LABEL_CONTROL_FONT } ),
+          property: model.showNeutralOrIonProperty
+        },
+        {
+          content: new Text( stableSlashUnstableString, { font: LABEL_CONTROL_FONT } ),
+          property: model.showStableOrUnstableProperty
+        }
       ] ), { fill: 'rgb( 245, 245, 245 )', xMargin: 15 } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
@@ -202,10 +207,10 @@ define( function( require ) {
 
     // Add the radio buttons that control the electron representation in the atom.
     var radioButtonRadius = 6;
-    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( electronModelOrbitsString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( electronModelCloudString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
-    electronViewButtonGroup.addChild( new Text( electronModelString, {
+    electronViewButtonGroup.addChild( new Text( modelString, {
       font: new PhetFont( {
         size: 18,
         weight: 'bold'

@@ -21,9 +21,9 @@ define( function( require ) {
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   // strings
-  var protonsReadoutString = require( 'string!BUILD_AN_ATOM/protons.readout' );
-  var neutronsReadoutString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
-  var electronsReadoutString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
+  var protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
+  var neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
+  var electronsColonString = require( 'string!BUILD_AN_ATOM/electronsColon' );
 
   /**
    * @param numberAtom Model representation of the atom
@@ -38,11 +38,11 @@ define( function( require ) {
     var panelContents = new Node();
 
     var labelOptions = { font: new PhetFont( 14 ) };
-    var protonTitle = new Text( protonsReadoutString, labelOptions );
+    var protonTitle = new Text( protonsColonString, labelOptions );
     panelContents.addChild( protonTitle );
-    var neutronTitle = new Text( neutronsReadoutString, labelOptions );
+    var neutronTitle = new Text( neutronsColonString, labelOptions );
     panelContents.addChild( neutronTitle );
-    var electronTitle = new Text( electronsReadoutString, labelOptions );
+    var electronTitle = new Text( electronsColonString, labelOptions );
     panelContents.addChild( electronTitle );
 
     // Lay out the labels.

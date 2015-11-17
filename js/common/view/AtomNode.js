@@ -24,9 +24,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var negativeIonString = require( 'string!BUILD_AN_ATOM/negative.ion' );
-  var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutral.atom' );
-  var positiveIonString = require( 'string!BUILD_AN_ATOM/positive.ion' );
+  var minusSignIonString = require( 'string!BUILD_AN_ATOM/minusSignIon' );
+  var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutralAtom' );
+  var positiveSignIonString = require( 'string!BUILD_AN_ATOM/positiveSignIon' );
   var stableString = require( 'string!BUILD_AN_ATOM/stable' );
   var unstableString = require( 'string!BUILD_AN_ATOM/unstable' );
 
@@ -140,11 +140,11 @@ define( function( require ) {
       if ( thisAtomView.atom.protons.length > 0 ) {
         var charge = thisAtomView.atom.getCharge();
         if ( charge < 0 ) {
-          thisAtomView.ionIndicator.text = negativeIonString;
+          thisAtomView.ionIndicator.text = minusSignIonString;
           thisAtomView.ionIndicator.fill = 'blue';
         }
         else if ( charge > 0 ) {
-          thisAtomView.ionIndicator.text = positiveIonString;
+          thisAtomView.ionIndicator.text = positiveSignIonString;
           thisAtomView.ionIndicator.fill = 'red';
         }
         else {

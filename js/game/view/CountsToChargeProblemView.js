@@ -21,7 +21,7 @@ define( function( require ) {
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 
   // strings
-  var gameWhatIsTheTotalChargeBrString = require( 'string!BUILD_AN_ATOM/game.whatIsTheTotalChargeBr' );
+  var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
 
   /**
    * Main constructor function.
@@ -38,7 +38,7 @@ define( function( require ) {
     var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
     thisNode.problemPresentationNode.addChild( particleCountsNode );
 
-    var questionPrompt = new MultiLineText( gameWhatIsTheTotalChargeBrString, {
+    var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
       font: new PhetFont( 24 )
     } );

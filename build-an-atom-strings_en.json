@@ -1,80 +1,77 @@
 {
-  "game.ion": {
+  "ion": {
     "value": "Ion"
   },
-  "stableUnstable": {
+  "stableSlashUnstable": {
     "value": "Stable/Unstable"
   },
   "verySmall": {
     "value": "very small"
   },
-  "element.argon.name": {
+  "argon": {
     "value": "Argon"
   },
-  "indicator.symbol": {
+  "symbol": {
     "value": "Symbol"
   },
-  "game.findTheElement": {
+  "findTheElement": {
     "value": "Find the element:"
   },
-  "element.magnesium.name": {
+  "magnesium": {
     "value": "Magnesium"
-  },
-  "int.minControlPanelWidth": {
-    "value": "215"
   },
   "whiteIsotopeBox": {
     "value": "White Isotope Box"
   },
-  "element.none.name": {
+  "none": {
     "value": "--"
   },
   "massNumber": {
     "value": "Mass Number"
   },
-  "game.whatIsTheTotalChargeBr": {
+  "whatIsTheTotalCharge": {
     "value": "What is the\ntotal charge?"
   },
-  "element.name": {
+  "name": {
     "value": "Element Name"
   },
-  "negative.ion": {
+  "minusSignIon": {
     "value": "- Ion"
   },
-  "element.silicon.name": {
+  "silicon": {
     "value": "Silicon"
   },
-  "element.beryllium.name": {
+  "beryllium": {
     "value": "Beryllium"
   },
-  "game.problemIndexReadout.pattern": {
+  "problemIndexReadout.pattern": {
     "value": "Problem {0} of {1}"
   },
-  "title.atomModule": {
+  "atom": {
     "value": "Atom"
   },
-  "title.symbolModule": {
+  "symbol": {
     "value": "Symbol"
   },
-  "game.completeTheModel": {
+  "completeTheModel": {
     "value": "Complete the model:"
   },
   "abundanceInNature": {
     "value": "Abundance in Nature"
   },
-  "game.tryAgain": {
+  "tryAgain": {
     "value": "Try Again"
   },
-  "game.check": {
+  "check": {
     "value": "Check"
   },
-  "game.howManyProtons": {
+  "howManyProtons": {
     "value": "How many protons?"
   },
-  "indicator.charge": {
+  "netCharge": {
     "value": "Net Charge"
   },
-  "indicator.element": {
+  "element": {
     "value": "Element"
   },
   "isotopes": {
@@ -83,13 +80,13 @@
   "percentComposition": {
     "value": "Percent Composition"
   },
-  "element.fluorine.name": {
+  "fluorine": {
     "value": "Fluorine"
   },
   "more": {
     "value": "More"
   },
-  "element.boron.name": {
+  "boron": {
     "value": "Boron"
   },
   "myIsotope": {
@@ -98,25 +95,25 @@
   "less": {
     "value": "Less"
   },
-  "element.carbon.name": {
+  "carbon": {
     "value": "Carbon"
   },
   "atomicMass": {
     "value": "Atomic Mass (amu)"
   },
-  "title.interactiveIsotopeModule": {
+  "makeIsotopes": {
     "value": "Make Isotopes"
   },
-  "electron.model.orbits": {
+  "orbits": {
     "value": "Orbits"
   },
-  "electron.model": {
+  "model": {
     "value": "Model:"
   },
   "thisIsotope": {
     "value": "This Isotope"
   },
-  "game.whatIsTheMassNumber": {
+  "whatIsTheMassNumber": {
     "value": "What is the\nmass number?"
   },
   "stable": {
@@ -128,133 +125,133 @@
   "build-an-atom.title": {
     "value": "Build an Atom"
   },
-  "element.chlorine.name": {
+  "chlorine": {
     "value": "Chlorine"
   },
-  "element.none.symbol": {
+  "noElement": {
     "value": "-"
   },
-  "isotopes-and-atomic-mass.name": {
+  "isotopes-and-atomic-mass.title": {
     "value": "Isotopes and Atomic Mass"
   },
   "myMixOfIsotopes": {
     "value": "My mix of isotopes"
   },
-  "game.whatIsTheTotalCharge": {
+  "whatIsTheTotalCharge": {
     "value": "What is the total charge?"
   },
-  "element.aluminum.name": {
+  "aluminum": {
     "value": "Aluminum"
   },
-  "game.howManyParticles": {
+  "howManyParticles": {
     "value": "How many particles?"
   },
-  "electrons.readout": {
+  "electronsColon": {
     "value": "Electrons:"
   },
-  "title.gameModule": {
+  "game": {
     "value": "Game"
   },
-  "element.sodium.name": {
+  "sodium": {
     "value": "Sodium"
   },
   "pattern.0element.1massNumber": {
     "value": "{0}-{1}"
   },
-  "game.neutralAtom": {
+  "neutralAtom": {
     "value": "Neutral Atom"
   },
-  "game.showAnswer": {
+  "showAnswer": {
     "value": "Show Answer"
   },
-  "game.completeTheSymbol": {
+  "completeTheSymbol": {
     "value": "Complete the symbol:"
   },
   "clearBox": {
     "value": "Clear Box"
   },
-  "neutralIon": {
+  "neutralSlashIon": {
     "value": "Neutral/Ion"
   },
-  "positive.ion": {
+  "positiveSignIon": {
     "value": "+ Ion"
   },
-  "neutrons.name": {
+  "neutrons": {
     "value": "Neutrons"
   },
-  "element.phosphorus.name": {
+  "phosphorus": {
     "value": "Phosphorus"
   },
-  "element.nitrogen.name": {
+  "nitrogen": {
     "value": "Nitrogen"
   },
-  "protons.readout": {
+  "protonsColon": {
     "value": "Protons:"
   },
-  "element.neon.name": {
+  "neon": {
     "value": "Neon"
   },
   "units.amu": {
     "value": "amu"
   },
-  "electron.model.cloud": {
+  "cloud": {
     "value": "Cloud"
   },
   "averageAtomicMass": {
     "value": "Average Atomic Mass"
   },
-  "element.hydrogen.name": {
+  "hydrogen": {
     "value": "Hydrogen"
   },
-  "element.helium.name": {
+  "helium": {
     "value": "Helium"
   },
-  "element.oxygen.name": {
+  "oxygen": {
     "value": "Oxygen"
   },
-  "game.whatIsTheMassNumberBr": {
+  "whatIsTheMassNumberBr": {
     "value": "What is the\nmass number?"
   },
-  "game.next": {
+  "next": {
     "value": "Next"
   },
-  "title.isotopeMixtures": {
+  "mixIsotopes": {
     "value": "Mix Isotopes"
   },
-  "neutrons.readout": {
+  "neutronsColon": {
     "value": "Neutrons:"
   },
-  "electrons.name": {
+  "electrons": {
     "value": "Electrons"
   },
-  "element.lithium.name": {
+  "lithium": {
     "value": "Lithium"
   },
-  "neutral.atom": {
+  "neutralAtom": {
     "value": "Neutral Atom"
   },
   "other": {
     "value": "Other"
   },
-  "game.isIt": {
+  "isIt": {
     "value": "Is it:"
   },
   "naturesMixOfIsotopes": {
     "value": "Nature's mix of isotopes"
   },
-  "protons.name": {
+  "protons": {
     "value": "Protons"
   },
-  "element.sulfur.name": {
+  "sulfur": {
     "value": "Sulfur"
   },
-  "indicator.mass.number": {
+  "massNumber": {
     "value": "Mass Number"
   },
   "show": {
     "value": "Show"
   },
-  "game.chooseYourGame": {
+  "chooseYourGame": {
     "value": "Choose Your Game!"
   }
 }
