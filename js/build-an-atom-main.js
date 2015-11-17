@@ -19,10 +19,12 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var simTitle = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
-  var atomModuleString = require( 'string!BUILD_AN_ATOM/title.atomModule' );
-  var symbolModuleString = require( 'string!BUILD_AN_ATOM/title.symbolModule' );
-  var gameModuleString = require( 'string!BUILD_AN_ATOM/title.gameModule' );
+  var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
+  var titleAtomModuleString = require( 'string!BUILD_AN_ATOM/title.atomModule' );
+  var titleSymbolModuleString = require( 'string!BUILD_AN_ATOM/title.symbolModule' );
+  var titleGameModuleString = require( 'string!BUILD_AN_ATOM/title.gameModule' );
+
+  // images
   var atomIcon = require( 'image!BUILD_AN_ATOM/atom_icon.png' );
   var atomIconSmall = require( 'image!BUILD_AN_ATOM/atom_icon_small.png' );
   var elementIcon = require( 'image!BUILD_AN_ATOM/element_icon.png' );
@@ -47,15 +49,15 @@ define( function( require ) {
   SimLauncher.launch( function() {
 
     // Create and start the sim
-    new Sim( simTitle, [
-      new Screen( atomModuleString, new Image( atomIcon ),
+    new Sim( buildAnAtomTitleString, [
+      new Screen( titleAtomModuleString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
         function( model ) { return new BuildAnAtomView( model ); }, {
           tandemScreenName: 'atomScreen',
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
-      new Screen( symbolModuleString, new Image( elementIcon ),
+      new Screen( titleSymbolModuleString, new Image( elementIcon ),
         function() { return new BuildAnAtomModel(); },
         function( model ) { return new SymbolView( model ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
@@ -63,7 +65,7 @@ define( function( require ) {
           tandemScreenName: 'symbolScreen'
         }
       ),
-      new Screen( gameModuleString, new Image( gameIcon ),
+      new Screen( titleGameModuleString, new Image( gameIcon ),
         function() { return new BAAGameModel(); },
         function( model ) { return new BAAGameView( model ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',

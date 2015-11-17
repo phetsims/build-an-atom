@@ -24,7 +24,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/game.whatIsTheTotalChargeBr' );
+  var gameWhatIsTheTotalChargeBrString = require( 'string!BUILD_AN_ATOM/game.whatIsTheTotalChargeBr' );
 
   /**
    * Main constructor function.
@@ -47,7 +47,10 @@ define( function( require ) {
     this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, mvt ) );
 
     // Question
-    var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, { align: 'left', font: new PhetFont( 24 ) } );
+    var questionPrompt = new MultiLineText( gameWhatIsTheTotalChargeBrString, {
+      align: 'left',
+      font: new PhetFont( 24 )
+    } );
     this.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer

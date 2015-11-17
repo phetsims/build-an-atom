@@ -35,14 +35,14 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
 
   // strings
-  var elementString = require( 'string!BUILD_AN_ATOM/indicator.element' );
+  var indicatorElementString = require( 'string!BUILD_AN_ATOM/indicator.element' );
   var elementNameString = require( 'string!BUILD_AN_ATOM/element.name' );
   var neutralIonString = require( 'string!BUILD_AN_ATOM/neutralIon' );
   var stableUnstableString = require( 'string!BUILD_AN_ATOM/stableUnstable' );
   var showString = require( 'string!BUILD_AN_ATOM/show' );
-  var orbitsString = require( 'string!BUILD_AN_ATOM/electron.model.orbits' );
-  var cloudString = require( 'string!BUILD_AN_ATOM/electron.model.cloud' );
-  var modelString = require( 'string!BUILD_AN_ATOM/electron.model' );
+  var electronModelOrbitsString = require( 'string!BUILD_AN_ATOM/electron.model.orbits' );
+  var electronModelCloudString = require( 'string!BUILD_AN_ATOM/electron.model.cloud' );
+  var electronModelString = require( 'string!BUILD_AN_ATOM/electron.model' );
 
   // constants
   var CONTROLS_INSET = 10;
@@ -168,7 +168,7 @@ define( function( require ) {
     var periodicTable = new PeriodicTableAndSymbol( model.numberAtom ).mutate( { pickable: false } );
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable, {
-      titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      titleNode: new Text( indicatorElementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
       titleAlignX: 'left',
@@ -202,10 +202,15 @@ define( function( require ) {
 
     // Add the radio buttons that control the electron representation in the atom.
     var radioButtonRadius = 6;
-    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( electronModelOrbitsString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
+    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( electronModelCloudString, ELECTRON_VIEW_CONTROL_FONT ), { radius: radioButtonRadius } );
     var electronViewButtonGroup = new Node();
-    electronViewButtonGroup.addChild( new Text( modelString, { font: new PhetFont( { size: 18, weight: 'bold' } ) } ) );
+    electronViewButtonGroup.addChild( new Text( electronModelString, {
+      font: new PhetFont( {
+        size: 18,
+        weight: 'bold'
+      } )
+    } ) );
     orbitsButton.top = electronViewButtonGroup.bottom;
     orbitsButton.left = electronViewButtonGroup.left + 5;
     electronViewButtonGroup.addChild( orbitsButton );

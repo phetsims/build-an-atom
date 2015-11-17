@@ -13,11 +13,13 @@ define( function( require ) {
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
-  var massNumberString = require( 'string!BUILD_AN_ATOM/indicator.mass.number' );
-  var netChargeString = require( 'string!BUILD_AN_ATOM/indicator.charge' );
   var Node = require( 'SCENERY/nodes/Node' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
+
+  // strings
+  var indicatorMassNumberString = require( 'string!BUILD_AN_ATOM/indicator.mass.number' );
+  var indicatorChargeString = require( 'string!BUILD_AN_ATOM/indicator.charge' );
 
   // constants
   var INTER_BOX_SPACING = 7;
@@ -43,7 +45,7 @@ define( function( require ) {
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
     var chargeMeterBox = new AccordionBox( chargeMeterBoxContents,
       {
-        titleNode: new Text( netChargeString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+        titleNode: new Text( indicatorChargeString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
         minWidth: this.periodicTableBox.width,
@@ -56,7 +58,7 @@ define( function( require ) {
     // Add the mass indicator inside of an accordion box.
     var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } ),
       {
-        titleNode: new Text( massNumberString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+        titleNode: new Text( indicatorMassNumberString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
         fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
         expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
         minWidth: this.periodicTableBox.width,

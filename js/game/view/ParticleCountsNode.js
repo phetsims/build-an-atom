@@ -17,9 +17,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   // strings
-  var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
-  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
-  var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
+  var protonsReadoutString = require( 'string!BUILD_AN_ATOM/protons.readout' );
+  var neutronsReadoutString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
+  var electronsReadoutString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
 
   function ParticleCountsNode( numberAtom, options ) {
 
@@ -27,15 +27,15 @@ define( function( require ) {
 
     options = _.extend( { font: new PhetFont( 24 ) }, options );
 
-    var protonCountTitle = new Text( protonsString, options.font );
+    var protonCountTitle = new Text( protonsReadoutString, options.font );
     this.addChild( protonCountTitle );
     var protonCountText = new Text( numberAtom.protonCount, options.font );
     this.addChild( protonCountText );
-    var neutronCountTitle = new Text( neutronsString, options.font );
+    var neutronCountTitle = new Text( neutronsReadoutString, options.font );
     this.addChild( neutronCountTitle );
     var neutronCountText = new Text( numberAtom.neutronCount, options.font );
     this.addChild( neutronCountText );
-    var electronCountTitle = new Text( electronsString, options.font );
+    var electronCountTitle = new Text( electronsReadoutString, options.font );
     this.addChild( electronCountTitle );
     var electronCountText = new Text( numberAtom.electronCount, options.font );
     this.addChild( electronCountText );

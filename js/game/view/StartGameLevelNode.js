@@ -26,7 +26,7 @@ define( function( require ) {
   var TimerToggleButton = require( 'SCENERY_PHET/buttons/TimerToggleButton' );
 
   // strings
-  var chooseYourGameString = require( 'string!BUILD_AN_ATOM/game.chooseYourGame' );
+  var gameChooseYourGameString = require( 'string!BUILD_AN_ATOM/game.chooseYourGame' );
 
   // constants
   var CONTROL_INSET = 20;
@@ -43,7 +43,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Title
-    var title = new Text( chooseYourGameString, { font: new PhetFont( 30 ) } );
+    var title = new Text( gameChooseYourGameString, { font: new PhetFont( 30 ) } );
     this.addChild( title );
 
     // Buttons for starting a game level.

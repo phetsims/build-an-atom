@@ -22,10 +22,10 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var findTheElementString = require( 'string!BUILD_AN_ATOM/game.findTheElement' );
-  var ionString = require( 'string!BUILD_AN_ATOM/game.ion' );
-  var neutralAtomString = require( 'string!BUILD_AN_ATOM/game.neutralAtom' );
-  var isItString = require( 'string!BUILD_AN_ATOM/game.isIt' );
+  var gameFindTheElementString = require( 'string!BUILD_AN_ATOM/game.findTheElement' );
+  var gameIonString = require( 'string!BUILD_AN_ATOM/game.ion' );
+  var gameNeutralAtomString = require( 'string!BUILD_AN_ATOM/game.neutralAtom' );
+  var gameIsItString = require( 'string!BUILD_AN_ATOM/game.isIt' );
 
   // constants
   var TITLE_FONT = new PhetFont( 30 );
@@ -41,7 +41,7 @@ define( function( require ) {
     var thisNode = this;
 
     // Problem title
-    var problemTitle = new Text( findTheElementString, { font: TITLE_FONT } );
+    var problemTitle = new Text( gameFindTheElementString, { font: TITLE_FONT } );
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
@@ -50,9 +50,9 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Neutral atom versus ion question.
-    var neutralVersusIonPrompt = new Text( isItString, { font: new PhetFont( 24 ) } );
-    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, { font: new PhetFont( 18 ) } ), { radius: 8 } );
-    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, { font: new PhetFont( 18 ) } ), { radius: 8 } );
+    var neutralVersusIonPrompt = new Text( gameIsItString, { font: new PhetFont( 24 ) } );
+    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( gameNeutralAtomString, { font: new PhetFont( 18 ) } ), { radius: 8 } );
+    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( gameIonString, { font: new PhetFont( 18 ) } ), { radius: 8 } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomButton.left = neutralVersusIonPrompt.right + 10;

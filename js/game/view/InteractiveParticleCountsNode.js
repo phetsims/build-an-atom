@@ -17,9 +17,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   // strings
-  var protonsString = require( 'string!BUILD_AN_ATOM/protons.readout' );
-  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
-  var electronsString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
+  var protonsReadoutString = require( 'string!BUILD_AN_ATOM/protons.readout' );
+  var neutronsReadoutString = require( 'string!BUILD_AN_ATOM/neutrons.readout' );
+  var electronsReadoutString = require( 'string!BUILD_AN_ATOM/electrons.readout' );
 
   /**
    * @param {Object} [options]
@@ -33,17 +33,17 @@ define( function( require ) {
 
     this.numberAtom = new NumberAtom();
 
-    var protonCountPrompt = new Text( protonsString, options.font );
+    var protonCountPrompt = new Text( protonsReadoutString, options.font );
     this.addChild( protonCountPrompt );
     var protonCountEntry = new NumberEntryNode( this.numberAtom.protonCountProperty, { minValue: 0, maxValue: 99 } );
     this.addChild( protonCountEntry );
 
-    var neutronCountPrompt = new Text( neutronsString, options.font );
+    var neutronCountPrompt = new Text( neutronsReadoutString, options.font );
     this.addChild( neutronCountPrompt );
     var neutronCountEntry = new NumberEntryNode( this.numberAtom.neutronCountProperty, { minValue: 0, maxValue: 99 } );
     this.addChild( neutronCountEntry );
 
-    var electronCountPrompt = new Text( electronsString, options.font );
+    var electronCountPrompt = new Text( electronsReadoutString, options.font );
     this.addChild( electronCountPrompt );
     var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0, maxValue: 99 } );
     this.addChild( electronCountEntry );
