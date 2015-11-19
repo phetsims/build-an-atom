@@ -25,17 +25,16 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameModel() {
-    PropertySet.call( this,
-      {
-        state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
-        soundEnabled: true,
-        timerEnabled: true,
-        level: 0,
-        problemSet: [],
-        problemIndex: 0,
-        score: 0, // Score on current game level.
-        elapsedTime: 0
-      } );
+    PropertySet.call( this, {
+      state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
+      soundEnabled: true,
+      timerEnabled: true,
+      level: 0,
+      problemSet: [],
+      problemIndex: 0,
+      score: 0, // Score on current game level.
+      elapsedTime: 0
+    } );
 
     var thisGameModel = this;
 
