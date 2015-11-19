@@ -24,7 +24,7 @@ define( function( require ) {
    *
    * @constructor
    */
-  function BAAGameModel() {
+  function BAAGameModel( tandem ) {
     PropertySet.call( this, {
       state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
       soundEnabled: true,
@@ -34,6 +34,14 @@ define( function( require ) {
       problemIndex: 0,
       score: 0, // Score on current game level.
       elapsedTime: 0
+    }, {
+      tandemSet: {
+        soundEnabled: tandem.createTandem( 'soundEnabled' ),
+        timerEnabled: tandem.createTandem( 'timerEnabled' ),
+        level: tandem.createTandem( 'level' ),
+        problemIndex: tandem.createTandem( 'problemIndex' ),
+        score: tandem.createTandem( 'score' )
+      }
     } );
 
     var thisGameModel = this;
