@@ -67,7 +67,7 @@ define( function( require ) {
       ),
       new Screen( gameString, new Image( gameIcon ),
         function() { return new BAAGameModel(); },
-        function( model ) { return new BAAGameView( model ); }, {
+        function( model ) { return new BAAGameView( model, tandem.createTandem( 'gameScreen' ) ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',
           navigationBarIcon: new Image( gameIconSmall ),
           tandemScreenName: 'gameScreen'

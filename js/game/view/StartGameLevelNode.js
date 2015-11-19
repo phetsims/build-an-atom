@@ -31,14 +31,18 @@ define( function( require ) {
   // constants
   var CONTROL_INSET = 20;
   var NUM_STARS_ON_BUTTON = 5;
-  var START_BUTTON_OPTIONS = { backgroundColor: 'rgb( 242, 255, 204 )', highlightedBackgroundColor: 'rgb( 224, 255, 122 )' };
+  var START_BUTTON_OPTIONS = {
+    backgroundColor: 'rgb( 242, 255, 204 )',
+    highlightedBackgroundColor: 'rgb( 224, 255, 122 )'
+  };
 
   /**
    * @param {BAAGameModel} gameModel
    * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
-  function StartGameLevelNode( gameModel, layoutBounds ) {
+  function StartGameLevelNode( gameModel, layoutBounds, tandem ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -55,7 +59,12 @@ define( function( require ) {
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
-      START_BUTTON_OPTIONS );
+      _.extend( {
+          tandem: tandem.createTandem( 'periodicTableGameButton' )
+        },
+        START_BUTTON_OPTIONS
+      )
+    );
     this.addChild( periodicTableGameButton );
     var massAndChangeGameButton = new LevelSelectionButton(
       new Image( massChargeIcon ),

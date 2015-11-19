@@ -24,9 +24,10 @@ define( function( require ) {
    * Constructor.
    *
    * @param gameModel Build an Atom model object.
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BAAGameView( gameModel ) {
+  function BAAGameView( gameModel, tandem ) {
 
     ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
     var thisScene = this;
@@ -35,7 +36,11 @@ define( function( require ) {
     var rootNode = new Node();
     thisScene.addChild( rootNode );
 
-    var startGameLevelNode = new StartGameLevelNode( gameModel, this.layoutBounds );
+    var startGameLevelNode = new StartGameLevelNode(
+      gameModel,
+      this.layoutBounds,
+      tandem.createTandem( 'gameSelectionScreen' )
+    );
     var scoreboard = new ScoreboardPanel(
       gameModel.problemIndexProperty,
       new Property( gameModel.PROBLEMS_PER_LEVEL ),
@@ -62,7 +67,10 @@ define( function( require ) {
         if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
           // Perfect score, add the reward node.
           rootNode.addChild( rewardNode );
-          rewardNode.mutate( { centerX: thisScene.layoutBounds.width / 2, centerY: thisScene.layoutBounds.height / 2 } );
+          rewardNode.mutate( {
+            centerX: thisScene.layoutBounds.width / 2,
+            centerY: thisScene.layoutBounds.height / 2
+          } );
           rewardNode.animationEnabled = true;
         }
 
