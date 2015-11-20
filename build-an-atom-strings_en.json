@@ -29,7 +29,7 @@
   "massNumber": {
     "value": "Mass Number"
   },
-  "whatIsTheTotalCharge": {
+  "whatIsTheTotalChargeMultiLine": {
     "value": "What is the\ntotal charge?"
   },
   "name": {
@@ -224,9 +224,6 @@
   "lithium": {
     "value": "Lithium"
   },
-  "neutralAtom": {
-    "value": "Neutral Atom"
-  },
   "other": {
     "value": "Other"
   },
@@ -241,9 +238,6 @@
   },
   "sulfur": {
     "value": "Sulfur"
-  },
-  "massNumber": {
-    "value": "Mass Number"
   },
   "show": {
     "value": "Show"
