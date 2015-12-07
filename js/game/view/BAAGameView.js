@@ -48,8 +48,10 @@ define( function( require ) {
       gameModel.scoreProperty,
       gameModel.elapsedTimeProperty,
       gameModel.timerEnabledProperty,
-      function() { gameModel.newGame(); },
-      { levelVisible: false }
+      function() { gameModel.newGame(); }, {
+        levelVisible: false,
+        tandem: tandem.createTandem( 'scoreboardPanel' )
+      }
     );
     scoreboard.mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
