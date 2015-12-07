@@ -45,7 +45,10 @@ define( function( require ) {
 
     var electronCountPrompt = new Text( electronsColonString, options.font );
     this.addChild( electronCountPrompt );
-    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, { minValue: 0, maxValue: 99 } );
+    var electronCountEntry = new NumberEntryNode( this.numberAtom.electronCountProperty, {
+      minValue: 0,
+      maxValue: 99
+    } );
     this.addChild( electronCountEntry );
 
     // Layout

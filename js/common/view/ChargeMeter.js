@@ -44,7 +44,11 @@ define( function( require ) {
 
     // Add the background.
     var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
-    var background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, { fill: 'rgb( 210, 210, 210 )', stroke: 'gray', lineWidth: 1.0 } );
+    var background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, {
+      fill: 'rgb( 210, 210, 210 )',
+      stroke: 'gray',
+      lineWidth: 1.0
+    } );
     this.addChild( background );
 
     // Add the meter window.
@@ -59,9 +63,9 @@ define( function( require ) {
       stroke: 'gray',
       lineWidth: 2,
       fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-        addColorStop( 0, 'rgb( 0, 0, 255 )' ).
-        addColorStop( 0.5, 'white' ).
-        addColorStop( 1, 'rgb( 255, 0, 0 )' ),
+      addColorStop( 0, 'rgb( 0, 0, 255 )' ).
+      addColorStop( 0.5, 'white' ).
+      addColorStop( 1, 'rgb( 255, 0, 0 )' ),
       centerX: background.centerX,
       top: 3 // Adjust as needed to work with background graphics.
     } );
@@ -70,11 +74,16 @@ define( function( require ) {
     // Add the plus symbol, which will be drawn (not done as a character).
     var shadowOffset = 0.5; // In pixels.
     var plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).
-      lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).
-      moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).
-      lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
+    lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).
+    moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).
+    lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
     var plusSymbol = new Node();
-    plusSymbol.addChild( new Path( plusShape, { lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    plusSymbol.addChild( new Path( plusShape, {
+      lineWidth: SYMBOL_LINE_WIDTH,
+      stroke: 'black',
+      centerX: shadowOffset,
+      centerY: shadowOffset
+    } ) );
     plusSymbol.addChild( new Path( plusShape, { lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
     plusSymbol.center = new Vector2( meterWindow.width * 0.7, meterWindow.height * 0.5 );
     meterWindow.addChild( plusSymbol );
@@ -82,7 +91,12 @@ define( function( require ) {
     // Add the minus symbol, which will be drawn (not done as a character).
     var minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
     var minusSymbol = new Node();
-    minusSymbol.addChild( new Path( minusShape, { lineWidth: SYMBOL_LINE_WIDTH, stroke: 'black', centerX: shadowOffset, centerY: shadowOffset } ) );
+    minusSymbol.addChild( new Path( minusShape, {
+      lineWidth: SYMBOL_LINE_WIDTH,
+      stroke: 'black',
+      centerX: shadowOffset,
+      centerY: shadowOffset
+    } ) );
     minusSymbol.addChild( new Path( minusShape, { lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
     minusSymbol.center = new Vector2( meterWindow.width * 0.3, meterWindow.height * 0.5 );
     meterWindow.addChild( minusSymbol );

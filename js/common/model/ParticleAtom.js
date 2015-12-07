@@ -43,9 +43,15 @@ define( function( require ) {
     // Initialize the positions where an electron can be placed.
     this.validElectronPositions = new Array( 10 );
     var angle = 0;
-    this.validElectronPositions[ 0 ] = { electron: null, position: new Vector2( thisAtom.innerElectronShellRadius, 0 ) };
+    this.validElectronPositions[ 0 ] = {
+      electron: null,
+      position: new Vector2( thisAtom.innerElectronShellRadius, 0 )
+    };
     angle += Math.PI;
-    this.validElectronPositions[ 1 ] = { electron: null, position: new Vector2( -thisAtom.innerElectronShellRadius, 0 ) };
+    this.validElectronPositions[ 1 ] = {
+      electron: null,
+      position: new Vector2( -thisAtom.innerElectronShellRadius, 0 )
+    };
     var numSlotsInOuterShell = 8;
     angle = Math.PI / numSlotsInOuterShell * 1.2; // Stagger inner and outer electron shell positions, tweaked a bit for better interaction with labels.
     for ( var i = 0; i < numSlotsInOuterShell; i++ ) {
