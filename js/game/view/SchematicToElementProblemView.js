@@ -23,8 +23,8 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SchematicToElementProblemView( schematicToElementProblem, layoutBounds ) {
-    ToElementProblemView.call( this, schematicToElementProblem, layoutBounds ); // Call super constructor.
+  function SchematicToElementProblemView( schematicToElementProblem, layoutBounds, tandem ) {
+    ToElementProblemView.call( this, schematicToElementProblem, layoutBounds, tandem ); // Call super constructor.
 
     // Create the model-view transform used by the schematic atom.
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(

@@ -28,8 +28,8 @@ define( function( require ) {
   return inherit( ToElementProblem, SchematicToElementProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new SchematicToElementProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new SchematicToElementProblemView( this, layoutBounds, tandem );
     }
   } );
 } );

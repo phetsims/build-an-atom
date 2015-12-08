@@ -28,10 +28,11 @@ define( function( require ) {
    * Constructor.
    *
    * @param model Build an Atom model object.
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BuildAnAtomView( model ) {
-    AtomView.call( this, model ); // Call super constructor.
+  function BuildAnAtomView( model, tandem ) {
+    AtomView.call( this, model, tandem ); // Call super constructor.
 
     this.viewProperties.addProperty( 'chargeMeterBoxExpanded', false );
     this.viewProperties.addProperty( 'massNumberBoxExpanded', false );

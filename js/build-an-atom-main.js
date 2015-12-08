@@ -48,26 +48,30 @@ define( function( require ) {
 
   SimLauncher.launch( function() {
 
+    var buildAnAtomScreenTandem = tandem.createTandem( 'buildAnAtomScreen' );
+    var symbolScreenTandem = tandem.createTandem( 'symbolScreen' );
+    var gameScreenTandem = tandem.createTandem( 'gameScreen' );
+
     // Create and start the sim
     new Sim( buildAnAtomTitleString, [
       new Screen( atomString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new BuildAnAtomView( model ); }, {
+        function( model ) { return new BuildAnAtomView( model, buildAnAtomScreenTandem ); }, {
           tandemScreenName: 'atomScreen',
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
       new Screen( symbolString, new Image( elementIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new SymbolView( model ); }, {
+        function( model ) { return new SymbolView( model, symbolScreenTandem ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
           navigationBarIcon: new Image( elementIconSmall ),
           tandemScreenName: 'symbolScreen'
         }
       ),
       new Screen( gameString, new Image( gameIcon ),
-        function() { return new BAAGameModel( tandem.createTandem( 'gameScreen' ) ); },
-        function( model ) { return new BAAGameView( model, tandem.createTandem( 'gameScreen' ) ); }, {
+        function() { return new BAAGameModel( gameScreenTandem ); },
+        function( model ) { return new BAAGameView( model, gameScreenTandem ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',
           navigationBarIcon: new Image( gameIconSmall ),
           tandemScreenName: 'gameScreen'

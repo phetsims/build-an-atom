@@ -28,8 +28,8 @@ define( function( require ) {
   return inherit( ToElementProblem, CountsToElementProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new CountsToElementProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new CountsToElementProblemView( this, layoutBounds, tandem );
     }
   } );
 } );

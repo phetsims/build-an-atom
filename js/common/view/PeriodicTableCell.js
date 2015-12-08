@@ -13,6 +13,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
+  var Emitter = require( 'AXON/Emitter' );
 
   var NOMINAL_CELL_DIMENSION = 25;
   var NOMINAL_FONT_SIZE = 14;
@@ -24,10 +25,12 @@ define( function( require ) {
    * @param length - Width and height of cell (cells are square).
    * @param interactive - Boolean flag that determines whether cell is interactive.
    * @param numberAtom - Atom that is set if this cell is selected by the user.
+   * @param {Tandem} tandem
    * @constructor
    */
-  function PeriodicTableCell( atomicNumber, length, interactive, numberAtom ) {
+  function PeriodicTableCell( atomicNumber, length, interactive, numberAtom, tandem ) {
     Node.call( this ); // Call super constructor.
+    var emitter = new Emitter();
 
     this.normalFill = interactive ? new LinearGradient( 0, 0, 0, length ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ) : 'white';
     this.highlightedFill = 'yellow';
@@ -53,9 +56,15 @@ define( function( require ) {
           numberAtom.protonCount = atomicNumber;
           numberAtom.neutronCount = AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber );
           numberAtom.electronCount = atomicNumber;
+          emitter.emit();
         }
       } );
     }
+
+    // @public (together)
+    this.emitter = emitter;
+
+    tandem.addInstance( this );
   }
 
   // Inherit from Node.

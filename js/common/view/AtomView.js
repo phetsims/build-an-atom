@@ -53,11 +53,11 @@ define( function( require ) {
    * Constructor.
    *
    * @param model Build an Atom model object.
+   * @param {Tandem} tandem
    * @constructor
    */
-  function AtomView( model ) {
+  function AtomView( model, tandem ) {
     ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
-//    ScreenView.call( this ); // Call super constructor.
     var thisView = this;
     this.model = model;
     this.resetFunctions = [];
@@ -164,7 +164,7 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
-    var periodicTable = new PeriodicTableAndSymbol( model.numberAtom ).mutate( { pickable: false } );
+    var periodicTable = new PeriodicTableAndSymbol( model.numberAtom, tandem ).mutate( { pickable: false } );
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable, {
       titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),

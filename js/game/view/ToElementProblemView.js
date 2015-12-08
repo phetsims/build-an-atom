@@ -32,11 +32,14 @@ define( function( require ) {
   var INSET = 10;
 
   /**
-   * Main constructor function.
+   * Main constructor
    *
+   * @param countsToElementProblem
+   * @param layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToElementProblemView( countsToElementProblem, layoutBounds ) {
+  function CountsToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
     ProblemView.call( this, countsToElementProblem, layoutBounds ); // Call super constructor.
     var thisNode = this;
 
@@ -45,7 +48,7 @@ define( function( require ) {
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, 100 );
+    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, 100, tandem.createTandem( 'periodicTable' ) );
     this.periodicTable.scale( 0.85 );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 

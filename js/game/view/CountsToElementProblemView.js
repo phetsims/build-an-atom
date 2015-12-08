@@ -16,12 +16,15 @@ define( function( require ) {
   var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );
 
   /**
-   * Main constructor function.
+   * Main constructor
    *
+   * @param countsToElementProblem
+   * @param layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToElementProblemView( countsToElementProblem, layoutBounds ) {
-    ToElementProblemView.call( this, countsToElementProblem, layoutBounds ); // Call super constructor.
+  function CountsToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
+    ToElementProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToElementProblem.answerAtom );

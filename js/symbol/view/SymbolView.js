@@ -23,10 +23,11 @@ define( function( require ) {
    * Constructor.
    *
    * @param model Build an Atom model object.
+   * @param {Tandem} tandem
    * @constructor
    */
-  function SymbolView( model ) {
-    AtomView.call( this, model ); // Call super constructor.
+  function SymbolView( model, tandem ) {
+    AtomView.call( this, model, tandem ); // Call super constructor.
 
     this.viewProperties.addProperty( 'symbolBoxExpanded', true );
 

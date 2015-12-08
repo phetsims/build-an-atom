@@ -23,14 +23,15 @@ define( function( require ) {
 
   /**
    * @param numberAtom
+   * @param {Tandem} tandem
    * @constructor
    */
-  function PeriodicTableAndSymbol( numberAtom ) {
+  function PeriodicTableAndSymbol( numberAtom, tandem ) {
 
     Node.call( this ); // Call super constructor.
 
     // Create and add the periodic table.
-    var periodicTable = new PeriodicTableNode( numberAtom, 0 );
+    var periodicTable = new PeriodicTableNode( numberAtom, 0, tandem.createTandem( 'periodicTable' ) );
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.

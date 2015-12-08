@@ -97,7 +97,7 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a problem.
         rootNode.removeAllChildren();
-        rootNode.addChild( state.createView( thisScene.layoutBounds ) );
+        rootNode.addChild( state.createView( thisScene.layoutBounds, tandem ) );
         rootNode.addChild( scoreboard );
       }
     } );
