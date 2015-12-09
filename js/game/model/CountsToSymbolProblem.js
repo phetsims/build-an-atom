@@ -31,8 +31,8 @@ define( function( require ) {
   return inherit( BAAGameProblem, CountsToSymbolProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new CountsToSymbolProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new CountsToSymbolProblemView( this, layoutBounds, tandem );
     }
   } );
 } );

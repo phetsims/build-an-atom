@@ -25,7 +25,7 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SchematicToSymbolProblemView( toSymbolProblem, layoutBounds ) {
+  function SchematicToSymbolProblemView( toSymbolProblem, layoutBounds, tandem ) {
 
     // Interactive Symbol (must be defined before the call to the super constructor).
     this.interactiveSymbol = new InteractiveSymbolNode( toSymbolProblem.answerAtom,
@@ -35,7 +35,7 @@ define( function( require ) {
         interactiveCharge: toSymbolProblem.configurableCharge
       } );
 
-    ProblemView.call( this, toSymbolProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, toSymbolProblem, layoutBounds, tandem ); // Call super constructor.
 
     // Add the interactive symbol.
     this.interactiveSymbol.scale( 0.75 );

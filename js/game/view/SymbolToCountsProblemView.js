@@ -21,13 +21,13 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SymbolToCountsProblemView( symbolToCountsProblem, layoutBounds ) {
+  function SymbolToCountsProblemView( symbolToCountsProblem, layoutBounds, tandem ) {
 
     // Interactive particle count node - must be defined before call to super constructor.
     this.interactiveParticleCountsNode = new InteractiveParticleCountsNode();
 
     // Call super constructor.
-    ProblemView.call( this, symbolToCountsProblem, layoutBounds );
+    ProblemView.call( this, symbolToCountsProblem, layoutBounds, tandem );
 
     // Add interactive particle count.
     this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );

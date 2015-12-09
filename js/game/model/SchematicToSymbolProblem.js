@@ -31,8 +31,8 @@ define( function( require ) {
   return inherit( BAAGameProblem, SchematicToSymbolProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new SchematicToSymbolProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new SchematicToSymbolProblemView( this, layoutBounds, tandem );
     }
   } );
 } );

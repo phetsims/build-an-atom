@@ -28,10 +28,10 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToChargeProblemView( countsToChargeProblem, layoutBounds ) {
+  function CountsToChargeProblemView( countsToChargeProblem, layoutBounds, tandem ) {
 
     this.chargeAnswer = new Property( 0 ); // Must be defined before call to super constructor.
-    ProblemView.call( this, countsToChargeProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, countsToChargeProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
     // Particle counts

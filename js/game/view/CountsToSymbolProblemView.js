@@ -22,7 +22,7 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToSymbolProblemView( toSymbolProblem, layoutBounds ) {
+  function CountsToSymbolProblemView( toSymbolProblem, layoutBounds, tandem ) {
 
     // Interactive Symbol (must be defined before the super constructor is invoked).
     this.interactiveSymbol = new InteractiveSymbolNode( toSymbolProblem.answerAtom,
@@ -32,7 +32,7 @@ define( function( require ) {
         interactiveCharge: toSymbolProblem.configurableCharge
       } );
 
-    ProblemView.call( this, toSymbolProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, toSymbolProblem, layoutBounds, tandem ); // Call super constructor.
 
     // Add the interactive symbol.
     this.interactiveSymbol.scale( 0.75 );

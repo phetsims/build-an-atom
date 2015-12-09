@@ -30,10 +30,10 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SchematicToMassNumberProblemView( schematicToMassNumberProblem, layoutBounds ) {
+  function SchematicToMassNumberProblemView( schematicToMassNumberProblem, layoutBounds, tandem ) {
 
     this.massNumberAnswer = new Property( 0 ); // Must be defined before call to super constructor.
-    ProblemView.call( this, schematicToMassNumberProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, schematicToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
     // Create the model-view transform used by the schematic atom.

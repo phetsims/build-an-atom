@@ -31,10 +31,10 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SchematicToChargeProblemView( schematicToChargeProblem, layoutBounds ) {
+  function SchematicToChargeProblemView( schematicToChargeProblem, layoutBounds, tandem ) {
 
     this.chargeAnswer = new Property( 0 ); // Must be defined before call to super constructor.
-    ProblemView.call( this, schematicToChargeProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, schematicToChargeProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
     // Create the model-view transform used by the schematic atom.

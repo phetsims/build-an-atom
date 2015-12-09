@@ -28,8 +28,8 @@ define( function( require ) {
   return inherit( BAAGameProblem, SchematicToChargeProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new SchematicToChargeProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new SchematicToChargeProblemView( this, layoutBounds, tandem );
     }
   } );
 } );

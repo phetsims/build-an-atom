@@ -36,8 +36,8 @@ define( function( require ) {
   return inherit( BAAGameProblem, SymbolToSchematicProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new SymbolToSchematicProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new SymbolToSchematicProblemView( this, layoutBounds, tandem );
     },
 
     // Step the atom model when the problem is stepped.

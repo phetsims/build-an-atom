@@ -27,8 +27,8 @@ define( function( require ) {
   return inherit( BAAGameProblem, CountsToMassNumberProblem, {
 
     // Create the view needed to visual represent this problem.
-    createView: function( layoutBounds ) {
-      return new CountsToMassNumberProblemView( this, layoutBounds );
+    createView: function( layoutBounds, tandem ) {
+      return new CountsToMassNumberProblemView( this, layoutBounds, tandem );
     }
   } );
 } );

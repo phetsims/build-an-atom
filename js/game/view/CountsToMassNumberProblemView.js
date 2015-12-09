@@ -27,10 +27,10 @@ define( function( require ) {
    *
    * @constructor
    */
-  function CountsToMassNumberProblemView( countsToMassNumberProblem, layoutBounds ) {
+  function CountsToMassNumberProblemView( countsToMassNumberProblem, layoutBounds, tandem ) {
 
     this.massNumberAnswer = new Property( 0 ); // Must be defined before call to super constructor.
-    ProblemView.call( this, countsToMassNumberProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, countsToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
     // Particle counts

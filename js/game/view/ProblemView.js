@@ -35,7 +35,7 @@ define( function( require ) {
    *
    * @constructor
    */
-  function ProblemView( problem, layoutBounds ) {
+  function ProblemView( problem, layoutBounds, tandem ) {
     Node.call( this ); // Call super constructor.
     var thisNode = this;
     this.problem = problem;
@@ -66,7 +66,8 @@ define( function( require ) {
     this.checkAnswerButton = new TextPushButton( checkString, {
       listener: function() { thisNode.checkAnswer(); },
       font: BUTTON_FONT,
-      baseColor: BUTTON_FILL
+      baseColor: BUTTON_FILL,
+      tandem: tandem.createTandem( 'checkAnswerButton' )
     } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
@@ -74,7 +75,8 @@ define( function( require ) {
     this.nextButton = new TextPushButton( nextString, {
       listener: function() { problem.next(); },
       font: BUTTON_FONT,
-      baseColor: BUTTON_FILL
+      baseColor: BUTTON_FILL,
+      tandem: tandem.createTandem( 'nextButton' )
     } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
@@ -82,7 +84,8 @@ define( function( require ) {
     this.tryAgainButton = new TextPushButton( tryAgainString, {
       listener: function() { problem.tryAgain(); },
       font: BUTTON_FONT,
-      baseColor: BUTTON_FILL
+      baseColor: BUTTON_FILL,
+      tandem: tandem.createTandem( 'tryAgainButton' )
     } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
@@ -90,7 +93,8 @@ define( function( require ) {
     this.displayCorrectAnswerButton = new TextPushButton( showAnswerString, {
       listener: function() { problem.displayCorrectAnswer(); },
       font: BUTTON_FONT,
-      baseColor: BUTTON_FILL
+      baseColor: BUTTON_FILL,
+      tandem: tandem.createTandem( 'displayCorrectAnswerButton' )
     } );
     this.addChild( this.displayCorrectAnswerButton );
     this.buttons.push( this.displayCorrectAnswerButton );

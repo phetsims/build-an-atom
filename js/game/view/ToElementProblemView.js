@@ -40,7 +40,7 @@ define( function( require ) {
    * @constructor
    */
   function CountsToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
-    ProblemView.call( this, countsToElementProblem, layoutBounds ); // Call super constructor.
+    ProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
     // Problem title
