@@ -29,8 +29,11 @@ define( function( require ) {
    * @constructor
    */
   function PeriodicTableCell( atomicNumber, length, interactive, numberAtom, tandem ) {
+    var periodicTableCell = this;
     Node.call( this ); // Call super constructor.
-    var emitter = new Emitter();
+
+    // @public (together) send a message when this button is pressed (only occurs when interactive===true)
+    this.cellPressedEmitter = new Emitter();
 
     this.normalFill = interactive ? new LinearGradient( 0, 0, 0, length ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ) : 'white';
     this.highlightedFill = 'yellow';
@@ -56,13 +59,10 @@ define( function( require ) {
           numberAtom.protonCount = atomicNumber;
           numberAtom.neutronCount = AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber );
           numberAtom.electronCount = atomicNumber;
-          emitter.emit();
+          periodicTableCell.cellPressedEmitter.emit();
         }
       } );
     }
-
-    // @public (together)
-    this.emitter = emitter;
 
     tandem.addInstance( this );
   }
