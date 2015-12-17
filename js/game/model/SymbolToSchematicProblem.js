@@ -37,7 +37,7 @@ define( function( require ) {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds, tandem ) {
-      return new SymbolToSchematicProblemView( this, layoutBounds, tandem );
+      return new SymbolToSchematicProblemView( this, layoutBounds, tandem.createPoolElementTandem( 'symbolToSchematicProblem' ) );
     },
 
     // Step the atom model when the problem is stepped.
