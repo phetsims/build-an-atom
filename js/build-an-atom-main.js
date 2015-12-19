@@ -48,7 +48,7 @@ define( function( require ) {
 
   SimLauncher.launch( function() {
 
-    var buildAnAtomScreenTandem = tandem.createTandem( 'buildAnAtomScreen' );
+    var atomScreenTandem = tandem.createTandem( 'atomScreen' );
     var symbolScreenTandem = tandem.createTandem( 'symbolScreen' );
     var gameScreenTandem = tandem.createTandem( 'gameScreen' );
 
@@ -56,8 +56,8 @@ define( function( require ) {
     new Sim( buildAnAtomTitleString, [
       new Screen( atomString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new BuildAnAtomView( model, buildAnAtomScreenTandem ); }, {
-          tandemScreenName: 'atomScreen',
+        function( model ) { return new BuildAnAtomView( model, atomScreenTandem ); }, {
+          tandem: atomScreenTandem,
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
@@ -66,7 +66,7 @@ define( function( require ) {
         function( model ) { return new SymbolView( model, symbolScreenTandem ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
           navigationBarIcon: new Image( elementIconSmall ),
-          tandemScreenName: 'symbolScreen'
+          tandem: symbolScreenTandem
         }
       ),
       new Screen( gameString, new Image( gameIcon ),
@@ -74,7 +74,7 @@ define( function( require ) {
         function( model ) { return new BAAGameView( model, gameScreenTandem ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',
           navigationBarIcon: new Image( gameIconSmall ),
-          tandemScreenName: 'gameScreen'
+          tandem: gameScreenTandem
         }
       )
     ], simOptions ).start();
