@@ -14,6 +14,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Emitter = require( 'AXON/Emitter' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var NOMINAL_CELL_DIMENSION = 25;
   var NOMINAL_FONT_SIZE = 14;
@@ -66,6 +67,8 @@ define( function( require ) {
 
     tandem.addInstance( this );
   }
+
+  buildAnAtom.register( 'PeriodicTableCell', PeriodicTableCell );
 
   // Inherit from Node.
   return inherit( Node, PeriodicTableCell, {
