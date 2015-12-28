@@ -14,7 +14,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );

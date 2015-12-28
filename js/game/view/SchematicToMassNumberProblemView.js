@@ -16,7 +16,7 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );

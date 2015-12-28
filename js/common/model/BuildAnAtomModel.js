@@ -12,7 +12,7 @@ define( function( require ) {
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
   var ParticleAtom = require( 'BUILD_AN_ATOM/common/model/ParticleAtom' );
   var PropertySet = require( 'AXON/PropertySet' );

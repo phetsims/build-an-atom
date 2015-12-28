@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );

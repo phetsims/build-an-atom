@@ -15,7 +15,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var PeriodicTableNode = require( 'BUILD_AN_ATOM/common/view/PeriodicTableNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );

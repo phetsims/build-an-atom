@@ -13,7 +13,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-  var NumberAtom = require( 'BUILD_AN_ATOM/common/model/NumberAtom' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
