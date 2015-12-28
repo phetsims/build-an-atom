@@ -16,7 +16,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var ParticleNode = require( 'BUILD_AN_ATOM/common/view/ParticleNode' );
+  var ParticleNode = require( 'SHRED/view/ParticleNode' );
   var Panel = require( 'SUN/Panel' );
   var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
 

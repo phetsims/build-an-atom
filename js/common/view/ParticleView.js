@@ -8,7 +8,7 @@ define( function( require ) {
 
   var Node = require( 'SCENERY/nodes/Node' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
-  var ParticleNode = require( 'BUILD_AN_ATOM/common/view/ParticleNode' );
+  var ParticleNode = require( 'SHRED/view/ParticleNode' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   // Optimization - create a sort of cache for particle nodes.
