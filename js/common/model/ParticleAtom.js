@@ -16,7 +16,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var ObservableArray = require( 'AXON/ObservableArray' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Utils = require( 'BUILD_AN_ATOM/common/Utils' );
+  var Utils = require( 'SHRED/Utils' );
 
   function ParticleAtom( options ) {
     PropertySet.call( this, { position: Vector2.ZERO, nucleusOffset: Vector2.ZERO } );
