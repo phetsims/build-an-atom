@@ -13,7 +13,7 @@ define( function( require ) {
   // modules
   var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
   var ElectronCloudView = require( 'BUILD_AN_ATOM/common/view/ElectronCloudView' );
-  var ElectronShellView = require( 'BUILD_AN_ATOM/common/view/ElectronShellView' );
+  var ElectronShellView = require( 'SHRED/view/ElectronShellView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
