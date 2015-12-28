@@ -14,7 +14,7 @@ define( function( require ) {
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var BucketDragHandler = require( 'BUILD_AN_ATOM/buildanatom/view/BucketDragHandler' );
+  var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var inherit = require( 'PHET_CORE/inherit' );
