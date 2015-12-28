@@ -14,7 +14,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ParticleAtom = require( 'BUILD_AN_ATOM/common/model/ParticleAtom' );
-  var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
+  var ParticleView = require( 'SHRED/view/ParticleView' );
   var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
   var Property = require( 'AXON/Property' );
 

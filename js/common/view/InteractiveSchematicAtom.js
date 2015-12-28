@@ -14,7 +14,7 @@ define( function( require ) {
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
+  var ParticleView = require( 'SHRED/view/ParticleView' );
 
   // constants
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.

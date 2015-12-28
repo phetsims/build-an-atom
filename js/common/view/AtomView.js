@@ -22,7 +22,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var ParticleCountDisplay = require( 'BUILD_AN_ATOM/common/view/ParticleCountDisplay' );
-  var ParticleView = require( 'BUILD_AN_ATOM/common/view/ParticleView' );
+  var ParticleView = require( 'SHRED/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
