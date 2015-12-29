@@ -39,16 +39,18 @@ define( function( require ) {
     // Add the cells of the table.
     this.cells = [];
     var elementIndex = 1;
+    var rowGroupTandem = tandem.createGroupTandem( 'row' );
     for ( var i = 0; i < POPULATED_CELLS.length; i++ ) {
       var populatedCellsInRow = POPULATED_CELLS[ i ];
-      var rowTandem = tandem.createPoolElementTandem( 'row' );
+      var rowTandem = rowGroupTandem.createNextTandem();
+      var columnGroupTandem = rowTandem.createGroupTandem( 'column' );
       for ( var j = 0; j < populatedCellsInRow.length; j++ ) {
         var cell = new PeriodicTableCell(
           elementIndex,
           CELL_DIMENSION,
           interactiveMax >= elementIndex,
           numberAtom,
-          rowTandem.createPoolElementTandem( 'column' )
+          columnGroupTandem.createNextTandem()
         );
         cell.translation = new Vector2( populatedCellsInRow[ j ] * CELL_DIMENSION, i * CELL_DIMENSION );
         this.addChild( cell );

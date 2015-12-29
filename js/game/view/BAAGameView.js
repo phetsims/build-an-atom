@@ -57,6 +57,8 @@ define( function( require ) {
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     var rewardNode = new RewardNode( gameModel );
 
+    var problemGroupTandem = tandem.createGroupTandem( 'problemView' );
+
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
       if ( state === 'selectGameLevel' ) {
@@ -97,7 +99,7 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a problem.
         rootNode.removeAllChildren();
-        rootNode.addChild( state.createView( thisScene.layoutBounds, tandem ) );
+        rootNode.addChild( state.createView( thisScene.layoutBounds, problemGroupTandem.createNextTandem() ) );
         rootNode.addChild( scoreboard );
       }
     } );
