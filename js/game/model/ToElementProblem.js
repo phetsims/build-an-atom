@@ -13,7 +13,7 @@ define( function( require ) {
   // modules
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
 
   /**
    * Main constructor function.

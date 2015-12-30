@@ -20,7 +20,7 @@ define( function( require ) {
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings

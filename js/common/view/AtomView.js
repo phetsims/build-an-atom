@@ -28,7 +28,7 @@ define( function( require ) {
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );

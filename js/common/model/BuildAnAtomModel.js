@@ -16,7 +16,7 @@ define( function( require ) {
   var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
   var ParticleAtom = require( 'BUILD_AN_ATOM/common/model/ParticleAtom' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 

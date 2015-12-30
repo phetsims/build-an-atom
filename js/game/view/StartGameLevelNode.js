@@ -19,7 +19,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/buttons/SoundToggleButton' );
   var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
   var Text = require( 'SCENERY/nodes/Text' );

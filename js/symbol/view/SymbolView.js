@@ -12,7 +12,7 @@ define( function( require ) {
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 

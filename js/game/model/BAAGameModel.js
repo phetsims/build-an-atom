@@ -13,7 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
 
   // constants
   var PROBLEMS_PER_LEVEL = 5;

@@ -18,7 +18,7 @@ define( function( require ) {
   var ScoreboardPanel = require( 'VEGAS/ScoreboardPanel' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
 
   /**
    * Constructor.

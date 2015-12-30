@@ -18,7 +18,7 @@ define( function( require ) {
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
 
   // strings
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );

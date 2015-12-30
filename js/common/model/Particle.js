@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   // constants

@@ -18,7 +18,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var ParticleNode = require( 'SHRED/view/ParticleNode' );
   var Panel = require( 'SUN/Panel' );
-  var SharedConstants = require( 'BUILD_AN_ATOM/common/SharedConstants' );
+  var SharedConstants = require( 'SHRED/SharedConstants' );
 
   // strings
   var protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
