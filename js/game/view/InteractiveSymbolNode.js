@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );

@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );

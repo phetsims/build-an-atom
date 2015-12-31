@@ -12,7 +12,7 @@ define( function( require ) {
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var Emitter = require( 'AXON/Emitter' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 

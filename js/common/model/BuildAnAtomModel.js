@@ -9,7 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );

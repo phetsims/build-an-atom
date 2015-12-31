@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'BUILD_AN_ATOM/common/AtomIdentifier' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var Image = require( 'SCENERY/nodes/Image' );
