@@ -21,7 +21,7 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
-  var ParticleCountDisplay = require( 'BUILD_AN_ATOM/common/view/ParticleCountDisplay' );
+  var ParticleCountDisplay = require( 'SHRED/view/ParticleCountDisplay' );
   var ParticleView = require( 'SHRED/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
