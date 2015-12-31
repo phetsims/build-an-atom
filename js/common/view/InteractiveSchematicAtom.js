@@ -8,7 +8,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
+  var AtomNode = require( 'SHRED/view/AtomNode' );
   var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );

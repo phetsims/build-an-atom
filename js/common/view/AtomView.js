@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
+  var AtomNode = require( 'SHRED/view/AtomNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );

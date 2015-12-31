@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomNode = require( 'BUILD_AN_ATOM/common/view/AtomNode' );
+  var AtomNode = require( 'SHRED/view/AtomNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
