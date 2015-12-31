@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
-  var ParticleAtom = require( 'BUILD_AN_ATOM/common/model/ParticleAtom' );
+  var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   var PropertySet = require( 'AXON/PropertySet' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
