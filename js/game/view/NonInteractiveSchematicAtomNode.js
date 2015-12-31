@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   var ParticleView = require( 'SHRED/view/ParticleView' );
-  var Particle = require( 'BUILD_AN_ATOM/common/model/Particle' );
+  var Particle = require( 'SHRED/model/Particle' );
   var Property = require( 'AXON/Property' );
 
   /**
