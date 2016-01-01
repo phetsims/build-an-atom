@@ -12,7 +12,7 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var InteractiveSchematicAtom = require( 'BUILD_AN_ATOM/common/view/InteractiveSchematicAtom' );
+  var InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );

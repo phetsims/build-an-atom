@@ -12,7 +12,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PeriodicTableNode = require( 'BUILD_AN_ATOM/common/view/PeriodicTableNode' );
+  var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -31,7 +31,8 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Create and add the periodic table.
-    var periodicTable = new PeriodicTableNode( numberAtom, 0, tandem.createTandem( 'periodicTable' ) );
+    var periodicTable = new PeriodicTableNode( numberAtom, tandem.createTandem( 'periodicTable' ),
+      { interactiveMax: 0 });
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.

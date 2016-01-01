@@ -16,7 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var PeriodicTableNode = require( 'BUILD_AN_ATOM/common/view/PeriodicTableNode' );
+  var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -48,7 +48,7 @@ define( function( require ) {
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, 100, tandem.createTandem( 'periodicTable' ) );
+    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ), { interactiveMax: 112 });
     this.periodicTable.scale( 0.85 );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
