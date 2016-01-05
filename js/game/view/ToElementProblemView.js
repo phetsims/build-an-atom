@@ -14,6 +14,7 @@ define( function( require ) {
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
@@ -30,6 +31,7 @@ define( function( require ) {
   // constants
   var TITLE_FONT = new PhetFont( 30 );
   var INSET = 10;
+  var CELL_DIMENSION = 25;
 
   /**
    * Main constructor
@@ -48,7 +50,12 @@ define( function( require ) {
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ), { interactiveMax: 112 });
+    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ),
+      { interactiveMax: 112,
+        cellDimension: CELL_DIMENSION,
+        enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
+        selectedCellColor: 'yellow'
+      });
     this.periodicTable.scale( 0.85 );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
