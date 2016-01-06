@@ -51,7 +51,7 @@ define( function( require ) {
 
     // Periodic table
     this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ),
-      { interactiveMax: 112,
+      { interactiveMax: 118,
         cellDimension: CELL_DIMENSION,
         enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
         selectedCellColor: 'yellow'
