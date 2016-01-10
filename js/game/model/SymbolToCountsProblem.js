@@ -29,7 +29,7 @@ define( function( require ) {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds, tandem ) {
-      return new SymbolToCountsProblemView( this, layoutBounds, tandem.createGroupTandem( 'symbolToCountsProblem' ) );
+      return new SymbolToCountsProblemView( this, layoutBounds, tandem.createTandem( 'view' ) );
     }
   } );
 } );

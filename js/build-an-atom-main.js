@@ -56,22 +56,22 @@ define( function( require ) {
     new Sim( buildAnAtomTitleString, [
       new Screen( atomString, new Image( atomIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new BuildAnAtomView( model, atomScreenTandem ); }, {
+        function( model ) { return new BuildAnAtomView( model, atomScreenTandem.createTandem( 'view' ) ); }, {
           tandem: atomScreenTandem,
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
       new Screen( symbolString, new Image( elementIcon ),
         function() { return new BuildAnAtomModel(); },
-        function( model ) { return new SymbolView( model, symbolScreenTandem ); }, {
+        function( model ) { return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
           navigationBarIcon: new Image( elementIconSmall ),
           tandem: symbolScreenTandem
         }
       ),
       new Screen( gameString, new Image( gameIcon ),
-        function() { return new BAAGameModel( gameScreenTandem ); },
-        function( model ) { return new BAAGameView( model, gameScreenTandem ); }, {
+        function() { return new BAAGameModel( gameScreenTandem.createTandem( 'model' ) ); },
+        function( model ) { return new BAAGameView( model, gameScreenTandem.createTandem( 'view' ) ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',
           navigationBarIcon: new Image( gameIconSmall ),
           tandem: gameScreenTandem

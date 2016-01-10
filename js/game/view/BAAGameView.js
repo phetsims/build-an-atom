@@ -39,7 +39,7 @@ define( function( require ) {
     var startGameLevelNode = new StartGameLevelNode(
       gameModel,
       this.layoutBounds,
-      tandem.createTandem( 'gameSelectionScreen' )
+      tandem.createTandem( 'startGameLevelNode' )
     );
     var scoreboard = new ScoreboardPanel(
       gameModel.problemIndexProperty,
@@ -50,14 +50,12 @@ define( function( require ) {
       gameModel.timerEnabledProperty,
       function() { gameModel.newGame(); }, {
         levelVisible: false,
-        tandem: tandem.createTandem( 'scoreboardPanel' )
+        tandem: tandem.createTandem( 'scoreboard' )
       }
     );
     scoreboard.mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     var rewardNode = new RewardNode( gameModel );
-
-    var problemGroupTandem = tandem.createGroupTandem( 'problemView' );
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
@@ -99,7 +97,7 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a problem.
         rootNode.removeAllChildren();
-        rootNode.addChild( state.createView( thisScene.layoutBounds, problemGroupTandem.createNextTandem() ) );
+        rootNode.addChild( state.createView( thisScene.layoutBounds, tandem.createTandem( 'view' ) ) );
         rootNode.addChild( scoreboard );
       }
     } );

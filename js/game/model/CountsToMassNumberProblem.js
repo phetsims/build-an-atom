@@ -28,7 +28,7 @@ define( function( require ) {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds, tandem ) {
-      return new CountsToMassNumberProblemView( this, layoutBounds, tandem.createGroupTandem( 'countsToMassNumberProblem' ) );
+      return new CountsToMassNumberProblemView( this, layoutBounds, tandem.createTandem( 'view' ) );
     }
   } );
 } );

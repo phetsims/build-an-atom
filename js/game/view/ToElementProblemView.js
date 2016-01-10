@@ -50,33 +50,33 @@ define( function( require ) {
     this.problemPresentationNode.addChild( problemTitle );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ),
-      { interactiveMax: 118,
-        cellDimension: CELL_DIMENSION,
-        enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
-        selectedCellColor: 'yellow'
-      });
+    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ), {
+      interactiveMax: 118,
+      cellDimension: CELL_DIMENSION,
+      enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
+      selectedCellColor: 'yellow'
+    } );
     this.periodicTable.scale( 0.85 );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Neutral atom versus ion question.
     var neutralVersusIonPrompt = new Text( isItString, { font: new PhetFont( 24 ) } );
-    var neutralAtomButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, { font: new PhetFont( 18 ) } ), {
+    var neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, { font: new PhetFont( 18 ) } ), {
       radius: 8,
-      tandem: tandem.createTandem( 'neutralRadioButton' )
+      tandem: tandem.createTandem( 'neutralAtomRadioButton' )
     } );
-    var ionButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, { font: new PhetFont( 18 ) } ), {
+    var ionRadioButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, { font: new PhetFont( 18 ) } ), {
       radius: 8,
       tandem: tandem.createTandem( 'ionRadioButton' )
     } );
     var neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
-    neutralAtomButton.left = neutralVersusIonPrompt.right + 10;
-    neutralAtomButton.centerY = neutralVersusIonPrompt.centerY;
-    neutralAtomVersusIonQuestion.addChild( neutralAtomButton );
-    ionButton.left = neutralAtomVersusIonQuestion.right + 10;
-    ionButton.centerY = neutralVersusIonPrompt.centerY;
-    neutralAtomVersusIonQuestion.addChild( ionButton );
+    neutralAtomRadioButton.left = neutralVersusIonPrompt.right + 10;
+    neutralAtomRadioButton.centerY = neutralVersusIonPrompt.centerY;
+    neutralAtomVersusIonQuestion.addChild( neutralAtomRadioButton );
+    ionRadioButton.left = neutralAtomVersusIonQuestion.right + 10;
+    ionRadioButton.centerY = neutralVersusIonPrompt.centerY;
+    neutralAtomVersusIonQuestion.addChild( ionRadioButton );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
     this.periodicTableAtom.protonCountProperty.link( function( protonCount ) {

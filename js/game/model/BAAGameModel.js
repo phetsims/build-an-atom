@@ -36,11 +36,11 @@ define( function( require ) {
       elapsedTime: 0
     }, {
       tandemSet: {
-        soundEnabled: tandem.createTandem( 'soundEnabled' ),
-        timerEnabled: tandem.createTandem( 'timerEnabled' ),
-        level: tandem.createTandem( 'level' ),
-        problemIndex: tandem.createTandem( 'problemIndex' ),
-        score: tandem.createTandem( 'score' )
+        soundEnabled: tandem.createTandem( 'soundEnabledProperty' ),
+        timerEnabled: tandem.createTandem( 'timerEnabledProperty' ),
+        level: tandem.createTandem( 'levelProperty' ),
+        problemIndex: tandem.createTandem( 'problemIndexProperty' ),
+        score: tandem.createTandem( 'scoreProperty' )
       }
     } );
 

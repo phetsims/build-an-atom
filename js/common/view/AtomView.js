@@ -164,7 +164,9 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
-    var periodicTable = new PeriodicTableAndSymbol( model.numberAtom, tandem ).mutate( { pickable: false } );
+    var periodicTable = new PeriodicTableAndSymbol( model.numberAtom, tandem.createTandem( 'periodicTable' ) ).mutate( {
+      pickable: false
+    } );
     periodicTable.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTable, {
       titleNode: new Text( elementString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),

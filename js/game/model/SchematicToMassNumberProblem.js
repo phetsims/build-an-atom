@@ -29,7 +29,7 @@ define( function( require ) {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds, tandem ) {
-      return new SchematicToMassNumberProblemView( this, layoutBounds, tandem.createGroupTandem( 'schematicToMassNumberProblem' ) );
+      return new SchematicToMassNumberProblemView( this, layoutBounds, tandem.createTandem( 'view' ) );
     }
   } );
 } );

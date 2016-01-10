@@ -31,10 +31,10 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Create and add the periodic table.
-    var periodicTable = new PeriodicTableNode( numberAtom, tandem.createTandem( 'periodicTable' ),
-      { interactiveMax: 0,
-        disabledCellColor: 'white'
-      });
+    var periodicTable = new PeriodicTableNode( numberAtom, tandem.createTandem( 'periodicTable' ), {
+      interactiveMax: 0,
+      disabledCellColor: 'white'
+    } );
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.

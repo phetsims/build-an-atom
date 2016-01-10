@@ -29,7 +29,7 @@ define( function( require ) {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds, tandem ) {
-      return new SchematicToElementProblemView( this, layoutBounds, tandem.createGroupTandem( 'schematicToElementProblem' ) );
+      return new SchematicToElementProblemView( this, layoutBounds, tandem.createTandem( 'view' ) );
     }
   } );
 } );
