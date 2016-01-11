@@ -5,44 +5,17 @@
   "stableSlashUnstable": {
     "value": "Stable/Unstable"
   },
-  "verySmall": {
-    "value": "very small"
-  },
   "symbol": {
     "value": "Symbol"
   },
   "findTheElement": {
     "value": "Find the element:"
   },
-  "none": {
-    "value": "--"
-  },
   "massNumber": {
     "value": "Mass Number"
   },
-  "whatIsTheTotalChargeMultiLine": {
-    "value": "What is the\ntotal charge?"
-  },
-  "name": {
-    "value": "Element Name"
-  },
-  "problemIndexReadout.pattern": {
-    "value": "Problem {0} of {1}"
-  },
   "atom": {
     "value": "Atom"
-  },
-  "completeTheModel": {
-    "value": "Complete the model:"
-  },
-  "tryAgain": {
-    "value": "Try Again"
-  },
-  "check": {
-    "value": "Check"
-  },
-  "howManyProtons": {
-    "value": "How many protons?"
   },
   "netCharge": {
     "value": "Net Charge"
@@ -62,14 +35,8 @@
   "build-an-atom.title": {
     "value": "Build an Atom"
   },
-  "noElement": {
-    "value": "-"
-  },
   "whatIsTheTotalCharge": {
     "value": "What is the total charge?"
-  },
-  "howManyParticles": {
-    "value": "How many particles?"
   },
   "electronsColon": {
     "value": "Electrons:"
@@ -77,17 +44,8 @@
   "game": {
     "value": "Game"
   },
-  "pattern.0element.1massNumber": {
-    "value": "{0}-{1}"
-  },
   "neutralAtom": {
     "value": "Neutral Atom"
-  },
-  "showAnswer": {
-    "value": "Show Answer"
-  },
-  "completeTheSymbol": {
-    "value": "Complete the symbol:"
   },
   "neutralSlashIon": {
     "value": "Neutral/Ion"
@@ -100,12 +58,6 @@
   },
   "cloud": {
     "value": "Cloud"
-  },
-  "whatIsTheMassNumberBr": {
-    "value": "What is the\nmass number?"
-  },
-  "next": {
-    "value": "Next"
   },
   "neutronsColon": {
     "value": "Neutrons:"
