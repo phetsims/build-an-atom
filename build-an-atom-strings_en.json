@@ -62,12 +62,6 @@
   "whatIsTheMassNumber": {
     "value": "What is the\nmass number?"
   },
-  "stable": {
-    "value": "Stable"
-  },
-  "unstable": {
-    "value": "Unstable"
-  },
   "build-an-atom.title": {
     "value": "Build an Atom"
   },
