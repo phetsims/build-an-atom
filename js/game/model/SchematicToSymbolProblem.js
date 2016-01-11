@@ -32,7 +32,7 @@ define( function( require ) {
 
     // Create the view needed to visual represent this problem.
     createView: function( layoutBounds, tandem ) {
-      return new SchematicToSymbolProblemView( this, layoutBounds, tandem.createTandem( 'view' ) );
+      return new SchematicToSymbolProblemView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolProblemView' ) );
     }
   } );
 } );
