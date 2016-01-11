@@ -98,20 +98,26 @@ define( function( require ) {
     this.addChild( advancedSymbolGameButton );
 
     // Sound and timer controls.
-    var timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, { stroke: 'gray' } );
+    var timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
+      stroke: 'gray',
+      tandem: tandem.createTandem( 'timerToggleButton' )
+    } );
     this.addChild( timerToggleButton );
-    var soundToggleButton = new SoundToggleButton( gameModel.soundEnabledProperty, { stroke: 'gray' } );
+    var soundToggleButton = new SoundToggleButton( gameModel.soundEnabledProperty, {
+      stroke: 'gray',
+      tandem: tandem.createTandem( 'soundToggleButton' )
+    } );
     this.addChild( soundToggleButton );
 
-    // Reset button.
-    var resetButton = new ResetAllButton(
-      {
-        listener: function() {
-          gameModel.reset();
-        },
-        scale: 0.85
-      } );
-    this.addChild( resetButton );
+    // Reset all button.
+    var resetAllButton = new ResetAllButton( {
+      listener: function() {
+        gameModel.reset();
+      },
+      scale: 0.85,
+      tandem: tandem.createTandem( 'resetAllButton' )
+    } );
+    this.addChild( resetAllButton );
 
     // Layout
     var buttonWidth = periodicTableGameButton.width; // Note: Assumes all buttons are the same size.
@@ -125,8 +131,8 @@ define( function( require ) {
     symbolGameButton.centerY = buttonCenterY;
     advancedSymbolGameButton.left = symbolGameButton.right + interButtonXSpace;
     advancedSymbolGameButton.centerY = buttonCenterY;
-    resetButton.right = layoutBounds.width - CONTROL_INSET;
-    resetButton.bottom = layoutBounds.height - CONTROL_INSET;
+    resetAllButton.right = layoutBounds.width - CONTROL_INSET;
+    resetAllButton.bottom = layoutBounds.height - CONTROL_INSET;
     title.centerX = layoutBounds.width / 2;
     title.centerY = periodicTableGameButton.top / 2;
     soundToggleButton.left = CONTROL_INSET;
