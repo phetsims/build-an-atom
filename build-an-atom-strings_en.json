@@ -8,20 +8,11 @@
   "verySmall": {
     "value": "very small"
   },
-  "argon": {
-    "value": "Argon"
-  },
   "symbol": {
     "value": "Symbol"
   },
   "findTheElement": {
     "value": "Find the element:"
-  },
-  "magnesium": {
-    "value": "Magnesium"
-  },
-  "whiteIsotopeBox": {
-    "value": "White Isotope Box"
   },
   "none": {
     "value": "--"
@@ -38,12 +29,6 @@
   "minusSignIon": {
     "value": "- Ion"
   },
-  "silicon": {
-    "value": "Silicon"
-  },
-  "beryllium": {
-    "value": "Beryllium"
-  },
   "problemIndexReadout.pattern": {
     "value": "Problem {0} of {1}"
   },
@@ -52,9 +37,6 @@
   },
   "completeTheModel": {
     "value": "Complete the model:"
-  },
-  "abundanceInNature": {
-    "value": "Abundance in Nature"
   },
   "tryAgain": {
     "value": "Try Again"
@@ -71,44 +53,11 @@
   "element": {
     "value": "Element"
   },
-  "isotopes": {
-    "value": "Isotopes"
-  },
-  "percentComposition": {
-    "value": "Percent Composition"
-  },
-  "fluorine": {
-    "value": "Fluorine"
-  },
-  "more": {
-    "value": "More"
-  },
-  "boron": {
-    "value": "Boron"
-  },
-  "myIsotope": {
-    "value": "My Isotope"
-  },
-  "less": {
-    "value": "Less"
-  },
-  "carbon": {
-    "value": "Carbon"
-  },
-  "atomicMass": {
-    "value": "Atomic Mass (amu)"
-  },
-  "makeIsotopes": {
-    "value": "Make Isotopes"
-  },
   "orbits": {
     "value": "Orbits"
   },
   "model": {
     "value": "Model:"
-  },
-  "thisIsotope": {
-    "value": "This Isotope"
   },
   "whatIsTheMassNumber": {
     "value": "What is the\nmass number?"
@@ -122,23 +71,11 @@
   "build-an-atom.title": {
     "value": "Build an Atom"
   },
-  "chlorine": {
-    "value": "Chlorine"
-  },
   "noElement": {
     "value": "-"
   },
-  "isotopes-and-atomic-mass.title": {
-    "value": "Isotopes and Atomic Mass"
-  },
-  "myMixOfIsotopes": {
-    "value": "My mix of isotopes"
-  },
   "whatIsTheTotalCharge": {
     "value": "What is the total charge?"
-  },
-  "aluminum": {
-    "value": "Aluminum"
   },
   "howManyParticles": {
     "value": "How many particles?"
@@ -148,9 +85,6 @@
   },
   "game": {
     "value": "Game"
-  },
-  "sodium": {
-    "value": "Sodium"
   },
   "pattern.0element.1massNumber": {
     "value": "{0}-{1}"
@@ -164,9 +98,6 @@
   "completeTheSymbol": {
     "value": "Complete the symbol:"
   },
-  "clearBox": {
-    "value": "Clear Box"
-  },
   "neutralSlashIon": {
     "value": "Neutral/Ion"
   },
@@ -176,35 +107,11 @@
   "neutrons": {
     "value": "Neutrons"
   },
-  "phosphorus": {
-    "value": "Phosphorus"
-  },
-  "nitrogen": {
-    "value": "Nitrogen"
-  },
   "protonsColon": {
     "value": "Protons:"
   },
-  "neon": {
-    "value": "Neon"
-  },
-  "units.amu": {
-    "value": "amu"
-  },
   "cloud": {
     "value": "Cloud"
-  },
-  "averageAtomicMass": {
-    "value": "Average Atomic Mass"
-  },
-  "hydrogen": {
-    "value": "Hydrogen"
-  },
-  "helium": {
-    "value": "Helium"
-  },
-  "oxygen": {
-    "value": "Oxygen"
   },
   "whatIsTheMassNumberBr": {
     "value": "What is the\nmass number?"
@@ -212,32 +119,17 @@
   "next": {
     "value": "Next"
   },
-  "mixIsotopes": {
-    "value": "Mix Isotopes"
-  },
   "neutronsColon": {
     "value": "Neutrons:"
   },
   "electrons": {
     "value": "Electrons"
   },
-  "lithium": {
-    "value": "Lithium"
-  },
-  "other": {
-    "value": "Other"
-  },
   "isIt": {
     "value": "Is it:"
   },
-  "naturesMixOfIsotopes": {
-    "value": "Nature's mix of isotopes"
-  },
   "protons": {
     "value": "Protons"
-  },
-  "sulfur": {
-    "value": "Sulfur"
   },
   "show": {
     "value": "Show"
