@@ -26,9 +26,6 @@
   "name": {
     "value": "Element Name"
   },
-  "minusSignIon": {
-    "value": "- Ion"
-  },
   "problemIndexReadout.pattern": {
     "value": "Problem {0} of {1}"
   },
