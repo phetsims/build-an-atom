@@ -95,9 +95,6 @@
   "neutralSlashIon": {
     "value": "Neutral/Ion"
   },
-  "positiveSignIon": {
-    "value": "+ Ion"
-  },
   "neutrons": {
     "value": "Neutrons"
   },
