@@ -16,6 +16,7 @@
   "phet": {
     "requirejsNamespace": "BUILD_AN_ATOM",
     "phetLibs": [
+      "shred",
       "vegas",
       "vibe"
     ]
