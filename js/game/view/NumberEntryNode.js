@@ -83,19 +83,19 @@ define( function( require ) {
 
     // Set up extended touch areas for the up/down buttons.  The areas are
     // set up such that they don't overlap with one another.
-    var extendedTouchAreaWidth = upArrowButton.width * 2.5;
-    var extendedTouchAreaHeight = upArrowButton.height * 1.65; // Tweaked for minimal overlap in most layouts that use this.
+    var touchAreaXDilation = upArrowButton.width * 2.5;
+    var touchAreaYDilation = upArrowButton.height * 1.65; // Tweaked for minimal overlap in most layouts that use this.
     upArrowButton.touchArea = Shape.rectangle(
-      -extendedTouchAreaWidth / 2 + upArrowButton.width / 2,
-      -extendedTouchAreaHeight + upArrowButton.height,
-      extendedTouchAreaWidth,
-      extendedTouchAreaHeight
+      -touchAreaXDilation / 2 + upArrowButton.width / 2,
+      -touchAreaYDilation + upArrowButton.height,
+      touchAreaXDilation,
+      touchAreaYDilation
     );
     downArrowButton.touchArea = Shape.rectangle(
-      -extendedTouchAreaWidth / 2 + upArrowButton.width / 2,
+      -touchAreaXDilation / 2 + upArrowButton.width / 2,
       0,
-      extendedTouchAreaWidth,
-      extendedTouchAreaHeight
+      touchAreaXDilation,
+      touchAreaYDilation
     );
 
     thisNode.mutate( options );
