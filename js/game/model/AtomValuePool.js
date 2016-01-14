@@ -217,9 +217,10 @@ define( function( require ) {
    * @param level
    * @constructor
    */
-  function AtomValuePool( level ) {
+  function AtomValuePool( level, random ) {
     this.remainingAtomValues = PROBLEM_POOLS[ level ];
     this.usedAtomValues = [];
+    this.random = random;
   }
 
   /**
@@ -272,7 +273,7 @@ define( function( require ) {
     // Choose a random value from the list.
     var atomValue = null;
     if ( allowableAtomValues.length > 0 ) {
-      atomValue = allowableAtomValues[ Math.floor( Math.random() * allowableAtomValues.length ) ];
+      atomValue = allowableAtomValues[ Math.floor( this.random.nextDouble() * allowableAtomValues.length ) ];
     }
     else {
       throw 'Error: No atoms found that match the specified criteria';

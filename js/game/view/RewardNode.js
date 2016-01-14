@@ -103,12 +103,11 @@ define( function( require ) {
 
     _createRandomStableAtom: function() {
       var atomicNumber = 1 + Math.floor( Math.random() * 18 ); // Limit to Argon, since that's as high as translations go.
-      return new NumberAtom(
-        {
-          protonCount: atomicNumber,
-          neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
-          electronCount: atomicNumber
-        } );
+      return new NumberAtom( {
+        protonCount: atomicNumber,
+        neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
+        electronCount: atomicNumber
+      } );
     }
   } );
 } );

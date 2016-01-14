@@ -15,6 +15,7 @@ define( function( require ) {
   var CountsToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolProblem' );
   var CountsToElementProblem = require( 'BUILD_AN_ATOM/game/model/CountsToElementProblem' );
   var CountsToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/CountsToMassNumberProblem' );
+  var Random = require( 'DOT/Random' );
   var SchematicToChargeProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToChargeProblem' );
   var SchematicToElementProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToElementProblem' );
   var SchematicToMassNumberProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberProblem' );
@@ -23,6 +24,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
 
   // constants
+  var random = new Random( { seed: Math.random() } ); // Use deterministic but seeded for replicable playback
   var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.
   var ALLOWED_PROBLEM_TYPES_BY_LEVEL = [
     [ 'schematic-to-element', 'counts-to-element' ],
@@ -48,7 +50,7 @@ define( function( require ) {
 
     // Create a pool of all atom values that can be used to create problems
     // for the problem set.
-    var atomValueList = new AtomValuePool( level );
+    var atomValueList = new AtomValuePool( level, random );
 
     // Now add problems to the problem set based on the atom values and the
     // problem types associated with this level.
@@ -81,7 +83,7 @@ define( function( require ) {
 
     // Randomly pick a problem type, but make sure that it isn't the same
     // as the previous problem type.
-    var index = Math.floor( Math.random() * ( this._availableProblemTypes.length ) );
+    var index = Math.floor( random.nextDouble() * ( this._availableProblemTypes.length ) );
     if ( this._previousProblemType !== null && this._availableProblemTypes.get( index ) === this._previousProblemType ) {
       // This is the same as the previous prob type, so choose a different one.
       index = ( index + 1 ) % this._availableProblemTypes.length;
@@ -105,9 +107,10 @@ define( function( require ) {
       minProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS + 1;
     }
     if ( this._isChargeProbType( problemType ) ) {
+
       // If the problem is asking about the charge, at least 50% of the
       // time we want a charged atom.
-      requireCharged = Math.random() > 0.5;
+      requireCharged = random.nextBoolean();
     }
     var atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
