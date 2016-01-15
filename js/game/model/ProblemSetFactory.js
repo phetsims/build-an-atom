@@ -26,12 +26,6 @@ define( function( require ) {
   // constants
   var random = new Random( { staticSeed: true } ); // Use deterministic but seeded for replicable playback
   var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.
-  var ALLOWED_PROBLEM_TYPES_BY_LEVEL = [
-    [ 'schematic-to-element', 'counts-to-element' ],
-    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
-  ];
 
   // No constructor, not meant to be instantiated.
   var ProblemSetFactory = {};
@@ -42,8 +36,9 @@ define( function( require ) {
    * @param level
    * @param numProblems
    * @param model
+   * @param {string[][]} allowedProblemTypesByLevel
    */
-  ProblemSetFactory.generate = function( level, numProblems, model ) {
+  ProblemSetFactory.generate = function( level, numProblems, model, allowedProblemTypesByLevel ) {
     this.problems = [];
     this._previousProblemType = null;
     this._availableProblemTypes = [];
@@ -55,7 +50,7 @@ define( function( require ) {
     // Now add problems to the problem set based on the atom values and the
     // problem types associated with this level.
     for ( var i = 0; i < numProblems; i++ ) {
-      var problem = this._generateProblem( level, atomValueList, model );
+      var problem = this._generateProblem( level, atomValueList, model, allowedProblemTypesByLevel );
       if ( problem !== null ) {
         this.problems.push( problem );
       }
@@ -71,14 +66,15 @@ define( function( require ) {
    * @param level
    * @param availableAtomValues
    * @param model
+   * @param {String[][]} allowedProblemTypesByLevel
    * @return
    */
-  ProblemSetFactory._generateProblem = function( level, availableAtomValues, model ) {
+  ProblemSetFactory._generateProblem = function( level, availableAtomValues, model, allowedProblemTypesByLevel ) {
 
     if ( this._availableProblemTypes.length === 0 ) {
       // Reload the list of available problems with all possible problem
       // types for the current level.
-      this._availableProblemTypes = ALLOWED_PROBLEM_TYPES_BY_LEVEL[ level ].slice();
+      this._availableProblemTypes = allowedProblemTypesByLevel[ level ].slice();
     }
 
     // Randomly pick a problem type, but make sure that it isn't the same

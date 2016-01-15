@@ -27,6 +27,15 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameModel( tandem ) {
+
+    // @private (phet-io), phet-io can set this value to customize which levels are presented
+    this.allowedProblemTypesByLevel = [
+      [ 'schematic-to-element', 'counts-to-element' ],
+      [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
+      [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
+      [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+    ];
+
     PropertySet.call( this, {
       state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
       soundEnabled: true,
@@ -84,7 +93,7 @@ define( function( require ) {
     startGameLevel: function( levelName ) {
       this.level = SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
       this.problemIndex = 0;
-      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this );
+      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this, this.allowedProblemTypesByLevel );
       this.score = 0;
       this.newBestTime = false;
       this._restartGameTimer();
@@ -163,6 +172,12 @@ define( function( require ) {
     _stopGameTimer: function() {
       window.clearInterval( this.gameTimerId );
       this.gameTimerId = null;
+    },
+
+    // Set the allowed problem types to customize for phet-io
+    // @private (phet-io)
+    setAllowedProblemTypesByLevel: function( allowedProblemTypesByLevel ) {
+      this.allowedProblemTypesByLevel = allowedProblemTypesByLevel;
     },
 
     // Public constants.
