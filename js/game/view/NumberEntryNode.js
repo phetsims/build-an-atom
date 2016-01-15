@@ -34,13 +34,12 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
     var thisNode = this;
 
-    options = _.extend(
-      {
-        prependPlusSign: false, // Generally set to true when depicting charge.
-        getTextColor: function() { return 'black'; },
-        minValue: Number.NEGATIVE_INFINITY,
-        maxValue: Number.POSITIVE_INFINITY
-      }, options );
+    options = _.extend( {
+      prependPlusSign: false, // Generally set to true when depicting charge.
+      getTextColor: function() { return 'black'; },
+      minValue: Number.NEGATIVE_INFINITY,
+      maxValue: Number.POSITIVE_INFINITY
+    }, options );
 
     // Node creation
     var arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15, fireOnHoldDelay: 200 };
@@ -48,21 +47,19 @@ define( function( require ) {
     thisNode.addChild( upArrowButton );
     var downArrowButton = new ArrowButton( 'down', function() { numberProperty.value = numberProperty.value - 1; }, arrowButtonOptions );
     thisNode.addChild( downArrowButton );
-    var answerValueBackground = new Rectangle( 0, 0, NUMBER_BOX_SIZE.width, NUMBER_BOX_SIZE.height, 4, 4,
-      {
-        fill: 'white',
-        stroke: 'black',
-        lineWidth: 1
-      } );
+    var answerValueBackground = new Rectangle( 0, 0, NUMBER_BOX_SIZE.width, NUMBER_BOX_SIZE.height, 4, 4, {
+      fill: 'white',
+      stroke: 'black',
+      lineWidth: 1
+    } );
     thisNode.addChild( answerValueBackground );
     numberProperty.link( function( newValue ) {
       answerValueBackground.removeAllChildren();
       var prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
-      var textNode = new Text( prepend + newValue,
-        {
-          font: NUMBER_FONT,
-          fill: options.getTextColor( newValue )
-        } );
+      var textNode = new Text( prepend + newValue, {
+        font: NUMBER_FONT,
+        fill: options.getTextColor( newValue )
+      } );
       textNode.scale( Math.min( 1, Math.min( ( answerValueBackground.width * 0.8 ) / textNode.width, ( answerValueBackground.height * 0.9 ) / textNode.height ) ) );
       textNode.centerX = answerValueBackground.width / 2;
       textNode.centerY = answerValueBackground.height / 2;

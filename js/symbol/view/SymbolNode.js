@@ -39,21 +39,19 @@ define( function( require ) {
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
-    var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0,
-      {
-        stroke: 'black',
-        lineWidth: 2,
-        fill: 'white'
-      } );
+    var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
+      stroke: 'black',
+      lineWidth: 2,
+      fill: 'white'
+    } );
     this.addChild( boundingBox );
 
     // Add the symbol text.
-    var symbolText = new Text( '',
-      {
-        font: new PhetFont( 150 ),
-        fill: 'black',
-        center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
-      } );
+    var symbolText = new Text( '', {
+      font: new PhetFont( 150 ),
+      fill: 'black',
+      center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
+    } );
 
     // Add the listener to update the symbol text.
     var textCenter = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
@@ -65,11 +63,10 @@ define( function( require ) {
     boundingBox.addChild( symbolText );
 
     // Add the proton count display.
-    var protonCountDisplay = new Text( '0',
-      {
-        font: NUMBER_FONT,
-        fill: 'red'
-      } );
+    var protonCountDisplay = new Text( '0', {
+      font: NUMBER_FONT,
+      fill: 'red'
+    } );
 
     // Add the listener to update the proton count.
     numberAtom.protonCountProperty.link( function( protonCount ) {
@@ -80,11 +77,10 @@ define( function( require ) {
     boundingBox.addChild( protonCountDisplay );
 
     // Add the mass number display.
-    var massNumberDisplay = new Text( '0',
-      {
-        font: NUMBER_FONT,
-        fill: 'black'
-      } );
+    var massNumberDisplay = new Text( '0', {
+      font: NUMBER_FONT,
+      fill: 'black'
+    } );
     boundingBox.addChild( massNumberDisplay );
 
     // Add the listener to update the mass number.
@@ -95,11 +91,10 @@ define( function( require ) {
     } );
 
     // Add the charge display.
-    var chargeDisplay = new Text( '0',
-      {
-        font: NUMBER_FONT,
-        fill: 'black'
-      } );
+    var chargeDisplay = new Text( '0', {
+      font: NUMBER_FONT,
+      fill: 'black'
+    } );
     boundingBox.addChild( chargeDisplay );
 
     // Add the listener to update the charge.

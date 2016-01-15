@@ -45,13 +45,12 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer,
-      {
-        prependPlusSign: true,
-        getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
-        maxValue: 99,
-        minValue: -99
-      } );
+    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, {
+      prependPlusSign: true,
+      getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
+      maxValue: 99,
+      minValue: -99
+    } );
     thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
@@ -64,15 +63,13 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, CountsToChargeProblemView,
-    {
+  return inherit( ProblemView, CountsToChargeProblemView, {
       checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom(
-          {
-            protonCount: this.problem.answerAtom.protonCount,
-            neutronCount: this.problem.answerAtom.neutronCount,
-            electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
-          } );
+        var userSubmittedAnswer = new NumberAtom( {
+          protonCount: this.problem.answerAtom.protonCount,
+          neutronCount: this.problem.answerAtom.neutronCount,
+          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
+        } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 

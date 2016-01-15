@@ -35,8 +35,7 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    options = _.extend(
-      {
+    options = _.extend( {
         showNumericalReadout: true
       },
       options
@@ -109,8 +108,11 @@ define( function( require ) {
     meterNeedleLayer.setScaleMagnitude( 1, 0.9 ); // match previous scaling behavior
     var meterNeedle = new ArrowNode(
       0, 0, // tip at origin, so we can rotate around it
-      0, 3 - meterWindowHeight,
-      { headHeight: 7, headWidth: 5, tailWidth: 1 } );
+      0, 3 - meterWindowHeight, {
+        headHeight: 7,
+        headWidth: 5,
+        tailWidth: 1
+      } );
     meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
 
@@ -120,14 +122,13 @@ define( function( require ) {
     // Add the numerical display, if present.
     var readoutSize = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
     if ( options.showNumericalReadout ) {
-      numericalReadout = new Rectangle( 0, 0, readoutSize.width, readoutSize.height, 3, 3,
-        {
-          fill: 'white',
-          stroke: 'black',
-          lineWidth: 1,
-          top: meterWindow.bottom + 3,
-          centerX: background.centerX
-        } );
+      numericalReadout = new Rectangle( 0, 0, readoutSize.width, readoutSize.height, 3, 3, {
+        fill: 'white',
+        stroke: 'black',
+        lineWidth: 1,
+        top: meterWindow.bottom + 3,
+        centerX: background.centerX
+      } );
       this.addChild( numericalReadout );
 
       // Created with placeholder empty-string, which will be changed.

@@ -114,29 +114,26 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView,
-    CountsToElementProblemView,
-    {
-      checkAnswer: function() {
-        var submittedAtom = new NumberAtom(
-          {
-            protonCount: this.periodicTableAtom.protonCount,
-            neutronCount: this.problem.answerAtom.neutronCount,
-            electronCount: this.problem.answerAtom.electronCount
-          } );
-        this.problem.checkAnswer( submittedAtom, this.neutralOrIon.value );
-      },
-      clearAnswer: function() {
-        this.periodicTableAtom.protonCount = 0;
-        this.periodicTableAtom.neutronCount = 0;
-        this.periodicTableAtom.electronCount = 0;
-        this.neutralOrIon.reset();
-      },
-      displayCorrectAnswer: function() {
-        this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
-        this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
-        this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
-        this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
-      }
-    } );
+  return inherit( ProblemView, CountsToElementProblemView, {
+    checkAnswer: function() {
+      var submittedAtom = new NumberAtom( {
+        protonCount: this.periodicTableAtom.protonCount,
+        neutronCount: this.problem.answerAtom.neutronCount,
+        electronCount: this.problem.answerAtom.electronCount
+      } );
+      this.problem.checkAnswer( submittedAtom, this.neutralOrIon.value );
+    },
+    clearAnswer: function() {
+      this.periodicTableAtom.protonCount = 0;
+      this.periodicTableAtom.neutronCount = 0;
+      this.periodicTableAtom.electronCount = 0;
+      this.neutralOrIon.reset();
+    },
+    displayCorrectAnswer: function() {
+      this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
+      this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
+      this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
+      this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
+    }
+  } );
 } );

@@ -74,13 +74,12 @@ define( function( require ) {
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    var atomNode = new AtomNode( model.particleAtom, mvt,
-      {
-        showElementNameProperty: model.showElementNameProperty,
-        showNeutralOrIonProperty: model.showNeutralOrIonProperty,
-        showStableOrUnstableProperty: model.showStableOrUnstableProperty,
-        electronShellDepictionProperty: model.electronShellDepictionProperty
-      } );
+    var atomNode = new AtomNode( model.particleAtom, mvt, {
+      showElementNameProperty: model.showElementNameProperty,
+      showNeutralOrIonProperty: model.showNeutralOrIonProperty,
+      showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+      electronShellDepictionProperty: model.electronShellDepictionProperty
+    } );
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
@@ -178,27 +177,27 @@ define( function( require ) {
     } );
     this.addChild( this.periodicTableBox );
 
-    var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup(
-      [
-        { content: new Text( elementString, { font: LABEL_CONTROL_FONT } ), property: model.showElementNameProperty },
-        {
-          content: new Text( neutralSlashIonString, { font: LABEL_CONTROL_FONT } ),
-          property: model.showNeutralOrIonProperty
-        },
-        {
-          content: new Text( stableSlashUnstableString, { font: LABEL_CONTROL_FONT } ),
-          property: model.showStableOrUnstableProperty
-        }
-      ] ), { fill: 'rgb( 245, 245, 245 )', xMargin: 15 } );
+    var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
+      content: new Text( elementString, { font: LABEL_CONTROL_FONT } ),
+      property: model.showElementNameProperty
+    }, {
+      content: new Text( neutralSlashIonString, { font: LABEL_CONTROL_FONT } ),
+      property: model.showNeutralOrIonProperty
+    }, {
+      content: new Text( stableSlashUnstableString, { font: LABEL_CONTROL_FONT } ),
+      property: model.showStableOrUnstableProperty
+    } ] ), {
+      fill: 'rgb( 245, 245, 245 )',
+      xMargin: 15
+    } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
     for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
-      var dividerLine1 = new Path( dividerLineShape,
-        {
-          lineWidth: 1,
-          stroke: 'gray',
-          centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 )
-        } );
+      var dividerLine1 = new Path( dividerLineShape, {
+        lineWidth: 1,
+        stroke: 'gray',
+        centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 )
+      } );
       labelVizControlPanel.addChild( dividerLine1 );
     }
 
@@ -227,13 +226,12 @@ define( function( require ) {
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    var resetButton = new ResetAllButton(
-      {
-        listener: function() {
-          thisView.model.reset();
-          thisView.viewProperties.reset();
-        }
-      } );
+    var resetButton = new ResetAllButton( {
+      listener: function() {
+        thisView.model.reset();
+        thisView.viewProperties.reset();
+      }
+    } );
     this.addChild( resetButton );
 
     // Do the layout.

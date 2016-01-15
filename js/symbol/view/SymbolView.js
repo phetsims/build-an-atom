@@ -34,16 +34,15 @@ define( function( require ) {
     // Add the symbol node within an accordion box.
     var symbolNode = new SymbolNode( model.numberAtom );
     symbolNode.scale( 0.43 ); // Scale empirically determined.
-    var symbolBox = new AccordionBox( symbolNode,
-      {
-        titleNode: new Text( symbolString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
-        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        minWidth: this.periodicTableBox.width,
-        contentAlign: 'center',
-        titleAlignX: 'left',
-        buttonAlign: 'right',
-        expandedProperty: this.viewProperties.symbolBoxExpandedProperty
-      } );
+    var symbolBox = new AccordionBox( symbolNode, {
+      titleNode: new Text( symbolString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      minWidth: this.periodicTableBox.width,
+      contentAlign: 'center',
+      titleAlignX: 'left',
+      buttonAlign: 'right',
+      expandedProperty: this.viewProperties.symbolBoxExpandedProperty
+    } );
     this.addChild( symbolBox );
 
     // Do the layout.

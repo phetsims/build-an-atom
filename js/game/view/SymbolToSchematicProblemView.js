@@ -29,7 +29,8 @@ define( function( require ) {
     var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
-      0.75 );
+      0.75
+    );
 
     // Interactive schematic atom node - must be defined before call to super constructor.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, mvt );
@@ -53,8 +54,8 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, SymbolToSchematicProblemView,
-    {
+  return inherit( ProblemView, SymbolToSchematicProblemView, {
+
       checkAnswer: function() {
         this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
       },

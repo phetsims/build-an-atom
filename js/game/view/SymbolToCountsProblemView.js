@@ -45,8 +45,8 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, SymbolToCountsProblemView,
-    {
+  return inherit( ProblemView, SymbolToCountsProblemView, {
+
       checkAnswer: function() {
         this.problem.checkAnswer( this.interactiveParticleCountsNode.numberAtom );
       },

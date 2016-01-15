@@ -32,15 +32,14 @@ define( function( require ) {
     this.addChild( scaleImage );
 
     // Add the numerical readout window.
-    var readoutBackground = new Rectangle( 0, 0, READOUT_SIZE.width, READOUT_SIZE.height, 4, 4,
-      {
-        fill: 'white',
-        stroke: 'black',
-        lineWidth: 1,
-        // Position is based on the background image, and may need tweaking if the image is changed.
-        bottom: scaleImage.bottom - 6,
-        centerX: scaleImage.centerX
-      } );
+    var readoutBackground = new Rectangle( 0, 0, READOUT_SIZE.width, READOUT_SIZE.height, 4, 4, {
+      fill: 'white',
+      stroke: 'black',
+      lineWidth: 1,
+      // Position is based on the background image, and may need tweaking if the image is changed.
+      bottom: scaleImage.bottom - 6,
+      centerX: scaleImage.centerX
+    } );
     this.addChild( readoutBackground );
 
     // placeholder text value, will be changed later

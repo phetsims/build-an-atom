@@ -54,13 +54,12 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer,
-      {
-        minValue: -99,
-        maxValue: 99,
-        prependPlusSign: true,
-        getTextColor: SharedConstants.CHARGE_TEXT_COLOR
-      } );
+    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, {
+      minValue: -99,
+      maxValue: 99,
+      prependPlusSign: true,
+      getTextColor: SharedConstants.CHARGE_TEXT_COLOR
+    } );
     thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
@@ -71,15 +70,13 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, SchematicToChargeProblemView,
-    {
+  return inherit( ProblemView, SchematicToChargeProblemView, {
       checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom(
-          {
-            protonCount: this.problem.answerAtom.protonCount,
-            neutronCount: this.problem.answerAtom.neutronCount,
-            electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
-          } );
+        var userSubmittedAnswer = new NumberAtom( {
+          protonCount: this.problem.answerAtom.protonCount,
+          neutronCount: this.problem.answerAtom.neutronCount,
+          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
+        } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 

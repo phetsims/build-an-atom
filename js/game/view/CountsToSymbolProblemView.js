@@ -25,12 +25,11 @@ define( function( require ) {
   function CountsToSymbolProblemView( toSymbolProblem, layoutBounds, tandem ) {
 
     // Interactive Symbol (must be defined before the super constructor is invoked).
-    this.interactiveSymbol = new InteractiveSymbolNode( toSymbolProblem.answerAtom,
-      {
-        interactiveProtonCount: toSymbolProblem.configurableProtonCount,
-        interactiveMassNumber: toSymbolProblem.configurableMassNumber,
-        interactiveCharge: toSymbolProblem.configurableCharge
-      } );
+    this.interactiveSymbol = new InteractiveSymbolNode( toSymbolProblem.answerAtom, {
+      interactiveProtonCount: toSymbolProblem.configurableProtonCount,
+      interactiveMassNumber: toSymbolProblem.configurableMassNumber,
+      interactiveCharge: toSymbolProblem.configurableCharge
+    } );
 
     ProblemView.call( this, toSymbolProblem, layoutBounds, tandem ); // Call super constructor.
 
@@ -50,15 +49,13 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, CountsToSymbolProblemView,
-    {
+  return inherit( ProblemView, CountsToSymbolProblemView, {
       checkAnswer: function() {
-        var userSubmittedAtom = new NumberAtom(
-          {
-            protonCount: this.interactiveSymbol.protonCount.value,
-            neutronCount: this.interactiveSymbol.massNumber.value - this.interactiveSymbol.protonCount.value,
-            electronCount: this.interactiveSymbol.protonCount.value - this.interactiveSymbol.charge.value
-          } );
+        var userSubmittedAtom = new NumberAtom( {
+          protonCount: this.interactiveSymbol.protonCount.value,
+          neutronCount: this.interactiveSymbol.massNumber.value - this.interactiveSymbol.protonCount.value,
+          electronCount: this.interactiveSymbol.protonCount.value - this.interactiveSymbol.charge.value
+        } );
         this.problem.checkAnswer( userSubmittedAtom );
       },
 

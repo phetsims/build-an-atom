@@ -64,15 +64,13 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, SchematicToMassNumberProblemView,
-    {
+  return inherit( ProblemView, SchematicToMassNumberProblemView, {
       checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom(
-          {
-            protonCount: this.problem.answerAtom.protonCount,
-            neutronCount: this.massNumberAnswer.value - this.problem.answerAtom.protonCount,
-            electronCount: this.problem.answerAtom.electronCount
-          } );
+        var userSubmittedAnswer = new NumberAtom( {
+          protonCount: this.problem.answerAtom.protonCount,
+          neutronCount: this.massNumberAnswer.value - this.problem.answerAtom.protonCount,
+          electronCount: this.problem.answerAtom.electronCount
+        } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 

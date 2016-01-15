@@ -48,16 +48,15 @@ define( function( require ) {
     var thisModel = this;
 
     // Call the super constructor.
-    PropertySet.call( this,
-      {
-        // Properties that control label visibility in the view.
-        showElementName: true,
-        showNeutralOrIon: true,
-        showStableOrUnstable: false,
+    PropertySet.call( this, {
+      // Properties that control label visibility in the view.
+      showElementName: true,
+      showNeutralOrIon: true,
+      showStableOrUnstable: false,
 
-        // Property that controls electron depiction in the view.
-        electronShellDepiction: 'orbits'
-      } );
+      // Property that controls electron depiction in the view.
+      electronShellDepiction: 'orbits'
+    } );
 
     // Create the atom that the user will build, modify, and generally play with.
     thisModel.particleAtom = new ParticleAtom();
@@ -191,117 +190,116 @@ define( function( require ) {
   BuildAnAtomModel.MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
   BuildAnAtomModel.MAX_ELECTRONS = NUM_ELECTRONS;
 
-  return inherit( PropertySet, BuildAnAtomModel,
-    {
-      _nucleusJumpCount: 0,
+  return inherit( PropertySet, BuildAnAtomModel, {
+    _nucleusJumpCount: 0,
 
-      // Main model step function, called by the framework.
-      step: function( dt ) {
+    // Main model step function, called by the framework.
+    step: function( dt ) {
 
-        // Update particle positions.
-        this.nucleons.forEach( function( nucleon ) {
-          nucleon.step( dt );
-        } );
-        this.electrons.forEach( function( electron ) {
-          electron.step( dt );
-        } );
+      // Update particle positions.
+      this.nucleons.forEach( function( nucleon ) {
+        nucleon.step( dt );
+      } );
+      this.electrons.forEach( function( electron ) {
+        electron.step( dt );
+      } );
 
-        // Animate the unstable nucleus by making it jump periodically.
-        if ( this.nucleusStable === false && this.showStableOrUnstable ) {
-          this.nucleusJumpCountdown -= dt;
-          if ( this.nucleusJumpCountdown <= 0 ) {
-            this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-            if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
-              this._nucleusJumpCount++;
-              var angle = JUMP_ANGLES[ this._nucleusJumpCount % JUMP_ANGLES.length ];
-              var distance = JUMP_DISTANCES[ this._nucleusJumpCount % JUMP_DISTANCES.length ];
-              this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
-            }
-            else {
-              this.particleAtom.nucleusOffset = Vector2.ZERO;
-            }
-          }
-        }
-      },
-
-      _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
-        var particlesToRemove = [];
-        // Copy the observable particle collection into a regular array.
-        for ( var i = 0; i < particleCollection.length; i++ ) {
-          particlesToRemove[ i ] = particleCollection.get( i );
-        }
-        var thisModel = this;
-        particlesToRemove.forEach( function( particle ) {
-            thisModel.particleAtom.removeParticle( particle );
-            bucket.addParticleFirstOpen( particle );
-          }
-        );
-      },
-
-      reset: function() {
-        PropertySet.prototype.reset.call( this );
-
-        // Move any particles that are in transit back to its bucket.
-        this.nucleons.forEach( function( nucleon ) {
-          if ( !nucleon.position.equals( nucleon.destination ) ) {
-            nucleon.moveImmediatelyToDestination();
-          }
-        } );
-        this.electrons.forEach( function( electron ) {
-          if ( !electron.position.equals( electron.destination ) ) {
-            electron.moveImmediatelyToDestination();
-          }
-        } );
-
-        // Remove all particles from the particle atom.
-        this.particleAtom.clear();
-
-        // Remove all particles from the buckets.
-        this.buckets.protonBucket.reset();
-        this.buckets.neutronBucket.reset();
-        this.buckets.electronBucket.reset();
-
-        // Add all the particles back to their buckets so that they are
-        // stacked in their original configurations.
-        var thisModel = this;
-        this.nucleons.forEach( function( nucleon ) {
-          if ( nucleon.type === 'proton' ) {
-            thisModel.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
+      // Animate the unstable nucleus by making it jump periodically.
+      if ( this.nucleusStable === false && this.showStableOrUnstable ) {
+        this.nucleusJumpCountdown -= dt;
+        if ( this.nucleusJumpCountdown <= 0 ) {
+          this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+          if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
+            this._nucleusJumpCount++;
+            var angle = JUMP_ANGLES[ this._nucleusJumpCount % JUMP_ANGLES.length ];
+            var distance = JUMP_DISTANCES[ this._nucleusJumpCount % JUMP_DISTANCES.length ];
+            this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
           }
           else {
-            thisModel.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
+            this.particleAtom.nucleusOffset = Vector2.ZERO;
           }
-        } );
-        this.electrons.forEach( function( electron ) {
-          thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
-        } );
-      },
-
-      // Set the atom to the specified configuration.
-      setAtomConfiguration: function( numberAtom ) {
-        // Define a function for transferring particles from buckets to atom.
-        var atomCenter = this.particleAtom.position;
-        var self = this;
-        var moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
-          while ( currentCountInAtom < targetCountInAtom ) {
-            var particle = bucket.extractClosestParticle( atomCenter );
-            particle.setPositionAndDestination( atomCenter );
-            particle.userControlled = false; // Necessary to make it look like user released particle.
-            currentCountInAtom++;
-          }
-          while ( currentCountInAtom > targetCountInAtom ) {
-            self._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
-            currentCountInAtom--;
-          }
-        };
-
-        // Move the particles.
-        moveParticlesToAtom( this.particleAtom.protons.length, numberAtom.protonCount, this.particleAtom.protons, this.buckets.protonBucket );
-        moveParticlesToAtom( this.particleAtom.neutrons.length, numberAtom.neutronCount, this.particleAtom.neutrons, this.buckets.neutronBucket );
-        moveParticlesToAtom( this.particleAtom.electrons.length, numberAtom.electronCount, this.particleAtom.electrons, this.buckets.electronBucket );
-
-        // Finalize particle positions.
-        this.particleAtom.moveAllParticlesToDestination();
+        }
       }
-    } );
+    },
+
+    _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
+      var particlesToRemove = [];
+      // Copy the observable particle collection into a regular array.
+      for ( var i = 0; i < particleCollection.length; i++ ) {
+        particlesToRemove[ i ] = particleCollection.get( i );
+      }
+      var thisModel = this;
+      particlesToRemove.forEach( function( particle ) {
+        thisModel.particleAtom.removeParticle( particle );
+        bucket.addParticleFirstOpen( particle );
+        }
+      );
+    },
+
+    reset: function() {
+      PropertySet.prototype.reset.call( this );
+
+      // Move any particles that are in transit back to its bucket.
+      this.nucleons.forEach( function( nucleon ) {
+        if ( !nucleon.position.equals( nucleon.destination ) ) {
+          nucleon.moveImmediatelyToDestination();
+        }
+      } );
+      this.electrons.forEach( function( electron ) {
+        if ( !electron.position.equals( electron.destination ) ) {
+          electron.moveImmediatelyToDestination();
+        }
+      } );
+
+      // Remove all particles from the particle atom.
+      this.particleAtom.clear();
+
+      // Remove all particles from the buckets.
+      this.buckets.protonBucket.reset();
+      this.buckets.neutronBucket.reset();
+      this.buckets.electronBucket.reset();
+
+      // Add all the particles back to their buckets so that they are
+      // stacked in their original configurations.
+      var thisModel = this;
+      this.nucleons.forEach( function( nucleon ) {
+        if ( nucleon.type === 'proton' ) {
+          thisModel.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
+        }
+        else {
+          thisModel.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
+        }
+      } );
+      this.electrons.forEach( function( electron ) {
+        thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
+      } );
+    },
+
+    // Set the atom to the specified configuration.
+    setAtomConfiguration: function( numberAtom ) {
+      // Define a function for transferring particles from buckets to atom.
+      var atomCenter = this.particleAtom.position;
+      var self = this;
+      var moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
+        while ( currentCountInAtom < targetCountInAtom ) {
+          var particle = bucket.extractClosestParticle( atomCenter );
+          particle.setPositionAndDestination( atomCenter );
+          particle.userControlled = false; // Necessary to make it look like user released particle.
+          currentCountInAtom++;
+        }
+        while ( currentCountInAtom > targetCountInAtom ) {
+          self._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
+          currentCountInAtom--;
+        }
+      };
+
+      // Move the particles.
+      moveParticlesToAtom( this.particleAtom.protons.length, numberAtom.protonCount, this.particleAtom.protons, this.buckets.protonBucket );
+      moveParticlesToAtom( this.particleAtom.neutrons.length, numberAtom.neutronCount, this.particleAtom.neutrons, this.buckets.neutronBucket );
+      moveParticlesToAtom( this.particleAtom.electrons.length, numberAtom.electronCount, this.particleAtom.electrons, this.buckets.electronBucket );
+
+      // Finalize particle positions.
+      this.particleAtom.moveAllParticlesToDestination();
+    }
+  } );
 } );

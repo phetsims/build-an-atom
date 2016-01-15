@@ -169,8 +169,8 @@ define( function( require ) {
   }
 
   // Inherit from Node.
-  return inherit( Node, ProblemView,
-    {
+  return inherit( Node, ProblemView, {
+
       // Function to clear the user's answer, generally used when
       // giving the user another chance to answer.  Must be implemented
       // in subclasses if any action is desired.

@@ -44,29 +44,27 @@ define( function( require ) {
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
-    var chargeMeterBox = new AccordionBox( chargeMeterBoxContents,
-      {
-        titleNode: new Text( netChargeString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
-        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
-        minWidth: this.periodicTableBox.width,
-        contentAlign: 'left',
-        titleAlignX: 'left',
-        buttonAlign: 'right'
-      } );
+    var chargeMeterBox = new AccordionBox( chargeMeterBoxContents, {
+      titleNode: new Text( netChargeString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
+      minWidth: this.periodicTableBox.width,
+      contentAlign: 'left',
+      titleAlignX: 'left',
+      buttonAlign: 'right'
+    } );
     this.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } ),
-      {
-        titleNode: new Text( massNumberString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
-        fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-        expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
-        minWidth: this.periodicTableBox.width,
-        contentAlign: 'left',
-        titleAlignX: 'left',
-        buttonAlign: 'right'
-      } );
+    var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } ), {
+      titleNode: new Text( massNumberString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
+      minWidth: this.periodicTableBox.width,
+      contentAlign: 'left',
+      titleAlignX: 'left',
+      buttonAlign: 'right'
+    } );
     this.addChild( massNumberBox );
 
     // Do the layout.
