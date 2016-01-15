@@ -55,7 +55,7 @@ define( function( require ) {
     );
     scoreboard.mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
-    var rewardNode = new RewardNode( gameModel );
+    var rewardNode = new RewardNode( gameModel, tandem.createTandem( 'rewardNode' ) );
     var problemViewGroupTandem = tandem.createGroupTandem( 'problemView' );
 
     // Monitor the game state and update the view accordingly.

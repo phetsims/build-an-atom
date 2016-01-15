@@ -33,7 +33,8 @@ define( function( require ) {
    */
   function SchematicToChargeProblemView( schematicToChargeProblem, layoutBounds, tandem ) {
 
-    this.chargeAnswer = new Property( 0 ); // Must be defined before call to super constructor.
+    // Must be defined before call to super constructor.
+    this.chargeAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'chargeAnswerProperty' ) } );
     ProblemView.call( this, schematicToChargeProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
@@ -54,19 +55,21 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, {
-      minValue: -99,
-      maxValue: 99,
-      prependPlusSign: true,
-      getTextColor: SharedConstants.CHARGE_TEXT_COLOR
-    } );
-    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
+    var chargeEntryNode = new NumberEntryNode(
+      thisNode.chargeAnswerProperty,
+      tandem.createTandem( 'chargeEntryNode' ), {
+        minValue: -99,
+        maxValue: 99,
+        prependPlusSign: true,
+        getTextColor: SharedConstants.CHARGE_TEXT_COLOR
+      } );
+    thisNode.interactiveAnswerNode.addChild( chargeEntryNode );
 
     // Layout
     questionPrompt.centerX = layoutBounds.width * 0.65;
     questionPrompt.centerY = layoutBounds.height * 0.5;
-    numberEntryNode.left = questionPrompt.right + 10;
-    numberEntryNode.centerY = questionPrompt.centerY;
+    chargeEntryNode.left = questionPrompt.right + 10;
+    chargeEntryNode.centerY = questionPrompt.centerY;
   }
 
   // Inherit from ProblemView.
@@ -75,13 +78,13 @@ define( function( require ) {
         var userSubmittedAnswer = new NumberAtom( {
           protonCount: this.problem.answerAtom.protonCount,
           neutronCount: this.problem.answerAtom.neutronCount,
-          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
+          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
         } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
       displayCorrectAnswer: function() {
-        this.chargeAnswer.value = this.problem.answerAtom.charge;
+        this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
       }
     }
   );

@@ -26,10 +26,11 @@ define( function( require ) {
    * Main constructor.
    *
    * @param numberProperty
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function NumberEntryNode( numberProperty, options ) {
+  function NumberEntryNode( numberProperty, tandem, options ) {
 
     Node.call( this ); // Call super constructor.
     var thisNode = this;
@@ -43,9 +44,17 @@ define( function( require ) {
 
     // Node creation
     var arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15, fireOnHoldDelay: 200 };
-    var upArrowButton = new ArrowButton( 'up', function() { numberProperty.value = numberProperty.value + 1; }, arrowButtonOptions );
+    var upArrowButton = new ArrowButton( 'up', function() {
+      numberProperty.value = numberProperty.value + 1;
+    }, _.extend( {
+      tandem: tandem.createTandem( 'upArrowButton' )
+    }, arrowButtonOptions ) );
     thisNode.addChild( upArrowButton );
-    var downArrowButton = new ArrowButton( 'down', function() { numberProperty.value = numberProperty.value - 1; }, arrowButtonOptions );
+    var downArrowButton = new ArrowButton( 'down', function() {
+      numberProperty.value = numberProperty.value - 1;
+    }, _.extend( {
+      tandem: tandem.createTandem( 'downArrowButton' )
+    }, arrowButtonOptions ) );
     thisNode.addChild( downArrowButton );
     var answerValueBackground = new Rectangle( 0, 0, NUMBER_BOX_SIZE.width, NUMBER_BOX_SIZE.height, 4, 4, {
       fill: 'white',

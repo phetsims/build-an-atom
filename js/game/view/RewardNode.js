@@ -32,10 +32,11 @@ define( function( require ) {
 
   /**
    * @param stepClock
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function RewardNode( stepClock, options ) {
+  function RewardNode( stepClock, tandem, options ) {
     Node.call( this, { pickable: false } );
     var thisNode = this;
 
@@ -68,10 +69,11 @@ define( function( require ) {
 
     // Create the symbol and smiley face nodes.
     thisNode.symbolNodes = [];
+    var groupTandem = tandem.createGroupTandem( 'interactiveSymbolNodes' );
     _.times( NUM_SYMBOL_NODES_TO_CREATE, function() {
-      var symbolNode = new InteractiveSymbolNode( thisNode._createRandomStableAtom() );
-      symbolNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / symbolNode.width );
-      symbolNode.toImage( addImage );
+      var interactiveSymbolNode = new InteractiveSymbolNode( thisNode._createRandomStableAtom(), groupTandem.createNextTandem() );
+      interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / interactiveSymbolNode.width );
+      interactiveSymbolNode.toImage( addImage );
     } );
     thisNode.faceNodes = [];
     for ( var i = 0; i < NUM_FACE_NODES_CREATED; i++ ) {

@@ -29,7 +29,10 @@ define( function( require ) {
    */
   function CountsToMassNumberProblemView( countsToMassNumberProblem, layoutBounds, tandem ) {
 
-    this.massNumberAnswer = new Property( 0 ); // Must be defined before call to super constructor.
+    // Must be defined before call to super constructor.
+    this.massNumberAnswerProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'massNumberAnswerProperty' )
+    } );
     ProblemView.call( this, countsToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
@@ -44,7 +47,12 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer, { minValue: 0, maxValue: 99 } );
+    var numberEntryNode = new NumberEntryNode(
+      thisNode.massNumberAnswerProperty,
+      tandem.createTandem( 'numberEntryNode' ), {
+        minValue: 0,
+        maxValue: 99
+      } );
     thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
@@ -61,14 +69,14 @@ define( function( require ) {
       checkAnswer: function() {
         var userSubmittedAnswer = new NumberAtom( {
           protonCount: this.problem.answerAtom.protonCount,
-          neutronCount: this.massNumberAnswer.value - this.problem.answerAtom.protonCount,
+          neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
           electronCount: this.problem.answerAtom.electronCount
         } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
       displayCorrectAnswer: function() {
-        this.massNumberAnswer.value = this.problem.answerAtom.massNumber;
+        this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
       }
     }
   );

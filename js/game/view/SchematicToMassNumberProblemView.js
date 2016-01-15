@@ -32,7 +32,7 @@ define( function( require ) {
    */
   function SchematicToMassNumberProblemView( schematicToMassNumberProblem, layoutBounds, tandem ) {
 
-    this.massNumberAnswer = new Property( 0 ); // Must be defined before call to super constructor.
+    this.massNumberAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'massNumberAnswerProperty' ) } ); // Must be defined before call to super constructor.
     ProblemView.call( this, schematicToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
@@ -53,14 +53,19 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.massNumberAnswer, { minValue: 0, maxValue: 99 } );
-    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
+    var massEntryNode = new NumberEntryNode(
+      thisNode.massNumberAnswerProperty,
+      tandem.createTandem( 'massEntryNode' ), {
+        minValue: 0,
+        maxValue: 99
+      } );
+    thisNode.interactiveAnswerNode.addChild( massEntryNode );
 
     // Layout
     questionPrompt.centerX = layoutBounds.width * 0.65;
     questionPrompt.centerY = layoutBounds.height * 0.5;
-    numberEntryNode.left = questionPrompt.right + 10;
-    numberEntryNode.centerY = questionPrompt.centerY;
+    massEntryNode.left = questionPrompt.right + 10;
+    massEntryNode.centerY = questionPrompt.centerY;
   }
 
   // Inherit from ProblemView.
@@ -68,14 +73,14 @@ define( function( require ) {
       checkAnswer: function() {
         var userSubmittedAnswer = new NumberAtom( {
           protonCount: this.problem.answerAtom.protonCount,
-          neutronCount: this.massNumberAnswer.value - this.problem.answerAtom.protonCount,
+          neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
           electronCount: this.problem.answerAtom.electronCount
         } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
       displayCorrectAnswer: function() {
-        this.massNumberAnswer.value = this.problem.answerAtom.massNumber;
+        this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
       }
     }
   );

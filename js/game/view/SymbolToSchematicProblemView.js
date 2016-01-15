@@ -42,13 +42,13 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
 
     // Symbol
-    var symbol = new InteractiveSymbolNode( problem.answerAtom );
-    symbol.scale( 0.75 );
-    this.problemPresentationNode.addChild( symbol );
+    var interactiveSymbolNode = new InteractiveSymbolNode( problem.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    interactiveSymbolNode.scale( 0.75 );
+    this.problemPresentationNode.addChild( interactiveSymbolNode );
 
     // Layout
-    symbol.centerX = layoutBounds.width * 0.25;
-    symbol.centerY = layoutBounds.height * 0.45;
+    interactiveSymbolNode.centerX = layoutBounds.width * 0.25;
+    interactiveSymbolNode.centerY = layoutBounds.height * 0.45;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.75;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.4;
   }

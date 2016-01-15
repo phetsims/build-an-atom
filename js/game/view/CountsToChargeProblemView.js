@@ -30,7 +30,10 @@ define( function( require ) {
    */
   function CountsToChargeProblemView( countsToChargeProblem, layoutBounds, tandem ) {
 
-    this.chargeAnswer = new Property( 0 ); // Must be defined before call to super constructor.
+    // @private
+    // Must be defined before call to super constructor.
+    this.chargeAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'chargeAnswerProperty' ) } );
+
     ProblemView.call( this, countsToChargeProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
@@ -45,12 +48,14 @@ define( function( require ) {
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode( thisNode.chargeAnswer, {
-      prependPlusSign: true,
-      getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
-      maxValue: 99,
-      minValue: -99
-    } );
+    var numberEntryNode = new NumberEntryNode(
+      thisNode.chargeAnswerProperty,
+      tandem.createTandem( 'numberEntryNode' ), {
+        prependPlusSign: true,
+        getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
+        maxValue: 99,
+        minValue: -99
+      } );
     thisNode.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
@@ -68,13 +73,13 @@ define( function( require ) {
         var userSubmittedAnswer = new NumberAtom( {
           protonCount: this.problem.answerAtom.protonCount,
           neutronCount: this.problem.answerAtom.neutronCount,
-          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswer.value
+          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
         } );
         this.problem.checkAnswer( userSubmittedAnswer );
       },
 
       displayCorrectAnswer: function() {
-        this.chargeAnswer.value = this.problem.answerAtom.charge;
+        this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
       }
     }
   );

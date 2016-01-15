@@ -31,10 +31,11 @@ define( function( require ) {
   /**
    * Constructor
    * @param numberAtom
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function InteractiveSymbolNode( numberAtom, options ) {
+  function InteractiveSymbolNode( numberAtom, tandem, options ) {
 
     Node.call( this, options ); // Call super constructor.
     var thisNode = this;
@@ -45,9 +46,16 @@ define( function( require ) {
       interactiveCharge: false
     }, options );
 
-    thisNode.protonCount = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCount );
-    thisNode.massNumber = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumber );
-    thisNode.charge = new Property( options.interactiveCharge ? 0 : numberAtom.charge );
+    // TODO: Add 'Property' suffix to each Property
+    thisNode.protonCount = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCount, {
+      tandem: tandem.createTandem( 'protonCountProperty' )
+    } );
+    thisNode.massNumber = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumber, {
+      tandem: tandem.createTandem( 'massNumberProperty' )
+    } );
+    thisNode.charge = new Property( options.interactiveCharge ? 0 : numberAtom.charge, {
+      tandem: tandem.createTandem( 'chargeProperty' )
+    } );
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
@@ -89,13 +97,15 @@ define( function( require ) {
 
     // Add the proton count display, either interactive or not.
     if ( options.interactiveProtonCount ) {
-      boundingBox.addChild( new NumberEntryNode( thisNode.protonCount, {
-        minValue: 0,
-        maxValue: 99,
-        getTextColor: function() { return 'red'; },
-        left: NUMBER_ENTRY_NODE_SIDE_INSET,
-        centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
-      } ) );
+      boundingBox.addChild( new NumberEntryNode(
+        thisNode.protonCount,
+        tandem.createTandem( 'protonCountEntryNode' ), {
+          minValue: 0,
+          maxValue: 99,
+          getTextColor: function() { return 'red'; },
+          left: NUMBER_ENTRY_NODE_SIDE_INSET,
+          centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
+        } ) );
       thisNode.protonCount.link( updateElement );
     }
     else {
@@ -111,12 +121,14 @@ define( function( require ) {
 
     // Add the mass number display, either interactive or not.
     if ( options.interactiveMassNumber ) {
-      boundingBox.addChild( new NumberEntryNode( thisNode.massNumber, {
-        minValue: 0,
-        maxValue: 99,
-        left: NUMBER_ENTRY_NODE_SIDE_INSET,
-        centerY: NUMBER_INSET + interactiveNumberCenterYOffset
-      } ) );
+      boundingBox.addChild( new NumberEntryNode(
+        thisNode.massNumber,
+        tandem.createTandem( 'massNumberEntryNode' ), {
+          minValue: 0,
+          maxValue: 99,
+          left: NUMBER_ENTRY_NODE_SIDE_INSET,
+          centerY: NUMBER_INSET + interactiveNumberCenterYOffset
+        } ) );
     }
     else {
       var massNumberDisplay = new Text( numberAtom.massNumber, {
@@ -130,14 +142,16 @@ define( function( require ) {
 
     // Add the charge display, either interactive or not.
     if ( options.interactiveCharge ) {
-      boundingBox.addChild( new NumberEntryNode( thisNode.charge, {
-        minValue: -99,
-        maxValue: 99,
-        prependPlusSign: true,
-        getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
-        right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
-        centerY: NUMBER_INSET + interactiveNumberCenterYOffset
-      } ) );
+      boundingBox.addChild( new NumberEntryNode(
+        thisNode.charge,
+        tandem.createTandem( 'chargeEntryNode' ), {
+          minValue: -99,
+          maxValue: 99,
+          prependPlusSign: true,
+          getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
+          right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
+          centerY: NUMBER_INSET + interactiveNumberCenterYOffset
+        } ) );
     }
     else {
       var chargeTextPrepend = numberAtom.charge > 0 ? '+' : '';

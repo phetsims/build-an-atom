@@ -24,7 +24,7 @@ define( function( require ) {
   function SymbolToCountsProblemView( symbolToCountsProblem, layoutBounds, tandem ) {
 
     // Interactive particle count node - must be defined before call to super constructor.
-    this.interactiveParticleCountsNode = new InteractiveParticleCountsNode();
+    this.interactiveParticleCountsNode = new InteractiveParticleCountsNode( tandem );
 
     // Call super constructor.
     ProblemView.call( this, symbolToCountsProblem, layoutBounds, tandem );
@@ -33,13 +33,13 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );
 
     // Symbol
-    var symbol = new InteractiveSymbolNode( symbolToCountsProblem.answerAtom );
-    symbol.scale( 0.75 );
-    this.problemPresentationNode.addChild( symbol );
+    var interactiveSymbolNode = new InteractiveSymbolNode( symbolToCountsProblem.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    interactiveSymbolNode.scale( 0.75 );
+    this.problemPresentationNode.addChild( interactiveSymbolNode );
 
     // Layout
-    symbol.centerX = layoutBounds.width * 0.25;
-    symbol.centerY = layoutBounds.height * 0.5;
+    interactiveSymbolNode.centerX = layoutBounds.width * 0.25;
+    interactiveSymbolNode.centerY = layoutBounds.height * 0.5;
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
     this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.45;
   }
