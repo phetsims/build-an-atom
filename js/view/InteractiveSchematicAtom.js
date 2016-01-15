@@ -29,13 +29,12 @@ define( function( require ) {
     var thisNode = this;
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
-    var atomNode = new AtomNode( model.particleAtom, mvt,
-      {
-        showElementNameProperty: model.showElementNameProperty,
-        showNeutralOrIonProperty: model.showNeutralOrIonProperty,
-        showStableOrUnstableProperty: model.showStableOrUnstableProperty,
-        electronShellDepictionProperty: model.electronShellDepictionProperty
-      } );
+    var atomNode = new AtomNode( model.particleAtom, mvt, {
+      showElementNameProperty: model.showElementNameProperty,
+      showNeutralOrIonProperty: model.showNeutralOrIonProperty,
+      showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+      electronShellDepictionProperty: model.electronShellDepictionProperty
+    } );
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
