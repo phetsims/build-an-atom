@@ -80,6 +80,7 @@ define( function( require ) {
     },
 
     // Start a new game.
+    // @private (StartGameLevelNode.js, phet-io)
     startGameLevel: function( levelName ) {
       this.level = SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
       this.problemIndex = 0;
