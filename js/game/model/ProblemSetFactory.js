@@ -24,7 +24,7 @@ define( function( require ) {
   var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
 
   // constants
-  var random = new Random( { seed: Math.random() } ); // Use deterministic but seeded for replicable playback
+  var random = new Random( { staticSeed: true } ); // Use deterministic but seeded for replicable playback
   var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.
   var ALLOWED_PROBLEM_TYPES_BY_LEVEL = [
     [ 'schematic-to-element', 'counts-to-element' ],
