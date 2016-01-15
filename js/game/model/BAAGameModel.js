@@ -14,6 +14,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var Emitter = require( 'AXON/Emitter' );
 
   // constants
   var PROBLEMS_PER_LEVEL = 5;
@@ -46,6 +48,9 @@ define( function( require ) {
 
     var thisGameModel = this;
 
+    // @private (phet-io)
+    this.levelCompletedEmitter = new Emitter();
+
     this.bestScores = []; // Properties that track progress on each game level.
     thisGameModel.bestTimes = []; // Best times at each level.
     _.times( SharedConstants.LEVEL_NAMES.length, function() {
@@ -55,7 +60,11 @@ define( function( require ) {
 
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
+
+    tandem.addInstance( this );
   }
+
+  buildAnAtom.register( 'BAAGameModel', BAAGameModel );
 
   // Inherit from base class and define the methods for this object.
   return inherit( PropertySet, BAAGameModel, {
@@ -104,6 +113,18 @@ define( function( require ) {
           this.newBestTime = this.bestTimes[ this.level ] === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
+
+        // When the game is complete, send notification that can be used by phet-io
+        this.levelCompletedEmitter.emit1( {
+          level: this.level,
+          maxPoints: this.MAX_POINTS_PER_GAME_LEVEL,
+          problems: this.PROBLEMS_PER_LEVEL,
+          timerEnabled: this.timerEnabled,
+          elapsedTime: this.elapsedTime,
+          bestTimes: this.bestTimes[ this.level ],
+          newBestTime: this.newBestTime
+        } );
+
         this.state = 'levelCompleted';
         this._stopGameTimer();
       }
