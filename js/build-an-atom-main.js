@@ -32,7 +32,7 @@ define( function( require ) {
   var gameIcon = require( 'image!BUILD_AN_ATOM/game_icon.png' );
   var gameIconSmall = require( 'image!BUILD_AN_ATOM/game_icon_small.png' );
 
-  var tandem = new Tandem( 'buildAnAtom' );
+  var tandem = Tandem.createRootTandem();
 
   var simOptions = {
     credits: {
