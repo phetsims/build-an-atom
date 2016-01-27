@@ -19,6 +19,11 @@
       "shred",
       "vegas",
       "vibe"
-    ]
+    ],
+    "phet-io": {
+      "preload": [
+        "../together/js/api/build-an-atom-api.js"
+      ]
+    }
   }
 }
