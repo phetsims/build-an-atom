@@ -22,7 +22,7 @@
     ],
     "phet-io": {
       "preload": [
-        "../together/js/api/build-an-atom-api.js"
+        "../phet-io/js/api/build-an-atom-api.js"
       ]
     }
   }
