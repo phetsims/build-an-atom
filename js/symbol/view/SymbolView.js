@@ -35,7 +35,10 @@ define( function( require ) {
     var symbolNode = new SymbolNode( model.numberAtom );
     symbolNode.scale( 0.43 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode, {
-      titleNode: new Text( symbolString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      titleNode: new Text( symbolString, {
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+      } ),
       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableBox.width,
       contentAlign: 'center',
