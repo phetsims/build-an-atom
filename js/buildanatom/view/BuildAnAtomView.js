@@ -44,8 +44,12 @@ define( function( require ) {
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
+    chargeMeterBoxContents.scale(0.85);
     var chargeMeterBox = new AccordionBox( chargeMeterBoxContents, {
-      titleNode: new Text( netChargeString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+      titleNode: new Text( netChargeString, {
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+      } ),
       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
       minWidth: this.periodicTableBox.width,
@@ -56,8 +60,13 @@ define( function( require ) {
     this.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massNumberBox = new AccordionBox( new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } ), {
-      titleNode: new Text( massNumberString, { font: SharedConstants.ACCORDION_BOX_TITLE_FONT } ),
+    var massNumberDisplay = new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } );
+    massNumberDisplay.scale(0.9);
+    var massNumberBox = new AccordionBox( massNumberDisplay , {
+      titleNode: new Text( massNumberString, {
+        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+      } ),
       fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
       minWidth: this.periodicTableBox.width,
