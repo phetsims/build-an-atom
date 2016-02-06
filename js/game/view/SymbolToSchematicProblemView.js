@@ -34,6 +34,7 @@ define( function( require ) {
 
     // Interactive schematic atom node - must be defined before call to super constructor.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, mvt );
+    this.interactiveSchematicAtom.scale(0.95);
 
     // Call super constructor.
     ProblemView.call( this, problem, layoutBounds, tandem );
@@ -50,7 +51,7 @@ define( function( require ) {
     interactiveSymbolNode.centerX = layoutBounds.width * 0.25;
     interactiveSymbolNode.centerY = layoutBounds.height * 0.45;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.75;
-    this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.4;
+    this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.35;
   }
 
   // Inherit from ProblemView.
