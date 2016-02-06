@@ -32,7 +32,7 @@ define( function( require ) {
   var NUCLEON_CAPTURE_RADIUS = 100;
   var BUCKET_WIDTH = 120;
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
-  var BUCKET_Y_OFFSET = -225;
+  var BUCKET_Y_OFFSET = -205;
   var NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
   var MAX_NUCLEUS_JUMP = SharedConstants.NUCLEON_RADIUS * 0.5;
   var JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
