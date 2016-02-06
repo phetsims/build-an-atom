@@ -15,7 +15,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Property = require( 'AXON/Property' );
   var RewardNode = require( 'BUILD_AN_ATOM/game/view/RewardNode' );
-  var ScoreboardPanel = require( 'VEGAS/ScoreboardPanel' );
+  var ScoreboardBar = require( 'VEGAS/ScoreboardBar' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
@@ -41,7 +41,8 @@ define( function( require ) {
       this.layoutBounds,
       tandem.createTandem( 'startGameLevelNode' )
     );
-    var scoreboard = new ScoreboardPanel(
+    var scoreboard = new ScoreboardBar(
+      this.layoutBounds.width,
       gameModel.problemIndexProperty,
       new Property( gameModel.PROBLEMS_PER_LEVEL ),
       gameModel.levelProperty,
@@ -53,7 +54,9 @@ define( function( require ) {
         tandem: tandem.createTandem( 'scoreboard' )
       }
     );
-    scoreboard.mutate( { centerX: this.layoutBounds.centerX, bottom: this.layoutBounds.maxY - 10 } );
+
+    scoreboard.centerX = this.layoutBounds.centerX;
+    scoreboard.top = 0;
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     var rewardNode = new RewardNode( gameModel, tandem.createTandem( 'rewardNode' ) );
     var problemViewGroupTandem = tandem.createGroupTandem( 'problemView' );
