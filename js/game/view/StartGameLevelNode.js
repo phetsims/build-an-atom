@@ -32,8 +32,7 @@ define( function( require ) {
   var CONTROL_INSET = 20;
   var NUM_STARS_ON_BUTTON = 5;
   var START_BUTTON_OPTIONS = {
-    backgroundColor: 'rgb( 242, 255, 204 )',
-    highlightedBackgroundColor: 'rgb( 224, 255, 122 )'
+    baseColor: '#D4AAD4'
   };
 
   /**
