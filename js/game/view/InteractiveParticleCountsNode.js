@@ -21,6 +21,9 @@ define( function( require ) {
   var neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
   var electronsColonString = require( 'string!BUILD_AN_ATOM/electronsColon' );
 
+  // constants
+  var MAX_WIDTH = 200;
+
   /**
    * @param {Tandem} tandem
    * @param {Object} [options]
@@ -34,7 +37,10 @@ define( function( require ) {
 
     this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
 
-    var protonCountPrompt = new Text( protonsColonString, options.font );
+    var protonCountPrompt = new Text( protonsColonString, {
+      font: options.font,
+      maxWidth: MAX_WIDTH
+    } );
     this.addChild( protonCountPrompt );
     var protonCountEntryNode = new NumberEntryNode(
       this.numberAtom.protonCountProperty,
@@ -44,7 +50,10 @@ define( function( require ) {
       } );
     this.addChild( protonCountEntryNode );
 
-    var neutronCountPrompt = new Text( neutronsColonString, options.font );
+    var neutronCountPrompt = new Text( neutronsColonString, {
+      font: options.font,
+      maxWidth: MAX_WIDTH
+    } );
     this.addChild( neutronCountPrompt );
     var neutronCountEntryNode = new NumberEntryNode( this.numberAtom.neutronCountProperty,
       tandem.createTandem( 'neutronCountEntryNode' ), {
@@ -53,7 +62,10 @@ define( function( require ) {
       } );
     this.addChild( neutronCountEntryNode );
 
-    var electronCountPrompt = new Text( electronsColonString, options.font );
+    var electronCountPrompt = new Text( electronsColonString, {
+      font: options.font,
+      maxWidth: MAX_WIDTH
+    } );
     this.addChild( electronCountPrompt );
     var electronCountEntryNode = new NumberEntryNode(
       this.numberAtom.electronCountProperty,
@@ -66,19 +78,30 @@ define( function( require ) {
     // Layout
     var maxParticleLabelWidth = Math.max( Math.max( protonCountPrompt.width, neutronCountPrompt.width ), electronCountPrompt.width );
 
-    var interLineSpacing = protonCountPrompt.height * 2; // Multiplier empirically determined.
+    var interLineSpacing = protonCountEntryNode.height; // Multiplier empirically determined.
     protonCountPrompt.left = 0;
-    protonCountPrompt.top = 0;
-    protonCountEntryNode.centerY = protonCountPrompt.centerY;
-    protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
     neutronCountPrompt.left = 0;
-    neutronCountPrompt.top = protonCountPrompt.bottom + interLineSpacing;
-    neutronCountEntryNode.centerY = neutronCountPrompt.centerY;
-    neutronCountEntryNode.left = protonCountEntryNode.left;
     electronCountPrompt.left = 0;
-    electronCountPrompt.top = neutronCountPrompt.bottom + interLineSpacing;
-    electronCountEntryNode.centerY = electronCountPrompt.centerY;
+    protonCountEntryNode.top = 0;
+    neutronCountEntryNode.top = protonCountEntryNode.centerY + interLineSpacing;
+    electronCountEntryNode.top = neutronCountEntryNode.centerY + interLineSpacing;
+    protonCountPrompt.centerY = protonCountEntryNode.centerY;
+    neutronCountPrompt.centerY = neutronCountEntryNode.centerY;
+    electronCountPrompt.centerY = electronCountEntryNode.centerY;
+    protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
+    neutronCountEntryNode.left = protonCountEntryNode.left;
     electronCountEntryNode.left = protonCountEntryNode.left;
+    //protonCountPrompt.top = 0;
+    //protonCountEntryNode.centerY = protonCountPrompt.centerY;
+    //protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
+    //neutronCountPrompt.left = 0;
+    //neutronCountPrompt.top = protonCountPrompt.bottom + interLineSpacing;
+    //neutronCountEntryNode.centerY = neutronCountPrompt.centerY;
+    //neutronCountEntryNode.left = protonCountEntryNode.left;
+    //electronCountPrompt.left = 0;
+    //electronCountPrompt.top = neutronCountPrompt.bottom + interLineSpacing;
+    //electronCountEntryNode.centerY = electronCountPrompt.centerY;
+    //electronCountEntryNode.left = protonCountEntryNode.left;
   }
 
   // Inherit from Node.

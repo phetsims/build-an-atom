@@ -36,10 +36,13 @@
     "value": "Build an Atom"
   },
   "whatIsTheTotalCharge": {
-    "value": "What is the total charge?"
+    "value": "What is the\ntotal charge?"
   },
   "electronsColon": {
     "value": "Electrons:"
+  },
+  "electronsColonPattern": {
+    "value": "Electrons: {0}"
   },
   "game": {
     "value": "Game"
@@ -56,11 +59,17 @@
   "protonsColon": {
     "value": "Protons:"
   },
+  "protonsColonPattern": {
+    "value": "Protons: {0}"
+  },
   "cloud": {
     "value": "Cloud"
   },
   "neutronsColon": {
     "value": "Neutrons:"
+  },
+  "neutronsColonPattern": {
+    "value": "Neutrons: {0}"
   },
   "electrons": {
     "value": "Electrons"

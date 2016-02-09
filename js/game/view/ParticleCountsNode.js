@@ -15,11 +15,15 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // strings
-  var protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
-  var neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
-  var electronsColonString = require( 'string!BUILD_AN_ATOM/electronsColon' );
+  var protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
+  var neutronsColonPatternString = require( 'string!BUILD_AN_ATOM/neutronsColonPattern' );
+  var electronsColonPatternString = require( 'string!BUILD_AN_ATOM/electronsColonPattern' );
+
+  // constants
+  var MAX_WIDTH = 280;
 
   function ParticleCountsNode( numberAtom, options ) {
 
@@ -27,18 +31,27 @@ define( function( require ) {
 
     options = _.extend( { font: new PhetFont( 24 ) }, options );
 
-    var protonCountTitle = new Text( protonsColonString, options.font );
+    var protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCount), {
+      font: options.font,
+      maxWidth: MAX_WIDTH
+    } );
     this.addChild( protonCountTitle );
-    var protonCountText = new Text( numberAtom.protonCount, options.font );
-    this.addChild( protonCountText );
-    var neutronCountTitle = new Text( neutronsColonString, options.font );
+    //var protonCountText = new Text( numberAtom.protonCount, options.font );
+    //this.addChild( protonCountText );
+    var neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCount),{
+      font: options.font,
+      maxWidth: MAX_WIDTH
+    } );
     this.addChild( neutronCountTitle );
-    var neutronCountText = new Text( numberAtom.neutronCount, options.font );
-    this.addChild( neutronCountText );
-    var electronCountTitle = new Text( electronsColonString, options.font );
+    //var neutronCountText = new Text( numberAtom.neutronCount, options.font );
+    //this.addChild( neutronCountText );
+    var electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCount), {
+      font: options.font,
+      maxWidth: MAX_WIDTH
+    } );
     this.addChild( electronCountTitle );
-    var electronCountText = new Text( numberAtom.electronCount, options.font );
-    this.addChild( electronCountText );
+    //var electronCountText = new Text( numberAtom.electronCount, options.font );
+    //this.addChild( electronCountText );
 
     // Layout - Line labels up on left edge, numbers on right edge.
     var maxParticleLabelWidth = Math.max( Math.max( protonCountTitle.width, neutronCountTitle.width ), electronCountTitle.width );
@@ -46,16 +59,16 @@ define( function( require ) {
     var numberAreaWidth = new Text( '000', { font: options.font } ).width;
     protonCountTitle.left = 0;
     protonCountTitle.top = 0;
-    protonCountText.bottom = protonCountTitle.bottom;
-    protonCountText.right = maxParticleLabelWidth + numberAreaWidth;
+    //protonCountText.bottom = protonCountTitle.bottom;
+    //protonCountText.right = maxParticleLabelWidth + numberAreaWidth;
     neutronCountTitle.left = 0;
     neutronCountTitle.top = protonCountTitle.bottom + interLineSpacing;
-    neutronCountText.bottom = neutronCountTitle.bottom;
-    neutronCountText.right = maxParticleLabelWidth + numberAreaWidth;
+    //neutronCountText.bottom = neutronCountTitle.bottom;
+    //neutronCountText.right = maxParticleLabelWidth + numberAreaWidth;
     electronCountTitle.left = 0;
     electronCountTitle.top = neutronCountTitle.bottom + interLineSpacing;
-    electronCountText.bottom = electronCountTitle.bottom;
-    electronCountText.right = maxParticleLabelWidth + numberAreaWidth;
+    //electronCountText.bottom = electronCountTitle.bottom;
+    //electronCountText.right = maxParticleLabelWidth + numberAreaWidth;
   }
 
   // Inherit from Node.

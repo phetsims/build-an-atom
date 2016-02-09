@@ -29,6 +29,7 @@ define( function( require ) {
   var BUTTON_FONT = new PhetFont( 20 );
   var BUTTON_FILL = new Color( 0, 255, 153 );
   var POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
+  var BUTTON_MAX_WIDTH = 350;
 
   /**
    * Main constructor function.
@@ -67,6 +68,7 @@ define( function( require ) {
       listener: function() { thisNode.checkAnswer(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
+      maxWidth: BUTTON_MAX_WIDTH,
       tandem: tandem.createTandem( 'checkAnswerButton' )
     } );
     this.addChild( this.checkAnswerButton );
@@ -76,6 +78,7 @@ define( function( require ) {
       listener: function() { problem.next(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
+      maxWidth: BUTTON_MAX_WIDTH,
       tandem: tandem.createTandem( 'nextButton' )
     } );
     this.addChild( this.nextButton );
@@ -85,6 +88,7 @@ define( function( require ) {
       listener: function() { problem.tryAgain(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
+      maxWidth: BUTTON_MAX_WIDTH,
       tandem: tandem.createTandem( 'tryAgainButton' )
     } );
     this.addChild( this.tryAgainButton );
@@ -94,6 +98,7 @@ define( function( require ) {
       listener: function() { problem.displayCorrectAnswer(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
+      maxWidth: BUTTON_MAX_WIDTH,
       tandem: tandem.createTandem( 'displayCorrectAnswerButton' )
     } );
     this.addChild( this.displayCorrectAnswerButton );

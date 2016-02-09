@@ -79,7 +79,8 @@ define( function( require ) {
       font: new PhetFont( 40 ),
       fill: 'red',
       top: SYMBOL_BOX_HEIGHT + 20,
-      centerX: SYMBOL_BOX_WIDTH / 2
+      centerX: SYMBOL_BOX_WIDTH / 2,
+      maxWidth: SYMBOL_BOX_WIDTH
     } );
     boundingBox.addChild( elementCaption );
 

@@ -43,7 +43,8 @@ define( function( require ) {
 
     var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
-      font: new PhetFont( 24 )
+      font: new PhetFont( 24 ),
+      maxWidth: 200
     } );
     thisNode.interactiveAnswerNode.addChild( questionPrompt );
 

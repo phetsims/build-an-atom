@@ -46,7 +46,10 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Title
-    var title = new Text( chooseYourGameString, { font: new PhetFont( 30 ) } );
+    var title = new Text( chooseYourGameString, {
+      font: new PhetFont( 30 ),
+      maxWidth: layoutBounds.width
+    } );
     this.addChild( title );
 
     // Buttons for starting a game level.

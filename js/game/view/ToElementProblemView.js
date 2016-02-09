@@ -32,6 +32,7 @@ define( function( require ) {
   var TITLE_FONT = new PhetFont( 30 );
   var INSET = 10;
   var CELL_DIMENSION = 25;
+  var MAX_WIDTH = 100; // empirically determined for long strings
 
   /**
    * Main constructor
@@ -49,10 +50,6 @@ define( function( require ) {
     ProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
     var thisNode = this;
 
-    // Problem title
-    var problemTitle = new Text( findTheElementString, { font: TITLE_FONT } );
-    this.problemPresentationNode.addChild( problemTitle );
-
     // Periodic table
     this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, tandem.createTandem( 'periodicTable' ), {
       interactiveMax: 118,
@@ -63,13 +60,29 @@ define( function( require ) {
     this.periodicTable.scale( 0.85 );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
+    // Problem title
+    var problemTitle = new Text( findTheElementString, {
+      font: TITLE_FONT,
+      maxWidth: this.periodicTable.width
+    } );
+    this.problemPresentationNode.addChild( problemTitle );
+
     // Neutral atom versus ion question.
-    var neutralVersusIonPrompt = new Text( isItString, { font: new PhetFont( 24 ) } );
-    var neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, { font: new PhetFont( 18 ) } ), {
+    var neutralVersusIonPrompt = new Text( isItString, {
+      font: new PhetFont( 24 ),
+      maxWidth: MAX_WIDTH
+    } );
+    var neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, {
+      font: new PhetFont( 18 ),
+      maxWidth: MAX_WIDTH
+    } ), {
       radius: 8,
       tandem: tandem.createTandem( 'neutralAtomRadioButton' )
     } );
-    var ionRadioButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, { font: new PhetFont( 18 ) } ), {
+    var ionRadioButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, {
+      font: new PhetFont( 18 ),
+      maxWidth: MAX_WIDTH
+    } ), {
       radius: 8,
       tandem: tandem.createTandem( 'ionRadioButton' )
     } );
