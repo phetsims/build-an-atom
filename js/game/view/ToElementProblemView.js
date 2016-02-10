@@ -42,7 +42,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
+  function ToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
     this.neutralOrIon = new Property( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' )
@@ -127,7 +127,7 @@ define( function( require ) {
   }
 
   // Inherit from ProblemView.
-  return inherit( ProblemView, CountsToElementProblemView, {
+  return inherit( ProblemView, ToElementProblemView, {
     checkAnswer: function() {
       var submittedAtom = new NumberAtom( {
         protonCount: this.periodicTableAtom.protonCount,
