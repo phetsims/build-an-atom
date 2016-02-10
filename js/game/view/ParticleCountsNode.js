@@ -54,9 +54,9 @@ define( function( require ) {
     //this.addChild( electronCountText );
 
     // Layout - Line labels up on left edge, numbers on right edge.
-    var maxParticleLabelWidth = Math.max( Math.max( protonCountTitle.width, neutronCountTitle.width ), electronCountTitle.width );
+    //var maxParticleLabelWidth = Math.max( Math.max( protonCountTitle.width, neutronCountTitle.width ), electronCountTitle.width );
     var interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
-    var numberAreaWidth = new Text( '000', { font: options.font } ).width;
+    //var numberAreaWidth = new Text( '000', { font: options.font } ).width;
     protonCountTitle.left = 0;
     protonCountTitle.top = 0;
     //protonCountText.bottom = protonCountTitle.bottom;
