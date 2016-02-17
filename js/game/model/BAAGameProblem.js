@@ -47,10 +47,18 @@ define( function( require ) {
       assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
 
       this.numSubmissions++;
-      if ( this.answerAtom.equals( submittedAtom ) ) {
+      var pointsIfCorrect = this.numSubmissions === 1 ? 2 : 1;
+      var isCorrect = this.answerAtom.equals( submittedAtom );
+
+      this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
+        correctElectronCount: this.answerAtom.electronCount,
+        submittedElectronCount: submittedAtom.electronCount
+      } );
+
+      if ( isCorrect ) {
 
         // Correct answer.  Update the score.
-        this.score = this.numSubmissions === 1 ? 2 : 1;
+        this.score = pointsIfCorrect;
         this.model.score += this.score;
 
         // Move to the next state.

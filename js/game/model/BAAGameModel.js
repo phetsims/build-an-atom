@@ -70,6 +70,8 @@ define( function( require ) {
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
 
+    this.checkAnswerEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'checkAnswerEmitter' ) } );
+
     tandem.addInstance( this );
   }
 
@@ -178,6 +180,23 @@ define( function( require ) {
     // @private (phet-io)
     setAllowedProblemTypesByLevel: function( allowedProblemTypesByLevel ) {
       this.allowedProblemTypesByLevel = allowedProblemTypesByLevel;
+    },
+
+    emitCheckAnswer: function( isCorrect, pointsIfCorrect, answerAtom, submittedAtom, extension ) {
+      var arg = {
+        isCorrect: isCorrect,
+
+        correctProtonCount: answerAtom.protonCount,
+        correctNeutronCount: answerAtom.neutronCount,
+        correctElectronCount: answerAtom.electronCount,
+
+        submittedProtonCount: submittedAtom.protonCount,
+        submittedNeutronCount: submittedAtom.neutronCount,
+        submittedElectronCount: submittedAtom.electronCount,
+
+        points: isCorrect ? pointsIfCorrect : 0
+      };
+      this.checkAnswerEmitter.emit1( _.extend( extension, arg ) );
     },
 
     // Public constants.

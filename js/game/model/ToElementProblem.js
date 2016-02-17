@@ -32,12 +32,20 @@ define( function( require ) {
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
       assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
       this.numSubmissions++;
-      if ( submittedAtom.protonCount === this.answerAtom.protonCount &&
-           submittedAtom.neutronCount === this.answerAtom.neutronCount &&
-           ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.charge === 0 ) ||
-             ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) ) ) {
+      var isCorrect = submittedAtom.protonCount === this.answerAtom.protonCount &&
+                      submittedAtom.neutronCount === this.answerAtom.neutronCount &&
+                      ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.charge === 0 ) ||
+                        ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) );
+
+      var pointsIfCorrect = this.numSubmissions === 1 ? 2 : 1;
+      this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
+        correctCharge: this.answerAtom.charge === 0 ? 'neutral' : 'ion',
+        submittedCharge: submittedNeutralOrIon
+      } );
+
+      if ( isCorrect ) {
         // Answer is correct. Record the score.
-        this.score = this.numSubmissions === 1 ? 2 : 1;
+        this.score = pointsIfCorrect;
         this.model.score += this.score;
 
         // Move to the next state.
