@@ -15,7 +15,7 @@ define( function( require ) {
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var Emitter = require( 'AXON/Emitter' );
+  var TandemEmitter = require( 'TANDEM/axon/TandemEmitter' );
 
   // constants
   var PROBLEMS_PER_LEVEL = 5;
@@ -57,8 +57,8 @@ define( function( require ) {
 
     var thisGameModel = this;
 
-    // @private (phet-io)
-    this.levelCompletedEmitter = new Emitter();
+    // @private
+    this.levelCompletedEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'levelCompletedEmitter' ) } );
 
     this.bestScores = []; // Properties that track progress on each game level.
     thisGameModel.bestTimes = []; // Best times at each level.
