@@ -230,8 +230,8 @@ define( function( require ) {
       }
       var thisModel = this;
       particlesToRemove.forEach( function( particle ) {
-        thisModel.particleAtom.removeParticle( particle );
-        bucket.addParticleFirstOpen( particle );
+          thisModel.particleAtom.removeParticle( particle );
+          bucket.addParticleFirstOpen( particle );
         }
       );
     },

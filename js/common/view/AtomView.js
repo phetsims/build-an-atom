@@ -194,7 +194,7 @@ define( function( require ) {
     } ] ), {
       fill: 'rgb( 245, 245, 245 )',
       xMargin: 15,
-      resize:false
+      resize: false
     } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
@@ -220,7 +220,7 @@ define( function( require ) {
     var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, {
       font: ELECTRON_VIEW_CONTROL_FONT,
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-      } ), { radius: radioButtonRadius } );
+    } ), { radius: radioButtonRadius } );
     var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, {
       font: ELECTRON_VIEW_CONTROL_FONT,
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
@@ -250,7 +250,7 @@ define( function( require ) {
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET
     } );
-    resetButton.scale(0.85);
+    resetButton.scale( 0.85 );
     this.addChild( resetButton );
 
     // Do the layout.

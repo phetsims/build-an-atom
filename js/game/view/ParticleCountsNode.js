@@ -31,21 +31,21 @@ define( function( require ) {
 
     options = _.extend( { font: new PhetFont( 24 ) }, options );
 
-    var protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCount), {
+    var protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCount ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( protonCountTitle );
     //var protonCountText = new Text( numberAtom.protonCount, options.font );
     //this.addChild( protonCountText );
-    var neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCount),{
+    var neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCount ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( neutronCountTitle );
     //var neutronCountText = new Text( numberAtom.neutronCount, options.font );
     //this.addChild( neutronCountText );
-    var electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCount), {
+    var electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCount ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );

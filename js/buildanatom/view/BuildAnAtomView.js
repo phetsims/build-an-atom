@@ -44,7 +44,7 @@ define( function( require ) {
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );
-    chargeMeterBoxContents.scale(0.85);
+    chargeMeterBoxContents.scale( 0.85 );
     var chargeMeterBox = new AccordionBox( chargeMeterBoxContents, {
       titleNode: new Text( netChargeString, {
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
@@ -61,8 +61,8 @@ define( function( require ) {
 
     // Add the mass indicator inside of an accordion box.
     var massNumberDisplay = new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } );
-    massNumberDisplay.scale(0.9);
-    var massNumberBox = new AccordionBox( massNumberDisplay , {
+    massNumberDisplay.scale( 0.9 );
+    var massNumberBox = new AccordionBox( massNumberDisplay, {
       titleNode: new Text( massNumberString, {
         font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
