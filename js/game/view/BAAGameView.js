@@ -86,7 +86,8 @@ define( function( require ) {
           function() { gameModel.state = 'selectGameLevel'; }, {
             centerX: thisScene.layoutBounds.width / 2,
             centerY: thisScene.layoutBounds.height / 2,
-            levelVisible: false
+            levelVisible: false,
+            tandem: tandem.createTandem( 'levelCompletedNode' )
           } ) );
 
         // Play the appropriate audio feedback.
