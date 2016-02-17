@@ -23,7 +23,7 @@ define( function( require ) {
    * @param mvt
    * @constructor
    */
-  function NonInteractiveSchematicAtomNode( numberAtom, mvt ) {
+  function NonInteractiveSchematicAtomNode( numberAtom, mvt, tandem ) {
     Node.call( this, { pickable: false } ); // Call super constructor.
 
     // Add the electron shells.
@@ -39,11 +39,12 @@ define( function( require ) {
     this.addChild( particleLayer );
 
     // Utility function to create and add particles.
+    var particleGroupTandem = tandem.createGroupTandem( 'particle' );
     var createAndAddParticles = function( particleType, number ) {
       _.times( number, function() {
         var particle = new Particle( particleType );
         particleAtom.addParticle( particle );
-        particleLayer.addChild( new ParticleView( particle, mvt ) );
+        particleLayer.addChild( new ParticleView( particle, mvt, particleGroupTandem.createNextTandem() ) );
       } );
     };
 

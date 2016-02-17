@@ -33,7 +33,7 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, mvt ) );
+    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, mvt, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
   }
 
   // Inherit from ToElementProblemView.

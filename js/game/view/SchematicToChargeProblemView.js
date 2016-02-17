@@ -45,7 +45,7 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, mvt ) );
+    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, mvt, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
 
     // Question
     var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {

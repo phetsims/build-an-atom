@@ -49,7 +49,7 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, mvt );
+    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, mvt, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
     this.problemPresentationNode.addChild( schematicAtomNode );
 
     // Layout

@@ -43,7 +43,7 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    thisNode.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, mvt ) );
+    thisNode.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, mvt, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
 
     // Question
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
