@@ -103,8 +103,11 @@ define( function( require ) {
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
+    var nucleonTandem = tandem.createGroupTandem( 'nucleons' );
+    var electronsTandem = tandem.createGroupTandem( 'electrons' );
+
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt ) );
+      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt, nucleonTandem.createNextTandem() ) );
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
         assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
@@ -139,7 +142,7 @@ define( function( require ) {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      electronLayer.addChild( new ParticleView( electron, mvt ) );
+      electronLayer.addChild( new ParticleView( electron, mvt, electronsTandem.createNextTandem() ) );
     } );
 
     // When the electrons are represented as a cloud, the individual particles

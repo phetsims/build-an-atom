@@ -69,7 +69,8 @@ define( function( require ) {
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'red',
           caption: protonsString,
-          captionColor: 'white'
+        captionColor: 'white',
+        tandemName: 'protonBucket'
         }
       ),
       neutronBucket: new SphereBucket( {
@@ -78,7 +79,8 @@ define( function( require ) {
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
           baseColor: 'rgb( 100, 100, 100 )',
           caption: neutronsString,
-          captionColor: 'white'
+        captionColor: 'white',
+        tandemName: 'neutronBucket'
         }
       ),
       electronBucket: new SphereBucket( {
@@ -88,7 +90,8 @@ define( function( require ) {
           usableWidthProportion: 0.8,
           baseColor: 'blue',
           caption: electronsString,
-          captionColor: 'white'
+        captionColor: 'white',
+        tandemName: 'electronBucket'
         }
       )
     };
