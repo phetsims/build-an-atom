@@ -57,7 +57,7 @@ define( function( require ) {
       new Image( periodicTableIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startGameLevel( 'periodic-table-game' );
+        gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
@@ -72,7 +72,7 @@ define( function( require ) {
       new Image( massChargeIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startGameLevel( 'mass-and-charge-game' );
+        gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
@@ -82,7 +82,7 @@ define( function( require ) {
       new Image( symbolQuestionIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startGameLevel( 'symbol-game' );
+        gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
       gameModel.MAX_POINTS_PER_GAME_LEVEL,
@@ -92,7 +92,7 @@ define( function( require ) {
       new Image( questionMarkIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
-        gameModel.startGameLevel( 'advanced-symbol-game' );
+        gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
       gameModel.MAX_POINTS_PER_GAME_LEVEL,

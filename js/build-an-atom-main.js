@@ -55,14 +55,14 @@ define( function( require ) {
     // Create and start the sim
     new Sim( buildAnAtomTitleString, [
       new Screen( atomString, new Image( atomIcon ),
-        function() { return new BuildAnAtomModel(); },
+        function() { return new BuildAnAtomModel( atomScreenTandem.createTandem( 'model' ) ); },
         function( model ) { return new BuildAnAtomView( model, atomScreenTandem.createTandem( 'view' ) ); }, {
           tandem: atomScreenTandem,
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
       new Screen( symbolString, new Image( elementIcon ),
-        function() { return new BuildAnAtomModel(); },
+        function() { return new BuildAnAtomModel( symbolScreenTandem.createTandem( 'model' ) ); },
         function( model ) { return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) ); }, {
           backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
           navigationBarIcon: new Image( elementIconSmall ),

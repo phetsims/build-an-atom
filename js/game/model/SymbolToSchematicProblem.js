@@ -21,12 +21,12 @@ define( function( require ) {
    *
    * @constructor
    */
-  function SymbolToSchematicProblem( buildAnAtomGameModel, answerAtom ) {
+  function SymbolToSchematicProblem( buildAnAtomGameModel, answerAtom, tandem ) {
     BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
 
     // This problem is a bit unique in that it has a model of an atom with
     // which the user can interact.
-    this.buildAnAtomModel = new BuildAnAtomModel();
+    this.buildAnAtomModel = new BuildAnAtomModel( tandem.createTandem( 'buildAnAtomModel' ) );
     this.buildAnAtomModel.showElementName = false;
     this.buildAnAtomModel.showNeutralOrIon = false;
     this.buildAnAtomModel.showStableOrUnstable = false;

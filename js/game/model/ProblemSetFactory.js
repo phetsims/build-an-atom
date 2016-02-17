@@ -38,10 +38,11 @@ define( function( require ) {
    * @param model
    * @param {string[][]} allowedProblemTypesByLevel
    */
-  ProblemSetFactory.generate = function( level, numProblems, model, allowedProblemTypesByLevel ) {
+  ProblemSetFactory.generate = function( level, numProblems, model, allowedProblemTypesByLevel, tandem ) {
     this.problems = [];
     this._previousProblemType = null;
     this._availableProblemTypes = [];
+    var groupTandem = tandem.createGroupTandem( 'problems' );
 
     // Create a pool of all atom values that can be used to create problems
     // for the problem set.
@@ -50,7 +51,7 @@ define( function( require ) {
     // Now add problems to the problem set based on the atom values and the
     // problem types associated with this level.
     for ( var i = 0; i < numProblems; i++ ) {
-      var problem = this._generateProblem( level, atomValueList, model, allowedProblemTypesByLevel );
+      var problem = this._generateProblem( level, atomValueList, model, allowedProblemTypesByLevel, groupTandem.createNextTandem() );
       if ( problem !== null ) {
         this.problems.push( problem );
       }
@@ -69,7 +70,7 @@ define( function( require ) {
    * @param {String[][]} allowedProblemTypesByLevel
    * @return
    */
-  ProblemSetFactory._generateProblem = function( level, availableAtomValues, model, allowedProblemTypesByLevel ) {
+  ProblemSetFactory._generateProblem = function( level, availableAtomValues, model, allowedProblemTypesByLevel, tandem ) {
 
     if ( this._availableProblemTypes.length === 0 ) {
       // Reload the list of available problems with all possible problem
@@ -110,14 +111,14 @@ define( function( require ) {
     }
     var atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
-    return this._createProblem( model, problemType, atomValue );
+    return this._createProblem( model, problemType, atomValue, tandem );
   };
 
   /**
    * Create a single problem given a problem type (e.g. Schematic to
    * Element) and an atom value that defines that atom configuration.
    */
-  ProblemSetFactory._createProblem = function( model, problemType, atomValue ) {
+  ProblemSetFactory._createProblem = function( model, problemType, atomValue, tandem ) {
     var problem = null;
     switch( problemType ) {
       case 'counts-to-element':
@@ -166,7 +167,7 @@ define( function( require ) {
         problem = new SymbolToCountsProblem( model, atomValue );
         break;
       case 'symbol-to-schematic':
-        problem = new SymbolToSchematicProblem( model, atomValue );
+        problem = new SymbolToSchematicProblem( model, atomValue, tandem );
         break;
       default:
         throw new Error( 'Error: Request to create unknown problem type, type = ' + problemType );

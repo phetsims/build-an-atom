@@ -72,6 +72,7 @@ define( function( require ) {
 
     this.checkAnswerEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'checkAnswerEmitter' ) } );
 
+    this.problemSetGroupTandem = tandem.createGroupTandem( 'problemSets' );
     tandem.addInstance( this );
   }
 
@@ -95,7 +96,7 @@ define( function( require ) {
     startGameLevel: function( levelName ) {
       this.level = SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
       this.problemIndex = 0;
-      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this, this.allowedProblemTypesByLevel );
+      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this, this.allowedProblemTypesByLevel, this.problemSetGroupTandem.createNextTandem() );
       this.score = 0;
       this.newBestTime = false;
       this._restartGameTimer();
