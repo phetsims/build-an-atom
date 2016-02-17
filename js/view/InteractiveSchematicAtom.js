@@ -22,9 +22,10 @@ define( function( require ) {
   /**
    * @param model
    * @param mvt
+   * @param {Tandem} tandem
    * @constructor
    */
-  function InteractiveSchematicAtom( model, mvt ) {
+  function InteractiveSchematicAtom( model, mvt, tandem ) {
     Node.call( this );
     var thisNode = this;
 
@@ -56,11 +57,15 @@ define( function( require ) {
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
+    var nucleonGroupTandem = tandem.createGroupTandem( 'nucleons' );
+    var electrnGroupTandem = tandem.createGroupTandem( 'electrons' );
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt ) );
+      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt, nucleonGroupTandem.createNextTandem() ) );
+
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
         assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
+
         // Determine whether nucleon view is on the correct layer.
         var onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
@@ -92,7 +97,7 @@ define( function( require ) {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      electronLayer.addChild( new ParticleView( electron, mvt ) );
+      electronLayer.addChild( new ParticleView( electron, mvt, electrnGroupTandem.createNextTandem() ) );
     } );
 
     // When the electrons are represented as a cloud, the individual particles
@@ -110,7 +115,9 @@ define( function( require ) {
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, mvt );
       thisNode.addChild( bucketFront );
-      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt ) );
+      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt, {
+        tandem: tandem.createTandem( bucket.tandemName + 'DragHandler' )
+      } ) );
     } );
   }
 
