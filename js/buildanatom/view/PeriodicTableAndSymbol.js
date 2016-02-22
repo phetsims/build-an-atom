@@ -31,7 +31,8 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Create and add the periodic table.
-    var periodicTable = new PeriodicTableNode( numberAtom, tandem.createTandem( 'periodicTable' ), {
+    var periodicTable = new PeriodicTableNode( numberAtom, {
+      tandem: tandem.createTandem( 'periodicTable' ),
       interactiveMax: 0,
       disabledCellColor: 'white'
     } );

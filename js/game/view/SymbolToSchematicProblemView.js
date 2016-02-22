@@ -33,7 +33,9 @@ define( function( require ) {
     );
 
     // Interactive schematic atom node - must be defined before call to super constructor.
-    this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, mvt, tandem.createTandem( 'interactiveSchematicAtom' ) );
+    this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, mvt, {
+      tandem: tandem.createTandem( 'interactiveSchematicAtom' )
+    } );
     this.interactiveSchematicAtom.scale( 0.95 );
 
     // Call super constructor.
