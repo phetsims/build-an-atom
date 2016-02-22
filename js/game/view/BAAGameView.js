@@ -14,11 +14,13 @@ define( function( require ) {
   var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Property = require( 'AXON/Property' );
-  var RewardNode = require( 'BUILD_AN_ATOM/game/view/RewardNode' );
+  var BAARewardNode = require( 'BUILD_AN_ATOM/game/view/BAARewardNode' );
   var ScoreboardBar = require( 'VEGAS/ScoreboardBar' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
+
+  var getQueryParameter = phet.chipper.getQueryParameter; // for testing purpose if reward is in the query parameter reward node will be added
 
   /**
    * Constructor.
@@ -41,6 +43,7 @@ define( function( require ) {
       this.layoutBounds,
       tandem.createTandem( 'startGameLevelNode' )
     );
+
     var scoreboard = new ScoreboardBar(
       this.layoutBounds.width,
       gameModel.problemIndexProperty,
@@ -58,26 +61,27 @@ define( function( require ) {
     scoreboard.centerX = this.layoutBounds.centerX;
     scoreboard.top = 0;
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
-    var rewardNode = new RewardNode( gameModel, tandem.createTandem( 'rewardNode' ) );
+    this.rewardNode = null;
     var problemViewGroupTandem = tandem.createGroupTandem( 'problemView' );
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
       if ( state === 'selectGameLevel' ) {
-        rewardNode.animationEnabled = false;
         rootNode.removeAllChildren();
         rootNode.addChild( startGameLevelNode );
+        thisScene.rewardNode = null;
       }
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
-        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
+        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL || getQueryParameter( 'reward' ) ) {
           // Perfect score, add the reward node.
-          rootNode.addChild( rewardNode );
-          rewardNode.mutate( {
-            centerX: thisScene.layoutBounds.width / 2,
-            centerY: thisScene.layoutBounds.height / 2
-          } );
-          rewardNode.animationEnabled = true;
+          thisScene.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
+          rootNode.addChild( thisScene.rewardNode );
+          // Play the appropriate audio feedback
+          gameAudioPlayer.gameOverPerfectScore();
+        }
+        else if ( gameModel.score > 0 ) {
+          gameAudioPlayer.gameOverImperfectScore();
         }
 
         // Add the dialog node that indicates that the level has been completed.
@@ -89,14 +93,6 @@ define( function( require ) {
             levelVisible: false,
             tandem: tandem.createTandem( 'levelCompletedNode' )
           } ) );
-
-        // Play the appropriate audio feedback.
-        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL ) {
-          gameAudioPlayer.gameOverPerfectScore();
-        }
-        else if ( gameModel.score > 0 ) {
-          gameAudioPlayer.gameOverImperfectScore();
-        }
       }
       else if ( typeof( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be
@@ -109,5 +105,11 @@ define( function( require ) {
   }
 
   // Inherit from ScreenView.
-  return inherit( ScreenView, BAAGameView );
+  return inherit( ScreenView, BAAGameView, {
+    step: function( elapsedTime ) {
+      if ( this.rewardNode ) {
+        this.rewardNode.step( elapsedTime );
+      }
+    }
+  } );
 } );
