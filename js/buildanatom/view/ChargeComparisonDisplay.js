@@ -15,6 +15,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   // constants
@@ -80,7 +81,7 @@ define( function( require ) {
     var plusSymbolPath = new Path( plusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
-      fill: 'red',
+      fill: PhetColorScheme.RED_COLORBLIND,
       left: INTER_SYMBOL_DISTANCE / 2,
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );

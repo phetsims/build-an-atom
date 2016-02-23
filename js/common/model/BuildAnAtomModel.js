@@ -15,6 +15,7 @@ define( function( require ) {
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var Particle = require( 'SHRED/model/Particle' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
+  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var PropertySet = require( 'AXON/PropertySet' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
@@ -67,7 +68,7 @@ define( function( require ) {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
           sphereRadius: SharedConstants.NUCLEON_RADIUS,
-          baseColor: 'red',
+          baseColor: PhetColorScheme.RED_COLORBLIND,
           caption: protonsString,
         captionColor: 'white',
         tandemName: 'protonBucket'

@@ -17,6 +17,7 @@ define( function( require ) {
   var scaleIcon = require( 'image!BUILD_AN_ATOM/scale.png' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
@@ -65,7 +66,7 @@ define( function( require ) {
     // Add the proton count display.
     var protonCountDisplay = new Text( '0', {
       font: NUMBER_FONT,
-      fill: 'red'
+      fill: PhetColorScheme.RED_COLORBLIND
     } );
 
     // Add the listener to update the proton count.

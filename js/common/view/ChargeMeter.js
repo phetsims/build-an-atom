@@ -15,6 +15,7 @@ define( function( require ) {
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -147,7 +148,7 @@ define( function( require ) {
         var textColor;
         if ( charge > 0 ) {
           sign = '+';
-          textColor = 'red';
+          textColor = PhetColorScheme.RED_COLORBLIND;
         }
         else if ( charge < 0 ) {
           textColor = 'blue';

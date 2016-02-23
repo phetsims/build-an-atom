@@ -16,6 +16,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var Property = require( 'AXON/Property' );
+  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -77,7 +78,7 @@ define( function( require ) {
     // Add the element caption.
     var elementCaption = new Text( '', {
       font: new PhetFont( 40 ),
-      fill: 'red',
+      fill: PhetColorScheme.RED_COLORBLIND,
       top: SYMBOL_BOX_HEIGHT + 20,
       centerX: SYMBOL_BOX_WIDTH / 2,
       maxWidth: SYMBOL_BOX_WIDTH
@@ -103,7 +104,7 @@ define( function( require ) {
         tandem.createTandem( 'protonCountEntryNode' ), {
           minValue: 0,
           maxValue: 99,
-          getTextColor: function() { return 'red'; },
+          getTextColor: function() { return PhetColorScheme.RED_COLORBLIND; },
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
         } ) );
@@ -112,7 +113,7 @@ define( function( require ) {
     else {
       var protonCountDisplay = new Text( numberAtom.protonCount, {
         font: NUMBER_FONT,
-        fill: 'red',
+        fill: PhetColorScheme.RED_COLORBLIND,
         left: NUMBER_INSET,
         bottom: SYMBOL_BOX_HEIGHT - NUMBER_INSET
       } );
