@@ -91,6 +91,7 @@ define( function( require ) {
             centerX: thisScene.layoutBounds.width / 2,
             centerY: thisScene.layoutBounds.height / 2,
             levelVisible: false,
+            maxWidth: thisScene.layoutBounds.width,
             tandem: tandem.createTandem( 'levelCompletedNode' )
           } ) );
       }
