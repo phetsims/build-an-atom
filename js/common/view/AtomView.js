@@ -45,8 +45,8 @@ define( function( require ) {
 
   // constants
   var CONTROLS_INSET = 10;
-  var LABEL_CONTROL_FONT = new PhetFont( 32 );
-  var LABEL_CONTROL_MAX_WIDTH = 350;
+  var LABEL_CONTROL_FONT = new PhetFont( 12 );
+  var LABEL_CONTROL_MAX_WIDTH = 180;
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
   var ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -194,9 +194,13 @@ define( function( require ) {
     }, {
       content: new Text( stableSlashUnstableString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
       property: model.showStableOrUnstableProperty
-    } ] ), {
+    } ], {
+      boxWidth:12,
+      spacing:8
+    } ), {
       fill: 'rgb( 245, 245, 245 )',
-      xMargin: 15,
+      xMargin: 7.5,
+      cornerRadius: 5,
       resize: false
     } );
     var numDividerLines = 2;
@@ -210,7 +214,7 @@ define( function( require ) {
       labelVizControlPanel.addChild( dividerLine1 );
     }
 
-    labelVizControlPanel.scale( 0.50 );  // Use a large font, then scale down to get smaller checkboxes.
+    //labelVizControlPanel.scale( 0.50 );  // Use a large font, then scale down to get smaller checkboxes.
     this.addChild( labelVizControlPanel );
     var labelVizControlPanelTitle = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
