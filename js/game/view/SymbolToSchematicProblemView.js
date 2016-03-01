@@ -26,14 +26,14 @@ define( function( require ) {
   function SymbolToSchematicProblemView( problem, layoutBounds, tandem ) {
 
     // Create the model-view transform used by the schematic atom.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
       0.75
     );
 
     // Interactive schematic atom node - must be defined before call to super constructor.
-    this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, mvt, {
+    this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, modelViewTransform, {
       tandem: tandem.createTandem( 'interactiveSchematicAtom' )
     } );
     this.interactiveSchematicAtom.scale( 0.95 );

@@ -43,13 +43,13 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.interactiveSymbolNode );
 
     // Create the model-view transform used by the schematic atom.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
       0.8 );
 
     // Add the schematic representation of the atom.
-    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, mvt, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
     this.problemPresentationNode.addChild( schematicAtomNode );
 
     // Layout

@@ -27,13 +27,13 @@ define( function( require ) {
     ToElementProblemView.call( this, schematicToElementProblem, layoutBounds, tandem ); // Call super constructor.
 
     // Create the model-view transform used by the schematic atom.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, mvt, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
+    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
   }
 
   // Inherit from ToElementProblemView.

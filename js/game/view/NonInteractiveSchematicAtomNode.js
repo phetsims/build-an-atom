@@ -20,15 +20,15 @@ define( function( require ) {
 
   /**
    * @param numberAtom
-   * @param mvt
+   * @param modelViewTransform
    * @constructor
    */
-  function NonInteractiveSchematicAtomNode( numberAtom, mvt, tandem ) {
+  function NonInteractiveSchematicAtomNode( numberAtom, modelViewTransform, tandem ) {
     Node.call( this, { pickable: false } ); // Call super constructor.
 
     // Add the electron shells.
     var particleAtom = new ParticleAtom();
-    this.addChild( new AtomNode( particleAtom, mvt, {
+    this.addChild( new AtomNode( particleAtom, modelViewTransform, {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
       showStableOrUnstableProperty: new Property( false )
@@ -44,7 +44,7 @@ define( function( require ) {
       _.times( number, function() {
         var particle = new Particle( particleType );
         particleAtom.addParticle( particle );
-        particleLayer.addChild( new ParticleView( particle, mvt, particleGroupTandem.createNextTandem() ) );
+        particleLayer.addChild( new ParticleView( particle, modelViewTransform, particleGroupTandem.createNextTandem() ) );
       } );
     };
 

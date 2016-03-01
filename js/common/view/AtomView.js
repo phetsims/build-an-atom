@@ -70,13 +70,13 @@ define( function( require ) {
     } );
 
     // Create the model-view transform.
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( thisView.layoutBounds.width * 0.3, thisView.layoutBounds.height * 0.45 ),
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    var atomNode = new AtomNode( model.particleAtom, mvt, {
+    var atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
       showElementNameProperty: model.showElementNameProperty,
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
@@ -86,7 +86,7 @@ define( function( require ) {
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
-      thisView.addChild( new BucketHole( bucket, mvt ).mutate( { pickable: false } ) );
+      thisView.addChild( new BucketHole( bucket, modelViewTransform ).mutate( { pickable: false } ) );
     } );
 
     // Add the layers where the nucleons will be maintained.
@@ -107,7 +107,7 @@ define( function( require ) {
     var electronsTandem = tandem.createGroupTandem( 'electrons' );
 
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, mvt, nucleonTandem.createNextTandem() ) );
+      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, modelViewTransform, nucleonTandem.createNextTandem() ) );
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
         assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
@@ -142,7 +142,7 @@ define( function( require ) {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      electronLayer.addChild( new ParticleView( electron, mvt, electronsTandem.createNextTandem() ) );
+      electronLayer.addChild( new ParticleView( electron, modelViewTransform, electronsTandem.createNextTandem() ) );
     } );
 
     // When the electrons are represented as a cloud, the individual particles
@@ -158,9 +158,9 @@ define( function( require ) {
     // Add the front portion of the buckets.  This is done separately from the
     // bucket holes for layering purposes.
     _.each( model.buckets, function( bucket ) {
-      var bucketFront = new BucketFront( bucket, mvt );
+      var bucketFront = new BucketFront( bucket, modelViewTransform );
       thisView.addChild( bucketFront );
-      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, mvt ) );
+      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform ) );
     } );
 
     // Add the particle count indicator.
