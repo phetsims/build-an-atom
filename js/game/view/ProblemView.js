@@ -168,7 +168,7 @@ define( function( require ) {
 
     // Do an initial layout, but the subclasses can and should move the
     // buttons as needed.
-    this.setButtonCenter( layoutBounds.width * 0.75, layoutBounds.height * 0.8 );
+    this.setButtonCenter( layoutBounds.width * 0.75, layoutBounds.height * 0.9 );
     faceNode.centerX = layoutBounds.width / 2;
     faceNode.centerY = layoutBounds.height / 2;
   }

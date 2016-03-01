@@ -124,7 +124,7 @@ define( function( require ) {
     neutralAtomVersusIonQuestion.centerX = this.periodicTable.centerX;
     neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
 
-    this.setButtonCenter( this.periodicTable.centerX, neutralAtomVersusIonQuestion.bottom + 40 );
+    this.setButtonCenter( this.periodicTable.centerX, neutralAtomVersusIonQuestion.bottom + 60 );
   }
 
   // Inherit from ProblemView.
