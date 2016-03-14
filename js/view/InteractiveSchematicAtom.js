@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var ParticleView = require( 'SHRED/view/ParticleView' );
+  var shred = require( 'SHRED/shred' );
 
   // constants
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -125,6 +126,8 @@ define( function( require ) {
       } ) );
     } );
   }
+
+  shred.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
 
   return inherit( Node, InteractiveSchematicAtom );
 } );
