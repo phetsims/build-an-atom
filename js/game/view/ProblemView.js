@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Color = require( 'SCENERY/util/Color' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
@@ -172,6 +173,8 @@ define( function( require ) {
     faceNode.centerX = layoutBounds.width / 2;
     faceNode.centerY = layoutBounds.height / 2;
   }
+
+  buildAnAtom.register( 'ProblemView', ProblemView );
 
   // Inherit from Node.
   return inherit( Node, ProblemView, {

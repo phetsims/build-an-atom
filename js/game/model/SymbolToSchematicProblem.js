@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var SymbolToSchematicProblemView = require( 'BUILD_AN_ATOM/game/view/SymbolToSchematicProblemView' );
@@ -31,6 +32,8 @@ define( function( require ) {
     this.buildAnAtomModel.showNeutralOrIon = false;
     this.buildAnAtomModel.showStableOrUnstable = false;
   }
+
+  buildAnAtom.register( 'SymbolToSchematicProblem', SymbolToSchematicProblem );
 
   // Inherit from base class and define the methods for this object.
   return inherit( BAAGameProblem, SymbolToSchematicProblem, {

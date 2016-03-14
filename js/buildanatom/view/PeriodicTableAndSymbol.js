@@ -9,6 +9,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -65,6 +66,8 @@ define( function( require ) {
     periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5);
     periodicTable.left = 0;
   }
+
+  buildAnAtom.register( 'PeriodicTableAndSymbol', PeriodicTableAndSymbol );
 
   // Inherit from Node.
   return inherit( Node, PeriodicTableAndSymbol );

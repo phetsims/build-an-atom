@@ -9,6 +9,7 @@ define( function( require ) {
 
   // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -170,6 +171,8 @@ define( function( require ) {
       }
     } );
   }
+
+  buildAnAtom.register( 'ChargeMeter', ChargeMeter );
 
   // Inherit from Node.
   return inherit( Node, ChargeMeter );

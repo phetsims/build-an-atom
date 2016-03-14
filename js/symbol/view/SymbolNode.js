@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -124,6 +125,8 @@ define( function( require ) {
     chargeMeter.left = boundingBox.right + 10;
     chargeMeter.centerY = chargeDisplay.centerY;
   }
+
+  buildAnAtom.register( 'SymbolNode', SymbolNode );
 
   // Inherit from Node.
   return inherit( Node, SymbolNode );

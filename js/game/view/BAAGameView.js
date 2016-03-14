@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
@@ -104,6 +105,8 @@ define( function( require ) {
       }
     } );
   }
+
+  buildAnAtom.register( 'BAAGameView', BAAGameView );
 
   // Inherit from ScreenView.
   return inherit( ScreenView, BAAGameView, {

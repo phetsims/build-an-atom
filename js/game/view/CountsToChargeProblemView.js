@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
@@ -67,6 +68,8 @@ define( function( require ) {
     numberEntryNode.left = questionPrompt.right + 10;
     numberEntryNode.centerY = questionPrompt.centerY;
   }
+
+  buildAnAtom.register( 'CountsToChargeProblemView', CountsToChargeProblemView );
 
   // Inherit from ProblemView.
   return inherit( ProblemView, CountsToChargeProblemView, {

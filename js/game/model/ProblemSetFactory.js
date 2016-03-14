@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var AtomValuePool = require( 'BUILD_AN_ATOM/game/model/AtomValuePool' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var CountsToChargeProblem = require( 'BUILD_AN_ATOM/game/model/CountsToChargeProblem' );
   var CountsToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolProblem' );
   var CountsToElementProblem = require( 'BUILD_AN_ATOM/game/model/CountsToElementProblem' );
@@ -208,5 +209,6 @@ define( function( require ) {
     );
   };
 
+  buildAnAtom.register( 'ProblemSetFactory', ProblemSetFactory );
   return ProblemSetFactory;
 } );

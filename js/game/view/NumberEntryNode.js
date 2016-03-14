@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -106,6 +107,8 @@ define( function( require ) {
 
     thisNode.mutate( options );
   }
+
+  buildAnAtom.register( 'NumberEntryNode', NumberEntryNode );
 
   // Inherit from Node.
   return inherit( Node, NumberEntryNode );

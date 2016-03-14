@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
@@ -142,6 +143,8 @@ define( function( require ) {
     timerToggleButton.left = CONTROL_INSET;
     timerToggleButton.bottom = soundToggleButton.top - 10;
   }
+
+  buildAnAtom.register( 'StartGameLevelNode', StartGameLevelNode );
 
   // Inherit from Node.
   return inherit( Node, StartGameLevelNode );

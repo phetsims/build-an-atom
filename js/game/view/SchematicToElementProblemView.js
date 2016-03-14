@@ -12,6 +12,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
@@ -35,6 +36,8 @@ define( function( require ) {
     // Add the schematic representation of the atom.
     this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToElementProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
   }
+
+  buildAnAtom.register( 'SchematicToElementProblemView', SchematicToElementProblemView );
 
   // Inherit from ToElementProblemView.
   return inherit( ToElementProblemView, SchematicToElementProblemView );

@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
@@ -55,6 +56,8 @@ define( function( require ) {
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.75;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.40;
   }
+
+  buildAnAtom.register( 'SymbolToSchematicProblemView', SymbolToSchematicProblemView );
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SymbolToSchematicProblemView, {

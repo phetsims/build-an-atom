@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
@@ -103,6 +104,8 @@ define( function( require ) {
     //electronCountEntryNode.centerY = electronCountPrompt.centerY;
     //electronCountEntryNode.left = protonCountEntryNode.left;
   }
+
+  buildAnAtom.register( 'InteractiveParticleCountsNode', InteractiveParticleCountsNode );
 
   // Inherit from Node.
   return inherit( Node, InteractiveParticleCountsNode );

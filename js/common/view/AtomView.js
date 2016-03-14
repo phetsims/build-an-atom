@@ -13,6 +13,7 @@ define( function( require ) {
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'SHRED/view/AtomNode' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
@@ -272,6 +273,8 @@ define( function( require ) {
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
   }
+
+  buildAnAtom.register( 'AtomView', AtomView );
 
   // Inherit from ScreenView.
   return inherit( ScreenView, AtomView );

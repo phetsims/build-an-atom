@@ -8,6 +8,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -61,6 +62,8 @@ define( function( require ) {
       }
     } );
   }
+
+  buildAnAtom.register( 'MassNumberDisplay', MassNumberDisplay );
 
   // Inherit from Node.
   return inherit( Node, MassNumberDisplay );

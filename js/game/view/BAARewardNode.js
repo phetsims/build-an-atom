@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
@@ -30,6 +31,8 @@ define( function( require ) {
     var nodes = this.createNodes( tandem );
     RewardNode.call( this, { nodes: nodes } );
   }
+
+  buildAnAtom.register( 'BAARewardNode', BAARewardNode );
 
 
   return inherit( RewardNode, BAARewardNode, {

@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
@@ -68,6 +69,8 @@ define( function( require ) {
     massEntryNode.left = questionPrompt.right + 10;
     massEntryNode.centerY = questionPrompt.centerY;
   }
+
+  buildAnAtom.register( 'SchematicToMassNumberProblemView', SchematicToMassNumberProblemView );
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SchematicToMassNumberProblemView, {

@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -166,6 +167,8 @@ define( function( require ) {
       boundingBox.addChild( chargeDisplay );
     }
   }
+
+  buildAnAtom.register( 'InteractiveSymbolNode', InteractiveSymbolNode );
 
   // Inherit from Node.
   return inherit( Node, InteractiveSymbolNode, {

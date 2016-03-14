@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
@@ -31,6 +32,7 @@ define( function( require ) {
     this.model = buildAnAtomGameModel;
   }
 
+  buildAnAtom.register( 'BAAGameProblem', BAAGameProblem );
   // Inherit from base class and define the methods for this object.
   return inherit( PropertySet, BAAGameProblem, {
 

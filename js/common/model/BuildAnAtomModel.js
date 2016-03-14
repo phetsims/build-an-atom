@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
@@ -196,6 +197,8 @@ define( function( require ) {
   // Externally visible constants
   BuildAnAtomModel.MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
   BuildAnAtomModel.MAX_ELECTRONS = NUM_ELECTRONS;
+
+  buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );
 
   return inherit( PropertySet, BuildAnAtomModel, {
     _nucleusJumpCount: 0,

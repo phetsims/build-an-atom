@@ -12,6 +12,7 @@ define( function( require ) {
 
   // modules
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
@@ -126,6 +127,8 @@ define( function( require ) {
 
     this.setButtonCenter( this.periodicTable.centerX, neutralAtomVersusIonQuestion.bottom + 60 );
   }
+
+  buildAnAtom.register( 'ToElementProblemView', ToElementProblemView );
 
   // Inherit from ProblemView.
   return inherit( ProblemView, ToElementProblemView, {

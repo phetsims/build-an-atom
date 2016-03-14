@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var InteractiveParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/InteractiveParticleCountsNode' );
@@ -43,6 +44,8 @@ define( function( require ) {
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
     this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.45;
   }
+
+  buildAnAtom.register( 'SymbolToCountsProblemView', SymbolToCountsProblemView );
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SymbolToCountsProblemView, {

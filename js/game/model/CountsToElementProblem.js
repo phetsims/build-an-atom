@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ToElementProblem = require( 'BUILD_AN_ATOM/game/model/ToElementProblem' );
   var CountsToElementProblemView = require( 'BUILD_AN_ATOM/game/view/CountsToElementProblemView' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -23,6 +24,8 @@ define( function( require ) {
   function CountsToElementProblem( buildAnAtomGameModel, answerAtom ) {
     ToElementProblem.call( this, buildAnAtomGameModel, answerAtom );
   }
+
+  buildAnAtom.register( 'CountsToElementProblem', CountsToElementProblem );
 
   // Inherit from base class and define the methods for this object.
   return inherit( ToElementProblem, CountsToElementProblem, {

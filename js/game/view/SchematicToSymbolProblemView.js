@@ -12,6 +12,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
@@ -58,6 +59,8 @@ define( function( require ) {
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.75;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
   }
+
+  buildAnAtom.register( 'SchematicToSymbolProblemView', SchematicToSymbolProblemView );
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SchematicToSymbolProblemView, {

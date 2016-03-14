@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -70,6 +71,8 @@ define( function( require ) {
     //electronCountText.bottom = electronCountTitle.bottom;
     //electronCountText.right = maxParticleLabelWidth + numberAreaWidth;
   }
+
+  buildAnAtom.register( 'ParticleCountsNode', ParticleCountsNode );
 
   // Inherit from Node.
   return inherit( Node, ParticleCountsNode );

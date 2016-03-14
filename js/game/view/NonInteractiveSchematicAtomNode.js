@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var AtomNode = require( 'SHRED/view/AtomNode' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
@@ -71,6 +72,8 @@ define( function( require ) {
       } );
     }
   }
+
+  buildAnAtom.register( 'NonInteractiveSchematicAtomNode', NonInteractiveSchematicAtomNode );
 
   // Inherit from Node.
   return inherit( Node, NonInteractiveSchematicAtomNode );

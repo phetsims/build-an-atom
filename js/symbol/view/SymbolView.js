@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
@@ -52,6 +53,8 @@ define( function( require ) {
     symbolBox.top = this.periodicTableBox.top + this.periodicTableBox.height + 10;
     symbolBox.left = this.periodicTableBox.left;
   }
+
+  buildAnAtom.register( 'SymbolView', SymbolView );
 
   return inherit( AtomView, SymbolView );
 } );

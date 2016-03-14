@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/Shape' );
@@ -132,6 +133,8 @@ define( function( require ) {
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
   }
+
+  buildAnAtom.register( 'ChargeComparisonDisplay', ChargeComparisonDisplay );
 
   // Inherit from Node.
   return inherit( Node, ChargeComparisonDisplay );

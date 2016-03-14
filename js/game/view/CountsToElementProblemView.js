@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );
@@ -34,6 +35,8 @@ define( function( require ) {
     particleCountsNode.centerX = layoutBounds.width * 0.25;
     particleCountsNode.centerY = this.periodicTable.centerY;
   }
+
+  buildAnAtom.register( 'CountsToElementProblemView', CountsToElementProblemView );
 
   // Inherit from ProblemView.
   return inherit( ToElementProblemView, CountsToElementProblemView );

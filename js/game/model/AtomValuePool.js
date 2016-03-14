@@ -13,6 +13,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
 
   // Problem pools for creating game problems, extracted from the design doc.
@@ -281,5 +282,6 @@ define( function( require ) {
     return atomValue;
   };
 
+  buildAnAtom.register( 'AtomValuePool', AtomValuePool );
   return AtomValuePool;
 } );

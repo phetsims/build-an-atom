@@ -9,6 +9,7 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -82,6 +83,8 @@ define( function( require ) {
     massNumberBox.right = this.periodicTableBox.right;
     massNumberBox.top = chargeMeterBox.top + chargeMeterBox.height + INTER_BOX_SPACING;
   }
+
+  buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
 
   return inherit( AtomView, BuildAnAtomView );
 } );

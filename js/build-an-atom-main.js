@@ -8,7 +8,7 @@ define( function( require ) {
 
   // modules
   var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
-  var BuildAnAtomView = require( 'buildanatom/view/BuildAnAtomView' );
+  var BuildAnAtomView = require( 'BUILD_AN_ATOM/buildanatom/view/BuildAnAtomView' );
   var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
   var BAAGameView = require( 'BUILD_AN_ATOM/game/view/BAAGameView' );
   var SymbolView = require( 'BUILD_AN_ATOM/symbol/view/SymbolView' );
