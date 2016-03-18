@@ -47,9 +47,9 @@ define( function( require ) {
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
-    particleCountsNode.centerY = layoutBounds.height * 0.47;
-    this.interactiveSymbolNode.centerX = layoutBounds.width * 0.75;
-    this.interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
+    particleCountsNode.centerY = layoutBounds.height * 0.48;
+    this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
+    this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
   }
 
   buildAnAtom.register( 'CountsToSymbolProblemView', CountsToSymbolProblemView );

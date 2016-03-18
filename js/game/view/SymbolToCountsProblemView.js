@@ -40,9 +40,9 @@ define( function( require ) {
 
     // Layout
     interactiveSymbolNode.centerX = layoutBounds.width * 0.25;
-    interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
+    interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
-    this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.45;
+    this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.49;
   }
 
   buildAnAtom.register( 'SymbolToCountsProblemView', SymbolToCountsProblemView );

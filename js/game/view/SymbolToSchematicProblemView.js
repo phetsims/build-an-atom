@@ -51,9 +51,9 @@ define( function( require ) {
     this.problemPresentationNode.addChild( interactiveSymbolNode );
 
     // Layout
-    interactiveSymbolNode.centerX = layoutBounds.width * 0.25;
+    interactiveSymbolNode.centerX = layoutBounds.width * 0.27;
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
-    this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.75;
+    this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.71;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.40;
   }
 

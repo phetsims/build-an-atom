@@ -59,7 +59,7 @@ define( function( require ) {
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
       selectedCellColor: 'yellow'
     } );
-    this.periodicTable.scale( 0.85 );
+    this.periodicTable.scale( 0.85 ); // scale value empirically determined
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Problem title
@@ -113,7 +113,7 @@ define( function( require ) {
     //--------------------------- Layout -------------------------------------
 
     this.periodicTable.right = layoutBounds.width - INSET;
-    this.periodicTable.centerY = layoutBounds.height / 2;
+    this.periodicTable.centerY = layoutBounds.height * 0.55;
 
     var maxTitleWidth = this.periodicTable.width * 0.9;
     if ( problemTitle.width > maxTitleWidth ) {
@@ -124,8 +124,6 @@ define( function( require ) {
 
     neutralAtomVersusIonQuestion.centerX = this.periodicTable.centerX;
     neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
-
-    this.setButtonCenter( this.periodicTable.centerX, neutralAtomVersusIonQuestion.bottom + 60 );
   }
 
   buildAnAtom.register( 'ToElementProblemView', ToElementProblemView );

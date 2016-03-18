@@ -46,7 +46,7 @@ define( function( require ) {
     // Create the model-view transform used by the schematic atom.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
-      new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
+      new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
       0.8 );
 
     // Add the schematic representation of the atom.
@@ -54,10 +54,10 @@ define( function( require ) {
     this.problemPresentationNode.addChild( schematicAtomNode );
 
     // Layout
-    schematicAtomNode.centerX = layoutBounds.width * 0.25;
-    schematicAtomNode.centerY = layoutBounds.height * 0.35;
-    this.interactiveSymbolNode.centerX = layoutBounds.width * 0.75;
-    this.interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
+    schematicAtomNode.centerX = layoutBounds.width * 0.23;
+    schematicAtomNode.centerY = layoutBounds.height * 0.30;
+    this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
+    this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
   }
 
   buildAnAtom.register( 'SchematicToSymbolProblemView', SchematicToSymbolProblemView );
