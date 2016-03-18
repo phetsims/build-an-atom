@@ -92,17 +92,6 @@ define( function( require ) {
     protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
     neutronCountEntryNode.left = protonCountEntryNode.left;
     electronCountEntryNode.left = protonCountEntryNode.left;
-    //protonCountPrompt.top = 0;
-    //protonCountEntryNode.centerY = protonCountPrompt.centerY;
-    //protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
-    //neutronCountPrompt.left = 0;
-    //neutronCountPrompt.top = protonCountPrompt.bottom + interLineSpacing;
-    //neutronCountEntryNode.centerY = neutronCountPrompt.centerY;
-    //neutronCountEntryNode.left = protonCountEntryNode.left;
-    //electronCountPrompt.left = 0;
-    //electronCountPrompt.top = neutronCountPrompt.bottom + interLineSpacing;
-    //electronCountEntryNode.centerY = electronCountPrompt.centerY;
-    //electronCountEntryNode.left = protonCountEntryNode.left;
   }
 
   buildAnAtom.register( 'InteractiveParticleCountsNode', InteractiveParticleCountsNode );
