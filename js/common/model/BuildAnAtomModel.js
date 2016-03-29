@@ -192,6 +192,9 @@ define( function( require ) {
         thisModel.particleAtom.nucleusOffset = Vector2.ZERO;
       }
     } );
+
+    // add a variable used when making the nucleus jump in order to indicate instability
+    this.nucleusJumpCount = 0;
   }
 
   // Externally visible constants
@@ -201,7 +204,6 @@ define( function( require ) {
   buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );
 
   return inherit( PropertySet, BuildAnAtomModel, {
-    _nucleusJumpCount: 0,
 
     // Main model step function, called by the framework.
     step: function( dt ) {
@@ -220,9 +222,9 @@ define( function( require ) {
         if ( this.nucleusJumpCountdown <= 0 ) {
           this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
           if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
-            this._nucleusJumpCount++;
-            var angle = JUMP_ANGLES[ this._nucleusJumpCount % JUMP_ANGLES.length ];
-            var distance = JUMP_DISTANCES[ this._nucleusJumpCount % JUMP_DISTANCES.length ];
+            this.nucleusJumpCount++;
+            var angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
+            var distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
             this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
           }
           else {
