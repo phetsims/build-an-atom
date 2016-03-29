@@ -48,6 +48,7 @@ define( function( require ) {
   var CONTROLS_INSET = 10;
   var LABEL_CONTROL_FONT = new PhetFont( 12 );
   var LABEL_CONTROL_MAX_WIDTH = 180;
+  var LABEL_CONTROL_LINE_WIDTH = 1;
   var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
   var ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -200,17 +201,19 @@ define( function( require ) {
       spacing:8
     } ), {
       fill: 'rgb( 245, 245, 245 )',
+      lineWidth: LABEL_CONTROL_LINE_WIDTH,
       xMargin: 7.5,
       cornerRadius: 5,
       resize: false
     } );
     var numDividerLines = 2;
-    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width, 0 );
+    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
     for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
       var dividerLine1 = new Path( dividerLineShape, {
         lineWidth: 1,
         stroke: 'gray',
-        centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 )
+        centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
+        x: LABEL_CONTROL_LINE_WIDTH / 2
       } );
       labelVizControlPanel.addChild( dividerLine1 );
     }
