@@ -115,7 +115,7 @@ define( function( require ) {
     // Add the protons.
     var protonGroupTandem = tandem.createGroupTandem( 'protons' );
     var neutronGroupTandem = tandem.createGroupTandem( 'neutrons' );
-    var electronGoupTandem = tandem.createGroupTandem( 'electrons' );
+    var electronGroupTandem = tandem.createGroupTandem( 'electrons' );
     _.times( NUM_PROTONS, function() {
       var proton = new Particle( 'proton', { tandem: protonGroupTandem.createNextTandem() } );
       thisModel.nucleons.push( proton );
@@ -141,7 +141,7 @@ define( function( require ) {
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function() {
-      var electron = new Particle( 'electron', { tandem: electronGoupTandem.createNextTandem() } );
+      var electron = new Particle( 'electron', { tandem: electronGroupTandem.createNextTandem() } );
       thisModel.electrons.push( electron );
       thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.userControlledProperty.link( function( userControlled ) {
