@@ -1,8 +1,7 @@
 // Copyright 2014-2015, University of Colorado Boulder
 
 /**
- * Node that depicts an interactive atom where the user can add subatomic
- * particles from a set of buckets.
+ * Node that depicts an interactive atom where the user can add subatomic particles from a set of buckets.
  */
 define( function( require ) {
   'use strict';
@@ -22,7 +21,7 @@ define( function( require ) {
 
   /**
    * @param model
-   * @param modelViewTransform
+   * @param {ModelViewTransform2} modelViewTransform
    * @param {Object} [options]
    * @constructor
    */
@@ -106,8 +105,7 @@ define( function( require ) {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, electronGroupTandem.createNextTandem() ) );
     } );
 
-    // When the electrons are represented as a cloud, the individual particles
-    // become invisible when added to the atom.
+    // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
     var updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
         electronNode.visible = model.electronShellDepiction === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
@@ -116,8 +114,7 @@ define( function( require ) {
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
-    // Add the front portion of the buckets.  This is done separately from the
-    // bucket holes for layering purposes.
+    // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform );
       thisNode.addChild( bucketFront );
