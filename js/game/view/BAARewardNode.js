@@ -18,8 +18,8 @@ define( function( require ) {
   var RewardNode = require( 'VEGAS/RewardNode' );
 
   // constants
-  var NUMBER_OF_NODES = 150;
-  var NUMBER_OF_SYMBOL_NODES = 8;
+  var NUMBER_OF_NODES = 75;
+  var NUMBER_OF_SYMBOL_NODES = 5;
   var FACE_DIAMETER = 40;
   var MIN_CHILD_NODE_WIDTH = 40;
   var MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
