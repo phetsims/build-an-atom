@@ -66,17 +66,17 @@ define( function( require ) {
   return inherit( ProblemView, SchematicToSymbolProblemView, {
       checkAnswer: function() {
         var userSubmittedAtom = new NumberAtom( {
-          protonCount: this.interactiveSymbolNode.protonCount.value,
-          neutronCount: this.interactiveSymbolNode.massNumber.value - this.interactiveSymbolNode.protonCount.value,
-          electronCount: this.interactiveSymbolNode.protonCount.value - this.interactiveSymbolNode.charge.value
+          protonCount: this.interactiveSymbolNode.protonCountProperty.value,
+          neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
+          electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
         } );
         this.problem.checkAnswer( userSubmittedAtom );
       },
 
       displayCorrectAnswer: function() {
-        this.interactiveSymbolNode.protonCount.value = this.problem.answerAtom.protonCount;
-        this.interactiveSymbolNode.massNumber.value = this.problem.answerAtom.massNumber;
-        this.interactiveSymbolNode.charge.value = this.problem.answerAtom.charge;
+        this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
+        this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
+        this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
       }
     }
   );

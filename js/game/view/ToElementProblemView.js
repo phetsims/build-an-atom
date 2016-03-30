@@ -45,7 +45,7 @@ define( function( require ) {
    */
   function ToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
-    this.neutralOrIon = new Property( 'noSelection', {
+    this.neutralOrIonProperty = new Property( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' )
     } );
     ProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
@@ -74,14 +74,14 @@ define( function( require ) {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH
     } );
-    var neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIon, 'neutral', new Text( neutralAtomString, {
+    var neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( neutralAtomString, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
       tandem: tandem.createTandem( 'neutralAtomRadioButton' )
     } );
-    var ionRadioButton = new AquaRadioButton( this.neutralOrIon, 'ion', new Text( ionString, {
+    var ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( ionString, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
@@ -105,7 +105,7 @@ define( function( require ) {
 
     // Don't enable the "check answer" button until the user has answered the
     // "neutral vs. ion" question.
-    this.neutralOrIon.link( function( neutralOrIon ) {
+    this.neutralOrIonProperty.link( function( neutralOrIon ) {
       thisNode.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
       thisNode.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
     } );
@@ -136,19 +136,19 @@ define( function( require ) {
         neutronCount: this.problem.answerAtom.neutronCount,
         electronCount: this.problem.answerAtom.electronCount
       } );
-      this.problem.checkAnswer( submittedAtom, this.neutralOrIon.value );
+      this.problem.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
     },
     clearAnswer: function() {
       this.periodicTableAtom.protonCount = 0;
       this.periodicTableAtom.neutronCount = 0;
       this.periodicTableAtom.electronCount = 0;
-      this.neutralOrIon.reset();
+      this.neutralOrIonProperty.reset();
     },
     displayCorrectAnswer: function() {
       this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
       this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
       this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
-      this.neutralOrIon.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
+      this.neutralOrIonProperty.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
     }
   } );
 } );

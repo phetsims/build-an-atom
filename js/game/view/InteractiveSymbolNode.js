@@ -48,14 +48,13 @@ define( function( require ) {
       interactiveCharge: false
     }, options );
 
-    // TODO: Add 'Property' suffix to each Property
-    thisNode.protonCount = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCount, {
+    thisNode.protonCountProperty = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCount, {
       tandem: tandem.createTandem( 'protonCountProperty' )
     } );
-    thisNode.massNumber = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumber, {
+    thisNode.massNumberProperty = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumber, {
       tandem: tandem.createTandem( 'massNumberProperty' )
     } );
-    thisNode.charge = new Property( options.interactiveCharge ? 0 : numberAtom.charge, {
+    thisNode.chargeProperty = new Property( options.interactiveCharge ? 0 : numberAtom.charge, {
       tandem: tandem.createTandem( 'chargeProperty' )
     } );
 
@@ -101,7 +100,7 @@ define( function( require ) {
     // Add the proton count display, either interactive or not.
     if ( options.interactiveProtonCount ) {
       boundingBox.addChild( new NumberEntryNode(
-        thisNode.protonCount,
+        thisNode.protonCountProperty,
         tandem.createTandem( 'protonCountEntryNode' ), {
           minValue: 0,
           maxValue: 99,
@@ -109,7 +108,7 @@ define( function( require ) {
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
         } ) );
-      thisNode.protonCount.link( updateElement );
+      thisNode.protonCountProperty.link( updateElement );
     }
     else {
       var protonCountDisplay = new Text( numberAtom.protonCount, {
@@ -125,7 +124,7 @@ define( function( require ) {
     // Add the mass number display, either interactive or not.
     if ( options.interactiveMassNumber ) {
       boundingBox.addChild( new NumberEntryNode(
-        thisNode.massNumber,
+        thisNode.massNumberProperty,
         tandem.createTandem( 'massNumberEntryNode' ), {
           minValue: 0,
           maxValue: 99,
@@ -146,7 +145,7 @@ define( function( require ) {
     // Add the charge display, either interactive or not.
     if ( options.interactiveCharge ) {
       boundingBox.addChild( new NumberEntryNode(
-        thisNode.charge,
+        thisNode.chargeProperty,
         tandem.createTandem( 'chargeEntryNode' ), {
           minValue: -99,
           maxValue: 99,
@@ -173,9 +172,9 @@ define( function( require ) {
   // Inherit from Node.
   return inherit( Node, InteractiveSymbolNode, {
     reset: function() {
-      this.protonCount.reset();
-      this.massNumber.reset();
-      this.charge.reset();
+      this.protonCountProperty.reset();
+      this.massNumberProperty.reset();
+      this.chargeProperty.reset();
     }
   } );
 } );
