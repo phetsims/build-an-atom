@@ -47,7 +47,7 @@ define( function( require ) {
       buttonAlign: 'right',
       expandedProperty: this.viewProperties.symbolBoxExpandedProperty
     } );
-    this.addChild( symbolBox );
+    this.controlPanelLayer.addChild( symbolBox );
 
     // Do the layout.
     symbolBox.top = this.periodicTableBox.top + this.periodicTableBox.height + 10;

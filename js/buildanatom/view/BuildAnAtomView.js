@@ -58,7 +58,7 @@ define( function( require ) {
       titleAlignX: 'left',
       buttonAlign: 'right'
     } );
-    this.addChild( chargeMeterBox );
+    this.controlPanelLayer.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
     var massNumberDisplay = new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } );
@@ -75,7 +75,7 @@ define( function( require ) {
       titleAlignX: 'left',
       buttonAlign: 'right'
     } );
-    this.addChild( massNumberBox );
+    this.controlPanelLayer.addChild( massNumberBox );
 
     // Do the layout.
     chargeMeterBox.right = this.periodicTableBox.right;

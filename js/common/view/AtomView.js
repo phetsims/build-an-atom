@@ -91,18 +91,21 @@ define( function( require ) {
       thisView.addChild( new BucketHole( bucket, modelViewTransform ).mutate( { pickable: false } ) );
     } );
 
+    // all the nucleons and electrons layer are added in this node and this node is added at last so that it remains on top
+    var nucleonElectronLayer = new Node();
+
     // Add the layers where the nucleons will be maintained.
     var nucleonLayers = [];
     _.times( NUM_NUCLEON_LAYERS, function() {
       var nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
-      thisView.addChild( nucleonLayer );
+      nucleonElectronLayer.addChild( nucleonLayer );
     } );
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will be maintained.
     var electronLayer = new Node( { layerSplit: true } );
-    this.addChild( electronLayer );
+    nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
     var nucleonTandem = tandem.createGroupTandem( 'nucleons' );
@@ -157,11 +160,11 @@ define( function( require ) {
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
-    // Add the front portion of the buckets.  This is done separately from the
-    // bucket holes for layering purposes.
+    // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
+    var bucketFrontLayer = new Node();
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform );
-      thisView.addChild( bucketFront );
+      bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform ) );
     } );
 
@@ -275,6 +278,13 @@ define( function( require ) {
     labelVizControlPanelTitle.centerX = labelVizControlPanel.centerX;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
+
+    // Any other objects added by class calling it will be added in this node for layering purposes
+    this.controlPanelLayer = new Node();
+    this.addChild(this.controlPanelLayer);
+
+    this.addChild( nucleonElectronLayer );
+    this.addChild( bucketFrontLayer );
   }
 
   buildAnAtom.register( 'AtomView', AtomView );
