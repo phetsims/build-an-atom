@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2016, University of Colorado Boulder
 
 /**
  * Screen that is presented to the user that allows them to select from a set
@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -61,7 +62,7 @@ define( function( require ) {
         gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       _.extend( {
           tandem: tandem.createTandem( 'periodicTableGameButton' )
         },
@@ -76,7 +77,7 @@ define( function( require ) {
         gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( massAndChangeGameButton );
     var symbolGameButton = new LevelSelectionButton(
@@ -86,7 +87,7 @@ define( function( require ) {
         gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new LevelSelectionButton(
@@ -96,7 +97,7 @@ define( function( require ) {
         gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
       },
       gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
-      gameModel.MAX_POINTS_PER_GAME_LEVEL,
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( advancedSymbolGameButton );
 

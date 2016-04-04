@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2016, University of Colorado Boulder
 
 /**
  * Main view for the second tab of the Build an Atom simulation.
@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -48,7 +49,7 @@ define( function( require ) {
     var scoreboard = new ScoreboardBar(
       this.layoutBounds.width,
       gameModel.problemIndexProperty,
-      new Property( gameModel.PROBLEMS_PER_LEVEL ),
+      new Property( BAAGameModel.PROBLEMS_PER_LEVEL ),
       gameModel.levelProperty,
       gameModel.scoreProperty,
       gameModel.elapsedTimeProperty,
@@ -74,7 +75,7 @@ define( function( require ) {
       }
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
-        if ( gameModel.score === gameModel.MAX_POINTS_PER_GAME_LEVEL || getQueryParameter( 'reward' ) ) {
+        if ( gameModel.score === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || getQueryParameter( 'reward' ) ) {
           // Perfect score, add the reward node.
           thisScene.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
           rootNode.addChild( thisScene.rewardNode );
@@ -86,8 +87,8 @@ define( function( require ) {
         }
 
         // Add the dialog node that indicates that the level has been completed.
-        rootNode.addChild( new LevelCompletedNode( gameModel.level, gameModel.score, gameModel.MAX_POINTS_PER_GAME_LEVEL,
-          gameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ], gameModel.newBestTime,
+        rootNode.addChild( new LevelCompletedNode( gameModel.level, gameModel.score, BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
+          BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ], gameModel.newBestTime,
           function() { gameModel.state = 'selectGameLevel'; }, {
             centerX: thisScene.layoutBounds.width / 2,
             centerY: thisScene.layoutBounds.height / 2,

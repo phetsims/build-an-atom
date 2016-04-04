@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2016, University of Colorado Boulder
 
 /**
  * Primary model class for the Build an Atom Game tab.
@@ -20,6 +20,7 @@ define( function( require ) {
   // constants
   var PROBLEMS_PER_LEVEL = 5;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
+  var MAX_POINTS_PER_GAME_LEVEL = PROBLEMS_PER_LEVEL * POSSIBLE_POINTS_PER_PROBLEM;
 
   /**
    * Main constructor function.
@@ -57,6 +58,9 @@ define( function( require ) {
 
     var thisGameModel = this;
 
+    // @private, set of external functions that the model will step
+    this.stepListeners = [];
+
     // @private
     this.levelCompletedEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'levelCompletedEmitter' ) } );
 
@@ -88,7 +92,7 @@ define( function( require ) {
         this.state.step( dt );
       }
       // Step any external functions that need it.
-      this._stepListeners.forEach( function( stepListener ) { stepListener( dt ); } );
+      this.stepListeners.forEach( function( stepListener ) { stepListener( dt ); } );
     },
 
     // Start a new game.
@@ -130,8 +134,8 @@ define( function( require ) {
         // When the game is complete, send notification that can be used by phet-io
         this.levelCompletedEmitter.emit1( {
           level: this.level,
-          maxPoints: this.MAX_POINTS_PER_GAME_LEVEL,
-          problems: this.PROBLEMS_PER_LEVEL,
+          maxPoints: MAX_POINTS_PER_GAME_LEVEL,
+          problems: PROBLEMS_PER_LEVEL,
           timerEnabled: this.timerEnabled,
           elapsedTime: this.elapsedTime,
           bestTimes: this.bestTimes[ this.level ],
@@ -152,15 +156,12 @@ define( function( require ) {
       }
     },
 
-    // Set of external functions that the model will step.
-    _stepListeners: [],
-
     addStepListener: function( stepListener ) {
-      this._stepListeners.push( stepListener );
+      this.stepListeners.push( stepListener );
     },
 
     removeStepListener: function( stepListener ) {
-      this._stepListeners = _.without( this._stepListeners, stepListener );
+      this.stepListeners = _.without( this.stepListeners, stepListener );
     },
 
     _restartGameTimer: function() {
@@ -198,10 +199,11 @@ define( function( require ) {
         points: isCorrect ? pointsIfCorrect : 0
       };
       this.checkAnswerEmitter.emit1( _.extend( extension, arg ) );
-    },
+    }
+  }, {
 
-    // Public constants.
-    MAX_POINTS_PER_GAME_LEVEL: PROBLEMS_PER_LEVEL * POSSIBLE_POINTS_PER_PROBLEM,
+    // statics
+    MAX_POINTS_PER_GAME_LEVEL: MAX_POINTS_PER_GAME_LEVEL,
     PROBLEMS_PER_LEVEL: PROBLEMS_PER_LEVEL
   } );
 } );
