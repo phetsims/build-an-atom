@@ -221,7 +221,6 @@ define( function( require ) {
       labelVizControlPanel.addChild( dividerLine1 );
     }
 
-    //labelVizControlPanel.scale( 0.50 );  // Use a large font, then scale down to get smaller checkboxes.
     this.addChild( labelVizControlPanel );
     var labelVizControlPanelTitle = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
