@@ -1,7 +1,7 @@
 // Copyright 2016, University of Colorado Boulder
 /**
- * The reward that is displayed when a game is completed with a perfect score.
- * Run with the 'reward' query parameter to show the reward at the end of every game, regardless of score.
+ * The reward that is displayed when a game is completed with a perfect score. For testing, the simulation can be run
+ * with the 'reward' query parameter to show the reward at the end of every game, regardless of score.
  *
  * @author Aadish Gupta
  */
@@ -25,6 +25,7 @@ define( function( require ) {
   var MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
 
   /**
+   * @param {Tandem} tandem
    * @constructor
    */
   function BAARewardNode( tandem ) {
@@ -34,8 +35,8 @@ define( function( require ) {
 
   buildAnAtom.register( 'BAARewardNode', BAARewardNode );
 
-
   return inherit( RewardNode, BAARewardNode, {
+
     _createRandomStableAtom: function() {
       var atomicNumber = 1 + Math.floor( Math.random() * 18 ); // Limit to Argon, since that's as high as translations go.
       return new NumberAtom( {
@@ -49,7 +50,7 @@ define( function( require ) {
       var self = this;
       var nodes = [];
       var groupTandem = tandem.createGroupTandem( 'interactiveSymbolNodes' );
-      for (var i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ){
+      for ( var i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ){
         var interactiveSymbolNode = new InteractiveSymbolNode( self._createRandomStableAtom(), groupTandem.createNextTandem() );
         interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / interactiveSymbolNode.width );
         nodes.push( interactiveSymbolNode );
