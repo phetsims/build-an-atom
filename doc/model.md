@@ -7,7 +7,7 @@ In the Build an Atom simulation, atoms are constructed by users from protons, ne
 particles is modeled as a sphere of a specific color.  The particles, and the atoms that can be constructed from them,
 are not at all to scale.  This was done to make it so that the particles could be easily seen and manipulated by the
 users.  Protons and neutrons can only be placed in the nucleus, while electrons can only go in the outer shell of the
-atom.  Trying to place protons or neutrons well outside the nucleus causes the particle to return to its bucket.  
+atom.  Trying to place protons or neutrons well outside the nucleus causes the particle to return to its bucket.
 Attempts to place electrons well outside the orbitals will result in them returning to the bucket.  The chemical element
 is determined by the number of protons in the nucleus.
 
