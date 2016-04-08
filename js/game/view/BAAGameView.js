@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
+  var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -21,8 +22,6 @@ define( function( require ) {
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
   var SharedConstants = require( 'SHRED/SharedConstants' );
-
-  var getQueryParameter = phet.chipper.getQueryParameter; // for testing purpose if reward is in the query parameter reward node will be added
 
   /**
    * Constructor.
@@ -82,7 +81,7 @@ define( function( require ) {
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
         previousView.dispose();
-        if ( gameModel.score === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || getQueryParameter( 'reward' ) ) {
+        if ( gameModel.score === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.REWARD ) {
           // Perfect score, add the reward node.
           thisScene.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
           rootNode.addChild( thisScene.rewardNode );
