@@ -32,6 +32,8 @@ define( function( require ) {
     Node.call( this );
     var thisNode = this;
 
+    var particleViews = []; // remember all the particleViews when using in dispose
+
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
     var atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
       showElementNameProperty: model.showElementNameProperty,
@@ -63,9 +65,11 @@ define( function( require ) {
     var nucleonGroupTandem = options.tandem && options.tandem.createGroupTandem( 'nucleons' );
     var electronGroupTandem = options.tandem && options.tandem.createGroupTandem( 'electrons' );
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, modelViewTransform, {
+      var particleView = new ParticleView( nucleon, modelViewTransform, {
         tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
-      } ) );
+      } );
+      nucleonLayers[ nucleon.zLayer ].addChild( particleView );
+      particleViews.push( particleView );
 
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
@@ -102,7 +106,9 @@ define( function( require ) {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      electronLayer.addChild( new ParticleView( electron, modelViewTransform, electronGroupTandem.createNextTandem() ) );
+      var particleView = new ParticleView( electron, modelViewTransform, electronGroupTandem.createNextTandem() );
+      electronLayer.addChild( particleView );
+      particleViews.push( particleView );
     } );
 
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
@@ -122,9 +128,22 @@ define( function( require ) {
         tandem: options.tandem && options.tandem.createTandem( bucket.tandemName + 'DragHandler' )
       } ) );
     } );
+
+    this.interactiveSchematicAtomDispose = function(){
+      particleViews.forEach( function( particleView ) {
+        particleView.dispose();
+      });
+      atomNode.dispose();
+      model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
+      model.electronShellDepictionProperty.unlink( updateElectronVisibility );
+    };
   }
 
   shred.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
 
-  return inherit( Node, InteractiveSchematicAtom );
+  return inherit( Node, InteractiveSchematicAtom, {
+    dispose: function(){
+      this.interactiveSchematicAtomDispose();
+    }
+  } );
 } );
