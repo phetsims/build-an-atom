@@ -23,8 +23,8 @@ define( function( require ) {
   var MAX_POINTS_PER_GAME_LEVEL = PROBLEMS_PER_LEVEL * POSSIBLE_POINTS_PER_PROBLEM;
 
   /**
-   * Main constructor function.
-   *
+   * main constructor function for the game model
+   * {Tandem} tandem
    * @constructor
    */
   function BAAGameModel( tandem ) {

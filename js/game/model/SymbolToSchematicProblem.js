@@ -18,8 +18,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {NumberAtom} answerAtom
+   * @param {Tandem} tandem
    * @constructor
    */
   function SymbolToSchematicProblem( buildAnAtomGameModel, answerAtom, tandem ) {

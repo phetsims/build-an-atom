@@ -20,8 +20,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {SchematicToElementProblem} schematicToElementProblem
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
   function SchematicToElementProblemView( schematicToElementProblem, layoutBounds, tandem ) {

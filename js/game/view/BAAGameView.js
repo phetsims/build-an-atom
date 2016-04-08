@@ -26,7 +26,7 @@ define( function( require ) {
   /**
    * Constructor.
    *
-   * @param gameModel Build an Atom model object.
+   * @param {BAAGameModel} gameModel
    * @param {Tandem} tandem
    * @constructor
    */

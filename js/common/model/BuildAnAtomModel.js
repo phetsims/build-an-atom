@@ -42,7 +42,7 @@ define( function( require ) {
 
   /**
    * Constructor for main model object.
-   *
+   * @param {Tandem} tandem
    * @constructor
    */
   function BuildAnAtomModel( tandem ) {

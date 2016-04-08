@@ -21,9 +21,7 @@ define( function( require ) {
   var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
 
   /**
-   * Constructor.
-   *
-   * @param model Build an Atom model object.
+   * @param {BuildAnAtomModel} model
    * @param {Tandem} tandem
    * @constructor
    */

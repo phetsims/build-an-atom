@@ -54,9 +54,7 @@ define( function( require ) {
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
   /**
-   * Constructor.
-   *
-   * @param model Build an Atom model object.
+   * @param {BuildAnAtomModel} model
    * @param {Tandem} tandem
    * @constructor
    */

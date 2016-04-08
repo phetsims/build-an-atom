@@ -34,8 +34,9 @@ define( function( require ) {
   var BUTTON_TOUCH_AREA_DILATION = 8;
 
   /**
-   * Main constructor function.
-   *
+   * @param {BAAGameProblem} problem
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
   function ProblemView( problem, layoutBounds, tandem ) {

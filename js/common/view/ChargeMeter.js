@@ -29,7 +29,7 @@ define( function( require ) {
   var SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
   /**
-   * @param numberAtom
+   * @param {NumberAtom} numberAtom
    * @param {Object} [options]
    * @constructor
    */

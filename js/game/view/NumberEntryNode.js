@@ -24,9 +24,7 @@ define( function( require ) {
   var NUMBER_FONT = new PhetFont( 28 );
 
   /**
-   * Main constructor.
-   *
-   * @param numberProperty
+   * @param {Property.<number>} numberProperty
    * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor

@@ -26,7 +26,7 @@ define( function( require ) {
   var SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 
   /**
-   * @param numberAtom Model representation of the atom
+   * @param {NumberAtom} numberAtom - model representation of the atom
    * @constructor
    */
   function ChargeComparisonDisplay( numberAtom ) {

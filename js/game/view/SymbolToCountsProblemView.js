@@ -18,8 +18,9 @@ define( function( require ) {
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {SymbolToCountsProblem} symbolToCountsProblem
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
   function SymbolToCountsProblemView( symbolToCountsProblem, layoutBounds, tandem ) {

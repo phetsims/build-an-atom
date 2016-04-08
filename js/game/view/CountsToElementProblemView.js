@@ -17,10 +17,8 @@ define( function( require ) {
   var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );
 
   /**
-   * Main constructor
-   *
-   * @param countsToElementProblem
-   * @param layoutBounds
+   * @param {CountsToElementProblem} countsToElementProblem
+   * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */

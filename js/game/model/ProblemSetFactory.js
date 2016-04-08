@@ -34,9 +34,9 @@ define( function( require ) {
   /**
    * Generate a problem set based on the specified criteria.
    *
-   * @param level
-   * @param numProblems
-   * @param model
+   * @param {number} level
+   * @param {number} numProblems
+   * @param {BAAGameModel} model
    * @param {string[][]} allowedProblemTypesByLevel
    */
   ProblemSetFactory.generate = function( level, numProblems, model, allowedProblemTypesByLevel, tandem ) {
@@ -65,9 +65,9 @@ define( function( require ) {
    * Generate a single problem given the level and a pool of atom values that
    * can be used for the problem.
    *
-   * @param level
-   * @param availableAtomValues
-   * @param model
+   * @param {number} level
+   * @param {AtomValuePool} availableAtomValues
+   * @param {BAAGameModel} model
    * @param {String[][]} allowedProblemTypesByLevel
    * @return
    */

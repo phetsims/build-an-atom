@@ -23,7 +23,7 @@ define( function( require ) {
   var SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
   /**
-   * @param numberAtom
+   * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
    * @constructor
    */

@@ -17,8 +17,8 @@ define( function( require ) {
   var SharedConstants = require( 'SHRED/SharedConstants' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {NumberAtom} answerAtom
    * @constructor
    */
   function ToElementProblem( buildAnAtomGameModel, answerAtom ) {

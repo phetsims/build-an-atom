@@ -25,8 +25,9 @@ define( function( require ) {
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {CountsToChargeProblem} countsToChargeProblem
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
   function CountsToChargeProblemView( countsToChargeProblem, layoutBounds, tandem ) {

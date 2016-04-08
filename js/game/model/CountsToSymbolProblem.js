@@ -17,8 +17,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {NumberAtom} answerAtom
+   * @param {boolean} configurableProtonCount
+   * @param {boolean} configurableMassNumber
+   * @param {boolean} configurableCharge
    * @constructor
    */
   function CountsToSymbolProblem( buildAnAtomGameModel, answerAtom, configurableProtonCount, configurableMassNumber, configurableCharge ) {

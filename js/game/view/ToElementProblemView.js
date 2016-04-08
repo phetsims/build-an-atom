@@ -36,10 +36,8 @@ define( function( require ) {
   var MAX_WIDTH = 100; // empirically determined for long strings
 
   /**
-   * Main constructor
-   *
-   * @param countsToElementProblem
-   * @param layoutBounds
+   * @param {CountsToElementProblem} countsToElementProblem
+   * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */

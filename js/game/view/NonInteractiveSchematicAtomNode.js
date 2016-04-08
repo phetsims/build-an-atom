@@ -20,8 +20,9 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   /**
-   * @param numberAtom
-   * @param modelViewTransform
+   * @param {NumberAtom} numberAtom
+   * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
   function NonInteractiveSchematicAtomNode( numberAtom, modelViewTransform, tandem ) {
@@ -76,10 +77,10 @@ define( function( require ) {
       } );
     }
 
-    this.nonInteractiveSchematicAtomNodeDispose = function(){
+    this.nonInteractiveSchematicAtomNodeDispose = function() {
       particleViews.forEach( function( particleView ) {
         particleView.dispose();
-      });
+      } );
       atomNode.dispose();
     };
   }
@@ -87,8 +88,8 @@ define( function( require ) {
   buildAnAtom.register( 'NonInteractiveSchematicAtomNode', NonInteractiveSchematicAtomNode );
 
   // Inherit from Node.
-  return inherit( Node, NonInteractiveSchematicAtomNode,{
-    dispose: function(){
+  return inherit( Node, NonInteractiveSchematicAtomNode, {
+    dispose: function() {
       this.nonInteractiveSchematicAtomNodeDispose();
     }
   } );

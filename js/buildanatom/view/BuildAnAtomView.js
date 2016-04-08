@@ -29,7 +29,7 @@ define( function( require ) {
   /**
    * Constructor.
    *
-   * @param model Build an Atom model object.
+   * @param {BuildAnAtomModel} model Build an Atom model object.
    * @param {Tandem} tandem
    * @constructor
    */

@@ -32,7 +32,7 @@ define( function( require ) {
 
   /**
    * Constructor
-   * @param numberAtom
+   * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor

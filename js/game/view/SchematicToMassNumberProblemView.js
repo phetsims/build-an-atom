@@ -27,8 +27,10 @@ define( function( require ) {
   var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
 
   /**
-   * Main constructor function.
    *
+   * @param {SchematicToMassNumberProblem} schematicToMassNumberProblem
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
   function SchematicToMassNumberProblemView( schematicToMassNumberProblem, layoutBounds, tandem ) {

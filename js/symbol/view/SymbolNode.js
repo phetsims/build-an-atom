@@ -32,7 +32,7 @@ define( function( require ) {
 
   /**
    * Constructor
-   * @param numberAtom
+   * @param {NumberAtom} numberAtom
    * @constructor
    */
   function SymbolNode( numberAtom ) {

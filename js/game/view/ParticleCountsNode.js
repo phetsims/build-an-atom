@@ -26,6 +26,11 @@ define( function( require ) {
   // constants
   var MAX_WIDTH = 280;
 
+  /**
+   * @param {NumberAtom} numberAtom
+   * @param {Object} [options]
+   * @constructor
+   */
   function ParticleCountsNode( numberAtom, options ) {
 
     Node.call( this, options ); // Call super constructor.

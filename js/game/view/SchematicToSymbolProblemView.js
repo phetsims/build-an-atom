@@ -22,8 +22,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * Main constructor function.
-   *
+   * @param {ToSymbolProblem} toSymbolProblem
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
    * @constructor
    */
   function SchematicToSymbolProblemView( toSymbolProblem, layoutBounds, tandem ) {

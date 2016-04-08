@@ -23,6 +23,10 @@ define( function( require ) {
   var WIDTH = 122; // In screen coords, which are roughly pixels.
   var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
+  /**
+   * @param {NumberAtom} numberAtom
+   * @constructor
+   */
   function MassNumberDisplay( numberAtom ) {
 
     Node.call( this ); // Call super constructor.

@@ -215,7 +215,7 @@ define( function( require ) {
   ];
 
   /**
-   * @param level
+   * @param {number} level
    * @constructor
    */
   function AtomValuePool( level, random ) {
