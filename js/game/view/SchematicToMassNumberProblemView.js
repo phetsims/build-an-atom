@@ -75,7 +75,7 @@ define( function( require ) {
     massEntryNode.left = questionPrompt.right + 10;
     massEntryNode.centerY = questionPrompt.centerY;
 
-    this.schematicToMassNumberProblemViewDispose = function(){
+    this.schematicToMassNumberProblemViewDispose = function() {
       nonInteractiveSchematicAtomNode.dispose();
     };
   }
@@ -84,22 +84,25 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SchematicToMassNumberProblemView, {
-      checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom( {
-          protonCount: this.problem.answerAtom.protonCount,
-          neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
-          electronCount: this.problem.answerAtom.electronCount
-        } );
-        this.problem.checkAnswer( userSubmittedAnswer );
-      },
 
-      displayCorrectAnswer: function() {
-        this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
-      },
-      
-      dispose: function() {
-        this.schematicToMassNumberProblemViewDispose();
-      }
+    // @public
+    checkAnswer: function() {
+      var userSubmittedAnswer = new NumberAtom( {
+        protonCount: this.problem.answerAtom.protonCount,
+        neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
+        electronCount: this.problem.answerAtom.electronCount
+      } );
+      this.problem.checkAnswer( userSubmittedAnswer );
+    },
+
+    // @public
+    displayCorrectAnswer: function() {
+      this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
+    },
+
+    // @public
+    dispose: function() {
+      this.schematicToMassNumberProblemViewDispose();
     }
-  );
+  } );
 } );

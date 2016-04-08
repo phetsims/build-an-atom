@@ -189,26 +189,40 @@ define( function( require ) {
   // Inherit from Node.
   return inherit( Node, ProblemView, {
 
-      // Function to clear the user's answer, generally used when
-      // giving the user another chance to answer.  Must be implemented
-      // in subclasses if any action is desired.
-      clearAnswer: function() {},
+    // Function to clear the user's answer, generally used when
+    // giving the user another chance to answer.  Must be implemented
+    // in subclasses if any action is desired.
 
-      // Function to display the correct answer.  Must be implemented
-      // in subclasses.
-      displayCorrectAnswer: function() {},
+    /**
+     * Function to clear the user's answer, generally used when giving the user another chance to answer.  Must be
+     * implemented in subclasses if any action is desired.
+     * @public
+     */
+    clearAnswer: function() {},
 
-      // Function to check the user's submitted answer.  Must be
-      // implemented in subclasses.
-      checkAnswer: function() {},
+    /**
+     * Function to display the correct answer.  Must be implemented in subclasses.
+     * @public
+     */
+    displayCorrectAnswer: function() {},
 
-      // Function to set the location of all buttons.
-      setButtonCenter: function( x, y ) {
-        this.buttons.forEach( function( button ) {
-          button.centerX = x;
-          button.centerY = y;
-        } );
-      }
+    /**
+     * Function to check the user's submitted answer.  Must be implemented in subclasses.
+     * @public
+     */
+    checkAnswer: function() {},
+
+    /**
+     * Function to set the location of all buttons.
+     * @param {number} x
+     * @param {number} y
+     * @public
+     */
+    setButtonCenter: function( x, y ) {
+      this.buttons.forEach( function( button ) {
+        button.centerX = x;
+        button.centerY = y;
+      } );
     }
-  );
+  } );
 } );

@@ -243,6 +243,7 @@ define( function( require ) {
    * @param maxProtonCount
    * @param requireCharged
    * @returns an atom that matches, or null if none exist in the pool
+   * @public
    */
   AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProtonCount, requireCharged ) {
 

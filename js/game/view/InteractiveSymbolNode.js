@@ -171,6 +171,8 @@ define( function( require ) {
 
   // Inherit from Node.
   return inherit( Node, InteractiveSymbolNode, {
+
+    // @public
     reset: function() {
       this.protonCountProperty.reset();
       this.massNumberProperty.reset();

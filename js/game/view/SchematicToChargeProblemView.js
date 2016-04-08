@@ -77,7 +77,7 @@ define( function( require ) {
     chargeEntryNode.left = questionPrompt.right + 10;
     chargeEntryNode.centerY = questionPrompt.centerY;
 
-    this.schematicToChargeProblemViewDispose = function(){
+    this.schematicToChargeProblemViewDispose = function() {
       nonInteractiveSchematicNode.dispose();
     };
   }
@@ -86,22 +86,24 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SchematicToChargeProblemView, {
-      checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom( {
-          protonCount: this.problem.answerAtom.protonCount,
-          neutronCount: this.problem.answerAtom.neutronCount,
-          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
-        } );
-        this.problem.checkAnswer( userSubmittedAnswer );
-      },
 
-      displayCorrectAnswer: function() {
-        this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
-      },
+    // @public
+    checkAnswer: function() {
+      var userSubmittedAnswer = new NumberAtom( {
+        protonCount: this.problem.answerAtom.protonCount,
+        neutronCount: this.problem.answerAtom.neutronCount,
+        electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
+      } );
+      this.problem.checkAnswer( userSubmittedAnswer );
+    },
 
-      dispose: function(){
-        this.schematicToChargeProblemViewDispose();
-      }
+    // @public
+    displayCorrectAnswer: function() {
+      this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
+    },
+
+    dispose: function() {
+      this.schematicToChargeProblemViewDispose();
     }
-  );
+  } );
 } );

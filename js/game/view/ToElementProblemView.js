@@ -139,6 +139,8 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, ToElementProblemView, {
+
+    // @public
     checkAnswer: function() {
       var submittedAtom = new NumberAtom( {
         protonCount: this.periodicTableAtom.protonCount,
@@ -147,18 +149,24 @@ define( function( require ) {
       } );
       this.problem.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
     },
+
+    // @public
     clearAnswer: function() {
       this.periodicTableAtom.protonCount = 0;
       this.periodicTableAtom.neutronCount = 0;
       this.periodicTableAtom.electronCount = 0;
       this.neutralOrIonProperty.reset();
     },
+
+    // @public
     displayCorrectAnswer: function() {
       this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
       this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
       this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
       this.neutralOrIonProperty.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
     },
+
+    // @public
     dispose: function() {
       this.periodicTable.dispose();
       this.toElementProblemViewDispose();

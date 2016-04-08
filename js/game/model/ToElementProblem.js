@@ -30,8 +30,13 @@ define( function( require ) {
   // Inherit from base class and define the methods for this object.
   return inherit( BAAGameProblem, ToElementProblem, {
 
-    // Override the method for checking the correct answer, since this problem
-    // class has the additional step of user deciding whether atom is an ion.
+    /**
+     * Override the method for checking the correct answer, since this problem class has the additional step of user
+     * deciding whether atom is an ion.
+     * @param {NumberAtom} submittedAtom
+     * @param {string} submittedNeutralOrIon
+     * @public
+     */
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
       assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
       this.numSubmissions++;

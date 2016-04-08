@@ -89,6 +89,8 @@ define( function( require ) {
 
   // Inherit from Node.
   return inherit( Node, NonInteractiveSchematicAtomNode, {
+
+    // @public
     dispose: function() {
       this.nonInteractiveSchematicAtomNodeDispose();
     }

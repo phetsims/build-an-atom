@@ -49,7 +49,7 @@ define( function( require ) {
     } );
     this.controlPanelLayer.addChild( symbolBox );
 
-    // Do the layout.
+    // do the layout
     symbolBox.top = this.periodicTableBox.top + this.periodicTableBox.height + 10;
     symbolBox.left = this.periodicTableBox.left;
   }

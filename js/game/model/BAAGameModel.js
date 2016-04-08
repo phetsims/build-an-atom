@@ -85,7 +85,7 @@ define( function( require ) {
   // Inherit from base class and define the methods for this object.
   return inherit( PropertySet, BAAGameModel, {
 
-    // Step function necessary to be used as a model in the Joist framework.
+    // @public - time stepping function, called by the framework
     step: function( dt ) {
       // Step the current problem if it has any time-driven behavior.
       if ( this.state && ( typeof( this.state.step ) !== 'undefined' ) ) {
@@ -107,14 +107,14 @@ define( function( require ) {
       this.state = this.problemSet.length > 0 ? this.state = this.problemSet[ 0 ] : this.state = 'levelCompleted';
     },
 
-    // State where the user selects a new game.
+    // @public - go to the level selection dialog and allow the user to start a new game
     newGame: function() {
       this.state = 'selectGameLevel';
       this.score = 0;
       this._stopGameTimer();
     },
 
-    // Advance to the next problem or to the 'game over' screen if all problems finished.
+    // @public - advance to the next problem or to the 'game over' screen if all problems finished
     next: function() {
       if ( this.problemSet.length > this.problemIndex + 1 ) {
         // Next problem.
@@ -147,6 +147,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
       var thisGameModel = this;
@@ -156,14 +157,17 @@ define( function( require ) {
       }
     },
 
+    // @public
     addStepListener: function( stepListener ) {
       this.stepListeners.push( stepListener );
     },
 
+    // @public
     removeStepListener: function( stepListener ) {
       this.stepListeners = _.without( this.stepListeners, stepListener );
     },
 
+    // @private
     _restartGameTimer: function() {
       if ( this.gameTimerId !== null ) {
         window.clearInterval( this.gameTimerId );
@@ -173,6 +177,7 @@ define( function( require ) {
       this.gameTimerId = window.setInterval( function() { thisModel.elapsedTime += 1; }, 1000 );
     },
 
+    // @private
     _stopGameTimer: function() {
       window.clearInterval( this.gameTimerId );
       this.gameTimerId = null;
@@ -184,6 +189,7 @@ define( function( require ) {
       this.allowedProblemTypesByLevel = allowedProblemTypesByLevel;
     },
 
+    // @public
     emitCheckAnswer: function( isCorrect, pointsIfCorrect, answerAtom, submittedAtom, extension ) {
       var arg = {
         isCorrect: isCorrect,

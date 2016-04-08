@@ -57,20 +57,22 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, CountsToSymbolProblemView, {
-      checkAnswer: function() {
-        var userSubmittedAtom = new NumberAtom( {
-          protonCount: this.interactiveSymbolNode.protonCountProperty.value,
-          neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
-          electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
-        } );
-        this.problem.checkAnswer( userSubmittedAtom );
-      },
 
-      displayCorrectAnswer: function() {
-        this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
-        this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
-        this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
-      }
+    // @public
+    checkAnswer: function() {
+      var userSubmittedAtom = new NumberAtom( {
+        protonCount: this.interactiveSymbolNode.protonCountProperty.value,
+        neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
+        electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
+      } );
+      this.problem.checkAnswer( userSubmittedAtom );
+    },
+
+    // @public
+    displayCorrectAnswer: function() {
+      this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
+      this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
+      this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
     }
-  );
+  } );
 } );

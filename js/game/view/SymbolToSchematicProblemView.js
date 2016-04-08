@@ -57,7 +57,7 @@ define( function( require ) {
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.71;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.40;
 
-    this.symbolToSchematicProblemViewDispose = function(){
+    this.symbolToSchematicProblemViewDispose = function() {
       this.interactiveSchematicAtom.dispose();
     };
   }
@@ -67,17 +67,19 @@ define( function( require ) {
   // Inherit from ProblemView.
   return inherit( ProblemView, SymbolToSchematicProblemView, {
 
-      checkAnswer: function() {
-        this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
-      },
+    // @public
+    checkAnswer: function() {
+      this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
+    },
 
-      displayCorrectAnswer: function() {
-        this.problem.buildAnAtomModel.setAtomConfiguration( this.problem.answerAtom );
-      },
+    // @public
+    displayCorrectAnswer: function() {
+      this.problem.buildAnAtomModel.setAtomConfiguration( this.problem.answerAtom );
+    },
 
-      dispose: function() {
-        this.symbolToSchematicProblemViewDispose();
-      }
+    // @public
+    dispose: function() {
+      this.symbolToSchematicProblemViewDispose();
     }
-  );
+  } );
 } );

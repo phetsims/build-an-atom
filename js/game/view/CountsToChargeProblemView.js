@@ -74,18 +74,20 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, CountsToChargeProblemView, {
-      checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom( {
-          protonCount: this.problem.answerAtom.protonCount,
-          neutronCount: this.problem.answerAtom.neutronCount,
-          electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
-        } );
-        this.problem.checkAnswer( userSubmittedAnswer );
-      },
 
-      displayCorrectAnswer: function() {
-        this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
-      }
+    // @public
+    checkAnswer: function() {
+      var userSubmittedAnswer = new NumberAtom( {
+        protonCount: this.problem.answerAtom.protonCount,
+        neutronCount: this.problem.answerAtom.neutronCount,
+        electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
+      } );
+      this.problem.checkAnswer( userSubmittedAnswer );
+    },
+
+    // @public
+    displayCorrectAnswer: function() {
+      this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
     }
-  );
+  } );
 } );

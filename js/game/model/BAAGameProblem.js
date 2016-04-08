@@ -41,8 +41,12 @@ define( function( require ) {
     // send user events to the problem.
     //------------------------------------------------------------------------
 
-    // Process answer submitted by the user.  This is the most basic check,
-    // and more elaborate ways of verifying can be implemented in sub-classes.
+    /**
+     * Process the answer submitted by the user.  This is the most basic check, and more elaborate ways of verifying
+     * can be implemented in sub-classes.
+     * @param submittedAtom
+     * @public
+     */
     checkAnswer: function( submittedAtom ) {
 
       // Verify that the current state is as expected.
@@ -82,20 +86,19 @@ define( function( require ) {
       }
     },
 
-    // The user has pressed the "Try Again" button.
+    // public - allow the user to try again to correctly answer the question
     tryAgain: function() {
       this.problemState = 'presentingProblem';
     },
 
-    // The user has pressed the 'Next' button.
+    // @public - advance to the next question or finish the level
     next: function() {
       // This event is basically handled by the model, which will remove this
       // problem and do whatever should happen next.
       this.model.next();
     },
 
-    // The user has exhausted attempts and has pressed the "Display Correct
-    // Answer" button.
+    // @public - display the correct answer to the user
     displayCorrectAnswer: function() {
       this.problemState = 'displayingCorrectAnswer';
     }

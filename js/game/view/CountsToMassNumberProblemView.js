@@ -71,18 +71,20 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, CountsToMassNumberProblemView, {
-      checkAnswer: function() {
-        var userSubmittedAnswer = new NumberAtom( {
-          protonCount: this.problem.answerAtom.protonCount,
-          neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
-          electronCount: this.problem.answerAtom.electronCount
-        } );
-        this.problem.checkAnswer( userSubmittedAnswer );
-      },
 
-      displayCorrectAnswer: function() {
-        this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
-      }
+    // @public
+    checkAnswer: function() {
+      var userSubmittedAnswer = new NumberAtom( {
+        protonCount: this.problem.answerAtom.protonCount,
+        neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
+        electronCount: this.problem.answerAtom.electronCount
+      } );
+      this.problem.checkAnswer( userSubmittedAnswer );
+    },
+
+    // @public
+    displayCorrectAnswer: function() {
+      this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
     }
-  );
+  } );
 } );

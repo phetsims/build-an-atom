@@ -120,6 +120,8 @@ define( function( require ) {
 
   // Inherit from ScreenView.
   return inherit( ScreenView, BAAGameView, {
+
+    // @public - step function for the view, called by the framework
     step: function( elapsedTime ) {
       if ( this.rewardNode ) {
         this.rewardNode.step( elapsedTime );

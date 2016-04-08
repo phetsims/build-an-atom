@@ -60,7 +60,7 @@ define( function( require ) {
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
-    this.schematicToSymbolProblemViewDispose = function(){
+    this.schematicToSymbolProblemViewDispose = function() {
       schematicAtomNode.dispose();
     };
   }
@@ -69,25 +69,27 @@ define( function( require ) {
 
   // Inherit from ProblemView.
   return inherit( ProblemView, SchematicToSymbolProblemView, {
-      checkAnswer: function() {
-        var userSubmittedAtom = new NumberAtom( {
-          protonCount: this.interactiveSymbolNode.protonCountProperty.value,
-          neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
-          electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
-        } );
-        this.problem.checkAnswer( userSubmittedAtom );
-      },
 
-      displayCorrectAnswer: function() {
-        this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
-        this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
-        this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
-      },
+    // @public
+    checkAnswer: function() {
+      var userSubmittedAtom = new NumberAtom( {
+        protonCount: this.interactiveSymbolNode.protonCountProperty.value,
+        neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
+        electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
+      } );
+      this.problem.checkAnswer( userSubmittedAtom );
+    },
 
-      dispose: function(){
-        this.schematicToSymbolProblemViewDispose();
-      }
+    // @public
+    displayCorrectAnswer: function() {
+      this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
+      this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
+      this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
+    },
 
+    // @public
+    dispose: function() {
+      this.schematicToSymbolProblemViewDispose();
     }
-  );
+  } );
 } );

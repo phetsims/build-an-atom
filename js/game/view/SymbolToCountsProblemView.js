@@ -51,15 +51,16 @@ define( function( require ) {
   // Inherit from ProblemView.
   return inherit( ProblemView, SymbolToCountsProblemView, {
 
-      checkAnswer: function() {
-        this.problem.checkAnswer( this.interactiveParticleCountsNode.numberAtom );
-      },
+    // @public
+    checkAnswer: function() {
+      this.problem.checkAnswer( this.interactiveParticleCountsNode.numberAtom );
+    },
 
-      displayCorrectAnswer: function() {
-        this.interactiveParticleCountsNode.numberAtom.protonCount = this.problem.answerAtom.protonCount;
-        this.interactiveParticleCountsNode.numberAtom.neutronCount = this.problem.answerAtom.neutronCount;
-        this.interactiveParticleCountsNode.numberAtom.electronCount = this.problem.answerAtom.electronCount;
-      }
+    // @public
+    displayCorrectAnswer: function() {
+      this.interactiveParticleCountsNode.numberAtom.protonCount = this.problem.answerAtom.protonCount;
+      this.interactiveParticleCountsNode.numberAtom.neutronCount = this.problem.answerAtom.neutronCount;
+      this.interactiveParticleCountsNode.numberAtom.electronCount = this.problem.answerAtom.electronCount;
     }
-  );
+  } );
 } );

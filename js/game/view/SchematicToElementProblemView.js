@@ -51,6 +51,8 @@ define( function( require ) {
 
   // Inherit from ToElementProblemView.
   return inherit( ToElementProblemView, SchematicToElementProblemView, {
+
+    // @public
     dispose: function(){
       ToElementProblemView.prototype.dispose.call(this);
       this.schematicToElementProblemViewDispose();

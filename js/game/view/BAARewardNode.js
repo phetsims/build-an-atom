@@ -41,6 +41,7 @@ define( function( require ) {
 
   return inherit( RewardNode, BAARewardNode, {
 
+    // @private
     _createRandomStableAtom: function() {
       var atomicNumber = 1 + Math.floor( this.random() * 18 ); // Limit to Argon, since that's as high as translations go.
       return new NumberAtom( {
@@ -50,6 +51,7 @@ define( function( require ) {
       } );
     },
 
+    // @public
     createNodes: function( tandem ) {
       var self = this;
       var nodes = [];

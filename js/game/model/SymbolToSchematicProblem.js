@@ -39,12 +39,12 @@ define( function( require ) {
   // Inherit from base class and define the methods for this object.
   return inherit( BAAGameProblem, SymbolToSchematicProblem, {
 
-    // Create the view needed to visual represent this problem.
+    // @public - create the view needed to visual represent this problem
     createView: function( layoutBounds, tandem ) {
       return new SymbolToSchematicProblemView( this, layoutBounds, tandem.createTandem( 'symbolToSchematicProblemView' ) );
     },
 
-    // Step the atom model when the problem is stepped.
+    // @public - step the atom model when the problem is stepped
     step: function( dt ) {
       this.buildAnAtomModel.step( dt );
     }

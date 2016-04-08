@@ -205,7 +205,7 @@ define( function( require ) {
 
   return inherit( PropertySet, BuildAnAtomModel, {
 
-    // Main model step function, called by the framework.
+    // @public - main model step function, called by the framework
     step: function( dt ) {
 
       // Update particle positions.
@@ -234,6 +234,7 @@ define( function( require ) {
       }
     },
 
+    // @private
     _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
       var particlesToRemove = [];
       // Copy the observable particle collection into a regular array.
@@ -248,6 +249,7 @@ define( function( require ) {
       );
     },
 
+    // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
 
@@ -287,7 +289,7 @@ define( function( require ) {
       } );
     },
 
-    // Set the atom to the specified configuration.
+    // @public - set the atom to the specified configuration
     setAtomConfiguration: function( numberAtom ) {
       // Define a function for transferring particles from buckets to atom.
       var atomCenter = this.particleAtom.position;
