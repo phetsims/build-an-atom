@@ -45,6 +45,8 @@ define( function( require ) {
       contentAlign: 'center',
       titleAlignX: 'left',
       buttonAlign: 'right',
+      buttonTouchAreaXDilation: 8,
+      buttonTouchAreaYDilation: 8,
       expandedProperty: this.viewProperties.symbolBoxExpandedProperty
     } );
     this.controlPanelLayer.addChild( symbolBox );

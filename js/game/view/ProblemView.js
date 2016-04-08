@@ -31,6 +31,7 @@ define( function( require ) {
   var BUTTON_FILL = new Color( 0, 255, 153 );
   var POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
   var BUTTON_MAX_WIDTH = 350;
+  var BUTTON_TOUCH_AREA_DILATION = 8;
 
   /**
    * Main constructor function.
@@ -70,6 +71,8 @@ define( function( require ) {
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
+      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
+      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
       tandem: tandem.createTandem( 'checkAnswerButton' )
     } );
     this.addChild( this.checkAnswerButton );
@@ -80,6 +83,8 @@ define( function( require ) {
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
+      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
+      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
       tandem: tandem.createTandem( 'nextButton' )
     } );
     this.addChild( this.nextButton );
@@ -90,6 +95,8 @@ define( function( require ) {
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
+      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
+      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
       tandem: tandem.createTandem( 'tryAgainButton' )
     } );
     this.addChild( this.tryAgainButton );
@@ -100,6 +107,8 @@ define( function( require ) {
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
+      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
+      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
       tandem: tandem.createTandem( 'displayCorrectAnswerButton' )
     } );
     this.addChild( this.displayCorrectAnswerButton );

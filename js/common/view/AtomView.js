@@ -186,7 +186,9 @@ define( function( require ) {
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty
+      expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty,
+      buttonTouchAreaXDilation: 8,
+      buttonTouchAreaYDilation: 8
     } );
     this.addChild( this.periodicTableBox );
 
@@ -261,7 +263,8 @@ define( function( require ) {
         thisView.viewProperties.reset();
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
-      bottom: this.layoutBounds.maxY - CONTROLS_INSET
+      bottom: this.layoutBounds.maxY - CONTROLS_INSET,
+      touchAreaDilation: 8
     } );
     resetButton.scale( 0.85 );
     this.addChild( resetButton );

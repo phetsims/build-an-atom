@@ -24,6 +24,7 @@ define( function( require ) {
 
   // constants
   var INTER_BOX_SPACING = 7;
+  var ACCORDION_BOX_BUTTON_DILATION = 8;
 
   /**
    * Constructor.
@@ -56,7 +57,9 @@ define( function( require ) {
       minWidth: this.periodicTableBox.width,
       contentAlign: 'left',
       titleAlignX: 'left',
-      buttonAlign: 'right'
+      buttonAlign: 'right',
+      buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
+      buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
     } );
     this.controlPanelLayer.addChild( chargeMeterBox );
 
@@ -73,7 +76,9 @@ define( function( require ) {
       minWidth: this.periodicTableBox.width,
       contentAlign: 'left',
       titleAlignX: 'left',
-      buttonAlign: 'right'
+      buttonAlign: 'right',
+      buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
+      buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
     } );
     this.controlPanelLayer.addChild( massNumberBox );
 

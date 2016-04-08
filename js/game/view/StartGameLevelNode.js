@@ -119,7 +119,8 @@ define( function( require ) {
         gameModel.reset();
       },
       scale: 0.85,
-      tandem: tandem.createTandem( 'resetAllButton' )
+      tandem: tandem.createTandem( 'resetAllButton' ),
+      touchAreaDilation: 8
     } );
     this.addChild( resetAllButton );
 
