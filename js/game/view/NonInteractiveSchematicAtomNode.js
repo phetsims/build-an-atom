@@ -29,11 +29,12 @@ define( function( require ) {
 
     // Add the electron shells.
     var particleAtom = new ParticleAtom();
-    this.addChild( new AtomNode( particleAtom, modelViewTransform, {
+    var atomNode = new AtomNode( particleAtom, modelViewTransform, {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
       showStableOrUnstableProperty: new Property( false )
-    } ) );
+    } );
+    this.addChild( atomNode );
 
     // Layer where the particles go.
     var particleLayer = new Node();
@@ -41,11 +42,14 @@ define( function( require ) {
 
     // Utility function to create and add particles.
     var particleGroupTandem = tandem.createGroupTandem( 'particle' );
+    var particleViews = [];
     var createAndAddParticles = function( particleType, number ) {
       _.times( number, function() {
         var particle = new Particle( particleType );
         particleAtom.addParticle( particle );
-        particleLayer.addChild( new ParticleView( particle, modelViewTransform, particleGroupTandem.createNextTandem() ) );
+        var particleView = new ParticleView( particle, modelViewTransform, particleGroupTandem.createNextTandem() );
+        particleLayer.addChild( particleView );
+        particleViews.push( particleView );
       } );
     };
 
@@ -71,10 +75,21 @@ define( function( require ) {
         particleLayer.addChild( particleView );
       } );
     }
+
+    this.nonInteractiveSchematicAtomNodeDispose = function(){
+      particleViews.forEach( function( particleView ) {
+        particleView.dispose();
+      });
+      atomNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'NonInteractiveSchematicAtomNode', NonInteractiveSchematicAtomNode );
 
   // Inherit from Node.
-  return inherit( Node, NonInteractiveSchematicAtomNode );
+  return inherit( Node, NonInteractiveSchematicAtomNode,{
+    dispose: function(){
+      this.nonInteractiveSchematicAtomNodeDispose();
+    }
+  } );
 } );

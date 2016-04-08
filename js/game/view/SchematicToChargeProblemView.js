@@ -46,7 +46,10 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
+    var nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode( schematicToChargeProblem.answerAtom,
+      modelViewTransform,
+      tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+    this.problemPresentationNode.addChild( nonInteractiveSchematicNode );
 
     // Question
     var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
@@ -72,6 +75,10 @@ define( function( require ) {
     questionPrompt.centerY = layoutBounds.height * 0.5;
     chargeEntryNode.left = questionPrompt.right + 10;
     chargeEntryNode.centerY = questionPrompt.centerY;
+
+    this.schematicToChargeProblemViewDispose = function(){
+      nonInteractiveSchematicNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'SchematicToChargeProblemView', SchematicToChargeProblemView );
@@ -89,6 +96,10 @@ define( function( require ) {
 
       displayCorrectAnswer: function() {
         this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
+      },
+
+      dispose: function(){
+        this.schematicToChargeProblemViewDispose();
       }
     }
   );

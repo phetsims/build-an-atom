@@ -66,15 +66,22 @@ define( function( require ) {
     this.rewardNode = null;
     var problemViewGroupTandem = tandem.createGroupTandem( 'problemView' );
 
+    var previousView = startGameLevelNode;
+
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
       if ( state === 'selectGameLevel' ) {
         rootNode.removeAllChildren();
+        previousView.dispose();
         rootNode.addChild( startGameLevelNode );
+        if ( thisScene.rewardNode !== null ){
+          thisScene.rewardNode.dispose();
+        }
         thisScene.rewardNode = null;
       }
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
+        previousView.dispose();
         if ( gameModel.score === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || getQueryParameter( 'reward' ) ) {
           // Perfect score, add the reward node.
           thisScene.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
@@ -101,8 +108,11 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a problem.
         rootNode.removeAllChildren();
-        rootNode.addChild( state.createView( thisScene.layoutBounds, problemViewGroupTandem.createNextTandem() ) );
+        previousView.dispose();
+        var problemView = state.createView( thisScene.layoutBounds, problemViewGroupTandem.createNextTandem() );
+        rootNode.addChild( problemView );
         rootNode.addChild( scoreboard );
+        previousView = problemView;
       }
     } );
   }

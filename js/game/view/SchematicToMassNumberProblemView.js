@@ -44,7 +44,11 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    thisNode.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) ) );
+    var nonInteractiveSchematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberProblem.answerAtom,
+      modelViewTransform,
+      tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+
+    thisNode.problemPresentationNode.addChild( nonInteractiveSchematicAtomNode );
 
     // Question
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
@@ -68,6 +72,10 @@ define( function( require ) {
     questionPrompt.centerY = layoutBounds.height * 0.5;
     massEntryNode.left = questionPrompt.right + 10;
     massEntryNode.centerY = questionPrompt.centerY;
+
+    this.schematicToMassNumberProblemViewDispose = function(){
+      nonInteractiveSchematicAtomNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'SchematicToMassNumberProblemView', SchematicToMassNumberProblemView );
@@ -85,6 +93,10 @@ define( function( require ) {
 
       displayCorrectAnswer: function() {
         this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
+      },
+      
+      dispose: function() {
+        this.schematicToMassNumberProblemViewDispose();
       }
     }
   );

@@ -98,17 +98,28 @@ define( function( require ) {
     neutralAtomVersusIonQuestion.addChild( ionRadioButton );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    this.periodicTableAtom.protonCountProperty.link( function( protonCount ) {
+    var updateVisibility = function( protonCount ) {
       // Once the user has selected an element, make the ion question visible.
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
-    } );
+    };
+
+    this.periodicTableAtom.protonCountProperty.link( updateVisibility );
 
     // Don't enable the "check answer" button until the user has answered the
     // "neutral vs. ion" question.
-    this.neutralOrIonProperty.link( function( neutralOrIon ) {
+
+    var updateCheckAnswerButton = function( neutralOrIon ) {
       thisNode.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
       thisNode.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
-    } );
+    };
+
+    this.neutralOrIonProperty.link( updateCheckAnswerButton );
+
+    // unlink from Properties
+    this.toElementProblemViewDispose = function() {
+      thisNode.neutralOrIonProperty.unlink( updateCheckAnswerButton );
+      thisNode.periodicTableAtom.protonCountProperty.unlink( updateVisibility );
+    };
 
     //--------------------------- Layout -------------------------------------
 
@@ -149,6 +160,10 @@ define( function( require ) {
       this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
       this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
       this.neutralOrIonProperty.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
+    },
+    dispose: function() {
+      this.periodicTable.dispose();
+      this.toElementProblemViewDispose();
     }
   } );
 } );

@@ -34,15 +34,25 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    this.problemPresentationNode.addChild( new NonInteractiveSchematicAtomNode(
+    var nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
       schematicToElementProblem.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )
-    ) );
+    );
+    this.problemPresentationNode.addChild( nonInteractiveSchematicNode );
+
+    this.schematicToElementProblemViewDispose = function(){
+      nonInteractiveSchematicNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'SchematicToElementProblemView', SchematicToElementProblemView );
 
   // Inherit from ToElementProblemView.
-  return inherit( ToElementProblemView, SchematicToElementProblemView );
+  return inherit( ToElementProblemView, SchematicToElementProblemView, {
+    dispose: function(){
+      ToElementProblemView.prototype.dispose.call(this);
+      this.schematicToElementProblemViewDispose();
+    }
+  } );
 } );

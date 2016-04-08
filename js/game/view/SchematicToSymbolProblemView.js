@@ -58,6 +58,10 @@ define( function( require ) {
     schematicAtomNode.centerY = layoutBounds.height * 0.30;
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
+
+    this.schematicToSymbolProblemViewDispose = function(){
+      schematicAtomNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'SchematicToSymbolProblemView', SchematicToSymbolProblemView );
@@ -77,7 +81,12 @@ define( function( require ) {
         this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
         this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
         this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
+      },
+
+      dispose: function(){
+        this.schematicToSymbolProblemViewDispose();
       }
+
     }
   );
 } );

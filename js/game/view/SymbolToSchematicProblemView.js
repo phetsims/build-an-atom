@@ -55,6 +55,10 @@ define( function( require ) {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.71;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.40;
+
+    this.symbolToSchematicProblemViewDispose = function(){
+      this.interactiveSchematicAtom.dispose();
+    };
   }
 
   buildAnAtom.register( 'SymbolToSchematicProblemView', SymbolToSchematicProblemView );
@@ -68,6 +72,10 @@ define( function( require ) {
 
       displayCorrectAnswer: function() {
         this.problem.buildAnAtomModel.setAtomConfiguration( this.problem.answerAtom );
+      },
+
+      dispose: function() {
+        this.symbolToSchematicProblemViewDispose();
       }
     }
   );
