@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
+  var Random = require( 'DOT/Random' );
   var RewardNode = require( 'VEGAS/RewardNode' );
 
   // constants
@@ -31,6 +32,9 @@ define( function( require ) {
   function BAARewardNode( tandem ) {
     var nodes = this.createNodes( tandem );
     RewardNode.call( this, { nodes: nodes } );
+
+    // @private
+    this.random = new Random();
   }
 
   buildAnAtom.register( 'BAARewardNode', BAARewardNode );
@@ -38,7 +42,7 @@ define( function( require ) {
   return inherit( RewardNode, BAARewardNode, {
 
     _createRandomStableAtom: function() {
-      var atomicNumber = 1 + Math.floor( Math.random() * 18 ); // Limit to Argon, since that's as high as translations go.
+      var atomicNumber = 1 + Math.floor( this.random() * 18 ); // Limit to Argon, since that's as high as translations go.
       return new NumberAtom( {
         protonCount: atomicNumber,
         neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
@@ -52,7 +56,7 @@ define( function( require ) {
       var groupTandem = tandem.createGroupTandem( 'interactiveSymbolNodes' );
       for ( var i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ){
         var interactiveSymbolNode = new InteractiveSymbolNode( self._createRandomStableAtom(), groupTandem.createNextTandem() );
-        interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH + Math.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / interactiveSymbolNode.width );
+        interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH + this.random() * ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) / interactiveSymbolNode.width );
         nodes.push( interactiveSymbolNode );
       }
       var faceNode = new FaceNode( FACE_DIAMETER );
