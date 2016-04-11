@@ -89,10 +89,10 @@ define( function( require ) {
       thisView.addChild( new BucketHole( bucket, modelViewTransform ).mutate( { pickable: false } ) );
     } );
 
-    // all the nucleons and electrons layer are added in this node and this node is added at last so that it remains on top
+    // add the layer where the nucleons and electrons will go, this is added last so that it remains on top
     var nucleonElectronLayer = new Node();
 
-    // Add the layers where the nucleons will be maintained.
+    // Add the layers where the nucleons will exist.
     var nucleonLayers = [];
     _.times( NUM_NUCLEON_LAYERS, function() {
       var nucleonLayer = new Node();
@@ -101,7 +101,7 @@ define( function( require ) {
     } );
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
-    // Add the layer where the electrons will be maintained.
+    // Add the layer where the electrons will exist.
     var electronLayer = new Node( { layerSplit: true } );
     nucleonElectronLayer.addChild( electronLayer );
 
