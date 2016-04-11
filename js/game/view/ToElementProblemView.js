@@ -96,12 +96,12 @@ define( function( require ) {
     neutralAtomVersusIonQuestion.addChild( ionRadioButton );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    var updateVisibility = function( protonCount ) {
+    var updateNeutralAtomVersusIonQuestionVisibility = function( protonCount ) {
       // Once the user has selected an element, make the ion question visible.
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
     };
 
-    this.periodicTableAtom.protonCountProperty.link( updateVisibility );
+    this.periodicTableAtom.protonCountProperty.link( updateNeutralAtomVersusIonQuestionVisibility );
 
     // Don't enable the "check answer" button until the user has answered the
     // "neutral vs. ion" question.
@@ -116,7 +116,7 @@ define( function( require ) {
     // unlink from Properties
     this.toElementProblemViewDispose = function() {
       thisNode.neutralOrIonProperty.unlink( updateCheckAnswerButton );
-      thisNode.periodicTableAtom.protonCountProperty.unlink( updateVisibility );
+      thisNode.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
     };
 
     //--------------------------- Layout -------------------------------------
