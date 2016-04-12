@@ -65,9 +65,11 @@ define( function( require ) {
     this.levelCompletedEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'levelCompletedEmitter' ) } );
 
     this.bestScores = []; // Properties that track progress on each game level.
+    this.scores = []; // Properties that track score at each game level
     thisGameModel.bestTimes = []; // Best times at each level.
     _.times( SharedConstants.LEVEL_NAMES.length, function() {
       thisGameModel.bestScores.push( new Property( 0 ) );
+      thisGameModel.scores.push( new Property( 0 ) );
       thisGameModel.bestTimes.push( null );
     } );
 
@@ -130,6 +132,8 @@ define( function( require ) {
           this.newBestTime = this.bestTimes[ this.level ] === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
+
+        this.scores[ this.level ].value = this.score;
 
         // When the game is complete, send notification that can be used by phet-io
         this.levelCompletedEmitter.emit1( {

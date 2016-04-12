@@ -61,7 +61,7 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
       },
-      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
+      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       _.extend( {
           tandem: tandem.createTandem( 'periodicTableGameButton' )
@@ -76,7 +76,7 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
       },
-      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
+      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( massAndChangeGameButton );
@@ -86,7 +86,7 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
       },
-      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
+      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( symbolGameButton );
@@ -96,7 +96,7 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
       },
-      gameModel.bestScores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
+      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       START_BUTTON_OPTIONS );
     this.addChild( advancedSymbolGameButton );
