@@ -94,7 +94,8 @@ define( function( require ) {
 
         // Add the dialog node that indicates that the level has been completed.
         rootNode.addChild( new LevelCompletedNode( gameModel.level, gameModel.score, BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-          BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime, gameModel.bestTimes[ gameModel.level ], gameModel.newBestTime,
+          BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime,
+          gameModel.bestTimes[ gameModel.level ], gameModel.newBestTime,
           function() { gameModel.state = 'selectGameLevel'; }, {
             centerX: thisScene.layoutBounds.width / 2,
             centerY: thisScene.layoutBounds.height / 2,

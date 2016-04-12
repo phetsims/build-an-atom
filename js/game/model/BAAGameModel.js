@@ -126,7 +126,7 @@ define( function( require ) {
         if ( this.score > this.bestScores[ this.level ].value ) {
           this.bestScores[ this.level ].value = this.score;
         }
-        if ( this.timerEnabled && this.score === this.MAX_POINTS_PER_GAME_LEVEL && ( this.bestTimes[ this.level ] === null || this.elapsedTime < this.bestTimes[ this.level ] ) ) {
+        if ( this.timerEnabled && this.score === MAX_POINTS_PER_GAME_LEVEL && ( this.bestTimes[ this.level ] === null || this.elapsedTime < this.bestTimes[ this.level ] ) ) {
           this.newBestTime = this.bestTimes[ this.level ] === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
           this.bestTimes[ this.level ] = this.elapsedTime;
         }
