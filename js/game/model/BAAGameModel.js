@@ -41,6 +41,7 @@ define( function( require ) {
       state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
       soundEnabled: true,
       timerEnabled: false,
+      bestTimeVisible: false,
       level: 0,
       problemSet: [],
       problemIndex: 0,
@@ -66,12 +67,21 @@ define( function( require ) {
 
     this.bestScores = []; // Properties that track progress on each game level.
     this.scores = []; // Properties that track score at each game level
+    this.bestTimeVisible = []; // Properties that track whether to show best time at each game level
     thisGameModel.bestTimes = []; // Best times at each level.
     _.times( SharedConstants.LEVEL_NAMES.length, function() {
       thisGameModel.bestScores.push( new Property( 0 ) );
       thisGameModel.scores.push( new Property( 0 ) );
-      thisGameModel.bestTimes.push( null );
+      thisGameModel.bestTimes.push( new Property( null ) );
+      thisGameModel.bestTimeVisible.push( new Property( false ) );
     } );
+
+    this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
+      var i = 0;
+      for( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++  ){
+        thisGameModel.bestTimeVisible[ i ].value = timerEnabled && thisGameModel.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
+      }
+    });
 
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
@@ -105,6 +115,7 @@ define( function( require ) {
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this, this.allowedProblemTypesByLevel, this.problemSetGroupTandem.createNextTandem() );
       this.score = 0;
       this.newBestTime = false;
+      this.bestTimeVisible[ this.level ].value = false;
       this._restartGameTimer();
       this.state = this.problemSet.length > 0 ? this.state = this.problemSet[ 0 ] : this.state = 'levelCompleted';
     },
@@ -128,9 +139,13 @@ define( function( require ) {
         if ( this.score > this.bestScores[ this.level ].value ) {
           this.bestScores[ this.level ].value = this.score;
         }
-        if ( this.timerEnabled && this.score === MAX_POINTS_PER_GAME_LEVEL && ( this.bestTimes[ this.level ] === null || this.elapsedTime < this.bestTimes[ this.level ] ) ) {
-          this.newBestTime = this.bestTimes[ this.level ] === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
-          this.bestTimes[ this.level ] = this.elapsedTime;
+        if ( this.timerEnabled && this.score === MAX_POINTS_PER_GAME_LEVEL && ( this.bestTimes[ this.level ].value === null || this.elapsedTime < this.bestTimes[ this.level ].value ) ) {
+          this.newBestTime = this.bestTimes[ this.level ].value === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
+          this.bestTimes[ this.level ].value = this.elapsedTime;
+        }
+
+        if ( this.score === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabled ){
+          this.bestTimeVisible[ this.level ].value = true;
         }
 
         this.scores[ this.level ].value = this.score;
