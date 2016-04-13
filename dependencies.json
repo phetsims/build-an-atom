@@ -1,4 +1,5 @@
 {
+  "comment": "# build-an-atom 1.2.0-rc.1 Wed Apr 13 2016 13:24:50 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -10,6 +11,10 @@
   "brand": {
     "sha": "bb1cfcc63c3d007d800ede089994d8705db6d47b",
     "branch": "HEAD"
+  },
+  "build-an-atom": {
+    "sha": "700ed9dd90c05bbf028054c7707a77923dfccacd",
+    "branch": "1.2"
   },
   "chipper": {
     "sha": "b2e0b31e099daed353568e97866386612fadc897",
