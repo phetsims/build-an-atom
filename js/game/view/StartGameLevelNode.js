@@ -144,7 +144,7 @@ define( function( require ) {
     // Layout
     var buttonWidth = periodicTableGameButton.width; // Note: Assumes all buttons are the same size.
     var interButtonXSpace = buttonWidth * 0.2;
-    var buttonCenterY = layoutBounds.height * 0.45;
+    var buttonCenterY = layoutBounds.height * 0.5;
     periodicTableGameButton.right = layoutBounds.centerX - 1.5 * interButtonXSpace - buttonWidth;
     periodicTableGameButton.centerY = buttonCenterY;
     massAndChargeGameButton.left = periodicTableGameButton.right + interButtonXSpace;

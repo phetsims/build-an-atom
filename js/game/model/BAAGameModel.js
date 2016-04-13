@@ -41,7 +41,6 @@ define( function( require ) {
       state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
       soundEnabled: true,
       timerEnabled: false,
-      bestTimeVisible: false,
       level: 0,
       problemSet: [],
       problemIndex: 0,
