@@ -168,11 +168,10 @@ define( function( require ) {
     // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
-      var thisGameModel = this;
-      this.bestScores.forEach( function( progressProperty ) { progressProperty.reset(); } );
-      for ( var i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
-        thisGameModel.bestTimes[ i ] = null;
-      }
+      this.bestScores.forEach( function( bestScoreProperty ) { bestScoreProperty.reset(); } );
+      this.scores.forEach( function( scoreProperty ) { scoreProperty.reset(); } );
+      this.bestTimes.forEach( function( bestTimeProperty ) { bestTimeProperty.reset(); } );
+      this.bestTimeVisible.push( function(bestTimeVisibleProperty  ) { bestTimeVisibleProperty.reset(); } );
     },
 
     // @public
