@@ -168,7 +168,6 @@ define( function( require ) {
     // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
-      var thisGameModel = this;
       this.bestScores.forEach( function( bestScoreProperty ) { bestScoreProperty.reset(); } );
       this.scores.forEach( function( scoreProperty ) { scoreProperty.reset(); } );
       this.bestTimes.forEach( function( bestTimeProperty ) { bestTimeProperty.reset(); } );
