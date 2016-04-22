@@ -37,10 +37,11 @@ define( function( require ) {
   var simOptions = {
     credits: {
       leadDesign: 'Kelly Lancaster',
-      softwareDevelopment: 'John Blanco, Sam Reid',
+      softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
       team: 'Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter,\n' +
-            'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Ariel Paul, Robert Parson,\n' +
+            'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson,\n' +
             'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
+      qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     },
     tandem: tandem
