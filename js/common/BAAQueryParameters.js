@@ -8,11 +8,17 @@
 define( function( require ) {
   'use strict';
 
+  //modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+
   var getQueryParameter = phet.chipper.getQueryParameter;
 
-  return {
-
+  var BAAQueryParameters = {
     // shows the game reward regardless of score
     REWARD: getQueryParameter( 'reward' ) || false
   };
+
+  buildAnAtom.register('BAAQueryParameters', BAAQueryParameters);
+
+  return BAAQueryParameters
 } );
