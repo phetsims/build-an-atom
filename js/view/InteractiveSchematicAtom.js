@@ -73,7 +73,8 @@ define( function( require ) {
 
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
-        assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
+        assert && assert( nucleonLayers.length > zLayer,
+          'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
 
         // Determine whether nucleon view is on the correct layer.
         var onCorrectLayer = false;
@@ -142,6 +143,7 @@ define( function( require ) {
   shred.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
 
   return inherit( Node, InteractiveSchematicAtom, {
+    // @public
     dispose: function(){
       this.interactiveSchematicAtomDispose();
     }
