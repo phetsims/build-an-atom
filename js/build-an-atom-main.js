@@ -18,6 +18,9 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
 
+  // If running as phet-io, load the API
+  require( 'ifphetio!PHET_IO/api/build-an-atom-api' );
+
   // strings
   var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
   var atomString = require( 'string!BUILD_AN_ATOM/atom' );
@@ -39,8 +42,8 @@ define( function( require ) {
       leadDesign: 'Kelly Lancaster',
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
       team: 'Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter,\n' +
-            'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson,\n' +
-            'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
+        'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson,\n' +
+        'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     },
@@ -56,23 +59,30 @@ define( function( require ) {
     // Create and start the sim
     new Sim( buildAnAtomTitleString, [
       new Screen( atomString, new Image( atomIcon ),
-        function() { return new BuildAnAtomModel( atomScreenTandem.createTandem( 'model' ) ); },
-        function( model ) { return new BuildAnAtomView( model, atomScreenTandem.createTandem( 'view' ) ); }, {
+        function() {
+          return new BuildAnAtomModel( atomScreenTandem.createTandem( 'model' ) ); },
+        function( model ) {
+          return new BuildAnAtomView( model, atomScreenTandem.createTandem( 'view' ) ); }, {
           tandem: atomScreenTandem,
           navigationBarIcon: new Image( atomIconSmall )
         }
       ),
       new Screen( symbolString, new Image( elementIcon ),
-        function() { return new BuildAnAtomModel( symbolScreenTandem.createTandem( 'model' ) ); },
-        function( model ) { return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) ); }, {
-          backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
+        function() {
+          return new BuildAnAtomModel( symbolScreenTandem.createTandem( 'model' ) ); },
+        function( model ) {
+          return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) ); }, {
+          backgroundColor: 'rgb( 242, 255, 204 )',
+          /* Light yellow-green */
           navigationBarIcon: new Image( elementIconSmall ),
           tandem: symbolScreenTandem
         }
       ),
       new Screen( gameString, new Image( gameIcon ),
-        function() { return new BAAGameModel( gameScreenTandem.createTandem( 'model' ) ); },
-        function( model ) { return new BAAGameView( model, gameScreenTandem.createTandem( 'view' ) ); }, {
+        function() {
+          return new BAAGameModel( gameScreenTandem.createTandem( 'model' ) ); },
+        function( model ) {
+          return new BAAGameView( model, gameScreenTandem.createTandem( 'view' ) ); }, {
           backgroundColor: 'rgb( 255, 254, 223 )',
           navigationBarIcon: new Image( gameIconSmall ),
           tandem: gameScreenTandem
@@ -81,3 +91,4 @@ define( function( require ) {
     ], simOptions ).start();
   } );
 } );
+
