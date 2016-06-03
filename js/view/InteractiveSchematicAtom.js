@@ -15,6 +15,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var ParticleView = require( 'SHRED/view/ParticleView' );
   var shred = require( 'SHRED/shred' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // constants
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -29,6 +30,9 @@ define( function( require ) {
     options = _.extend( {
       tandem: null
     }, options );
+
+    Tandem.validateOptions( options ); // The tandem is required when brand==='phet-io'
+    
     Node.call( this );
     var thisNode = this;
 
