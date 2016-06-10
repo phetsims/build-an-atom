@@ -19,7 +19,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // If running as phet-io, load the API
-  require( 'ifphetio!PHET_IO/api/build-an-atom-api' );
+  require( 'ifphetio!PHET_IO/simulations/build-an-atom/build-an-atom-api' );
 
   // strings
   var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
