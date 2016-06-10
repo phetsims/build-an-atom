@@ -17,7 +17,7 @@ define( function( require ) {
 
   // modules
   var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var PhETIOCommon = require( 'PHET_IO/types/PhETIOCommon' );
+  var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
