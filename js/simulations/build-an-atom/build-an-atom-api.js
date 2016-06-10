@@ -17,27 +17,27 @@ define( function( require ) {
 
   // modules
   var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var PhETIOCommon = require( 'PHET_IO/api/PhETIOCommon' );
+  var PhETIOCommon = require( 'PHET_IO/types/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var TArray = require( 'PHET_IO/api/TArray' );
-  var TBoolean = require( 'PHET_IO/api/TBoolean' );
-  var TButton = require( 'PHET_IO/api/sun/buttons/TButton' );
-  var TGroup = require( 'PHET_IO/api/TGroup' );
-  var TNode = require( 'PHET_IO/api/scenery/nodes/TNode' );
-  var TProperty = require( 'PHET_IO/api/axon/TProperty' );
-  var TRadioButton = require( 'PHET_IO/api/sun/buttons/TRadioButton' );
-  var TNumber = require( 'PHET_IO/api/TNumber' );
-  var TObject = require( 'PHET_IO/api/TObject' );
-  var TResetAllButton = require( 'PHET_IO/api/sun/buttons/TResetAllButton' );
-  var TString = require( 'PHET_IO/api/TString' );
-  var TTandemDragHandler = require( 'PHET_IO/api/tandem/scenery/input/TTandemDragHandler' );
-  var TTandemEmitter = require( 'PHET_IO/api/tandem/axon/TTandemEmitter' );
-  var TToggleButton = require( 'PHET_IO/api/sun/buttons/TToggleButton' );
-  var TVector2 = require( 'PHET_IO/api/dot/TVector2' );
-  var TVoid = require( 'PHET_IO/api/TVoid' );
+  var TArray = require( 'PHET_IO/types/TArray' );
+  var TBoolean = require( 'PHET_IO/types/TBoolean' );
+  var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
+  var TGroup = require( 'PHET_IO/types/TGroup' );
+  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+  var TProperty = require( 'PHET_IO/types/axon/TProperty' );
+  var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
+  var TNumber = require( 'PHET_IO/types/TNumber' );
+  var TObject = require( 'PHET_IO/types/TObject' );
+  var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
+  var TString = require( 'PHET_IO/types/TString' );
+  var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
+  var TTandemEmitter = require( 'PHET_IO/types/tandem/axon/TTandemEmitter' );
+  var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
+  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
+  var TVoid = require( 'PHET_IO/types/TVoid' );
 
   var TPeriodicTableCell = phetioInherit( TObject, 'TPeriodicTableCell', function( periodicTableCell, phetioID ) {
     assertInstanceOf( periodicTableCell, phet.shred.PeriodicTableCell ); // TODO: Move to PhETIOCommon.js?
@@ -99,12 +99,12 @@ define( function( require ) {
         this.instance.setAllowedProblemTypesByLevel( allowedProblemTypesByLevel );
       },
       documentation: 'Specify which problem types may be presented to the user for each level.'
-        // The default value is [
-        //    [ 'schematic-to-element', 'counts-to-element' ],
-        //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-        //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-        //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
-        //  ]
+      // The default value is [
+      //    [ 'schematic-to-element', 'counts-to-element' ],
+      //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
+      //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
+      //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+      //  ]
     }
   }, {
     events: 'levelCompleted'
