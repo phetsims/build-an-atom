@@ -20,5 +20,5 @@ define( function( require ) {
 
   buildAnAtom.register('BAAQueryParameters', BAAQueryParameters);
 
-  return BAAQueryParameters
+  return BAAQueryParameters;
 } );
