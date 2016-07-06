@@ -38,6 +38,7 @@ define( function( require ) {
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
+  var TRandom = require( 'PHET_IO/types/dot/TRandom' );
   var TParticle = require( 'PHET_IO/types/shred/TParticle' );
 
   var TPeriodicTableCell = phetioInherit( TObject, 'TPeriodicTableCell', function( periodicTableCell, phetioID ) {
@@ -133,6 +134,9 @@ define( function( require ) {
   } );
   var buildAnAtomAPI = PhETIOCommon.createAPI( {
     buildAnAtom: PhETIOCommon.createSim( {
+      problemSetFactory: {
+        random: TRandom
+      },
       atomScreen: {
         model: {
           protons: TGroup( TParticle ),
