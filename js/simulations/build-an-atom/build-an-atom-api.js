@@ -62,15 +62,6 @@ define( function( require ) {
     }
   } );
 
-  var TParticle = phetioInherit( TObject, 'TParticle', function( particle, phetioID ) {
-    assertInstanceOf( particle, phet.shred.Particle ); // TODO: Move to PhETIOCommon.js?
-    TObject.call( this, particle, phetioID );
-  }, {}, {
-    api: {
-      positionProperty: TProperty( TVector2 )
-    }
-  } );
-
   // Use explicit names for id keys so they will match what researchers see in data files
   // Use id and type instead of phetioID and typeID to simplify things for researchers
   // Use a map so that JS will help us check that there are no duplicate names.
