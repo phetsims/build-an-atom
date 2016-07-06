@@ -17,6 +17,7 @@ define( function( require ) {
 
   // modules
   var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
+  var TCheckBox = require( 'PHET_IO/types/sun/TCheckBox' );
   var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
@@ -40,6 +41,7 @@ define( function( require ) {
   var TVoid = require( 'PHET_IO/types/TVoid' );
   var TRandom = require( 'PHET_IO/types/dot/TRandom' );
   var TParticle = require( 'PHET_IO/types/shred/TParticle' );
+  var TVerticalCheckBoxGroup = require( 'PHET_IO/types/sun/TVerticalCheckBoxGroup' );
 
   var TPeriodicTableCell = phetioInherit( TObject, 'TPeriodicTableCell', function( periodicTableCell, phetioID ) {
     assertInstanceOf( periodicTableCell, phet.shred.PeriodicTableCell ); // TODO: Move to PhETIOCommon.js?
@@ -144,9 +146,18 @@ define( function( require ) {
           electrons: TGroup( TParticle )
         },
         view: {
+          bucket: TGroup( TObject ),
+          labelVisualizationControlPanel: TVerticalCheckBoxGroup.extend( {
+            showElementNameCheckBox: TCheckBox,
+            showNeutralOrIonCheckBox: TCheckBox,
+            showStableOrUnstableCheckBox: TCheckBox
+          } ),
+          orbitsRadioButton: TRadioButton( TString ),
+          cloudRadioButton: TRadioButton( TString ),
           periodicTableAndSymbol: {
             periodicTable: PeriodicTable
           },
+          resetAllButton: TResetAllButton,
           nucleons: TGroup( TParticle.extend( {
             inputListener: TTandemDragHandler
           } ) ),
@@ -162,6 +173,15 @@ define( function( require ) {
           electrons: TGroup( TParticle )
         },
         view: {
+          bucket: TGroup( TObject ),
+          labelVisualizationControlPanel: TVerticalCheckBoxGroup.extend( {
+            showElementNameCheckBox: TCheckBox,
+            showNeutralOrIonCheckBox: TCheckBox,
+            showStableOrUnstableCheckBox: TCheckBox
+          } ),
+          orbitsRadioButton: TRadioButton( TString ),
+          cloudRadioButton: TRadioButton( TString ),
+          resetAllButton: TResetAllButton,
           periodicTableAndSymbol: {
             periodicTable: PeriodicTable
           },
@@ -198,7 +218,10 @@ define( function( require ) {
             periodicTableGameButton: TButton,
             resetAllButton: TResetAllButton,
             timerToggleButton: TToggleButton( TBoolean ),
-            soundToggleButton: TToggleButton( TBoolean )
+            soundToggleButton: TToggleButton( TBoolean ),
+            massAndChargeGameButton: TButton,
+            symbolGameButton: TButton,
+            advancedSymbolGameButton: TButton
           },
           levelCompletedNode: {
             continueButton: TButton
