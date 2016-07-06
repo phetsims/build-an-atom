@@ -23,9 +23,14 @@ define( function( require ) {
   var SchematicToSymbolProblem = require( 'BUILD_AN_ATOM/game/model/SchematicToSymbolProblem' );
   var SymbolToCountsProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToCountsProblem' );
   var SymbolToSchematicProblem = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicProblem' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // constants
-  var random = new Random( { staticSeed: true } ); // Use deterministic but seeded for replicable playback
+  var tandem = Tandem.createStaticTandem( 'problemSetFactory' );
+  var random = new Random( {
+    staticSeed: true,
+    tandem: tandem.createTandem( 'random' )
+  } ); // Use deterministic but seeded for replicable playback
   var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.
 
   // No constructor, not meant to be instantiated.
