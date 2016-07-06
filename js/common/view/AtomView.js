@@ -108,9 +108,12 @@ define( function( require ) {
     // Add the nucleon particle views.
     var nucleonTandem = tandem.createGroupTandem( 'nucleons' );
     var electronsTandem = tandem.createGroupTandem( 'electrons' );
+    var bucketsTandem = tandem.createGroupTandem( 'bucket' );
 
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, modelViewTransform, nucleonTandem.createNextTandem() ) );
+      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, modelViewTransform, {
+        tandem: nucleonTandem.createNextTandem()
+      } ) );
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
         assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
@@ -145,7 +148,9 @@ define( function( require ) {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      electronLayer.addChild( new ParticleView( electron, modelViewTransform, electronsTandem.createNextTandem() ) );
+      electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
+        tandem: electronsTandem.createNextTandem()
+      } ) );
     } );
 
     // When the electrons are represented as a cloud, the individual particles
@@ -160,10 +165,13 @@ define( function( require ) {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     var bucketFrontLayer = new Node();
+
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform );
       bucketFrontLayer.addChild( bucketFront );
-      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform ) );
+      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
+        tandem: bucketsTandem.createNextTandem()
+      } ) );
     } );
 
     // Add the particle count indicator.
@@ -190,18 +198,22 @@ define( function( require ) {
     } );
     this.addChild( this.periodicTableBox );
 
-    var labelVizControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
+    var labelVisualizationControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
       content: new Text( elementString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
-      property: model.showElementNameProperty
+      property: model.showElementNameProperty,
+      tandemName: 'showElementNameCheckBox'
     }, {
       content: new Text( neutralSlashIonString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
-      property: model.showNeutralOrIonProperty
+      property: model.showNeutralOrIonProperty,
+      tandemName: 'showNeutralOrIonCheckBox'
     }, {
       content: new Text( stableSlashUnstableString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
-      property: model.showStableOrUnstableProperty
+      property: model.showStableOrUnstableProperty,
+      tandemName: 'showStableOrUnstableCheckBox'
     } ], {
-      boxWidth:12,
-      spacing:8
+      boxWidth: 12,
+      spacing: 8,
+      tandem: tandem.createTandem( 'labelVisualizationControlPanel' )
     } ), {
       fill: 'rgb( 245, 245, 245 )',
       lineWidth: LABEL_CONTROL_LINE_WIDTH,
@@ -210,34 +222,40 @@ define( function( require ) {
       resize: false
     } );
     var numDividerLines = 2;
-    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVizControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
+    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisualizationControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
     for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
       var dividerLine1 = new Path( dividerLineShape, {
         lineWidth: 1,
         stroke: 'gray',
-        centerY: labelVizControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
+        centerY: labelVisualizationControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
         x: LABEL_CONTROL_LINE_WIDTH / 2
       } );
-      labelVizControlPanel.addChild( dividerLine1 );
+      labelVisualizationControlPanel.addChild( dividerLine1 );
     }
 
-    this.addChild( labelVizControlPanel );
+    this.addChild( labelVisualizationControlPanel );
     var labelVizControlPanelTitle = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
-      maxWidth: labelVizControlPanel.width
+      maxWidth: labelVisualizationControlPanel.width
     } );
     this.addChild( labelVizControlPanelTitle );
 
     // Add the radio buttons that control the electron representation in the atom.
     var radioButtonRadius = 6;
-    var orbitsButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, {
+    var orbitsRadioButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, {
       font: ELECTRON_VIEW_CONTROL_FONT,
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-    } ), { radius: radioButtonRadius } );
-    var cloudButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, {
+    } ), {
+      radius: radioButtonRadius,
+      tandem: tandem.createTandem( 'orbitsRadioButton' )
+    } );
+    var cloudRadioButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, {
       font: ELECTRON_VIEW_CONTROL_FONT,
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-    } ), { radius: radioButtonRadius } );
+    } ), {
+      radius: radioButtonRadius,
+      tandem: tandem.createTandem( 'cloudRadioButton' )
+    } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( modelString, {
       font: new PhetFont( {
@@ -246,42 +264,43 @@ define( function( require ) {
       } ),
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20
     } ) );
-    orbitsButton.top = electronViewButtonGroup.bottom + 5;
-    orbitsButton.left = electronViewButtonGroup.left;
-    electronViewButtonGroup.addChild( orbitsButton );
-    cloudButton.top = electronViewButtonGroup.bottom + 5;
-    cloudButton.left = electronViewButtonGroup.left;
-    electronViewButtonGroup.addChild( cloudButton );
+    orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
+    orbitsRadioButton.left = electronViewButtonGroup.left;
+    electronViewButtonGroup.addChild( orbitsRadioButton );
+    cloudRadioButton.top = electronViewButtonGroup.bottom + 5;
+    cloudRadioButton.left = electronViewButtonGroup.left;
+    electronViewButtonGroup.addChild( cloudRadioButton );
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    var resetButton = new ResetAllButton( {
+    var resetAllButton = new ResetAllButton( {
       listener: function() {
         thisView.model.reset();
         thisView.viewProperties.reset();
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,
-      touchAreaDilation: 8
+      touchAreaDilation: 8,
+      tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    resetButton.scale( 0.85 );
-    this.addChild( resetButton );
+    resetAllButton.scale( 0.85 );
+    this.addChild( resetAllButton );
 
     // Do the layout.
     particleCountDisplay.top = CONTROLS_INSET;
     particleCountDisplay.left = CONTROLS_INSET;
     this.periodicTableBox.top = CONTROLS_INSET;
     this.periodicTableBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    labelVizControlPanel.left = this.periodicTableBox.left;
-    labelVizControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    labelVizControlPanelTitle.bottom = labelVizControlPanel.top;
-    labelVizControlPanelTitle.centerX = labelVizControlPanel.centerX;
+    labelVisualizationControlPanel.left = this.periodicTableBox.left;
+    labelVisualizationControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
+    labelVizControlPanelTitle.bottom = labelVisualizationControlPanel.top;
+    labelVizControlPanelTitle.centerX = labelVisualizationControlPanel.centerX;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes
     this.controlPanelLayer = new Node();
-    this.addChild(this.controlPanelLayer);
+    this.addChild( this.controlPanelLayer );
 
     this.addChild( nucleonElectronLayer );
     this.addChild( bucketFrontLayer );

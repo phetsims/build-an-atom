@@ -79,8 +79,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
       },
       gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-      {
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
+        tandem: tandem.createTandem( 'massAndChargeGameButton' ),
         baseColor: BASE_COLOR,
         bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
         bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ]
@@ -94,8 +94,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
       },
       gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-      {
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
+        tandem: tandem.createTandem( 'symbolGameButton' ),
         baseColor: BASE_COLOR,
         bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
         bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ]
@@ -109,8 +109,8 @@ define( function( require ) {
         gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
       },
       gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-      {
+      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
+        tandem: tandem.createTandem( 'advancedSymbolGameButton' ),
         baseColor: BASE_COLOR,
         bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
         bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ]
