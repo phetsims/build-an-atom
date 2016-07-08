@@ -37,7 +37,6 @@ define( function( require ) {
   var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
   var TTandemEmitter = require( 'PHET_IO/types/tandem/axon/TTandemEmitter' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
-  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
   var TRandom = require( 'PHET_IO/types/dot/TRandom' );
   var TParticle = require( 'PHET_IO/types/shred/TParticle' );
