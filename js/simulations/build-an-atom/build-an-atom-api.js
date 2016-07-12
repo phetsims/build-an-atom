@@ -16,14 +16,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
   var TCheckBox = require( 'PHET_IO/types/sun/TCheckBox' );
   var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var TArray = require( 'PHET_IO/types/TArray' );
+  var TBAAGameModel = require( 'PHET_IO/simulations/build-an-atom/types/TBAAGameModel' );
   var TBoolean = require( 'PHET_IO/types/TBoolean' );
   var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
   var TGroup = require( 'PHET_IO/types/TGroup' );
@@ -41,7 +39,6 @@ define( function( require ) {
   var TTandemEmitter = require( 'PHET_IO/types/tandem/axon/TTandemEmitter' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TVerticalCheckBoxGroup = require( 'PHET_IO/types/sun/TVerticalCheckBoxGroup' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
 
   // Use explicit names for id keys so they will match what researchers see in data files
   // Use id and type instead of phetioID and typeID to simplify things for researchers
@@ -51,36 +48,6 @@ define( function( require ) {
       column: TGroup( TPeriodicTableCell )
     } ) )
   };
-
-  var TBAAGameModel = phetioInherit( TObject, 'TBAAGameModel', function( gameModel, phetioID ) {
-    TObject.call( this, gameModel, phetioID );
-    assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
-  }, {
-    startGameLevel: {
-      returnType: TVoid,
-      parameterTypes: [ TString ],
-      implementation: function( levelType ) {
-        this.instance.startGameLevel( levelType );
-      },
-      documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game'
-    },
-    setAllowedProblemTypesByLevel: {
-      returnType: TVoid,
-      parameterTypes: [ TArray( TArray( TString ) ) ],
-      implementation: function( allowedProblemTypesByLevel ) {
-        this.instance.setAllowedProblemTypesByLevel( allowedProblemTypesByLevel );
-      },
-      documentation: 'Specify which problem types may be presented to the user for each level.'
-      // The default value is [
-      //    [ 'schematic-to-element', 'counts-to-element' ],
-      //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-      //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-      //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
-      //  ]
-    }
-  }, {
-    events: 'levelCompleted'
-  } );
 
   var levelButtons = {
     checkAnswerButton: TButton,
