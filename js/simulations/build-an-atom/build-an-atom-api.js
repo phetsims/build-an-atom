@@ -28,42 +28,20 @@ define( function( require ) {
   var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
   var TGroup = require( 'PHET_IO/types/TGroup' );
   var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+  var TNumber = require( 'PHET_IO/types/TNumber' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
   var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
-  var TNumber = require( 'PHET_IO/types/TNumber' );
+  var TRandom = require( 'PHET_IO/types/dot/TRandom' );
   var TObject = require( 'PHET_IO/types/TObject' );
+  var TParticle = require( 'PHET_IO/types/shred/TParticle' );
+  var TPeriodicTableCell = require( 'PHET_IO/simulations/build-an-atom/types/TPeriodicTableCell' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
   var TString = require( 'PHET_IO/types/TString' );
   var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
   var TTandemEmitter = require( 'PHET_IO/types/tandem/axon/TTandemEmitter' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
-  var TRandom = require( 'PHET_IO/types/dot/TRandom' );
-  var TParticle = require( 'PHET_IO/types/shred/TParticle' );
   var TVerticalCheckBoxGroup = require( 'PHET_IO/types/sun/TVerticalCheckBoxGroup' );
-
-  var TPeriodicTableCell = phetioInherit( TObject, 'TPeriodicTableCell', function( periodicTableCell, phetioID ) {
-    assertInstanceOf( periodicTableCell, phet.shred.PeriodicTableCell ); // TODO: Move to PhETIOCommon.js?
-    TObject.call( this, periodicTableCell, phetioID );
-
-    var index = null;
-    periodicTableCell.startedCallbacksForPressedEmitter.addListener( function() {
-      index = phetioEvents.start( 'user', phetioID, 'fired' );
-    } );
-    periodicTableCell.endedCallbacksForPressedEmitter.addListener( function() {
-      phetioEvents.end( index );
-    } );
-  }, {}, {
-    events: [ 'fired' ],
-
-    fromStateObject: function( stateObject ) {
-      return new phet.dot.Vector2( stateObject.x, stateObject.y );
-    },
-
-    toStateObject: function( instance ) {
-      return { x: instance.x, y: instance.y };
-    }
-  } );
+  var TVoid = require( 'PHET_IO/types/TVoid' );
 
   // Use explicit names for id keys so they will match what researchers see in data files
   // Use id and type instead of phetioID and typeID to simplify things for researchers
