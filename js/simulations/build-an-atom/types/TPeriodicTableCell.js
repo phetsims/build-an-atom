@@ -20,7 +20,7 @@ define( function( require ) {
 
     var index = null;
     periodicTableCell.startedCallbacksForPressedEmitter.addListener( function() {
-      index = phetioEvents.start( 'user', phetioID, 'fired' );
+      index = phetioEvents.start( 'user', phetioID, TPeriodicTableCell, 'fired' );
     } );
     periodicTableCell.endedCallbacksForPressedEmitter.addListener( function() {
       phetioEvents.end( index );
