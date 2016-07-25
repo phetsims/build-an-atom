@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
+  var ArrowButton = require( 'SUN/buttons/ArrowButton' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
