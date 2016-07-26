@@ -21,7 +21,7 @@ define( function( require ) {
   var phetio = require( 'PHET_IO/phetio' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var TBAAGameModel = require( 'PHET_IO/simulations/build-an-atom/types/TBAAGameModel' );
+  var TBAAGameModel = require( 'PHET_IO/simulations/build-an-atom/TBAAGameModel' );
   var TBoolean = require( 'PHET_IO/types/TBoolean' );
   var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
   var TGroup = require( 'PHET_IO/types/TGroup' );
@@ -32,7 +32,7 @@ define( function( require ) {
   var TRandom = require( 'PHET_IO/types/dot/TRandom' );
   var TObject = require( 'PHET_IO/types/TObject' );
   var TParticle = require( 'PHET_IO/types/shred/TParticle' );
-  var TPeriodicTableCell = require( 'PHET_IO/simulations/build-an-atom/types/TPeriodicTableCell' );
+  var TPeriodicTableCell = require( 'PHET_IO/simulations/build-an-atom/TPeriodicTableCell' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
   var TString = require( 'PHET_IO/types/TString' );
   var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
