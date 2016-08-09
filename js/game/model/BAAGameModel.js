@@ -17,6 +17,9 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var TandemEmitter = require( 'TANDEM/axon/TandemEmitter' );
 
+  // phet-io modules
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+
   // constants
   var PROBLEMS_PER_LEVEL = 5;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
@@ -62,7 +65,10 @@ define( function( require ) {
     this.stepListeners = [];
 
     // @private
-    this.levelCompletedEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'levelCompletedEmitter' ) } );
+    this.levelCompletedEmitter = new TandemEmitter( {
+      tandem: tandem.createTandem( 'levelCompletedEmitter' ),
+      argTypes: [ TObject ]
+    } );
 
     this.bestScores = []; // Properties that track progress on each game level.
     this.scores = []; // Properties that track score at each game level
@@ -77,15 +83,18 @@ define( function( require ) {
 
     this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
       var i = 0;
-      for( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++  ){
+      for ( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
         thisGameModel.bestTimeVisible[ i ].value = timerEnabled && thisGameModel.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
       }
-    });
+    } );
 
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
 
-    this.checkAnswerEmitter = new TandemEmitter( { tandem: tandem.createTandem( 'checkAnswerEmitter' ) } );
+    this.checkAnswerEmitter = new TandemEmitter( {
+      tandem: tandem.createTandem( 'checkAnswerEmitter' ),
+      argTypes: [ TObject ]
+    } );
 
     this.problemSetGroupTandem = tandem.createGroupTandem( 'problemSets' );
     tandem.addInstance( this );
@@ -143,7 +152,7 @@ define( function( require ) {
           this.bestTimes[ this.level ].value = this.elapsedTime;
         }
 
-        if ( this.score === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabled ){
+        if ( this.score === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabled ) {
           this.bestTimeVisible[ this.level ].value = true;
         }
 
@@ -171,7 +180,7 @@ define( function( require ) {
       this.bestScores.forEach( function( bestScoreProperty ) { bestScoreProperty.reset(); } );
       this.scores.forEach( function( scoreProperty ) { scoreProperty.reset(); } );
       this.bestTimes.forEach( function( bestTimeProperty ) { bestTimeProperty.reset(); } );
-      this.bestTimeVisible.push( function(bestTimeVisibleProperty  ) { bestTimeVisibleProperty.reset(); } );
+      this.bestTimeVisible.push( function( bestTimeVisibleProperty ) { bestTimeVisibleProperty.reset(); } );
     },
 
     // @public
