@@ -17,7 +17,6 @@ define( function( require ) {
 
   // modules
   var TCheckBox = require( 'PHET_IO/types/sun/TCheckBox' );
-  var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
@@ -78,8 +77,8 @@ define( function( require ) {
     massNumberProperty: TProperty( TNumber() ),
     chargeProperty: TProperty( TNumber() )
   } );
-  var buildAnAtomAPI = PhETIOCommon.createAPI( {
-    buildAnAtom: PhETIOCommon.createSim( {
+  var buildAnAtomAPI = createAPI( {
+    buildAnAtom: createSim( {
       problemSetFactory: {
         random: TRandom
       },
