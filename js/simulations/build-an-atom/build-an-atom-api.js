@@ -58,9 +58,9 @@ define( function( require ) {
   var ToElementProblemView = _.extend( {
     neutralOrIonProperty: TProperty( TString ),
     periodicTableAtom: {
-      protonCountProperty: TProperty( TNumber( 'unitless' ) ),
-      neutronCountProperty: TProperty( TNumber( 'unitless' ) ),
-      electronCountProperty: TProperty( TNumber( 'unitless' ) )
+      protonCountProperty: TProperty( TNumber() ),
+      neutronCountProperty: TProperty( TNumber() ),
+      electronCountProperty: TProperty( TNumber() )
     },
     periodicTable: PeriodicTable,
     neutralAtomRadioButton: TRadioButton( TString ),
@@ -74,9 +74,9 @@ define( function( require ) {
     chargeEntryNode: UpAndDownButtons,
     massNumberEntryNode: UpAndDownButtons,
     protonCountEntryNode: UpAndDownButtons,
-    protonCountProperty: TProperty( TNumber( 'unitless' ) ),
-    massNumberProperty: TProperty( TNumber( 'unitless' ) ),
-    chargeProperty: TProperty( TNumber( 'unitless' ) )
+    protonCountProperty: TProperty( TNumber() ),
+    massNumberProperty: TProperty( TNumber() ),
+    chargeProperty: TProperty( TNumber() )
   } );
   var buildAnAtomAPI = PhETIOCommon.createAPI( {
     buildAnAtom: PhETIOCommon.createSim( {
@@ -144,9 +144,9 @@ define( function( require ) {
           stateProperty: TProperty( TString ),
           soundEnabledProperty: TProperty( TBoolean ),
           timerEnabledProperty: TProperty( TBoolean ),
-          levelProperty: TProperty( TNumber( 'unitless' ) ),
-          problemIndexProperty: TProperty( TNumber( 'unitless' ) ),
-          scoreProperty: TProperty( TNumber( 'unitless' ) ),
+          levelProperty: TProperty( TNumber() ),
+          problemIndexProperty: TProperty( TNumber() ),
+          scoreProperty: TProperty( TNumber() ),
           problemSets: TGroup( TObject.extend( {
             problems: TGroup( TObject.extend( {
               buildAnAtomModel: {
@@ -172,9 +172,9 @@ define( function( require ) {
           },
           rewardNode: {
             interactiveSymbolNodes: TGroup( {
-              protonCountProperty: TProperty( TNumber( 'unitless' ) ),
-              massNumberProperty: TProperty( TNumber( 'unitless' ) ),
-              chargeProperty: TProperty( TNumber( 'unitless' ) )
+              protonCountProperty: TProperty( TNumber() ),
+              massNumberProperty: TProperty( TNumber() ),
+              chargeProperty: TProperty( TNumber() )
             } )
           },
           scoreboard: {
@@ -195,7 +195,7 @@ define( function( require ) {
                   inputListener: TTandemDragHandler
                 } ) )
               },
-              chargeAnswerProperty: TProperty( TNumber( 'unitless' ) ),
+              chargeAnswerProperty: TProperty( TNumber() ),
               chargeEntryNode: UpAndDownButtons
             }, levelButtons ),
             schematicToMassNumberProblemView: _.extend( {
@@ -204,15 +204,15 @@ define( function( require ) {
                   inputListener: TTandemDragHandler
                 } ) )
               },
-              massNumberAnswerProperty: TProperty( TNumber( 'unitless' ) ),
+              massNumberAnswerProperty: TProperty( TNumber() ),
               massEntryNode: UpAndDownButtons
             }, levelButtons ),
             countsToMassNumberProblemView: _.extend( {
-              massNumberAnswerProperty: TProperty( TNumber( 'unitless' ) ),
+              massNumberAnswerProperty: TProperty( TNumber() ),
               numberEntryNode: UpAndDownButtons
             }, levelButtons ),
             countsToChargeProblemView: _.extend( {
-              chargeAnswerProperty: TProperty( TNumber( 'unitless' ) ),
+              chargeAnswerProperty: TProperty( TNumber() ),
               numberEntryNode: UpAndDownButtons
             }, levelButtons ),
             schematicToSymbolProblemView: _.extend( {
@@ -228,14 +228,14 @@ define( function( require ) {
             }, levelButtons ),
             symbolToCountsProblemView: _.extend( {
               numberAtom: {
-                protonCountProperty: TProperty( TNumber( 'unitless' ) ),
-                neutronCountProperty: TProperty( TNumber( 'unitless' ) ),
-                electronCountProperty: TProperty( TNumber( 'unitless' ) )
+                protonCountProperty: TProperty( TNumber() ),
+                neutronCountProperty: TProperty( TNumber() ),
+                electronCountProperty: TProperty( TNumber() )
               },
               interactiveSymbolNode: {
-                protonCountProperty: TProperty( TNumber( 'unitless' ) ),
-                massNumberProperty: TProperty( TNumber( 'unitless' ) ),
-                chargeProperty: TProperty( TNumber( 'unitless' ) )
+                protonCountProperty: TProperty( TNumber() ),
+                massNumberProperty: TProperty( TNumber() ),
+                chargeProperty: TProperty( TNumber() )
               },
               protonCountEntryNode: UpAndDownButtons,
               neutronCountEntryNode: UpAndDownButtons,
@@ -254,9 +254,9 @@ define( function( require ) {
                 } ) )
               },
               interactiveSymbolNode: TNode.extend( {
-                protonCountProperty: TProperty( TNumber( 'unitless' ) ),
-                massNumberProperty: TProperty( TNumber( 'unitless' ) ),
-                chargeProperty: TProperty( TNumber( 'unitless' ) )
+                protonCountProperty: TProperty( TNumber() ),
+                massNumberProperty: TProperty( TNumber() ),
+                chargeProperty: TProperty( TNumber() )
               } )
             }, levelButtons )
           } ) )
