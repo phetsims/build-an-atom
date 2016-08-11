@@ -67,7 +67,7 @@ define( function( require ) {
     // @private
     this.levelCompletedEmitter = new TandemEmitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      argTypes: [ TObject ]
+      phetioArgumentTypes: [ TObject ]
     } );
 
     this.bestScores = []; // Properties that track progress on each game level.
@@ -93,7 +93,7 @@ define( function( require ) {
 
     this.checkAnswerEmitter = new TandemEmitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      argTypes: [ TObject ]
+      phetioArgumentTypes: [ TObject ]
     } );
 
     this.problemSetGroupTandem = tandem.createGroupTandem( 'problemSets' );
