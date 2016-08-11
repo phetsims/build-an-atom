@@ -14,7 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
 
-  var TPeriodicTableCell = phetioInherit( TObject, 'TPeriodicTableCell', function( periodicTableCell, phetioID ) {
+  var TPeriodicTableCell = function( periodicTableCell, phetioID ) {
     assertInstanceOf( periodicTableCell, phet.shred.PeriodicTableCell );
     TObject.call( this, periodicTableCell, phetioID );
 
@@ -25,7 +25,9 @@ define( function( require ) {
     periodicTableCell.endedCallbacksForPressedEmitter.addListener( function() {
       phetioEvents.end( index );
     } );
-  }, {}, {
+  };
+
+  phetioInherit( TObject, 'TPeriodicTableCell', TPeriodicTableCell, {}, {
     events: [ 'fired' ],
 
     fromStateObject: function( stateObject ) {

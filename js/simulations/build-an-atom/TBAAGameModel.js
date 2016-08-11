@@ -17,10 +17,12 @@ define( function( require ) {
   var TString = require( 'PHET_IO/types/TString' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
-  var TBAAGameModel = phetioInherit( TObject, 'TBAAGameModel', function( gameModel, phetioID ) {
+  var TBAAGameModel = function( gameModel, phetioID ) {
     TObject.call( this, gameModel, phetioID );
     assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TBAAGameModel', TBAAGameModel, {
 
     startGameLevel: {
       returnType: TVoid,
