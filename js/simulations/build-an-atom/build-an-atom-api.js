@@ -77,8 +77,8 @@ define( function( require ) {
     massNumberProperty: TProperty( TNumber() ),
     chargeProperty: TProperty( TNumber() )
   } );
-  var buildAnAtomAPI = createAPI( {
-    buildAnAtom: createSim( {
+  var buildAnAtomAPI = ( {
+    buildAnAtom: ( {
       problemSetFactory: {
         random: TRandom
       },
