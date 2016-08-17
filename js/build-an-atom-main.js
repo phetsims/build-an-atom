@@ -18,9 +18,6 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
 
-  // If running as phet-io, load the API
-  require( 'ifphetio!PHET_IO/simulations/build-an-atom/build-an-atom-api' );
-
   // strings
   var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
   var atomString = require( 'string!BUILD_AN_ATOM/atom' );
@@ -46,8 +43,7 @@ define( function( require ) {
         'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    },
-    tandem: tandem
+    }
   };
 
   SimLauncher.launch( function() {
