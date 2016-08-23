@@ -22,7 +22,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
   var TBAAGameModel = require( 'PHET_IO/simulations/build-an-atom/TBAAGameModel' );
   var TBoolean = require( 'PHET_IO/types/TBoolean' );
-  var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
+  var TPushButton = require( 'PHET_IO/types/sun/buttons/TPushButton' );
   var TGroup = require( 'PHET_IO/types/TGroup' );
   var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
   var TNumber = require( 'PHET_IO/types/TNumber' );
@@ -49,10 +49,10 @@ define( function( require ) {
   };
 
   var levelButtons = {
-    checkAnswerButton: TButton,
-    nextButton: TButton,
-    tryAgainButton: TButton,
-    displayCorrectAnswerButton: TButton
+    checkAnswerButton: TPushButton,
+    nextButton: TPushButton,
+    tryAgainButton: TPushButton,
+    displayCorrectAnswerButton: TPushButton
   };
   var ToElementProblemView = _.extend( {
     neutralOrIonProperty: TProperty( TString ),
@@ -66,8 +66,8 @@ define( function( require ) {
     ionRadioButton: TRadioButton( TString )
   }, levelButtons );
   var UpAndDownButtons = {
-    upArrowButton: TButton,
-    downArrowButton: TButton
+    upArrowButton: TPushButton,
+    downArrowButton: TPushButton
   };
   var SymbolNodeWithContents = TNode.extend( {
     chargeEntryNode: UpAndDownButtons,
@@ -158,16 +158,16 @@ define( function( require ) {
         } ),
         view: {
           startGameLevelNode: {
-            periodicTableGameButton: TButton,
+            periodicTableGameButton: TPushButton,
             resetAllButton: TResetAllButton,
             timerToggleButton: TToggleButton( TBoolean ),
             soundToggleButton: TToggleButton( TBoolean ),
-            massAndChargeGameButton: TButton,
-            symbolGameButton: TButton,
-            advancedSymbolGameButton: TButton
+            massAndChargeGameButton: TPushButton,
+            symbolGameButton: TPushButton,
+            advancedSymbolGameButton: TPushButton
           },
           levelCompletedNode: {
-            continueButton: TButton
+            continueButton: TPushButton
           },
           rewardNode: {
             interactiveSymbolNodes: TGroup( {
@@ -177,7 +177,7 @@ define( function( require ) {
             } )
           },
           scoreboard: {
-            startOverButton: TButton
+            startOverButton: TPushButton
           },
           problemView: TGroup( TObject.extend( {
             countsToElementProblemView: ToElementProblemView,
