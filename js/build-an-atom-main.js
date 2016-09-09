@@ -39,8 +39,8 @@ define( function( require ) {
       leadDesign: 'Kelly Lancaster',
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
       team: 'Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter,\n' +
-        'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson,\n' +
-        'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
+            'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson,\n' +
+            'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     }
@@ -54,32 +54,49 @@ define( function( require ) {
 
     // Create and start the sim
     new Sim( buildAnAtomTitleString, [
-      new Screen( atomString, new Image( atomIcon ),
+
+      // Atom screen
+      new Screen(
         function() {
-          return new BuildAnAtomModel( atomScreenTandem.createTandem( 'model' ) ); },
+          return new BuildAnAtomModel( atomScreenTandem.createTandem( 'model' ) );
+        },
         function( model ) {
-          return new BuildAnAtomView( model, atomScreenTandem.createTandem( 'view' ) ); }, {
-          tandem: atomScreenTandem,
-          navigationBarIcon: new Image( atomIconSmall )
+          return new BuildAnAtomView( model, atomScreenTandem.createTandem( 'view' ) );
+        }, {
+          name: atomString,
+          homeScreenIcon: new Image( atomIcon ),
+          navigationBarIcon: new Image( atomIconSmall ),
+          tandem: atomScreenTandem
         }
       ),
-      new Screen( symbolString, new Image( elementIcon ),
+
+      // Symbol screen
+      new Screen(
         function() {
-          return new BuildAnAtomModel( symbolScreenTandem.createTandem( 'model' ) ); },
+          return new BuildAnAtomModel( symbolScreenTandem.createTandem( 'model' ) );
+        },
         function( model ) {
-          return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) ); }, {
-          backgroundColor: 'rgb( 242, 255, 204 )',
-          /* Light yellow-green */
+          return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) );
+        }, {
+          name: symbolString,
+          backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
+          homeScreenIcon: new Image( elementIcon ),
           navigationBarIcon: new Image( elementIconSmall ),
           tandem: symbolScreenTandem
         }
       ),
-      new Screen( gameString, new Image( gameIcon ),
+
+      // Game screen
+      new Screen(
         function() {
-          return new BAAGameModel( gameScreenTandem.createTandem( 'model' ) ); },
+          return new BAAGameModel( gameScreenTandem.createTandem( 'model' ) );
+        },
         function( model ) {
-          return new BAAGameView( model, gameScreenTandem.createTandem( 'view' ) ); }, {
+          return new BAAGameView( model, gameScreenTandem.createTandem( 'view' ) );
+        }, {
+          name: gameString,
           backgroundColor: 'rgb( 255, 254, 223 )',
+          homeScreenIcon: new Image( gameIcon ),
           navigationBarIcon: new Image( gameIconSmall ),
           tandem: gameScreenTandem
         }
