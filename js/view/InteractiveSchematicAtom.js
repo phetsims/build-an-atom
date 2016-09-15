@@ -34,7 +34,7 @@ define( function( require ) {
     Tandem.validateOptions( options ); // The tandem is required when brand==='phet-io'
     
     Node.call( this );
-    var thisNode = this;
+    var self = this;
 
     var particleViews = []; // remember all the particleViews when using in dispose
 
@@ -49,7 +49,7 @@ define( function( require ) {
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
-      thisNode.addChild( new BucketHole( bucket, modelViewTransform ) );
+      self.addChild( new BucketHole( bucket, modelViewTransform ) );
     } );
 
     // Add the layers where the nucleons will be maintained.
@@ -57,7 +57,7 @@ define( function( require ) {
     _.times( NUM_NUCLEON_LAYERS, function() {
       var nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
-      thisNode.addChild( nucleonLayer );
+      self.addChild( nucleonLayer );
     } );
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
@@ -128,7 +128,7 @@ define( function( require ) {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform );
-      thisNode.addChild( bucketFront );
+      self.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( bucket.tandemName + 'DragHandler' )
       } ) );
