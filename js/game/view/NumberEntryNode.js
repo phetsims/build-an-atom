@@ -32,7 +32,7 @@ define( function( require ) {
   function NumberEntryNode( numberProperty, tandem, options ) {
 
     Node.call( this ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
 
     options = _.extend( {
       prependPlusSign: false, // Generally set to true when depicting charge.
@@ -48,19 +48,19 @@ define( function( require ) {
     }, _.extend( {
       tandem: tandem.createTandem( 'upArrowButton' )
     }, arrowButtonOptions ) );
-    thisNode.addChild( upArrowButton );
+    self.addChild( upArrowButton );
     var downArrowButton = new ArrowButton( 'down', function() {
       numberProperty.value = numberProperty.value - 1;
     }, _.extend( {
       tandem: tandem.createTandem( 'downArrowButton' )
     }, arrowButtonOptions ) );
-    thisNode.addChild( downArrowButton );
+    self.addChild( downArrowButton );
     var answerValueBackground = new Rectangle( 0, 0, NUMBER_BOX_SIZE.width, NUMBER_BOX_SIZE.height, 4, 4, {
       fill: 'white',
       stroke: 'black',
       lineWidth: 1
     } );
-    thisNode.addChild( answerValueBackground );
+    self.addChild( answerValueBackground );
     numberProperty.link( function( newValue ) {
       answerValueBackground.removeAllChildren();
       var prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
@@ -103,7 +103,7 @@ define( function( require ) {
       touchAreaYDilation
     );
 
-    thisNode.mutate( options );
+    self.mutate( options );
   }
 
   buildAnAtom.register( 'NumberEntryNode', NumberEntryNode );

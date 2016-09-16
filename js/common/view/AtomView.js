@@ -60,7 +60,7 @@ define( function( require ) {
    */
   function AtomView( model, tandem ) {
     ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
-    var thisView = this;
+    var self = this;
     this.model = model;
     this.resetFunctions = [];
 
@@ -72,7 +72,7 @@ define( function( require ) {
     // Create the model-view transform.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
-      new Vector2( thisView.layoutBounds.width * 0.3, thisView.layoutBounds.height * 0.45 ),
+      new Vector2( self.layoutBounds.width * 0.3, self.layoutBounds.height * 0.45 ),
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
@@ -86,7 +86,7 @@ define( function( require ) {
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
-      thisView.addChild( new BucketHole( bucket, modelViewTransform ).mutate( { pickable: false } ) );
+      self.addChild( new BucketHole( bucket, modelViewTransform ).mutate( { pickable: false } ) );
     } );
 
     // add the layer where the nucleons and electrons will go, this is added last so that it remains on top
@@ -275,8 +275,8 @@ define( function( require ) {
     // Add the reset button.
     var resetAllButton = new ResetAllButton( {
       listener: function() {
-        thisView.model.reset();
-        thisView.viewProperties.reset();
+        self.model.reset();
+        self.viewProperties.reset();
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,

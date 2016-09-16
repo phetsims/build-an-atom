@@ -36,27 +36,27 @@ define( function( require ) {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' )
     } );
     ProblemView.call( this, countsToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToMassNumberProblem.answerAtom );
-    thisNode.problemPresentationNode.addChild( particleCountsNode );
+    self.problemPresentationNode.addChild( particleCountsNode );
 
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200
     } );
-    thisNode.interactiveAnswerNode.addChild( questionPrompt );
+    self.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode(
-      thisNode.massNumberAnswerProperty,
+      self.massNumberAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
         minValue: 0,
         maxValue: 99
       } );
-    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
+    self.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;

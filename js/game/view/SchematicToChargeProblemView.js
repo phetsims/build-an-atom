@@ -38,7 +38,7 @@ define( function( require ) {
     // Must be defined before call to super constructor.
     this.chargeAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'chargeAnswerProperty' ) } );
     ProblemView.call( this, schematicToChargeProblem, layoutBounds, tandem ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
 
     // Create the model-view transform used by the schematic atom.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -62,14 +62,14 @@ define( function( require ) {
 
     // Node for entering the answer
     var chargeEntryNode = new NumberEntryNode(
-      thisNode.chargeAnswerProperty,
+      self.chargeAnswerProperty,
       tandem.createTandem( 'chargeEntryNode' ), {
         minValue: -99,
         maxValue: 99,
         prependPlusSign: true,
         getTextColor: SharedConstants.CHARGE_TEXT_COLOR
       } );
-    thisNode.interactiveAnswerNode.addChild( chargeEntryNode );
+    self.interactiveAnswerNode.addChild( chargeEntryNode );
 
     // Layout
     questionPrompt.centerX = layoutBounds.width * 0.65;

@@ -47,7 +47,7 @@ define( function( require ) {
       tandem: tandem.createTandem( 'neutralOrIonProperty' )
     } );
     ProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
 
     // Periodic table
     this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, {
@@ -107,16 +107,16 @@ define( function( require ) {
     // "neutral vs. ion" question.
 
     var updateCheckAnswerButton = function( neutralOrIon ) {
-      thisNode.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
-      thisNode.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
+      self.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
+      self.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
     };
 
     this.neutralOrIonProperty.link( updateCheckAnswerButton );
 
     // unlink from Properties
     this.toElementProblemViewDispose = function() {
-      thisNode.neutralOrIonProperty.unlink( updateCheckAnswerButton );
-      thisNode.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
+      self.neutralOrIonProperty.unlink( updateCheckAnswerButton );
+      self.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
     };
 
     //--------------------------- Layout -------------------------------------

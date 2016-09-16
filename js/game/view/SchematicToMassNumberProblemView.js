@@ -37,7 +37,7 @@ define( function( require ) {
 
     this.massNumberAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'massNumberAnswerProperty' ) } ); // Must be defined before call to super constructor.
     ProblemView.call( this, schematicToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
 
     // Create the model-view transform used by the schematic atom.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -50,7 +50,7 @@ define( function( require ) {
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
 
-    thisNode.problemPresentationNode.addChild( nonInteractiveSchematicAtomNode );
+    self.problemPresentationNode.addChild( nonInteractiveSchematicAtomNode );
 
     // Question
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
@@ -58,16 +58,16 @@ define( function( require ) {
       font: new PhetFont( 24 ),
       maxWidth: 200
     } );
-    thisNode.interactiveAnswerNode.addChild( questionPrompt );
+    self.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var massEntryNode = new NumberEntryNode(
-      thisNode.massNumberAnswerProperty,
+      self.massNumberAnswerProperty,
       tandem.createTandem( 'massEntryNode' ), {
         minValue: 0,
         maxValue: 99
       } );
-    thisNode.interactiveAnswerNode.addChild( massEntryNode );
+    self.interactiveAnswerNode.addChild( massEntryNode );
 
     // Layout
     questionPrompt.centerX = layoutBounds.width * 0.65;

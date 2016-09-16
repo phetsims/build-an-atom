@@ -59,7 +59,7 @@ define( function( require ) {
       }
     } );
 
-    var thisGameModel = this;
+    var self = this;
 
     // @private, set of external functions that the model will step
     this.stepListeners = [];
@@ -73,18 +73,18 @@ define( function( require ) {
     this.bestScores = []; // Properties that track progress on each game level.
     this.scores = []; // Properties that track score at each game level
     this.bestTimeVisible = []; // Properties that track whether to show best time at each game level
-    thisGameModel.bestTimes = []; // Best times at each level.
+    self.bestTimes = []; // Best times at each level.
     _.times( SharedConstants.LEVEL_NAMES.length, function() {
-      thisGameModel.bestScores.push( new Property( 0 ) );
-      thisGameModel.scores.push( new Property( 0 ) );
-      thisGameModel.bestTimes.push( new Property( null ) );
-      thisGameModel.bestTimeVisible.push( new Property( false ) );
+      self.bestScores.push( new Property( 0 ) );
+      self.scores.push( new Property( 0 ) );
+      self.bestTimes.push( new Property( null ) );
+      self.bestTimeVisible.push( new Property( false ) );
     } );
 
     this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
       var i = 0;
       for ( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
-        thisGameModel.bestTimeVisible[ i ].value = timerEnabled && thisGameModel.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
+        self.bestTimeVisible[ i ].value = timerEnabled && self.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
       }
     } );
 
@@ -199,8 +199,8 @@ define( function( require ) {
         window.clearInterval( this.gameTimerId );
       }
       this.elapsedTime = 0;
-      var thisModel = this;
-      this.gameTimerId = window.setInterval( function() { thisModel.elapsedTime += 1; }, 1000 );
+      var self = this;
+      this.gameTimerId = window.setInterval( function() { self.elapsedTime += 1; }, 1000 );
     },
 
     // @private

@@ -33,11 +33,11 @@ define( function( require ) {
   function BAAGameView( gameModel, tandem ) {
 
     ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
-    var thisScene = this;
+    var self = this;
 
     // Add a root node where all of the game-related nodes will live.
     var rootNode = new Node();
-    thisScene.addChild( rootNode );
+    self.addChild( rootNode );
 
     var startGameLevelNode = new StartGameLevelNode(
       gameModel,
@@ -73,18 +73,18 @@ define( function( require ) {
         rootNode.removeAllChildren();
         previousView.dispose();
         rootNode.addChild( startGameLevelNode );
-        if ( thisScene.rewardNode !== null ){
-          thisScene.rewardNode.dispose();
+        if ( self.rewardNode !== null ) {
+          self.rewardNode.dispose();
         }
-        thisScene.rewardNode = null;
+        self.rewardNode = null;
       }
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
         previousView.dispose();
         if ( gameModel.score === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.REWARD ) {
           // Perfect score, add the reward node.
-          thisScene.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
-          rootNode.addChild( thisScene.rewardNode );
+          self.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
+          rootNode.addChild( self.rewardNode );
           // Play the appropriate audio feedback
           gameAudioPlayer.gameOverPerfectScore();
         }
@@ -97,10 +97,10 @@ define( function( require ) {
           BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime,
           gameModel.bestTimes[ gameModel.level ].value, gameModel.newBestTime,
           function() { gameModel.state = 'selectGameLevel'; }, {
-            centerX: thisScene.layoutBounds.width / 2,
-            centerY: thisScene.layoutBounds.height / 2,
+            centerX: self.layoutBounds.width / 2,
+            centerY: self.layoutBounds.height / 2,
             levelVisible: false,
-            maxWidth: thisScene.layoutBounds.width,
+            maxWidth: self.layoutBounds.width,
             tandem: tandem.createTandem( 'levelCompletedNode' )
           } ) );
       }
@@ -109,7 +109,7 @@ define( function( require ) {
         // presenting a problem.
         rootNode.removeAllChildren();
         previousView.dispose();
-        var problemView = state.createView( thisScene.layoutBounds, problemViewGroupTandem.createNextTandem() );
+        var problemView = state.createView( self.layoutBounds, problemViewGroupTandem.createNextTandem() );
         rootNode.addChild( problemView );
         rootNode.addChild( scoreboard );
         previousView = problemView;

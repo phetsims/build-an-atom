@@ -41,7 +41,7 @@ define( function( require ) {
    */
   function ProblemView( problem, layoutBounds, tandem ) {
     Node.call( this ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
     this.problem = problem;
 
     // Audio player used for audio feedback.
@@ -68,7 +68,7 @@ define( function( require ) {
     // Buttons.
     this.buttons = [];
     this.checkAnswerButton = new TextPushButton( checkString, {
-      listener: function() { thisNode.checkAnswer(); },
+      listener: function() { self.checkAnswer(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
@@ -117,7 +117,7 @@ define( function( require ) {
 
     // Utility function to hide all buttons and the feedback face.
     var hideButtonsAndFace = function hideButtonsAndFace() {
-      thisNode.buttons.forEach( function( button ) {
+      self.buttons.forEach( function( button ) {
         button.visible = false;
       } );
       faceNode.visible = false;
@@ -127,45 +127,45 @@ define( function( require ) {
     // Utility function to enable/disable interaction with answer portion of
     // the displayed problem.
     var setAnswerNodeInteractive = function( interactive ) {
-      thisNode.interactiveAnswerNode.pickable = interactive;
+      self.interactiveAnswerNode.pickable = interactive;
     };
 
     // Updated the visibility of the various buttons and other nodes based on
     // the problem state.
     var stateChangeHandlers = {
       presentingProblem: function() {
-        thisNode.clearAnswer();
+        self.clearAnswer();
         setAnswerNodeInteractive( true );
-        thisNode.checkAnswerButton.visible = true;
+        self.checkAnswerButton.visible = true;
       },
       problemSolvedCorrectly: function() {
         setAnswerNodeInteractive( false );
         faceNode.smile();
         pointDisplay.text = '+' + problem.score;
         faceNode.visible = true;
-        thisNode.nextButton.visible = true;
-        thisNode.gameAudioPlayer.correctAnswer();
+        self.nextButton.visible = true;
+        self.gameAudioPlayer.correctAnswer();
       },
       presentingTryAgain: function() {
         setAnswerNodeInteractive( false );
         faceNode.frown();
         pointDisplay.text = '';
         faceNode.visible = true;
-        thisNode.tryAgainButton.visible = true;
-        thisNode.gameAudioPlayer.wrongAnswer();
+        self.tryAgainButton.visible = true;
+        self.gameAudioPlayer.wrongAnswer();
       },
       attemptsExhausted: function() {
         setAnswerNodeInteractive( false );
-        thisNode.displayCorrectAnswerButton.visible = true;
+        self.displayCorrectAnswerButton.visible = true;
         faceNode.frown();
         pointDisplay.text = '';
         faceNode.visible = true;
-        thisNode.gameAudioPlayer.wrongAnswer();
+        self.gameAudioPlayer.wrongAnswer();
       },
       displayingCorrectAnswer: function() {
         setAnswerNodeInteractive( false );
-        thisNode.nextButton.visible = true;
-        thisNode.displayCorrectAnswer();
+        self.nextButton.visible = true;
+        self.displayCorrectAnswer();
       }
     };
 

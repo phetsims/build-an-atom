@@ -47,7 +47,7 @@ define( function( require ) {
    */
   function BuildAnAtomModel( tandem ) {
 
-    var thisModel = this;
+    var self = this;
 
     // Call the super constructor.
     PropertySet.call( this, {
@@ -61,10 +61,10 @@ define( function( require ) {
     } );
 
     // Create the atom that the user will build, modify, and generally play with.
-    thisModel.particleAtom = new ParticleAtom();
+    self.particleAtom = new ParticleAtom();
 
     // Create the buckets that will hold the sub-atomic particles.
-    thisModel.buckets = {
+    self.buckets = {
       protonBucket: new SphereBucket( {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
@@ -109,8 +109,8 @@ define( function( require ) {
     };
 
     // Define the arrays where the subatomic particles will reside.
-    thisModel.nucleons = [];
-    thisModel.electrons = [];
+    self.nucleons = [];
+    self.electrons = [];
 
     // Add the protons.
     var protonGroupTandem = tandem.createGroupTandem( 'protons' );
@@ -118,11 +118,11 @@ define( function( require ) {
     var electronGroupTandem = tandem.createGroupTandem( 'electrons' );
     _.times( NUM_PROTONS, function() {
       var proton = new Particle( 'proton', { tandem: protonGroupTandem.createNextTandem() } );
-      thisModel.nucleons.push( proton );
-      thisModel.buckets.protonBucket.addParticleFirstOpen( proton, false );
+      self.nucleons.push( proton );
+      self.buckets.protonBucket.addParticleFirstOpen( proton, false );
       proton.userControlledProperty.link( function( userControlled ) {
-        if ( !userControlled && !thisModel.buckets.protonBucket.containsParticle( proton ) ) {
-          placeNucleon( proton, thisModel.buckets.protonBucket, thisModel.particleAtom );
+        if ( !userControlled && !self.buckets.protonBucket.containsParticle( proton ) ) {
+          placeNucleon( proton, self.buckets.protonBucket, self.particleAtom );
         }
       } );
     } );
@@ -130,11 +130,11 @@ define( function( require ) {
     // Add the neutrons.
     _.times( NUM_NEUTRONS, function() {
       var neutron = new Particle( 'neutron', { tandem: neutronGroupTandem.createNextTandem() } );
-      thisModel.nucleons.push( neutron );
-      thisModel.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
+      self.nucleons.push( neutron );
+      self.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
       neutron.userControlledProperty.link( function( userControlled ) {
-        if ( !userControlled && !thisModel.buckets.neutronBucket.containsParticle( neutron ) ) {
-          placeNucleon( neutron, thisModel.buckets.neutronBucket, thisModel.particleAtom );
+        if ( !userControlled && !self.buckets.neutronBucket.containsParticle( neutron ) ) {
+          placeNucleon( neutron, self.buckets.neutronBucket, self.particleAtom );
         }
       } );
     } );
@@ -142,54 +142,54 @@ define( function( require ) {
     // Add the electrons.
     _.times( NUM_ELECTRONS, function() {
       var electron = new Particle( 'electron', { tandem: electronGroupTandem.createNextTandem() } );
-      thisModel.electrons.push( electron );
-      thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
+      self.electrons.push( electron );
+      self.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.userControlledProperty.link( function( userControlled ) {
-        if ( !userControlled && !thisModel.buckets.electronBucket.containsParticle( electron ) ) {
-          if ( electron.position.distance( Vector2.ZERO ) < thisModel.particleAtom.outerElectronShellRadius * 1.1 ) {
-            thisModel.particleAtom.addParticle( electron );
+        if ( !userControlled && !self.buckets.electronBucket.containsParticle( electron ) ) {
+          if ( electron.position.distance( Vector2.ZERO ) < self.particleAtom.outerElectronShellRadius * 1.1 ) {
+            self.particleAtom.addParticle( electron );
           }
           else {
-            thisModel.buckets.electronBucket.addParticleNearestOpen( electron, true );
+            self.buckets.electronBucket.addParticleNearestOpen( electron, true );
           }
         }
       } );
     } );
 
     // Make available a 'number atom' that tracks the state of the particle atom.
-    thisModel.numberAtom = new NumberAtom();
+    self.numberAtom = new NumberAtom();
     var updateNumberAtom = function() {
-      thisModel.numberAtom.protonCount = thisModel.particleAtom.protons.length;
-      thisModel.numberAtom.neutronCount = thisModel.particleAtom.neutrons.length;
-      thisModel.numberAtom.electronCount = thisModel.particleAtom.electrons.length;
+      self.numberAtom.protonCount = self.particleAtom.protons.length;
+      self.numberAtom.neutronCount = self.particleAtom.neutrons.length;
+      self.numberAtom.electronCount = self.particleAtom.electrons.length;
     };
 
     // Update the number atom when the particle atom changes.
-    thisModel.particleAtom.protons.lengthProperty.link( updateNumberAtom );
-    thisModel.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
-    thisModel.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
+    self.particleAtom.protons.lengthProperty.link( updateNumberAtom );
+    self.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
+    self.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
 
     // Update the stability state and counter on changes.
-    thisModel.nucleusStable = true;
-    thisModel.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-    thisModel.nucleusOffset = Vector2.ZERO;
-    thisModel.numberAtom.massNumberProperty.link( function( massNumber ) {
-      var stable = massNumber > 0 ? AtomIdentifier.isStable( thisModel.numberAtom.protonCount, thisModel.numberAtom.neutronCount ) : true;
-      if ( thisModel.nucleusStable !== stable ) {
+    self.nucleusStable = true;
+    self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    self.nucleusOffset = Vector2.ZERO;
+    self.numberAtom.massNumberProperty.link( function( massNumber ) {
+      var stable = massNumber > 0 ? AtomIdentifier.isStable( self.numberAtom.protonCount, self.numberAtom.neutronCount ) : true;
+      if ( self.nucleusStable !== stable ) {
         // Stability has changed.
-        thisModel.nucleusStable = stable;
+        self.nucleusStable = stable;
         if ( stable ) {
-          thisModel.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-          thisModel.particleAtom.nucleusOffset = Vector2.ZERO;
+          self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+          self.particleAtom.nucleusOffset = Vector2.ZERO;
         }
       }
     } );
 
     // If stability label visibility is turned off when nucleus animation is
     // in progress, reset the animation.
-    thisModel.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
+    self.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
       if ( !showStableOrUnstable ) {
-        thisModel.particleAtom.nucleusOffset = Vector2.ZERO;
+        self.particleAtom.nucleusOffset = Vector2.ZERO;
       }
     } );
 
@@ -241,9 +241,9 @@ define( function( require ) {
       for ( var i = 0; i < particleCollection.length; i++ ) {
         particlesToRemove[ i ] = particleCollection.get( i );
       }
-      var thisModel = this;
+      var self = this;
       particlesToRemove.forEach( function( particle ) {
-          thisModel.particleAtom.removeParticle( particle );
+        self.particleAtom.removeParticle( particle );
           bucket.addParticleFirstOpen( particle );
         }
       );
@@ -275,17 +275,17 @@ define( function( require ) {
 
       // Add all the particles back to their buckets so that they are
       // stacked in their original configurations.
-      var thisModel = this;
+      var self = this;
       this.nucleons.forEach( function( nucleon ) {
         if ( nucleon.type === 'proton' ) {
-          thisModel.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
+          self.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
         }
         else {
-          thisModel.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
+          self.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
         }
       } );
       this.electrons.forEach( function( electron ) {
-        thisModel.buckets.electronBucket.addParticleFirstOpen( electron, false );
+        self.buckets.electronBucket.addParticleFirstOpen( electron, false );
       } );
     },
 

@@ -37,29 +37,29 @@ define( function( require ) {
     this.chargeAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'chargeAnswerProperty' ) } );
 
     ProblemView.call( this, countsToChargeProblem, layoutBounds, tandem ); // Call super constructor.
-    var thisNode = this;
+    var self = this;
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
-    thisNode.problemPresentationNode.addChild( particleCountsNode );
+    self.problemPresentationNode.addChild( particleCountsNode );
 
     var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200
     } );
-    thisNode.interactiveAnswerNode.addChild( questionPrompt );
+    self.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
     var numberEntryNode = new NumberEntryNode(
-      thisNode.chargeAnswerProperty,
+      self.chargeAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
         prependPlusSign: true,
         getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99
       } );
-    thisNode.interactiveAnswerNode.addChild( numberEntryNode );
+    self.interactiveAnswerNode.addChild( numberEntryNode );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
