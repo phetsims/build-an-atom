@@ -27,7 +27,7 @@ define( function( require ) {
   var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
   var TNumber = require( 'PHET_IO/types/TNumber' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
-  var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
+  var TRadioButton = require( 'PHET_IO/types/sun/TRadioButton' );
   var TRandom = require( 'PHET_IO/types/dot/TRandom' );
   var TObject = require( 'PHET_IO/types/TObject' );
   var TParticle = require( 'PHET_IO/types/shred/TParticle' );
