@@ -21,7 +21,7 @@ define( function( require ) {
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // constants
@@ -102,7 +102,7 @@ define( function( require ) {
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( function( charge ) {
       chargeDisplay.text = ( charge > 0 ? '+' : '' ) + charge;
-      chargeDisplay.fill = SharedConstants.CHARGE_TEXT_COLOR( charge );
+      chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;
     } );

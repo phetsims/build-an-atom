@@ -21,7 +21,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var SoundToggleButton = require( 'SCENERY_PHET/buttons/SoundToggleButton' );
   var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -59,15 +59,15 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
       },
-      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
+      gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
       _.extend( {
           tandem: tandem.createTandem( 'periodicTableGameButton' )
         },
         {
           baseColor: BASE_COLOR,
-          bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
-          bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ]
+          bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
+          bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ]
         }
       )
     );
@@ -78,12 +78,12 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
       },
-      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
+      gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
         tandem: tandem.createTandem( 'massAndChargeGameButton' ),
         baseColor: BASE_COLOR,
-        bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
-        bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ]
+        bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ]
       }
     );
     this.addChild( massAndChargeGameButton );
@@ -93,12 +93,12 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
       },
-      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
+      gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
         tandem: tandem.createTandem( 'symbolGameButton' ),
         baseColor: BASE_COLOR,
-        bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
-        bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ]
+        bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ]
       }
     );
     this.addChild( symbolGameButton );
@@ -108,12 +108,12 @@ define( function( require ) {
       function() {
         gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
       },
-      gameModel.scores[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
+      gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
       BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
         tandem: tandem.createTandem( 'advancedSymbolGameButton' ),
         baseColor: BASE_COLOR,
-        bestTimeProperty: gameModel.bestTimes[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
-        bestTimeVisibleProperty: gameModel.bestTimeVisible[ SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ]
+        bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ]
       }
     );
     this.addChild( advancedSymbolGameButton );

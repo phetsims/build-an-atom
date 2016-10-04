@@ -19,7 +19,7 @@ define( function( require ) {
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
 
   // strings
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
@@ -55,7 +55,7 @@ define( function( require ) {
       self.chargeAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
         prependPlusSign: true,
-        getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
+        getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99
       } );

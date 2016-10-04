@@ -21,7 +21,7 @@ define( function( require ) {
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -67,7 +67,7 @@ define( function( require ) {
         minValue: -99,
         maxValue: 99,
         prependPlusSign: true,
-        getTextColor: SharedConstants.CHARGE_TEXT_COLOR
+        getTextColor: ShredConstants.CHARGE_TEXT_COLOR
       } );
     self.interactiveAnswerNode.addChild( chargeEntryNode );
 

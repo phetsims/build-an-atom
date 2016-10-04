@@ -21,7 +21,7 @@ define( function( require ) {
   var ScoreboardBar = require( 'VEGAS/ScoreboardBar' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
 
   /**
    * Constructor.
@@ -32,7 +32,7 @@ define( function( require ) {
    */
   function BAAGameView( gameModel, tandem ) {
 
-    ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
+    ScreenView.call( this, { layoutBounds: ShredConstants.LAYOUT_BOUNDS } ); // Call super constructor.
     var self = this;
 
     // Add a root node where all of the game-related nodes will live.

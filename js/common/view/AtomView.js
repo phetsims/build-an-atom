@@ -29,7 +29,7 @@ define( function( require ) {
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
@@ -59,7 +59,7 @@ define( function( require ) {
    * @constructor
    */
   function AtomView( model, tandem ) {
-    ScreenView.call( this, { layoutBounds: SharedConstants.LAYOUT_BOUNDS } ); // Call super constructor.
+    ScreenView.call( this, { layoutBounds: ShredConstants.LAYOUT_BOUNDS } ); // Call super constructor.
     var self = this;
     this.model = model;
     this.resetFunctions = [];
@@ -185,10 +185,10 @@ define( function( require ) {
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTableAndSymbol, {
       titleNode: new Text( elementString, {
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
-      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',

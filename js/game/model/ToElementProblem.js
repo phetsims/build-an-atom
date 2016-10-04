@@ -14,7 +14,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
@@ -62,7 +62,7 @@ define( function( require ) {
       else {
 
         // Handle incorrect answer.
-        if ( this.numSubmissions < SharedConstants.MAX_PROBLEM_ATTEMPTS ) {
+        if ( this.numSubmissions < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
 
           // Give the user another chance.
           this.problemState = 'presentingTryAgain';

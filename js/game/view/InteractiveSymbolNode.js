@@ -19,7 +19,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -150,7 +150,7 @@ define( function( require ) {
           minValue: -99,
           maxValue: 99,
           prependPlusSign: true,
-          getTextColor: SharedConstants.CHARGE_TEXT_COLOR,
+          getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );
@@ -159,7 +159,7 @@ define( function( require ) {
       var chargeTextPrepend = numberAtom.charge > 0 ? '+' : '';
       var chargeDisplay = new Text( chargeTextPrepend + numberAtom.charge, {
         font: NUMBER_FONT,
-        fill: SharedConstants.CHARGE_TEXT_COLOR( numberAtom.charge ),
+        fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.charge ),
         right: SYMBOL_BOX_WIDTH - NUMBER_INSET,
         top: NUMBER_INSET
       } );

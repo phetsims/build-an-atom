@@ -13,7 +13,7 @@ define( function( require ) {
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -35,10 +35,10 @@ define( function( require ) {
     symbolNode.scale( 0.43 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode, {
       titleNode: new Text( symbolString, {
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
-      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableBox.width,
       contentAlign: 'center',
       titleAlignX: 'left',

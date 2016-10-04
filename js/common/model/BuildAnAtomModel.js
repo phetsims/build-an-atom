@@ -18,7 +18,7 @@ define( function( require ) {
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -36,7 +36,7 @@ define( function( require ) {
   var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
   var BUCKET_Y_OFFSET = -205;
   var NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
-  var MAX_NUCLEUS_JUMP = SharedConstants.NUCLEON_RADIUS * 0.5;
+  var MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
   var JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
   var JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
@@ -68,7 +68,7 @@ define( function( require ) {
       protonBucket: new SphereBucket( {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          sphereRadius: SharedConstants.NUCLEON_RADIUS,
+          sphereRadius: ShredConstants.NUCLEON_RADIUS,
           baseColor: PhetColorScheme.RED_COLORBLIND,
           caption: protonsString,
         captionColor: 'white',
@@ -78,7 +78,7 @@ define( function( require ) {
       neutronBucket: new SphereBucket( {
           position: new Vector2( 0, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          sphereRadius: SharedConstants.NUCLEON_RADIUS,
+          sphereRadius: ShredConstants.NUCLEON_RADIUS,
           baseColor: 'rgb( 100, 100, 100 )',
           caption: neutronsString,
         captionColor: 'white',
@@ -88,7 +88,7 @@ define( function( require ) {
       electronBucket: new SphereBucket( {
           position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          sphereRadius: SharedConstants.ELECTRON_RADIUS,
+          sphereRadius: ShredConstants.ELECTRON_RADIUS,
           usableWidthProportion: 0.8,
           baseColor: 'blue',
           caption: electronsString,

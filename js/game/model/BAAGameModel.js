@@ -13,7 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var TandemEmitter = require( 'TANDEM/axon/TandemEmitter' );
 
@@ -74,7 +74,7 @@ define( function( require ) {
     this.scores = []; // Properties that track score at each game level
     this.bestTimeVisible = []; // Properties that track whether to show best time at each game level
     self.bestTimes = []; // Best times at each level.
-    _.times( SharedConstants.LEVEL_NAMES.length, function() {
+    _.times( ShredConstants.LEVEL_NAMES.length, function() {
       self.bestScores.push( new Property( 0 ) );
       self.scores.push( new Property( 0 ) );
       self.bestTimes.push( new Property( null ) );
@@ -83,7 +83,7 @@ define( function( require ) {
 
     this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
       var i = 0;
-      for ( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
+      for ( i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
         self.bestTimeVisible[ i ].value = timerEnabled && self.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
       }
     } );
@@ -118,7 +118,7 @@ define( function( require ) {
     // Start a new game.
     // @private (StartGameLevelNode.js, phet-io)
     startGameLevel: function( levelName ) {
-      this.level = SharedConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
+      this.level = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
       this.problemIndex = 0;
       this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this, this.allowedProblemTypesByLevel, this.problemSetGroupTandem.createNextTandem() );
       this.score = 0;

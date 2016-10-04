@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var SharedConstants = require( 'SHRED/SharedConstants' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -49,10 +49,10 @@ define( function( require ) {
     chargeMeterBoxContents.scale( 0.85 );
     var chargeMeterBox = new AccordionBox( chargeMeterBoxContents, {
       titleNode: new Text( netChargeString, {
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
-      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
       minWidth: this.periodicTableBox.width,
       contentAlign: 'left',
@@ -68,10 +68,10 @@ define( function( require ) {
     massNumberDisplay.scale( 0.85 );
     var massNumberBox = new AccordionBox( massNumberDisplay, {
       titleNode: new Text( massNumberString, {
-        font: SharedConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: SharedConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
-      fill: SharedConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
       minWidth: this.periodicTableBox.width,
       contentAlign: 'left',
