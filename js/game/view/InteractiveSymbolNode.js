@@ -48,13 +48,13 @@ define( function( require ) {
       interactiveCharge: false
     }, options );
 
-    self.protonCountProperty = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCount, {
+    self.protonCountProperty = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' )
     } );
-    self.massNumberProperty = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumber, {
+    self.massNumberProperty = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: tandem.createTandem( 'massNumberProperty' )
     } );
-    self.chargeProperty = new Property( options.interactiveCharge ? 0 : numberAtom.charge, {
+    self.chargeProperty = new Property( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
       tandem: tandem.createTandem( 'chargeProperty' )
     } );
 
@@ -111,14 +111,14 @@ define( function( require ) {
       self.protonCountProperty.link( updateElement );
     }
     else {
-      var protonCountDisplay = new Text( numberAtom.protonCount, {
+      var protonCountDisplay = new Text( numberAtom.protonCountProperty.get(), {
         font: NUMBER_FONT,
         fill: PhetColorScheme.RED_COLORBLIND,
         left: NUMBER_INSET,
         bottom: SYMBOL_BOX_HEIGHT - NUMBER_INSET
       } );
       boundingBox.addChild( protonCountDisplay );
-      updateElement( numberAtom.protonCount );
+      updateElement( numberAtom.protonCountProperty.get() );
     }
 
     // Add the mass number display, either interactive or not.
@@ -133,7 +133,7 @@ define( function( require ) {
         } ) );
     }
     else {
-      var massNumberDisplay = new Text( numberAtom.massNumber, {
+      var massNumberDisplay = new Text( numberAtom.massNumberProperty.get(), {
         font: NUMBER_FONT,
         fill: 'black',
         left: NUMBER_INSET,
@@ -156,10 +156,10 @@ define( function( require ) {
         } ) );
     }
     else {
-      var chargeTextPrepend = numberAtom.charge > 0 ? '+' : '';
-      var chargeDisplay = new Text( chargeTextPrepend + numberAtom.charge, {
+      var chargeTextPrepend = numberAtom.chargeProperty.get() > 0 ? '+' : '';
+      var chargeDisplay = new Text( chargeTextPrepend + numberAtom.chargeProperty.get(), {
         font: NUMBER_FONT,
-        fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.charge ),
+        fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() ),
         right: SYMBOL_BOX_WIDTH - NUMBER_INSET,
         top: NUMBER_INSET
       } );

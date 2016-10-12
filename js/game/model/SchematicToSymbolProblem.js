@@ -19,11 +19,6 @@ define( function( require ) {
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
-   * @constructor
-   */
-  /**
-   * @param {BAAGameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
    * @param {boolean} configurableProtonCount
    * @param {boolean} configurableMassNumber
    * @param {boolean} configurableCharge

@@ -58,9 +58,9 @@ define( function( require ) {
 
     // @public
     displayCorrectAnswer: function() {
-      this.interactiveParticleCountsNode.numberAtom.protonCount = this.problem.answerAtom.protonCount;
-      this.interactiveParticleCountsNode.numberAtom.neutronCount = this.problem.answerAtom.neutronCount;
-      this.interactiveParticleCountsNode.numberAtom.electronCount = this.problem.answerAtom.electronCount;
+      this.interactiveParticleCountsNode.numberAtom.protonCountProperty.set( this.problem.answerAtom.protonCountProperty.get() );
+      this.interactiveParticleCountsNode.numberAtom.neutronCountProperty.set( this.problem.answerAtom.neutronCountProperty.get() );
+      this.interactiveParticleCountsNode.numberAtom.electronCountProperty.set( this.problem.answerAtom.electronCountProperty.get() );
     }
   } );
 } );

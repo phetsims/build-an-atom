@@ -111,7 +111,7 @@ define( function( require ) {
     var bucketsTandem = tandem.createGroupTandem( 'bucket' );
 
     model.nucleons.forEach( function( nucleon ) {
-      nucleonLayers[ nucleon.zLayer ].addChild( new ParticleView( nucleon, modelViewTransform, {
+      nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         tandem: nucleonTandem.createNextTandem()
       } ) );
       // Add a listener that adjusts a nucleon's z-order layering.
@@ -157,7 +157,8 @@ define( function( require ) {
     // become invisible when added to the atom.
     var updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
-        electronNode.visible = model.electronShellDepiction === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
+        electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
+                               !model.particleAtom.electrons.contains( electronNode.particle );
       } );
     };
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );

@@ -55,9 +55,9 @@ define( function( require ) {
     };
 
     // Create and add the individual particles.
-    createAndAddParticles( 'proton', numberAtom.protonCount );
-    createAndAddParticles( 'neutron', numberAtom.neutronCount );
-    createAndAddParticles( 'electron', numberAtom.electronCount );
+    createAndAddParticles( 'proton', numberAtom.protonCountProperty.get() );
+    createAndAddParticles( 'neutron', numberAtom.neutronCountProperty.get() );
+    createAndAddParticles( 'electron', numberAtom.electronCountProperty.get() );
     particleAtom.moveAllParticlesToDestination();
 
     // Layer the particle views so that the nucleus looks good, with the

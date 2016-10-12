@@ -40,14 +40,14 @@ define( function( require ) {
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
       assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
       this.numSubmissions++;
-      var isCorrect = submittedAtom.protonCount === this.answerAtom.protonCount &&
-                      submittedAtom.neutronCount === this.answerAtom.neutronCount &&
-                      ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.charge === 0 ) ||
-                        ( submittedNeutralOrIon === 'ion' && this.answerAtom.charge !== 0 ) );
+      var isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
+                      submittedAtom.neutronCountProperty.get() === this.answerAtom.neutronCountProperty.get() &&
+                      ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.chargeProperty.get() === 0 ) ||
+                        ( submittedNeutralOrIon === 'ion' && this.answerAtom.chargeProperty.get() !== 0 ) );
 
       var pointsIfCorrect = this.numSubmissions === 1 ? 2 : 1;
       this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
-        correctCharge: this.answerAtom.charge === 0 ? 'neutral' : 'ion',
+        correctCharge: this.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion',
         submittedCharge: submittedNeutralOrIon
       } );
 

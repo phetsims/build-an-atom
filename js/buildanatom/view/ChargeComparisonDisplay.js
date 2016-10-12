@@ -109,16 +109,16 @@ define( function( require ) {
     var update = function( atom ) {
       // toggle plus visibility
       for ( var numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
-        plusses[ numProtons ].visible = numProtons < atom.protonCount;
+        plusses[ numProtons ].visible = numProtons < atom.protonCountProperty.get();
       }
 
       // toggle minus visibility
       for ( var numElectrons = 0; numElectrons < MAX_CHARGE; numElectrons++ ) {
-        minuses[ numElectrons ].visible = numElectrons < atom.electronCount;
+        minuses[ numElectrons ].visible = numElectrons < atom.electronCountProperty.get();
       }
 
       // matching box
-      var numMatchedSymbols = Math.min( atom.protonCount, atom.electronCount );
+      var numMatchedSymbols = Math.min( atom.protonCountProperty.get(), atom.electronCountProperty.get() );
       matchBox.visible = numMatchedSymbols > 0;
       matchBox.rectWidth = INTER_SYMBOL_DISTANCE / 2 + ( numMatchedSymbols * SYMBOL_WIDTH ) + ( ( numMatchedSymbols - 0.5 ) * INTER_SYMBOL_DISTANCE );
     };

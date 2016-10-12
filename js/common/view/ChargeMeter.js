@@ -159,7 +159,7 @@ define( function( require ) {
         }
         readoutText.fill = textColor;
 
-        var newText = sign + numberAtom.charge;
+        var newText = sign + charge;
         if ( newText !== readoutText.text ) {
           readoutText.text = newText;
 

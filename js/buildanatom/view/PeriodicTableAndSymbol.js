@@ -48,9 +48,9 @@ define( function( require ) {
     this.addChild( symbolRectangle );
 
     // Add the text that represents the chosen element.
-    numberAtom.protonCountProperty.link( function() {
+    numberAtom.protonCountProperty.link( function( protonCount ) {
       symbolRectangle.removeAllChildren();
-      var symbolText = new Text( AtomIdentifier.getSymbol( numberAtom.protonCount ), {
+      var symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
         font: new PhetFont( { size: 48, weight: 'bold' } )
       } );
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );

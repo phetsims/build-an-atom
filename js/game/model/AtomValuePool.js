@@ -249,9 +249,9 @@ define( function( require ) {
 
     // Define a function that returns true if a given atom matches the criteria.
     var meetsCriteria = function( numberAtom ) {
-      return numberAtom.protonCount >= minProtonCount &&
-             numberAtom.protonCount < maxProtonCount &&
-             ( !requireCharged || numberAtom.charge !== 0 );
+      return numberAtom.protonCountProperty.get() >= minProtonCount &&
+             numberAtom.protonCountProperty.get() < maxProtonCount &&
+             ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
     };
 
     // Make a list of the atoms that meet the criteria.

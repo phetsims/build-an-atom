@@ -17,7 +17,7 @@ define( function( require ) {
   var Particle = require( 'SHRED/model/Particle' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
-  var PropertySet = require( 'AXON/PropertySet' );
+  var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -49,16 +49,13 @@ define( function( require ) {
 
     var self = this;
 
-    // Call the super constructor.
-    PropertySet.call( this, {
-      // Properties that control label visibility in the view.
-      showElementName: true,
-      showNeutralOrIon: true,
-      showStableOrUnstable: false,
+    // Properties that control label visibility in the view.
+    this.showElementNameProperty = new Property( true );
+    this.showNeutralOrIonProperty = new Property( true );
+    this.showStableOrUnstableProperty = new Property( false );
 
-      // Property that controls electron depiction in the view.
-      electronShellDepiction: 'orbits'
-    } );
+    // Property that controls electron depiction in the view.
+    this.electronShellDepictionProperty = new Property( 'orbits' );
 
     // Create the atom that the user will build, modify, and generally play with.
     self.particleAtom = new ParticleAtom();
@@ -100,7 +97,7 @@ define( function( require ) {
 
     // Define a function that will decide where to put nucleons.
     var placeNucleon = function( particle, bucket, atom ) {
-      if ( particle.position.distance( atom.position ) < NUCLEON_CAPTURE_RADIUS ) {
+      if ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
       }
       else {
@@ -146,7 +143,7 @@ define( function( require ) {
       self.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.userControlledProperty.link( function( userControlled ) {
         if ( !userControlled && !self.buckets.electronBucket.containsParticle( electron ) ) {
-          if ( electron.position.distance( Vector2.ZERO ) < self.particleAtom.outerElectronShellRadius * 1.1 ) {
+          if ( electron.positionProperty.get().distance( Vector2.ZERO ) < self.particleAtom.outerElectronShellRadius * 1.1 ) {
             self.particleAtom.addParticle( electron );
           }
           else {
@@ -159,9 +156,9 @@ define( function( require ) {
     // Make available a 'number atom' that tracks the state of the particle atom.
     self.numberAtom = new NumberAtom();
     var updateNumberAtom = function() {
-      self.numberAtom.protonCount = self.particleAtom.protons.length;
-      self.numberAtom.neutronCount = self.particleAtom.neutrons.length;
-      self.numberAtom.electronCount = self.particleAtom.electrons.length;
+      self.numberAtom.protonCountProperty.set( self.particleAtom.protons.length );
+      self.numberAtom.neutronCountProperty.set( self.particleAtom.neutrons.length );
+      self.numberAtom.electronCountProperty.set( self.particleAtom.electrons.length );
     };
 
     // Update the number atom when the particle atom changes.
@@ -174,7 +171,9 @@ define( function( require ) {
     self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     self.nucleusOffset = Vector2.ZERO;
     self.numberAtom.massNumberProperty.link( function( massNumber ) {
-      var stable = massNumber > 0 ? AtomIdentifier.isStable( self.numberAtom.protonCount, self.numberAtom.neutronCount ) : true;
+      var stable = massNumber > 0 ? AtomIdentifier.isStable(
+        self.numberAtom.protonCountProperty.get(),
+        self.numberAtom.neutronCountProperty.get() ) : true;
       if ( self.nucleusStable !== stable ) {
         // Stability has changed.
         self.nucleusStable = stable;
@@ -203,7 +202,7 @@ define( function( require ) {
 
   buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );
 
-  return inherit( PropertySet, BuildAnAtomModel, {
+  return inherit( Object, BuildAnAtomModel, {
 
     // @public - main model step function, called by the framework
     step: function( dt ) {
@@ -251,16 +250,19 @@ define( function( require ) {
 
     // @public
     reset: function() {
-      PropertySet.prototype.reset.call( this );
+      this.showElementNameProperty.reset();
+      this.showNeutralOrIonProperty.reset();
+      this.showStableOrUnstableProperty.reset();
+      this.electronShellDepictionProperty.reset();
 
       // Move any particles that are in transit back to its bucket.
       this.nucleons.forEach( function( nucleon ) {
-        if ( !nucleon.position.equals( nucleon.destination ) ) {
+        if ( !nucleon.positionProperty.get().equals( nucleon.destinationProperty.get() ) ) {
           nucleon.moveImmediatelyToDestination();
         }
       } );
       this.electrons.forEach( function( electron ) {
-        if ( !electron.position.equals( electron.destination ) ) {
+        if ( !electron.positionProperty.get().equals( electron.destinationProperty.get() ) ) {
           electron.moveImmediatelyToDestination();
         }
       } );
@@ -277,7 +279,7 @@ define( function( require ) {
       // stacked in their original configurations.
       var self = this;
       this.nucleons.forEach( function( nucleon ) {
-        if ( nucleon.type === 'proton' ) {
+        if ( nucleon.typeProperty.get() === 'proton' ) {
           self.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
         }
         else {
@@ -298,7 +300,7 @@ define( function( require ) {
         while ( currentCountInAtom < targetCountInAtom ) {
           var particle = bucket.extractClosestParticle( atomCenter );
           particle.setPositionAndDestination( atomCenter );
-          particle.userControlled = false; // Necessary to make it look like user released particle.
+          particle.userControlledProperty.set( false ); // Necessary to make it look like user released particle.
           currentCountInAtom++;
         }
         while ( currentCountInAtom > targetCountInAtom ) {
@@ -308,9 +310,23 @@ define( function( require ) {
       };
 
       // Move the particles.
-      moveParticlesToAtom( this.particleAtom.protons.length, numberAtom.protonCount, this.particleAtom.protons, this.buckets.protonBucket );
-      moveParticlesToAtom( this.particleAtom.neutrons.length, numberAtom.neutronCount, this.particleAtom.neutrons, this.buckets.neutronBucket );
-      moveParticlesToAtom( this.particleAtom.electrons.length, numberAtom.electronCount, this.particleAtom.electrons, this.buckets.electronBucket );
+      moveParticlesToAtom( this.particleAtom.protons.length,
+        numberAtom.protonCountProperty.get(),
+        this.particleAtom.protons,
+        this.buckets.protonBucket
+      );
+      moveParticlesToAtom(
+        this.particleAtom.neutrons.length,
+        numberAtom.neutronCountProperty.get(),
+        this.particleAtom.neutrons,
+        this.buckets.neutronBucket
+      );
+      moveParticlesToAtom(
+        this.particleAtom.electrons.length,
+        numberAtom.electronCountProperty.get(),
+        this.particleAtom.electrons,
+        this.buckets.electronBucket
+      );
 
       // Finalize particle positions.
       this.particleAtom.moveAllParticlesToDestination();

@@ -37,17 +37,17 @@ define( function( require ) {
 
     options = _.extend( { font: new PhetFont( 24 ) }, options );
 
-    var protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCount ), {
+    var protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( protonCountTitle );
-    var neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCount ), {
+    var neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( neutronCountTitle );
-    var electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCount ), {
+    var electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
