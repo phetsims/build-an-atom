@@ -44,6 +44,9 @@ define( function( require ) {
   var cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
   var modelString = require( 'string!BUILD_AN_ATOM/model' );
 
+  // phet-io modules
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+
   // constants
   var CONTROLS_INSET = 10;
   var LABEL_CONTROL_FONT = new PhetFont( 12 );
@@ -157,8 +160,7 @@ define( function( require ) {
     // become invisible when added to the atom.
     var updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
-        electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
-                               !model.particleAtom.electrons.contains( electronNode.particle );
+        electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
     };
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
@@ -248,14 +250,16 @@ define( function( require ) {
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
     } ), {
       radius: radioButtonRadius,
-      tandem: tandem.createTandem( 'orbitsRadioButton' )
+      tandem: tandem.createTandem( 'orbitsRadioButton' ),
+      phetioValueType: TString
     } );
     var cloudRadioButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, {
       font: ELECTRON_VIEW_CONTROL_FONT,
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
     } ), {
       radius: radioButtonRadius,
-      tandem: tandem.createTandem( 'cloudRadioButton' )
+      tandem: tandem.createTandem( 'cloudRadioButton' ),
+      phetioValueType: TString
     } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( modelString, {
