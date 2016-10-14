@@ -10,7 +10,6 @@ define( function( require ) {
 
   // modules
   var Property = require( 'AXON/Property' );
-  var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
@@ -40,24 +39,24 @@ define( function( require ) {
       [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
     ];
 
-    PropertySet.call( this, {
-      state: 'selectGameLevel', // Current state of the game.  Each problem is a unique state.
-      soundEnabled: true,
-      timerEnabled: false,
-      level: 0,
-      problemSet: [],
-      problemIndex: 0,
-      score: 0, // Score on current game level.
-      elapsedTime: 0
-    }, {
-      tandemSet: {
-        soundEnabled: tandem.createTandem( 'soundEnabledProperty' ),
-        timerEnabled: tandem.createTandem( 'timerEnabledProperty' ),
-        level: tandem.createTandem( 'levelProperty' ),
-        problemIndex: tandem.createTandem( 'problemIndexProperty' ),
-        score: tandem.createTandem( 'scoreProperty' )
-      }
+    this.stateProperty = new Property( 'selectGameLevel' ); // Current state of the game.  Each problem is a unique state.
+    this.soundEnabledProperty = new Property( true, {
+      tandem: tandem.createTandem( 'soundEnabledProperty' )
     } );
+    this.timerEnabledProperty = new Property( false, {
+      tandem: tandem.createTandem( 'timerEnabledProperty' )
+    } );
+    this.levelProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'levelProperty' )
+    } );
+    this.problemSetProperty = new Property( [] );
+    this.problemIndexProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'problemIndexProperty' )
+    } );
+    this.scoreProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'scoreProperty' )
+    } ); // Score on current game level.
+    this.elapsedTimeProperty = new Property( 0 );
 
     var self = this;
 
@@ -103,7 +102,7 @@ define( function( require ) {
   buildAnAtom.register( 'BAAGameModel', BAAGameModel );
 
   // Inherit from base class and define the methods for this object.
-  return inherit( PropertySet, BAAGameModel, {
+  return inherit( Object, BAAGameModel, {
 
     // @public - time stepping function, called by the framework
     step: function( dt ) {
