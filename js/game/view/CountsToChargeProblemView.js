@@ -78,16 +78,16 @@ define( function( require ) {
     // @public
     checkAnswer: function() {
       var userSubmittedAnswer = new NumberAtom( {
-        protonCount: this.problem.answerAtom.protonCount,
-        neutronCount: this.problem.answerAtom.neutronCount,
-        electronCount: this.problem.answerAtom.protonCount - this.chargeAnswerProperty.value
+        protonCount: this.problem.answerAtom.protonCountProperty.get(),
+        neutronCount: this.problem.answerAtom.neutronCountProperty.get(),
+        electronCount: this.problem.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
       } );
       this.problem.checkAnswer( userSubmittedAnswer );
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.chargeAnswerProperty.value = this.problem.answerAtom.charge;
+      this.chargeAnswerProperty.value = this.problem.answerAtom.chargeProperty.get();
     }
   } );
 } );

@@ -88,16 +88,16 @@ define( function( require ) {
     // @public
     checkAnswer: function() {
       var userSubmittedAnswer = new NumberAtom( {
-        protonCount: this.problem.answerAtom.protonCount,
-        neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCount,
-        electronCount: this.problem.answerAtom.electronCount
+        protonCount: this.problem.answerAtom.protonCountProperty.get(),
+        neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCountProperty.get(),
+        electronCount: this.problem.answerAtom.electronCountProperty.get()
       } );
       this.problem.checkAnswer( userSubmittedAnswer );
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumber;
+      this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumberProperty.get();
     },
 
     // @public

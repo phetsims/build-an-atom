@@ -70,9 +70,9 @@ define( function( require ) {
 
     // @public
     displayCorrectAnswer: function() {
-      this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCount;
-      this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumber;
-      this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.charge;
+      this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCountProperty.get();
+      this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumberProperty.get();
+      this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.chargeProperty.get();
     }
   } );
 } );

@@ -143,27 +143,27 @@ define( function( require ) {
     // @public
     checkAnswer: function() {
       var submittedAtom = new NumberAtom( {
-        protonCount: this.periodicTableAtom.protonCount,
-        neutronCount: this.problem.answerAtom.neutronCount,
-        electronCount: this.problem.answerAtom.electronCount
+        protonCount: this.periodicTableAtom.protonCountProperty.get(),
+        neutronCount: this.problem.answerAtom.neutronCountProperty.get(),
+        electronCount: this.problem.answerAtom.electronCountProperty.get()
       } );
       this.problem.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
     },
 
     // @public
     clearAnswer: function() {
-      this.periodicTableAtom.protonCount = 0;
-      this.periodicTableAtom.neutronCount = 0;
-      this.periodicTableAtom.electronCount = 0;
+      this.periodicTableAtom.protonCountProperty.set( 0 );
+      this.periodicTableAtom.neutronCountProperty.set( 0 );
+      this.periodicTableAtom.electronCountProperty.set( 0 );
       this.neutralOrIonProperty.reset();
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.periodicTableAtom.protonCount = this.problem.answerAtom.protonCount;
-      this.periodicTableAtom.neutronCount = this.problem.answerAtom.neutronCount;
-      this.periodicTableAtom.electronCount = this.problem.answerAtom.electronCount;
-      this.neutralOrIonProperty.value = this.problem.answerAtom.charge === 0 ? 'neutral' : 'ion';
+      this.periodicTableAtom.protonCountProperty.set( this.problem.answerAtom.protonCountProperty.get() );
+      this.periodicTableAtom.neutronCountProperty.set( this.problem.answerAtom.neutronCountProperty.get() );
+      this.periodicTableAtom.electronCountProperty.set( this.problem.answerAtom.electronCountProperty.get() );
+      this.neutralOrIonProperty.value = this.problem.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
     },
 
     // @public

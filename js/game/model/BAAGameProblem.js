@@ -48,7 +48,6 @@ define( function( require ) {
      * @public
      */
     checkAnswer: function( submittedAtom ) {
-
       // Verify that the current state is as expected.
       assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
 
@@ -57,8 +56,8 @@ define( function( require ) {
       var isCorrect = this.answerAtom.equals( submittedAtom );
 
       this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
-        correctElectronCount: this.answerAtom.electronCount,
-        submittedElectronCount: submittedAtom.electronCount
+        correctElectronCount: this.answerAtom.electronCountProperty.get(),
+        submittedElectronCount: submittedAtom.electronCountProperty.get()
       } );
 
       if ( isCorrect ) {

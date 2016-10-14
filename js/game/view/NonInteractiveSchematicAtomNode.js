@@ -63,13 +63,14 @@ define( function( require ) {
     // Layer the particle views so that the nucleus looks good, with the
     // particles closer to the center being higher in the z-order.
     var particleViewsInNucleus = _.filter( particleLayer.children, function( particleView ) {
-      return particleView.particle.destination.distance( particleAtom.position ) < particleAtom.innerElectronShellRadius;
+      return particleView.particle.destinationProperty.get().
+               distance( particleAtom.positionProperty.get() ) < particleAtom.innerElectronShellRadius;
     } );
 
     if ( particleViewsInNucleus.length > 3 ) {
       particleViewsInNucleus = _.sortBy( particleViewsInNucleus, function( particleView ) {
         // Central nucleons should be in front
-        return -particleView.particle.destination.distance( particleAtom.position );
+        return -particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() );
       } );
       particleViewsInNucleus.forEach( function( particleView ) {
         particleLayer.removeChild( particleView );

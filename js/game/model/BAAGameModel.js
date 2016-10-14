@@ -220,13 +220,13 @@ define( function( require ) {
       var arg = {
         isCorrect: isCorrect,
 
-        correctProtonCount: answerAtom.protonCount,
-        correctNeutronCount: answerAtom.neutronCount,
-        correctElectronCount: answerAtom.electronCount,
+        correctProtonCount: answerAtom.protonCountProperty.get(),
+        correctNeutronCount: answerAtom.neutronCountProperty.get(),
+        correctElectronCount: answerAtom.electronCountProperty.get(),
 
-        submittedProtonCount: submittedAtom.protonCount,
-        submittedNeutronCount: submittedAtom.neutronCount,
-        submittedElectronCount: submittedAtom.electronCount,
+        submittedProtonCount: submittedAtom.protonCountProperty.get(),
+        submittedNeutronCount: submittedAtom.neutronCountProperty.get(),
+        submittedElectronCount: submittedAtom.electronCountProperty.get(),
 
         points: isCorrect ? pointsIfCorrect : 0
       };

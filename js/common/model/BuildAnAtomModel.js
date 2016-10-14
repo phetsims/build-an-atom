@@ -294,7 +294,7 @@ define( function( require ) {
     // @public - set the atom to the specified configuration
     setAtomConfiguration: function( numberAtom ) {
       // Define a function for transferring particles from buckets to atom.
-      var atomCenter = this.particleAtom.position;
+      var atomCenter = this.particleAtom.positionProperty.get();
       var self = this;
       var moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
         while ( currentCountInAtom < targetCountInAtom ) {
