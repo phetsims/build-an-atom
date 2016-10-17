@@ -13,6 +13,7 @@ define( function( require ) {
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -28,7 +29,7 @@ define( function( require ) {
   function SymbolView( model, tandem ) {
     AtomView.call( this, model, tandem ); // Call super constructor.
 
-    this.viewProperties.addProperty( 'symbolBoxExpanded', true );
+    this.symbolBoxExpandedProperty = new Property( true );
 
     // Add the symbol node within an accordion box.
     var symbolNode = new SymbolNode( model.numberAtom );
@@ -45,7 +46,7 @@ define( function( require ) {
       buttonAlign: 'right',
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
-      expandedProperty: this.viewProperties.symbolBoxExpandedProperty
+      expandedProperty: this.symbolBoxExpandedProperty
     } );
     this.controlPanelLayer.addChild( symbolBox );
 
@@ -56,5 +57,10 @@ define( function( require ) {
 
   buildAnAtom.register( 'SymbolView', SymbolView );
 
-  return inherit( AtomView, SymbolView );
+  return inherit( AtomView, SymbolView, {
+    reset: function(){
+      AtomView.prototype.reset.call( this );
+      this.symbolBoxExpandedProperty.reset();
+    }
+  } );
 } );

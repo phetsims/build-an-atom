@@ -33,7 +33,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
-  var PropertySet = require( 'AXON/PropertySet' );
+  var Property = require( 'AXON/Property' );
 
   // strings
   var elementString = require( 'string!BUILD_AN_ATOM/element' );
@@ -68,9 +68,7 @@ define( function( require ) {
     this.resetFunctions = [];
 
     // @protected
-    this.viewProperties = new PropertySet( {
-      periodicTableBoxExpanded: true
-    } );
+    this.periodicTableBoxExpandedProperty = new Property( true );
 
     // Create the model-view transform.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -195,7 +193,7 @@ define( function( require ) {
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      expandedProperty: this.viewProperties.periodicTableBoxExpandedProperty,
+      expandedProperty: this.periodicTableBoxExpandedProperty,
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8
     } );
@@ -281,7 +279,7 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton( {
       listener: function() {
         self.model.reset();
-        self.viewProperties.reset();
+        self.reset();
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,
@@ -314,5 +312,9 @@ define( function( require ) {
   buildAnAtom.register( 'AtomView', AtomView );
 
   // Inherit from ScreenView.
-  return inherit( ScreenView, AtomView );
+  return inherit( ScreenView, AtomView, {
+    reset: function(){
+      this.periodicTableBoxExpandedProperty.reset();
+    }
+  } );
 } );

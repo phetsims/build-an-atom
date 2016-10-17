@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -36,8 +37,8 @@ define( function( require ) {
   function BuildAnAtomView( model, tandem ) {
     AtomView.call( this, model, tandem ); // Call super constructor.
 
-    this.viewProperties.addProperty( 'chargeMeterBoxExpanded', false );
-    this.viewProperties.addProperty( 'massNumberBoxExpanded', false );
+    this.chargeMeterBoxExpandedProperty = new Property( false );
+    this.massNumberBoxExpandedProperty = new Property( false );
 
     // Add the charge meter and charge comparison display inside of an accordion box.
     var chargeMeterBoxContents = new Node( { pickable: false } );
@@ -53,7 +54,7 @@ define( function( require ) {
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      expandedProperty: this.viewProperties.chargeMeterBoxExpandedProperty,
+      expandedProperty: this.chargeMeterBoxExpandedProperty,
       minWidth: this.periodicTableBox.width,
       contentAlign: 'left',
       titleAlignX: 'left',
@@ -72,7 +73,7 @@ define( function( require ) {
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      expandedProperty: this.viewProperties.massNumberBoxExpandedProperty,
+      expandedProperty: this.massNumberBoxExpandedProperty,
       minWidth: this.periodicTableBox.width,
       contentAlign: 'left',
       titleAlignX: 'left',
@@ -91,5 +92,11 @@ define( function( require ) {
 
   buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
 
-  return inherit( AtomView, BuildAnAtomView );
+  return inherit( AtomView, BuildAnAtomView, {
+    reset: function(){
+      AtomView.prototype.reset.call( this );
+      this.chargeMeterBoxExpandedProperty.reset();
+      this.massNumberBoxExpandedProperty.reset();
+    }
+  } );
 } );
