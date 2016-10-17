@@ -141,7 +141,7 @@ define( function( require ) {
       problemSolvedCorrectly: function() {
         setAnswerNodeInteractive( false );
         faceNode.smile();
-        pointDisplay.text = '+' + problem.score;
+        pointDisplay.text = '+' + problem.scoreProperty.get();
         faceNode.visible = true;
         self.nextButton.visible = true;
         self.gameAudioPlayer.correctAnswer();

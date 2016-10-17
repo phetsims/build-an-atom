@@ -12,8 +12,8 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
   /**
@@ -22,19 +22,18 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameProblem( buildAnAtomGameModel, answerAtom ) {
-    PropertySet.call( this, {
-      problemState: 'presentingProblem',
-      answerAtom: answerAtom,
-      numSubmissions: 0,
-      score: 0
-    } );
+    this.problemStateProperty  = new Property( 'presentingProblem' );
+    //this.answerAtomProperty = new Property( answerAtom ); TODO Regression testing on this
+    this.numSubmissionsProperty =new Property( 0 );
+    this.scoreProperty =  new Property( 0 );
+
     this.answerAtom = answerAtom;
     this.model = buildAnAtomGameModel;
   }
 
   buildAnAtom.register( 'BAAGameProblem', BAAGameProblem );
   // Inherit from base class and define the methods for this object.
-  return inherit( PropertySet, BAAGameProblem, {
+  return inherit( Object, BAAGameProblem, {
 
     //------------------------------------------------------------------------
     // The following functions comprise the API used by the problem view to
@@ -49,10 +48,11 @@ define( function( require ) {
      */
     checkAnswer: function( submittedAtom ) {
       // Verify that the current state is as expected.
-      assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
+      assert && assert( this.problemStateProperty.get() === 'presentingProblem', 'Unexpected problem state: ' +
+                                                                                 this.problemStateProperty.get() );
 
-      this.numSubmissions++;
-      var pointsIfCorrect = this.numSubmissions === 1 ? 2 : 1;
+      this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
+      var pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
       var isCorrect = this.answerAtom.equals( submittedAtom );
 
       this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
@@ -63,31 +63,31 @@ define( function( require ) {
       if ( isCorrect ) {
 
         // Correct answer.  Update the score.
-        this.score = pointsIfCorrect;
-        this.model.score += this.score;
+        this.scoreProperty.set( pointsIfCorrect );
+        this.model.scoreProperty.set(  this.model.scoreProperty.get() + this.scoreProperty.get() );
 
         // Move to the next state.
-        this.problemState = 'problemSolvedCorrectly';
+        this.problemStateProperty.set( 'problemSolvedCorrectly' );
       }
       else {
 
         // Handle incorrect answer.
-        if ( this.numSubmissions < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
+        if ( this.numSubmissionsProperty.get() < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
 
           // Give the user another chance.
-          this.problemState = 'presentingTryAgain';
+          this.problemStateProperty.set( 'presentingTryAgain' );
         }
         else {
 
           // User has exhausted their attempts.
-          this.problemState = 'attemptsExhausted';
+          this.problemStateProperty.set( 'attemptsExhausted' );
         }
       }
     },
 
     // public - allow the user to try again to correctly answer the question
     tryAgain: function() {
-      this.problemState = 'presentingProblem';
+      this.problemStateProperty.set( 'presentingProblem' );
     },
 
     // @public - advance to the next question or finish the level
@@ -99,7 +99,7 @@ define( function( require ) {
 
     // @public - display the correct answer to the user
     displayCorrectAnswer: function() {
-      this.problemState = 'displayingCorrectAnswer';
+      this.problemStateProperty.set( 'displayingCorrectAnswer' );
     }
   } );
 } );

@@ -81,22 +81,23 @@ define( function( require ) {
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
         previousView.dispose();
-        if ( gameModel.score === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.REWARD ) {
+        if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.REWARD ) {
           // Perfect score, add the reward node.
           self.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
           rootNode.addChild( self.rewardNode );
           // Play the appropriate audio feedback
           gameAudioPlayer.gameOverPerfectScore();
         }
-        else if ( gameModel.score > 0 ) {
+        else if ( gameModel.scoreProperty.get() > 0 ) {
           gameAudioPlayer.gameOverImperfectScore();
         }
 
         // Add the dialog node that indicates that the level has been completed.
-        rootNode.addChild( new LevelCompletedNode( gameModel.level, gameModel.score, BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-          BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabled, gameModel.elapsedTime,
-          gameModel.bestTimes[ gameModel.level ].value, gameModel.newBestTime,
-          function() { gameModel.state = 'selectGameLevel'; }, {
+        rootNode.addChild( new LevelCompletedNode( gameModel.levelProperty.get(), gameModel.scoreProperty.get(),
+          BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
+          BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabledProperty.get(), gameModel.elapsedTimeProperty.get(),
+          gameModel.bestTimes[ gameModel.levelProperty.get() ].value, gameModel.newBestTime,
+          function() { gameModel.stateProperty.set( 'selectGameLevel' ); }, {
             centerX: self.layoutBounds.width / 2,
             centerY: self.layoutBounds.height / 2,
             levelVisible: false,

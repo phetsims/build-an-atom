@@ -107,8 +107,8 @@ define( function( require ) {
     // @public - time stepping function, called by the framework
     step: function( dt ) {
       // Step the current problem if it has any time-driven behavior.
-      if ( this.state && ( typeof( this.state.step ) !== 'undefined' ) ) {
-        this.state.step( dt );
+      if ( this.stateProperty.get() && ( typeof( this.stateProperty.get().step ) !== 'undefined' ) ) {
+        this.stateProperty.get().step( dt );
       }
       // Step any external functions that need it.
       this.stepListeners.forEach( function( stepListener ) { stepListener( dt ); } );
@@ -117,65 +117,80 @@ define( function( require ) {
     // Start a new game.
     // @private (StartGameLevelNode.js, phet-io)
     startGameLevel: function( levelName ) {
-      this.level = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
-      this.problemIndex = 0;
-      this.problemSet = ProblemSetFactory.generate( this.level, PROBLEMS_PER_LEVEL, this, this.allowedProblemTypesByLevel, this.problemSetGroupTandem.createNextTandem() );
-      this.score = 0;
+      this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
+      this.problemIndexProperty.set( 0 );
+      this.problemSetProperty.set( ProblemSetFactory.generate( this.levelProperty.get(), PROBLEMS_PER_LEVEL, this,
+        this.allowedProblemTypesByLevel, this.problemSetGroupTandem.createNextTandem() ) );
+      this.scoreProperty.set( 0 );
       this.newBestTime = false;
-      this.bestTimeVisible[ this.level ].value = false;
+      this.bestTimeVisible[ this.levelProperty.get() ].value = false;
       this._restartGameTimer();
-      this.state = this.problemSet.length > 0 ? this.state = this.problemSet[ 0 ] : this.state = 'levelCompleted';
+      if ( this.problemSetProperty.get().length > 0 ){
+        this.stateProperty.set( this.problemSetProperty.get()[ 0 ] );
+      }
+      else{
+        this.stateProperty.set( 'levelCompleted' );
+      }
     },
 
     // @public - go to the level selection dialog and allow the user to start a new game
     newGame: function() {
-      this.state = 'selectGameLevel';
-      this.score = 0;
+      this.stateProperty.set( 'selectGameLevel' );
+      this.scoreProperty.set( 0 );
       this._stopGameTimer();
     },
 
     // @public - advance to the next problem or to the 'game over' screen if all problems finished
     next: function() {
-      if ( this.problemSet.length > this.problemIndex + 1 ) {
+      var level = this.levelProperty.get();
+      if ( this.problemSetProperty.get().length > this.problemIndexProperty.get() + 1 ) {
         // Next problem.
-        this.problemIndex++;
-        this.state = this.problemSet[ this.problemIndex ];
+        this.problemIndexProperty.set( this.problemIndexProperty.get() + 1 );
+        this.stateProperty.set( this.problemSetProperty.get()[ this.problemIndexProperty.get() ] );
       }
       else {
         // Game level completed - update score and state.
-        if ( this.score > this.bestScores[ this.level ].value ) {
-          this.bestScores[ this.level ].value = this.score;
+        if ( this.scoreProperty.get() > this.bestScores[ level ].value ) {
+          this.bestScores[ level ].value = this.scoreProperty.get();
         }
-        if ( this.timerEnabled && this.score === MAX_POINTS_PER_GAME_LEVEL && ( this.bestTimes[ this.level ].value === null || this.elapsedTime < this.bestTimes[ this.level ].value ) ) {
-          this.newBestTime = this.bestTimes[ this.level ].value === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
-          this.bestTimes[ this.level ].value = this.elapsedTime;
-        }
-
-        if ( this.score === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabled ) {
-          this.bestTimeVisible[ this.level ].value = true;
+        if ( this.timerEnabledProperty.get() && this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL &&
+             ( this.bestTimes[ level ].value === null || this.elapsedTimeProperty.get() < this.bestTimes[ level ].value ) ) {
+          this.newBestTime = this.bestTimes[ level ].value === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
+          this.bestTimes[ level ].value = this.elapsedTimeProperty.get();
         }
 
-        this.scores[ this.level ].value = this.score;
+        if ( this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabledProperty.get() ) {
+          this.bestTimeVisible[ level ].value = true;
+        }
+
+        this.scores[ level ].value = this.scoreProperty.get();
 
         // When the game is complete, send notification that can be used by phet-io
         this.levelCompletedEmitter.emit1( {
-          level: this.level,
+          level: level,
           maxPoints: MAX_POINTS_PER_GAME_LEVEL,
           problems: PROBLEMS_PER_LEVEL,
-          timerEnabled: this.timerEnabled,
-          elapsedTime: this.elapsedTime,
-          bestTimes: this.bestTimes[ this.level ],
+          timerEnabled: this.timerEnabledProperty.get(),
+          elapsedTime: this.elapsedTimeProperty.get(),
+          bestTimes: this.bestTimes[ level ],
           newBestTime: this.newBestTime
         } );
 
-        this.state = 'levelCompleted';
+        this.stateProperty.set( 'levelCompleted' );
         this._stopGameTimer();
       }
     },
 
     // @public
     reset: function() {
-      PropertySet.prototype.reset.call( this );
+      this.stateProperty.reset();
+      this.soundEnabledProperty.reset();
+      this.timerEnabledProperty.reset();
+      this.levelProperty.reset();
+      this.problemSetProperty.reset();
+      this.problemIndexProperty.reset();
+      this.scoreProperty.reset();
+      this.elapsedTimeProperty.reset();
       this.bestScores.forEach( function( bestScoreProperty ) { bestScoreProperty.reset(); } );
       this.scores.forEach( function( scoreProperty ) { scoreProperty.reset(); } );
       this.bestTimes.forEach( function( bestTimeProperty ) { bestTimeProperty.reset(); } );
@@ -197,9 +212,11 @@ define( function( require ) {
       if ( this.gameTimerId !== null ) {
         window.clearInterval( this.gameTimerId );
       }
-      this.elapsedTime = 0;
+      this.elapsedTimeProperty.set( 0 );
       var self = this;
-      this.gameTimerId = window.setInterval( function() { self.elapsedTime += 1; }, 1000 );
+      this.gameTimerId = window.setInterval( function() {
+        self.elapsedTimeProperty.set( self.elapsedTimeProperty.get() + 1 );
+      }, 1000 );
     },
 
     // @private

@@ -38,14 +38,15 @@ define( function( require ) {
      * @public
      */
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
-      assert && assert( this.problemState === 'presentingProblem', 'Unexpected problem state: ' + this.problemState );
-      this.numSubmissions++;
+      assert && assert( this.problemStateProperty.get() === 'presentingProblem', 'Unexpected problem state: ' +
+                                                                                 this.problemStateProperty.get() );
+      this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 ) ;
       var isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
                       submittedAtom.neutronCountProperty.get() === this.answerAtom.neutronCountProperty.get() &&
                       ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.chargeProperty.get() === 0 ) ||
                         ( submittedNeutralOrIon === 'ion' && this.answerAtom.chargeProperty.get() !== 0 ) );
 
-      var pointsIfCorrect = this.numSubmissions === 1 ? 2 : 1;
+      var pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
       this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
         correctCharge: this.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion',
         submittedCharge: submittedNeutralOrIon
@@ -53,24 +54,24 @@ define( function( require ) {
 
       if ( isCorrect ) {
         // Answer is correct. Record the score.
-        this.score = pointsIfCorrect;
-        this.model.score += this.score;
+        this.scoreProperty.set( pointsIfCorrect );
+        this.model.scoreProperty.set( this.model.scoreProperty.get() + this.scoreProperty.get() );
 
         // Move to the next state.
-        this.problemState = 'problemSolvedCorrectly';
+        this.problemStateProperty.set( 'problemSolvedCorrectly' );
       }
       else {
 
         // Handle incorrect answer.
-        if ( this.numSubmissions < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
+        if ( this.numSubmissionsProperty.get() < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
 
           // Give the user another chance.
-          this.problemState = 'presentingTryAgain';
+          this.problemStateProperty.set( 'presentingTryAgain' );
         }
         else {
 
           // User has exhausted their attempts.
-          this.problemState = 'attemptsExhausted';
+          this.problemStateProperty.set( 'attemptsExhausted' );
         }
       }
     }
