@@ -17,6 +17,8 @@ define( function( require ) {
   var TandemEmitter = require( 'TANDEM/axon/TandemEmitter' );
 
   // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
 
   // constants
@@ -41,20 +43,25 @@ define( function( require ) {
 
     this.stateProperty = new Property( 'selectGameLevel' ); // Current state of the game.  Each problem is a unique state.
     this.soundEnabledProperty = new Property( true, {
-      tandem: tandem.createTandem( 'soundEnabledProperty' )
+      tandem: tandem.createTandem( 'soundEnabledProperty' ),
+      phetioValueType: TBoolean
     } );
     this.timerEnabledProperty = new Property( false, {
-      tandem: tandem.createTandem( 'timerEnabledProperty' )
+      tandem: tandem.createTandem( 'timerEnabledProperty' ),
+      phetioValueType: TBoolean
     } );
     this.levelProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'levelProperty' )
+      tandem: tandem.createTandem( 'levelProperty' ),
+      phetioValueType: TNumber()
     } );
     this.problemSetProperty = new Property( [] );
     this.problemIndexProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'problemIndexProperty' )
+      tandem: tandem.createTandem( 'problemIndexProperty' ),
+      phetioValueType: TNumber()
     } );
     this.scoreProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'scoreProperty' )
+      tandem: tandem.createTandem( 'scoreProperty' ),
+      phetioValueType: TNumber()
     } ); // Score on current game level.
     this.elapsedTimeProperty = new Property( 0 );
 
