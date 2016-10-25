@@ -218,10 +218,9 @@ define( function( require ) {
    * @param {number} level
    * @constructor
    */
-  function AtomValuePool( level, random ) {
+  function AtomValuePool( level ) {
     this.remainingAtomValues = PROBLEM_POOLS[ level ];
     this.usedAtomValues = [];
-    this.random = random;
   }
 
   /**
@@ -275,7 +274,7 @@ define( function( require ) {
     // Choose a random value from the list.
     var atomValue = null;
     if ( allowableAtomValues.length > 0 ) {
-      atomValue = allowableAtomValues[ Math.floor( this.random.nextDouble() * allowableAtomValues.length ) ];
+      atomValue = allowableAtomValues[ Math.floor( phet.joist.random.nextDouble() * allowableAtomValues.length ) ];
     }
     else {
       throw 'Error: No atoms found that match the specified criteria';
