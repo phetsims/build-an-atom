@@ -11,12 +11,10 @@ define( function( require ) {
   //modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
-  var getQueryParameter = phet.chipper.getQueryParameter;
-
-  var BAAQueryParameters = {
+  var BAAQueryParameters = QueryStringMachine.getAll( {
     // shows the game reward regardless of score
-    REWARD: getQueryParameter( 'reward' ) || false
-  };
+    reward: { type: 'flag' }
+  } );
 
   buildAnAtom.register('BAAQueryParameters', BAAQueryParameters);
 
