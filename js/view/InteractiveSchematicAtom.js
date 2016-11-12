@@ -134,7 +134,7 @@ define( function( require ) {
       } ) );
     } );
 
-    this.interactiveSchematicAtomDispose = function(){
+    this.disposeInteractiveSchematicAtom = function(){
       particleViews.forEach( function( particleView ) {
         particleView.dispose();
       });
@@ -149,7 +149,7 @@ define( function( require ) {
   return inherit( Node, InteractiveSchematicAtom, {
     // @public
     dispose: function(){
-      this.interactiveSchematicAtomDispose();
+      this.disposeInteractiveSchematicAtom();
     }
   } );
 } );
