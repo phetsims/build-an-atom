@@ -57,7 +57,7 @@ define( function( require ) {
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.71;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.40;
 
-    this.symbolToSchematicProblemViewDispose = function() {
+    this.disposeSymbolToSchematicProblemView = function() {
       this.interactiveSchematicAtom.dispose();
     };
   }
@@ -79,7 +79,7 @@ define( function( require ) {
 
     // @public
     dispose: function() {
-      this.symbolToSchematicProblemViewDispose();
+      this.disposeSymbolToSchematicProblemView();
     }
   } );
 } );

@@ -42,7 +42,7 @@ define( function( require ) {
     );
     this.problemPresentationNode.addChild( nonInteractiveSchematicNode );
 
-    this.schematicToElementProblemViewDispose = function(){
+    this.disposeSchematicToElementProblemView = function(){
       nonInteractiveSchematicNode.dispose();
     };
   }
@@ -55,7 +55,7 @@ define( function( require ) {
     // @public
     dispose: function(){
       ToElementProblemView.prototype.dispose.call(this);
-      this.schematicToElementProblemViewDispose();
+      this.disposeSchematicToElementProblemView();
     }
   } );
 } );

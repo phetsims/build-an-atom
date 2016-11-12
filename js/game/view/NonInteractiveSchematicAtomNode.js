@@ -78,7 +78,7 @@ define( function( require ) {
       } );
     }
 
-    this.nonInteractiveSchematicAtomNodeDispose = function() {
+    this.disposeNonInteractiveSchematicAtomNode = function() {
       particleViews.forEach( function( particleView ) {
         particleView.dispose();
       } );
@@ -93,7 +93,7 @@ define( function( require ) {
 
     // @public
     dispose: function() {
-      this.nonInteractiveSchematicAtomNodeDispose();
+      this.disposeNonInteractiveSchematicAtomNode();
     }
   } );
 } );

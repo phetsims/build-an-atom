@@ -114,7 +114,7 @@ define( function( require ) {
     this.neutralOrIonProperty.link( updateCheckAnswerButton );
 
     // unlink from Properties
-    this.toElementProblemViewDispose = function() {
+    this.disposeToElementProblemView = function() {
       self.neutralOrIonProperty.unlink( updateCheckAnswerButton );
       self.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
     };
@@ -169,7 +169,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.periodicTable.dispose();
-      this.toElementProblemViewDispose();
+      this.disposeToElementProblemView();
     }
   } );
 } );

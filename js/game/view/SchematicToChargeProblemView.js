@@ -77,7 +77,7 @@ define( function( require ) {
     chargeEntryNode.left = questionPrompt.right + 10;
     chargeEntryNode.centerY = questionPrompt.centerY;
 
-    this.schematicToChargeProblemViewDispose = function() {
+    this.disposeSchematicToChargeProblemView = function() {
       nonInteractiveSchematicNode.dispose();
     };
   }
@@ -103,7 +103,7 @@ define( function( require ) {
     },
 
     dispose: function() {
-      this.schematicToChargeProblemViewDispose();
+      this.disposeSchematicToChargeProblemView();
     }
   } );
 } );

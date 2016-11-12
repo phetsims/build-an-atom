@@ -75,7 +75,7 @@ define( function( require ) {
     massEntryNode.left = questionPrompt.right + 10;
     massEntryNode.centerY = questionPrompt.centerY;
 
-    this.schematicToMassNumberProblemViewDispose = function() {
+    this.disposeSchematicToMassNumberProblemView = function() {
       nonInteractiveSchematicAtomNode.dispose();
     };
   }
@@ -102,7 +102,7 @@ define( function( require ) {
 
     // @public
     dispose: function() {
-      this.schematicToMassNumberProblemViewDispose();
+      this.disposeSchematicToMassNumberProblemView();
     }
   } );
 } );
