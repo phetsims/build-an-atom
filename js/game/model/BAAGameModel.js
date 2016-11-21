@@ -20,6 +20,7 @@ define( function( require ) {
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TBAAGameModel = require( 'ifphetio!PHET_IO/simulations/build-an-atom/TBAAGameModel' );
 
   // constants
   var PROBLEMS_PER_LEVEL = 5;
@@ -103,7 +104,7 @@ define( function( require ) {
     } );
 
     this.problemSetGroupTandem = tandem.createGroupTandem( 'problemSets' );
-    tandem.addInstance( this );
+    tandem.addInstance( this, TBAAGameModel );
   }
 
   buildAnAtom.register( 'BAAGameModel', BAAGameModel );
@@ -132,10 +133,10 @@ define( function( require ) {
       this.newBestTime = false;
       this.bestTimeVisible[ this.levelProperty.get() ].value = false;
       this._restartGameTimer();
-      if ( this.problemSetProperty.get().length > 0 ){
+      if ( this.problemSetProperty.get().length > 0 ) {
         this.stateProperty.set( this.problemSetProperty.get()[ 0 ] );
       }
-      else{
+      else {
         this.stateProperty.set( 'levelCompleted' );
       }
     },
