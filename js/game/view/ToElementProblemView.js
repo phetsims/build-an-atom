@@ -23,6 +23,9 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
 
+  // phet-io modules
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+
   // strings
   var findTheElementString = require( 'string!BUILD_AN_ATOM/findTheElement' );
   var ionString = require( 'string!BUILD_AN_ATOM/ion' );
@@ -44,7 +47,8 @@ define( function( require ) {
   function ToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
     this.neutralOrIonProperty = new Property( 'noSelection', {
-      tandem: tandem.createTandem( 'neutralOrIonProperty' )
+      tandem: tandem.createTandem( 'neutralOrIonProperty' ),
+      phetioValueType: TString
     } );
     ProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
     var self = this;
