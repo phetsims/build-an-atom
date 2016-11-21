@@ -32,7 +32,7 @@ define( function( require ) {
     this.symbolBoxExpandedProperty = new Property( true );
 
     // Add the symbol node within an accordion box.
-    var symbolNode = new SymbolNode( model.numberAtom );
+    var symbolNode = new SymbolNode( model.numberAtom, tandem.createTandem( 'symbolNode' ) );
     symbolNode.scale( 0.43 ); // Scale empirically determined.
     var symbolBox = new AccordionBox( symbolNode, {
       titleNode: new Text( symbolString, {
@@ -58,7 +58,7 @@ define( function( require ) {
   buildAnAtom.register( 'SymbolView', SymbolView );
 
   return inherit( AtomView, SymbolView, {
-    reset: function(){
+    reset: function() {
       AtomView.prototype.reset.call( this );
       this.symbolBoxExpandedProperty.reset();
     }

@@ -33,9 +33,10 @@ define( function( require ) {
   /**
    * Constructor
    * @param {NumberAtom} numberAtom
+   * @param {Tandem} tandem
    * @constructor
    */
-  function SymbolNode( numberAtom ) {
+  function SymbolNode( numberAtom, tandem ) {
 
     Node.call( this, { pickable: false } ); // Call super constructor.
 
@@ -113,7 +114,9 @@ define( function( require ) {
     this.addChild( scaleImage );
 
     // Add the charge meter.
-    var chargeMeter = new ChargeMeter( numberAtom, { showNumericalReadout: false } );
+    var chargeMeter = new ChargeMeter( numberAtom, tandem.createTandem( 'chargeMeter' ), {
+      showNumericalReadout: false
+    } );
     chargeMeter.scale( 1.5 );
     this.addChild( chargeMeter );
 

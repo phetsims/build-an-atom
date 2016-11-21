@@ -42,7 +42,7 @@ define( function( require ) {
 
     // Add the charge meter and charge comparison display inside of an accordion box.
     var chargeMeterBoxContents = new Node( { pickable: false } );
-    chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom ) );
+    chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom, tandem.createTandem( 'chargeMeter' ) ) );
     var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom ).mutate( { pickable: false } );
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
@@ -93,7 +93,7 @@ define( function( require ) {
   buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
 
   return inherit( AtomView, BuildAnAtomView, {
-    reset: function(){
+    reset: function() {
       AtomView.prototype.reset.call( this );
       this.chargeMeterBoxExpandedProperty.reset();
       this.massNumberBoxExpandedProperty.reset();

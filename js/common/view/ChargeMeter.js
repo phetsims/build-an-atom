@@ -30,10 +30,11 @@ define( function( require ) {
 
   /**
    * @param {NumberAtom} numberAtom
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function ChargeMeter( numberAtom, options ) {
+  function ChargeMeter( numberAtom, tandem, options ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -63,10 +64,7 @@ define( function( require ) {
     var meterWindow = new Path( meterWindowShape, {
       stroke: 'gray',
       lineWidth: 2,
-      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).
-      addColorStop( 0, 'rgb( 0, 0, 255 )' ).
-      addColorStop( 0.5, 'white' ).
-      addColorStop( 1, 'rgb( 255, 0, 0 )' ),
+      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).addColorStop( 0, 'rgb( 0, 0, 255 )' ).addColorStop( 0.5, 'white' ).addColorStop( 1, 'rgb( 255, 0, 0 )' ),
       centerX: background.centerX,
       top: 3 // Adjust as needed to work with background graphics.
     } );
@@ -74,10 +72,7 @@ define( function( require ) {
 
     // Add the plus symbol, which will be drawn (not done as a character).
     var shadowOffset = 0.5; // In pixels.
-    var plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).
-    lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).
-    moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).
-    lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
+    var plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
     var plusSymbol = new Node();
     plusSymbol.addChild( new Path( plusShape, {
       lineWidth: SYMBOL_LINE_WIDTH,
@@ -113,7 +108,8 @@ define( function( require ) {
       0, 3 - meterWindowHeight, {
         headHeight: 7,
         headWidth: 5,
-        tailWidth: 1
+        tailWidth: 1,
+        tandem: tandem.createTandem( 'meterNeedle' )
       } );
     meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
