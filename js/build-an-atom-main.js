@@ -17,6 +17,8 @@ define( function( require ) {
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
+  var Property = require( 'AXON/Property' );
+  var Color = require( 'SCENERY/util/Color' );
 
   // strings
   var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
@@ -79,7 +81,7 @@ define( function( require ) {
           return new SymbolView( model, symbolScreenTandem.createTandem( 'view' ) );
         }, {
           name: symbolString,
-          backgroundColor: 'rgb( 242, 255, 204 )', /* Light yellow-green */
+          backgroundColorProperty: new Property( Color.toColor( 'rgb( 242, 255, 204 )' ) ), /* Light yellow-green */
           homeScreenIcon: new Image( elementIcon ),
           navigationBarIcon: new Image( elementIconSmall ),
           tandem: symbolScreenTandem
@@ -95,7 +97,7 @@ define( function( require ) {
           return new BAAGameView( model, gameScreenTandem.createTandem( 'view' ) );
         }, {
           name: gameString,
-          backgroundColor: 'rgb( 255, 254, 223 )',
+          backgroundColorProperty: new Property( Color.toColor( 'rgb( 255, 254, 223 )' ) ),
           homeScreenIcon: new Image( gameIcon ),
           navigationBarIcon: new Image( gameIconSmall ),
           tandem: gameScreenTandem
