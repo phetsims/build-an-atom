@@ -22,6 +22,9 @@ define( function( require ) {
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+
   // strings
   var protonsString = require( 'string!BUILD_AN_ATOM/protons' );
   var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons' );
@@ -55,7 +58,9 @@ define( function( require ) {
     this.showStableOrUnstableProperty = new Property( false );
 
     // Property that controls electron depiction in the view.
-    this.electronShellDepictionProperty = new Property( 'orbits' );
+    this.electronShellDepictionProperty = new Property( 'orbits', {
+      phetioValueType: TString
+    } );
 
     // Create the atom that the user will build, modify, and generally play with.
     self.particleAtom = new ParticleAtom();

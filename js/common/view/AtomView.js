@@ -248,16 +248,14 @@ define( function( require ) {
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
     } ), {
       radius: radioButtonRadius,
-      tandem: tandem.createTandem( 'orbitsRadioButton' ),
-      phetioValueType: TString
+      tandem: tandem.createTandem( 'orbitsRadioButton' )
     } );
     var cloudRadioButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, {
       font: ELECTRON_VIEW_CONTROL_FONT,
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
     } ), {
       radius: radioButtonRadius,
-      tandem: tandem.createTandem( 'cloudRadioButton' ),
-      phetioValueType: TString
+      tandem: tandem.createTandem( 'cloudRadioButton' )
     } );
     var electronViewButtonGroup = new Node();
     electronViewButtonGroup.addChild( new Text( modelString, {
@@ -313,7 +311,7 @@ define( function( require ) {
 
   // Inherit from ScreenView.
   return inherit( ScreenView, AtomView, {
-    reset: function(){
+    reset: function() {
       this.periodicTableBoxExpandedProperty.reset();
     }
   } );
