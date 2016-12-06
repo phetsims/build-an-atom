@@ -23,6 +23,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   // strings
@@ -172,16 +173,19 @@ define( function( require ) {
     self.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
 
     // Update the stability state and counter on changes.
-    self.nucleusStable = true;
+    self.nucleusStableProperty = new Property( true, {
+      tandem: tandem.createTandem( 'nucleusStableProperty' ),
+      phetioValueType: TBoolean
+    } );
     self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     self.nucleusOffset = Vector2.ZERO;
     self.numberAtom.massNumberProperty.link( function( massNumber ) {
       var stable = massNumber > 0 ? AtomIdentifier.isStable(
         self.numberAtom.protonCountProperty.get(),
         self.numberAtom.neutronCountProperty.get() ) : true;
-      if ( self.nucleusStable !== stable ) {
+      if ( self.nucleusStableProperty.get() !== stable ) {
         // Stability has changed.
-        self.nucleusStable = stable;
+        self.nucleusStableProperty.set( stable );
         if ( stable ) {
           self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
           self.particleAtom.nucleusOffset = Vector2.ZERO;
@@ -221,7 +225,7 @@ define( function( require ) {
       } );
 
       // Animate the unstable nucleus by making it jump periodically.
-      if ( this.nucleusStable === false && this.showStableOrUnstable ) {
+      if ( !this.nucleusStableProperty.get() && this.showStableOrUnstableProperty.get() ) {
         this.nucleusJumpCountdown -= dt;
         if ( this.nucleusJumpCountdown <= 0 ) {
           this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
@@ -229,10 +233,10 @@ define( function( require ) {
             this.nucleusJumpCount++;
             var angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
             var distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
-            this.particleAtom.nucleusOffset = new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
+            this.particleAtom.nucleusOffsetProperty.set( new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance ) );
           }
           else {
-            this.particleAtom.nucleusOffset = Vector2.ZERO;
+            this.particleAtom.nucleusOffset.set( Vector2.ZERO );
           }
         }
       }
