@@ -44,9 +44,6 @@ define( function( require ) {
   var cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
   var modelString = require( 'string!BUILD_AN_ATOM/model' );
 
-  // phet-io modules
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
-
   // constants
   var CONTROLS_INSET = 10;
   var LABEL_CONTROL_FONT = new PhetFont( 12 );
