@@ -159,7 +159,7 @@ define( function( require ) {
     } );
 
     // Make available a 'number atom' that tracks the state of the particle atom.
-    self.numberAtom = new NumberAtom();
+    self.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
     var updateNumberAtom = function() {
       self.numberAtom.protonCountProperty.set( self.particleAtom.protons.length );
       self.numberAtom.neutronCountProperty.set( self.particleAtom.neutrons.length );
