@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
@@ -64,10 +65,10 @@ define( function( require ) {
     } );
 
     // Create the atom that the user will build, modify, and generally play with.
-    self.particleAtom = new ParticleAtom();
+    this.particleAtom = new ParticleAtom();
 
     // Create the buckets that will hold the sub-atomic particles.
-    self.buckets = {
+    this.buckets = {
       protonBucket: new SphereBucket( {
           position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
           size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
@@ -112,8 +113,8 @@ define( function( require ) {
     };
 
     // Define the arrays where the subatomic particles will reside.
-    self.nucleons = [];
-    self.electrons = [];
+    this.nucleons = [];
+    this.electrons = [];
 
     // Add the protons.
     var protonGroupTandem = tandem.createGroupTandem( 'protons' );
@@ -160,7 +161,7 @@ define( function( require ) {
     } );
 
     // Make available a 'number atom' that tracks the state of the particle atom.
-    self.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
+    this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
     var updateNumberAtom = function() {
       self.numberAtom.protonCountProperty.set( self.particleAtom.protons.length );
       self.numberAtom.neutronCountProperty.set( self.particleAtom.neutrons.length );
@@ -168,34 +169,35 @@ define( function( require ) {
     };
 
     // Update the number atom when the particle atom changes.
-    self.particleAtom.protons.lengthProperty.link( updateNumberAtom );
-    self.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
-    self.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
+    this.particleAtom.protons.lengthProperty.link( updateNumberAtom );
+    this.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
+    this.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
 
     // Update the stability state and counter on changes.
-    self.nucleusStableProperty = new Property( true, {
-      tandem: tandem.createTandem( 'nucleusStableProperty' ),
-      phetioValueType: TBoolean
-    } );
-    self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-    self.nucleusOffset = Vector2.ZERO;
-    self.numberAtom.massNumberProperty.link( function( massNumber ) {
-      var stable = massNumber > 0 ? AtomIdentifier.isStable(
-        self.numberAtom.protonCountProperty.get(),
-        self.numberAtom.neutronCountProperty.get() ) : true;
-      if ( self.nucleusStableProperty.get() !== stable ) {
-        // Stability has changed.
-        self.nucleusStableProperty.set( stable );
-        if ( stable ) {
-          self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-          self.particleAtom.nucleusOffset = Vector2.ZERO;
-        }
+    this.nucleusStableProperty = new DerivedProperty(
+      [ this.numberAtom.protonCountProperty, this.numberAtom.neutronCountProperty ],
+      function( protonCount, neutronCount ) {
+        return protonCount + neutronCount > 0 ? AtomIdentifier.isStable( protonCount, neutronCount ) : true;
+      },
+      {
+        tandem: tandem.createTandem( 'nucleusStableProperty' ),
+        phetioValueType: TBoolean
+      }
+    );
+
+    // Define some variables used to animate the nucleus to indicate whether it is stable and update them whenever
+    // stability changes.
+    this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    this.nucleusOffset = Vector2.ZERO;
+    this.nucleusStableProperty.link( function( nucluesIsStable ) {
+      if ( nucluesIsStable ) {
+        self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+        self.particleAtom.nucleusOffset = Vector2.ZERO;
       }
     } );
 
-    // If stability label visibility is turned off when nucleus animation is
-    // in progress, reset the animation.
-    self.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
+    // If stability label visibility is turned off when nucleus animation is in progress, reset the animation.
+    this.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
       if ( !showStableOrUnstable ) {
         self.particleAtom.nucleusOffset = Vector2.ZERO;
       }
