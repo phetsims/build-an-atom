@@ -34,7 +34,7 @@ define( function( require ) {
   var TPeriodicTableCell = require( 'PHET_IO/simulations/build-an-atom/TPeriodicTableCell' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
   var TString = require( 'PHET_IO/types/TString' );
-  var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
+  var TTandemSimpleDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemSimpleDragHandler' );
   var TTandemEmitter = require( 'PHET_IO/types/tandem/axon/TTandemEmitter' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TVerticalCheckBoxGroup = require( 'PHET_IO/types/sun/TVerticalCheckBoxGroup' );
@@ -102,10 +102,10 @@ define( function( require ) {
           },
           resetAllButton: TResetAllButton,
           nucleons: TGroup( TParticle.extend( {
-            inputListener: TTandemDragHandler
+            inputListener: TTandemSimpleDragHandler
           } ) ),
           electrons: TGroup( TParticle.extend( {
-            inputListener: TTandemDragHandler
+            inputListener: TTandemSimpleDragHandler
           } ) )
         }
       },
@@ -129,10 +129,10 @@ define( function( require ) {
             periodicTable: PeriodicTable
           },
           nucleons: TGroup( TParticle.extend( {
-            inputListener: TTandemDragHandler
+            inputListener: TTandemSimpleDragHandler
           } ) ),
           electrons: TGroup( TParticle.extend( {
-            inputListener: TTandemDragHandler
+            inputListener: TTandemSimpleDragHandler
           } ) )
         }
       },
@@ -184,14 +184,14 @@ define( function( require ) {
             schematicToElementProblemView: _.extend( {
               noninteractiveSchematicAtomNode: {
                 particle: TGroup( TParticle.extend( {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 } ) )
               }
             }, ToElementProblemView ),
             schematicToChargeProblemView: _.extend( {
               noninteractiveSchematicAtomNode: {
                 particle: TGroup( TParticle.extend( {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 } ) )
               },
               chargeAnswerProperty: TProperty( TNumber() ),
@@ -200,7 +200,7 @@ define( function( require ) {
             schematicToMassNumberProblemView: _.extend( {
               noninteractiveSchematicAtomNode: {
                 particle: TGroup( TParticle.extend( {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 } ) )
               },
               massNumberAnswerProperty: TProperty( TNumber() ),
@@ -218,7 +218,7 @@ define( function( require ) {
               interactiveSymbolNode: SymbolNodeWithContents,
               noninteractiveSchematicAtomNode: {
                 particle: TGroup( TParticle.extend( {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 } ) )
               }
             }, levelButtons ),
@@ -242,14 +242,14 @@ define( function( require ) {
             }, levelButtons ),
             symbolToSchematicProblemView: _.extend( {
               interactiveSchematicAtom: {
-                protonBucketDragHandler: TTandemDragHandler,
-                neutronBucketDragHandler: TTandemDragHandler,
-                electronBucketDragHandler: TTandemDragHandler,
+                protonBucketDragHandler: TTandemSimpleDragHandler,
+                neutronBucketDragHandler: TTandemSimpleDragHandler,
+                electronBucketDragHandler: TTandemSimpleDragHandler,
                 nucleons: TGroup( TParticle.extend( {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 } ) ),
                 electrons: TGroup( TParticle.extend( {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 } ) )
               },
               interactiveSymbolNode: TNode.extend( {
