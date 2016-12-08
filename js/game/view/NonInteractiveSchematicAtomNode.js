@@ -33,7 +33,8 @@ define( function( require ) {
     var atomNode = new AtomNode( particleAtom, modelViewTransform, {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
-      showStableOrUnstableProperty: new Property( false )
+      showStableOrUnstableProperty: new Property( false ),
+      tandem: tandem.createTandem( 'atomNode' )
     } );
     this.addChild( atomNode );
 
@@ -63,8 +64,7 @@ define( function( require ) {
     // Layer the particle views so that the nucleus looks good, with the
     // particles closer to the center being higher in the z-order.
     var particleViewsInNucleus = _.filter( particleLayer.children, function( particleView ) {
-      return particleView.particle.destinationProperty.get().
-               distance( particleAtom.positionProperty.get() ) < particleAtom.innerElectronShellRadius;
+      return particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) < particleAtom.innerElectronShellRadius;
     } );
 
     if ( particleViewsInNucleus.length > 3 ) {

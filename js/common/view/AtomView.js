@@ -78,7 +78,8 @@ define( function( require ) {
       showElementNameProperty: model.showElementNameProperty,
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
-      electronShellDepictionProperty: model.electronShellDepictionProperty
+      electronShellDepictionProperty: model.electronShellDepictionProperty,
+      tandem: tandem.createTandem( 'atomNode123' )
     } );
     this.addChild( atomNode );
 
