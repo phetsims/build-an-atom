@@ -79,7 +79,7 @@ define( function( require ) {
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
       electronShellDepictionProperty: model.electronShellDepictionProperty,
-      tandem: tandem.createTandem( 'atomNode123' )
+      tandem: tandem.createTandem( 'atomNode' )
     } );
     this.addChild( atomNode );
 
