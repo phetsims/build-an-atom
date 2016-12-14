@@ -23,6 +23,9 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   // constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
   var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
@@ -49,13 +52,16 @@ define( function( require ) {
     }, options );
 
     self.protonCountProperty = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
-      tandem: tandem.createTandem( 'protonCountProperty' )
+      tandem: tandem.createTandem( 'protonCountProperty' ),
+      phetioValueType: TNumber( { type: 'Integer' } )
     } );
     self.massNumberProperty = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
-      tandem: tandem.createTandem( 'massNumberProperty' )
+      tandem: tandem.createTandem( 'massNumberProperty' ),
+      phetioValueType: TNumber( { type: 'Integer' } )
     } );
     self.chargeProperty = new Property( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
-      tandem: tandem.createTandem( 'chargeProperty' )
+      tandem: tandem.createTandem( 'chargeProperty' ),
+      phetioValueType: TNumber( { type: 'Integer' } )
     } );
 
     // Add the bounding box, which is also the root node for everything else
