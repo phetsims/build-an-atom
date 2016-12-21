@@ -28,11 +28,11 @@ define( function( require ) {
    */
   function InteractiveSchematicAtom( model, modelViewTransform, options ) {
     options = _.extend( {
-      tandem: null
+      tandem: Tandem.createDefaultTandem( 'interactiveSchematicAtom' )
     }, options );
 
     Tandem.validateOptions( options ); // The tandem is required when brand==='phet-io'
-    
+
     Node.call( this );
     var self = this;
 
@@ -43,7 +43,8 @@ define( function( require ) {
       showElementNameProperty: model.showElementNameProperty,
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
-      electronShellDepictionProperty: model.electronShellDepictionProperty
+      electronShellDepictionProperty: model.electronShellDepictionProperty,
+      tandem: options.tandem.createTandem( 'atomNode' )
     } );
     this.addChild( atomNode );
 
@@ -134,10 +135,10 @@ define( function( require ) {
       } ) );
     } );
 
-    this.disposeInteractiveSchematicAtom = function(){
+    this.disposeInteractiveSchematicAtom = function() {
       particleViews.forEach( function( particleView ) {
         particleView.dispose();
-      });
+      } );
       atomNode.dispose();
       model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
       model.electronShellDepictionProperty.unlink( updateElectronVisibility );
@@ -148,7 +149,7 @@ define( function( require ) {
 
   return inherit( Node, InteractiveSchematicAtom, {
     // @public
-    dispose: function(){
+    dispose: function() {
       this.disposeInteractiveSchematicAtom();
     }
   } );
