@@ -23,6 +23,9 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   // strings
   var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
 
@@ -35,7 +38,10 @@ define( function( require ) {
    */
   function SchematicToMassNumberProblemView( schematicToMassNumberProblem, layoutBounds, tandem ) {
 
-    this.massNumberAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'massNumberAnswerProperty' ) } ); // Must be defined before call to super constructor.
+    this.massNumberAnswerProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
+      phetioValueType: TNumber( { type: 'Integer' } )
+    } ); // Must be defined before call to super constructor.
     ProblemView.call( this, schematicToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
     var self = this;
 

@@ -44,12 +44,15 @@ define( function( require ) {
 
     // Utility function to create and add particles.
     var particleGroupTandem = tandem.createGroupTandem( 'particle' );
+    var particleViewGroupTandem = tandem.createGroupTandem( 'particleView' );
     var particleViews = [];
     var createAndAddParticles = function( particleType, number ) {
       _.times( number, function() {
-        var particle = new Particle( particleType );
+        var particle = new Particle( particleType, {
+          tandem: particleGroupTandem.createNextTandem()
+        } );
         particleAtom.addParticle( particle );
-        var particleView = new ParticleView( particle, modelViewTransform, particleGroupTandem.createNextTandem() );
+        var particleView = new ParticleView( particle, modelViewTransform, particleViewGroupTandem.createNextTandem() );
         particleLayer.addChild( particleView );
         particleViews.push( particleView );
       } );

@@ -20,6 +20,9 @@ define( function( require ) {
   var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
   var Property = require( 'AXON/Property' );
 
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   // strings
   var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
 
@@ -33,7 +36,8 @@ define( function( require ) {
 
     // Must be defined before call to super constructor.
     this.massNumberAnswerProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'massNumberAnswerProperty' )
+      tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
+      phetioValueType: TNumber( { type: 'Integer' } )
     } );
     ProblemView.call( this, countsToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
     var self = this;
