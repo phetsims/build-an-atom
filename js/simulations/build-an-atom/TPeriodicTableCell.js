@@ -13,18 +13,20 @@ define( function( require ) {
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
+  var toEventOnEmit = require( 'PHET_IO/events/toEventOnEmit' );
 
   var TPeriodicTableCell = function( periodicTableCell, phetioID ) {
     assertInstanceOf( periodicTableCell, phet.shred.PeriodicTableCell );
     TObject.call( this, periodicTableCell, phetioID );
 
-    var index = null;
-    periodicTableCell.startedCallbacksForPressedEmitter.addListener( function() {
-      index = phetioEvents.start( 'user', phetioID, TPeriodicTableCell, 'fired' );
-    } );
-    periodicTableCell.endedCallbacksForPressedEmitter.addListener( function() {
-      phetioEvents.end( index );
-    } );
+    toEventOnEmit(
+      periodicTableCell.startedCallbacksForPressedEmitter,
+      periodicTableCell.endedCallbacksForPressedEmitter,
+      'user',
+      phetioID,
+      TPeriodicTableCell,
+      'fired'
+    );
   };
 
   phetioInherit( TObject, 'TPeriodicTableCell', TPeriodicTableCell, {}, {
