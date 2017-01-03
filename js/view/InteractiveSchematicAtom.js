@@ -112,7 +112,9 @@ define( function( require ) {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      var particleView = new ParticleView( electron, modelViewTransform, electronGroupTandem.createNextTandem() );
+      var particleView = new ParticleView( electron, modelViewTransform, {
+        tandem: electronGroupTandem.createNextTandem()
+      } );
       electronLayer.addChild( particleView );
       particleViews.push( particleView );
     } );
