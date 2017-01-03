@@ -174,7 +174,9 @@ define( function( require ) {
     } );
 
     // Add the particle count indicator.
-    var particleCountDisplay = new ParticleCountDisplay( model.numberAtom, 13, 250 );  // Width arbitrarily chosen.
+    var particleCountDisplay = new ParticleCountDisplay( model.numberAtom, 13, 250, {
+      tandem: tandem.createTandem( 'particleCountDisplay' )
+    } );  // Width arbitrarily chosen.
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
@@ -212,13 +214,14 @@ define( function( require ) {
     } ], {
       boxWidth: 12,
       spacing: 8,
-      tandem: tandem.createTandem( 'labelVisualizationControlPanel' )
+      tandem: tandem.createTandem( 'visualizationCheckBoxGroup' )
     } ), {
       fill: 'rgb( 245, 245, 245 )',
       lineWidth: LABEL_CONTROL_LINE_WIDTH,
       xMargin: 7.5,
       cornerRadius: 5,
-      resize: false
+      resize: false,
+      tandem: tandem.createTandem( 'labelVisualizationControlPanel' )
     } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisualizationControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
