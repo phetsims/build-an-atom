@@ -62,7 +62,8 @@ define( function( require ) {
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
       font: new PhetFont( 24 ),
-      maxWidth: 200
+      maxWidth: 200,
+      tandem: tandem.createTandem( 'questionPrompt' )
     } );
     self.interactiveAnswerNode.addChild( questionPrompt );
 

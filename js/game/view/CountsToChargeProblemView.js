@@ -21,6 +21,9 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   // strings
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
 
@@ -34,7 +37,10 @@ define( function( require ) {
 
     // @private
     // Must be defined before call to super constructor.
-    this.chargeAnswerProperty = new Property( 0, { tandem: tandem.createTandem( 'chargeAnswerProperty' ) } );
+    this.chargeAnswerProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'chargeAnswerProperty' ),
+      phetioValueType: TNumber
+    } );
 
     ProblemView.call( this, countsToChargeProblem, layoutBounds, tandem ); // Call super constructor.
     var self = this;

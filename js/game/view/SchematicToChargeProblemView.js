@@ -62,7 +62,8 @@ define( function( require ) {
     var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
       font: new PhetFont( 24 ),
-      maxWidth: 200
+      maxWidth: 200,
+      tandem: tandem.createTandem( 'questionPrompt' )
     } );
     this.interactiveAnswerNode.addChild( questionPrompt );
 

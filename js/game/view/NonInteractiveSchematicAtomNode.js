@@ -52,7 +52,9 @@ define( function( require ) {
           tandem: particleGroupTandem.createNextTandem()
         } );
         particleAtom.addParticle( particle );
-        var particleView = new ParticleView( particle, modelViewTransform, particleViewGroupTandem.createNextTandem() );
+        var particleView = new ParticleView( particle, modelViewTransform, {
+          tandem: particleViewGroupTandem.createNextTandem()
+        } );
         particleLayer.addChild( particleView );
         particleViews.push( particleView );
       } );
