@@ -39,7 +39,9 @@ define( function( require ) {
     // Must be defined before call to super constructor.
     this.chargeAnswerProperty = new Property( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
-      phetioValueType: TNumber
+      phetioValueType: TNumber( {
+        type: 'Integer'
+      } )
     } );
 
     ProblemView.call( this, countsToChargeProblem, layoutBounds, tandem ); // Call super constructor.
