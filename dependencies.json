@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.3.0-phetiodev.1 Tue Dec 06 2016 14:56:21 GMT-0700 (Mountain Standard Time)",
+  "comment": "# manually copied dependencies file to start the 1.3-phetio branch",
   "assert": {
     "sha": "1ea1df653504bc6eeb454051cedc7fb970a10cac",
     "branch": "master"
@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "build-an-atom": {
-    "sha": "19492f19ac76cfe597f53c2ba7779951bff8c858",
+    "sha": "424f28b838da0db46e8127f5da4da9a996c00986",
     "branch": "master"
   },
   "chipper": {
