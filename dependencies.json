@@ -1,87 +1,87 @@
 {
-  "comment": "# manually copied dependencies file to start the 1.3-phetio branch",
+  "comment": "# build-an-atom 1.3.0-phetio Wed Jan 11 2017 10:38:46 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "1ea1df653504bc6eeb454051cedc7fb970a10cac",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "axon": {
     "sha": "0d2c27e1839921557449c94b6c88ebf3bf4905c2",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "brand": {
     "sha": "52947b3f3a2afb7bb0bca943005aa929bb4d53c4",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "424f28b838da0db46e8127f5da4da9a996c00986",
-    "branch": "master"
+    "sha": "9e19c3c32bed1fc30fd8f8ab36058de9ae880be0",
+    "branch": "1.3-phetio"
   },
   "chipper": {
     "sha": "1b756b4474b6f7aecb8c6e5d9f0124040a5ee33e",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "56d026b65ec9142f7299d8f3999177c17ca8ca3a",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "joist": {
     "sha": "3eb51803fd2c291e3ab1bc1c6274e29a25e3d391",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "e5affc4c2cdfa007e7d93ce977f3249d7b449270",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phet-core": {
     "sha": "87b5cab337ae4dd283a23b6c813c3b8781e34283",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phet-io": {
     "sha": "d4637ed999acb535b80168ced749e2b7edfcc32d",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phet-io-website": {
     "sha": "c229e42df15f9b77a8b91daaee0ba366c9e03ecb",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phetcommon": {
     "sha": "afb66c63430bc02d05f60eeb090afa9929325ec8",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "3e69c928f64eafc9adc9a6961265ff36b1f2c674",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "24b655a916b0e4909eb4442bbf86a2fddaf037d5",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "b1c850fe85533777e99b6ba2ccbe98b1351850dc",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "727a313677f4c4ac7427e2d9babc0d21f053c1fb",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "shred": {
     "sha": "d34a5a3760f38655587a08957a8001f3499c1afb",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "sun": {
     "sha": "20396bac68156187df6fc7bd540084fc6d84e5a8",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "tandem": {
     "sha": "06806ed11aeef7e5a0870244ab274d6069202946",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "vegas": {
     "sha": "1a505fc16c8ce3b45aefea70ff0b36686d487176",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "vibe": {
     "sha": "fbed16a70a22b65a3aa9380c69e0b82f11b6a774",
-    "branch": "master"
+    "branch": "HEAD"
   }
 }
