@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "9e19c3c32bed1fc30fd8f8ab36058de9ae880be0",
+    "sha": "e5ee7e1a4b20c136ce011ff7f1e191fe1cb6ee3f",
     "branch": "1.3-phetio"
   },
   "chipper": {
@@ -37,8 +37,8 @@
     "branch": "HEAD"
   },
   "phet-io": {
-    "sha": "d4637ed999acb535b80168ced749e2b7edfcc32d",
-    "branch": "HEAD"
+    "sha": "9418724912e54afbfed41952cdb211e7fbb4c0d5",
+    "branch": "build-an-atom-1.3-phetio"
   },
   "phet-io-website": {
     "sha": "c229e42df15f9b77a8b91daaee0ba366c9e03ecb",
