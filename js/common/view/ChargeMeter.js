@@ -22,6 +22,9 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   // constants
   var WIDTH = 70; // In screen coords, which are roughly pixels.
   var _MAX_CHARGE = 10;
@@ -38,11 +41,7 @@ define( function( require ) {
 
     Node.call( this ); // Call super constructor.
 
-    options = _.extend( {
-        showNumericalReadout: true
-      },
-      options
-    );
+    options = _.extend( { showNumericalReadout: true }, options );
 
     // Add the background.
     var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
@@ -166,6 +165,8 @@ define( function( require ) {
         }
       }
     } );
+
+    tandem.addInstance( this, TNode );
   }
 
   buildAnAtom.register( 'ChargeMeter', ChargeMeter );
