@@ -18,9 +18,6 @@ define( function( require ) {
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  // phet-io modules
-  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
-
   // constants
   var SYMBOL_WIDTH = 12;
   var VERTICAL_INSET = 5;
@@ -137,10 +134,8 @@ define( function( require ) {
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
 
+    options.tandem = tandem;
     this.mutate( options );
-
-    // tandem support
-    tandem.addInstance( this, TNode );
   }
 
   buildAnAtom.register( 'ChargeComparisonDisplay', ChargeComparisonDisplay );
