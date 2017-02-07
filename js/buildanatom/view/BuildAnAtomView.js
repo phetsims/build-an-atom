@@ -69,7 +69,11 @@ define( function( require ) {
     this.controlPanelLayer.addChild( chargeMeterBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massNumberDisplay = new MassNumberDisplay( model.numberAtom ).mutate( { pickable: false } );
+    var massNumberDisplay = new MassNumberDisplay(
+      model.numberAtom,
+      tandem.createTandem( 'massNumberDisplay' ),
+      { pickable: false }
+    );
     massNumberDisplay.scale( 0.85 );
     var massNumberBox = new AccordionBox( massNumberDisplay, {
       titleNode: new Text( massNumberString, {

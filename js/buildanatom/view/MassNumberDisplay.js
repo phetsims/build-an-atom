@@ -19,15 +19,20 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   // constants
   var WIDTH = 122; // In screen coords, which are roughly pixels.
   var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
   /**
    * @param {NumberAtom} numberAtom
+   * @param {Tandem} tandem
+   * @param {Object} options
    * @constructor
    */
-  function MassNumberDisplay( numberAtom ) {
+  function MassNumberDisplay( numberAtom, tandem, options ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -65,6 +70,11 @@ define( function( require ) {
         numericalText.center = new Vector2( READOUT_SIZE.width / 2, READOUT_SIZE.height / 2 );
       }
     } );
+
+    this.mutate( options );
+
+    // tandem support
+    tandem.addInstance( this, TNode );
   }
 
   buildAnAtom.register( 'MassNumberDisplay', MassNumberDisplay );
