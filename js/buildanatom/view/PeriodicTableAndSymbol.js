@@ -25,9 +25,10 @@ define( function( require ) {
   /**
    * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
+   * @param {Object} options
    * @constructor
    */
-  function PeriodicTableAndSymbol( numberAtom, tandem ) {
+  function PeriodicTableAndSymbol( numberAtom, tandem, options ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -65,6 +66,9 @@ define( function( require ) {
     symbolRectangle.top = 0;
     periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5);
     periodicTable.left = 0;
+
+    options.tandem = tandem;
+    this.mutate( options );
   }
 
   buildAnAtom.register( 'PeriodicTableAndSymbol', PeriodicTableAndSymbol );

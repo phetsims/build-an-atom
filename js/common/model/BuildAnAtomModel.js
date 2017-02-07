@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Dimension2 = require( 'DOT/Dimension2' );
@@ -55,13 +56,21 @@ define( function( require ) {
     var self = this;
 
     // Properties that control label visibility in the view.
-    this.showElementNameProperty = new Property( true );
-    this.showNeutralOrIonProperty = new Property( true );
-    this.showStableOrUnstableProperty = new Property( false );
+    this.showElementNameProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'showElementNameProperty' )
+    } );
+    this.showNeutralOrIonProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'showNeutralOrIonProperty' )
+    } );
+    this.showStableOrUnstableProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'showStableOrUnstableProperty' )
+    } );
 
     // Property that controls electron depiction in the view.
     this.electronShellDepictionProperty = new Property( 'orbits', {
-      phetioValueType: TString
+      tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
+      phetioValueType: TString,
+      validValues: [ 'orbits', 'cloud' ]
     } );
 
     // TODO: Take these out in March 2017 (assuming no issues are occurring)
@@ -71,41 +80,38 @@ define( function( require ) {
     Property.preventGetSet( this, 'electronShellDepiction' );
 
     // Create the atom that the user will build, modify, and generally play with.
-    this.particleAtom = new ParticleAtom();
+    this.particleAtom = new ParticleAtom( { tandem: tandem.createTandem( 'particleAtom' ) } );
 
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
       protonBucket: new SphereBucket( {
-          position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
-          size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          sphereRadius: ShredConstants.NUCLEON_RADIUS,
-          baseColor: PhetColorScheme.RED_COLORBLIND,
-          caption: protonsString,
+        position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
+        size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
+        sphereRadius: ShredConstants.NUCLEON_RADIUS,
+        baseColor: PhetColorScheme.RED_COLORBLIND,
+        caption: protonsString,
         captionColor: 'white',
-        tandemName: 'protonBucket'
-        }
-      ),
+        tandem: tandem.createTandem( 'protonBucket' )
+      } ),
       neutronBucket: new SphereBucket( {
-          position: new Vector2( 0, BUCKET_Y_OFFSET ),
-          size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          sphereRadius: ShredConstants.NUCLEON_RADIUS,
-          baseColor: 'rgb( 100, 100, 100 )',
-          caption: neutronsString,
+        position: new Vector2( 0, BUCKET_Y_OFFSET ),
+        size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
+        sphereRadius: ShredConstants.NUCLEON_RADIUS,
+        baseColor: 'rgb( 100, 100, 100 )',
+        caption: neutronsString,
         captionColor: 'white',
-        tandemName: 'neutronBucket'
-        }
-      ),
+        tandem: tandem.createTandem( 'neutronBucket' )
+      } ),
       electronBucket: new SphereBucket( {
-          position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
-          size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-          sphereRadius: ShredConstants.ELECTRON_RADIUS,
-          usableWidthProportion: 0.8,
-          baseColor: 'blue',
-          caption: electronsString,
+        position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
+        size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
+        sphereRadius: ShredConstants.ELECTRON_RADIUS,
+        usableWidthProportion: 0.8,
+        baseColor: 'blue',
+        caption: electronsString,
         captionColor: 'white',
-        tandemName: 'electronBucket'
-        }
-      )
+        tandem: tandem.createTandem( 'electronBucket' )
+      } )
     };
 
     // Define a function that will decide where to put nucleons.
@@ -241,7 +247,9 @@ define( function( require ) {
             this.nucleusJumpCount++;
             var angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
             var distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
-            this.particleAtom.nucleusOffsetProperty.set( new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance ) );
+            this.particleAtom.nucleusOffsetProperty.set(
+              new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance )
+            );
           }
           else {
             this.particleAtom.nucleusOffset.set( Vector2.ZERO );

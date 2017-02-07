@@ -33,7 +33,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
-  var Property = require( 'AXON/Property' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
 
   // strings
   var elementString = require( 'string!BUILD_AN_ATOM/element' );
@@ -65,7 +65,9 @@ define( function( require ) {
     this.resetFunctions = [];
 
     // @protected
-    this.periodicTableBoxExpandedProperty = new Property( true );
+    this.periodicTableBoxExpandedProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'periodicTableBoxExpandedProperty' )
+    } );
 
     // Create the model-view transform.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -84,38 +86,46 @@ define( function( require ) {
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
+    // TODO: Group tandem
     _.each( model.buckets, function( bucket ) {
-      self.addChild( new BucketHole( bucket, modelViewTransform ).mutate( { pickable: false } ) );
+      self.addChild( new BucketHole( bucket, modelViewTransform ).mutate( {
+        pickable: false,
+        tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'Hole' )
+      } ) );
     } );
 
     // add the layer where the nucleons and electrons will go, this is added last so that it remains on top
-    var nucleonElectronLayer = new Node();
+    var nucleonElectronLayer = new Node( { tandem: tandem.createTandem( 'nucleonElectronLayer' ) } );
 
     // Add the layers where the nucleons will exist.
     var nucleonLayers = [];
+    var nucleonLayersTandem = tandem.createGroupTandem( 'nucleonLayers' );
     _.times( NUM_NUCLEON_LAYERS, function() {
-      var nucleonLayer = new Node();
+      var nucleonLayer = new Node( { tandem: nucleonLayersTandem.createNextTandem() } );
       nucleonLayers.push( nucleonLayer );
       nucleonElectronLayer.addChild( nucleonLayer );
     } );
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will exist.
-    var electronLayer = new Node( { layerSplit: true } );
+    var electronLayer = new Node( { layerSplit: true, tandem: tandem.createTandem( 'electronLayer' ) } );
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
     var nucleonTandem = tandem.createGroupTandem( 'nucleons' );
     var electronsTandem = tandem.createGroupTandem( 'electrons' );
-    var bucketsTandem = tandem.createGroupTandem( 'bucket' );
 
     model.nucleons.forEach( function( nucleon ) {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         tandem: nucleonTandem.createNextTandem()
       } ) );
+
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( function( zLayer ) {
-        assert && assert( nucleonLayers.length > zLayer, 'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
+        assert && assert(
+          nucleonLayers.length > zLayer,
+          'zLayer for nucleon exceeds number of layers, max number may need increasing.'
+        );
         // Determine whether nucleon view is on the correct layer.
         var onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
@@ -163,13 +173,15 @@ define( function( require ) {
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    var bucketFrontLayer = new Node();
+    var bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
 
     _.each( model.buckets, function( bucket ) {
-      var bucketFront = new BucketFront( bucket, modelViewTransform );
+      var bucketFront = new BucketFront( bucket, modelViewTransform, {
+        tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'Front' )
+      } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
-        tandem: bucketsTandem.createNextTandem()
+        tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
       } ) );
     } );
 
@@ -180,9 +192,11 @@ define( function( require ) {
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
-    var periodicTableAndSymbol = new PeriodicTableAndSymbol( model.numberAtom, tandem.createTandem( 'periodicTableAndSymbol' ) ).mutate( {
-      pickable: false
-    } );
+    var periodicTableAndSymbol = new PeriodicTableAndSymbol(
+      model.numberAtom,
+      tandem.createTandem( 'periodicTableAndSymbol' ),
+      { pickable: false }
+    );
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     this.periodicTableBox = new AccordionBox( periodicTableAndSymbol, {
       titleNode: new Text( elementString, {
