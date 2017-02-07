@@ -43,7 +43,11 @@ define( function( require ) {
     // Add the charge meter and charge comparison display inside of an accordion box.
     var chargeMeterBoxContents = new Node( { pickable: false } );
     chargeMeterBoxContents.addChild( new ChargeMeter( model.numberAtom, tandem.createTandem( 'chargeMeter' ) ) );
-    var chargeComparisonDisplay = new ChargeComparisonDisplay( model.numberAtom ).mutate( { pickable: false } );
+    var chargeComparisonDisplay = new ChargeComparisonDisplay(
+      model.numberAtom,
+      tandem.createTandem( 'chargeComparisonDisplay' ),
+      { pickable: false }
+    );
     chargeComparisonDisplay.left = chargeMeterBoxContents.right + 5;
     chargeComparisonDisplay.centerY = chargeMeterBoxContents.centerY;
     chargeMeterBoxContents.addChild( chargeComparisonDisplay );

@@ -1,8 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * A node that presents a comparison of the protons and electrons in an atom
- * in order to make the net charge apparent.
+ * A node that presents a comparison of the protons and electrons in an atom in order to make the net charge apparent.
  *
  * @author John Blanco
  */
@@ -19,6 +18,9 @@ define( function( require ) {
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   // constants
   var SYMBOL_WIDTH = 12;
   var VERTICAL_INSET = 5;
@@ -27,9 +29,10 @@ define( function( require ) {
 
   /**
    * @param {NumberAtom} numberAtom - model representation of the atom
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ChargeComparisonDisplay( numberAtom ) {
+  function ChargeComparisonDisplay( numberAtom, tandem, options ) {
 
     Node.call( this ); // Call super constructor.
 
@@ -132,6 +135,11 @@ define( function( require ) {
     } );
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
+
+    this.mutate( options );
+
+    // tandem support
+    tandem.addInstance( this, TNode );
   }
 
   buildAnAtom.register( 'ChargeComparisonDisplay', ChargeComparisonDisplay );
