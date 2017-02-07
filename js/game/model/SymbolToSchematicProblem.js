@@ -29,9 +29,9 @@ define( function( require ) {
     // This problem is a bit unique in that it has a model of an atom with
     // which the user can interact.
     this.buildAnAtomModel = new BuildAnAtomModel( tandem.createTandem( 'buildAnAtomModel' ) );
-    this.buildAnAtomModel.showElementName = false;
-    this.buildAnAtomModel.showNeutralOrIon = false;
-    this.buildAnAtomModel.showStableOrUnstable = false;
+    this.buildAnAtomModel.showElementNameProperty.set( false );
+    this.buildAnAtomModel.showNeutralOrIonProperty.set( false );
+    this.buildAnAtomModel.showStableOrUnstableProperty.set( false );
   }
 
   buildAnAtom.register( 'SymbolToSchematicProblem', SymbolToSchematicProblem );

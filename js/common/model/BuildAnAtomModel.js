@@ -64,6 +64,12 @@ define( function( require ) {
       phetioValueType: TString
     } );
 
+    // TODO: Take these out in March 2017 (assuming no issues are occurring)
+    Property.preventGetSet( this, 'showElementName' );
+    Property.preventGetSet( this, 'showNeutralOrIon' );
+    Property.preventGetSet( this, 'showStableOrUnstable' );
+    Property.preventGetSet( this, 'electronShellDepiction' );
+
     // Create the atom that the user will build, modify, and generally play with.
     this.particleAtom = new ParticleAtom();
 

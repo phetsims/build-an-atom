@@ -34,6 +34,8 @@ define( function( require ) {
    */
   function BAAGameModel( tandem ) {
 
+    var self = this;
+
     // @private (phet-io), phet-io can set this value to customize which levels are presented
     this.allowedProblemTypesByLevel = [
       [ 'schematic-to-element', 'counts-to-element' ],
@@ -66,7 +68,15 @@ define( function( require ) {
     } ); // Score on current game level.
     this.elapsedTimeProperty = new Property( 0 );
 
-    var self = this;
+    // TODO: Take these out in March 2017 (assuming no issues are occurring)
+    Property.preventGetSet( this, 'state' );
+    Property.preventGetSet( this, 'soundEnabled' );
+    Property.preventGetSet( this, 'timerEnabled' );
+    Property.preventGetSet( this, 'level' );
+    Property.preventGetSet( this, 'problemIndex' );
+    Property.preventGetSet( this, 'problemState' );
+    Property.preventGetSet( this, 'score' );
+    Property.preventGetSet( this, 'elapsedTime' );
 
     // @private, set of external functions that the model will step
     this.stepListeners = [];
