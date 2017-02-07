@@ -131,7 +131,7 @@ define( function( require ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform );
       self.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
-        tandem: options.tandem && options.tandem.createTandem( bucket.tandemName + 'DragHandler' )
+        tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
       } ) );
     } );
 
