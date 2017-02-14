@@ -45,7 +45,8 @@ define( function( require ) {
     var background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, {
       fill: 'rgb( 210, 210, 210 )',
       stroke: 'gray',
-      lineWidth: 1.0
+      lineWidth: 1.0,
+      tandem: tandem.createTandem( 'background' )
     } );
     this.addChild( background );
 
@@ -60,43 +61,58 @@ define( function( require ) {
     var meterWindow = new Path( meterWindowShape, {
       stroke: 'gray',
       lineWidth: 2,
-      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 ).addColorStop( 0, 'rgb( 0, 0, 255 )' ).addColorStop( 0.5, 'white' ).addColorStop( 1, 'rgb( 255, 0, 0 )' ),
+      fill: new LinearGradient( 0, 0, meterWindowWidth, 0 )
+        .addColorStop( 0, 'rgb( 0, 0, 255 )' )
+        .addColorStop( 0.5, 'white' )
+        .addColorStop( 1, 'rgb( 255, 0, 0 )' ),
       centerX: background.centerX,
-      top: 3 // Adjust as needed to work with background graphics.
+      top: 3, // Adjust as needed to work with background graphics.
+      tandem: tandem.createTandem( 'meterWindow' )
     } );
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
     var shadowOffset = 0.5; // In pixels.
     var plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
-    var plusSymbol = new Node();
+    var plusSymbol = new Node( { tandem: tandem.createTandem( 'plusSymbol' ) } );
     plusSymbol.addChild( new Path( plusShape, {
       lineWidth: SYMBOL_LINE_WIDTH,
       stroke: 'black',
       centerX: shadowOffset,
-      centerY: shadowOffset
+      centerY: shadowOffset,
+      tandem: tandem.createTandem( 'plusSymbolShadow' )
     } ) );
-    plusSymbol.addChild( new Path( plusShape, { lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(255, 0, 0 )' } ) );
+    plusSymbol.addChild( new Path( plusShape, {
+      lineWidth: SYMBOL_LINE_WIDTH,
+      stroke: 'rgb(255, 0, 0 )',
+      tandem: tandem.createTandem( 'plusSymbolMainShape' )
+    } ) );
     plusSymbol.center = new Vector2( meterWindow.width * 0.7, meterWindow.height * 0.5 );
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
     var minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
-    var minusSymbol = new Node();
+    var minusSymbol = new Node( { tandem: tandem.createTandem( 'minusSymbol' ) } );
     minusSymbol.addChild( new Path( minusShape, {
       lineWidth: SYMBOL_LINE_WIDTH,
       stroke: 'black',
       centerX: shadowOffset,
-      centerY: shadowOffset
+      centerY: shadowOffset,
+      tandem: tandem.createTandem( 'minusSymbolShadow' )
     } ) );
-    minusSymbol.addChild( new Path( minusShape, { lineWidth: SYMBOL_LINE_WIDTH, stroke: 'rgb(0, 0, 255 )' } ) );
+    minusSymbol.addChild( new Path( minusShape, {
+      lineWidth: SYMBOL_LINE_WIDTH,
+      stroke: 'rgb(0, 0, 255 )',
+      tandem: tandem.createTandem( 'minusSymbolMainShape' )
+    } ) );
     minusSymbol.center = new Vector2( meterWindow.width * 0.3, meterWindow.height * 0.5 );
     meterWindow.addChild( minusSymbol );
 
     // Add the layer that contains the meter line.
     var meterNeedleLayer = new Node( {
       x: meterWindow.centerX,
-      y: meterWindow.bottom - 3
+      y: meterWindow.bottom - 3,
+      tandem: tandem.createTandem( 'meterNeedleWindow' )
     } );
     meterNeedleLayer.setScaleMagnitude( 1, 0.9 ); // match previous scaling behavior
     var meterNeedle = new ArrowNode(
@@ -121,13 +137,15 @@ define( function( require ) {
         stroke: 'black',
         lineWidth: 1,
         top: meterWindow.bottom + 3,
-        centerX: background.centerX
+        centerX: background.centerX,
+        tandem: tandem.createTandem( 'numericalReadout' )
       } );
       this.addChild( numericalReadout );
 
       // Created with placeholder empty-string, which will be changed.
       readoutText = new Text( '', {
-        font: new PhetFont( { size: 24, weight: 'bold' } )
+        font: new PhetFont( { size: 24, weight: 'bold' } ),
+        tandem: tandem.createTandem( 'readoutText' )
       } );
       numericalReadout.addChild( readoutText );
     }
