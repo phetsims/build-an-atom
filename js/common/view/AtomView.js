@@ -13,6 +13,7 @@ define( function( require ) {
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'SHRED/view/AtomNode' );
+  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
@@ -86,7 +87,6 @@ define( function( require ) {
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
-    // TODO: Group tandem
     _.each( model.buckets, function( bucket ) {
       self.addChild( new BucketHole( bucket, modelViewTransform ).mutate( {
         pickable: false,
@@ -162,8 +162,7 @@ define( function( require ) {
       } ) );
     } );
 
-    // When the electrons are represented as a cloud, the individual particles
-    // become invisible when added to the atom.
+    // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
     var updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
         electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
@@ -209,7 +208,8 @@ define( function( require ) {
       buttonAlign: 'right',
       expandedProperty: this.periodicTableBoxExpandedProperty,
       buttonTouchAreaXDilation: 8,
-      buttonTouchAreaYDilation: 8
+      buttonTouchAreaYDilation: 8,
+      tandem: tandem.createTandem( 'periodicTableBox' )
     } );
     this.addChild( this.periodicTableBox );
 
@@ -250,29 +250,39 @@ define( function( require ) {
     }
 
     this.addChild( labelVisualizationControlPanel );
-    var labelVizControlPanelTitle = new Text( showString, {
+    var labelVisibilityControlPanelTitle = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
-      maxWidth: labelVisualizationControlPanel.width
+      maxWidth: labelVisualizationControlPanel.width,
+      tandem: tandem.createTandem( 'labelVisibilityControlPanelTitle' )
     } );
-    this.addChild( labelVizControlPanelTitle );
+    this.addChild( labelVisibilityControlPanelTitle );
 
     // Add the radio buttons that control the electron representation in the atom.
     var radioButtonRadius = 6;
-    var orbitsRadioButton = new AquaRadioButton( model.electronShellDepictionProperty, 'orbits', new Text( orbitsString, {
-      font: ELECTRON_VIEW_CONTROL_FONT,
-      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-    } ), {
-      radius: radioButtonRadius,
-      tandem: tandem.createTandem( 'orbitsRadioButton' )
-    } );
-    var cloudRadioButton = new AquaRadioButton( model.electronShellDepictionProperty, 'cloud', new Text( cloudString, {
-      font: ELECTRON_VIEW_CONTROL_FONT,
-      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-    } ), {
-      radius: radioButtonRadius,
-      tandem: tandem.createTandem( 'cloudRadioButton' )
-    } );
-    var electronViewButtonGroup = new Node();
+    var orbitsRadioButtonTandem = tandem.createTandem( 'orbitsRadioButton' );
+    var orbitsRadioButton = new AquaRadioButton(
+      model.electronShellDepictionProperty,
+      'orbits',
+      new Text( orbitsString, {
+          font: ELECTRON_VIEW_CONTROL_FONT,
+          maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
+          tandem: orbitsRadioButtonTandem.createTandem( 'orbitsText' )
+        }
+      ),
+      { radius: radioButtonRadius, tandem: orbitsRadioButtonTandem }
+    );
+    var cloudRadioButtonTandem = tandem.createTandem( 'cloudRadioButton' );
+    var cloudRadioButton = new AquaRadioButton(
+      model.electronShellDepictionProperty,
+      'cloud',
+      new Text( cloudString, {
+        font: ELECTRON_VIEW_CONTROL_FONT,
+        maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
+        tandem: cloudRadioButtonTandem.createTandem( 'cloudText' )
+      } ),
+      { radius: radioButtonRadius, tandem: cloudRadioButtonTandem }
+    );
+    var electronViewButtonGroup = new Node( { tandem: tandem.createTandem( 'electronViewButtonGroup' ) } );
     electronViewButtonGroup.addChild( new Text( modelString, {
       font: new PhetFont( {
         size: 14,
@@ -296,10 +306,10 @@ define( function( require ) {
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,
+      radius: BAASharedConstants.RESET_BUTTON_RADIUS,
       touchAreaDilation: 8,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    resetAllButton.scale( 0.85 );
     this.addChild( resetAllButton );
 
     // Do the layout.
@@ -309,13 +319,13 @@ define( function( require ) {
     this.periodicTableBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     labelVisualizationControlPanel.left = this.periodicTableBox.left;
     labelVisualizationControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    labelVizControlPanelTitle.bottom = labelVisualizationControlPanel.top;
-    labelVizControlPanelTitle.centerX = labelVisualizationControlPanel.centerX;
+    labelVisibilityControlPanelTitle.bottom = labelVisualizationControlPanel.top;
+    labelVisibilityControlPanelTitle.centerX = labelVisualizationControlPanel.centerX;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes
-    this.controlPanelLayer = new Node();
+    this.controlPanelLayer = new Node( { tandem: tandem.createTandem( 'controlPanelLayer' ) } );
     this.addChild( this.controlPanelLayer );
 
     this.addChild( nucleonElectronLayer );

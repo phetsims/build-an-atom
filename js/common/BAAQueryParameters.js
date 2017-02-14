@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-  //modules
+  // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var BAAQueryParameters = QueryStringMachine.getAll( {

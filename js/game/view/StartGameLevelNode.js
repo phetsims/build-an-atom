@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
+  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -31,7 +32,7 @@ define( function( require ) {
   var chooseYourGameString = require( 'string!BUILD_AN_ATOM/chooseYourGame' );
 
   // constants
-  var CONTROL_INSET = 20;
+  var CONTROLS_INSET = 10;
   var NUM_STARS_ON_BUTTON = 5;
   var BASE_COLOR = '#D4AAD4';
 
@@ -135,7 +136,7 @@ define( function( require ) {
       listener: function() {
         gameModel.reset();
       },
-      scale: 0.85,
+      radius: BAASharedConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' ),
       touchAreaDilation: 8
     } );
@@ -153,13 +154,13 @@ define( function( require ) {
     symbolGameButton.centerY = buttonCenterY;
     advancedSymbolGameButton.left = symbolGameButton.right + interButtonXSpace;
     advancedSymbolGameButton.centerY = buttonCenterY;
-    resetAllButton.right = layoutBounds.width - CONTROL_INSET;
-    resetAllButton.bottom = layoutBounds.height - CONTROL_INSET;
+    resetAllButton.right = layoutBounds.width - CONTROLS_INSET;
+    resetAllButton.bottom = layoutBounds.height - CONTROLS_INSET;
     title.centerX = layoutBounds.width / 2;
     title.centerY = periodicTableGameButton.top / 2;
-    soundToggleButton.left = CONTROL_INSET;
-    soundToggleButton.bottom = layoutBounds.height - CONTROL_INSET;
-    timerToggleButton.left = CONTROL_INSET;
+    soundToggleButton.left = CONTROLS_INSET;
+    soundToggleButton.bottom = layoutBounds.height - CONTROLS_INSET;
+    timerToggleButton.left = CONTROLS_INSET;
     timerToggleButton.bottom = soundToggleButton.top - 10;
   }
 
