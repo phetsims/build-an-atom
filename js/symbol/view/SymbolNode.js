@@ -36,7 +36,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function SymbolNode( numberAtom, tandem ) {
+  function SymbolNode( numberAtom, tandem, options ) {
 
     Node.call( this, { pickable: false } ); // Call super constructor.
 
@@ -127,6 +127,9 @@ define( function( require ) {
     boundingBox.left = scaleImage.right + 10;
     chargeMeter.left = boundingBox.right + 10;
     chargeMeter.centerY = chargeDisplay.centerY;
+
+    options.tandem = tandem;
+    this.mutate( options );
   }
 
   buildAnAtom.register( 'SymbolNode', SymbolNode );

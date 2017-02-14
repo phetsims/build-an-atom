@@ -18,6 +18,9 @@ define( function( require ) {
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+
   // strings
   var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
 
@@ -29,11 +32,15 @@ define( function( require ) {
   function SymbolView( model, tandem ) {
     AtomView.call( this, model, tandem ); // Call super constructor.
 
-    this.symbolBoxExpandedProperty = new Property( true );
+    this.symbolBoxExpandedProperty = new Property( true, {
+      tandem: tandem.createTandem( 'symbolBoxExpandedProperty' ),
+      phetioValueType: TBoolean
+    } );
 
     // Add the symbol node within an accordion box.
-    var symbolNode = new SymbolNode( model.numberAtom, tandem.createTandem( 'symbolNode' ) );
-    symbolNode.scale( 0.43 ); // Scale empirically determined.
+    var symbolNode = new SymbolNode( model.numberAtom, tandem.createTandem( 'symbolNode' ), {
+      scale: 0.43 // scale empirically determined
+    } );
     var symbolBox = new AccordionBox( symbolNode, {
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
@@ -46,7 +53,8 @@ define( function( require ) {
       buttonAlign: 'right',
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
-      expandedProperty: this.symbolBoxExpandedProperty
+      expandedProperty: this.symbolBoxExpandedProperty,
+      tandem: tandem.createTandem( 'symbolBox' )
     } );
     this.controlPanelLayer.addChild( symbolBox );
 
@@ -58,6 +66,10 @@ define( function( require ) {
   buildAnAtom.register( 'SymbolView', SymbolView );
 
   return inherit( AtomView, SymbolView, {
+
+    /**
+     * @public
+     */
     reset: function() {
       AtomView.prototype.reset.call( this );
       this.symbolBoxExpandedProperty.reset();
