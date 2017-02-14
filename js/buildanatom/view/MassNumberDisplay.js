@@ -20,7 +20,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var WIDTH = 122; // In screen coords, which are roughly pixels.
+  var WIDTH = 122; // In screen coords, which are roughly pixels, empirically determined.
   var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
   /**
@@ -34,7 +34,7 @@ define( function( require ) {
     Node.call( this ); // Call super constructor.
 
     // Add the background image, i.e. the scale.
-    var scaleImage = new Image( scaleIcon );
+    var scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 
@@ -45,13 +45,15 @@ define( function( require ) {
       lineWidth: 1,
       // Position is based on the background image, and may need tweaking if the image is changed.
       bottom: scaleImage.bottom - 6,
-      centerX: scaleImage.centerX
+      centerX: scaleImage.centerX,
+      tandem: tandem.createTandem( 'readoutBackground' )
     } );
     this.addChild( readoutBackground );
 
     // placeholder text value, will be changed later
     var numericalText = new Text( ' ', {
-      font: new PhetFont( { size: 24, weight: 'bold' } )
+      font: new PhetFont( { size: 24, weight: 'bold' } ),
+      tandem: tandem.createTandem( 'numericalText' )
     } );
     readoutBackground.addChild( numericalText );
 
