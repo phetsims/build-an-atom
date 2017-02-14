@@ -68,7 +68,8 @@ define( function( require ) {
     var netChargeBox = new AccordionBox( chargeMeterBoxContents, {
       titleNode: new Text( netChargeString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
+        tandem: tandem.createTandem( 'netChargeBoxTitle' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       expandedProperty: this.chargeMeterBoxExpandedProperty,
@@ -94,7 +95,8 @@ define( function( require ) {
     var massNumberBox = new AccordionBox( massNumberDisplay, {
       titleNode: new Text( massNumberString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
+        tandem: tandem.createTandem( 'massNumberBoxTitle' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       expandedProperty: this.massNumberBoxExpandedProperty,

@@ -45,7 +45,8 @@ define( function( require ) {
     var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
       stroke: 'black',
       lineWidth: 2,
-      fill: 'white'
+      fill: 'white',
+      tandem: tandem.createTandem( 'boundingBox' )
     } );
     this.addChild( boundingBox );
 
@@ -53,7 +54,8 @@ define( function( require ) {
     var symbolText = new Text( '', {
       font: new PhetFont( 150 ),
       fill: 'black',
-      center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
+      center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 ),
+      tandem: tandem.createTandem( 'symbolText' )
     } );
 
     // Add the listener to update the symbol text.
@@ -65,24 +67,26 @@ define( function( require ) {
     } );
     boundingBox.addChild( symbolText );
 
-    // Add the proton count display.
-    var protonCountDisplay = new Text( '0', {
+    // Add the atomic number display.
+    var atomicNumberDisplay = new Text( '0', {
       font: NUMBER_FONT,
-      fill: PhetColorScheme.RED_COLORBLIND
+      fill: PhetColorScheme.RED_COLORBLIND,
+      tandem: tandem.createTandem( 'atomicNumberDisplay' )
     } );
 
     // Add the listener to update the proton count.
     numberAtom.protonCountProperty.link( function( protonCount ) {
-      protonCountDisplay.text = protonCount;
-      protonCountDisplay.left = NUMBER_INSET;
-      protonCountDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
+      atomicNumberDisplay.text = protonCount;
+      atomicNumberDisplay.left = NUMBER_INSET;
+      atomicNumberDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
     } );
-    boundingBox.addChild( protonCountDisplay );
+    boundingBox.addChild( atomicNumberDisplay );
 
     // Add the mass number display.
     var massNumberDisplay = new Text( '0', {
       font: NUMBER_FONT,
-      fill: 'black'
+      fill: 'black',
+      tandem: tandem.createTandem( 'massNumberDisplay' )
     } );
     boundingBox.addChild( massNumberDisplay );
 
@@ -96,7 +100,8 @@ define( function( require ) {
     // Add the charge display.
     var chargeDisplay = new Text( '0', {
       font: NUMBER_FONT,
-      fill: 'black'
+      fill: 'black',
+      tandem: tandem.createTandem( 'chargeDisplay' )
     } );
     boundingBox.addChild( chargeDisplay );
 
@@ -109,7 +114,7 @@ define( function( require ) {
     } );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( scaleIcon );
+    var scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
     scaleImage.scale( 0.32 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
