@@ -34,18 +34,25 @@ define( function( require ) {
 
     // Create and add the periodic table.
     var periodicTable = new PeriodicTableNode( numberAtom, {
-      tandem: tandem.createTandem( 'periodicTable' ),
       interactiveMax: 0,
-      disabledCellColor: 'white'
+      disabledCellColor: 'white',
+      tandem: tandem.createTandem( 'periodicTable' )
     } );
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.
-    var symbolRectangle = new Rectangle( 0, 0, periodicTable.width * SYMBOL_WIDTH_PROPORTION, periodicTable.width * SYMBOL_WIDTH_PROPORTION / SYMBOL_ASPECT_RATIO, {
-      fill: 'white',
-      stroke: 'black',
-      lineWidth: 2
-    } );
+    var symbolRectangle = new Rectangle(
+      0,
+      0,
+      periodicTable.width * SYMBOL_WIDTH_PROPORTION,
+      periodicTable.width * SYMBOL_WIDTH_PROPORTION / SYMBOL_ASPECT_RATIO,
+      {
+        fill: 'white',
+        stroke: 'black',
+        lineWidth: 2,
+        tandem: tandem.createTandem( 'symbolRectangle' )
+      }
+    );
     this.addChild( symbolRectangle );
 
     // Add the text that represents the chosen element.
