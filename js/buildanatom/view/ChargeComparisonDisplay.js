@@ -38,7 +38,7 @@ define( function( require ) {
     var i;
 
     // Parent node for all symbols.
-    var symbolLayer = new Node();
+    var symbolLayer = new Node( { tandem: tandem.createTandem( 'symbolLayer' ) } );
 
     var minusSymbolShape = new Shape();
     minusSymbolShape.moveTo( -SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
@@ -55,11 +55,13 @@ define( function( require ) {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
     } );
 
+    var minusesGroupTandem = tandem.createGroupTandem( 'minuses' );
     var minuses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       var minusSymbol = new Node( {
         children: [ minusSymbolPath ],
-        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE )
+        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
+        tandem: minusesGroupTandem.createNextTandem()
       } );
       minuses.push( minusSymbol );
       symbolLayer.addChild( minusSymbol );
@@ -88,11 +90,13 @@ define( function( require ) {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );
 
+    var plussesGroupTandem = tandem.createGroupTandem( 'plusses' );
     var plusses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       var plusSymbol = new Node( {
         children: [ plusSymbolPath ],
-        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE )
+        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
+        tandem: plussesGroupTandem.createNextTandem()
       } );
       plusses.push( plusSymbol );
       symbolLayer.addChild( plusSymbol );
@@ -102,12 +106,14 @@ define( function( require ) {
     var matchBox = new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4, {
       lineWidth: 1,
       stroke: 'black',
-      visible: false
+      visible: false,
+      tandem: tandem.createTandem( 'matchBox' )
     } );
     symbolLayer.addChild( matchBox );
 
     // Function that updates that displayed charge.
     var update = function( atom ) {
+
       // toggle plus visibility
       for ( var numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
         plusses[ numProtons ].visible = numProtons < atom.protonCountProperty.get();
@@ -125,7 +131,9 @@ define( function( require ) {
     };
 
     // Workaround for issue where location can't be set if no bounds exist.
-    this.addChild( new Rectangle( 0, 0, SYMBOL_WIDTH, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 0, 0, { fill: 'rgba( 0, 0, 0, 0 )' } ) );
+    this.addChild( new Rectangle( 0, 0, SYMBOL_WIDTH, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 0, 0, {
+      fill: 'rgba( 0, 0, 0, 0 )'
+    } ) );
 
     // Hook up the update function.
     numberAtom.particleCountProperty.link( function() {
