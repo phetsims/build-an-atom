@@ -197,10 +197,12 @@ define( function( require ) {
       { pickable: false }
     );
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
+    var periodicTableBoxTandem = tandem.createTandem( 'periodicTableBox' );
     this.periodicTableBox = new AccordionBox( periodicTableAndSymbol, {
       titleNode: new Text( elementString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
+        tandem: periodicTableBoxTandem.createTandem( 'title' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -209,20 +211,33 @@ define( function( require ) {
       expandedProperty: this.periodicTableBoxExpandedProperty,
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
-      tandem: tandem.createTandem( 'periodicTableBox' )
+      tandem: periodicTableBoxTandem
     } );
     this.addChild( this.periodicTableBox );
 
+    var labelVisualizationControlPanelTandem = tandem.createTandem( 'labelVisualizationControlPanel' );
     var labelVisualizationControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
-      content: new Text( elementString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
+      content: new Text( elementString, {
+        font: LABEL_CONTROL_FONT,
+        maxWidth: LABEL_CONTROL_MAX_WIDTH,
+        tandem: labelVisualizationControlPanelTandem.createTandem( 'elementText' )
+      } ),
       property: model.showElementNameProperty,
       tandemName: 'showElementNameCheckBox'
     }, {
-      content: new Text( neutralSlashIonString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
+      content: new Text( neutralSlashIonString, {
+        font: LABEL_CONTROL_FONT,
+        maxWidth: LABEL_CONTROL_MAX_WIDTH,
+        tandem: labelVisualizationControlPanelTandem.createTandem( 'neutralOrIonText' )
+      } ),
       property: model.showNeutralOrIonProperty,
       tandemName: 'showNeutralOrIonCheckBox'
     }, {
-      content: new Text( stableSlashUnstableString, { font: LABEL_CONTROL_FONT, maxWidth: LABEL_CONTROL_MAX_WIDTH } ),
+      content: new Text( stableSlashUnstableString, {
+        font: LABEL_CONTROL_FONT,
+        maxWidth: LABEL_CONTROL_MAX_WIDTH,
+        tandem: labelVisualizationControlPanelTandem.createTandem( 'stableUnstableText' )
+      } ),
       property: model.showStableOrUnstableProperty,
       tandemName: 'showStableOrUnstableCheckBox'
     } ], {
@@ -235,7 +250,7 @@ define( function( require ) {
       xMargin: 7.5,
       cornerRadius: 5,
       resize: false,
-      tandem: tandem.createTandem( 'labelVisualizationControlPanel' )
+      tandem: labelVisualizationControlPanelTandem
     } );
     var numDividerLines = 2;
     var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisualizationControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
