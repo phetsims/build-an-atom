@@ -44,7 +44,8 @@ define( function( require ) {
     var symbolBox = new AccordionBox( symbolNode, {
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
+        tandem: tandem.createTandem( 'symbolBoxTitle' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableBox.width,

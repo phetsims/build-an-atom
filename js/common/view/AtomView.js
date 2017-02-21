@@ -288,7 +288,8 @@ define( function( require ) {
         size: 14,
         weight: 'bold'
       } ),
-      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20
+      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20,
+      tandem: tandem.createTandem( 'electronViewButtonGroupLabel' )
     } ) );
     orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
     orbitsRadioButton.left = electronViewButtonGroup.left;
