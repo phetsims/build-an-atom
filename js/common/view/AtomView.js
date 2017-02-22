@@ -112,12 +112,12 @@ define( function( require ) {
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    var nucleonTandem = tandem.createGroupTandem( 'nucleons' );
-    var electronsTandem = tandem.createGroupTandem( 'electrons' );
+    var nucleonsGroupTandem = tandem.createGroupTandem( 'nucleons' );
+    var electronsGroupTandem = tandem.createGroupTandem( 'electrons' );
 
     model.nucleons.forEach( function( nucleon ) {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
-        tandem: nucleonTandem.createNextTandem()
+        tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
       // Add a listener that adjusts a nucleon's z-order layering.
@@ -158,7 +158,7 @@ define( function( require ) {
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
-        tandem: electronsTandem.createNextTandem()
+        tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
 
