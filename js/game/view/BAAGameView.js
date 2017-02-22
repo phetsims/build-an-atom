@@ -65,13 +65,19 @@ define( function( require ) {
     this.rewardNode = null;
     var problemViewGroupTandem = tandem.createGroupTandem( 'problemView' );
 
-    var previousView = startGameLevelNode;
+    var previousView = null;
+    function disposePreviousView() {
+      if ( previousView ) {
+        previousView.dispose();
+        previousView = null;
+      }
+    }
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
       if ( state === 'selectGameLevel' ) {
         rootNode.removeAllChildren();
-        previousView.dispose();
+        disposePreviousView();
         rootNode.addChild( startGameLevelNode );
         if ( self.rewardNode !== null ) {
           self.rewardNode.dispose();
@@ -80,7 +86,7 @@ define( function( require ) {
       }
       else if ( state === 'levelCompleted' ) {
         rootNode.removeAllChildren();
-        previousView.dispose();
+        disposePreviousView();
         if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
           // Perfect score, add the reward node.
           self.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
@@ -109,7 +115,7 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a problem.
         rootNode.removeAllChildren();
-        previousView.dispose();
+        disposePreviousView();
         var problemView = state.createView( self.layoutBounds, problemViewGroupTandem.createNextTandem() );
         rootNode.addChild( problemView );
         rootNode.addChild( scoreboard );
