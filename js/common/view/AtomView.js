@@ -1,10 +1,12 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * ScreenView that presents an interactive atom on the left side, buckets of
- * particles underneath, and controls for label visibility and reset.  A
- * periodic table is included on the right side.  This is intended to be used
- * as a base type for screens with similar views.
+ * ScreenView that presents an interactive atom on the left side, buckets of particles underneath, and controls for
+ * label visibility and reset.  A periodic table is included on the right side.  This is intended to be used as a base
+ * type for screens with similar views.
+ *
+ * @author John Blanco
+ * @author Aadish Gupta
  */
 define( function( require ) {
   'use strict';
