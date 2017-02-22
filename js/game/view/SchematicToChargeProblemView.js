@@ -111,6 +111,7 @@ define( function( require ) {
 
     dispose: function() {
       this.disposeSchematicToChargeProblemView();
+      ProblemView.prototype.dispose.call( this );
     }
   } );
 } );

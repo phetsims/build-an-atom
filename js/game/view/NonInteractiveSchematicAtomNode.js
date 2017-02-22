@@ -99,6 +99,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposeNonInteractiveSchematicAtomNode();
+      Node.prototype.dispose.call( this );
     }
   } );
 } );

@@ -110,6 +110,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposeSchematicToMassNumberProblemView();
+      ProblemView.prototype.dispose.call( this );
     }
   } );
 } );

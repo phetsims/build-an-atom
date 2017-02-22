@@ -90,6 +90,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposeSchematicToSymbolProblemView();
+      ProblemView.prototype.dispose.call( this );
     }
   } );
 } );

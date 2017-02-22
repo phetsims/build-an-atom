@@ -174,6 +174,7 @@ define( function( require ) {
     dispose: function() {
       this.periodicTable.dispose();
       this.disposeToElementProblemView();
+      ProblemView.prototype.dispose.call( this );
     }
   } );
 } );

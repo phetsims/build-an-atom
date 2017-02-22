@@ -80,6 +80,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposeSymbolToSchematicProblemView();
+      ProblemView.prototype.dispose.call( this );
     }
   } );
 } );
