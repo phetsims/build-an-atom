@@ -143,6 +143,8 @@ define( function( require ) {
       model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
       model.electronShellDepictionProperty.unlink( updateElectronVisibility );
     };
+
+    this.mutate( options );
   }
 
   shred.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
