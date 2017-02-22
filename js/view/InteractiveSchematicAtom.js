@@ -153,6 +153,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposeInteractiveSchematicAtom();
+      Node.prototype.dispose.call( this );
     }
   } );
 } );
