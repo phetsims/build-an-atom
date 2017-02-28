@@ -304,7 +304,7 @@ define( function( require ) {
       // stacked in their original configurations.
       var self = this;
       this.nucleons.forEach( function( nucleon ) {
-        if ( nucleon.typeProperty.get() === 'proton' ) {
+        if ( nucleon.type === 'proton' ) {
           self.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
         }
         else {
