@@ -8,7 +8,6 @@ define( function( require ) {
 
   // modules
   var BuildAnAtomScreen = require( 'BUILD_AN_ATOM/buildanatom/BuildAnAtomScreen' );
-  var GameScreen = require( 'BUILD_AN_ATOM/game/GameScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var SymbolScreen = require( 'BUILD_AN_ATOM/symbol/SymbolScreen' );
@@ -37,8 +36,7 @@ define( function( require ) {
       buildAnAtomTitleString,
       [
         new BuildAnAtomScreen( tandem.createTandem( 'atomScreen' ) ),
-        new SymbolScreen( tandem.createTandem( 'symbolScreen' ) ),
-        new GameScreen( tandem.createTandem( 'gameScreen' ) )
+        new SymbolScreen( tandem.createTandem( 'symbolScreen' ) )
       ],
       simOptions
     ).start();
