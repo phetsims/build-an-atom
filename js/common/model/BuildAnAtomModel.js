@@ -115,14 +115,14 @@ define( function( require ) {
     };
 
     // Define a function that will decide where to put nucleons.
-    var placeNucleon = function( particle, bucket, atom ) {
+    function placeNucleon( particle, bucket, atom ) {
       if ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
       }
       else {
         bucket.addParticleNearestOpen( particle, true );
       }
-    };
+    }
 
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
