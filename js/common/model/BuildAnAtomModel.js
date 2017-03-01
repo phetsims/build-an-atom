@@ -15,7 +15,6 @@ define( function( require ) {
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var Particle = require( 'SHRED/model/Particle' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
@@ -172,22 +171,9 @@ define( function( require ) {
       } );
     } );
 
-    // Make available a 'number atom' that tracks the state of the particle atom.
-    this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
-    var updateNumberAtom = function() {
-      self.numberAtom.protonCountProperty.set( self.particleAtom.protons.length );
-      self.numberAtom.neutronCountProperty.set( self.particleAtom.neutrons.length );
-      self.numberAtom.electronCountProperty.set( self.particleAtom.electrons.length );
-    };
-
-    // Update the number atom when the particle atom changes.
-    this.particleAtom.protons.lengthProperty.link( updateNumberAtom );
-    this.particleAtom.electrons.lengthProperty.link( updateNumberAtom );
-    this.particleAtom.neutrons.lengthProperty.link( updateNumberAtom );
-
     // Update the stability state and counter on changes.
     this.nucleusStableProperty = new DerivedProperty(
-      [ this.numberAtom.protonCountProperty, this.numberAtom.neutronCountProperty ],
+      [ this.particleAtom.protonCountProperty, this.particleAtom.neutronCountProperty ],
       function( protonCount, neutronCount ) {
         return protonCount + neutronCount > 0 ? AtomIdentifier.isStable( protonCount, neutronCount ) : true;
       },
@@ -318,6 +304,7 @@ define( function( require ) {
 
     // @public - set the atom to the specified configuration
     setAtomConfiguration: function( numberAtom ) {
+
       // Define a function for transferring particles from buckets to atom.
       var atomCenter = this.particleAtom.positionProperty.get();
       var self = this;
