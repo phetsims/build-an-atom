@@ -68,8 +68,8 @@ define( function( require ) {
     this.resetFunctions = [];
 
     // @protected
-    this.periodicTableBoxExpandedProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'periodicTableBoxExpandedProperty' )
+    this.periodicTableAccordionBoxExpandedProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'periodicTableAccordionBoxExpandedProperty' )
     } );
 
     // Create the model-view transform.
@@ -199,23 +199,23 @@ define( function( require ) {
       { pickable: false }
     );
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
-    var periodicTableBoxTandem = tandem.createTandem( 'periodicTableBox' );
-    this.periodicTableBox = new AccordionBox( periodicTableAndSymbol, {
+    var periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
+    this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
       titleNode: new Text( elementString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: periodicTableBoxTandem.createTandem( 'title' )
+        tandem: periodicTableAccordionBoxTandem.createTandem( 'title' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      expandedProperty: this.periodicTableBoxExpandedProperty,
+      expandedProperty: this.periodicTableAccordionBoxExpandedProperty,
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
-      tandem: periodicTableBoxTandem
+      tandem: periodicTableAccordionBoxTandem
     } );
-    this.addChild( this.periodicTableBox );
+    this.addChild( this.periodicTableAccordionBox );
 
     var labelVisualizationControlPanelTandem = tandem.createTandem( 'labelVisualizationControlPanel' );
     var labelVisualizationControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
@@ -333,9 +333,9 @@ define( function( require ) {
     // Do the layout.
     particleCountDisplay.top = CONTROLS_INSET;
     particleCountDisplay.left = CONTROLS_INSET;
-    this.periodicTableBox.top = CONTROLS_INSET;
-    this.periodicTableBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    labelVisualizationControlPanel.left = this.periodicTableBox.left;
+    this.periodicTableAccordionBox.top = CONTROLS_INSET;
+    this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
+    labelVisualizationControlPanel.left = this.periodicTableAccordionBox.left;
     labelVisualizationControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
     labelVisibilityControlPanelTitle.bottom = labelVisualizationControlPanel.top;
     labelVisibilityControlPanelTitle.centerX = labelVisualizationControlPanel.centerX;
@@ -355,7 +355,7 @@ define( function( require ) {
   // Inherit from ScreenView.
   return inherit( ScreenView, AtomView, {
     reset: function() {
-      this.periodicTableBoxExpandedProperty.reset();
+      this.periodicTableAccordionBoxExpandedProperty.reset();
     }
   }, {
 

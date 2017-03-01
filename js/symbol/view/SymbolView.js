@@ -32,8 +32,8 @@ define( function( require ) {
   function SymbolView( model, tandem ) {
     AtomView.call( this, model, tandem ); // Call super constructor.
 
-    this.symbolBoxExpandedProperty = new Property( true, {
-      tandem: tandem.createTandem( 'symbolBoxExpandedProperty' ),
+    this.symbolAccordionBoxExpandedProperty = new Property( true, {
+      tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' ),
       phetioValueType: TBoolean
     } );
 
@@ -41,27 +41,27 @@ define( function( require ) {
     var symbolNode = new SymbolNode( model.numberAtom, tandem.createTandem( 'symbolNode' ), {
       scale: 0.43 // scale empirically determined
     } );
-    var symbolBox = new AccordionBox( symbolNode, {
+    var symbolAccordionBox = new AccordionBox( symbolNode, {
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'symbolBoxTitle' )
+        tandem: tandem.createTandem( 'symbolAccordionBoxTitle' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      minWidth: this.periodicTableBox.width,
+      minWidth: this.periodicTableAccordionBox.width,
       contentAlign: 'center',
       titleAlignX: 'left',
       buttonAlign: 'right',
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
-      expandedProperty: this.symbolBoxExpandedProperty,
-      tandem: tandem.createTandem( 'symbolBox' )
+      expandedProperty: this.symbolAccordionBoxExpandedProperty,
+      tandem: tandem.createTandem( 'symbolAccordionBox' )
     } );
-    this.controlPanelLayer.addChild( symbolBox );
+    this.controlPanelLayer.addChild( symbolAccordionBox );
 
     // do the layout
-    symbolBox.top = this.periodicTableBox.top + this.periodicTableBox.height + 10;
-    symbolBox.left = this.periodicTableBox.left;
+    symbolAccordionBox.top = this.periodicTableAccordionBox.top + this.periodicTableAccordionBox.height + 10;
+    symbolAccordionBox.left = this.periodicTableAccordionBox.left;
   }
 
   buildAnAtom.register( 'SymbolView', SymbolView );
@@ -73,7 +73,7 @@ define( function( require ) {
      */
     reset: function() {
       AtomView.prototype.reset.call( this );
-      this.symbolBoxExpandedProperty.reset();
+      this.symbolAccordionBoxExpandedProperty.reset();
     }
   } );
 } );
