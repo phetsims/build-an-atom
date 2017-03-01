@@ -41,17 +41,17 @@ define( function( require ) {
     AtomView.call( this, model, tandem ); // Call super constructor.
 
     // @private - properties that are passed to the accordion boxes that control their expansion state
-    this.chargeMeterBoxExpandedProperty = new Property( false, {
-      tandem: tandem.createTandem( 'chargeMeterBoxExpandedProperty' ),
+    this.netChargeAccordionBoxExpandedProperty = new Property( false, {
+      tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' ),
       phetioValueType: TBoolean
     } );
-    this.massNumberBoxExpandedProperty = new Property( false, {
-      tandem: tandem.createTandem( 'massNumberBoxExpandedProperty' ),
+    this.massNumberAccordionBoxExpandedProperty = new Property( false, {
+      tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' ),
       phetioValueType: TBoolean
     } );
 
     // Add the charge meter and charge comparison display inside of an accordion box.
-    var chargeMeterBoxContents = new HBox( {
+    var netChargeAccordionBoxContents = new HBox( {
       children: [
         new ChargeMeter( model.numberAtom, tandem.createTandem( 'chargeMeter' ) ),
         new ChargeComparisonDisplay(
@@ -63,25 +63,25 @@ define( function( require ) {
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
       pickable: false,
-      tandem: tandem.createTandem( 'chargeMeterBoxContents' )
+      tandem: tandem.createTandem( 'netChargeAccordionBoxContents' )
     } );
-    var netChargeBox = new AccordionBox( chargeMeterBoxContents, {
+    var netChargeAccordionBox = new AccordionBox( netChargeAccordionBoxContents, {
       titleNode: new Text( netChargeString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'netChargeBoxTitle' )
+        tandem: tandem.createTandem( 'netChargeAccordionBoxTitle' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      expandedProperty: this.chargeMeterBoxExpandedProperty,
-      minWidth: this.periodicTableBox.width,
+      expandedProperty: this.netChargeAccordionBoxExpandedProperty,
+      minWidth: this.periodicTableAccordionBox.width,
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
       buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
-      tandem: tandem.createTandem( 'netChargeBox' )
+      tandem: tandem.createTandem( 'netChargeAccordionBox' )
     } );
-    this.controlPanelLayer.addChild( netChargeBox );
+    this.controlPanelLayer.addChild( netChargeAccordionBox );
 
     // Add the mass indicator inside of an accordion box.
     var massNumberDisplay = new MassNumberDisplay(
@@ -92,29 +92,29 @@ define( function( require ) {
         scale: 0.85 // empirically determined to make the control panels all fit on the screen
       }
     );
-    var massNumberBox = new AccordionBox( massNumberDisplay, {
+    var massNumberAccordionBox = new AccordionBox( massNumberDisplay, {
       titleNode: new Text( massNumberString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'massNumberBoxTitle' )
+        tandem: tandem.createTandem( 'massNumberAccordionBoxTitle' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      expandedProperty: this.massNumberBoxExpandedProperty,
-      minWidth: this.periodicTableBox.width,
+      expandedProperty: this.massNumberAccordionBoxExpandedProperty,
+      minWidth: this.periodicTableAccordionBox.width,
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
       buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
-      tandem: tandem.createTandem( 'massNumberBox' )
+      tandem: tandem.createTandem( 'massNumberAccordionBox' )
     } );
-    this.controlPanelLayer.addChild( massNumberBox );
+    this.controlPanelLayer.addChild( massNumberAccordionBox );
 
     // Do the layout.
-    netChargeBox.right = this.periodicTableBox.right;
-    netChargeBox.top = this.periodicTableBox.bottom + INTER_BOX_SPACING;
-    massNumberBox.right = this.periodicTableBox.right;
-    massNumberBox.top = netChargeBox.top + netChargeBox.height + INTER_BOX_SPACING;
+    netChargeAccordionBox.right = this.periodicTableAccordionBox.right;
+    netChargeAccordionBox.top = this.periodicTableAccordionBox.bottom + INTER_BOX_SPACING;
+    massNumberAccordionBox.right = this.periodicTableAccordionBox.right;
+    massNumberAccordionBox.top = netChargeAccordionBox.top + netChargeAccordionBox.height + INTER_BOX_SPACING;
   }
 
   buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
@@ -126,8 +126,8 @@ define( function( require ) {
      */
     reset: function() {
       AtomView.prototype.reset.call( this );
-      this.chargeMeterBoxExpandedProperty.reset();
-      this.massNumberBoxExpandedProperty.reset();
+      this.netChargeAccordionBoxExpandedProperty.reset();
+      this.massNumberAccordionBoxExpandedProperty.reset();
     }
   } );
 } );
