@@ -187,14 +187,14 @@ define( function( require ) {
     } );
 
     // Add the particle count indicator.
-    var particleCountDisplay = new ParticleCountDisplay( model.numberAtom, 13, 250, {
+    var particleCountDisplay = new ParticleCountDisplay( model.particleAtom, 13, 250, {
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );  // Width arbitrarily chosen.
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
     var periodicTableAndSymbol = new PeriodicTableAndSymbol(
-      model.numberAtom,
+      model.particleAtom,
       tandem.createTandem( 'periodicTableAndSymbol' ),
       { pickable: false }
     );

@@ -53,9 +53,9 @@ define( function( require ) {
     // Add the charge meter and charge comparison display inside of an accordion box.
     var netChargeAccordionBoxContents = new HBox( {
       children: [
-        new ChargeMeter( model.numberAtom, tandem.createTandem( 'chargeMeter' ) ),
+        new ChargeMeter( model.particleAtom, tandem.createTandem( 'chargeMeter' ) ),
         new ChargeComparisonDisplay(
-          model.numberAtom,
+          model.particleAtom,
           tandem.createTandem( 'chargeComparisonDisplay' ),
           { pickable: false }
         )
@@ -85,7 +85,7 @@ define( function( require ) {
 
     // Add the mass indicator inside of an accordion box.
     var massNumberDisplay = new MassNumberDisplay(
-      model.numberAtom,
+      model.particleAtom,
       tandem.createTandem( 'massNumberDisplay' ),
       {
         pickable: false,

@@ -38,7 +38,7 @@ define( function( require ) {
     } );
 
     // Add the symbol node within an accordion box.
-    var symbolNode = new SymbolNode( model.numberAtom, tandem.createTandem( 'symbolNode' ), {
+    var symbolNode = new SymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
       scale: 0.43 // scale empirically determined
     } );
     var symbolAccordionBox = new AccordionBox( symbolNode, {
