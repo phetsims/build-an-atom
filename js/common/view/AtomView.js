@@ -357,5 +357,9 @@ define( function( require ) {
     reset: function() {
       this.periodicTableAccordionBoxExpandedProperty.reset();
     }
+  }, {
+
+    // export for usage when creating shred Particles
+    NUM_NUCLEON_LAYERS: NUM_NUCLEON_LAYERS
   } );
 } );
