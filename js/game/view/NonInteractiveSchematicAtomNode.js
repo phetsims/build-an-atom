@@ -18,6 +18,7 @@ define( function( require ) {
   var ParticleView = require( 'SHRED/view/ParticleView' );
   var Particle = require( 'SHRED/model/Particle' );
   var Property = require( 'AXON/Property' );
+  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
 
   /**
    * @param {NumberAtom} numberAtom
@@ -49,7 +50,8 @@ define( function( require ) {
     var createAndAddParticles = function( particleType, number ) {
       _.times( number, function() {
         var particle = new Particle( particleType, {
-          tandem: particleGroupTandem.createNextTandem()
+          tandem: particleGroupTandem.createNextTandem(),
+          maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
         } );
         particleAtom.addParticle( particle );
         var particleView = new ParticleView( particle, modelViewTransform, {

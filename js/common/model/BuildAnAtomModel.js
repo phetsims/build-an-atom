@@ -23,6 +23,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
+  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -133,7 +134,10 @@ define( function( require ) {
     var neutronGroupTandem = tandem.createGroupTandem( 'neutrons' );
     var electronGroupTandem = tandem.createGroupTandem( 'electrons' );
     _.times( NUM_PROTONS, function() {
-      var proton = new Particle( 'proton', { tandem: protonGroupTandem.createNextTandem() } );
+      var proton = new Particle( 'proton', {
+        tandem: protonGroupTandem.createNextTandem(),
+        maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+      } );
       self.nucleons.push( proton );
       self.buckets.protonBucket.addParticleFirstOpen( proton, false );
       proton.userControlledProperty.link( function( userControlled ) {
@@ -145,7 +149,10 @@ define( function( require ) {
 
     // Add the neutrons.
     _.times( NUM_NEUTRONS, function() {
-      var neutron = new Particle( 'neutron', { tandem: neutronGroupTandem.createNextTandem() } );
+      var neutron = new Particle( 'neutron', {
+        tandem: neutronGroupTandem.createNextTandem(),
+        maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+      } );
       self.nucleons.push( neutron );
       self.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
       neutron.userControlledProperty.link( function( userControlled ) {
@@ -157,7 +164,10 @@ define( function( require ) {
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function() {
-      var electron = new Particle( 'electron', { tandem: electronGroupTandem.createNextTandem() } );
+      var electron = new Particle( 'electron', {
+        tandem: electronGroupTandem.createNextTandem(),
+        maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+      } );
       self.electrons.push( electron );
       self.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.userControlledProperty.link( function( userControlled ) {
