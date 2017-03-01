@@ -217,12 +217,12 @@ define( function( require ) {
     } );
     this.addChild( this.periodicTableAccordionBox );
 
-    var labelVisualizationControlPanelTandem = tandem.createTandem( 'labelVisualizationControlPanel' );
-    var labelVisualizationControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
+    var labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
+    var labelVisibilityControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
       content: new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisualizationControlPanelTandem.createTandem( 'elementText' )
+        tandem: labelVisibilityControlPanelTandem.createTandem( 'elementText' )
       } ),
       property: model.showElementNameProperty,
       tandemName: 'showElementNameCheckBox'
@@ -230,7 +230,7 @@ define( function( require ) {
       content: new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisualizationControlPanelTandem.createTandem( 'neutralOrIonText' )
+        tandem: labelVisibilityControlPanelTandem.createTandem( 'neutralOrIonText' )
       } ),
       property: model.showNeutralOrIonProperty,
       tandemName: 'showNeutralOrIonCheckBox'
@@ -238,38 +238,38 @@ define( function( require ) {
       content: new Text( stableSlashUnstableString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisualizationControlPanelTandem.createTandem( 'stableUnstableText' )
+        tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
       } ),
       property: model.showStableOrUnstableProperty,
       tandemName: 'showStableOrUnstableCheckBox'
     } ], {
       boxWidth: 12,
       spacing: 8,
-      tandem: tandem.createTandem( 'visualizationCheckBoxGroup' )
+      tandem: tandem.createTandem( 'labelVisibilityCheckBoxGroup' )
     } ), {
       fill: 'rgb( 245, 245, 245 )',
       lineWidth: LABEL_CONTROL_LINE_WIDTH,
       xMargin: 7.5,
       cornerRadius: 5,
       resize: false,
-      tandem: labelVisualizationControlPanelTandem
+      tandem: labelVisibilityControlPanelTandem
     } );
     var numDividerLines = 2;
-    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisualizationControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
+    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisibilityControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
     for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
       var dividerLine1 = new Path( dividerLineShape, {
         lineWidth: 1,
         stroke: 'gray',
-        centerY: labelVisualizationControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
+        centerY: labelVisibilityControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
         x: LABEL_CONTROL_LINE_WIDTH / 2
       } );
-      labelVisualizationControlPanel.addChild( dividerLine1 );
+      labelVisibilityControlPanel.addChild( dividerLine1 );
     }
 
-    this.addChild( labelVisualizationControlPanel );
+    this.addChild( labelVisibilityControlPanel );
     var labelVisibilityControlPanelTitle = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
-      maxWidth: labelVisualizationControlPanel.width,
+      maxWidth: labelVisibilityControlPanel.width,
       tandem: tandem.createTandem( 'labelVisibilityControlPanelTitle' )
     } );
     this.addChild( labelVisibilityControlPanelTitle );
@@ -335,10 +335,10 @@ define( function( require ) {
     particleCountDisplay.left = CONTROLS_INSET;
     this.periodicTableAccordionBox.top = CONTROLS_INSET;
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    labelVisualizationControlPanel.left = this.periodicTableAccordionBox.left;
-    labelVisualizationControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    labelVisibilityControlPanelTitle.bottom = labelVisualizationControlPanel.top;
-    labelVisibilityControlPanelTitle.centerX = labelVisualizationControlPanel.centerX;
+    labelVisibilityControlPanel.left = this.periodicTableAccordionBox.left;
+    labelVisibilityControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
+    labelVisibilityControlPanelTitle.bottom = labelVisibilityControlPanel.top;
+    labelVisibilityControlPanelTitle.centerX = labelVisibilityControlPanel.centerX;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 
