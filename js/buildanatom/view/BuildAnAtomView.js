@@ -105,7 +105,8 @@ define( function( require ) {
       titleAlignX: 'left',
       buttonAlign: 'right',
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
-      buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
+      buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
+      tandem: tandem.createTandem( 'massNumberBox' )
     } );
     this.controlPanelLayer.addChild( massNumberBox );
 
