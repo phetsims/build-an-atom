@@ -73,12 +73,6 @@ define( function( require ) {
       validValues: [ 'orbits', 'cloud' ]
     } );
 
-    // TODO: Take these out in March 2017 (assuming no issues are occurring)
-    Property.preventGetSet( this, 'showElementName' );
-    Property.preventGetSet( this, 'showNeutralOrIon' );
-    Property.preventGetSet( this, 'showStableOrUnstable' );
-    Property.preventGetSet( this, 'electronShellDepiction' );
-
     // Create the atom that the user will build, modify, and generally play with.
     this.particleAtom = new ParticleAtom( { tandem: tandem.createTandem( 'particleAtom' ) } );
 
@@ -193,23 +187,22 @@ define( function( require ) {
       }
     );
 
-    // Define some variables used to animate the nucleus to indicate whether it is stable and update them whenever
-    // stability changes.
+    // @private - variables used to animate the nucleus when it is unstable
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     this.nucleusOffset = Vector2.ZERO;
-    this.nucleusStableProperty.link( function( nucluesIsStable ) {
-      if ( nucluesIsStable ) {
-        self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-        self.particleAtom.nucleusOffset = Vector2.ZERO;
-      }
-    } );
+    //this.nucleusStableProperty.link( function( nucleusIsStable ) {
+    //  if ( nucleusIsStable ) {
+    //    self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    //    self.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
+    //  }
+    //} );
 
-    // If stability label visibility is turned off when nucleus animation is in progress, reset the animation.
-    this.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
-      if ( !showStableOrUnstable ) {
-        self.particleAtom.nucleusOffset = Vector2.ZERO;
-      }
-    } );
+    // If stability label visibility is turned off when nucleus animation is in progress, move nucleus to center.
+    //this.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
+    //  if ( !showStableOrUnstable ) {
+    //    self.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
+    //  }
+    //} );
 
     // add a variable used when making the nucleus jump in order to indicate instability
     this.nucleusJumpCount = 0;
@@ -239,7 +232,7 @@ define( function( require ) {
         this.nucleusJumpCountdown -= dt;
         if ( this.nucleusJumpCountdown <= 0 ) {
           this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-          if ( this.particleAtom.nucleusOffset === Vector2.ZERO ) {
+          if ( this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO ) ) {
             this.nucleusJumpCount++;
             var angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
             var distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
@@ -248,9 +241,14 @@ define( function( require ) {
             );
           }
           else {
-            this.particleAtom.nucleusOffset.set( Vector2.ZERO );
+            this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
           }
         }
+      }
+      else if ( this.particleAtom.nucleusOffsetProperty.get() !== Vector2.ZERO ) {
+
+        // animation is not running, make sure nucleus is in center of atom
+        this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
       }
     },
 
