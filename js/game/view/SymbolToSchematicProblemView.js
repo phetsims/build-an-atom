@@ -69,7 +69,7 @@ define( function( require ) {
 
     // @public
     checkAnswer: function() {
-      this.problem.checkAnswer( this.problem.buildAnAtomModel.numberAtom );
+      this.problem.checkAnswer( this.problem.buildAnAtomModel.particleAtom );
     },
 
     // @public
