@@ -29,7 +29,6 @@ require.config( {
     REPOSITORY: '..',
     SCENERY: '../../scenery/js',
     SCENERY_PHET: '../../scenery-phet/js',
-    SHERPA: '../../sherpa',
     SHRED: '../../shred/js',
     SUN: '../../sun/js',
     TANDEM: '../../tandem/js',
