@@ -20,7 +20,7 @@ define( function( require ) {
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TBAAGameModel = require( 'ifphetio!PHET_IO/simulations/build-an-atom/TBAAGameModel' );
+  var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
 
   // constants
   var PROBLEMS_PER_LEVEL = 5;

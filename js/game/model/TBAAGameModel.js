@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var TArray = require( 'PHET_IO/types/TArray' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TString = require( 'PHET_IO/types/TString' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
   var TBAAGameModel = function( gameModel, phetioID ) {
     assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
@@ -53,7 +53,7 @@ define( function( require ) {
     events: 'levelCompleted'
   } );
 
-  phetioNamespace.register( 'TBAAGameModel', TBAAGameModel );
+  buildAnAtom.register( 'TBAAGameModel', TBAAGameModel );
 
   return TBAAGameModel;
 } );
