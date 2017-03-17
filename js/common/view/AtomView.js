@@ -196,7 +196,9 @@ define( function( require ) {
     var periodicTableAndSymbol = new PeriodicTableAndSymbol(
       model.particleAtom,
       tandem.createTandem( 'periodicTableAndSymbol' ),
-      { pickable: false }
+      {
+        pickable: false,
+      }
     );
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     var periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
@@ -213,7 +215,8 @@ define( function( require ) {
       expandedProperty: this.periodicTableAccordionBoxExpandedProperty,
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
-      tandem: periodicTableAccordionBoxTandem
+      tandem: periodicTableAccordionBoxTandem,
+      accessibleAccordionTitle: elementString
     } );
     this.addChild( this.periodicTableAccordionBox );
 

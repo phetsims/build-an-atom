@@ -55,7 +55,9 @@ define( function( require ) {
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
       expandedProperty: this.symbolAccordionBoxExpandedProperty,
-      tandem: tandem.createTandem( 'symbolAccordionBox' )
+      tandem: tandem.createTandem( 'symbolAccordionBox' ),
+      accessibleAccordionTitle: symbolString
+
     } );
     this.controlPanelLayer.addChild( symbolAccordionBox );
 

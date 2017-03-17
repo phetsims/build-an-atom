@@ -63,7 +63,11 @@ define( function( require ) {
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
       pickable: false,
-      tandem: tandem.createTandem( 'netChargeAccordionBoxContents' )
+      tandem: tandem.createTandem( 'netChargeAccordionBoxContents' ),
+
+      // a11y
+      tagName: 'h6',
+      accessibleLabel: 'Net Charge Content'
     } );
     var netChargeAccordionBox = new AccordionBox( netChargeAccordionBoxContents, {
       titleNode: new Text( netChargeString, {
@@ -79,7 +83,8 @@ define( function( require ) {
       buttonAlign: 'right',
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
       buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
-      tandem: tandem.createTandem( 'netChargeAccordionBox' )
+      tandem: tandem.createTandem( 'netChargeAccordionBox' ),
+      accessibleAccordionTitle: netChargeString
     } );
     this.controlPanelLayer.addChild( netChargeAccordionBox );
 
@@ -89,7 +94,11 @@ define( function( require ) {
       tandem.createTandem( 'massNumberDisplay' ),
       {
         pickable: false,
-        scale: 0.85 // empirically determined to make the control panels all fit on the screen
+        scale: 0.85, // empirically determined to make the control panels all fit on the screen
+
+        // a11y
+        tagName: 'h6',
+        accessibleLabel: 'Mass Number Content'
       }
     );
     var massNumberAccordionBox = new AccordionBox( massNumberDisplay, {
@@ -106,7 +115,8 @@ define( function( require ) {
       buttonAlign: 'right',
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
       buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
-      tandem: tandem.createTandem( 'massNumberAccordionBox' )
+      tandem: tandem.createTandem( 'massNumberAccordionBox' ),
+      accessibleAccordionTitle: massNumberString
     } );
     this.controlPanelLayer.addChild( massNumberAccordionBox );
 
