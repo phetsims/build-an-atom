@@ -30,7 +30,7 @@ define( function( require ) {
     Node.call( this, { pickable: false } ); // Call super constructor.
 
     // Add the electron shells.
-    var particleAtom = new ParticleAtom();
+    var particleAtom = new ParticleAtom( { tandem: tandem.createTandem( 'particleAtom' ) } );
     var atomNode = new AtomNode( particleAtom, modelViewTransform, {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
