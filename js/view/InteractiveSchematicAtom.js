@@ -128,7 +128,7 @@ define( function( require ) {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     _.each( model.buckets, function( bucket ) {
-      var bucketFront = new BucketFront( bucket, modelViewTransform );
+      var bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: options.tandem.createTandem( 'bucketFront' ) } );
       self.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
