@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.2.4 Thu Apr 13 2017 12:39:13 GMT-0600 (MDT)",
+  "comment": "# build-an-atom 1.2.4 Thu Apr 13 2017 16:33:58 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -10,15 +10,15 @@
   },
   "brand": {
     "sha": "5886c482b2ab9ebed32f6a8c9379b6f1660f8797",
-    "branch": "build-an-atom-1.2"
+    "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "28fa8e915fb339b305278f24ad521291776938ba",
+    "sha": "bc35574909da9ef3852b7a6b8714573e6ab2c08b",
     "branch": "1.2"
   },
   "chipper": {
     "sha": "b2e0b31e099daed353568e97866386612fadc897",
-    "branch": "build-an-atom-1.2"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "33ae235e302fbfb1aa0a541265b7241237501865",
@@ -38,7 +38,7 @@
   },
   "phetcommon": {
     "sha": "7b6a7f462ebbca2e0829b6afead6339c250b422d",
-    "branch": "build-an-atom-1.2"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "ddbcf5cf59ed60536f55863bb8231f9efda4cb43",
@@ -69,7 +69,7 @@
     "branch": "HEAD"
   },
   "vibe": {
-    "sha": "42f7af6b117725e0a508c99961b70a5e9baf7500",
-    "branch": "HEAD"
+    "sha": "981ac42b1b78e92aad6ffc2149a4341beb08bd50",
+    "branch": "build-an-atom-1.2"
   }
 }
