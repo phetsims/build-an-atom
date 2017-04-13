@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.2.4 Fri Apr 07 2017 17:00:10 GMT-0600 (MDT)",
+  "comment": "# build-an-atom 1.2.4 Thu Apr 13 2017 12:39:13 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,16 +9,16 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "bb1cfcc63c3d007d800ede089994d8705db6d47b",
-    "branch": "HEAD"
+    "sha": "5886c482b2ab9ebed32f6a8c9379b6f1660f8797",
+    "branch": "build-an-atom-1.2"
   },
   "build-an-atom": {
-    "sha": "ef70a82337fbaabc3730822d0843009ff68c9480",
+    "sha": "28fa8e915fb339b305278f24ad521291776938ba",
     "branch": "1.2"
   },
   "chipper": {
     "sha": "b2e0b31e099daed353568e97866386612fadc897",
-    "branch": "HEAD"
+    "branch": "build-an-atom-1.2"
   },
   "dot": {
     "sha": "33ae235e302fbfb1aa0a541265b7241237501865",
@@ -37,8 +37,8 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "df22a0400b13d0fab40096ae56b751f503ccbcd4",
-    "branch": "HEAD"
+    "sha": "7b6a7f462ebbca2e0829b6afead6339c250b422d",
+    "branch": "build-an-atom-1.2"
   },
   "scenery": {
     "sha": "ddbcf5cf59ed60536f55863bb8231f9efda4cb43",
