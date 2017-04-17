@@ -7,8 +7,7 @@
     "url": "https://github.com/phetsims/build-an-atom.git"
   },
   "devDependencies": {
-    "grunt": "~1.0.0",
-    "grunt-eslint": "~19.0.0"
+    "grunt": "~1.0.0"
   },
   "phet": {
     "requirejsNamespace": "BUILD_AN_ATOM",
