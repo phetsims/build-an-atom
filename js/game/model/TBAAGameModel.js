@@ -50,6 +50,7 @@ define( function( require ) {
       //  ]
     }
   }, {
+    documentation: 'The model for the Game',
     events: 'levelCompleted'
   } );
 
