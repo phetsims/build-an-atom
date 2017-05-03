@@ -127,8 +127,9 @@ define( function( require ) {
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
+    var bucketGroupTandem = options.tandem.createGroupTandem( 'bucketFronts' );
     _.each( model.buckets, function( bucket ) {
-      var bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: options.tandem.createTandem( 'bucketFront' ) } );
+      var bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       self.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
