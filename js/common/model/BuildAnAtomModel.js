@@ -83,7 +83,7 @@ define( function( require ) {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: PhetColorScheme.RED_COLORBLIND,
-        caption: protonsString,
+        captionText: protonsString,
         captionColor: 'white',
         tandem: tandem.createTandem( 'protonBucket' )
       } ),
@@ -92,7 +92,7 @@ define( function( require ) {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: 'rgb( 100, 100, 100 )',
-        caption: neutronsString,
+        captionText: neutronsString,
         captionColor: 'white',
         tandem: tandem.createTandem( 'neutronBucket' )
       } ),
@@ -102,7 +102,7 @@ define( function( require ) {
         sphereRadius: ShredConstants.ELECTRON_RADIUS,
         usableWidthProportion: 0.8,
         baseColor: 'blue',
-        caption: electronsString,
+        captionText: electronsString,
         captionColor: 'white',
         tandem: tandem.createTandem( 'electronBucket' )
       } )
