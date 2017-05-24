@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.4.0-phetiorc.1 Tue May 23 2017 21:19:41 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.4.0-phetiorc.1 Tue May 23 2017 21:45:08 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "master"
@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "build-an-atom": {
-    "sha": "2f027192215f126dca47a3fd2be97cdc8402c224",
+    "sha": "31eb9c90e35e75ac03df46c8cb345586518414af",
     "branch": "1.4-phetio"
   },
   "chipper": {
@@ -57,7 +57,7 @@
     "branch": "master"
   },
   "phet-io-wrappers": {
-    "sha": "b9ac8db3e73566cb32e5fdd72eb1f75a7c124a88",
+    "sha": "ba4d9e72cbf6178fb215b2d08087640ccbb99919",
     "branch": "master"
   },
   "phetcommon": {
