@@ -89,8 +89,7 @@ define( function( require ) {
     } );
 
     this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
-      var i = 0;
-      for ( i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
+      for ( var i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
         self.bestTimeVisible[ i ].value = timerEnabled && self.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
       }
     } );
@@ -114,10 +113,21 @@ define( function( require ) {
 
     // @public - time stepping function, called by the framework
     step: function( dt ) {
+
+      // Increment the game timer if running.  Note that this assumes that dt is not clamped, because we want it to
+      // essentially continue running if the user switches tabs or hides the browser.
+      if ( this.timerEnabledProperty.get() &&
+           this.stateProperty.get !== 'selectGameLevel' &&
+           this.stateProperty.get !== 'levelCompleted' ) {
+
+        this.elapsedTimeProperty.set( this.elapsedTimeProperty.get() + dt );
+      }
+
       // Step the current problem if it has any time-driven behavior.
       if ( this.stateProperty.get() && ( typeof( this.stateProperty.get().step ) !== 'undefined' ) ) {
         this.stateProperty.get().step( dt );
       }
+
       // Step any external functions that need it.
       this.stepListeners.forEach( function( stepListener ) { stepListener( dt ); } );
     },
@@ -132,7 +142,7 @@ define( function( require ) {
       this.scoreProperty.set( 0 );
       this.newBestTime = false;
       this.bestTimeVisible[ this.levelProperty.get() ].value = false;
-      this._restartGameTimer();
+      this.elapsedTimeProperty.reset();
       if ( this.problemSetProperty.get().length > 0 ) {
         this.stateProperty.set( this.problemSetProperty.get()[ 0 ] );
       }
@@ -145,7 +155,6 @@ define( function( require ) {
     newGame: function() {
       this.stateProperty.set( 'selectGameLevel' );
       this.scoreProperty.set( 0 );
-      this._stopGameTimer();
     },
 
     // @public - advance to the next problem or to the 'game over' screen if all problems finished
@@ -185,7 +194,6 @@ define( function( require ) {
         } );
 
         this.stateProperty.set( 'levelCompleted' );
-        this._stopGameTimer();
       }
     },
 
@@ -213,24 +221,6 @@ define( function( require ) {
     // @public
     removeStepListener: function( stepListener ) {
       this.stepListeners = _.without( this.stepListeners, stepListener );
-    },
-
-    // @private
-    _restartGameTimer: function() {
-      if ( this.gameTimerId !== null ) {
-        window.clearInterval( this.gameTimerId );
-      }
-      this.elapsedTimeProperty.set( 0 );
-      var self = this;
-      this.gameTimerId = window.setInterval( function() {
-        self.elapsedTimeProperty.set( self.elapsedTimeProperty.get() + 1 );
-      }, 1000 );
-    },
-
-    // @private
-    _stopGameTimer: function() {
-      window.clearInterval( this.gameTimerId );
-      this.gameTimerId = null;
     },
 
     // Set the allowed problem types to customize for phet-io
