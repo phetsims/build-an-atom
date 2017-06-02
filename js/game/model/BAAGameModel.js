@@ -77,10 +77,10 @@ define( function( require ) {
 
     this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
       var i = 0;
-      for( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++  ){
+      for ( i = 0; i < SharedConstants.LEVEL_NAMES.length; i++ ) {
         thisGameModel.bestTimeVisible[ i ].value = timerEnabled && thisGameModel.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
       }
-    });
+    } );
 
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
@@ -98,6 +98,17 @@ define( function( require ) {
 
     // @public - time stepping function, called by the framework
     step: function( dt ) {
+
+      // Increment the game timer if running.  Note that this assumes that dt is not clamped, because we want it to
+      // essentially continue running if the user switches tabs or hides the browser.
+      if ( this.timerEnabledProperty.get() &&
+           this.stateProperty.get !== 'selectGameLevel' &&
+           this.stateProperty.get !== 'levelCompleted' ) {
+
+        this.elapsedTimeProperty.set( this.elapsedTimeProperty.get() + dt );
+      }
+
+
       // Step the current problem if it has any time-driven behavior.
       if ( this.state && ( typeof( this.state.step ) !== 'undefined' ) ) {
         this.state.step( dt );
@@ -115,7 +126,7 @@ define( function( require ) {
       this.score = 0;
       this.newBestTime = false;
       this.bestTimeVisible[ this.level ].value = false;
-      this._restartGameTimer();
+      this.elapsedTimeProperty.reset();
       this.state = this.problemSet.length > 0 ? this.state = this.problemSet[ 0 ] : this.state = 'levelCompleted';
     },
 
@@ -123,7 +134,6 @@ define( function( require ) {
     newGame: function() {
       this.state = 'selectGameLevel';
       this.score = 0;
-      this._stopGameTimer();
     },
 
     // @public - advance to the next problem or to the 'game over' screen if all problems finished
@@ -143,7 +153,7 @@ define( function( require ) {
           this.bestTimes[ this.level ].value = this.elapsedTime;
         }
 
-        if ( this.score === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabled ){
+        if ( this.score === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabled ) {
           this.bestTimeVisible[ this.level ].value = true;
         }
 
@@ -161,7 +171,6 @@ define( function( require ) {
         } );
 
         this.state = 'levelCompleted';
-        this._stopGameTimer();
       }
     },
 
@@ -171,7 +180,7 @@ define( function( require ) {
       this.bestScores.forEach( function( bestScoreProperty ) { bestScoreProperty.reset(); } );
       this.scores.forEach( function( scoreProperty ) { scoreProperty.reset(); } );
       this.bestTimes.forEach( function( bestTimeProperty ) { bestTimeProperty.reset(); } );
-      this.bestTimeVisible.push( function(bestTimeVisibleProperty  ) { bestTimeVisibleProperty.reset(); } );
+      this.bestTimeVisible.push( function( bestTimeVisibleProperty ) { bestTimeVisibleProperty.reset(); } );
     },
 
     // @public
@@ -182,22 +191,6 @@ define( function( require ) {
     // @public
     removeStepListener: function( stepListener ) {
       this.stepListeners = _.without( this.stepListeners, stepListener );
-    },
-
-    // @private
-    _restartGameTimer: function() {
-      if ( this.gameTimerId !== null ) {
-        window.clearInterval( this.gameTimerId );
-      }
-      this.elapsedTime = 0;
-      var thisModel = this;
-      this.gameTimerId = window.setInterval( function() { thisModel.elapsedTime += 1; }, 1000 );
-    },
-
-    // @private
-    _stopGameTimer: function() {
-      window.clearInterval( this.gameTimerId );
-      this.gameTimerId = null;
     },
 
     // Set the allowed problem types to customize for phet-io
