@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.4.0-phetiorc.2 Thu Jun 01 2017 14:40:32 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.5.0-phetiorc.1 Sat Jun 10 2017 14:07:43 GMT-0800 (Alaskan Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,8 +13,8 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "0c81db5303aea4d63f1c778aec8b9e784eb88795",
-    "branch": "1.4-phetio"
+    "sha": "d9ff331dff5549442e6c8c32d9f45654827e8130",
+    "branch": "1.5-phetio"
   },
   "chipper": {
     "sha": "83292e7cba3af8a801fe81bfdeed1035e7442a16",
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "ba42b77c2c6a6ee84203420019b3a4ed1c97f2ea",
-    "branch": "HEAD"
+    "sha": "346d7c3d811a6f88b0aa5f0675f9e12f8da9b6fc",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "kite": {
     "sha": "7d2df183bd47abec3c3f7da477eb9172556f04e8",
@@ -37,8 +37,8 @@
     "branch": "HEAD"
   },
   "phet-io": {
-    "sha": "969b85bc69092cee5c92f155fe2915665fa207fe",
-    "branch": "HEAD"
+    "sha": "34f5bd51696868a12f7aaae99cbbda291182d0e4",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "phet-io-website": {
     "sha": "c36910eab70224d4c6d352b702a9da6eb57dce18",
@@ -73,8 +73,8 @@
     "branch": "HEAD"
   },
   "scenery-phet": {
-    "sha": "deb95a1c839196dded00e83a637eb85abdf641d5",
-    "branch": "HEAD"
+    "sha": "df1958f9c7c589f70c560b685891675435d1a133",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "sherpa": {
     "sha": "0e326d542b93f5cf3eea2b175d195c18b9bdfb6e",
