@@ -13,12 +13,12 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "d9ff331dff5549442e6c8c32d9f45654827e8130",
+    "sha": "01e9d445b862c3668da0a6624f99fb35383175a1",
     "branch": "1.5-phetio"
   },
   "chipper": {
-    "sha": "83292e7cba3af8a801fe81bfdeed1035e7442a16",
-    "branch": "HEAD"
+    "sha": "1521711d6534bd99ae44ba695c5380b51c3f9c97",
+    "branch": "build-an-atom-1.5.0-phetio"
   },
   "dot": {
     "sha": "6b4ec39c10d667cd64543e59184f0a2fff4fad6e",
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "346d7c3d811a6f88b0aa5f0675f9e12f8da9b6fc",
-    "branch": "build-an-atom-1.5-phetio"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "7d2df183bd47abec3c3f7da477eb9172556f04e8",
@@ -38,7 +38,7 @@
   },
   "phet-io": {
     "sha": "34f5bd51696868a12f7aaae99cbbda291182d0e4",
-    "branch": "build-an-atom-1.5-phetio"
+    "branch": "HEAD"
   },
   "phet-io-website": {
     "sha": "c36910eab70224d4c6d352b702a9da6eb57dce18",
@@ -74,7 +74,7 @@
   },
   "scenery-phet": {
     "sha": "df1958f9c7c589f70c560b685891675435d1a133",
-    "branch": "build-an-atom-1.5-phetio"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "0e326d542b93f5cf3eea2b175d195c18b9bdfb6e",
