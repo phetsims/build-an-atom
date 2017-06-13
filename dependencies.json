@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "218feb3cf921d38e1ebe78deb8de45045fc4bfef",
-    "branch": "HEAD"
+    "sha": "ae950745b1b67425713dc6f0dbf8c99e2170d3b8",
+    "branch": "build-an-atom-1.2"
   },
   "kite": {
     "sha": "24ad131a77aee78e266436ef6b618c8353953f28",
@@ -41,8 +41,8 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "ddbcf5cf59ed60536f55863bb8231f9efda4cb43",
-    "branch": "HEAD"
+    "sha": "702d2873d0ca3268e4c314c3689d01c327c754bc",
+    "branch": "build-an-atom-1.2"
   },
   "scenery-phet": {
     "sha": "71c5dea54d615eabcf6d08795968d1ade058f297",
