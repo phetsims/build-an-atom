@@ -1,8 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * A non-interactive representation of an atom where the individual sub-atomic
- * particles are visible.
+ * A non-interactive representation of an atom where the individual sub-atomic particles are visible.
  *
  * @author John Blanco
  */
