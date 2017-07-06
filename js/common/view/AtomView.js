@@ -117,8 +117,11 @@ define( function( require ) {
     var nucleonsGroupTandem = tandem.createGroupTandem( 'nucleons' );
     var electronsGroupTandem = tandem.createGroupTandem( 'electrons' );
 
+    // add the nucleons
+    var particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
     model.nucleons.forEach( function( nucleon ) {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
+        dragBounds: particleDragBounds,
         tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
@@ -160,6 +163,7 @@ define( function( require ) {
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
+        dragBounds: particleDragBounds,
         tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
