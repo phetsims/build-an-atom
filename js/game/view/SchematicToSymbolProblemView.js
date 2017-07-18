@@ -55,8 +55,8 @@ define( function( require ) {
     this.problemPresentationNode.addChild( schematicAtomNode );
 
     // Layout
-    schematicAtomNode.centerX = layoutBounds.width * 0.23;
-    schematicAtomNode.centerY = layoutBounds.height * 0.30;
+    schematicAtomNode.centerX = layoutBounds.width * 0.30;
+    schematicAtomNode.centerY = layoutBounds.height * 0.50;
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
