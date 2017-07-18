@@ -54,8 +54,8 @@ define( function( require ) {
     // Layout
     interactiveSymbolNode.centerX = layoutBounds.width * 0.27;
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
-    this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.71;
-    this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.40;
+    this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.745;
+    this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.51;
 
     this.disposeSymbolToSchematicProblemView = function() {
       this.interactiveSchematicAtom.dispose();
