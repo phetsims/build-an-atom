@@ -1,79 +1,79 @@
 {
-  "comment": "# build-an-atom 1.6.0-rc.1 Mon Jul 17 2017 10:35:49 GMT-0600 (MDT)",
+  "comment": "# build-an-atom 1.6.0-rc.2 Tue Jul 18 2017 11:47:40 GMT-0600 (MDT)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "axon": {
     "sha": "fd28f6a09e20467383bd261e423eb34faa7e2a3a",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "brand": {
     "sha": "b630f897deb7a4ff95029176dbf5b48a9713d31d",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "832660ea307f0fb366735c61ad327715ba581421",
+    "sha": "dbabe29b0d15a9a87d6c23133585dea4a836cfa9",
     "branch": "1.6"
   },
   "chipper": {
     "sha": "80ecc40f74a3f7dce27a53b93bc1a66f99394bbe",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "f7d9de8b5650a10126d3f8755a98cf64a0acc93c",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "joist": {
     "sha": "d4e70ec736d20cc04c072c6b84e47d651eb70977",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "41ac3b7a27f0313bcafb9eb0fde1c1860a5c2cc6",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phet-core": {
     "sha": "d8bec6c12614029cc8635c60f23d20db1904fee6",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phetcommon": {
     "sha": "7ec5d29971d7faf69f31e028c45b17df040b721b",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "c74e454ec68033a9546b8181d4d962eb8ceef81f",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "a3198c0756e5824df63b5c2a6bc38ffd8b3c8f1f",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "effed588437936f4ffa088339776df18db4c65e8",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "f1937ecb1c2fd45be748815eddeb89ff6a7ad537",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "shred": {
     "sha": "1cb8069c15b3575479ce493ff303c06d4a328b6a",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "sun": {
     "sha": "e1d62999cacb686393a8338d5dda4e19f5160ba4",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "tandem": {
     "sha": "29cd4f635cd74ace76ffabc575ab92bef491b680",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "vegas": {
     "sha": "9d6265d26629a67d0c52323e3c64fc7f362057eb",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "vibe": {
     "sha": "b69e96db791062ce1975b41bb72a0b1216d39367",
-    "branch": "master"
+    "branch": "HEAD"
   }
 }
