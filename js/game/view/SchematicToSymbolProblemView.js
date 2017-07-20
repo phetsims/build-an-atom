@@ -54,8 +54,8 @@ define( function( require ) {
     var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
     this.problemPresentationNode.addChild( schematicAtomNode );
 
-    // Layout
-    schematicAtomNode.centerX = layoutBounds.width * 0.30;
+    // Layout - bounds of AtomNode is dependent on its stability indicator text, so place relative to left
+    schematicAtomNode.left = layoutBounds.width * 0.10;
     schematicAtomNode.centerY = layoutBounds.height * 0.50;
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
