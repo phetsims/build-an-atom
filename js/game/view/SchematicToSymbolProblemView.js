@@ -55,7 +55,7 @@ define( function( require ) {
     this.problemPresentationNode.addChild( schematicAtomNode );
 
     // Layout - bounds of AtomNode is dependent on its stability indicator text, so place relative to left
-    schematicAtomNode.left = layoutBounds.width * 0.10;
+    schematicAtomNode.left = layoutBounds.width * 0.15;
     schematicAtomNode.centerY = layoutBounds.height * 0.50;
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
