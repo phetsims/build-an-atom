@@ -14,7 +14,7 @@ define( function( require ) {
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var TandemEmitter = require( 'TANDEM/axon/TandemEmitter' );
+  var Emitter = require( 'AXON/Emitter' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -72,7 +72,7 @@ define( function( require ) {
     this.stepListeners = [];
 
     // @private
-    this.levelCompletedEmitter = new TandemEmitter( {
+    this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
       phetioArgumentTypes: [ TObject ]
     } );
@@ -97,7 +97,7 @@ define( function( require ) {
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
 
-    this.checkAnswerEmitter = new TandemEmitter( {
+    this.checkAnswerEmitter = new Emitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
       phetioArgumentTypes: [ TObject ]
     } );
