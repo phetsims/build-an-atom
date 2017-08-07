@@ -15,7 +15,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
+  var LevelSelectionItemNode = require( 'VEGAS/LevelSelectionItemNode' );
   var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
   var Node = require( 'SCENERY/nodes/Node' );
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
@@ -54,7 +54,7 @@ define( function( require ) {
     this.addChild( title );
 
     // Buttons for starting a game level.
-    var periodicTableGameButton = new LevelSelectionButton(
+    var periodicTableGameButton = new LevelSelectionItemNode(
       new Image( periodicTableIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
@@ -73,7 +73,7 @@ define( function( require ) {
       )
     );
     this.addChild( periodicTableGameButton );
-    var massAndChargeGameButton = new LevelSelectionButton(
+    var massAndChargeGameButton = new LevelSelectionItemNode(
       new Image( massChargeIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
@@ -88,7 +88,7 @@ define( function( require ) {
       }
     );
     this.addChild( massAndChargeGameButton );
-    var symbolGameButton = new LevelSelectionButton(
+    var symbolGameButton = new LevelSelectionItemNode(
       new Image( symbolQuestionIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
@@ -103,7 +103,7 @@ define( function( require ) {
       }
     );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new LevelSelectionButton(
+    var advancedSymbolGameButton = new LevelSelectionItemNode(
       new Image( questionMarkIcon ),
       NUM_STARS_ON_BUTTON,
       function() {
