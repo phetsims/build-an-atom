@@ -9,21 +9,22 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Property = require( 'AXON/Property' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Emitter = require( 'AXON/Emitter' );
+  var Property = require( 'AXON/Property' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
+  var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
 
   // phet-io modules
+  var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
 
   // constants
-  var PROBLEMS_PER_LEVEL = 5;
+  var PROBLEMS_PER_LEVEL = BAAQueryParameters.problemsPerLevel;
   var POSSIBLE_POINTS_PER_PROBLEM = 2;
   var MAX_POINTS_PER_GAME_LEVEL = PROBLEMS_PER_LEVEL * POSSIBLE_POINTS_PER_PROBLEM;
 
