@@ -2,7 +2,7 @@
 
 /**
  * Node that takes a number atom and displays a set of counts for the various
- * subatomic particles.  This is generally used when presenting a 'problem'
+ * subatomic particles.  This is generally used when presenting a 'challenge'
  * for the game.
  *
  * @author John Blanco

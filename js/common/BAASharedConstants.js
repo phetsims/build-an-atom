@@ -12,7 +12,8 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var BAASharedConstants = {
-    RESET_BUTTON_RADIUS: 20
+    RESET_BUTTON_RADIUS: 20,
+    MAX_CHALLENGE_ATTEMPTS: 2
   };
 
   buildAnAtom.register( 'BAASharedConstants', BAASharedConstants );

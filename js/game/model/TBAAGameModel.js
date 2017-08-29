@@ -33,15 +33,15 @@ define( function( require ) {
       documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game'
     },
 
-    setAllowedProblemTypesByLevel: {
+    setAllowedChallengeTypesByLevel: {
       returnType: TVoid,
       parameterTypes: [ TArray( TArray( TString ) ) ],
 
-      implementation: function( allowedProblemTypesByLevel ) {
-        this.instance.setAllowedProblemTypesByLevel( allowedProblemTypesByLevel );
+      implementation: function( allowedChallengeTypesByLevel ) {
+        this.instance.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
       },
 
-      documentation: 'Specify which problem types may be presented to the user for each level.'
+      documentation: 'Specify which challenge types may be presented to the user for each level.'
       // The default value is [
       //    [ 'schematic-to-element', 'counts-to-element' ],
       //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],

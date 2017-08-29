@@ -14,7 +14,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
-  var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
+  var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
@@ -25,9 +25,9 @@ define( function( require ) {
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
 
   // constants
-  var PROBLEMS_PER_LEVEL = BAAQueryParameters.problemsPerLevel;
-  var POSSIBLE_POINTS_PER_PROBLEM = 2;
-  var MAX_POINTS_PER_GAME_LEVEL = PROBLEMS_PER_LEVEL * POSSIBLE_POINTS_PER_PROBLEM;
+  var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
+  var POSSIBLE_POINTS_PER_CHALLENGE = 2;
+  var MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
 
   /**
    * main constructor function for the game model
@@ -39,14 +39,14 @@ define( function( require ) {
     var self = this;
 
     // @private (phet-io), phet-io can set this value to customize which levels are presented
-    this.allowedProblemTypesByLevel = [
+    this.allowedChallengeTypesByLevel = [
       [ 'schematic-to-element', 'counts-to-element' ],
       [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
       [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
       [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
     ];
 
-    // @public {Property.<BAAGameState>} - current state, each problem is a unique state
+    // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL );
 
     this.soundEnabledProperty = new Property( true, {
@@ -61,9 +61,9 @@ define( function( require ) {
       tandem: tandem.createTandem( 'levelProperty' ),
       phetioValueType: TNumber()
     } );
-    this.problemSetProperty = new Property( [] );
-    this.problemIndexProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'problemIndexProperty' ),
+    this.challengeSetProperty = new Property( [] );
+    this.challengeIndexProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'challengeIndexProperty' ),
       phetioValueType: TNumber()
     } );
     this.scoreProperty = new Property( 0, {
@@ -106,7 +106,7 @@ define( function( require ) {
       phetioArgumentTypes: [ TObject ]
     } );
 
-    this.problemSetGroupTandem = tandem.createGroupTandem( 'problemSets' );
+    this.challengeSetGroupTandem = tandem.createGroupTandem( 'challengeSets' );
     tandem.addInstance( this, TBAAGameModel );
   }
 
@@ -127,7 +127,7 @@ define( function( require ) {
         this.elapsedTimeProperty.set( this.elapsedTimeProperty.get() + dt );
       }
 
-      // Step the current problem if it has any time-driven behavior.
+      // Step the current challenge if it has any time-driven behavior.
       // TODO: Is the check for whether the state exists really necessary?
       if ( this.stateProperty.get() && ( typeof( this.stateProperty.get().step ) !== 'undefined' ) ) {
         this.stateProperty.get().step( dt );
@@ -141,15 +141,15 @@ define( function( require ) {
     // @private (StartGameLevelNode.js, phet-io)
     startGameLevel: function( levelName ) {
       this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
-      this.problemIndexProperty.set( 0 );
-      this.problemSetProperty.set( ProblemSetFactory.generate( this.levelProperty.get(), PROBLEMS_PER_LEVEL, this,
-        this.allowedProblemTypesByLevel, this.problemSetGroupTandem.createNextTandem() ) );
+      this.challengeIndexProperty.set( 0 );
+      this.challengeSetProperty.set( ChallengeSetFactory.generate( this.levelProperty.get(), CHALLENGES_PER_LEVEL, this,
+        this.allowedChallengeTypesByLevel, this.challengeSetGroupTandem.createNextTandem() ) );
       this.scoreProperty.set( 0 );
       this.newBestTime = false;
       this.bestTimeVisible[ this.levelProperty.get() ].value = false;
       this.elapsedTimeProperty.reset();
-      if ( this.problemSetProperty.get().length > 0 ) {
-        this.stateProperty.set( this.problemSetProperty.get()[ 0 ] );
+      if ( this.challengeSetProperty.get().length > 0 ) {
+        this.stateProperty.set( this.challengeSetProperty.get()[ 0 ] );
       }
       else {
         this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
@@ -162,13 +162,13 @@ define( function( require ) {
       this.scoreProperty.set( 0 );
     },
 
-    // @public - advance to the next problem or to the 'game over' screen if all problems finished
+    // @public - advance to the next challenge or to the 'game over' screen if all challenges finished
     next: function() {
       var level = this.levelProperty.get();
-      if ( this.problemSetProperty.get().length > this.problemIndexProperty.get() + 1 ) {
-        // Next problem.
-        this.problemIndexProperty.set( this.problemIndexProperty.get() + 1 );
-        this.stateProperty.set( this.problemSetProperty.get()[ this.problemIndexProperty.get() ] );
+      if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
+        // Next challenge.
+        this.challengeIndexProperty.set( this.challengeIndexProperty.get() + 1 );
+        this.stateProperty.set( this.challengeSetProperty.get()[ this.challengeIndexProperty.get() ] );
       }
       else {
         // Game level completed - update score and state.
@@ -191,7 +191,7 @@ define( function( require ) {
         this.levelCompletedEmitter.emit1( {
           level: level,
           maxPoints: MAX_POINTS_PER_GAME_LEVEL,
-          problems: PROBLEMS_PER_LEVEL,
+          challenges: CHALLENGES_PER_LEVEL,
           timerEnabled: this.timerEnabledProperty.get(),
           elapsedTime: this.elapsedTimeProperty.get(),
           bestTimes: this.bestTimes[ level ],
@@ -208,8 +208,8 @@ define( function( require ) {
       this.soundEnabledProperty.reset();
       this.timerEnabledProperty.reset();
       this.levelProperty.reset();
-      this.problemSetProperty.reset();
-      this.problemIndexProperty.reset();
+      this.challengeSetProperty.reset();
+      this.challengeIndexProperty.reset();
       this.scoreProperty.reset();
       this.elapsedTimeProperty.reset();
       this.bestScores.forEach( function( bestScoreProperty ) { bestScoreProperty.reset(); } );
@@ -228,10 +228,10 @@ define( function( require ) {
       this.stepListeners = _.without( this.stepListeners, stepListener );
     },
 
-    // Set the allowed problem types to customize for phet-io
+    // Set the allowed challenge types to customize for phet-io
     // @private (phet-io)
-    setAllowedProblemTypesByLevel: function( allowedProblemTypesByLevel ) {
-      this.allowedProblemTypesByLevel = allowedProblemTypesByLevel;
+    setAllowedChallengeTypesByLevel: function( allowedChallengeTypesByLevel ) {
+      this.allowedChallengeTypesByLevel = allowedChallengeTypesByLevel;
     },
 
     // @public
@@ -255,6 +255,6 @@ define( function( require ) {
 
     // statics
     MAX_POINTS_PER_GAME_LEVEL: MAX_POINTS_PER_GAME_LEVEL,
-    PROBLEMS_PER_LEVEL: PROBLEMS_PER_LEVEL
+    CHALLENGES_PER_LEVEL: CHALLENGES_PER_LEVEL
   } );
 } );

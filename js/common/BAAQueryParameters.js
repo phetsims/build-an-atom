@@ -16,7 +16,7 @@ define( function( require ) {
     // shows the game reward regardless of score
     reward: { type: 'flag' },
 
-    problemsPerLevel: {
+    challengesPerLevel: {
       type: 'number',
       defaultValue: 5
     }

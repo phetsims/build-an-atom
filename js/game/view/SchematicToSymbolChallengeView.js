@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Visual representation of a problem where the user is presented with a
+ * Visual representation of a challenge where the user is presented with a
  * schematic representation of an atom (which looks much like the atoms
  * constructed on the 1st tab) and has to adjust some or all portions of an
  * interactive chemical symbol to match.
@@ -18,27 +18,27 @@ define( function( require ) {
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
-  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * @param {ToSymbolProblem} toSymbolProblem
+   * @param {ToSymbolChallenge} toSymbolChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function SchematicToSymbolProblemView( toSymbolProblem, layoutBounds, tandem ) {
+  function SchematicToSymbolChallengeView( toSymbolChallenge, layoutBounds, tandem ) {
 
     // Interactive Symbol (must be defined before the call to the super constructor).
     this.interactiveSymbolNode = new InteractiveSymbolNode(
-      toSymbolProblem.answerAtom,
+      toSymbolChallenge.answerAtom,
       tandem.createTandem( 'interactiveSymbolNode' ), {
-        interactiveProtonCount: toSymbolProblem.configurableProtonCount,
-        interactiveMassNumber: toSymbolProblem.configurableMassNumber,
-        interactiveCharge: toSymbolProblem.configurableCharge
+        interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
+        interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
+        interactiveCharge: toSymbolChallenge.configurableCharge
       } );
 
-    ProblemView.call( this, toSymbolProblem, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem ); // Call super constructor.
 
     // Add the interactive symbol.
     this.interactiveSymbolNode.scale( 0.75 );
@@ -51,8 +51,8 @@ define( function( require ) {
       0.8 );
 
     // Add the schematic representation of the atom.
-    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolProblem.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
-    this.problemPresentationNode.addChild( schematicAtomNode );
+    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolChallenge.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+    this.challengePresentationNode.addChild( schematicAtomNode );
 
     // Layout - bounds of AtomNode is dependent on its stability indicator text, so place relative to left
     schematicAtomNode.left = layoutBounds.width * 0.15;
@@ -60,15 +60,15 @@ define( function( require ) {
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
-    this.disposeSchematicToSymbolProblemView = function() {
+    this.disposeSchematicToSymbolChallengeView = function() {
       schematicAtomNode.dispose();
     };
   }
 
-  buildAnAtom.register( 'SchematicToSymbolProblemView', SchematicToSymbolProblemView );
+  buildAnAtom.register( 'SchematicToSymbolChallengeView', SchematicToSymbolChallengeView );
 
-  // Inherit from ProblemView.
-  return inherit( ProblemView, SchematicToSymbolProblemView, {
+  // Inherit from ChallengeView.
+  return inherit( ChallengeView, SchematicToSymbolChallengeView, {
 
     // @public
     checkAnswer: function() {
@@ -77,20 +77,20 @@ define( function( require ) {
         neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
         electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
       } );
-      this.problem.checkAnswer( userSubmittedAtom );
+      this.challenge.checkAnswer( userSubmittedAtom );
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCountProperty.get();
-      this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumberProperty.get();
-      this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.chargeProperty.get();
+      this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
+      this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+      this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
     },
 
     // @public
     dispose: function() {
-      this.disposeSchematicToSymbolProblemView();
-      ProblemView.prototype.dispose.call( this );
+      this.disposeSchematicToSymbolChallengeView();
+      ChallengeView.prototype.dispose.call( this );
     }
   } );
 } );

@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Type for game problems where the user is presented with a set of particle
+ * Type for game challenges where the user is presented with a set of particle
  * counts for an atom and must determine the total charge and enter it in an
  * interactive element symbol.
  *
@@ -12,8 +12,8 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
-  var SchematicToSymbolProblemView = require( 'BUILD_AN_ATOM/game/view/SchematicToSymbolProblemView' );
+  var BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
+  var CountsToSymbolChallengeView = require( 'BUILD_AN_ATOM/game/view/CountsToSymbolChallengeView' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
@@ -24,21 +24,21 @@ define( function( require ) {
    * @param {boolean} configurableCharge
    * @constructor
    */
-  function SchematicToSymbolProblem( buildAnAtomGameModel, answerAtom, configurableProtonCount, configurableMassNumber, configurableCharge ) {
-    BAAGameProblem.call( this, buildAnAtomGameModel, answerAtom );
+  function CountsToSymbolChallenge( buildAnAtomGameModel, answerAtom, configurableProtonCount, configurableMassNumber, configurableCharge ) {
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
     this.configurableCharge = configurableCharge;
   }
 
-  buildAnAtom.register( 'SchematicToSymbolProblem', SchematicToSymbolProblem );
+  buildAnAtom.register( 'CountsToSymbolChallenge', CountsToSymbolChallenge );
 
   // Inherit from base class and define the methods for this object.
-  return inherit( BAAGameProblem, SchematicToSymbolProblem, {
+  return inherit( BAAGameChallenge, CountsToSymbolChallenge, {
 
-    // Create the view needed to visual represent this problem.
+    // Create the view needed to visual represent this challenge.
     createView: function( layoutBounds, tandem ) {
-      return new SchematicToSymbolProblemView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolProblemView' ) );
+      return new CountsToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'countsToSymbolChallengeView' ) );
     }
   } );
 } );

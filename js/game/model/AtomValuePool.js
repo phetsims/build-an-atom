@@ -2,7 +2,7 @@
 
 /**
  * Helper type for managing the list of atom values that can be used for
- * creating game problems.  The two main pieces of functionality added by
+ * creating game challenges.  The two main pieces of functionality added by
  * this class is that it removes items from the enclosed list automatically,
  * and it keeps track of what we removed in case it ends up being needed
  * again.
@@ -16,10 +16,10 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
 
-  // Problem pools for creating game problems, extracted from the design doc.
-  // These define the configuration for each of the problems that can be used
-  // in a problem set for a given sub-game.
-  var PROBLEM_POOLS = [
+  // Challenge pools for creating game challenges, extracted from the design doc.
+  // These define the configuration for each of the challenges that can be used
+  // in a challenge set for a given sub-game.
+  var CHALLENGE_POOLS = [
     [
       new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 0 } ),
       new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ),
@@ -219,7 +219,7 @@ define( function( require ) {
    * @constructor
    */
   function AtomValuePool( level ) {
-    this.remainingAtomValues = PROBLEM_POOLS[ level ];
+    this.remainingAtomValues = CHALLENGE_POOLS[ level ];
     this.usedAtomValues = [];
   }
 

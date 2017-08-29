@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Visual representation of a problem where the user is presented with a
+ * Visual representation of a challenge where the user is presented with a
  * schematic representation of an atom (which looks much like the atoms
  * constructed on the 1st tab), and must find the represented element on a
  * periodic table.
@@ -16,17 +16,17 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
-  var ToElementProblemView = require( 'BUILD_AN_ATOM/game/view/ToElementProblemView' );
+  var ToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/ToElementChallengeView' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * @param {SchematicToElementProblem} schematicToElementProblem
+   * @param {SchematicToElementChallenge} schematicToElementChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function SchematicToElementProblemView( schematicToElementProblem, layoutBounds, tandem ) {
-    ToElementProblemView.call( this, schematicToElementProblem, layoutBounds, tandem ); // Call super constructor.
+  function SchematicToElementChallengeView( schematicToElementChallenge, layoutBounds, tandem ) {
+    ToElementChallengeView.call( this, schematicToElementChallenge, layoutBounds, tandem ); // Call super constructor.
 
     // Create the model-view transform used by the schematic atom.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -36,26 +36,26 @@ define( function( require ) {
 
     // Add the schematic representation of the atom.
     var nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
-      schematicToElementProblem.answerAtom,
+      schematicToElementChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )
     );
-    this.problemPresentationNode.addChild( nonInteractiveSchematicNode );
+    this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
-    this.disposeSchematicToElementProblemView = function(){
+    this.disposeSchematicToElementChallengeView = function(){
       nonInteractiveSchematicNode.dispose();
     };
   }
 
-  buildAnAtom.register( 'SchematicToElementProblemView', SchematicToElementProblemView );
+  buildAnAtom.register( 'SchematicToElementChallengeView', SchematicToElementChallengeView );
 
-  // Inherit from ToElementProblemView.
-  return inherit( ToElementProblemView, SchematicToElementProblemView, {
+  // Inherit from ToElementChallengeView.
+  return inherit( ToElementChallengeView, SchematicToElementChallengeView, {
 
     // @public
     dispose: function(){
-      ToElementProblemView.prototype.dispose.call(this);
-      this.disposeSchematicToElementProblemView();
+      ToElementChallengeView.prototype.dispose.call(this);
+      this.disposeSchematicToElementChallengeView();
     }
   } );
 } );

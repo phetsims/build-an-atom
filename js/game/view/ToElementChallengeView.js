@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Base type for views of problems where the user is asked to identify the
+ * Base type for views of challenges where the user is asked to identify the
  * element on the periodic table and then choose whether it is an ion or a
  * neutral atom.
  *
@@ -19,7 +19,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
-  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -39,18 +39,18 @@ define( function( require ) {
   var MAX_WIDTH = 100; // empirically determined for long strings
 
   /**
-   * @param {CountsToElementProblem} countsToElementProblem
+   * @param {CountsToElementChallenge} countsToElementChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function ToElementProblemView( countsToElementProblem, layoutBounds, tandem ) {
+  function ToElementChallengeView( countsToElementChallenge, layoutBounds, tandem ) {
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
     this.neutralOrIonProperty = new Property( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),
       phetioValueType: TString
     } );
-    ProblemView.call( this, countsToElementProblem, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;
 
     // Periodic table
@@ -64,12 +64,12 @@ define( function( require ) {
     this.periodicTable.scale( 0.85 ); // scale value empirically determined
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
-    // Problem title
-    var problemTitle = new Text( findTheElementString, {
+    // Challenge title
+    var challengeTitle = new Text( findTheElementString, {
       font: TITLE_FONT,
       maxWidth: this.periodicTable.width
     } );
-    this.problemPresentationNode.addChild( problemTitle );
+    this.challengePresentationNode.addChild( challengeTitle );
 
     // Neutral atom versus ion question.
     var neutralVersusIonPrompt = new Text( isItString, {
@@ -118,7 +118,7 @@ define( function( require ) {
     this.neutralOrIonProperty.link( updateCheckAnswerButton );
 
     // unlink from Properties
-    this.disposeToElementProblemView = function() {
+    this.disposeToElementChallengeView = function() {
       self.neutralOrIonProperty.unlink( updateCheckAnswerButton );
       self.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
     };
@@ -129,29 +129,29 @@ define( function( require ) {
     this.periodicTable.centerY = layoutBounds.height * 0.55;
 
     var maxTitleWidth = this.periodicTable.width * 0.9;
-    if ( problemTitle.width > maxTitleWidth ) {
-      problemTitle.scale( maxTitleWidth / problemTitle.width );
+    if ( challengeTitle.width > maxTitleWidth ) {
+      challengeTitle.scale( maxTitleWidth / challengeTitle.width );
     }
-    problemTitle.centerX = this.periodicTable.centerX;
-    problemTitle.bottom = this.periodicTable.top - 30; // Offset empirically determined.
+    challengeTitle.centerX = this.periodicTable.centerX;
+    challengeTitle.bottom = this.periodicTable.top - 30; // Offset empirically determined.
 
     neutralAtomVersusIonQuestion.centerX = this.periodicTable.centerX;
     neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
   }
 
-  buildAnAtom.register( 'ToElementProblemView', ToElementProblemView );
+  buildAnAtom.register( 'ToElementChallengeView', ToElementChallengeView );
 
-  // Inherit from ProblemView.
-  return inherit( ProblemView, ToElementProblemView, {
+  // Inherit from ChallengeView.
+  return inherit( ChallengeView, ToElementChallengeView, {
 
     // @public
     checkAnswer: function() {
       var submittedAtom = new NumberAtom( {
         protonCount: this.periodicTableAtom.protonCountProperty.get(),
-        neutronCount: this.problem.answerAtom.neutronCountProperty.get(),
-        electronCount: this.problem.answerAtom.electronCountProperty.get()
+        neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
+        electronCount: this.challenge.answerAtom.electronCountProperty.get()
       } );
-      this.problem.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
+      this.challenge.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
     },
 
     // @public
@@ -164,17 +164,17 @@ define( function( require ) {
 
     // @public
     displayCorrectAnswer: function() {
-      this.periodicTableAtom.protonCountProperty.set( this.problem.answerAtom.protonCountProperty.get() );
-      this.periodicTableAtom.neutronCountProperty.set( this.problem.answerAtom.neutronCountProperty.get() );
-      this.periodicTableAtom.electronCountProperty.set( this.problem.answerAtom.electronCountProperty.get() );
-      this.neutralOrIonProperty.value = this.problem.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
+      this.periodicTableAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
+      this.periodicTableAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
+      this.periodicTableAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
+      this.neutralOrIonProperty.value = this.challenge.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
     },
 
     // @public
     dispose: function() {
       this.periodicTable.dispose();
-      this.disposeToElementProblemView();
-      ProblemView.prototype.dispose.call( this );
+      this.disposeToElementChallengeView();
+      ChallengeView.prototype.dispose.call( this );
     }
   } );
 } );

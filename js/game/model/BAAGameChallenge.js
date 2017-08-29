@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Base class (or base type) for the problems used in the Build an Atom game.
+ * Base class (or base type) for the challenges used in the Build an Atom game.
  * The general approach is that an atom is presented in some way to the user,
  * and the user must submit a correct guess about the atom's configuration.
  *
@@ -11,19 +11,19 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BAAProblemState = require( 'BUILD_AN_ATOM/game/model/BAAProblemState' );
+  var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
+  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
    * @constructor
    */
-  function BAAGameProblem( buildAnAtomGameModel, answerAtom ) {
-    this.problemStateProperty  = new Property( BAAProblemState.PRESENTING_PROBLEM );
+  function BAAGameChallenge( buildAnAtomGameModel, answerAtom ) {
+    this.challengeStateProperty  = new Property( BAAChallengeState.PRESENTING_CHALLENGE );
     //this.answerAtomProperty = new Property( answerAtom ); TODO Regression testing on this
     this.numSubmissionsProperty =new Property( 0 );
     this.scoreProperty =  new Property( 0 );
@@ -32,13 +32,13 @@ define( function( require ) {
     this.model = buildAnAtomGameModel;
   }
 
-  buildAnAtom.register( 'BAAGameProblem', BAAGameProblem );
+  buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
   // Inherit from base class and define the methods for this object.
-  return inherit( Object, BAAGameProblem, {
+  return inherit( Object, BAAGameChallenge, {
 
     //------------------------------------------------------------------------
-    // The following functions comprise the API used by the problem view to
-    // send user events to the problem.
+    // The following functions comprise the API used by the challenge view to
+    // send user events to the challenge.
     //------------------------------------------------------------------------
 
     /**
@@ -50,8 +50,8 @@ define( function( require ) {
     checkAnswer: function( submittedAtom ) {
       // Verify that the current state is as expected.
       assert && assert(
-        this.problemStateProperty.get() === BAAProblemState.PRESENTING_PROBLEM,
-        'Unexpected problem state: ' + this.problemStateProperty.get()
+        this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
+        'Unexpected challenge state: ' + this.challengeStateProperty.get()
       );
 
       this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
@@ -70,39 +70,39 @@ define( function( require ) {
         this.model.scoreProperty.set(  this.model.scoreProperty.get() + this.scoreProperty.get() );
 
         // Move to the next state.
-        this.problemStateProperty.set( BAAProblemState.PROBLEM_SOLVED_CORRECTLY );
+        this.challengeStateProperty.set( BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY );
       }
       else {
 
         // Handle incorrect answer.
-        if ( this.numSubmissionsProperty.get() < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
+        if ( this.numSubmissionsProperty.get() < BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ) {
 
           // Give the user another chance.
-          this.problemStateProperty.set( BAAProblemState.PRESENTING_TRY_AGAIN );
+          this.challengeStateProperty.set( BAAChallengeState.PRESENTING_TRY_AGAIN );
         }
         else {
 
           // User has exhausted their attempts.
-          this.problemStateProperty.set( BAAProblemState.ATTEMPTS_EXHAUSTED );
+          this.challengeStateProperty.set( BAAChallengeState.ATTEMPTS_EXHAUSTED );
         }
       }
     },
 
     // public - allow the user to try again to correctly answer the question
     tryAgain: function() {
-      this.problemStateProperty.set( BAAProblemState.PRESENTING_PROBLEM );
+      this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
     },
 
     // @public - advance to the next question or finish the level
     next: function() {
       // This event is basically handled by the model, which will remove this
-      // problem and do whatever should happen next.
+      // challenge and do whatever should happen next.
       this.model.next();
     },
 
     // @public - display the correct answer to the user
     displayCorrectAnswer: function() {
-      this.problemStateProperty.set( BAAProblemState.DISPLAYING_CORRECT_ANSWER );
+      this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
     }
   } );
 } );

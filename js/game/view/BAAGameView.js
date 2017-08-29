@@ -48,8 +48,8 @@ define( function( require ) {
 
     var scoreboard = new ScoreboardBar(
       this.layoutBounds.width,
-      gameModel.problemIndexProperty,
-      new Property( BAAGameModel.PROBLEMS_PER_LEVEL ),
+      gameModel.challengeIndexProperty,
+      new Property( BAAGameModel.CHALLENGES_PER_LEVEL ),
       gameModel.levelProperty,
       gameModel.scoreProperty,
       gameModel.elapsedTimeProperty,
@@ -64,7 +64,7 @@ define( function( require ) {
     scoreboard.top = 0;
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     this.rewardNode = null;
-    var problemViewGroupTandem = tandem.createGroupTandem( 'problemView' );
+    var challengeViewGroupTandem = tandem.createGroupTandem( 'challengeView' );
 
     var previousView = null;
     function disposePreviousView() {
@@ -102,7 +102,7 @@ define( function( require ) {
         // Add the dialog node that indicates that the level has been completed.
         rootNode.addChild( new LevelCompletedNode( gameModel.levelProperty.get(), gameModel.scoreProperty.get(),
           BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-          BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabledProperty.get(), gameModel.elapsedTimeProperty.get(),
+          BAAGameModel.CHALLENGES_PER_LEVEL, gameModel.timerEnabledProperty.get(), gameModel.elapsedTimeProperty.get(),
           gameModel.bestTimes[ gameModel.levelProperty.get() ].value, gameModel.newBestTime,
           function() { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
             centerX: self.layoutBounds.width / 2,
@@ -114,13 +114,13 @@ define( function( require ) {
       }
       else if ( typeof( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be
-        // presenting a problem.
+        // presenting a challenge.
         rootNode.removeAllChildren();
         disposePreviousView();
-        var problemView = state.createView( self.layoutBounds, problemViewGroupTandem.createNextTandem() );
-        rootNode.addChild( problemView );
+        var challengeView = state.createView( self.layoutBounds, challengeViewGroupTandem.createNextTandem() );
+        rootNode.addChild( challengeView );
         rootNode.addChild( scoreboard );
-        previousView = problemView;
+        previousView = challengeView;
       }
     } );
   }

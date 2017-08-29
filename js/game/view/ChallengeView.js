@@ -1,8 +1,8 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Base class for problem views.  This type adds the titles, buttons, and such
- * and controls the visibility based on the state of the problem.
+ * Base class for challenge views.  This type adds the titles, buttons, and such
+ * and controls the visibility based on the state of the challenge.
  *
  * @author John Blanco
  */
@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BAAProblemState = require( 'BUILD_AN_ATOM/game/model/BAAProblemState' );
+  var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Color = require( 'SCENERY/util/Color' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
@@ -35,26 +35,26 @@ define( function( require ) {
   var BUTTON_TOUCH_AREA_DILATION = 8;
 
   /**
-   * @param {BAAGameProblem} problem
+   * @param {BAAGameChallenge} challenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function ProblemView( problem, layoutBounds, tandem ) {
+  function ChallengeView( challenge, layoutBounds, tandem ) {
     Node.call( this ); // Call super constructor.
     var self = this;
-    this.problem = problem;
+    this.challenge = challenge;
 
     // Audio player used for audio feedback.
-    this.gameAudioPlayer = new GameAudioPlayer( problem.model.soundEnabledProperty );
+    this.gameAudioPlayer = new GameAudioPlayer( challenge.model.soundEnabledProperty );
 
     // Layout assumes that bounds start at (0,0), so verify that this is true.
     assert && assert( layoutBounds.minX === 0 && layoutBounds.minY === 0 );
 
-    // Add the parent nodes where subclasses will add the problem presentation
+    // Add the parent nodes where subclasses will add the challenge presentation
     // and the interactive controls.
-    this.problemPresentationNode = new Node();
-    this.addChild( this.problemPresentationNode );
+    this.challengePresentationNode = new Node();
+    this.addChild( this.challengePresentationNode );
     this.interactiveAnswerNode = new Node();
     this.addChild( this.interactiveAnswerNode );
 
@@ -81,7 +81,7 @@ define( function( require ) {
     this.buttons.push( this.checkAnswerButton );
 
     this.nextButton = new TextPushButton( nextString, {
-      listener: function() { problem.next(); },
+      listener: function() { challenge.next(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
@@ -93,7 +93,7 @@ define( function( require ) {
     this.buttons.push( this.nextButton );
 
     this.tryAgainButton = new TextPushButton( tryAgainString, {
-      listener: function() { problem.tryAgain(); },
+      listener: function() { challenge.tryAgain(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
@@ -105,7 +105,7 @@ define( function( require ) {
     this.buttons.push( this.tryAgainButton );
 
     this.displayCorrectAnswerButton = new TextPushButton( showAnswerString, {
-      listener: function() { problem.displayCorrectAnswer(); },
+      listener: function() { challenge.displayCorrectAnswer(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
       maxWidth: BUTTON_MAX_WIDTH,
@@ -126,29 +126,29 @@ define( function( require ) {
     hideButtonsAndFace();
 
     // Utility function to enable/disable interaction with answer portion of
-    // the displayed problem.
+    // the displayed challenge.
     var setAnswerNodeInteractive = function( interactive ) {
       self.interactiveAnswerNode.pickable = interactive;
     };
 
     // Update the visibility of the various buttons and other nodes based on
-    // the problem state.
-    // Set up the handlers that update the visibility of the various buttons and other nodes based on the problem state.
+    // the challenge state.
+    // Set up the handlers that update the visibility of the various buttons and other nodes based on the challenge state.
     var stateChangeHandlers = {};
-    stateChangeHandlers[ BAAProblemState.PRESENTING_PROBLEM ] = function() {
+    stateChangeHandlers[ BAAChallengeState.PRESENTING_CHALLENGE ] = function() {
       self.clearAnswer();
       setAnswerNodeInteractive( true );
       self.checkAnswerButton.visible = true;
     };
-    stateChangeHandlers[ BAAProblemState.PROBLEM_SOLVED_CORRECTLY ] = function() {
+    stateChangeHandlers[ BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY ] = function() {
       setAnswerNodeInteractive( false );
       faceNode.smile();
-      pointDisplay.text = '+' + problem.scoreProperty.get();
+      pointDisplay.text = '+' + challenge.scoreProperty.get();
       faceNode.visible = true;
       self.nextButton.visible = true;
       self.gameAudioPlayer.correctAnswer();
     };
-    stateChangeHandlers[ BAAProblemState.PRESENTING_TRY_AGAIN ] = function() {
+    stateChangeHandlers[ BAAChallengeState.PRESENTING_TRY_AGAIN ] = function() {
       setAnswerNodeInteractive( false );
       faceNode.frown();
       pointDisplay.text = '';
@@ -156,7 +156,7 @@ define( function( require ) {
       self.tryAgainButton.visible = true;
       self.gameAudioPlayer.wrongAnswer();
     };
-    stateChangeHandlers[ BAAProblemState.ATTEMPTS_EXHAUSTED ] = function() {
+    stateChangeHandlers[ BAAChallengeState.ATTEMPTS_EXHAUSTED ] = function() {
       setAnswerNodeInteractive( false );
       self.displayCorrectAnswerButton.visible = true;
       faceNode.frown();
@@ -164,17 +164,18 @@ define( function( require ) {
       faceNode.visible = true;
       self.gameAudioPlayer.wrongAnswer();
     };
-    stateChangeHandlers[ BAAProblemState.DISPLAYING_CORRECT_ANSWER ] = function() {
+    stateChangeHandlers[ BAAChallengeState.DISPLAYING_CORRECT_ANSWER ] = function() {
       setAnswerNodeInteractive( false );
       self.nextButton.visible = true;
       self.displayCorrectAnswer();
     };
 
-    // Update the appearance of the problem as the state changes.
-    problem.problemStateProperty.link( function( problemState ) {
+    // Update the appearance of the challenge as the state changes.
+    challenge.challengeStateProperty.link( function( challengeState ) {
       hideButtonsAndFace();
-      if ( stateChangeHandlers[ problemState ] !== undefined ) {
-        stateChangeHandlers[ problemState ]();
+      // TODO: Is the check for undefined really needed
+      if ( stateChangeHandlers[ challengeState ] !== undefined ) {
+        stateChangeHandlers[ challengeState ]();
       }
     } );
 
@@ -185,10 +186,10 @@ define( function( require ) {
     faceNode.centerY = layoutBounds.height / 2;
   }
 
-  buildAnAtom.register( 'ProblemView', ProblemView );
+  buildAnAtom.register( 'ChallengeView', ChallengeView );
 
   // Inherit from Node.
-  return inherit( Node, ProblemView, {
+  return inherit( Node, ChallengeView, {
 
     // Function to clear the user's answer, generally used when
     // giving the user another chance to answer.  Must be implemented

@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * View for game problems where the user is presented with a set of particle
+ * View for game challenges where the user is presented with a set of particle
  * counts for an atom and must determine the total charge and enter it in an
  * interactive element symbol.
  *
@@ -16,35 +16,35 @@ define( function( require ) {
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
-  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
 
   /**
-   * @param {CountsToSymbolProblem} toSymbolProblem
+   * @param {CountsToSymbolChallenge} toSymbolChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToSymbolProblemView( toSymbolProblem, layoutBounds, tandem ) {
+  function CountsToSymbolChallengeView( toSymbolChallenge, layoutBounds, tandem ) {
 
     // Interactive Symbol (must be defined before the super constructor is invoked).
     this.interactiveSymbolNode = new InteractiveSymbolNode(
-      toSymbolProblem.answerAtom,
+      toSymbolChallenge.answerAtom,
       tandem.createTandem( 'interactiveSymbolNode' ), {
-        interactiveProtonCount: toSymbolProblem.configurableProtonCount,
-        interactiveMassNumber: toSymbolProblem.configurableMassNumber,
-        interactiveCharge: toSymbolProblem.configurableCharge
+        interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
+        interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
+        interactiveCharge: toSymbolChallenge.configurableCharge
       }
     );
 
-    ProblemView.call( this, toSymbolProblem, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem ); // Call super constructor.
 
     // Add the interactive symbol.
     this.interactiveSymbolNode.scale( 0.75 );
     this.interactiveAnswerNode.addChild( this.interactiveSymbolNode );
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( toSymbolProblem.answerAtom );
-    this.problemPresentationNode.addChild( particleCountsNode );
+    var particleCountsNode = new ParticleCountsNode( toSymbolChallenge.answerAtom );
+    this.challengePresentationNode.addChild( particleCountsNode );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
@@ -53,10 +53,10 @@ define( function( require ) {
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
   }
 
-  buildAnAtom.register( 'CountsToSymbolProblemView', CountsToSymbolProblemView );
+  buildAnAtom.register( 'CountsToSymbolChallengeView', CountsToSymbolChallengeView );
 
-  // Inherit from ProblemView.
-  return inherit( ProblemView, CountsToSymbolProblemView, {
+  // Inherit from ChallengeView.
+  return inherit( ChallengeView, CountsToSymbolChallengeView, {
 
     // @public
     checkAnswer: function() {
@@ -65,14 +65,14 @@ define( function( require ) {
         neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
         electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
       } );
-      this.problem.checkAnswer( userSubmittedAtom );
+      this.challenge.checkAnswer( userSubmittedAtom );
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.interactiveSymbolNode.protonCountProperty.value = this.problem.answerAtom.protonCountProperty.get();
-      this.interactiveSymbolNode.massNumberProperty.value = this.problem.answerAtom.massNumberProperty.get();
-      this.interactiveSymbolNode.chargeProperty.value = this.problem.answerAtom.chargeProperty.get();
+      this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
+      this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+      this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
     }
   } );
 } );

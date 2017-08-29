@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Problem where the user is presented with a set of counts for protons,
+ * Challenge where the user is presented with a set of counts for protons,
  * neutrons, and electrons, and must determine the mass number.
  *
  * @author John Blanco
@@ -17,7 +17,7 @@ define( function( require ) {
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
-  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var Property = require( 'AXON/Property' );
 
   // phet-io modules
@@ -27,24 +27,24 @@ define( function( require ) {
   var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
 
   /**
-   * @param {CountsToMassNumberProblem} countsToMassNumberProblem
+   * @param {CountsToMassNumberChallenge} countsToMassNumberChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToMassNumberProblemView( countsToMassNumberProblem, layoutBounds, tandem ) {
+  function CountsToMassNumberChallengeView( countsToMassNumberChallenge, layoutBounds, tandem ) {
 
     // Must be defined before call to super constructor.
     this.massNumberAnswerProperty = new Property( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       phetioValueType: TNumber( { type: 'Integer' } )
     } );
-    ProblemView.call( this, countsToMassNumberProblem, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, countsToMassNumberChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToMassNumberProblem.answerAtom );
-    self.problemPresentationNode.addChild( particleCountsNode );
+    var particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
+    self.challengePresentationNode.addChild( particleCountsNode );
 
     var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
@@ -72,24 +72,24 @@ define( function( require ) {
     numberEntryNode.centerY = questionPrompt.centerY;
   }
 
-  buildAnAtom.register( 'CountsToMassNumberProblemView', CountsToMassNumberProblemView );
+  buildAnAtom.register( 'CountsToMassNumberChallengeView', CountsToMassNumberChallengeView );
 
-  // Inherit from ProblemView.
-  return inherit( ProblemView, CountsToMassNumberProblemView, {
+  // Inherit from ChallengeView.
+  return inherit( ChallengeView, CountsToMassNumberChallengeView, {
 
     // @public
     checkAnswer: function() {
       var userSubmittedAnswer = new NumberAtom( {
-        protonCount: this.problem.answerAtom.protonCountProperty.get(),
-        neutronCount: this.massNumberAnswerProperty.value - this.problem.answerAtom.protonCountProperty.get(),
-        electronCount: this.problem.answerAtom.electronCountProperty.get()
+        protonCount: this.challenge.answerAtom.protonCountProperty.get(),
+        neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
+        electronCount: this.challenge.answerAtom.electronCountProperty.get()
       } );
-      this.problem.checkAnswer( userSubmittedAnswer );
+      this.challenge.checkAnswer( userSubmittedAnswer );
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.massNumberAnswerProperty.value = this.problem.answerAtom.massNumberProperty.get();
+      this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
     }
   } );
 } );

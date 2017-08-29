@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Problem where the user is presented with a set of counts for protons,
+ * Challenge where the user is presented with a set of counts for protons,
  * neutrons, and electrons, and must determine the overall charge.
  *
  * @author John Blanco
@@ -17,7 +17,7 @@ define( function( require ) {
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
-  var ProblemView = require( 'BUILD_AN_ATOM/game/view/ProblemView' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
@@ -28,12 +28,12 @@ define( function( require ) {
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
 
   /**
-   * @param {CountsToChargeProblem} countsToChargeProblem
+   * @param {CountsToChargeChallenge} countsToChargeChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToChargeProblemView( countsToChargeProblem, layoutBounds, tandem ) {
+  function CountsToChargeChallengeView( countsToChargeChallenge, layoutBounds, tandem ) {
 
     // @private
     // Must be defined before call to super constructor.
@@ -44,12 +44,12 @@ define( function( require ) {
       } )
     } );
 
-    ProblemView.call( this, countsToChargeProblem, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, countsToChargeChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToChargeProblem.answerAtom );
-    self.problemPresentationNode.addChild( particleCountsNode );
+    var particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
+    self.challengePresentationNode.addChild( particleCountsNode );
 
     var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
@@ -79,24 +79,24 @@ define( function( require ) {
     numberEntryNode.centerY = questionPrompt.centerY;
   }
 
-  buildAnAtom.register( 'CountsToChargeProblemView', CountsToChargeProblemView );
+  buildAnAtom.register( 'CountsToChargeChallengeView', CountsToChargeChallengeView );
 
-  // Inherit from ProblemView.
-  return inherit( ProblemView, CountsToChargeProblemView, {
+  // Inherit from ChallengeView.
+  return inherit( ChallengeView, CountsToChargeChallengeView, {
 
     // @public
     checkAnswer: function() {
       var userSubmittedAnswer = new NumberAtom( {
-        protonCount: this.problem.answerAtom.protonCountProperty.get(),
-        neutronCount: this.problem.answerAtom.neutronCountProperty.get(),
-        electronCount: this.problem.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
+        protonCount: this.challenge.answerAtom.protonCountProperty.get(),
+        neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
+        electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
       } );
-      this.problem.checkAnswer( userSubmittedAnswer );
+      this.challenge.checkAnswer( userSubmittedAnswer );
     },
 
     // @public
     displayCorrectAnswer: function() {
-      this.chargeAnswerProperty.value = this.problem.answerAtom.chargeProperty.get();
+      this.chargeAnswerProperty.value = this.challenge.answerAtom.chargeProperty.get();
     }
   } );
 } );
