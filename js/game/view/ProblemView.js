@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAProblemState = require( 'BUILD_AN_ATOM/game/model/BAAProblemState' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Color = require( 'SCENERY/util/Color' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
@@ -130,43 +131,43 @@ define( function( require ) {
       self.interactiveAnswerNode.pickable = interactive;
     };
 
-    // Updated the visibility of the various buttons and other nodes based on
+    // Update the visibility of the various buttons and other nodes based on
     // the problem state.
-    var stateChangeHandlers = {
-      presentingProblem: function() {
-        self.clearAnswer();
-        setAnswerNodeInteractive( true );
-        self.checkAnswerButton.visible = true;
-      },
-      problemSolvedCorrectly: function() {
-        setAnswerNodeInteractive( false );
-        faceNode.smile();
-        pointDisplay.text = '+' + problem.scoreProperty.get();
-        faceNode.visible = true;
-        self.nextButton.visible = true;
-        self.gameAudioPlayer.correctAnswer();
-      },
-      presentingTryAgain: function() {
-        setAnswerNodeInteractive( false );
-        faceNode.frown();
-        pointDisplay.text = '';
-        faceNode.visible = true;
-        self.tryAgainButton.visible = true;
-        self.gameAudioPlayer.wrongAnswer();
-      },
-      attemptsExhausted: function() {
-        setAnswerNodeInteractive( false );
-        self.displayCorrectAnswerButton.visible = true;
-        faceNode.frown();
-        pointDisplay.text = '';
-        faceNode.visible = true;
-        self.gameAudioPlayer.wrongAnswer();
-      },
-      displayingCorrectAnswer: function() {
-        setAnswerNodeInteractive( false );
-        self.nextButton.visible = true;
-        self.displayCorrectAnswer();
-      }
+    // Set up the handlers that update the visibility of the various buttons and other nodes based on the problem state.
+    var stateChangeHandlers = {};
+    stateChangeHandlers[ BAAProblemState.PRESENTING_PROBLEM ] = function() {
+      self.clearAnswer();
+      setAnswerNodeInteractive( true );
+      self.checkAnswerButton.visible = true;
+    };
+    stateChangeHandlers[ BAAProblemState.PROBLEM_SOLVED_CORRECTLY ] = function() {
+      setAnswerNodeInteractive( false );
+      faceNode.smile();
+      pointDisplay.text = '+' + problem.scoreProperty.get();
+      faceNode.visible = true;
+      self.nextButton.visible = true;
+      self.gameAudioPlayer.correctAnswer();
+    };
+    stateChangeHandlers[ BAAProblemState.PRESENTING_TRY_AGAIN ] = function() {
+      setAnswerNodeInteractive( false );
+      faceNode.frown();
+      pointDisplay.text = '';
+      faceNode.visible = true;
+      self.tryAgainButton.visible = true;
+      self.gameAudioPlayer.wrongAnswer();
+    };
+    stateChangeHandlers[ BAAProblemState.ATTEMPTS_EXHAUSTED ] = function() {
+      setAnswerNodeInteractive( false );
+      self.displayCorrectAnswerButton.visible = true;
+      faceNode.frown();
+      pointDisplay.text = '';
+      faceNode.visible = true;
+      self.gameAudioPlayer.wrongAnswer();
+    };
+    stateChangeHandlers[ BAAProblemState.DISPLAYING_CORRECT_ANSWER ] = function() {
+      setAnswerNodeInteractive( false );
+      self.nextButton.visible = true;
+      self.displayCorrectAnswer();
     };
 
     // Update the appearance of the problem as the state changes.

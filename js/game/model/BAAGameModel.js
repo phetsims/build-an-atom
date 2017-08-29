@@ -12,6 +12,7 @@ define( function( require ) {
   var Emitter = require( 'AXON/Emitter' );
   var Property = require( 'AXON/Property' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
   var ProblemSetFactory = require( 'BUILD_AN_ATOM/game/model/ProblemSetFactory' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -45,7 +46,9 @@ define( function( require ) {
       [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
     ];
 
-    this.stateProperty = new Property( 'selectGameLevel' ); // Current state of the game.  Each problem is a unique state.
+    // @public {Property.<BAAGameState>} - current state, each problem is a unique state
+    this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL );
+
     this.soundEnabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'soundEnabledProperty' ),
       phetioValueType: TBoolean
@@ -118,13 +121,14 @@ define( function( require ) {
       // Increment the game timer if running.  Note that this assumes that dt is not clamped, because we want it to
       // essentially continue running if the user switches tabs or hides the browser.
       if ( this.timerEnabledProperty.get() &&
-           this.stateProperty.get !== 'selectGameLevel' &&
-           this.stateProperty.get !== 'levelCompleted' ) {
+           this.stateProperty.get() !== BAAGameState.CHOOSING_LEVEL &&
+           this.stateProperty.get() !== BAAGameState.LEVEL_COMPLETED ) {
 
         this.elapsedTimeProperty.set( this.elapsedTimeProperty.get() + dt );
       }
 
       // Step the current problem if it has any time-driven behavior.
+      // TODO: Is the check for whether the state exists really necessary?
       if ( this.stateProperty.get() && ( typeof( this.stateProperty.get().step ) !== 'undefined' ) ) {
         this.stateProperty.get().step( dt );
       }
@@ -148,13 +152,13 @@ define( function( require ) {
         this.stateProperty.set( this.problemSetProperty.get()[ 0 ] );
       }
       else {
-        this.stateProperty.set( 'levelCompleted' );
+        this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
       }
     },
 
     // @public - go to the level selection dialog and allow the user to start a new game
     newGame: function() {
-      this.stateProperty.set( 'selectGameLevel' );
+      this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
       this.scoreProperty.set( 0 );
     },
 
@@ -194,7 +198,7 @@ define( function( require ) {
           newBestTime: this.newBestTime
         } );
 
-        this.stateProperty.set( 'levelCompleted' );
+        this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
       }
     },
 

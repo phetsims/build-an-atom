@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAProblemState = require( 'BUILD_AN_ATOM/game/model/BAAProblemState' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
@@ -22,7 +23,7 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameProblem( buildAnAtomGameModel, answerAtom ) {
-    this.problemStateProperty  = new Property( 'presentingProblem' );
+    this.problemStateProperty  = new Property( BAAProblemState.PRESENTING_PROBLEM );
     //this.answerAtomProperty = new Property( answerAtom ); TODO Regression testing on this
     this.numSubmissionsProperty =new Property( 0 );
     this.scoreProperty =  new Property( 0 );
@@ -48,8 +49,10 @@ define( function( require ) {
      */
     checkAnswer: function( submittedAtom ) {
       // Verify that the current state is as expected.
-      assert && assert( this.problemStateProperty.get() === 'presentingProblem', 'Unexpected problem state: ' +
-                                                                                 this.problemStateProperty.get() );
+      assert && assert(
+        this.problemStateProperty.get() === BAAProblemState.PRESENTING_PROBLEM,
+        'Unexpected problem state: ' + this.problemStateProperty.get()
+      );
 
       this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
       var pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
@@ -67,7 +70,7 @@ define( function( require ) {
         this.model.scoreProperty.set(  this.model.scoreProperty.get() + this.scoreProperty.get() );
 
         // Move to the next state.
-        this.problemStateProperty.set( 'problemSolvedCorrectly' );
+        this.problemStateProperty.set( BAAProblemState.PROBLEM_SOLVED_CORRECTLY );
       }
       else {
 
@@ -75,19 +78,19 @@ define( function( require ) {
         if ( this.numSubmissionsProperty.get() < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
 
           // Give the user another chance.
-          this.problemStateProperty.set( 'presentingTryAgain' );
+          this.problemStateProperty.set( BAAProblemState.PRESENTING_TRY_AGAIN );
         }
         else {
 
           // User has exhausted their attempts.
-          this.problemStateProperty.set( 'attemptsExhausted' );
+          this.problemStateProperty.set( BAAProblemState.ATTEMPTS_EXHAUSTED );
         }
       }
     },
 
     // public - allow the user to try again to correctly answer the question
     tryAgain: function() {
-      this.problemStateProperty.set( 'presentingProblem' );
+      this.problemStateProperty.set( BAAProblemState.PRESENTING_PROBLEM );
     },
 
     // @public - advance to the next question or finish the level
@@ -99,7 +102,7 @@ define( function( require ) {
 
     // @public - display the correct answer to the user
     displayCorrectAnswer: function() {
-      this.problemStateProperty.set( 'displayingCorrectAnswer' );
+      this.problemStateProperty.set( BAAProblemState.DISPLAYING_CORRECT_ANSWER );
     }
   } );
 } );

@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAProblemState = require( 'BUILD_AN_ATOM/game/model/BAAProblemState' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameProblem = require( 'BUILD_AN_ATOM/game/model/BAAGameProblem' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -38,8 +39,10 @@ define( function( require ) {
      * @public
      */
     checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
-      assert && assert( this.problemStateProperty.get() === 'presentingProblem', 'Unexpected problem state: ' +
-                                                                                 this.problemStateProperty.get() );
+      assert && assert(
+        this.problemStateProperty.get() === BAAProblemState.PRESENTING_PROBLEM,
+        'Unexpected problem state: ' + this.problemStateProperty.get()
+      );
       this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 ) ;
       var isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
                       submittedAtom.neutronCountProperty.get() === this.answerAtom.neutronCountProperty.get() &&
@@ -58,7 +61,7 @@ define( function( require ) {
         this.model.scoreProperty.set( this.model.scoreProperty.get() + this.scoreProperty.get() );
 
         // Move to the next state.
-        this.problemStateProperty.set( 'problemSolvedCorrectly' );
+        this.problemStateProperty.set( BAAProblemState.PROBLEM_SOLVED_CORRECTLY );
       }
       else {
 
@@ -66,12 +69,12 @@ define( function( require ) {
         if ( this.numSubmissionsProperty.get() < ShredConstants.MAX_PROBLEM_ATTEMPTS ) {
 
           // Give the user another chance.
-          this.problemStateProperty.set( 'presentingTryAgain' );
+          this.problemStateProperty.set( BAAProblemState.PRESENTING_TRY_AGAIN );
         }
         else {
 
           // User has exhausted their attempts.
-          this.problemStateProperty.set( 'attemptsExhausted' );
+          this.problemStateProperty.set( BAAProblemState.ATTEMPTS_EXHAUSTED );
         }
       }
     }

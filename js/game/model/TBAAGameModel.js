@@ -50,8 +50,7 @@ define( function( require ) {
       //  ]
     }
   }, {
-    documentation: 'The model for the Game',
-    events: [ 'levelCompleted' ]
+    documentation: 'The model for the Game'
   } );
 
   buildAnAtom.register( 'TBAAGameModel', TBAAGameModel );

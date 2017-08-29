@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
+  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
@@ -75,7 +76,7 @@ define( function( require ) {
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state ) {
-      if ( state === 'selectGameLevel' ) {
+      if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();
         disposePreviousView();
         rootNode.addChild( startGameLevelNode );
@@ -84,7 +85,7 @@ define( function( require ) {
         }
         self.rewardNode = null;
       }
-      else if ( state === 'levelCompleted' ) {
+      else if ( state === BAAGameState.LEVEL_COMPLETED ) {
         rootNode.removeAllChildren();
         disposePreviousView();
         if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
@@ -103,7 +104,7 @@ define( function( require ) {
           BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
           BAAGameModel.PROBLEMS_PER_LEVEL, gameModel.timerEnabledProperty.get(), gameModel.elapsedTimeProperty.get(),
           gameModel.bestTimes[ gameModel.levelProperty.get() ].value, gameModel.newBestTime,
-          function() { gameModel.stateProperty.set( 'selectGameLevel' ); }, {
+          function() { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
             centerX: self.layoutBounds.width / 2,
             centerY: self.layoutBounds.height / 2,
             levelVisible: false,
