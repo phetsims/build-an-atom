@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var Emitter = require( 'AXON/Emitter' );
   var Property = require( 'AXON/Property' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
@@ -86,7 +87,9 @@ define( function( require ) {
     this.elapsedTimeProperty = new Property( 0 );
 
     // @public (phet-io) {Property.<boolean>} - enables a mode where no feedback is provided during the game
-    this.provideFeedbackProperty = new Property( true );
+    this.provideFeedbackProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'provideFeedbackProperty' )
+    } );
 
     // @private, set of external functions that the model will step
     this.stepListeners = [];
