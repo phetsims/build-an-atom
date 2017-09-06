@@ -49,28 +49,44 @@ define( function( require ) {
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL );
 
+    // @public {Property.<boolean>}
     this.soundEnabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'soundEnabledProperty' ),
       phetioValueType: TBoolean
     } );
+
+    // @public {Property.<boolean>}
     this.timerEnabledProperty = new Property( false, {
       tandem: tandem.createTandem( 'timerEnabledProperty' ),
       phetioValueType: TBoolean
     } );
+
+    // @public (read-only) {Property.<number>}
     this.levelProperty = new Property( 0, {
       tandem: tandem.createTandem( 'levelProperty' ),
       phetioValueType: TNumber()
     } );
+
+    // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [] );
+
+    // @public (read-only) {Property.<number>}
     this.challengeIndexProperty = new Property( 0, {
       tandem: tandem.createTandem( 'challengeIndexProperty' ),
       phetioValueType: TNumber()
     } );
+
+    // @public (read-only) {Property.<number>}
     this.scoreProperty = new Property( 0, {
       tandem: tandem.createTandem( 'scoreProperty' ),
       phetioValueType: TNumber()
     } ); // Score on current game level.
+
+    // @public (read-only) {Property.<number>}
     this.elapsedTimeProperty = new Property( 0 );
+
+    // @public (phet-io) {Property.<boolean>} - enables a mode where no feedback is provided during the game
+    this.provideFeedbackProperty = new Property( true );
 
     // @private, set of external functions that the model will step
     this.stepListeners = [];
@@ -235,7 +251,7 @@ define( function( require ) {
     },
 
     // @public
-    emitCheckAnswer: function( isCorrect, pointsIfCorrect, answerAtom, submittedAtom, extension ) {
+    emitCheckAnswer: function( isCorrect, points, answerAtom, submittedAtom, extension ) {
       var arg = {
         isCorrect: isCorrect,
 
@@ -247,7 +263,7 @@ define( function( require ) {
         submittedNeutronCount: submittedAtom.neutronCountProperty.get(),
         submittedElectronCount: submittedAtom.electronCountProperty.get(),
 
-        points: isCorrect ? pointsIfCorrect : 0
+        points: points
       };
       this.checkAnswerEmitter.emit1( _.extend( extension, arg ) );
     }

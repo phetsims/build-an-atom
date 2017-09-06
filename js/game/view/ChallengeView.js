@@ -143,7 +143,7 @@ define( function( require ) {
     stateChangeHandlers[ BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY ] = function() {
       setAnswerNodeInteractive( false );
       faceNode.smile();
-      pointDisplay.text = '+' + challenge.scoreProperty.get();
+      pointDisplay.text = '+' + challenge.pointValue;
       faceNode.visible = true;
       self.nextButton.visible = true;
       self.gameAudioPlayer.correctAnswer();

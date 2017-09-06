@@ -12,7 +12,6 @@ define( function( require ) {
 
   // modules
   var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
-  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -43,40 +42,14 @@ define( function( require ) {
         this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
         'Unexpected challenge state: ' + this.challengeStateProperty.get()
       );
-      this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 ) ;
       var isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
                       submittedAtom.neutronCountProperty.get() === this.answerAtom.neutronCountProperty.get() &&
                       ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.chargeProperty.get() === 0 ) ||
                         ( submittedNeutralOrIon === 'ion' && this.answerAtom.chargeProperty.get() !== 0 ) );
-
-      var pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
-      this.model.emitCheckAnswer( isCorrect, pointsIfCorrect, this.answerAtom, submittedAtom, {
+      this.handleEvaluatedAnswer( submittedAtom, isCorrect, {
         correctCharge: this.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion',
         submittedCharge: submittedNeutralOrIon
       } );
-
-      if ( isCorrect ) {
-        // Answer is correct. Record the score.
-        this.scoreProperty.set( pointsIfCorrect );
-        this.model.scoreProperty.set( this.model.scoreProperty.get() + this.scoreProperty.get() );
-
-        // Move to the next state.
-        this.challengeStateProperty.set( BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY );
-      }
-      else {
-
-        // Handle incorrect answer.
-        if ( this.numSubmissionsProperty.get() < BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ) {
-
-          // Give the user another chance.
-          this.challengeStateProperty.set( BAAChallengeState.PRESENTING_TRY_AGAIN );
-        }
-        else {
-
-          // User has exhausted their attempts.
-          this.challengeStateProperty.set( BAAChallengeState.ATTEMPTS_EXHAUSTED );
-        }
-      }
     }
   } );
 } );
