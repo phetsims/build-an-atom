@@ -11,20 +11,17 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
+  var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var Vector2 = require( 'DOT/Vector2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-  var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var Property = require( 'AXON/Property' );
-  var Vector2 = require( 'DOT/Vector2' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   // strings
   var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
@@ -38,9 +35,9 @@ define( function( require ) {
    */
   function SchematicToMassNumberChallengeView( schematicToMassNumberChallenge, layoutBounds, tandem ) {
 
-    this.massNumberAnswerProperty = new Property( 0, {
+    this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
-      phetioValueType: TNumber( { type: 'Integer' } )
+      valueType: 'Integer'
     } ); // Must be defined before call to super constructor.
     ChallengeView.call( this, schematicToMassNumberChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;

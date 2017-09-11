@@ -10,21 +10,18 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var Vector2 = require( 'DOT/Vector2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var Property = require( 'AXON/Property' );
-  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( 'DOT/Vector2' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var ShredConstants = require( 'SHRED/ShredConstants' );
 
   // constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
@@ -51,17 +48,17 @@ define( function( require ) {
       interactiveCharge: false
     }, options );
 
-    self.protonCountProperty = new Property( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
+    self.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' ),
-      phetioValueType: TNumber( { type: 'Integer' } )
+      valueType: 'Integer'
     } );
-    self.massNumberProperty = new Property( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
+    self.massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: tandem.createTandem( 'massNumberProperty' ),
-      phetioValueType: TNumber( { type: 'Integer' } )
+      valueType: 'Integer'
     } );
-    self.chargeProperty = new Property( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
+    self.chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
       tandem: tandem.createTandem( 'chargeProperty' ),
-      phetioValueType: TNumber( { type: 'Integer' } )
+      valueType: 'Integer'
     } );
 
     // Add the bounding box, which is also the root node for everything else

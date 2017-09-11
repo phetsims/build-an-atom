@@ -10,18 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var Property = require( 'AXON/Property' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
 
   // strings
   var whatIsTheMassNumberString = require( 'string!BUILD_AN_ATOM/whatIsTheMassNumber' );
@@ -35,9 +32,9 @@ define( function( require ) {
   function CountsToMassNumberChallengeView( countsToMassNumberChallenge, layoutBounds, tandem ) {
 
     // Must be defined before call to super constructor.
-    this.massNumberAnswerProperty = new Property( 0, {
+    this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
-      phetioValueType: TNumber( { type: 'Integer' } )
+      valueType: 'Integer'
     } );
     ChallengeView.call( this, countsToMassNumberChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;

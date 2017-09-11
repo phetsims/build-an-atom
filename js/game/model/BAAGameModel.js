@@ -11,10 +11,11 @@ define( function( require ) {
   // modules
   var BooleanProperty = require( 'AXON/BooleanProperty' );
   var Emitter = require( 'AXON/Emitter' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
+  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
@@ -22,7 +23,6 @@ define( function( require ) {
   // phet-io modules
   var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
 
   // constants
@@ -63,24 +63,21 @@ define( function( require ) {
     } );
 
     // @public (read-only) {Property.<number>}
-    this.levelProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'levelProperty' ),
-      phetioValueType: TNumber()
+    this.levelProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'levelProperty' )
     } );
 
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [] );
 
     // @public (read-only) {Property.<number>}
-    this.challengeIndexProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'challengeIndexProperty' ),
-      phetioValueType: TNumber()
+    this.challengeIndexProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'challengeIndexProperty' )
     } );
 
-    // @public (read-only) {Property.<number>}
-    this.scoreProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'scoreProperty' ),
-      phetioValueType: TNumber()
+    // @public (read-only) {NumberProperty}
+    this.scoreProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'scoreProperty' )
     } ); // Score on current game level.
 
     // @public (read-only) {Property.<number>}

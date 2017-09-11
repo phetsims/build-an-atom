@@ -10,19 +10,16 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var Property = require( 'AXON/Property' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   // strings
   var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
@@ -37,11 +34,9 @@ define( function( require ) {
 
     // @private
     // Must be defined before call to super constructor.
-    this.chargeAnswerProperty = new Property( 0, {
+    this.chargeAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
-      phetioValueType: TNumber( {
-        type: 'Integer'
-      } )
+      valueType: 'Integer'
     } );
 
     ChallengeView.call( this, countsToChargeChallenge, layoutBounds, tandem ); // Call super constructor.
