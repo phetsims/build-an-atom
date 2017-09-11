@@ -10,8 +10,8 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var CountsToMassNumberChallengeView = require( 'BUILD_AN_ATOM/game/view/CountsToMassNumberChallengeView' );
   var inherit = require( 'PHET_CORE/inherit' );
 

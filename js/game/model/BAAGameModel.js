@@ -9,15 +9,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
+  var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
   var BooleanProperty = require( 'AXON/BooleanProperty' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   var Emitter = require( 'AXON/Emitter' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
-  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
-  var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
-  var inherit = require( 'PHET_CORE/inherit' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
   // phet-io modules

@@ -23,9 +23,9 @@ define( function( require ) {
 
   // strings
   var checkString = require( 'string!VEGAS/check' );
-  var tryAgainString = require( 'string!VEGAS/tryAgain' );
-  var showAnswerString = require( 'string!VEGAS/showAnswer' );
   var nextString = require( 'string!VEGAS/next' );
+  var showAnswerString = require( 'string!VEGAS/showAnswer' );
+  var tryAgainString = require( 'string!VEGAS/tryAgain' );
 
   // constants
   var BUTTON_FONT = new PhetFont( 20 );

@@ -10,17 +10,17 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var inherit = require( 'PHET_CORE/inherit' );
 
   // strings
-  var protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
-  var neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
   var electronsColonString = require( 'string!BUILD_AN_ATOM/electronsColon' );
+  var neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
+  var protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
 
   // constants
   var MAX_WIDTH = 200;

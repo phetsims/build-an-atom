@@ -12,9 +12,9 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ToElementChallenge = require( 'BUILD_AN_ATOM/game/model/ToElementChallenge' );
-  var SchematicToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToElementChallengeView' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var SchematicToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToElementChallengeView' );
+  var ToElementChallenge = require( 'BUILD_AN_ATOM/game/model/ToElementChallenge' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel

@@ -10,18 +10,18 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var NumberProperty = require( 'AXON/NumberProperty' );
+  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var Vector2 = require( 'DOT/Vector2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.

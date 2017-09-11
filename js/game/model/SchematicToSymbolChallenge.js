@@ -11,10 +11,10 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
-  var SchematicToSymbolChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToSymbolChallengeView' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var SchematicToSymbolChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToSymbolChallengeView' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel

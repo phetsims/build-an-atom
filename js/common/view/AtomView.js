@@ -16,11 +16,11 @@ define( function( require ) {
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'SHRED/view/AtomNode' );
   var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -29,6 +29,7 @@ define( function( require ) {
   var ParticleView = require( 'SHRED/view/ParticleView' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Shape = require( 'KITE/Shape' );
@@ -36,16 +37,15 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
 
   // strings
-  var elementString = require( 'string!BUILD_AN_ATOM/element' );
-  var neutralSlashIonString = require( 'string!BUILD_AN_ATOM/neutralSlashIon' );
-  var stableSlashUnstableString = require( 'string!BUILD_AN_ATOM/stableSlashUnstable' );
-  var showString = require( 'string!BUILD_AN_ATOM/show' );
-  var orbitsString = require( 'string!BUILD_AN_ATOM/orbits' );
   var cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
+  var elementString = require( 'string!BUILD_AN_ATOM/element' );
   var modelString = require( 'string!BUILD_AN_ATOM/model' );
+  var neutralSlashIonString = require( 'string!BUILD_AN_ATOM/neutralSlashIon' );
+  var orbitsString = require( 'string!BUILD_AN_ATOM/orbits' );
+  var showString = require( 'string!BUILD_AN_ATOM/show' );
+  var stableSlashUnstableString = require( 'string!BUILD_AN_ATOM/stableSlashUnstable' );
 
   // constants
   var CONTROLS_INSET = 10;

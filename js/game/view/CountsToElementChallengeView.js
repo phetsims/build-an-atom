@@ -12,8 +12,8 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var ToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/ToElementChallengeView' );
 
   /**

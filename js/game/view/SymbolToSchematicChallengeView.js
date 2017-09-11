@@ -12,11 +12,11 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**

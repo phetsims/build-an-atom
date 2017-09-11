@@ -12,16 +12,16 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
-  var neutronsColonPatternString = require( 'string!BUILD_AN_ATOM/neutronsColonPattern' );
   var electronsColonPatternString = require( 'string!BUILD_AN_ATOM/electronsColonPattern' );
+  var neutronsColonPatternString = require( 'string!BUILD_AN_ATOM/neutronsColonPattern' );
+  var protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
 
   // constants
   var MAX_WIDTH = 280;

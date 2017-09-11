@@ -10,15 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var NumberProperty = require( 'AXON/NumberProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
+  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
   // strings

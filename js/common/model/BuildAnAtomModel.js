@@ -29,9 +29,9 @@ define( function( require ) {
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   // strings
-  var protonsString = require( 'string!BUILD_AN_ATOM/protons' );
-  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons' );
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
+  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons' );
+  var protonsString = require( 'string!BUILD_AN_ATOM/protons' );
 
   // constants
   var NUM_PROTONS = 10;

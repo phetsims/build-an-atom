@@ -10,14 +10,14 @@ define( function( require ) {
 
   // modules
   var AtomNode = require( 'SHRED/view/AtomNode' );
+  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Particle = require( 'SHRED/model/Particle' );
   var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   var ParticleView = require( 'SHRED/view/ParticleView' );
-  var Particle = require( 'SHRED/model/Particle' );
   var Property = require( 'AXON/Property' );
-  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
 
   /**
    * @param {NumberAtom} numberAtom

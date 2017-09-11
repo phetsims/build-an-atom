@@ -10,8 +10,8 @@ define( function( require ) {
 
   // modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );

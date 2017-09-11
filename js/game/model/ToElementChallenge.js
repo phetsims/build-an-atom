@@ -12,8 +12,8 @@ define( function( require ) {
 
   // modules
   var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**

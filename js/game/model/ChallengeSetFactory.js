@@ -13,9 +13,9 @@ define( function( require ) {
   var AtomValuePool = require( 'BUILD_AN_ATOM/game/model/AtomValuePool' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var CountsToChargeChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToChargeChallenge' );
-  var CountsToSymbolChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolChallenge' );
   var CountsToElementChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToElementChallenge' );
   var CountsToMassNumberChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToMassNumberChallenge' );
+  var CountsToSymbolChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolChallenge' );
   var SchematicToChargeChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToChargeChallenge' );
   var SchematicToElementChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToElementChallenge' );
   var SchematicToMassNumberChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberChallenge' );

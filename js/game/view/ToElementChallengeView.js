@@ -13,13 +13,13 @@ define( function( require ) {
   // modules
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -29,8 +29,8 @@ define( function( require ) {
   // strings
   var findTheElementString = require( 'string!BUILD_AN_ATOM/findTheElement' );
   var ionString = require( 'string!BUILD_AN_ATOM/ion' );
-  var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutralAtom' );
   var isItString = require( 'string!BUILD_AN_ATOM/isIt' );
+  var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutralAtom' );
 
   // constants
   var TITLE_FONT = new PhetFont( 30 );
