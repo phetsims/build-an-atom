@@ -62,7 +62,13 @@ define( function( require ) {
    * @constructor
    */
   function AtomView( model, tandem ) {
-    ScreenView.call( this, { layoutBounds: ShredConstants.LAYOUT_BOUNDS } ); // Call super constructor.
+
+    // Call super constructor.
+    ScreenView.call( this, {
+      layoutBounds: ShredConstants.LAYOUT_BOUNDS,
+      tandem: tandem
+    } );
+
     var self = this;
     this.model = model;
     this.resetFunctions = [];

@@ -33,7 +33,11 @@ define( function( require ) {
    */
   function BAAGameView( gameModel, tandem ) {
 
-    ScreenView.call( this, { layoutBounds: ShredConstants.LAYOUT_BOUNDS } ); // Call super constructor.
+    // Call super constructor.
+    ScreenView.call( this, {
+      layoutBounds: ShredConstants.LAYOUT_BOUNDS,
+      tandem: tandem
+    } );
     var self = this;
 
     // Add a root node where all of the game-related nodes will live.
