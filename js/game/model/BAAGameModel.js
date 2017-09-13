@@ -16,6 +16,7 @@ define( function( require ) {
   var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   var Emitter = require( 'AXON/Emitter' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
@@ -123,7 +124,15 @@ define( function( require ) {
     } );
 
     this.challengeSetGroupTandem = tandem.createGroupTandem( 'challengeSets' );
+
+    // @private {GroupTandem}
+    this.numberAtomGroupTandem = tandem.createGroupTandem( 'numberAtoms' );// TODO: unify with tandem names in random challenge sets
+
     tandem.addInstance( this, TBAAGameModel );
+
+    // @private (phet-io) {Array.<Array.<BAAGameChallenge> | null} - when set by the PhET-iO API, these challenges will
+    // be used instead of randomly generated
+    this.predeterminedChallenges = null;
   }
 
   buildAnAtom.register( 'BAAGameModel', BAAGameModel );
@@ -158,8 +167,16 @@ define( function( require ) {
     startGameLevel: function( levelName ) {
       this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
       this.challengeIndexProperty.set( 0 );
-      this.challengeSetProperty.set( ChallengeSetFactory.generate( this.levelProperty.get(), CHALLENGES_PER_LEVEL, this,
-        this.allowedChallengeTypesByLevel, this.challengeSetGroupTandem.createNextTandem() ) );
+
+      // Use the predetermined challenges (if specified by phet-io) or genearte a random challenge for the given level
+      var challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
+        this.levelProperty.get(),
+        CHALLENGES_PER_LEVEL,
+        this,
+        this.allowedChallengeTypesByLevel,
+        this.challengeSetGroupTandem.createNextTandem()
+      );
+      this.challengeSetProperty.set( challengeSet );
       this.scoreProperty.set( 0 );
       this.newBestTime = false;
       this.bestTimeVisible[ this.levelProperty.get() ].value = false;
@@ -248,6 +265,25 @@ define( function( require ) {
     // @private (phet-io)
     setAllowedChallengeTypesByLevel: function( allowedChallengeTypesByLevel ) {
       this.allowedChallengeTypesByLevel = allowedChallengeTypesByLevel;
+    },
+
+    /**
+     * Specify exact challenges (and ordering) for each level.
+     * @param {Array.<Array.<Object>>} challengeSpecsForLevels
+     * @public (phet-io)
+     */
+    setChallenges: function( challengeSpecsForLevels ) {
+      var self = this;
+      this.predeterminedChallenges = challengeSpecsForLevels.map( function( levelSpec ) {
+        return levelSpec.map( function( challengeSpec ) {
+          return ChallengeSetFactory.createChallenge( self, challengeSpec.challengeType, new NumberAtom( {
+            protonCount: challengeSpec.numberAtom.protonCount,
+            neutronCount: challengeSpec.numberAtom.neutronCount,
+            electronCount: challengeSpec.numberAtom.electronCount,
+            tandem: self.numberAtomGroupTandem.createNextTandem()
+          } ), self.challengeSetGroupTandem.createNextTandem() );
+        } );
+      } );
     },
 
     // @public

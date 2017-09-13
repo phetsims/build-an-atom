@@ -111,7 +111,7 @@ define( function( require ) {
     }
     var atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
-    return this._createChallenge( model, challengeType, atomValue, tandem );
+    return this.createChallenge( model, challengeType, atomValue, tandem );
   };
 
   /**
@@ -123,9 +123,9 @@ define( function( require ) {
    * @param {NumberAtom} atomValue
    * @param {Tandem} tandem
    * @returns {BAAGameChallenge}
-   * @private
+   * @public
    */
-  ChallengeSetFactory._createChallenge = function( model, challengeType, atomValue, tandem ) {
+  ChallengeSetFactory.createChallenge = function( model, challengeType, atomValue, tandem ) {
     var challenge = null;
     switch( challengeType ) {
       case 'counts-to-element':
