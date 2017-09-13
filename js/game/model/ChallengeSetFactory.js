@@ -36,6 +36,7 @@ define( function( require ) {
    * @param {number} numChallenges
    * @param {BAAGameModel} model
    * @param {string[][]} allowedChallengeTypesByLevel
+   * @param {Tandem}
    */
   ChallengeSetFactory.generate = function( level, numChallenges, model, allowedChallengeTypesByLevel, tandem ) {
     this.challenges = [];
@@ -114,8 +115,15 @@ define( function( require ) {
   };
 
   /**
-   * Create a single challenge given a challenge type (e.g. Schematic to
-   * Element) and an atom value that defines that atom configuration.
+   * Create a single challenge given a challenge type (e.g. Schematic to Element) and an atom value that defines that
+   * atom configuration.
+   *
+   * @param {BAAGameModel} model
+   * @param {string} challengeType // TODO: change to enum
+   * @param {NumberAtom} atomValue
+   * @param {Tandem} tandem
+   * @returns {BAAGameChallenge}
+   * @private
    */
   ChallengeSetFactory._createChallenge = function( model, challengeType, atomValue, tandem ) {
     var challenge = null;
