@@ -14,6 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TObjectState = require( 'ifphetio!PHET_IO/types/TObjectState' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
@@ -33,10 +34,20 @@ define( function( require ) {
       documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game'
     },
 
+    setChallenges: {
+      returnType: TVoid,
+      parameterTypes: [ TArray( TArray( TObjectState ) ) ],
+      implementation: function( challenges ) {
+        this.instance.setChallenges( challenges );
+      },
+      documentation: 'Specify exact challenges'
+    },
+
     setAllowedChallengeTypesByLevel: {
       returnType: TVoid,
       parameterTypes: [ TArray( TArray( TString ) ) ],
 
+      // TODO: change this to take index as 1st argument (for level index)
       implementation: function( allowedChallengeTypesByLevel ) {
         this.instance.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
       },
