@@ -33,7 +33,6 @@ define( function( require ) {
 
   // constants
   var CONTROLS_INSET = 10;
-  var NUM_STARS_ON_BUTTON = 5;
   var BASE_COLOR = '#D4AAD4';
 
   /**
@@ -56,7 +55,7 @@ define( function( require ) {
     // Buttons for starting a game level.
     var periodicTableGameButton = new LevelSelectionItemNode(
       new Image( periodicTableIcon ),
-      NUM_STARS_ON_BUTTON,
+      BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
         gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
       },
@@ -75,7 +74,7 @@ define( function( require ) {
     this.addChild( periodicTableGameButton );
     var massAndChargeGameButton = new LevelSelectionItemNode(
       new Image( massChargeIcon ),
-      NUM_STARS_ON_BUTTON,
+      BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
         gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
       },
@@ -90,7 +89,7 @@ define( function( require ) {
     this.addChild( massAndChargeGameButton );
     var symbolGameButton = new LevelSelectionItemNode(
       new Image( symbolQuestionIcon ),
-      NUM_STARS_ON_BUTTON,
+      BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
         gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
       },
@@ -105,7 +104,7 @@ define( function( require ) {
     this.addChild( symbolGameButton );
     var advancedSymbolGameButton = new LevelSelectionItemNode(
       new Image( questionMarkIcon ),
-      NUM_STARS_ON_BUTTON,
+      BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
         gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
       },

@@ -107,10 +107,15 @@ define( function( require ) {
         if ( gameModel.provideFeedbackProperty.get() ) {
 
           // Add the dialog node that indicates that the level has been completed.
-          rootNode.addChild( new LevelCompletedNode( gameModel.levelProperty.get(), gameModel.scoreProperty.get(),
+          rootNode.addChild( new LevelCompletedNode(
+            gameModel.levelProperty.get(),
+            gameModel.scoreProperty.get(),
             BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-            BAAGameModel.CHALLENGES_PER_LEVEL, gameModel.timerEnabledProperty.get(), gameModel.elapsedTimeProperty.get(),
-            gameModel.bestTimes[ gameModel.levelProperty.get() ].value, gameModel.newBestTime,
+            BAAGameModel.CHALLENGES_PER_LEVEL,
+            gameModel.timerEnabledProperty.get(),
+            gameModel.elapsedTimeProperty.get(),
+            gameModel.bestTimes[ gameModel.levelProperty.get() ].value,
+            gameModel.newBestTime,
             function() { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
               centerX: self.layoutBounds.width / 2,
               centerY: self.layoutBounds.height / 2,
