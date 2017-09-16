@@ -130,9 +130,9 @@ define( function( require ) {
 
     tandem.addInstance( this, TBAAGameModel );
 
-    // @private (phet-io) {Array.<Array.<BAAGameChallenge> | null} - when set by the PhET-iO API, these challenges will
+    // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will
     // be used instead of randomly generated
-    this.predeterminedChallenges = null;
+    this.predeterminedChallenges = [];
   }
 
   buildAnAtom.register( 'BAAGameModel', BAAGameModel );
