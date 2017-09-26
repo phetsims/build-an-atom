@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2017, University of Colorado Boulder
 
 /**
  * Challenge where the user is presented with a schematic representation of an

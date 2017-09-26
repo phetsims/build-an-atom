@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2017, University of Colorado Boulder
 
 /**
  * Type that generates a list of challenges for use in a sub-game.

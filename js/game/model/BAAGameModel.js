@@ -1,4 +1,4 @@
-// Copyright 2016, University of Colorado Boulder
+// Copyright 2013-2017, University of Colorado Boulder
 
 /**
  * Primary model class for the Build an Atom Game tab.
@@ -132,6 +132,9 @@ define( function( require ) {
 
     // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will be
     // used instead of randomly generated
+    this.predeterminedChallenges = [];
+    // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will
+    // be used instead of randomly generated
     this.predeterminedChallenges = [];
   }
 
