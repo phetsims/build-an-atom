@@ -24,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameChallenge( buildAnAtomGameModel, answerAtom ) {
-    BAAGameState.call( 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
+    BAAGameState.call( this, 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     this.challengeStateProperty  = new Property( BAAChallengeState.PRESENTING_CHALLENGE );
     this.numSubmissionsProperty =new Property( 0 );
     this.answerAtom = answerAtom;
