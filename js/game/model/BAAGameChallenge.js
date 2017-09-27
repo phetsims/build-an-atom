@@ -12,6 +12,7 @@ define( function( require ) {
 
   // modules
   var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
+  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -23,6 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameChallenge( buildAnAtomGameModel, answerAtom ) {
+    BAAGameState.call( 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     this.challengeStateProperty  = new Property( BAAChallengeState.PRESENTING_CHALLENGE );
     this.numSubmissionsProperty =new Property( 0 );
     this.answerAtom = answerAtom;
@@ -31,19 +33,11 @@ define( function( require ) {
   }
 
   buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
-  // Inherit from base class and define the methods for this object.
-  return inherit( Object, BAAGameChallenge, {
 
-    //------------------------------------------------------------------------
-    // The following functions comprise the API used by the challenge view to
-    // send user events to the challenge.
-    //------------------------------------------------------------------------
+  return inherit( BAAGameState, BAAGameChallenge, {
 
     /**
-     * update score and state based on whether the user submitted a correct or incorrect answer
-     * @param {NumberAtom} submittedAtom
-     * @param {boolean} isCorrect
-     * @param {Object} emitMessageOptions
+     * @override
      */
     handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ){
 
@@ -82,10 +76,7 @@ define( function( require ) {
     },
 
     /**
-     * Process the answer submitted by the user.  This is the most basic check, and more elaborate ways of verifying
-     * can be implemented in sub-classes.
-     * @param {NumberAtom} submittedAtom
-     * @public
+     * @override
      */
     checkAnswer: function( submittedAtom ) {
 
@@ -99,19 +90,25 @@ define( function( require ) {
       this.handleEvaluatedAnswer( submittedAtom, isCorrect );
     },
 
-    // public - allow the user to try again to correctly answer the question
+    /**
+     * @override
+     */
     tryAgain: function() {
       this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
     },
 
-    // @public - advance to the next question or finish the level
+    /**
+     * @override
+     */
     next: function() {
-      // This event is basically handled by the model, which will remove this
-      // challenge and do whatever should happen next.
+      // This event is basically handled by the model, which will remove this challenge and do whatever should happen
+      // next.
       this.model.next();
     },
 
-    // @public - display the correct answer to the user
+    /**
+     * @override
+     */
     displayCorrectAnswer: function() {
       this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
     }

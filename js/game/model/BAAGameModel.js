@@ -156,10 +156,7 @@ define( function( require ) {
       }
 
       // Step the current challenge if it has any time-driven behavior.
-      // TODO: Is the check for whether the state exists really necessary?
-      if ( this.stateProperty.get() && ( typeof( this.stateProperty.get().step ) !== 'undefined' ) ) {
-        this.stateProperty.get().step( dt );
-      }
+      this.stateProperty.get().step( dt );
 
       // Step any external functions that need it.
       this.stepListeners.forEach( function( stepListener ) { stepListener( dt ); } );
@@ -213,7 +210,7 @@ define( function( require ) {
         }
         if ( this.timerEnabledProperty.get() && this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL &&
              ( this.bestTimes[ level ].value === null || this.elapsedTimeProperty.get() < this.bestTimes[ level ].value ) ) {
-          this.newBestTime = this.bestTimes[ level ].value === null ? false : true; // Don't set this flag for the first 'best time', only when the time improves.
+          this.newBestTime = this.bestTimes[ level ].value !== null; // Don't set this flag for the first 'best time', only when the time improves.
           this.bestTimes[ level ].value = this.elapsedTimeProperty.get();
         }
 
