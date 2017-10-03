@@ -13,7 +13,7 @@ define( function( require ) {
 
   var BAASharedConstants = {
     RESET_BUTTON_RADIUS: 20,
-    MAX_CHALLENGE_ATTEMPTS: 2
+    MAX_CHALLENGE_ATTEMPTS: 2 // Note: Attempt is the same as a submission in BAAGameChallenge.
   };
 
   buildAnAtom.register( 'BAASharedConstants', BAASharedConstants );

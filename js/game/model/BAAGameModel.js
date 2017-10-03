@@ -20,11 +20,13 @@ define( function( require ) {
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
+  var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
+  var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
 
   // phet-io modules
-  var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
 
   // constants
   var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
@@ -69,7 +71,10 @@ define( function( require ) {
     } );
 
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
-    this.challengeSetProperty = new Property( [] );
+    this.challengeSetProperty = new Property( [], {
+      tandem: tandem.createTandem( 'challengeSetProperty' ),
+      phetioValueType: TArray( TBAAGameChallenge )
+    } );
 
     // @public (read-only) {Property.<number>}
     this.challengeIndexProperty = new NumberProperty( 0, {

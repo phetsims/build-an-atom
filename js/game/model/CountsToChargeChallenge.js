@@ -20,8 +20,8 @@ define( function( require ) {
    * @param {NumberAtom} answerAtom
    * @constructor
    */
-  function CountsToChargeChallenge( buildAnAtomGameModel, answerAtom ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom );
+  function CountsToChargeChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
   }
 
   buildAnAtom.register( 'CountsToChargeChallenge', CountsToChargeChallenge );

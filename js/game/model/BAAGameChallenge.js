@@ -16,20 +16,39 @@ define( function( require ) {
   var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
+  var Range = require( 'DOT/Range' );
+  var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
+
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
    * @constructor
    */
-  function BAAGameChallenge( buildAnAtomGameModel, answerAtom ) {
+  function BAAGameChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
     BAAGameState.call( this, 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
-    this.challengeStateProperty  = new Property( BAAChallengeState.PRESENTING_CHALLENGE );
-    this.numSubmissionsProperty =new Property( 0 );
+    this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
+      tandem: tandem.createTandem( 'challengeStateProperty' ),
+      phetioValueType: TString, // TODO why not an Enum?
+      phetioInstanceDocumentation: 'this Property is read-only, do not attempt to set its value',
+      validValues: _.values( BAAChallengeState )
+    } );
+    this.numSubmissionsProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'numSubmissionsProperty' ),
+      phetioValueType: TNumber,
+      range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
+      phetioInstanceDocumentation: 'this Property is read-only, do not attempt to set its value'
+    } );
     this.answerAtom = answerAtom;
     this.pointValue = 0;
     this.model = buildAnAtomGameModel;
+
+    tandem.addInstance( this, TBAAGameChallenge );
   }
 
   buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
@@ -39,15 +58,15 @@ define( function( require ) {
     /**
      * @override
      */
-    handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ){
+    handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ) {
 
       this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
       var pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
       this.pointValue = isCorrect ? pointsIfCorrect : 0;
-      this.model.scoreProperty.set(  this.model.scoreProperty.get() + this.pointValue );
+      this.model.scoreProperty.set( this.model.scoreProperty.get() + this.pointValue );
       this.model.emitCheckAnswer( isCorrect, this.pointValue, this.answerAtom, submittedAtom, emitMessageOptions );
 
-      if ( this.model.provideFeedbackProperty.get() ){
+      if ( this.model.provideFeedbackProperty.get() ) {
         if ( isCorrect ) {
 
           // Move to the next state.
@@ -68,7 +87,7 @@ define( function( require ) {
           }
         }
       }
-      else{
+      else {
 
         // don't provide any feedback - just go to the next challenge
         this.next();

@@ -36,7 +36,7 @@ define( function( require ) {
    * @param {number} numChallenges
    * @param {BAAGameModel} model
    * @param {string[][]} allowedChallengeTypesByLevel
-   * @param {Tandem}
+   * @param {Tandem} tandem
    */
   ChallengeSetFactory.generate = function( level, numChallenges, model, allowedChallengeTypesByLevel, tandem ) {
     this.challenges = [];
@@ -68,6 +68,7 @@ define( function( require ) {
    * @param {AtomValuePool} availableAtomValues
    * @param {BAAGameModel} model
    * @param {String[][]} allowedChallengeTypesByLevel
+   * @param {Tandem} tandem
    * @return
    */
   ChallengeSetFactory._generateChallenge = function( level, availableAtomValues, model, allowedChallengeTypesByLevel, tandem ) {
@@ -129,49 +130,49 @@ define( function( require ) {
     var challenge = null;
     switch( challengeType ) {
       case 'counts-to-element':
-        challenge = new CountsToElementChallenge( model, atomValue );
+        challenge = new CountsToElementChallenge( model, atomValue, tandem );
         break;
       case 'counts-to-charge':
-        challenge = new CountsToChargeChallenge( model, atomValue );
+        challenge = new CountsToChargeChallenge( model, atomValue, tandem );
         break;
       case 'counts-to-mass':
-        challenge = new CountsToMassNumberChallenge( model, atomValue );
+        challenge = new CountsToMassNumberChallenge( model, atomValue, tandem );
         break;
       case 'counts-to-symbol-all':
-        challenge = new CountsToSymbolChallenge( model, atomValue, true, true, true );
+        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, true, true, true );
         break;
       case 'counts-to-symbol-charge':
-        challenge = new CountsToSymbolChallenge( model, atomValue, false, false, true );
+        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, false, false, true );
         break;
       case 'counts-to-symbol-mass':
-        challenge = new CountsToSymbolChallenge( model, atomValue, false, true, false );
+        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, false, true, false );
         break;
       case 'counts-to-symbol-proton-count':
-        challenge = new CountsToSymbolChallenge( model, atomValue, true, false, false );
+        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, true, false, false );
         break;
       case 'schematic-to-element':
-        challenge = new SchematicToElementChallenge( model, atomValue );
+        challenge = new SchematicToElementChallenge( model, atomValue, tandem );
         break;
       case 'schematic-to-charge':
-        challenge = new SchematicToChargeChallenge( model, atomValue );
+        challenge = new SchematicToChargeChallenge( model, atomValue, tandem );
         break;
       case 'schematic-to-mass':
-        challenge = new SchematicToMassNumberChallenge( model, atomValue );
+        challenge = new SchematicToMassNumberChallenge( model, atomValue, tandem );
         break;
       case 'schematic-to-symbol-all':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, true, true, true );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, true, true, true );
         break;
       case 'schematic-to-symbol-charge':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, false, false, true );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, false, false, true );
         break;
       case 'schematic-to-symbol-mass-number':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, false, true, false );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, false, true, false );
         break;
       case 'schematic-to-symbol-proton-count':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, true, false, false );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, true, false, false );
         break;
       case 'symbol-to-counts':
-        challenge = new SymbolToCountsChallenge( model, atomValue );
+        challenge = new SymbolToCountsChallenge( model, atomValue, tandem );
         break;
       case 'symbol-to-schematic':
         challenge = new SymbolToSchematicChallenge( model, atomValue, tandem );

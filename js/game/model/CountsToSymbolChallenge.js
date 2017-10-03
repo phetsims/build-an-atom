@@ -24,8 +24,8 @@ define( function( require ) {
    * @param {boolean} configurableCharge
    * @constructor
    */
-  function CountsToSymbolChallenge( buildAnAtomGameModel, answerAtom, configurableProtonCount, configurableMassNumber, configurableCharge ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom );
+  function CountsToSymbolChallenge( buildAnAtomGameModel, answerAtom, tandem, configurableProtonCount, configurableMassNumber, configurableCharge ) {
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
     this.configurableCharge = configurableCharge;

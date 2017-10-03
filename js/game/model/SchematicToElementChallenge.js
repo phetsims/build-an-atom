@@ -21,8 +21,8 @@ define( function( require ) {
    * @param {NumberAtom} answerAtom
    * @constructor
    */
-  function SchematicToElementChallenge( buildAnAtomGameModel, answerAtom ) {
-    ToElementChallenge.call( this, buildAnAtomGameModel, answerAtom );
+  function SchematicToElementChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
+    ToElementChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
   }
 
   buildAnAtom.register( 'SchematicToElementChallenge',  SchematicToElementChallenge );

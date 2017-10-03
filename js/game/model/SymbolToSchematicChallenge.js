@@ -24,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function SymbolToSchematicChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom );
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with
     // which the user can interact.
