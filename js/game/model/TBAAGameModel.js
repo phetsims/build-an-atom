@@ -61,6 +61,19 @@ define( function( require ) {
       //  ]
     }
   }, {
+
+    clearChildInstances: function( instance ){
+      instance.challengeSetProperty.value.forEach( function(challenge){
+        challenge.dispose();
+      });
+      instance.challengeSetProperty.reset();
+    },
+
+    // addChildInstance: function( instance, tandem, stateObject ){
+    //
+    // },
+
+
     documentation: 'The model for the Game'
   } );
 

@@ -130,52 +130,52 @@ define( function( require ) {
     var challenge = null;
     switch( challengeType ) {
       case 'counts-to-element':
-        challenge = new CountsToElementChallenge( model, atomValue, tandem );
+        challenge = new CountsToElementChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'counts-to-charge':
-        challenge = new CountsToChargeChallenge( model, atomValue, tandem );
+        challenge = new CountsToChargeChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'counts-to-mass':
-        challenge = new CountsToMassNumberChallenge( model, atomValue, tandem );
+        challenge = new CountsToMassNumberChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'counts-to-symbol-all':
-        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, true, true, true );
+        challenge = new CountsToSymbolChallenge( model, atomValue, challengeType, tandem, true, true, true );
         break;
       case 'counts-to-symbol-charge':
-        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, false, false, true );
+        challenge = new CountsToSymbolChallenge( model, atomValue, challengeType, tandem, false, false, true );
         break;
       case 'counts-to-symbol-mass':
-        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, false, true, false );
+        challenge = new CountsToSymbolChallenge( model, atomValue, challengeType, tandem, false, true, false );
         break;
       case 'counts-to-symbol-proton-count':
-        challenge = new CountsToSymbolChallenge( model, atomValue, tandem, true, false, false );
+        challenge = new CountsToSymbolChallenge( model, atomValue, challengeType, tandem, true, false, false );
         break;
       case 'schematic-to-element':
-        challenge = new SchematicToElementChallenge( model, atomValue, tandem );
+        challenge = new SchematicToElementChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'schematic-to-charge':
-        challenge = new SchematicToChargeChallenge( model, atomValue, tandem );
+        challenge = new SchematicToChargeChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'schematic-to-mass':
-        challenge = new SchematicToMassNumberChallenge( model, atomValue, tandem );
+        challenge = new SchematicToMassNumberChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'schematic-to-symbol-all':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, true, true, true );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, challengeType, tandem, true, true, true );
         break;
       case 'schematic-to-symbol-charge':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, false, false, true );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, challengeType, tandem, false, false, true );
         break;
       case 'schematic-to-symbol-mass-number':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, false, true, false );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, challengeType, tandem, false, true, false );
         break;
       case 'schematic-to-symbol-proton-count':
-        challenge = new SchematicToSymbolChallenge( model, atomValue, tandem, true, false, false );
+        challenge = new SchematicToSymbolChallenge( model, atomValue, challengeType, tandem, true, false, false );
         break;
       case 'symbol-to-counts':
-        challenge = new SymbolToCountsChallenge( model, atomValue, tandem );
+        challenge = new SymbolToCountsChallenge( model, atomValue, challengeType, tandem );
         break;
       case 'symbol-to-schematic':
-        challenge = new SymbolToSchematicChallenge( model, atomValue, tandem );
+        challenge = new SymbolToSchematicChallenge( model, atomValue, challengeType, tandem );
         break;
       default:
         throw new Error( 'Error: Request to create unknown challenge type, type = ' + challengeType );

@@ -28,9 +28,11 @@ define( function( require ) {
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BAAGameChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
+  function BAAGameChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
     BAAGameState.call( this, 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
@@ -44,16 +46,24 @@ define( function( require ) {
       range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
       phetioInstanceDocumentation: 'this Property is read-only, do not attempt to set its value'
     } );
-    this.answerAtom = answerAtom;
-    this.pointValue = 0;
-    this.model = buildAnAtomGameModel;
+    this.answerAtom = answerAtom; // @public (phet-io)
+    this.pointValue = 0; // @public (phet-io)
+    this.model = buildAnAtomGameModel; // @public (phet-io)
+    this.challengeType = challengeType; // @public (phet-io)
 
+    this.tandem = tandem; // @private (phet-io)
     tandem.addInstance( this, TBAAGameChallenge );
   }
 
   buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
 
   return inherit( BAAGameState, BAAGameChallenge, {
+
+    dispose: function() {
+      this.challengeStateProperty.dispose();
+      this.numSubmissionsProperty.dispose();
+      this.tandem.removeInstance( this );
+    },
 
     /**
      * @override

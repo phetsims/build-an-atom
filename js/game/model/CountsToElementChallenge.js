@@ -19,10 +19,12 @@ define( function( require ) {
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
    * @constructor
    */
-  function CountsToElementChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
-    ToElementChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
+  function CountsToElementChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+    ToElementChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
   }
 
   buildAnAtom.register( 'CountsToElementChallenge', CountsToElementChallenge );

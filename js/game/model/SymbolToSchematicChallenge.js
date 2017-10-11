@@ -20,11 +20,12 @@ define( function( require ) {
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
    * @param {Tandem} tandem
    * @constructor
    */
-  function SymbolToSchematicChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
+  function SymbolToSchematicChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with
     // which the user can interact.

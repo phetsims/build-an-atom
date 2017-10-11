@@ -19,13 +19,15 @@ define( function( require ) {
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
    * @param {boolean} configurableProtonCount
    * @param {boolean} configurableMassNumber
    * @param {boolean} configurableCharge
    * @constructor
    */
-  function CountsToSymbolChallenge( buildAnAtomGameModel, answerAtom, tandem, configurableProtonCount, configurableMassNumber, configurableCharge ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
+  function CountsToSymbolChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem, configurableProtonCount, configurableMassNumber, configurableCharge ) {
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
     this.configurableCharge = configurableCharge;

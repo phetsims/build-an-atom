@@ -19,10 +19,12 @@ define( function( require ) {
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
    * @constructor
    */
-  function SchematicToChargeChallenge( buildAnAtomGameModel, answerAtom, tandem ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, tandem );
+  function SchematicToChargeChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
   }
 
   buildAnAtom.register( 'SchematicToChargeChallenge', SchematicToChargeChallenge );
