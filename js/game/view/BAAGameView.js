@@ -68,13 +68,12 @@ define( function( require ) {
     scoreboard.top = 0;
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     this.rewardNode = null;
-    var challengeViewGroupTandem = tandem.createGroupTandem( 'challengeView' );
 
     var previousView = null;
 
     function disposePreviousView() {
       if ( previousView ) {
-        previousView.dispose();
+        previousView.dispose(); // TODO: this appears to dispatch to Node.dispose instead of SchematicToMassNumberChallengeView.dispose()
         previousView = null;
       }
     }
@@ -131,7 +130,7 @@ define( function( require ) {
         // presenting a challenge.
         rootNode.removeAllChildren();
         disposePreviousView();
-        var challengeView = state.createView( self.layoutBounds, challengeViewGroupTandem.createNextTandem() );
+        var challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.tandem.tail + 'View' ) );
         rootNode.addChild( challengeView );
         rootNode.addChild( scoreboard );
         previousView = challengeView;

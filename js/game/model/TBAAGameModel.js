@@ -62,10 +62,10 @@ define( function( require ) {
     }
   }, {
 
-    clearChildInstances: function( instance ){
-      instance.challengeSetProperty.value.forEach( function(challenge){
+    clearChildInstances: function( instance ) {
+      instance.challengeSetProperty.value.forEach( function( challenge ) {
         challenge.dispose();
-      });
+      } );
       instance.challengeSetProperty.reset();
     },
 

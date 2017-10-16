@@ -32,18 +32,17 @@ define( function( require ) {
     documentation: 'A challenge for the Game',
 
     /**
-     *
      * @param {BAAGameChallenge} gameChallenge
      * @returns
      */
     toStateObject: function( gameChallenge ) {
       return {
-        // TODO: potentially include the "challengeType" string for subtype challenges that don't need their own ttype.
         pointValue: gameChallenge.pointValue,
         answerAtom: TNumberAtom.toStateObject( gameChallenge.answerAtom ),
         modelPhetioID: gameChallenge.model.phetioID,
         challengeType: gameChallenge.challengeType,
-        phetioID: gameChallenge.phetioID
+        phetioID: gameChallenge.phetioID,
+        name: gameChallenge.name
       };
     },
 
@@ -52,6 +51,14 @@ define( function( require ) {
      * @param {Object} stateObject
      */
     fromStateObject: function( stateObject ) {
+
+      // This may have been deserialized from the instance itself or from the array it was contained in (which
+      // is instrumented as TArray), so check to see if it is already deserialized before deserializing.
+      // TODO: is there a better way to do this, or at least factor it out?
+      var instance = phetio.hasInstance( stateObject.phetioID );
+      if ( instance ) {
+        return phetio.getInstance( stateObject.phetioID );
+      }
 
       var model = phetio.getInstance( stateObject.modelPhetioID );
 

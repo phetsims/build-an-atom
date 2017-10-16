@@ -81,6 +81,7 @@ define( function( require ) {
 
     this.disposeSchematicToMassNumberChallengeView = function() {
       nonInteractiveSchematicAtomNode.dispose();
+      self.massNumberAnswerProperty.dispose();
     };
   }
 

@@ -191,6 +191,17 @@ define( function( require ) {
   // Inherit from Node.
   return inherit( Node, ChallengeView, {
 
+    /**
+     * @public
+     */
+    dispose: function() {
+      this.checkAnswerButton.dispose();
+      this.nextButton.dispose();
+      this.tryAgainButton.dispose();
+      this.displayCorrectAnswerButton.dispose();
+      Node.prototype.dispose.call( this );
+    },
+
     // Function to clear the user's answer, generally used when
     // giving the user another chance to answer.  Must be implemented
     // in subclasses if any action is desired.

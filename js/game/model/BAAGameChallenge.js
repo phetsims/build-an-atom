@@ -51,7 +51,7 @@ define( function( require ) {
     this.model = buildAnAtomGameModel; // @public (phet-io)
     this.challengeType = challengeType; // @public (phet-io)
 
-    this.tandem = tandem; // @private (phet-io)
+    this.tandem = tandem; // @public (phet-io)
     tandem.addInstance( this, TBAAGameChallenge );
   }
 

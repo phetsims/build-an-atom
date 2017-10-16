@@ -89,6 +89,7 @@ define( function( require ) {
         particleView.dispose();
       } );
       atomNode.dispose();
+      particleAtom.dispose();
     };
   }
 

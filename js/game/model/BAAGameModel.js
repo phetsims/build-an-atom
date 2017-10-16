@@ -22,6 +22,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
   var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
+  var TBAAGameState = require( 'BUILD_AN_ATOM/game/model/TBAAGameState' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -51,7 +52,10 @@ define( function( require ) {
     ];
 
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
-    this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL );
+    this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
+      phetioValueType: TBAAGameState,
+      tandem: tandem.createTandem( 'stateProperty' )
+    } );
 
     // @public {Property.<boolean>}
     this.soundEnabledProperty = new Property( true, {
