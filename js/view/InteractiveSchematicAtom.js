@@ -128,18 +128,23 @@ define( function( require ) {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     var bucketGroupTandem = options.tandem.createGroupTandem( 'bucketFronts' );
+    var bucketFrontsAndDragHandlers = []; // keep track for disposal
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       self.addChild( bucketFront );
-      bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
+      var bucketDragHandler = new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
-      } ) );
+      } );
+      bucketFront.addInputListener( bucketDragHandler );
+
+      // add to separate list for later disposal
+      bucketFrontsAndDragHandlers.push( bucketFront );
+      bucketFrontsAndDragHandlers.push( bucketDragHandler );
     } );
 
     this.disposeInteractiveSchematicAtom = function() {
-      particleViews.forEach( function( particleView ) {
-        particleView.dispose();
-      } );
+      particleViews.forEach( function( particleView ) { particleView.dispose(); } );
+      bucketFrontsAndDragHandlers.forEach( function( bucketItem ) { bucketItem.dispose(); } );
       atomNode.dispose();
       model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
       model.electronShellDepictionProperty.unlink( updateElectronVisibility );
