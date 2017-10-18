@@ -79,8 +79,11 @@ define( function( require ) {
     massEntryNode.left = questionPrompt.right + 10;
     massEntryNode.centerY = questionPrompt.centerY;
 
+    // @private called by dispose
     this.disposeSchematicToMassNumberChallengeView = function() {
       nonInteractiveSchematicAtomNode.dispose();
+      questionPrompt.dispose();
+      massEntryNode.dispose();
       self.massNumberAnswerProperty.dispose();
     };
   }

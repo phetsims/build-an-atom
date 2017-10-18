@@ -46,12 +46,14 @@ define( function( require ) {
     var particleGroupTandem = tandem.createGroupTandem( 'particle' );
     var particleViewGroupTandem = tandem.createGroupTandem( 'particleView' );
     var particleViews = [];
+    var modelParticles = []; // (phet-io) keep track for disposal
     var createAndAddParticles = function( particleType, number ) {
       _.times( number, function() {
         var particle = new Particle( particleType, {
           tandem: particleGroupTandem.createNextTandem(),
           maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
         } );
+        modelParticles.push( particle );
         particleAtom.addParticle( particle );
         var particleView = new ParticleView( particle, modelViewTransform, {
           tandem: particleViewGroupTandem.createNextTandem()
@@ -84,12 +86,17 @@ define( function( require ) {
       } );
     }
 
+    // @private called by dispose
     this.disposeNonInteractiveSchematicAtomNode = function() {
       particleViews.forEach( function( particleView ) {
         particleView.dispose();
       } );
       atomNode.dispose();
       particleAtom.dispose();
+      particleLayer.children.forEach( function( particleView ) { particleView.dispose(); } );
+      particleLayer.dispose();
+      modelParticles.forEach( function( particle ) { particle.dispose(); } );
+      modelParticles = [];
     };
   }
 

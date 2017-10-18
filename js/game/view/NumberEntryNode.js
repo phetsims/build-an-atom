@@ -103,11 +103,23 @@ define( function( require ) {
       touchAreaYDilation
     );
 
+    // @private called by dispose
+    this.disposeNumberEntryNode = function() {
+      upArrowButton.dispose();
+      downArrowButton.dispose();
+    };
+
     self.mutate( options );
   }
 
   buildAnAtom.register( 'NumberEntryNode', NumberEntryNode );
 
   // Inherit from Node.
-  return inherit( Node, NumberEntryNode );
+  return inherit( Node, NumberEntryNode, {
+    dispose: function() {
+      this.disposeNumberEntryNode();
+
+      Node.prototype.dispose.call( this );
+    }
+  } );
 } );
