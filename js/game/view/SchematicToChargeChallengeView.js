@@ -81,8 +81,12 @@ define( function( require ) {
     chargeEntryNode.left = questionPrompt.right + 10;
     chargeEntryNode.centerY = questionPrompt.centerY;
 
+    // @private called by dispose
     this.disposeSchematicToChargeChallengeView = function() {
       nonInteractiveSchematicNode.dispose();
+      questionPrompt.dispose();
+      chargeEntryNode.dispose();
+      this.chargeAnswerProperty.dispose();
     };
   }
 

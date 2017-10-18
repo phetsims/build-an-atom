@@ -51,6 +51,11 @@ define( function( require ) {
     particleCountsNode.centerY = layoutBounds.height * 0.48;
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
+
+    // @private called by dispose
+    this.disposeCountsToSymbolChallengeView = function() {
+      this.interactiveSymbolNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'CountsToSymbolChallengeView', CountsToSymbolChallengeView );
@@ -73,6 +78,11 @@ define( function( require ) {
       this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
       this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
       this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
+    },
+
+    dispose: function() {
+      this.disposeCountsToSymbolChallengeView();
+      ChallengeView.prototype.dispose.call( this );
     }
   } );
 } );

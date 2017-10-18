@@ -73,7 +73,7 @@ define( function( require ) {
 
     function disposePreviousView() {
       if ( previousView ) {
-        previousView.dispose(); // TODO: this appears to dispatch to Node.dispose instead of SchematicToMassNumberChallengeView.dispose()
+        previousView.dispose();
         previousView = null;
       }
     }

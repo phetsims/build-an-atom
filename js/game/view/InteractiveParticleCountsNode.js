@@ -92,10 +92,24 @@ define( function( require ) {
     protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
     neutronCountEntryNode.left = protonCountEntryNode.left;
     electronCountEntryNode.left = protonCountEntryNode.left;
+
+    // @private called by dispose
+    this.disposeInteractiveParticlCountsNode = function() {
+      electronCountEntryNode.dispose();
+      neutronCountEntryNode.dispose();
+      protonCountEntryNode.dispose();
+      this.numberAtom.dispose();
+    };
   }
 
   buildAnAtom.register( 'InteractiveParticleCountsNode', InteractiveParticleCountsNode );
 
   // Inherit from Node.
-  return inherit( Node, InteractiveParticleCountsNode );
+  return inherit( Node, InteractiveParticleCountsNode, {
+
+    dispose: function() {
+      this.disposeInteractiveParticlCountsNode( this );
+      Node.prototype.dispose.call( this );
+    }
+  } );
 } );

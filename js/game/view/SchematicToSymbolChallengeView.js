@@ -60,8 +60,10 @@ define( function( require ) {
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
+    // @private called by dispose
     this.disposeSchematicToSymbolChallengeView = function() {
       schematicAtomNode.dispose();
+      this.interactiveSymbolNode.dispose();
     };
   }
 

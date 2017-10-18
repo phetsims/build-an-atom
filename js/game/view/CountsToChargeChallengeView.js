@@ -72,6 +72,13 @@ define( function( require ) {
     questionPrompt.centerY = layoutBounds.height * 0.5;
     numberEntryNode.left = questionPrompt.right + 10;
     numberEntryNode.centerY = questionPrompt.centerY;
+
+    // @private called by dispose
+    this.disposeCountsToChargeChallengeView = function() {
+      this.chargeAnswerProperty.dispose();
+      questionPrompt.dispose();
+      numberEntryNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'CountsToChargeChallengeView', CountsToChargeChallengeView );
@@ -92,6 +99,11 @@ define( function( require ) {
     // @public
     displayCorrectAnswer: function() {
       this.chargeAnswerProperty.value = this.challenge.answerAtom.chargeProperty.get();
+    },
+
+    dispose: function() {
+      this.disposeCountsToChargeChallengeView();
+      ChallengeView.prototype.dispose.call( this );
     }
   } );
 } );

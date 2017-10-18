@@ -117,10 +117,13 @@ define( function( require ) {
 
     this.neutralOrIonProperty.link( updateCheckAnswerButton );
 
-    // unlink from Properties
+    // @private called by dispose
     this.disposeToElementChallengeView = function() {
-      self.neutralOrIonProperty.unlink( updateCheckAnswerButton );
-      self.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
+      this.periodicTableAtom.dispose();
+      this.periodicTable.dispose();
+      neutralAtomRadioButton.dispose();
+      ionRadioButton.dispose();
+      this.neutralOrIonProperty.dispose();
     };
 
     //--------------------------- Layout -------------------------------------
@@ -172,7 +175,6 @@ define( function( require ) {
 
     // @public
     dispose: function() {
-      this.periodicTable.dispose();
       this.disposeToElementChallengeView();
       ChallengeView.prototype.dispose.call( this );
     }

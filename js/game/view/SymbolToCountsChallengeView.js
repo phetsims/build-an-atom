@@ -44,6 +44,12 @@ define( function( require ) {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
     this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.49;
+
+    // @private called by dispose
+    this.disposeSymbolToCountsChallengeView = function() {
+      interactiveSymbolNode.dispose();
+      this.interactiveParticleCountsNode.dispose();
+    };
   }
 
   buildAnAtom.register( 'SymbolToCountsChallengeView', SymbolToCountsChallengeView );
@@ -61,6 +67,12 @@ define( function( require ) {
       this.interactiveParticleCountsNode.numberAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
       this.interactiveParticleCountsNode.numberAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
       this.interactiveParticleCountsNode.numberAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
+    },
+
+    dispose: function() {
+      this.disposeSymbolToCountsChallengeView();
+
+      ChallengeView.prototype.dispose.call( this );
     }
   } );
 } );

@@ -48,15 +48,15 @@ define( function( require ) {
       interactiveCharge: false
     }, options );
 
-    self.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
+    this.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' ),
       valueType: 'Integer'
     } );
-    self.massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
+    this.massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: tandem.createTandem( 'massNumberProperty' ),
       valueType: 'Integer'
     } );
-    self.chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
+    this.chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
       tandem: tandem.createTandem( 'chargeProperty' ),
       valueType: 'Integer'
     } );
@@ -168,6 +168,14 @@ define( function( require ) {
       } );
       boundingBox.addChild( chargeDisplay );
     }
+
+    // @private called by dispose
+    this.disposeInteractiveSymbolNode = function() {
+      boundingBox.children.forEach( function( child ) { child.dispose();} );
+      this.protonCountProperty.dispose();
+      this.massNumberProperty.dispose();
+      this.chargeProperty.dispose();
+    };
   }
 
   buildAnAtom.register( 'InteractiveSymbolNode', InteractiveSymbolNode );
@@ -180,6 +188,12 @@ define( function( require ) {
       this.protonCountProperty.reset();
       this.massNumberProperty.reset();
       this.chargeProperty.reset();
+    },
+
+    dispose: function() {
+      this.disposeInteractiveSymbolNode();
+
+      Node.prototype.dispose.call( this );
     }
   } );
 } );

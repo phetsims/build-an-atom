@@ -54,8 +54,8 @@ define( function( require ) {
 
     // @public
     dispose: function(){
-      ToElementChallengeView.prototype.dispose.call(this);
       this.disposeSchematicToElementChallengeView();
+      ToElementChallengeView.prototype.dispose.call(this);
     }
   } );
 } );
