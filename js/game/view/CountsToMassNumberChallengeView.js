@@ -67,6 +67,14 @@ define( function( require ) {
     questionPrompt.centerY = layoutBounds.height * 0.5;
     numberEntryNode.left = questionPrompt.right + 10;
     numberEntryNode.centerY = questionPrompt.centerY;
+
+    // @private - called by dispose
+    this.disposeCountsToMassNumberChallengeView = function() {
+      particleCountsNode.dispose();
+      questionPrompt.dispose();
+      numberEntryNode.dispose();
+      this.massNumberAnswerProperty.dispose();
+    };
   }
 
   buildAnAtom.register( 'CountsToMassNumberChallengeView', CountsToMassNumberChallengeView );
@@ -87,6 +95,11 @@ define( function( require ) {
     // @public
     displayCorrectAnswer: function() {
       this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+    },
+
+    dispose: function() {
+      this.disposeCountsToMassNumberChallengeView();
+      ChallengeView.prototype.dispose.call( this );
     }
   } );
 } );
