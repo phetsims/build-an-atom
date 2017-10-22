@@ -10,7 +10,7 @@ define( function( require ) {
 
   // imports
   var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
-  var BAAGameView = require( 'BUILD_AN_ATOM/game/view/BAAGameView' );
+  var BAAGameScreenView = require( 'BUILD_AN_ATOM/game/view/BAAGameScreenView' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -32,7 +32,7 @@ define( function( require ) {
     Screen.call(
       this,
       function() { return new BAAGameModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new BAAGameView( model, tandem.createTandem( 'view' ) ); },
+      function( model ) { return new BAAGameScreenView( model, tandem.createTandem( 'view' ) ); },
       {
         name: gameString,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
