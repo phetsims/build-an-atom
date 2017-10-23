@@ -31,7 +31,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function BAAGameView( gameModel, tandem ) {
+  function BAAGameScreenView( gameModel, tandem ) {
 
     // Call super constructor.
     ScreenView.call( this, {
@@ -138,10 +138,10 @@ define( function( require ) {
     } );
   }
 
-  buildAnAtom.register( 'BAAGameView', BAAGameView );
+  buildAnAtom.register( 'BAAGameScreenView', BAAGameScreenView );
 
   // Inherit from ScreenView.
-  return inherit( ScreenView, BAAGameView, {
+  return inherit( ScreenView, BAAGameScreenView, {
 
     // @public - step function for the view, called by the framework
     step: function( elapsedTime ) {
