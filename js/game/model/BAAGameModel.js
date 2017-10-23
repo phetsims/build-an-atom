@@ -177,6 +177,11 @@ define( function( require ) {
       this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
       this.challengeIndexProperty.set( 0 );
 
+      // (phet-io) Dispose old challenges before setting the property again.
+      if ( this.challengeSetProperty.get().length > 0 ) {
+        this.challengeSetProperty.get().forEach( function( challenge ) { challenge.dispose();} );
+      }
+
       // Use the predetermined challenges (if specified by phet-io) or genearte a random challenge for the given level
       var challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
         this.levelProperty.get(),
