@@ -261,7 +261,7 @@ define( function( require ) {
       }
       var self = this;
       particlesToRemove.forEach( function( particle ) {
-        self.particleAtom.removeParticle( particle );
+          self.particleAtom.removeParticle( particle );
           bucket.addParticleFirstOpen( particle );
         }
       );
