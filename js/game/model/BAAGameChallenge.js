@@ -42,7 +42,6 @@ define( function( require ) {
     } );
     this.numSubmissionsProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'numSubmissionsProperty' ),
-      phetioValueType: TNumber,
       range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
       phetioInstanceDocumentation: 'this Property is read-only, do not attempt to set its value'
     } );
