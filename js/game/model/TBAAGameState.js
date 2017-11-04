@@ -22,7 +22,7 @@ define( function( require ) {
    * @constructor
    */
   function TBAAGameState( instance, phetioID ) {
-    assertInstanceOf( instance, phet.buildAnAtom.BAAGameState );
+    assert && assertInstanceOf( instance, phet.buildAnAtom.BAAGameState );
     TObject.call( this, instance, phetioID );
   }
 

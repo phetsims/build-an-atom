@@ -19,7 +19,7 @@ define( function( require ) {
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
   var TBAAGameModel = function( gameModel, phetioID ) {
-    assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
+    assert && assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
     TObject.call( this, gameModel, phetioID );
   };
 
