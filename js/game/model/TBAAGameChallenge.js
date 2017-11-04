@@ -24,7 +24,6 @@ define( function( require ) {
    */
   function TBAAGameChallenge( instance, phetioID ) {
     assertInstanceOf( instance, phet.buildAnAtom.BAAGameChallenge );
-
     TObject.call( this, instance, phetioID );
   }
 
