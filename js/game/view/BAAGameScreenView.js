@@ -69,20 +69,13 @@ define( function( require ) {
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     this.rewardNode = null;
 
-    var previousView = null;
-
-    function disposePreviousView() {
-      if ( previousView ) {
-        previousView.dispose();
-        previousView = null;
-      }
-    }
-
     // Monitor the game state and update the view accordingly.
-    gameModel.stateProperty.link( function( state ) {
+    gameModel.stateProperty.link( function( state, previousState ) {
+
+      (previousState && previousState.disposeEmitter) && previousState.disposeEmitter.emit();
+
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();
-        disposePreviousView();
         rootNode.addChild( startGameLevelNode );
         if ( self.rewardNode !== null ) {
           self.rewardNode.dispose();
@@ -91,7 +84,6 @@ define( function( require ) {
       }
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {
         rootNode.removeAllChildren();
-        disposePreviousView();
         if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
           // Perfect score, add the reward node.
           self.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
@@ -129,11 +121,12 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
         rootNode.removeAllChildren();
-        disposePreviousView();
         var challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.tandem.tail + 'View' ) );
+        state.disposeEmitter.addListener( function x() {
+          challengeView.dispose();
+        } );
         rootNode.addChild( challengeView );
         rootNode.addChild( scoreboard );
-        previousView = challengeView;
       }
     } );
   }

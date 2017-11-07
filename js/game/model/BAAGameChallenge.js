@@ -15,6 +15,7 @@ define( function( require ) {
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var Emitter = require( 'AXON/Emitter' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
@@ -51,16 +52,26 @@ define( function( require ) {
 
     this.tandem = tandem; // @public (phet-io)
     tandem.addInstance( this, TBAAGameChallenge );
+
+    // @public
+    this.disposeEmitter = new Emitter();
   }
 
   buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
 
   return inherit( BAAGameState, BAAGameChallenge, {
 
+    /**
+     * @public - release resources when no longer used
+     */
     dispose: function() {
+      this.disposeEmitter.emit();
       this.challengeStateProperty.dispose();
       this.numSubmissionsProperty.dispose();
       this.tandem.removeInstance( this );
+
+      // Remove all listeners from the dispose emitter to avoid memory leaks.
+      this.disposeEmitter.dispose();
     },
 
     /**

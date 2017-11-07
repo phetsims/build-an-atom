@@ -40,6 +40,15 @@ define( function( require ) {
   // Inherit from base class and define the methods for this object.
   return inherit( BAAGameChallenge, SymbolToSchematicChallenge, {
 
+    dispose: function() {
+
+      // Normally we must dispose objects in the reverse order they are created.  However, in this case, disposing
+      // the model before disposing the view causes failures when the view tries to remove its listeners from the model.
+      // Hence in this case, we must dispose the view first (in the parent call), then dispose the model next.
+      BAAGameChallenge.prototype.dispose.call( this );
+      this.buildAnAtomModel.dispose(); // We can dispose this after because it doesn't use anything the supertype depends on
+    },
+
     // @public - create the view needed to visual represent this challenge
     createView: function( layoutBounds, tandem ) {
       return new SymbolToSchematicChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToSchematicChallengeView' ) );

@@ -216,6 +216,26 @@ define( function( require ) {
 
   return inherit( Object, BuildAnAtomModel, {
 
+    dispose: function() {
+
+      // DerivedProperties should be disposed first, see https://github.com/phetsims/axon/issues/167
+      this.nucleusStableProperty.dispose();
+
+      // next dispose the root (non-derived) properties
+      this.showElementNameProperty.dispose();
+      this.showNeutralOrIonProperty.dispose();
+      this.showStableOrUnstableProperty.dispose();
+      this.electronShellDepictionProperty.dispose();
+
+      // etc...
+      this.particleAtom.dispose();
+      this.buckets.protonBucket.dispose();
+      this.buckets.electronBucket.dispose();
+      this.buckets.neutronBucket.dispose();
+      this.electrons.forEach( function( electron ) { electron.dispose();} );
+      this.nucleons.forEach( function( nucleon ) { nucleon.dispose();} );
+    },
+
     // @public - main model step function, called by the framework
     step: function( dt ) {
 
