@@ -177,12 +177,9 @@ define( function( require ) {
       this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
       this.challengeIndexProperty.set( 0 );
 
-      // (phet-io) Dispose old challenges before setting the property again.
-      if ( this.challengeSetProperty.get().length > 0 ) {
-        this.challengeSetProperty.get().forEach( function( challenge ) { challenge.dispose();} );
-      }
+      assert && assert( this.challengeSetProperty.get().length === 0, 'challenges should be cleared before starting a new game' );
 
-      // Use the predetermined challenges (if specified by phet-io) or genearte a random challenge for the given level
+      // Use the predetermined challenges (if specified by phet-io) or generate a random challenge for the given level
       var challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
         this.levelProperty.get(),
         CHALLENGES_PER_LEVEL,
@@ -207,6 +204,14 @@ define( function( require ) {
     newGame: function() {
       this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
       this.scoreProperty.set( 0 );
+
+      // (phet-io) Dispose old challenges before setting the property again.
+      if ( this.challengeSetProperty.get().length > 0 ) {
+        this.challengeSetProperty.get().forEach( function( challenge ) {
+          (!challenge.disposed) && challenge.dispose();
+        } );
+      }
+      this.challengeSetProperty.get().length = 0;
     },
 
     // @public - advance to the next challenge or to the 'game over' screen if all challenges finished

@@ -55,6 +55,9 @@ define( function( require ) {
 
     // @public
     this.disposeEmitter = new Emitter();
+
+    // @private
+    this.disposed = false;
   }
 
   buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
@@ -65,6 +68,8 @@ define( function( require ) {
      * @public - release resources when no longer used
      */
     dispose: function() {
+      assert && assert( !this.disposed, 'only dispose once' );
+      this.disposed = true;
       this.disposeEmitter.emit();
       this.challengeStateProperty.dispose();
       this.numSubmissionsProperty.dispose();

@@ -122,8 +122,9 @@ define( function( require ) {
         // presenting a challenge.
         rootNode.removeAllChildren();
         var challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.tandem.tail + 'View' ) );
-        state.disposeEmitter.addListener( function x() {
+        state.disposeEmitter.addListener( function disposeListener() {
           challengeView.dispose();
+          state.disposeEmitter.removeListener( disposeListener );
         } );
         rootNode.addChild( challengeView );
         rootNode.addChild( scoreboard );
