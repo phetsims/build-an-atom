@@ -85,9 +85,11 @@ define( function( require ) {
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {
         rootNode.removeAllChildren();
         if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
+
           // Perfect score, add the reward node.
           self.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
           rootNode.addChild( self.rewardNode );
+
           // Play the appropriate audio feedback
           gameAudioPlayer.gameOverPerfectScore();
         }
