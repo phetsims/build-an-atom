@@ -50,7 +50,7 @@ define( function( require ) {
     this.model = buildAnAtomGameModel; // @public (phet-io)
     this.challengeType = challengeType; // @public (phet-io)
 
-    this.tandem = tandem; // @public (phet-io)
+    this.baaGameChallengeTandem = tandem; // @public (phet-io)
     tandem.addInstance( this, TBAAGameChallenge );
 
     // @public
@@ -73,7 +73,7 @@ define( function( require ) {
       this.disposeEmitter.emit();
       this.challengeStateProperty.dispose();
       this.numSubmissionsProperty.dispose();
-      this.tandem.removeInstance( this );
+      this.baaGameChallengeTandem.removeInstance( this );
 
       // Remove all listeners from the dispose emitter to avoid memory leaks.
       this.disposeEmitter.dispose();
