@@ -132,6 +132,7 @@ define( function( require ) {
       phetioArgumentTypes: [ TObject ]
     } );
 
+    // @private
     this.challengeSetGroupTandem = tandem.createGroupTandem( 'challengeSets' );
 
     // @private {GroupTandem}
