@@ -37,13 +37,13 @@ define( function( require ) {
     this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
       phetioValueType: TString, // TODO why not an Enum?
-      phetioInstanceDocumentation: 'this Property is read-only, do not attempt to set its value',
+      phetioReadOnly: true,
       validValues: _.values( BAAChallengeState )
     } );
     this.numSubmissionsProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'numSubmissionsProperty' ),
       range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
-      phetioInstanceDocumentation: 'this Property is read-only, do not attempt to set its value'
+      phetioReadOnly: true
     } );
     this.answerAtom = answerAtom; // @public (phet-io)
     this.pointValue = 0; // @public (phet-io)
