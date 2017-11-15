@@ -22,7 +22,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
-  var TDerivedProperty = require( 'AXON/TDerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -185,7 +185,7 @@ define( function( require ) {
       },
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
-        phetioType: TDerivedProperty( TBoolean )
+        phetioType: DerivedPropertyIO( TBoolean )
       }
     );
 
