@@ -13,21 +13,21 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TObjectState = require( 'ifphetio!PHET_IO/types/TObjectState' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
-  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var ObjectStateIO = require( 'ifphetio!PHET_IO/types/ObjectStateIO' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
+  var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   var TBAAGameModel = function( gameModel, phetioID ) {
     assert && assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
-    TObject.call( this, gameModel, phetioID );
+    ObjectIO.call( this, gameModel, phetioID );
   };
 
-  phetioInherit( TObject, 'TBAAGameModel', TBAAGameModel, {
+  phetioInherit( ObjectIO, 'TBAAGameModel', TBAAGameModel, {
 
     startGameLevel: {
-      returnType: TVoid,
-      parameterTypes: [ TString ],
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
       implementation: function( levelType ) {
         this.instance.startGameLevel( levelType );
       },
@@ -35,8 +35,8 @@ define( function( require ) {
     },
 
     setChallenges: {
-      returnType: TVoid,
-      parameterTypes: [ ArrayIO( ArrayIO( TObjectState ) ) ],
+      returnType: VoidIO,
+      parameterTypes: [ ArrayIO( ArrayIO( ObjectStateIO ) ) ],
       implementation: function( challenges ) {
         this.instance.setChallenges( challenges );
       },
@@ -44,8 +44,8 @@ define( function( require ) {
     },
 
     setAllowedChallengeTypesByLevel: {
-      returnType: TVoid,
-      parameterTypes: [ ArrayIO( ArrayIO( TString ) ) ],
+      returnType: VoidIO,
+      parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
 
       // TODO: change this to take index as 1st argument (for level index)
       implementation: function( allowedChallengeTypesByLevel ) {

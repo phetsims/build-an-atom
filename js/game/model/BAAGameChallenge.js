@@ -24,7 +24,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel
@@ -37,7 +37,7 @@ define( function( require ) {
     BAAGameState.call( this, 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
-      phetioType: PropertyIO( TString ), // TODO why not an Enum?
+      phetioType: PropertyIO( StringIO ), // TODO why not an Enum?
       phetioReadOnly: true,
       validValues: _.values( BAAChallengeState )
     } );

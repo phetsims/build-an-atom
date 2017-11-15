@@ -28,7 +28,7 @@ define( function( require ) {
 
   // phet-io modules
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // strings
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
@@ -71,7 +71,7 @@ define( function( require ) {
     // Property that controls electron depiction in the view.
     this.electronShellDepictionProperty = new Property( 'orbits', {
       tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
-      phetioType: PropertyIO( TString ),
+      phetioType: PropertyIO( StringIO ),
       validValues: [ 'orbits', 'cloud' ]
     } );
 

@@ -13,7 +13,7 @@ define( function( require ) {
   // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
 
   /**
    * Wrapper type for BAAGameChallenge
@@ -23,10 +23,10 @@ define( function( require ) {
    */
   function TBAAGameState( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.buildAnAtom.BAAGameState );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TBAAGameState', TBAAGameState, {}, {
+  phetioInherit( ObjectIO, 'TBAAGameState', TBAAGameState, {}, {
     documentation: 'A state for the game',
 
     /**

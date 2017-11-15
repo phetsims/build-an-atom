@@ -28,7 +28,7 @@ define( function( require ) {
   // phet-io modules
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
 
   // constants
   var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
@@ -107,7 +107,7 @@ define( function( require ) {
     // @private
     this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      phetioArgumentTypes: [ TObject ]
+      phetioArgumentTypes: [ ObjectIO ]
     } );
 
     this.bestScores = []; // Properties that track progress on each game level.
@@ -132,7 +132,7 @@ define( function( require ) {
 
     this.checkAnswerEmitter = new Emitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      phetioArgumentTypes: [ TObject ]
+      phetioArgumentTypes: [ ObjectIO ]
     } );
 
     // @private

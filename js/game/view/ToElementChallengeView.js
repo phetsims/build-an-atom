@@ -25,7 +25,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // strings
   var findTheElementString = require( 'string!BUILD_AN_ATOM/findTheElement' );
@@ -49,7 +49,7 @@ define( function( require ) {
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
     this.neutralOrIonProperty = new Property( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),
-      phetioType: PropertyIO( TString )
+      phetioType: PropertyIO( StringIO )
     } );
     ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;
