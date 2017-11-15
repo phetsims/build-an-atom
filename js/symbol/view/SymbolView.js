@@ -20,7 +20,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   // strings
   var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
@@ -35,7 +35,7 @@ define( function( require ) {
 
     this.symbolAccordionBoxExpandedProperty = new Property( true, {
       tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // Add the symbol node within an accordion box.

@@ -21,7 +21,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   // strings
   var massNumberString = require( 'string!BUILD_AN_ATOM/massNumber' );
@@ -44,11 +44,11 @@ define( function( require ) {
     // @private - properties that are passed to the accordion boxes that control their expansion state
     this.netChargeAccordionBoxExpandedProperty = new Property( false, {
       tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
     this.massNumberAccordionBoxExpandedProperty = new Property( false, {
       tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // Add the charge meter and charge comparison display inside of an accordion box.

@@ -27,7 +27,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   // strings
@@ -185,7 +185,7 @@ define( function( require ) {
       },
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
-        phetioType: DerivedPropertyIO( TBoolean )
+        phetioType: DerivedPropertyIO( BooleanIO )
       }
     );
 

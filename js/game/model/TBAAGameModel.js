@@ -12,7 +12,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TObjectState = require( 'ifphetio!PHET_IO/types/TObjectState' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
@@ -36,7 +36,7 @@ define( function( require ) {
 
     setChallenges: {
       returnType: TVoid,
-      parameterTypes: [ TArray( TArray( TObjectState ) ) ],
+      parameterTypes: [ ArrayIO( ArrayIO( TObjectState ) ) ],
       implementation: function( challenges ) {
         this.instance.setChallenges( challenges );
       },
@@ -45,7 +45,7 @@ define( function( require ) {
 
     setAllowedChallengeTypesByLevel: {
       returnType: TVoid,
-      parameterTypes: [ TArray( TArray( TString ) ) ],
+      parameterTypes: [ ArrayIO( ArrayIO( TString ) ) ],
 
       // TODO: change this to take index as 1st argument (for level index)
       implementation: function( allowedChallengeTypesByLevel ) {

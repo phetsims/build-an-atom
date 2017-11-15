@@ -26,8 +26,8 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
 
   // constants
@@ -61,13 +61,13 @@ define( function( require ) {
     // @public {Property.<boolean>}
     this.soundEnabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'soundEnabledProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // @public {Property.<boolean>}
     this.timerEnabledProperty = new Property( false, {
       tandem: tandem.createTandem( 'timerEnabledProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // @public (read-only) {Property.<number>}
@@ -80,7 +80,7 @@ define( function( require ) {
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioType: PropertyIO( TArray( TBAAGameChallenge ) )
+      phetioType: PropertyIO( ArrayIO( TBAAGameChallenge ) )
     } );
 
     // @public (read-only) {Property.<number>}
