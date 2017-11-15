@@ -23,11 +23,12 @@ define( function( require ) {
   var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
   var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
   var TBAAGameState = require( 'BUILD_AN_ATOM/game/model/TBAAGameState' );
+  var TProperty = require( 'AXON/TProperty' );
 
   // phet-io modules
+  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
 
   // constants
   var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
@@ -53,20 +54,20 @@ define( function( require ) {
 
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      phetioValueType: TBAAGameState,
+      phetioType: TProperty( TBAAGameState ),
       tandem: tandem.createTandem( 'stateProperty' )
     } );
 
     // @public {Property.<boolean>}
     this.soundEnabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'soundEnabledProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     // @public {Property.<boolean>}
     this.timerEnabledProperty = new Property( false, {
       tandem: tandem.createTandem( 'timerEnabledProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     // @public (read-only) {Property.<number>}
@@ -79,7 +80,7 @@ define( function( require ) {
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioValueType: TArray( TBAAGameChallenge )
+      phetioType: TProperty( TArray( TBAAGameChallenge ) )
     } );
 
     // @public (read-only) {Property.<number>}
@@ -140,7 +141,7 @@ define( function( require ) {
     // @private {GroupTandem}
     this.numberAtomGroupTandem = tandem.createGroupTandem( 'numberAtoms' );// TODO: unify with tandem names in random challenge sets
 
-    tandem.addInstance( this, TBAAGameModel );
+    tandem.addInstance( this, { phetioType: TBAAGameModel } );
 
     // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will be
     // used instead of randomly generated
