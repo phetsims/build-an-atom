@@ -18,7 +18,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -44,11 +44,11 @@ define( function( require ) {
     // @private - properties that are passed to the accordion boxes that control their expansion state
     this.netChargeAccordionBoxExpandedProperty = new Property( false, {
       tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
     this.massNumberAccordionBoxExpandedProperty = new Property( false, {
       tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
 
     // Add the charge meter and charge comparison display inside of an accordion box.

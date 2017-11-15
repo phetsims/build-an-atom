@@ -22,7 +22,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
@@ -49,7 +49,7 @@ define( function( require ) {
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
     this.neutralOrIonProperty = new Property( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),
-      phetioType: TProperty( TString )
+      phetioType: PropertyIO( TString )
     } );
     ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem ); // Call super constructor.
     var self = this;

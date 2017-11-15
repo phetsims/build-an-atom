@@ -17,7 +17,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -35,7 +35,7 @@ define( function( require ) {
 
     this.symbolAccordionBoxExpandedProperty = new Property( true, {
       tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
 
     // Add the symbol node within an accordion box.

@@ -23,7 +23,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var TDerivedProperty = require( 'AXON/TDerivedProperty' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
@@ -71,7 +71,7 @@ define( function( require ) {
     // Property that controls electron depiction in the view.
     this.electronShellDepictionProperty = new Property( 'orbits', {
       tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
-      phetioType: TProperty( TString ),
+      phetioType: PropertyIO( TString ),
       validValues: [ 'orbits', 'cloud' ]
     } );
 

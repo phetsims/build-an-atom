@@ -23,7 +23,7 @@ define( function( require ) {
   var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
   var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
   var TBAAGameState = require( 'BUILD_AN_ATOM/game/model/TBAAGameState' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
   var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
@@ -54,20 +54,20 @@ define( function( require ) {
 
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      phetioType: TProperty( TBAAGameState ),
+      phetioType: PropertyIO( TBAAGameState ),
       tandem: tandem.createTandem( 'stateProperty' )
     } );
 
     // @public {Property.<boolean>}
     this.soundEnabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'soundEnabledProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
 
     // @public {Property.<boolean>}
     this.timerEnabledProperty = new Property( false, {
       tandem: tandem.createTandem( 'timerEnabledProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
 
     // @public (read-only) {Property.<number>}
@@ -80,7 +80,7 @@ define( function( require ) {
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioType: TProperty( TArray( TBAAGameChallenge ) )
+      phetioType: PropertyIO( TArray( TBAAGameChallenge ) )
     } );
 
     // @public (read-only) {Property.<number>}
