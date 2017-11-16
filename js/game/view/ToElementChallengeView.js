@@ -21,8 +21,8 @@ define( function( require ) {
   var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var PropertyIO = require( 'AXON/PropertyIO' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // phet-io modules
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );

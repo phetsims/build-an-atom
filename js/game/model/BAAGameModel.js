@@ -19,11 +19,11 @@ define( function( require ) {
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
   var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
   var TBAAGameState = require( 'BUILD_AN_ATOM/game/model/TBAAGameState' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );

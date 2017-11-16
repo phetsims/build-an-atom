@@ -11,10 +11,10 @@ define( function( require ) {
   var NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
 
   // phet-io modules
-  var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var phetio = require( 'ifphetio!PHET_IO/phetio' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
    * Wrapper type for BAAGameChallenge
