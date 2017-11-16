@@ -8,7 +8,7 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var TNumberAtom = require( 'SHRED/model/TNumberAtom' );
+  var NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
 
   // phet-io modules
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
@@ -37,7 +37,7 @@ define( function( require ) {
     toStateObject: function( gameChallenge ) {
       return {
         pointValue: gameChallenge.pointValue,
-        answerAtom: TNumberAtom.toStateObject( gameChallenge.answerAtom ),
+        answerAtom: NumberAtomIO.toStateObject( gameChallenge.answerAtom ),
         modelPhetioID: gameChallenge.model.phetioID,
         challengeType: gameChallenge.challengeType,
         phetioID: gameChallenge.phetioID,
