@@ -8,7 +8,7 @@ define( function( require ) {
 
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
+  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
 
   // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
@@ -21,12 +21,12 @@ define( function( require ) {
    * @param {string} phetioID
    * @constructor
    */
-  function TBAAGameState( instance, phetioID ) {
+  function BAAGameStateIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.buildAnAtom.BAAGameState );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TBAAGameState', TBAAGameState, {}, {
+  phetioInherit( ObjectIO, 'BAAGameStateIO', BAAGameStateIO, {}, {
     documentation: 'A state for the game',
 
     /**
@@ -36,7 +36,7 @@ define( function( require ) {
      */
     toStateObject: function( instance ) {
       if ( instance instanceof phet.buildAnAtom.BAAGameChallenge ) {
-        return TBAAGameChallenge.toStateObject( instance );
+        return BAAGameChallengeIO.toStateObject( instance );
       }
       else {
         return { name: instance.name };
@@ -56,15 +56,15 @@ define( function( require ) {
         return phet.buildAnAtom.BAAGameState.LEVEL_COMPLETED;
       }
       else if ( stateObject.name === 'challenge' ) {
-        return TBAAGameChallenge.fromStateObject( stateObject );
+        return BAAGameChallengeIO.fromStateObject( stateObject );
       }
       else {
         assert && assert( false, 'unknown game state: ' + stateObject );
       }
     }
   } );
-  buildAnAtom.register( 'TBAAGameState', TBAAGameState );
+  buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
 
-  return TBAAGameState;
+  return BAAGameStateIO;
 } );
 

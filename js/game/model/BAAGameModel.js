@@ -21,9 +21,9 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
-  var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
-  var TBAAGameModel = require( 'BUILD_AN_ATOM/game/model/TBAAGameModel' );
-  var TBAAGameState = require( 'BUILD_AN_ATOM/game/model/TBAAGameState' );
+  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
+  var BAAGameModelIO = require( 'BUILD_AN_ATOM/game/model/BAAGameModelIO' );
+  var BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
 
   // phet-io modules
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
@@ -54,7 +54,7 @@ define( function( require ) {
 
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      phetioType: PropertyIO( TBAAGameState ),
+      phetioType: PropertyIO( BAAGameStateIO ),
       tandem: tandem.createTandem( 'stateProperty' )
     } );
 
@@ -80,7 +80,7 @@ define( function( require ) {
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioType: PropertyIO( ArrayIO( TBAAGameChallenge ) )
+      phetioType: PropertyIO( ArrayIO( BAAGameChallengeIO ) )
     } );
 
     // @public (read-only) {Property.<number>}
@@ -141,7 +141,7 @@ define( function( require ) {
     // @private {GroupTandem}
     this.numberAtomGroupTandem = tandem.createGroupTandem( 'numberAtoms' );// TODO: unify with tandem names in random challenge sets
 
-    tandem.addInstance( this, { phetioType: TBAAGameModel } );
+    tandem.addInstance( this, { phetioType: BAAGameModelIO } );
 
     // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will be
     // used instead of randomly generated

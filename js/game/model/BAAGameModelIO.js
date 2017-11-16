@@ -18,12 +18,12 @@ define( function( require ) {
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
-  var TBAAGameModel = function( gameModel, phetioID ) {
+  var BAAGameModelIO = function( gameModel, phetioID ) {
     assert && assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
     ObjectIO.call( this, gameModel, phetioID );
   };
 
-  phetioInherit( ObjectIO, 'TBAAGameModel', TBAAGameModel, {
+  phetioInherit( ObjectIO, 'BAAGameModelIO', BAAGameModelIO, {
 
     startGameLevel: {
       returnType: VoidIO,
@@ -77,8 +77,8 @@ define( function( require ) {
     documentation: 'The model for the Game'
   } );
 
-  buildAnAtom.register( 'TBAAGameModel', TBAAGameModel );
+  buildAnAtom.register( 'BAAGameModelIO', BAAGameModelIO );
 
-  return TBAAGameModel;
+  return BAAGameModelIO;
 } );
 

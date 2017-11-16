@@ -21,7 +21,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
-  var TBAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/TBAAGameChallenge' );
+  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
 
   // phet-io modules
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
@@ -52,7 +52,7 @@ define( function( require ) {
     this.challengeType = challengeType; // @public (phet-io)
 
     this.baaGameChallengeTandem = tandem; // @public (phet-io)
-    tandem.addInstance( this, { phetioType: TBAAGameChallenge } );
+    tandem.addInstance( this, { phetioType: BAAGameChallengeIO } );
 
     // @public
     this.disposeEmitter = new Emitter();

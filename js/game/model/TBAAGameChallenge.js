@@ -22,12 +22,12 @@ define( function( require ) {
    * @param {string} phetioID
    * @constructor
    */
-  function TBAAGameChallenge( instance, phetioID ) {
+  function BAAGameChallengeIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.buildAnAtom.BAAGameChallenge );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TBAAGameChallenge', TBAAGameChallenge, {}, {
+  phetioInherit( ObjectIO, 'BAAGameChallengeIO', BAAGameChallengeIO, {}, {
     documentation: 'A challenge for the Game',
 
     /**
@@ -72,8 +72,8 @@ define( function( require ) {
 
     }
   } );
-  buildAnAtom.register( 'TBAAGameChallenge', TBAAGameChallenge );
+  buildAnAtom.register( 'BAAGameChallengeIO', BAAGameChallengeIO );
 
-  return TBAAGameChallenge;
+  return BAAGameChallengeIO;
 } );
 
