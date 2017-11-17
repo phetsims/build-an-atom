@@ -31,16 +31,16 @@ define( function( require ) {
 
     /**
      *
-     * @param {BAAGameChallenge} instance
+     * @param {BAAGameChallenge} baaGameState
      * @returns
      */
-    toStateObject: function( instance ) {
+    toStateObject: function( baaGameState ) {
       assert && assertInstanceOf( baaGameState, phet.buildAnAtom.BAAGameState );
-      if ( instance instanceof phet.buildAnAtom.BAAGameChallenge ) {
-        return BAAGameChallengeIO.toStateObject( instance );
+      if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
+        return BAAGameChallengeIO.toStateObject( baaGameState );
       }
       else {
-        return { name: instance.name };
+        return { name: baaGameState.name };
       }
     },
 
