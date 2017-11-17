@@ -18,30 +18,31 @@ define( function( require ) {
 
   /**
    * Wrapper type for BAAGameChallenge
-   * @param {BAAGameChallenge} instance
+   * @param {BAAGameChallenge} baaGameChallenge
    * @param {string} phetioID
    * @constructor
    */
-  function BAAGameChallengeIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.buildAnAtom.BAAGameChallenge );
-    ObjectIO.call( this, instance, phetioID );
+  function BAAGameChallengeIO( baaGameChallenge, phetioID ) {
+    assert && assertInstanceOf( baaGameChallenge, phet.buildAnAtom.BAAGameChallenge );
+    ObjectIO.call( this, baaGameChallenge, phetioID );
   }
 
   phetioInherit( ObjectIO, 'BAAGameChallengeIO', BAAGameChallengeIO, {}, {
     documentation: 'A challenge for the Game',
 
     /**
-     * @param {BAAGameChallenge} gameChallenge
-     * @returns
+     * @param {BAAGameChallenge} baaGameChallenge
+     * @returns {Object}
      */
-    toStateObject: function( gameChallenge ) {
+    toStateObject: function( baaGameChallenge ) {
+      assert && assertInstanceOf( baaGameChallenge, phet.buildAnAtom.BAAGameChallenge );
       return {
-        pointValue: gameChallenge.pointValue,
-        answerAtom: NumberAtomIO.toStateObject( gameChallenge.answerAtom ),
-        modelPhetioID: gameChallenge.model.phetioID,
-        challengeType: gameChallenge.challengeType,
-        phetioID: gameChallenge.phetioID,
-        name: gameChallenge.name
+        pointValue: baaGameChallenge.pointValue,
+        answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
+        modelPhetioID: baaGameChallenge.model.phetioID,
+        challengeType: baaGameChallenge.challengeType,
+        phetioID: baaGameChallenge.phetioID,
+        name: baaGameChallenge.name
       };
     },
 

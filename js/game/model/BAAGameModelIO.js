@@ -18,9 +18,9 @@ define( function( require ) {
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
-  var BAAGameModelIO = function( gameModel, phetioID ) {
-    assert && assertInstanceOf( gameModel, phet.buildAnAtom.BAAGameModel );
-    ObjectIO.call( this, gameModel, phetioID );
+  var BAAGameModelIO = function( baaGameModel, phetioID ) {
+    assert && assertInstanceOf( baaGameModel, phet.buildAnAtom.BAAGameModel );
+    ObjectIO.call( this, baaGameModel, phetioID );
   };
 
   phetioInherit( ObjectIO, 'BAAGameModelIO', BAAGameModelIO, {
@@ -62,11 +62,12 @@ define( function( require ) {
     }
   }, {
 
-    clearChildInstances: function( instance ) {
-      instance.challengeSetProperty.value.forEach( function( challenge ) {
+    clearChildInstances: function( baaGameModel ) {
+      assert && assertInstanceOf( baaGameModel, phet.buildAnAtom.BAAGameModel );
+      baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
         challenge.dispose();
       } );
-      instance.challengeSetProperty.reset();
+      baaGameModel.challengeSetProperty.reset();
     },
 
     // addChildInstance: function( instance, tandem, stateObject ){

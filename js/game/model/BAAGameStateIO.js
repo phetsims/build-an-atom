@@ -17,13 +17,13 @@ define( function( require ) {
 
   /**
    * Wrapper type for BAAGameChallenge
-   * @param {BAAGameChallenge} instance
+   * @param {BAAGameChallenge} baaGameState
    * @param {string} phetioID
    * @constructor
    */
-  function BAAGameStateIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.buildAnAtom.BAAGameState );
-    ObjectIO.call( this, instance, phetioID );
+  function BAAGameStateIO( baaGameState, phetioID ) {
+    assert && assertInstanceOf( baaGameState, phet.buildAnAtom.BAAGameState );
+    ObjectIO.call( this, baaGameState, phetioID );
   }
 
   phetioInherit( ObjectIO, 'BAAGameStateIO', BAAGameStateIO, {}, {
@@ -35,6 +35,7 @@ define( function( require ) {
      * @returns
      */
     toStateObject: function( instance ) {
+      assert && assertInstanceOf( baaGameState, phet.buildAnAtom.BAAGameState );
       if ( instance instanceof phet.buildAnAtom.BAAGameChallenge ) {
         return BAAGameChallengeIO.toStateObject( instance );
       }
