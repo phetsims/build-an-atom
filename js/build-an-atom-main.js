@@ -18,7 +18,7 @@ define( function( require ) {
   var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
 
   // root tandem
-  var tandem = Tandem.createRootTandem();
+  var tandem = Tandem.rootTandem;
 
   var simOptions = {
     credits: {
