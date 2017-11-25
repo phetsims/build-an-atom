@@ -18,6 +18,11 @@ define( function( require ) {
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
+  /**
+   * @param {BAAGameModel} baaGameModel
+   * @param {string} phetioID
+   * @constructor
+   */
   var BAAGameModelIO = function( baaGameModel, phetioID ) {
     assert && assertInstanceOf( baaGameModel, phet.buildAnAtom.BAAGameModel );
     ObjectIO.call( this, baaGameModel, phetioID );
