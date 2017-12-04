@@ -15,6 +15,13 @@
       "shred",
       "vegas",
       "vibe"
-    ]
+    ],
+    "runnable": true,
+    "supportedBrands": [
+      "phet",
+      "phet-io"
+    ],
+    "accessible": true,
+    "simulation": true
   }
 }
