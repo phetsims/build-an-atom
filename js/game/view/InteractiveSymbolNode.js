@@ -39,7 +39,7 @@ define( function( require ) {
    */
   function InteractiveSymbolNode( numberAtom, tandem, options ) {
 
-    Node.call( this, options ); // Call super constructor.
+    Node.call( this, options );
     var self = this;
 
     options = _.extend( { // defaults

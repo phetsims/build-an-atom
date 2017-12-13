@@ -12,6 +12,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -36,9 +37,9 @@ define( function( require ) {
    */
   function ChargeMeter( numberAtom, tandem, options ) {
 
-    Node.call( this ); // Call super constructor.
+    options = _.extend( { showNumericalReadout: true, tandem: tandem }, options );
 
-    options = _.extend( { showNumericalReadout: true }, options );
+    Node.call( this, IOObject.getOptions( options ) );
 
     // Add the background.
     var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
@@ -181,7 +182,6 @@ define( function( require ) {
       }
     } );
 
-    options.tandem = tandem;
     this.mutate( options );
   }
 

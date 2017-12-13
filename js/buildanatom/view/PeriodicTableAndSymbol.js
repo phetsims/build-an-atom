@@ -11,6 +11,7 @@ define( function( require ) {
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -30,7 +31,8 @@ define( function( require ) {
    */
   function PeriodicTableAndSymbol( numberAtom, tandem, options ) {
 
-    Node.call( this ); // Call super constructor.
+    options.tandem = tandem;
+    Node.call( this, IOObject.getOptions( options ) );
 
     // Create and add the periodic table.
     var periodicTable = new PeriodicTableNode( numberAtom, {
@@ -69,12 +71,11 @@ define( function( require ) {
     // Do the layout.  This positions the symbol to fit into the top portion
     // of the table.  The periodic table is 18 cells wide, and this needs
     // to be centered over the 8th column to be in the right place.
-    symbolRectangle.centerX = (7.5 / 18 ) * periodicTable.width;
+    symbolRectangle.centerX = ( 7.5 / 18 ) * periodicTable.width;
     symbolRectangle.top = 0;
-    periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5);
+    periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5 );
     periodicTable.left = 0;
 
-    options.tandem = tandem;
     this.mutate( options );
   }
 

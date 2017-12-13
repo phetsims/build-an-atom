@@ -31,7 +31,7 @@ define( function( require ) {
    * @constructor
    */
   function SymbolView( model, tandem ) {
-    AtomView.call( this, model, tandem ); // Call super constructor.
+    AtomView.call( this, model, tandem );
 
     this.symbolAccordionBoxExpandedProperty = new Property( true, {
       tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' ),

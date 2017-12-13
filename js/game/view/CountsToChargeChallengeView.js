@@ -39,7 +39,7 @@ define( function( require ) {
       valueType: 'Integer'
     } );
 
-    ChallengeView.call( this, countsToChargeChallenge, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, countsToChargeChallenge, layoutBounds, tandem );
     var self = this;
 
     // Particle counts

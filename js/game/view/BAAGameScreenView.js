@@ -33,7 +33,7 @@ define( function( require ) {
    */
   function BAAGameScreenView( gameModel, tandem ) {
 
-    // Call super constructor.
+
     ScreenView.call( this, {
       layoutBounds: ShredConstants.LAYOUT_BOUNDS,
       tandem: tandem

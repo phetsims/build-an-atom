@@ -39,7 +39,7 @@ define( function( require ) {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       valueType: 'Integer'
     } ); // Must be defined before call to super constructor.
-    ChallengeView.call( this, schematicToMassNumberChallenge, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, schematicToMassNumberChallenge, layoutBounds, tandem );
     var self = this;
 
     // Create the model-view transform used by the schematic atom.

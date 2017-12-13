@@ -36,7 +36,7 @@ define( function( require ) {
       }
     );
 
-    ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem );
 
     // Add the interactive symbol.
     this.interactiveSymbolNode.scale( 0.75 );

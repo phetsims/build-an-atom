@@ -33,7 +33,7 @@ define( function( require ) {
    */
   function ParticleCountsNode( numberAtom, options ) {
 
-    Node.call( this, options ); // Call super constructor.
+    Node.call( this, options ); 
 
     options = _.extend( { font: new PhetFont( 24 ) }, options );
 

@@ -31,7 +31,7 @@ define( function( require ) {
    */
   function MassNumberDisplay( numberAtom, tandem, options ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this, { tandem: tandem } );
 
     // Add the background image, i.e. the scale.
     var scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
@@ -70,7 +70,6 @@ define( function( require ) {
       }
     } );
 
-    options.tandem = tandem;
     this.mutate( options );
   }
 

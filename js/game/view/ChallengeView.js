@@ -41,7 +41,7 @@ define( function( require ) {
    * @constructor
    */
   function ChallengeView( challenge, layoutBounds, tandem ) {
-    Node.call( this ); // Call super constructor.
+    Node.call( this );
     var self = this;
     this.challenge = challenge;
 

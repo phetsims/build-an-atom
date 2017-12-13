@@ -39,7 +39,7 @@ define( function( require ) {
    * @constructor
    */
   function BuildAnAtomView( model, tandem ) {
-    AtomView.call( this, model, tandem ); // Call super constructor.
+    AtomView.call( this, model, tandem );
 
     // @private - properties that are passed to the accordion boxes that control their expansion state
     this.netChargeAccordionBoxExpandedProperty = new Property( false, {

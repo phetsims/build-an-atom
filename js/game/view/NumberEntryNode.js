@@ -31,7 +31,7 @@ define( function( require ) {
    */
   function NumberEntryNode( numberProperty, tandem, options ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this );
     var self = this;
 
     options = _.extend( {

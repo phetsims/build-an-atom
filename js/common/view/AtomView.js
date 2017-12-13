@@ -63,7 +63,7 @@ define( function( require ) {
    */
   function AtomView( model, tandem ) {
 
-    // Call super constructor.
+
     ScreenView.call( this, {
       layoutBounds: ShredConstants.LAYOUT_BOUNDS,
       tandem: tandem
@@ -96,7 +96,7 @@ define( function( require ) {
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, function( bucket ) {
-      self.addChild( new BucketHole( bucket, modelViewTransform ).mutate( {
+      self.addChild( new BucketHole( bucket, modelViewTransform, {
         pickable: false,
         tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'Hole' )
       } ) );

@@ -28,7 +28,7 @@ define( function( require ) {
     // Interactive particle count node - must be defined before call to super constructor.
     this.interactiveParticleCountsNode = new InteractiveParticleCountsNode( tandem );
 
-    // Call super constructor.
+
     ChallengeView.call( this, symbolToCountsChallenge, layoutBounds, tandem );
 
     // Add interactive particle count.

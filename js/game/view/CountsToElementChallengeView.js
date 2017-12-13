@@ -23,7 +23,7 @@ define( function( require ) {
    * @constructor
    */
   function CountsToElementChallengeView( countsToElementChallenge, layoutBounds, tandem ) {
-    ToElementChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem ); // Call super constructor.
+    ToElementChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem );
 
     // Particle counts
     var particleCountsNode = new ParticleCountsNode( countsToElementChallenge.answerAtom );

@@ -40,7 +40,7 @@ define( function( require ) {
     } );
     this.interactiveSchematicAtom.scale( 0.95 );
 
-    // Call super constructor.
+
     ChallengeView.call( this, challenge, layoutBounds, tandem );
 
     // Add interactive schematic atom.

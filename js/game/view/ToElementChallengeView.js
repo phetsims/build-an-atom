@@ -51,7 +51,7 @@ define( function( require ) {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),
       phetioType: PropertyIO( StringIO )
     } );
-    ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem );
     var self = this;
 
     // Periodic table

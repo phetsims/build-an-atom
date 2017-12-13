@@ -36,7 +36,7 @@ define( function( require ) {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       valueType: 'Integer'
     } );
-    ChallengeView.call( this, countsToMassNumberChallenge, layoutBounds, tandem ); // Call super constructor.
+    ChallengeView.call( this, countsToMassNumberChallenge, layoutBounds, tandem );
     var self = this;
 
     // Particle counts

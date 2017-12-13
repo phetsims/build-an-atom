@@ -38,7 +38,7 @@ define( function( require ) {
    */
   function SymbolNode( numberAtom, tandem, options ) {
 
-    Node.call( this, { pickable: false } ); // Call super constructor.
+    Node.call( this, { tandem: tandem, pickable: false } );
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
@@ -133,7 +133,6 @@ define( function( require ) {
     chargeMeter.left = boundingBox.right + 10;
     chargeMeter.centerY = chargeDisplay.centerY;
 
-    options.tandem = tandem;
     this.mutate( options );
   }
 

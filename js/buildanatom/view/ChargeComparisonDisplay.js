@@ -32,7 +32,7 @@ define( function( require ) {
    */
   function ChargeComparisonDisplay( numberAtom, tandem, options ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this, { tandem: tandem } );
 
     var MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
     var i;
@@ -142,7 +142,6 @@ define( function( require ) {
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
 
-    options.tandem = tandem;
     this.mutate( options );
   }
 

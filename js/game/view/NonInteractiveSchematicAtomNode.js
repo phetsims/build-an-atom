@@ -26,7 +26,7 @@ define( function( require ) {
    * @constructor
    */
   function NonInteractiveSchematicAtomNode( numberAtom, modelViewTransform, tandem ) {
-    Node.call( this, { pickable: false } ); // Call super constructor.
+    Node.call( this, { pickable: false } ); 
 
     // Add the electron shells.
     var particleAtom = new ParticleAtom( { tandem: tandem.createTandem( 'particleAtom' ) } );

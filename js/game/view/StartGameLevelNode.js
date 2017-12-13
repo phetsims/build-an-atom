@@ -43,7 +43,7 @@ define( function( require ) {
    */
   function StartGameLevelNode( gameModel, layoutBounds, tandem ) {
 
-    Node.call( this ); // Call super constructor.
+    Node.call( this );
 
     // Title
     var title = new Text( chooseYourGameString, {
