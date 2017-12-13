@@ -12,6 +12,7 @@ define( function( require ) {
   var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
   var Node = require( 'SCENERY/nodes/Node' );
   var ParticleView = require( 'SHRED/view/ParticleView' );
   var shred = require( 'SHRED/shred' );
@@ -31,7 +32,7 @@ define( function( require ) {
       tandem: Tandem.required
     }, options );
 
-    Node.call( this );
+    Node.call( this, IOObject.getOptions( options ) );
     var self = this;
 
     var particleViews = []; // remember all the particleViews when using in dispose
