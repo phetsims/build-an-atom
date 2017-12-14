@@ -12,7 +12,6 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -39,7 +38,7 @@ define( function( require ) {
 
     options = _.extend( { showNumericalReadout: true, tandem: tandem }, options );
 
-    Node.call( this, IOObject.getOptions( options ) );
+    Node.call( this );
 
     // Add the background.
     var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.

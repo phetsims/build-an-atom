@@ -11,7 +11,6 @@ define( function( require ) {
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -32,7 +31,7 @@ define( function( require ) {
   function PeriodicTableAndSymbol( numberAtom, tandem, options ) {
 
     options.tandem = tandem;
-    Node.call( this, IOObject.getOptions( options ) );
+    Node.call( this );
 
     // Create and add the periodic table.
     var periodicTable = new PeriodicTableNode( numberAtom, {
