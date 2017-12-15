@@ -123,7 +123,7 @@ define( function( require ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
         rootNode.removeAllChildren();
-        var challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.baaGameChallengeTandem.tail + 'View' ) );
+        var challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.phetioObjectTandem.tail + 'View' ) );
         state.disposeEmitter.addListener( function disposeListener() {
           challengeView.dispose();
           state.disposeEmitter.removeListener( disposeListener );

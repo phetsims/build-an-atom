@@ -12,6 +12,7 @@ define( function( require ) {
 
   // modules
   var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
+  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
@@ -21,7 +22,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
-  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
 
   // phet-io modules
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
@@ -34,7 +34,12 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
-    BAAGameState.call( this, 'challenge' ); // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
+
+    // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
+    BAAGameState.call( this, 'challenge', {
+      tandem: tandem,
+      phetioType: BAAGameChallengeIO
+    } );
     this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
       phetioType: PropertyIO( StringIO ), // TODO why not an Enum?
@@ -50,9 +55,6 @@ define( function( require ) {
     this.pointValue = 0; // @public (phet-io)
     this.model = buildAnAtomGameModel; // @public (phet-io)
     this.challengeType = challengeType; // @public (phet-io)
-
-    this.baaGameChallengeTandem = tandem; // @public (phet-io)
-    tandem.addInstance( this, { phetioType: BAAGameChallengeIO } );
 
     // @public
     this.disposeEmitter = new Emitter();
@@ -74,7 +76,8 @@ define( function( require ) {
       this.disposeEmitter.emit();
       this.challengeStateProperty.dispose();
       this.numSubmissionsProperty.dispose();
-      this.baaGameChallengeTandem.removeInstance( this );
+
+      BAAGameState.prototype.dispose.call( this );
 
       // Remove all listeners from the dispose emitter to avoid memory leaks.
       this.disposeEmitter.dispose();

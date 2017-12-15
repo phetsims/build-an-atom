@@ -15,18 +15,20 @@ define( function( require ) {
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
 
   /**
    * @param {String} name
    * @constructor
    */
-  function BAAGameState( name ) {
+  function BAAGameState( name, options ) {
     this.name = name;
+    PhetioObject.call( this, options );
   }
 
   buildAnAtom.register( 'BAAGameState', BAAGameState );
 
-  inherit( Object, BAAGameState, {
+  inherit( PhetioObject, BAAGameState, {
 
     //-----------------------------------------------------------------------------------------------------------------
     // The following functions comprise the API used by the challenge view to send user events to the challenge.
@@ -39,7 +41,7 @@ define( function( require ) {
      * @param {Object} emitMessageOptions
      * @public
      */
-    handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ){
+    handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ) {
       throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
     },
 
@@ -81,8 +83,12 @@ define( function( require ) {
      * step the challenge in time, override in any states/challenges that have time-dependent behavior
      * @param dt
      */
-    step: function( dt ){
+    step: function( dt ) {
       // stubbed in base class
+    },
+
+    dispose: function() {
+      PhetioObject.prototype.dispose.call( this );
     }
   } );
 
