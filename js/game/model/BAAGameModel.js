@@ -22,6 +22,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberProperty = require( 'AXON/NumberProperty' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
@@ -44,6 +45,11 @@ define( function( require ) {
   function BAAGameModel( tandem ) {
 
     var self = this;
+
+    PhetioObject.call( this, {
+      phetioType: BAAGameModelIO,
+      tandem: tandem
+    } );
 
     // @private (phet-io), phet-io can set this value to customize which levels are presented
     this.allowedChallengeTypesByLevel = [
@@ -142,8 +148,6 @@ define( function( require ) {
     // @private {GroupTandem}
     this.numberAtomGroupTandem = tandem.createGroupTandem( 'numberAtoms' );// TODO: unify with tandem names in random challenge sets
 
-    tandem.addInstance( this, { phetioType: BAAGameModelIO } );
-
     // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will be
     // used instead of randomly generated
     this.predeterminedChallenges = [];
@@ -155,7 +159,7 @@ define( function( require ) {
   buildAnAtom.register( 'BAAGameModel', BAAGameModel );
 
   // Inherit from base class and define the methods for this object.
-  return inherit( Object, BAAGameModel, {
+  return inherit( PhetioObject, BAAGameModel, {
 
     // @public - time stepping function, called by the framework
     step: function( dt ) {
