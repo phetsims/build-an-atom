@@ -9,21 +9,22 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
+  var BAAGameModelIO = require( 'BUILD_AN_ATOM/game/model/BAAGameModelIO' );
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
+  var BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
   var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   var Emitter = require( 'AXON/Emitter' );
+  var EmitterIO = require( 'AXON/EmitterIO' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
-  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
-  var BAAGameModelIO = require( 'BUILD_AN_ATOM/game/model/BAAGameModelIO' );
-  var BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
 
   // phet-io modules
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
@@ -107,7 +108,7 @@ define( function( require ) {
     // @private
     this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      phetioArgumentTypes: [ ObjectIO ]
+      phetioType: EmitterIO( [ ObjectIO ] )
     } );
 
     this.bestScores = []; // Properties that track progress on each game level.
@@ -132,7 +133,7 @@ define( function( require ) {
 
     this.checkAnswerEmitter = new Emitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      phetioArgumentTypes: [ ObjectIO ]
+      phetioType: EmitterIO( [ ObjectIO ] )
     } );
 
     // @private
@@ -212,7 +213,7 @@ define( function( require ) {
       // (phet-io) Dispose old challenges before setting the property again.
       if ( this.challengeSetProperty.get().length > 0 ) {
         this.challengeSetProperty.get().forEach( function( challenge ) {
-          (!challenge.disposed) && challenge.dispose();
+          ( !challenge.disposed ) && challenge.dispose();
         } );
       }
       this.challengeSetProperty.get().length = 0;
