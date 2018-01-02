@@ -16,7 +16,6 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
-   * IO type for BAAGameChallenge
    * @param {BAAGameChallenge} baaGameState
    * @param {string} phetioID
    * @constructor
