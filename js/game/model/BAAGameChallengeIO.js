@@ -1,6 +1,8 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
+ * IO type for BAAGameChallenge
+ *
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( function( require ) {
