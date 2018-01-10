@@ -238,7 +238,7 @@ define( function( require ) {
         tandem: labelVisibilityControlPanelTandem.createTandem( 'elementText' )
       } ),
       property: model.showElementNameProperty,
-      tandemName: 'showElementNameCheckBox'
+      tandem: labelVisibilityControlPanelTandem.createTandem( 'showElementNameCheckBox' )
     }, {
       content: new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
@@ -246,7 +246,7 @@ define( function( require ) {
         tandem: labelVisibilityControlPanelTandem.createTandem( 'neutralOrIonText' )
       } ),
       property: model.showNeutralOrIonProperty,
-      tandemName: 'showNeutralOrIonCheckBox'
+      tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckBox' )
     }, {
       content: new Text( stableSlashUnstableString, {
         font: LABEL_CONTROL_FONT,
@@ -254,7 +254,7 @@ define( function( require ) {
         tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
       } ),
       property: model.showStableOrUnstableProperty,
-      tandemName: 'showStableOrUnstableCheckBox'
+      tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckBox' )
     } ], {
       boxWidth: 12,
       spacing: 8,
