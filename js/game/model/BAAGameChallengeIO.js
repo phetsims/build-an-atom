@@ -71,7 +71,6 @@ define( function( require ) {
       var tandem = new phet.tandem.Tandem( stateObject.phetioID );
 
       return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
-
     }
   } );
   buildAnAtom.register( 'BAAGameChallengeIO', BAAGameChallengeIO );

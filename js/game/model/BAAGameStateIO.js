@@ -31,7 +31,6 @@ define( function( require ) {
     documentation: 'A state for the game',
 
     /**
-     *
      * @param {BAAGameChallenge} baaGameState
      * @returns
      */
