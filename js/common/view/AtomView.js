@@ -36,7 +36,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
-  var VerticalCheckBoxGroup = require( 'SUN/VerticalCheckBoxGroup' );
+  var VerticalCheckboxGroup = require( 'SUN/VerticalCheckboxGroup' );
 
   // strings
   var cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
@@ -231,14 +231,14 @@ define( function( require ) {
     this.addChild( this.periodicTableAccordionBox );
 
     var labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
-    var labelVisibilityControlPanel = new Panel( new VerticalCheckBoxGroup( [ {
+    var labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( [ {
       content: new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: labelVisibilityControlPanelTandem.createTandem( 'elementText' )
       } ),
       property: model.showElementNameProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showElementNameCheckBox' )
+      tandem: labelVisibilityControlPanelTandem.createTandem( 'showElementNameCheckbox' )
     }, {
       content: new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
@@ -246,7 +246,7 @@ define( function( require ) {
         tandem: labelVisibilityControlPanelTandem.createTandem( 'neutralOrIonText' )
       } ),
       property: model.showNeutralOrIonProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckBox' )
+      tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckbox' )
     }, {
       content: new Text( stableSlashUnstableString, {
         font: LABEL_CONTROL_FONT,
@@ -254,11 +254,11 @@ define( function( require ) {
         tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
       } ),
       property: model.showStableOrUnstableProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckBox' )
+      tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckbox' )
     } ], {
       boxWidth: 12,
       spacing: 8,
-      tandem: tandem.createTandem( 'labelVisibilityCheckBoxGroup' )
+      tandem: tandem.createTandem( 'labelVisibilityCheckboxGroup' )
     } ), {
       fill: 'rgb( 245, 245, 245 )',
       lineWidth: LABEL_CONTROL_LINE_WIDTH,
