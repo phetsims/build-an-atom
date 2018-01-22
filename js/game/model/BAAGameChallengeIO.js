@@ -40,9 +40,9 @@ define( function( require ) {
       return {
         pointValue: baaGameChallenge.pointValue,
         answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
-        modelPhetioID: baaGameChallenge.model.phetioID,
+        modelPhetioID: baaGameChallenge.model.phetioObjectTandem.phetioID,
         challengeType: baaGameChallenge.challengeType,
-        phetioID: baaGameChallenge.phetioID,
+        phetioID: baaGameChallenge.phetioObjectTandem.phetioID,
         name: baaGameChallenge.name
       };
     },
@@ -56,9 +56,9 @@ define( function( require ) {
       // This may have been deserialized from the instance itself or from the array it was contained in (which
       // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
       // TODO: is there a better way to do this, or at least factor it out?
-      var instance = phetio.hasInstance( stateObject.phetioID );
+      var instance = phetio.hasInstance( stateObject.phetioObjectTandem.phetioID );
       if ( instance ) {
-        return phetio.getInstance( stateObject.phetioID );
+        return phetio.getInstance( stateObject.phetioObjectTandem.phetioID );
       }
 
       var model = phetio.getInstance( stateObject.modelPhetioID );
@@ -68,7 +68,7 @@ define( function( require ) {
         neutronCount: stateObject.answerAtom.neutronCount,
         electronCount: stateObject.answerAtom.electronCount
       } );
-      var tandem = new phet.tandem.Tandem( stateObject.phetioID );
+      var tandem = new phet.tandem.Tandem( stateObject.phetioObjectTandem.phetioID );
 
       return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
     }
