@@ -48,7 +48,8 @@ define( function( require ) {
 
     PhetioObject.call( this, {
       phetioType: BAAGameModelIO,
-      tandem: tandem
+      tandem: tandem,
+      phetioState: false
     } );
 
     // @private (phet-io), phet-io can set this value to customize which levels are presented
