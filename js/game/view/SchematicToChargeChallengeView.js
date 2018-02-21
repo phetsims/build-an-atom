@@ -38,7 +38,7 @@ define( function( require ) {
     // Must be defined before call to super constructor.
     this.chargeAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
-      valueType: 'Integer'
+      numberType: 'Integer'
     } );
     ChallengeView.call( this, schematicToChargeChallenge, layoutBounds, tandem ); 
     var self = this;

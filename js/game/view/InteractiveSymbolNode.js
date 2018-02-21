@@ -50,15 +50,15 @@ define( function( require ) {
 
     this.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' ),
-      valueType: 'Integer'
+      numberType: 'Integer'
     } );
     this.massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: tandem.createTandem( 'massNumberProperty' ),
-      valueType: 'Integer'
+      numberType: 'Integer'
     } );
     this.chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
       tandem: tandem.createTandem( 'chargeProperty' ),
-      valueType: 'Integer'
+      numberType: 'Integer'
     } );
 
     // Add the bounding box, which is also the root node for everything else

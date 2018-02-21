@@ -37,7 +37,7 @@ define( function( require ) {
 
     this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
-      valueType: 'Integer'
+      numberType: 'Integer'
     } ); // Must be defined before call to super constructor.
     ChallengeView.call( this, schematicToMassNumberChallenge, layoutBounds, tandem );
     var self = this;

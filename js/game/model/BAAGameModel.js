@@ -81,7 +81,7 @@ define( function( require ) {
     // @public (read-only) {Property.<number>}
     this.levelProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'levelProperty' ),
-      valueType: 'Integer',
+      numberType: 'Integer',
       phetioReadOnly: true
     } );
 
