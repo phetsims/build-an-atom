@@ -10,9 +10,11 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+
+  // phet-io modules
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
