@@ -25,9 +25,9 @@
       background: #ccc;
     }
 
-    .left{
-      position:fixed;
-      width:47%;
+    .left {
+      position: fixed;
+      width: 47%;
     }
 
     /* This class was found online as a way to preserve an iframe aspect ratio,
@@ -93,6 +93,10 @@
       background-color: #9adaa6;
       border-bottom: double 3px #000; /*or a border in dark green*/
     }
+
+    .highlight {
+      border: thick double red;
+    }
   </style>
 
 </head>
@@ -108,7 +112,7 @@
         <iframe id="iframe" allowfullscreen title="Interact with Build an Atom"></iframe>
       </div>
       <div id="alerts">
-        <h3>Interactive alerts</h3>
+        <h3>Activity log - The most recent Interactive Alerts.</h3>
         <div id=alert-copy-container class=alert_copy_container>
           <div id='polite-element-container'>
             <ul class='alert_copy' id='alert-list'></ul>
@@ -117,25 +121,25 @@
       </div>
     </div>
 
-
-  <!--The PDOM copy will be placed in this container, along with a section just for alerts -->
-  <div class="right">
-    <div id="intro">
-      <h1>Build an Atom A11y View: Visual and Described content side by side</h1>
-      <p>
-        The accessible version of Build an Atom is embedded in the iframe. As you interact with the visual sim in
-        the iframe with either a keyboard or mouse, the descriptions for the sim automatically update on the right in a
-        copy of the sim's structured Parallel Document Object Model, or PDOM.
-      </p>
+    <!--The PDOM copy will be placed in this container, along with a section just for alerts -->
+    <div class="right">
+      <div id="intro">
+        <h1>Build an Atom A11y View: Visual and Described content side by side</h1>
+        <p>
+          The accessible version of Build an Atom is embedded in the iframe. As you interact with the visual sim in
+          the iframe with either a keyboard or mouse, the descriptions for the sim automatically update on the right in
+          a
+          copy of the sim's structured Parallel Document Object Model, or PDOM.
+        </p>
+      </div>
+      <h2>Build an Atom descriptions structured in a Parallel DOM</h2>
+      <h3>Static and Dynamic Descriptions</h3>
+      <div id="dom-copy-container" class="dom_copy_container" role="presentation"></div>
     </div>
-    <h2>Build an Atom descriptions structured in a Parallel DOM</h2>
-    <h3>Static and Dynamic Descriptions</h3>
-    <div id="dom-copy-container" class="dom_copy_container" role="presentation"></div>
-  </div>
 
-  <!--clear the blocks after the float effect-->
-  <div class="clearfix"></div>
-</div>
+    <!--clear the blocks after the float effect-->
+    <div class="clearfix"></div>
+  </div>
 
 </div>
 
@@ -202,8 +206,11 @@
       var pDOM = innerDoc.getElementsByClassName( 'accessibility' )[ 0 ];
       var pDOMCopy = pDOM.cloneNode( true );
 
-      // get the alert dom elements from the iframe's pDOM
-      var politeElement = innerDoc.getElementById( 'polite' );
+      // get the alert dom elements from the iframe's inner document
+      var politeElement1 = innerDoc.getElementById( 'polite-1' );
+      var politeElement2 = innerDoc.getElementById( 'polite-2' );
+      var politeElement3 = innerDoc.getElementById( 'polite-3' );
+      var politeElement4 = innerDoc.getElementById( 'polite-4' );
 
       // get the alert dom elements from the pDOM copy
       var alertList = document.getElementById( 'alert-list' );
@@ -300,7 +307,7 @@
       function addLiveObserver( originalElement, listElement ) {
         var liveObserver = new MutationObserver( function( mutations ) {
           mutations.forEach( function( mutation ) {
-            var alertText = mutation.target.textContent
+            var alertText = mutation.target.textContent;
 
             // update the text content of the copied element to match the element in the iframe document
             // create a list item to add to the alert list
@@ -326,7 +333,7 @@
                   fadeChild.style.opacity = fadeChild.style.opacity * 0.95;
 
                   // stop animating and remove child
-                  if( listElement.contains( fadeChild ) && fadeChild.style.opacity < 0.1 ) {
+                  if ( listElement.contains( fadeChild ) && fadeChild.style.opacity < 0.1 ) {
                     window.clearInterval( intervalId );
                     listElement.removeChild( fadeChild );
                   }
@@ -340,10 +347,25 @@
         liveObserver.observe( originalElement, config )
       }
 
-      addLiveObserver( politeElement, alertList );
+      // observe each of the live elements and add new text content to the list view
+      addLiveObserver( politeElement1, alertList );
+      addLiveObserver( politeElement2, alertList );
+      addLiveObserver( politeElement3, alertList );
+      addLiveObserver( politeElement4, alertList );
 
       // set focus to the loaded iframe
       document.getElementById( 'iframe' ).focus();
+
+      // Provide fake focus highlighting to the PDOM copy based on what is actually highlighted in the sim.
+      var previousElement = null;
+      setInterval( function() {
+
+        if ( previousElement ) {
+          previousElement.classList.remove( 'highlight' );
+        }
+        previousElement = document.getElementById( 'iframe' ).contentWindow.document.activeElement;
+        previousElement.classList.add( 'highlight' );
+      }, 500 );
     }
   } );
 </script>
