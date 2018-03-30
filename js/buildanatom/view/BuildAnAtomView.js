@@ -68,7 +68,7 @@ define( function( require ) {
 
       // a11y
       tagName: 'h6',
-      accessibleLabel: 'Net Charge Content'
+      innerContent: 'Net Charge Content' // TODO: export to a11y strings file
     } );
     var netChargeAccordionBox = new AccordionBox( netChargeAccordionBoxContents, {
       titleNode: new Text( netChargeString, {
@@ -99,7 +99,7 @@ define( function( require ) {
 
         // a11y
         tagName: 'h6',
-        accessibleLabel: 'Mass Number Content'
+        innerContent: 'Mass Number Content' // TODO: export to a11y strings file
       }
     );
     var massNumberAccordionBox = new AccordionBox( massNumberDisplay, {
