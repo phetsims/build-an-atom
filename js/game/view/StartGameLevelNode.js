@@ -15,7 +15,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LevelSelectionItemNode = require( 'VEGAS/LevelSelectionItemNode' );
+  var LevelSelectionItemNodeDeprecated = require( 'VEGAS/LevelSelectionItemNodeDeprecated' );
   var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
   var Node = require( 'SCENERY/nodes/Node' );
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
@@ -53,7 +53,7 @@ define( function( require ) {
     this.addChild( title );
 
     // Buttons for starting a game level.
-    var periodicTableGameButton = new LevelSelectionItemNode(
+    var periodicTableGameButton = new LevelSelectionItemNodeDeprecated(
       new Image( periodicTableIcon ),
       BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
@@ -72,7 +72,7 @@ define( function( require ) {
       )
     );
     this.addChild( periodicTableGameButton );
-    var massAndChargeGameButton = new LevelSelectionItemNode(
+    var massAndChargeGameButton = new LevelSelectionItemNodeDeprecated(
       new Image( massChargeIcon ),
       BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
@@ -87,7 +87,7 @@ define( function( require ) {
       }
     );
     this.addChild( massAndChargeGameButton );
-    var symbolGameButton = new LevelSelectionItemNode(
+    var symbolGameButton = new LevelSelectionItemNodeDeprecated(
       new Image( symbolQuestionIcon ),
       BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
@@ -102,7 +102,7 @@ define( function( require ) {
       }
     );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new LevelSelectionItemNode(
+    var advancedSymbolGameButton = new LevelSelectionItemNodeDeprecated(
       new Image( questionMarkIcon ),
       BAAGameModel.CHALLENGES_PER_LEVEL,
       function() {
