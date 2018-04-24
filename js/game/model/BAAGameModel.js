@@ -187,7 +187,8 @@ define( function( require ) {
       this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
       this.challengeIndexProperty.set( 0 );
 
-      assert && assert( this.challengeSetProperty.get().length === 0, 'challenges should be cleared before starting a new game' );
+      // TODO: Commented out due to problems related to phet-io, see https://github.com/phetsims/build-an-atom/issues/185
+      // assert && assert( this.challengeSetProperty.get().length === 0, 'challenges should be cleared before starting a new game' );
 
       // Use the predetermined challenges (if specified by phet-io) or generate a random challenge for the given level
       var challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
