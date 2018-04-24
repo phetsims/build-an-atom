@@ -15,7 +15,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LevelSelectionItemNode = require( 'VEGAS/LevelSelectionItemNode' );
+  var LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
   var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
   var Node = require( 'SCENERY/nodes/Node' );
   var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
@@ -53,67 +53,75 @@ define( function( require ) {
     this.addChild( title );
 
     // Buttons for starting a game level.
-    var periodicTableGameButton = new LevelSelectionItemNode(
+    var periodicTableGameButton = new LevelSelectionButton(
       new Image( periodicTableIcon ),
-      BAAGameModel.CHALLENGES_PER_LEVEL,
-      function() {
-        gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
-      },
       gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-      _.extend( {
-          tandem: tandem.createTandem( 'periodicTableGameButton' )
+      {
+        listener: function() {
+          gameModel.startGameLevel( 'periodic-table-game', tandem.createTandem( 'periodicTableGame' ) );
         },
-        {
-          baseColor: BASE_COLOR,
-          bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
-          bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ]
+        baseColor: BASE_COLOR,
+        bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'periodic-table-game' ) ],
+        tandem: tandem.createTandem( 'periodicTableGameButton' ),
+        scoreDisplayOptions: {
+          numberOfStars: BAAGameModel.CHALLENGES_PER_LEVEL,
+          perfectScore: BAAGameModel.MAX_POINTS_PER_GAME_LEVEL
         }
-      )
+      }
     );
     this.addChild( periodicTableGameButton );
-    var massAndChargeGameButton = new LevelSelectionItemNode(
+    var massAndChargeGameButton = new LevelSelectionButton(
       new Image( massChargeIcon ),
-      BAAGameModel.CHALLENGES_PER_LEVEL,
-      function() {
-        gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
-      },
       gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
-        tandem: tandem.createTandem( 'massAndChargeGameButton' ),
+      {
+        listener: function() {
+          gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'massAndChargeGame' ) );
+        },
         baseColor: BASE_COLOR,
         bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
-        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ]
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'mass-and-charge-game' ) ],
+        tandem: tandem.createTandem( 'massAndChargeGameButton' ),
+        scoreDisplayOptions: {
+          numberOfStars: BAAGameModel.CHALLENGES_PER_LEVEL,
+          perfectScore: BAAGameModel.MAX_POINTS_PER_GAME_LEVEL
+        }
       }
     );
     this.addChild( massAndChargeGameButton );
-    var symbolGameButton = new LevelSelectionItemNode(
+    var symbolGameButton = new LevelSelectionButton(
       new Image( symbolQuestionIcon ),
-      BAAGameModel.CHALLENGES_PER_LEVEL,
-      function() {
-        gameModel.startGameLevel( 'symbol-game', tandem.createTandem( 'symbolGame' ) );
-      },
       gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
-        tandem: tandem.createTandem( 'symbolGameButton' ),
+      {
+        listener: function() {
+          gameModel.startGameLevel( 'mass-and-charge-game', tandem.createTandem( 'symbolGame' ) );
+        },
         baseColor: BASE_COLOR,
         bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
-        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ]
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'symbol-game' ) ],
+        tandem: tandem.createTandem( 'symbolGameButton' ),
+        scoreDisplayOptions: {
+          numberOfStars: BAAGameModel.CHALLENGES_PER_LEVEL,
+          perfectScore: BAAGameModel.MAX_POINTS_PER_GAME_LEVEL
+        }
       }
     );
     this.addChild( symbolGameButton );
-    var advancedSymbolGameButton = new LevelSelectionItemNode(
+    var advancedSymbolGameButton = new LevelSelectionButton(
       new Image( questionMarkIcon ),
-      BAAGameModel.CHALLENGES_PER_LEVEL,
-      function() {
-        gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
-      },
       gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
-      BAAGameModel.MAX_POINTS_PER_GAME_LEVEL, {
-        tandem: tandem.createTandem( 'advancedSymbolGameButton' ),
+      {
+        listener: function() {
+          gameModel.startGameLevel( 'advanced-symbol-game', tandem.createTandem( 'advancedSymbolGame' ) );
+        },
         baseColor: BASE_COLOR,
         bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
-        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ]
+        bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( 'advanced-symbol-game' ) ],
+        tandem: tandem.createTandem( 'advancedSymbolGameButton' ),
+        scoreDisplayOptions: {
+          numberOfStars: BAAGameModel.CHALLENGES_PER_LEVEL,
+          perfectScore: BAAGameModel.MAX_POINTS_PER_GAME_LEVEL
+        }
       }
     );
     this.addChild( advancedSymbolGameButton );
