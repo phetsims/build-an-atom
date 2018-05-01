@@ -18,8 +18,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
-  var ScoreboardBar = require( 'VEGAS/ScoreboardBar' );
+  var FiniteStatusBar = require( 'VEGAS/FiniteStatusBar' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
@@ -50,16 +51,30 @@ define( function( require ) {
       tandem.createTandem( 'startGameLevelNode' )
     );
 
-    var scoreboard = new ScoreboardBar(
-      this.layoutBounds.width,
-      gameModel.challengeIndexProperty,
-      new Property( BAAGameModel.CHALLENGES_PER_LEVEL ),
-      gameModel.levelProperty,
+    var scoreboard = new FiniteStatusBar(
+      this.layoutBounds,
+      this.visibleBoundsProperty,
       gameModel.scoreProperty,
-      gameModel.elapsedTimeProperty,
-      gameModel.timerEnabledProperty,
-      function() { gameModel.newGame(); }, {
+      {
+        challengeIndexProperty: gameModel.challengeIndexProperty,
+        numberOfChallengesProperty: new Property( BAAGameModel.CHALLENGES_PER_LEVEL ),
+        levelProperty: gameModel.levelProperty,
+        elapsedTimeProperty: gameModel.elapsedTimeProperty,
+        timerEnabledProperty: gameModel.timerEnabledProperty,
+        barFill: 'rgb( 49, 117, 202 )',
+        textFill: 'white',
+        xMargin: 20,
+        dynamicAlignment: false,
         levelVisible: false,
+        challengeNumberVisible: false,
+        startOverButtonOptions: {
+          font: new PhetFont( 20 ),
+          textFill: 'black',
+          baseColor: '#e5f3ff',
+          xMargin: 6,
+          yMargin: 5,
+          listener: function() { gameModel.newGame(); }
+        },
         tandem: tandem.createTandem( 'scoreboard' )
       }
     );
