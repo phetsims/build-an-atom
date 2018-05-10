@@ -85,7 +85,9 @@ define( function( require ) {
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
       buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
       tandem: tandem.createTandem( 'netChargeAccordionBox' ),
-      accessibleAccordionTitle: netChargeString
+
+      // a11y
+      labelContent: netChargeString
     } );
     this.controlPanelLayer.addChild( netChargeAccordionBox );
 
@@ -117,7 +119,9 @@ define( function( require ) {
       buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
       buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
       tandem: tandem.createTandem( 'massNumberAccordionBox' ),
-      accessibleAccordionTitle: massNumberString
+
+      // a11y
+      labelContent: massNumberString
     } );
     this.controlPanelLayer.addChild( massNumberAccordionBox );
 

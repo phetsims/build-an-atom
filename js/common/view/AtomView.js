@@ -226,7 +226,9 @@ define( function( require ) {
       buttonTouchAreaXDilation: 8,
       buttonTouchAreaYDilation: 8,
       tandem: periodicTableAccordionBoxTandem,
-      accessibleAccordionTitle: elementString
+
+      // a11y
+      labelContent: elementString
     } );
     this.addChild( this.periodicTableAccordionBox );
 
