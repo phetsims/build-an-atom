@@ -19,7 +19,7 @@ define( function( require ) {
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   // strings

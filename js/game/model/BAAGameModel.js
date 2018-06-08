@@ -27,7 +27,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
-  // phet-io modules
+  // ifphetio
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );

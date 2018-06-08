@@ -24,7 +24,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io modules
+  // ifphetio
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // strings

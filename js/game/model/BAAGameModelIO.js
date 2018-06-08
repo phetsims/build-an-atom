@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
-  // phet-io modules
+  // ifphetio
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );

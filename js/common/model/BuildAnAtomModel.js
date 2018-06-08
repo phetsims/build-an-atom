@@ -26,7 +26,7 @@ define( function( require ) {
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 

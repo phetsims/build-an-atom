@@ -20,7 +20,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   // strings
