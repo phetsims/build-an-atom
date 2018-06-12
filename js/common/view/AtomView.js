@@ -207,7 +207,7 @@ define( function( require ) {
       model.particleAtom,
       tandem.createTandem( 'periodicTableAndSymbol' ),
       {
-        pickable: false,
+        pickable: false
       }
     );
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
