@@ -122,12 +122,15 @@
 
   <div id="content">
     <div class="left">
-      <h3>A11y View: Build an Atom</h3>
+      <h1>A11y View: Build an Atom</h1>
       <div class="aspect-ratio">
         <iframe id="iframe" allowfullscreen scrolling="no" title="Interact with Build an Atom"></iframe>
       </div>
       <div id="alerts">
-        <h4>Activity log - The most recent interactive alerts.</h4>
+        <h3>Activity log of Interactive Alerts</h3>
+        <p>
+          Interactive alerts are read out as the user interacts providing a description of what is happening in real-time. Alerts appear in reverse chronological order with the latest on top.
+        </p>
         <div id=alert-copy-container class=alert_copy_container>
           <div id='polite-element-container'>
             <ul class='alert_copy' id='alert-list'></ul>
@@ -139,16 +142,16 @@
     <!--The PDOM copy will be placed in this container, along with a section just for alerts -->
     <div class="right">
       <div id="intro">
-        <h4>What is the A11y View?</h4>
-        <p>In this web page, the accessible version of Build an Atom is embedded in the
-          iframe. Below, in blue, is the copy of the sim's structured Parallel Document Object Model, or PDOM.
-          As you interact with the visual sim in the iframe with either a keyboard or mouse,
-          the descriptions for the sim automatically update on the right, key dynamic elements will be highlighted
-          <span class="dynamic">like this</span>. Any alerts set on an element with an
-          "aria-live" attribute will be displayed in the activity log, with the most recent interactive alerts first.
+        <h2>What is the A11y View?</h2>
+        <p>
+          The A11y View is a design and presentation tool that allows us to visually demonstrate the accessibility layer of the simulation. We refer to this layer as the Parallel DOM, or PDOM. The PDOM (copied into the blue box) exposes the simulation’s full document structure and all the dynamic descriptive content that lives within that structure to a student accessing the simulation using assistive technology, such as screen reader software. The activity log (copied into the orange box), exposes the interactive alerts that a student would hear in real-time as they interact with the simulation. Interact with the accessible version of Build an Atom in the iframe, with either a keyboard or a mouse, and notice how the activity log (orange box) and the content of the PDOM (blue box) update as you interact.
+        </p>
+        <p>
+          <b>Please note</b> that students do not use the A11y View, they use the accessible simulation, alone, which is rendered here inside the iframe. 
         </p>
       </div>
-      <h4>The Build an Atom descriptions structured in a Parallel DOM</h4>
+      <h3>PDOM & Descriptions for Build an Atom</h3>
+      <p>Content in the blue box updates in real-time to provide an always-available description of the current state of the sim.</p>
       <div id="dom-copy-container" class="dom_copy_container" role="presentation"></div>
     </div>
 
@@ -175,13 +178,30 @@
   noPostMessage && ( simulationQueryString += 'postMessageOnLoad&postMessageOnError&' );
   noAccessibility && ( simulationQueryString += 'accessibility' );
 
+  // we will try to find the sim with and without brand because it may or may not be there depending on build, use
+  // XHR to determine if file is there, solution from
+  // https://stackoverflow.com/questions/10418031/how-do-i-capture-the-http-code-of-an-iframe/
+  var repoLocale = 'build-an-atom_en';
+  var withBrand = repoLocale + '_phet.html' + simulationQueryString;
+  var withoutBrand = repoLocale + '.html' + simulationQueryString;
 
-  // support multiple dev sites
-  var onDevSite = [ 'bayes.colorado.edu', 'phet-dev.colorado.edu', 'www.colorado.edu' ].indexOf( window.location.hostname ) >= 0;
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function() {
+    if ( httpRequest.readyState === 4 ) {
+      if ( httpRequest.status === 200 ) {
 
-  var brandSuffix = onDevSite ? '_phet' : '';   // add brand name for dev deploys
+        // success without suffix, go ahead and set the src
+        document.getElementById( 'iframe' ).setAttribute( 'src', withoutBrand );
+      }
+      else {
 
-  document.getElementById( 'iframe' ).setAttribute( 'src', 'build-an-atom_en' + brandSuffix + '.html' + simulationQueryString );
+        // file without suffix didn't exist, try with the brand suffix
+        document.getElementById( 'iframe' ).setAttribute( 'src', withBrand );
+      }
+    }
+  };
+  httpRequest.open( 'GET', withoutBrand );
+  httpRequest.send();
 </script>
 
 <script type="application/javascript">
