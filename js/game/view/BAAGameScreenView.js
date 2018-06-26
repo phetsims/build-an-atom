@@ -116,7 +116,7 @@ define( function( require ) {
 
           // Add the dialog node that indicates that the level has been completed.
           rootNode.addChild( new LevelCompletedNode(
-            gameModel.levelProperty.get(),
+            gameModel.levelProperty.get() + 1,
             gameModel.scoreProperty.get(),
             BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
             BAAGameModel.CHALLENGES_PER_LEVEL,
