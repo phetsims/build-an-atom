@@ -58,7 +58,6 @@ define( function( require ) {
       {
         challengeIndexProperty: gameModel.challengeIndexProperty,
         numberOfChallengesProperty: new Property( BAAGameModel.CHALLENGES_PER_LEVEL ),
-        levelProperty: gameModel.levelProperty,
         elapsedTimeProperty: gameModel.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
         barFill: 'rgb( 49, 117, 202 )',
