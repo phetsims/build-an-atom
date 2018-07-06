@@ -56,9 +56,9 @@ define( function( require ) {
       // This may have been deserialized from the instance itself or from the array it was contained in (which
       // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
       // TODO: is there a better way to do this, or at least factor it out?
-      var instance = phetio.hasInstance( stateObject.tandem.phetioID );
+      var instance = phetio.hasInstance( stateObject.phetioID );
       if ( instance ) {
-        return phetio.getInstance( stateObject.tandem.phetioID );
+        return phetio.getInstance( stateObject.phetioID );
       }
 
       var model = phetio.getInstance( stateObject.modelPhetioID );
@@ -68,7 +68,7 @@ define( function( require ) {
         neutronCount: stateObject.answerAtom.neutronCount,
         electronCount: stateObject.answerAtom.electronCount
       } );
-      var tandem = new phet.tandem.Tandem( stateObject.tandem.phetioID );
+      var tandem = new phet.tandem.Tandem( stateObject.phetioID );
 
       return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
     }
