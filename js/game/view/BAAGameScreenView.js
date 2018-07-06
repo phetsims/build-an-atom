@@ -95,10 +95,10 @@ define( function( require ) {
         if ( self.rewardNode !== null ) {
           self.rewardNode.dispose();
         }
-        self.rewardNode = null;
         if ( self.levelCompletedNode !== null ) {
           self.levelCompletedNode.dispose();
         }
+        self.rewardNode = null;
         self.levelCompletedNode = null;
       }
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {

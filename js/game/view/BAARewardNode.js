@@ -31,11 +31,26 @@ define( function( require ) {
   function BAARewardNode( tandem ) {
     var nodes = this.createNodes( tandem );
     RewardNode.call( this, { nodes: nodes } );
+
+    // @private
+    this.disposeBAARewardNode = function() {
+      nodes.forEach( function( node ) {
+        !node.isDisposed() && node.dispose();
+      } );
+    };
   }
 
   buildAnAtom.register( 'BAARewardNode', BAARewardNode );
 
   return inherit( RewardNode, BAARewardNode, {
+
+    /**
+     * @public
+     */
+    dispose: function() {
+      this.disposeBAARewardNode();
+      RewardNode.prototype.dispose.call( this );
+    },
 
     // @private
     _createRandomStableAtom: function() {
@@ -52,7 +67,7 @@ define( function( require ) {
       var self = this;
       var nodes = [];
       var groupTandem = tandem.createGroupTandem( 'interactiveSymbolNodes' );
-      for ( var i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ){
+      for ( var i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
         var interactiveSymbolNode = new InteractiveSymbolNode( self._createRandomStableAtom(), groupTandem.createNextTandem() );
         interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH +
                                        phet.joist.random.nextDouble() *
