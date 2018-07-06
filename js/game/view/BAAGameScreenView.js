@@ -82,11 +82,12 @@ define( function( require ) {
     scoreboard.top = 0;
     var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     this.rewardNode = null;
+    this.levelCompletedNode = null; // @private
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( function( state, previousState ) {
 
-      (previousState && previousState.disposeEmitter) && previousState.disposeEmitter.emit();
+      ( previousState && previousState.disposeEmitter ) && previousState.disposeEmitter.emit();
 
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();
@@ -95,6 +96,10 @@ define( function( require ) {
           self.rewardNode.dispose();
         }
         self.rewardNode = null;
+        if ( self.levelCompletedNode !== null ) {
+          self.levelCompletedNode.dispose();
+        }
+        self.levelCompletedNode = null;
       }
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {
         rootNode.removeAllChildren();
@@ -114,7 +119,7 @@ define( function( require ) {
         if ( gameModel.provideFeedbackProperty.get() ) {
 
           // Add the dialog node that indicates that the level has been completed.
-          rootNode.addChild( new LevelCompletedNode(
+          self.levelCompletedNode = new LevelCompletedNode(
             gameModel.levelProperty.get() + 1,
             gameModel.scoreProperty.get(),
             BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
@@ -130,7 +135,8 @@ define( function( require ) {
               maxWidth: self.layoutBounds.width,
               tandem: tandem.createTandem( 'levelCompletedNode' )
             }
-          ) );
+          );
+          rootNode.addChild( self.levelCompletedNode );
         }
       }
       else if ( typeof( state.createView ) === 'function' ) {
