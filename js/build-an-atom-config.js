@@ -40,6 +40,7 @@ require.config( {
     SCENERY_PHET: '../../scenery-phet/js',
     SHRED: '../../shred/js',
     SUN: '../../sun/js',
+    TAMBO: '../../tambo/js',
     TANDEM: '../../tandem/js',
     VEGAS: '../../vegas/js',
     VIBE: '../../vibe/js'
