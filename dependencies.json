@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.4.2-phetio Tue Jul 24 2018 17:13:45 GMT-0600 (MDT)",
+  "comment": "# build-an-atom 1.4.3-phetiorc.1 Tue Jul 24 2018 21:02:19 GMT-0600 (MDT)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "2bb9297ce7fa926bd6413ec349e45c323ac66beb",
+    "sha": "fdca9ff70f4bb3e31a99b1dee0ca5ac567a28974",
     "branch": "1.4-phetio"
   },
   "chipper": {
@@ -82,6 +82,6 @@
   },
   "vibe": {
     "sha": "ed4c7ab86fa6d0a17cbc71734bb56ba87536f2b4",
-    "branch": "build-an-atom-1.4-phetio"
+    "branch": "HEAD"
   }
 }
