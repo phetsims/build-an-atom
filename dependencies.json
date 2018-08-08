@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.2-rc.3 Mon Jul 30 2018 20:27:51 GMT-0600 (MDT)",
+  "comment": "# build-an-atom 1.6.2 Wed Aug 08 2018 13:07:10 GMT-0600 (MDT)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "dfd986afc5ec02a7c251d57fb73198c2f2d9d256",
+    "sha": "c771864a8d7887c5fc52702e961f3cb1f9f89964",
     "branch": "1.6"
   },
   "chipper": {
