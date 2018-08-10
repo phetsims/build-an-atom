@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.5.7-phetio Wed Aug 08 2018 15:17:12 GMT-0600 (MDT)",
+  "comment": "# build-an-atom 1.5.7-phetio Thu Aug 09 2018 23:21:26 GMT-0600 (MDT)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,12 +13,12 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "3c31e07e7552dc6d76847e73261b1b7da9f65fdf",
+    "sha": "6724d9d16068e2c482df4f1ff40729cbd6c7a1a8",
     "branch": "1.5-phetio"
   },
   "chipper": {
-    "sha": "cd2b3787ba45ed382c7054e5d9c04a489332479e",
-    "branch": "HEAD"
+    "sha": "85d24775bdfbc8e2ac05d4f966b6eebdcaec621f",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "dot": {
     "sha": "6b4ec39c10d667cd64543e59184f0a2fff4fad6e",
@@ -61,8 +61,8 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "29164892095a5d8f47687c3ed57dab5c3fe2d82b",
-    "branch": "HEAD"
+    "sha": "6af97ed8a1b102d3fdb5cbfc981ce850bfccfa0f",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "query-string-machine": {
     "sha": "c74e454ec68033a9546b8181d4d962eb8ceef81f",
