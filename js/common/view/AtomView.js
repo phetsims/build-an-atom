@@ -258,7 +258,7 @@ define( function( require ) {
       property: model.showStableOrUnstableProperty,
       tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckbox' )
     } ], {
-      boxWidth: 12,
+      checkboxOptions: { boxWidth: 12 },
       spacing: 8,
       tandem: tandem.createTandem( 'labelVisibilityCheckboxGroup' )
     } ), {
