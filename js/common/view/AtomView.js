@@ -234,7 +234,7 @@ define( function( require ) {
 
     var labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
     var labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( [ {
-      content: new Text( elementString, {
+      node: new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: labelVisibilityControlPanelTandem.createTandem( 'elementText' )
@@ -242,7 +242,7 @@ define( function( require ) {
       property: model.showElementNameProperty,
       tandem: labelVisibilityControlPanelTandem.createTandem( 'showElementNameCheckbox' )
     }, {
-      content: new Text( neutralSlashIonString, {
+      node: new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: labelVisibilityControlPanelTandem.createTandem( 'neutralOrIonText' )
@@ -250,7 +250,7 @@ define( function( require ) {
       property: model.showNeutralOrIonProperty,
       tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckbox' )
     }, {
-      content: new Text( stableSlashUnstableString, {
+      node: new Text( stableSlashUnstableString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
