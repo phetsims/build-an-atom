@@ -213,6 +213,7 @@ define( function( require ) {
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
     var periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
     this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
+      cornerRadius: 3,
       titleNode: new Text( elementString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,

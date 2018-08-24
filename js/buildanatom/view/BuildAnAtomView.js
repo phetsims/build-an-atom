@@ -71,6 +71,7 @@ define( function( require ) {
       innerContent: 'Net Charge Content' // TODO: export to a11y strings file
     } );
     var netChargeAccordionBox = new AccordionBox( netChargeAccordionBoxContents, {
+      cornerRadius: 3,
       titleNode: new Text( netChargeString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,

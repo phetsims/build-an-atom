@@ -43,6 +43,7 @@ define( function( require ) {
       scale: 0.43 // scale empirically determined
     } );
     var symbolAccordionBox = new AccordionBox( symbolNode, {
+      cornerRadius: 3,
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
