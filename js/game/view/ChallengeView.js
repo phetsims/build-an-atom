@@ -20,7 +20,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Text = require( 'SCENERY/nodes/Text' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
-  var Timer = require( 'PHET_CORE/Timer' );
+  var timer = require( 'PHET_CORE/timer' );
 
   // strings
   var checkString = require( 'string!VEGAS/check' );
@@ -87,7 +87,7 @@ define( function( require ) {
         // Since the button disposes itself while triggering other events, we must run this in the next animation frame
         // to avoid mismatched PhET-iO message indices, see https://github.com/phetsims/build-an-atom/issues/181
         // N.B. That is to say, I don't really understand the problem nor why this solution works.
-        Timer.setTimeout( function() {
+        timer.setTimeout( function() {
           challenge.next();
         }, 0 );
       },
