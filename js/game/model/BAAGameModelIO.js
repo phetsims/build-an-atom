@@ -39,7 +39,7 @@ define( function( require ) {
         this.instance.startGameLevel( levelType );
       },
       documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
-      canBeInvokedForReadOnlyInstances: false
+      invocableForReadOnlyInstances: false
     },
 
     setChallenges: {
@@ -49,7 +49,7 @@ define( function( require ) {
         this.instance.setChallenges( challenges );
       },
       documentation: 'Specify exact challenges',
-      canBeInvokedForReadOnlyInstances: false
+      invocableForReadOnlyInstances: false
     },
 
     setAllowedChallengeTypesByLevel: {
@@ -62,7 +62,7 @@ define( function( require ) {
       },
 
       documentation: 'Specify which challenge types may be presented to the user for each level.',
-      canBeInvokedForReadOnlyInstances: false
+      invocableForReadOnlyInstances: false
       // The default value is [
       //    [ 'schematic-to-element', 'counts-to-element' ],
       //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
