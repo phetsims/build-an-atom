@@ -33,6 +33,7 @@ define( function( require ) {
     /**
      * @param {BAAGameChallenge} baaGameState
      * @returns
+     * @override
      */
     toStateObject: function( baaGameState ) {
       assert && assertInstanceOf( baaGameState, phet.buildAnAtom.BAAGameState );
@@ -47,6 +48,7 @@ define( function( require ) {
     /**
      *
      * @param {Object} stateObject
+     * @override
      */
     fromStateObject: function( stateObject ) {
 
