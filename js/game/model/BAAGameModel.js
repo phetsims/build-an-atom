@@ -115,7 +115,7 @@ define( function( require ) {
     // @private
     this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      phetioType: EmitterIO( [ ObjectIO ] )
+      phetioType: EmitterIO( [ { name: 'results', type: ObjectIO } ] )
     } );
 
     this.bestScores = []; // Properties that track progress on each game level.
@@ -140,7 +140,7 @@ define( function( require ) {
 
     this.checkAnswerEmitter = new Emitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      phetioType: EmitterIO( [ ObjectIO ] )
+      phetioType: EmitterIO( [ { name: 'result', type: ObjectIO } ] )
     } );
 
     // @private
