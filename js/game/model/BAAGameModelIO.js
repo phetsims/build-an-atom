@@ -13,7 +13,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   // ifphetio
-  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
+  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );

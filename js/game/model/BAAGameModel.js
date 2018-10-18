@@ -28,7 +28,7 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
 
   // ifphetio
-  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
+  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
 
