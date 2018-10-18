@@ -24,7 +24,7 @@ define( function( require ) {
   var Range = require( 'DOT/Range' );
 
   // ifphetio
-  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
+  var StringIO = require( 'TANDEM/types/StringIO' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel

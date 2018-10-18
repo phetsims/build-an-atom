@@ -25,7 +25,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // ifphetio
-  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
+  var StringIO = require( 'TANDEM/types/StringIO' );
 
   // strings
   var findTheElementString = require( 'string!BUILD_AN_ATOM/findTheElement' );

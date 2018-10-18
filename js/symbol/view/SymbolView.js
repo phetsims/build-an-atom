@@ -20,7 +20,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // ifphetio
-  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   // strings
   var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );

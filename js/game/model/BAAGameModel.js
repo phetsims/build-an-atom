@@ -29,8 +29,8 @@ define( function( require ) {
 
   // ifphetio
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
-  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
 
   // constants
   var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;

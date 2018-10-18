@@ -27,8 +27,8 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // ifphetio
-  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var StringIO = require( 'TANDEM/types/StringIO' );
 
   // strings
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
