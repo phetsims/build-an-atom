@@ -9,6 +9,7 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
@@ -19,9 +20,6 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   // strings
   var massNumberString = require( 'string!BUILD_AN_ATOM/massNumber' );

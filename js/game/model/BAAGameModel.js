@@ -26,8 +26,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
-
-  // ifphetio
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );

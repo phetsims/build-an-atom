@@ -11,10 +11,10 @@ define( function( require ) {
   // modules
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 

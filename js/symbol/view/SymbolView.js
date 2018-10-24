@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
@@ -18,9 +19,6 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   // strings
   var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );

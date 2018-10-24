@@ -11,10 +11,10 @@ define( function( require ) {
   // modules
   var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**

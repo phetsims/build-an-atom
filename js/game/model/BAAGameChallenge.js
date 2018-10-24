@@ -22,8 +22,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
-
-  // ifphetio
   var StringIO = require( 'TANDEM/types/StringIO' );
 
   /**

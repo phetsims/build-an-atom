@@ -10,15 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-
-  // ifphetio
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
+
+  // ifphetio
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
    * @param {BAAGameModel} baaGameModel

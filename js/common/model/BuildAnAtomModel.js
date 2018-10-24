@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
@@ -25,9 +26,6 @@ define( function( require ) {
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
   var Vector2 = require( 'DOT/Vector2' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var StringIO = require( 'TANDEM/types/StringIO' );
 
   // strings
