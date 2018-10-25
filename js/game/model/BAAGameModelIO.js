@@ -13,9 +13,9 @@ define( function( require ) {
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );

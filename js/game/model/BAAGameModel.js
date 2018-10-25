@@ -9,11 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
   var BAAGameModelIO = require( 'BUILD_AN_ATOM/game/model/BAAGameModelIO' );
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
@@ -22,13 +24,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberProperty = require( 'AXON/NumberProperty' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
-  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
 
   // constants
   var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;

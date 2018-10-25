@@ -14,13 +14,13 @@ define( function( require ) {
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
   var BAARewardNode = require( 'BUILD_AN_ATOM/game/view/BAARewardNode' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  var FiniteStatusBar = require( 'VEGAS/FiniteStatusBar' );
   var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
-  var FiniteStatusBar = require( 'VEGAS/FiniteStatusBar' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );

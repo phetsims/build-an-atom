@@ -25,8 +25,8 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
-  var Vector2 = require( 'DOT/Vector2' );
   var StringIO = require( 'TANDEM/types/StringIO' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // strings
   var electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
