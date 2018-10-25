@@ -15,10 +15,10 @@ define( function( require ) {
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
+  var phetioInherit = require( 'TANDEM/phetioInherit' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
    * @param {BAAGameModel} baaGameModel
