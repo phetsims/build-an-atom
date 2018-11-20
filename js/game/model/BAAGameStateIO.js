@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
+  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
@@ -23,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameStateIO( baaGameState, phetioID ) {
-    assert && assertInstanceOf( baaGameState, phet.buildAnAtom.BAAGameState );
+    assert && assertInstanceOf( baaGameState, BAAGameState );
     ObjectIO.call( this, baaGameState, phetioID );
   }
 
@@ -36,7 +37,7 @@ define( function( require ) {
      * @override
      */
     toStateObject: function( baaGameState ) {
-      assert && assertInstanceOf( baaGameState, phet.buildAnAtom.BAAGameState );
+      assert && assertInstanceOf( baaGameState, BAAGameState );
       if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
         return BAAGameChallengeIO.toStateObject( baaGameState );
       }
@@ -53,10 +54,10 @@ define( function( require ) {
     fromStateObject: function( stateObject ) {
 
       if ( stateObject.name === 'choosingLevel' ) {
-        return phet.buildAnAtom.BAAGameState.CHOOSING_LEVEL;
+        return BAAGameState.CHOOSING_LEVEL;
       }
       else if ( stateObject.name === 'levelCompleted' ) {
-        return phet.buildAnAtom.BAAGameState.LEVEL_COMPLETED;
+        return BAAGameState.LEVEL_COMPLETED;
       }
       else if ( stateObject.name === 'challenge' ) {
         return BAAGameChallengeIO.fromStateObject( stateObject );
