@@ -35,7 +35,7 @@ define( function( require ) {
     // @private
     this.disposeBAARewardNode = function() {
       nodes.forEach( function( node ) {
-        !node.isDisposed() && node.dispose();
+        !node.isDisposed && node.dispose();
       } );
     };
   }
