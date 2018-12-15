@@ -24,5 +24,8 @@
     ],
     "accessible": true,
     "simulation": true
+  },
+  "eslintConfig": {
+    "extends": "../chipper/eslint/.eslintrc.js"
   }
 }
