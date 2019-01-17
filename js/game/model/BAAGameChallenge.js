@@ -36,18 +36,21 @@ define( function( require ) {
     // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     BAAGameState.call( this, 'challenge', {
       tandem: tandem,
+      phetioState: false,
       phetioType: BAAGameChallengeIO
     } );
     this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
       phetioType: PropertyIO( StringIO ), // TODO why not an Enum?
       phetioReadOnly: true,
+      phetioState: false,
       validValues: _.values( BAAChallengeState )
     } );
     this.numSubmissionsProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'numSubmissionsProperty' ),
       range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      phetioState: false
     } );
     this.answerAtom = answerAtom; // @public (phet-io)
     this.pointValue = 0; // @public (phet-io)

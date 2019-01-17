@@ -49,32 +49,44 @@ define( function( require ) {
   /**
    * Constructor for main model object.
    * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function BuildAnAtomModel( tandem ) {
+  function BuildAnAtomModel( tandem, options ) {
 
     var self = this;
 
+    options = _.extend( {
+      phetioState: true
+    }, options );
+
     // Properties that control label visibility in the view.
     this.showElementNameProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'showElementNameProperty' )
+      tandem: tandem.createTandem( 'showElementNameProperty' ),
+      phetioState: options.phetioState
     } );
     this.showNeutralOrIonProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'showNeutralOrIonProperty' )
+      tandem: tandem.createTandem( 'showNeutralOrIonProperty' ),
+      phetioState: options.phetioState
     } );
     this.showStableOrUnstableProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'showStableOrUnstableProperty' )
+      tandem: tandem.createTandem( 'showStableOrUnstableProperty' ),
+      phetioState: options.phetioState
     } );
 
     // Property that controls electron depiction in the view.
     this.electronShellDepictionProperty = new Property( 'orbits', {
       tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
+      phetioState: options.phetioState,
       phetioType: PropertyIO( StringIO ),
       validValues: [ 'orbits', 'cloud' ]
     } );
 
     // Create the atom that the user will build, modify, and generally play with.
-    this.particleAtom = new ParticleAtom( { tandem: tandem.createTandem( 'particleAtom' ) } );
+    this.particleAtom = new ParticleAtom( {
+      tandem: tandem.createTandem( 'particleAtom' ),
+      phetioState: options.phetioState
+    } );
 
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
@@ -85,7 +97,8 @@ define( function( require ) {
         baseColor: PhetColorScheme.RED_COLORBLIND,
         captionText: protonsString,
         captionColor: 'white',
-        tandem: tandem.createTandem( 'protonBucket' )
+        tandem: tandem.createTandem( 'protonBucket' ),
+        phetioState: options.phetioState
       } ),
       neutronBucket: new SphereBucket( {
         position: new Vector2( 0, BUCKET_Y_OFFSET ),
@@ -94,7 +107,8 @@ define( function( require ) {
         baseColor: 'rgb( 100, 100, 100 )',
         captionText: neutronsString,
         captionColor: 'white',
-        tandem: tandem.createTandem( 'neutronBucket' )
+        tandem: tandem.createTandem( 'neutronBucket' ),
+        phetioState: options.phetioState
       } ),
       electronBucket: new SphereBucket( {
         position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
@@ -104,7 +118,8 @@ define( function( require ) {
         baseColor: 'blue',
         captionText: electronsString,
         captionColor: 'white',
-        tandem: tandem.createTandem( 'electronBucket' )
+        tandem: tandem.createTandem( 'electronBucket' ),
+        phetioState: options.phetioState
       } )
     };
 
@@ -183,6 +198,7 @@ define( function( require ) {
       },
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
+        phetioState: options.phetioState,
         phetioType: DerivedPropertyIO( BooleanIO )
       }
     );

@@ -28,8 +28,8 @@ define( function( require ) {
     BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with
-    // which the user can interact.
-    this.buildAnAtomModel = new BuildAnAtomModel( tandem.createTandem( 'buildAnAtomModel' ) );
+    // which the user can interact. We want to keep this model out of the state
+    this.buildAnAtomModel = new BuildAnAtomModel( tandem.createTandem( 'buildAnAtomModel' ), { phetioState: false } );
     this.buildAnAtomModel.showElementNameProperty.set( false );
     this.buildAnAtomModel.showNeutralOrIonProperty.set( false );
     this.buildAnAtomModel.showStableOrUnstableProperty.set( false );
