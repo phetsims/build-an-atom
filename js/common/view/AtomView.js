@@ -341,7 +341,6 @@ define( function( require ) {
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,
       radius: BAASharedConstants.RESET_BUTTON_RADIUS,
-      touchAreaDilation: 8,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
     this.addChild( resetAllButton );

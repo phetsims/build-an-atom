@@ -113,7 +113,6 @@ define( function( require ) {
       },
       radius: BAASharedConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' ),
-      touchAreaDilation: 8,
       right: layoutBounds.width - CONTROLS_INSET,
       bottom: layoutBounds.height - CONTROLS_INSET
     } );
