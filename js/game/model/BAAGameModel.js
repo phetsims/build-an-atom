@@ -215,11 +215,9 @@ define( function( require ) {
       this.scoreProperty.set( 0 );
 
       // (phet-io) Dispose old challenges before setting the property again.
-      if ( this.challengeSetProperty.get().length > 0 ) {
-        this.challengeSetProperty.get().forEach( function( challenge ) {
-          ( !challenge.disposed ) && challenge.dispose();
-        } );
-      }
+      this.challengeSetProperty.get().forEach( function( challenge ) {
+        ( !challenge.disposed ) && challenge.dispose();
+      } );
       this.challengeSetProperty.get().length = 0;
     },
 
