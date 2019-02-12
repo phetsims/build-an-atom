@@ -11,11 +11,9 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -31,9 +29,8 @@ define( function( require ) {
   function SymbolView( model, tandem ) {
     AtomView.call( this, model, tandem );
 
-    this.symbolAccordionBoxExpandedProperty = new Property( true, {
-      tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.symbolAccordionBoxExpandedProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' )
     } );
 
     // Add the symbol node within an accordion box.

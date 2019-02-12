@@ -15,7 +15,6 @@ define( function( require ) {
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
   var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
@@ -65,15 +64,13 @@ define( function( require ) {
     } );
 
     // @public {Property.<boolean>}
-    this.soundEnabledProperty = new Property( true, {
-      tandem: tandem.createTandem( 'soundEnabledProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.soundEnabledProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'soundEnabledProperty' )
     } );
 
     // @public {Property.<boolean>}
-    this.timerEnabledProperty = new Property( false, {
-      tandem: tandem.createTandem( 'timerEnabledProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.timerEnabledProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'timerEnabledProperty' )
     } );
 
     // @public (read-only) {Property.<number>}

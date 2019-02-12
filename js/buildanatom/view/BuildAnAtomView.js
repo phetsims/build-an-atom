@@ -9,15 +9,13 @@ define( function( require ) {
   // modules
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -40,13 +38,11 @@ define( function( require ) {
     AtomView.call( this, model, tandem );
 
     // @private - properties that are passed to the accordion boxes that control their expansion state
-    this.netChargeAccordionBoxExpandedProperty = new Property( false, {
-      tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.netChargeAccordionBoxExpandedProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' )
     } );
-    this.massNumberAccordionBoxExpandedProperty = new Property( false, {
-      tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.massNumberAccordionBoxExpandedProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' )
     } );
 
     // Add the charge meter and charge comparison display inside of an accordion box.
