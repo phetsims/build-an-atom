@@ -59,9 +59,6 @@ define( function( require ) {
 
     // @public
     this.disposeEmitter = new Emitter();
-
-    // @private
-    this.disposed = false;
   }
 
   buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
@@ -72,8 +69,7 @@ define( function( require ) {
      * @public - release resources when no longer used
      */
     dispose: function() {
-      assert && assert( !this.disposed, 'only dispose once' );
-      this.disposed = true;
+      assert && assert( !this.isDisposed, 'only dispose once' );
       this.disposeEmitter.emit();
       this.challengeStateProperty.dispose();
       this.numSubmissionsProperty.dispose();
@@ -82,6 +78,9 @@ define( function( require ) {
 
       // Remove all listeners from the dispose emitter to avoid memory leaks.
       this.disposeEmitter.dispose();
+
+      // make sure disposed flag is set (though it should have been set by the superclass's dispose function)
+      this.isDisposed = true;
     },
 
     /**

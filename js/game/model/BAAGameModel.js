@@ -213,7 +213,7 @@ define( function( require ) {
 
       // (phet-io) Dispose old challenges before setting the property again.
       this.challengeSetProperty.get().forEach( function( challenge ) {
-        ( !challenge.disposed ) && challenge.dispose();
+        ( !challenge.isDisposed ) && challenge.dispose();
       } );
       this.challengeSetProperty.get().length = 0;
     },
