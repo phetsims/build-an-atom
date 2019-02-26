@@ -13,9 +13,9 @@ define( function( require ) {
   var NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
+  var validate = require( 'AXON/validate' );
 
   // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
   /**
@@ -24,12 +24,12 @@ define( function( require ) {
    * @constructor
    */
   function BAAGameChallengeIO( baaGameChallenge, phetioID ) {
-    assert && assertInstanceOf( baaGameChallenge, phet.buildAnAtom.BAAGameChallenge );
     ObjectIO.call( this, baaGameChallenge, phetioID );
   }
 
   phetioInherit( ObjectIO, 'BAAGameChallengeIO', BAAGameChallengeIO, {}, {
     documentation: 'A challenge for the Game',
+    validator: { isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge },
 
     /**
      * @param {BAAGameChallenge} baaGameChallenge
@@ -37,7 +37,7 @@ define( function( require ) {
      * @override
      */
     toStateObject: function( baaGameChallenge ) {
-      assert && assertInstanceOf( baaGameChallenge, phet.buildAnAtom.BAAGameChallenge );
+      validate( baaGameChallenge, this.validator );
       return {
         pointValue: baaGameChallenge.pointValue,
         answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),

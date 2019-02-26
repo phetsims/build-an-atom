@@ -16,9 +16,7 @@ define( function( require ) {
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {BAAGameModel} baaGameModel
@@ -26,7 +24,6 @@ define( function( require ) {
    * @constructor
    */
   var BAAGameModelIO = function( baaGameModel, phetioID ) {
-    assert && assertInstanceOf( baaGameModel, phet.buildAnAtom.BAAGameModel );
     ObjectIO.call( this, baaGameModel, phetioID );
   };
 
@@ -73,7 +70,7 @@ define( function( require ) {
   }, {
 
     clearChildInstances: function( baaGameModel ) {
-      assert && assertInstanceOf( baaGameModel, phet.buildAnAtom.BAAGameModel );
+      validate( baaGameModel, this.validator );
       baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
         challenge.dispose();
       } );
@@ -85,7 +82,8 @@ define( function( require ) {
     // },
 
 
-    documentation: 'The model for the Game'
+    documentation: 'The model for the Game',
+    validator: { isValidValue: phet.buildAnAtom.BAAGameModel }
   } );
 
   buildAnAtom.register( 'BAAGameModelIO', BAAGameModelIO );
