@@ -244,7 +244,7 @@ define( function( require ) {
         this.scores[ level ].value = this.scoreProperty.get();
 
         // When the game is complete, send notification that can be used by phet-io
-        this.levelCompletedEmitter.emit1( {
+        this.levelCompletedEmitter.emit( {
           level: level,
           maxPoints: MAX_POINTS_PER_GAME_LEVEL,
           challenges: CHALLENGES_PER_LEVEL,
@@ -324,7 +324,7 @@ define( function( require ) {
 
         points: points
       };
-      this.checkAnswerEmitter.emit1( _.extend( extension, arg ) );
+      this.checkAnswerEmitter.emit( _.extend( extension, arg ) );
     }
   }, {
 
