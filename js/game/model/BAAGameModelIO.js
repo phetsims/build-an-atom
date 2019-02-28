@@ -83,7 +83,7 @@ define( function( require ) {
 
 
     documentation: 'The model for the Game',
-    validator: { isValidValue: phet.buildAnAtom.BAAGameModel }
+    validator: { isValidValue: x => x instanceof phet.buildAnAtom.BAAGameModel }
   } );
 
   buildAnAtom.register( 'BAAGameModelIO', BAAGameModelIO );
