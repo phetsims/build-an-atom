@@ -49,9 +49,13 @@ define( function( require ) {
       contentAlign: 'center',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      buttonTouchAreaXDilation: 8,
-      buttonTouchAreaYDilation: 8,
       expandedProperty: this.symbolAccordionBoxExpandedProperty,
+      expandCollapseButtonOptions: {
+        touchAreaXDilation: 8,
+        touchAreaYDilation: 8
+      },
+
+      // phet-io
       tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
       // a11y

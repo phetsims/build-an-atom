@@ -77,8 +77,12 @@ define( function( require ) {
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
-      buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
+      expandCollapseButtonOptions: {
+        touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
+        touchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
+      },
+
+      // phet-io
       tandem: tandem.createTandem( 'netChargeAccordionBox' ),
 
       // a11y
@@ -111,8 +115,12 @@ define( function( require ) {
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      buttonTouchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
-      buttonTouchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION,
+      expandCollapseButtonOptions: {
+        touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
+        touchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
+      },
+
+      // phet-io
       tandem: tandem.createTandem( 'massNumberAccordionBox' ),
 
       // a11y

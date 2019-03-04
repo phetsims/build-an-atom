@@ -224,8 +224,12 @@ define( function( require ) {
       titleAlignX: 'left',
       buttonAlign: 'right',
       expandedProperty: this.periodicTableAccordionBoxExpandedProperty,
-      buttonTouchAreaXDilation: 8,
-      buttonTouchAreaYDilation: 8,
+      expandCollapseButtonOptions: {
+        touchAreaXDilation: 8,
+        touchAreaYDilation: 8
+      },
+
+      // phet-io
       tandem: periodicTableAccordionBoxTandem,
 
       // a11y
