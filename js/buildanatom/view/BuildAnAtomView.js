@@ -45,6 +45,20 @@ define( function( require ) {
       tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' )
     } );
 
+    // options that are common to all of the accordion boxes in this view
+    var commonAccordionBoxOptions = {
+      cornerRadius: 3,
+      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+      contentAlign: 'left',
+      titleAlignX: 'left',
+      buttonAlign: 'right',
+      minWidth: this.periodicTableAccordionBox.width,
+      expandCollapseButtonOptions: {
+        touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
+        touchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
+      }
+    };
+
     // Add the charge meter and charge comparison display inside of an accordion box.
     var netChargeAccordionBoxContents = new HBox( {
       children: [
@@ -64,30 +78,23 @@ define( function( require ) {
       tagName: 'h6',
       innerContent: 'Net Charge Content' // TODO: export to a11y strings file
     } );
-    var netChargeAccordionBox = new AccordionBox( netChargeAccordionBoxContents, {
-      cornerRadius: 3,
-      titleNode: new Text( netChargeString, {
-        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'netChargeAccordionBoxTitle' )
-      } ),
-      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      expandedProperty: this.netChargeAccordionBoxExpandedProperty,
-      minWidth: this.periodicTableAccordionBox.width,
-      contentAlign: 'left',
-      titleAlignX: 'left',
-      buttonAlign: 'right',
-      expandCollapseButtonOptions: {
-        touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
-        touchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
-      },
+    var netChargeAccordionBox = new AccordionBox(
+      netChargeAccordionBoxContents,
+      _.extend( {}, {
+        titleNode: new Text( netChargeString, {
+          font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
+          tandem: tandem.createTandem( 'netChargeAccordionBoxTitle' )
+        } ),
+        expandedProperty: this.netChargeAccordionBoxExpandedProperty,
 
-      // phet-io
-      tandem: tandem.createTandem( 'netChargeAccordionBox' ),
+        // phet-io
+        tandem: tandem.createTandem( 'netChargeAccordionBox' ),
 
-      // a11y
-      labelContent: netChargeString
-    } );
+        // a11y
+        labelContent: netChargeString
+      }, commonAccordionBoxOptions )
+    );
     this.controlPanelLayer.addChild( netChargeAccordionBox );
 
     // Add the mass indicator inside of an accordion box.
@@ -103,29 +110,23 @@ define( function( require ) {
         innerContent: 'Mass Number Content' // TODO: export to a11y strings file
       }
     );
-    var massNumberAccordionBox = new AccordionBox( massNumberDisplay, {
-      titleNode: new Text( massNumberString, {
-        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'massNumberAccordionBoxTitle' )
-      } ),
-      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      expandedProperty: this.massNumberAccordionBoxExpandedProperty,
-      minWidth: this.periodicTableAccordionBox.width,
-      contentAlign: 'left',
-      titleAlignX: 'left',
-      buttonAlign: 'right',
-      expandCollapseButtonOptions: {
-        touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
-        touchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
-      },
+    var massNumberAccordionBox = new AccordionBox(
+      massNumberDisplay,
+      _.extend( {}, {
+        titleNode: new Text( massNumberString, {
+          font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
+          tandem: tandem.createTandem( 'massNumberAccordionBoxTitle' )
+        } ),
+        expandedProperty: this.massNumberAccordionBoxExpandedProperty,
 
-      // phet-io
-      tandem: tandem.createTandem( 'massNumberAccordionBox' ),
+        // phet-io
+        tandem: tandem.createTandem( 'massNumberAccordionBox' ),
 
-      // a11y
-      labelContent: massNumberString
-    } );
+        // a11y
+        labelContent: massNumberString
+      }, commonAccordionBoxOptions )
+    );
     this.controlPanelLayer.addChild( massNumberAccordionBox );
 
     // Do the layout.
