@@ -36,6 +36,14 @@
     "sha": "c5c6c2a8273b9bd3f3bcb4ddfbcf24058b58954a",
     "branch": "HEAD"
   },
+  "phet-io": {
+    "sha": "074f85f433bdf60addf29f012ed885ff06bd7c52",
+    "branch": "HEAD"
+  },
+  "phet-io-website": {
+    "sha": "7a4d3169832fdeb58cc5637906f31a3014826bc3",
+    "branch": "HEAD"
+  },
   "phetcommon": {
     "sha": "dbaf905f30cb4c06d1b0708cc2a8065197be88a2",
     "branch": "HEAD"
@@ -75,5 +83,9 @@
   "vibe": {
     "sha": "ed4c7ab86fa6d0a17cbc71734bb56ba87536f2b4",
     "branch": "HEAD"
+  },
+  "phetmarks": {
+    "branch": "master",
+    "sha": "3a5691551b8be942d4b0534c82e86701882529f9"
   }
 }
