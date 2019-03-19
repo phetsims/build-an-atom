@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.5.9-phetio Fri Mar 08 2019 12:38:25 GMT-0500 (EST)",
+  "comment": "# build-an-atom 1.5.9-phetio Tue Mar 19 2019 15:51:37 GMT-0400 (EDT)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -10,15 +10,15 @@
   },
   "brand": {
     "sha": "46606afe21777910e5d33d9f2bc78d47f352d171",
-    "branch": "build-an-atom-1.5-phetio"
+    "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "4f34c570316a1750b6f9d6c225006e6a1f0cbb62",
+    "sha": "967f663e95c3a37ee2f283c66917c9b66cb5642b",
     "branch": "1.5-phetio"
   },
   "chipper": {
-    "sha": "85d24775bdfbc8e2ac05d4f966b6eebdcaec621f",
-    "branch": "HEAD"
+    "sha": "ebae54c9b87aba19972cb385215318bf4668c65d",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "dot": {
     "sha": "6b4ec39c10d667cd64543e59184f0a2fff4fad6e",
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "97df60f174f5c86f42aafda19a828c4e39d1c4ea",
-    "branch": "build-an-atom-1.5-phetio"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "7d2df183bd47abec3c3f7da477eb9172556f04e8",
@@ -64,6 +64,10 @@
     "sha": "6af97ed8a1b102d3fdb5cbfc981ce850bfccfa0f",
     "branch": "HEAD"
   },
+  "phetmarks": {
+    "sha": "4043203e455f544b1f0d4b7ce259c7c5f4e0582c",
+    "branch": "HEAD"
+  },
   "query-string-machine": {
     "sha": "c74e454ec68033a9546b8181d4d962eb8ceef81f",
     "branch": "HEAD"
@@ -99,9 +103,5 @@
   "vibe": {
     "sha": "d03d1e2ac3fa5e916ef76ebf57c285e418bcd6f7",
     "branch": "HEAD"
-  },
-  "phetmarks": {
-    "branch": "master",
-    "sha": "4043203e455f544b1f0d4b7ce259c7c5f4e0582c"
   }
 }
