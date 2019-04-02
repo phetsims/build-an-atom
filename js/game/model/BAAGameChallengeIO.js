@@ -59,10 +59,10 @@ define( function( require ) {
       // TODO: is there a better way to do this, or at least factor it out?
       var instance = phetioEngine.hasInstance( stateObject.phetioID );
       if ( instance ) {
-        return phetioEngine.getInstance( stateObject.phetioID );
+        return phetioEngine.getPhetioObject( stateObject.phetioID );
       }
 
-      var model = phetioEngine.getInstance( stateObject.modelPhetioID );
+      var model = phetioEngine.getPhetioObject( stateObject.modelPhetioID );
 
       var answerAtom = new phet.shred.NumberAtom( {
         protonCount: stateObject.answerAtom.protonCount,
