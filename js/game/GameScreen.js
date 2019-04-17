@@ -16,6 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   var gameString = require( 'string!BUILD_AN_ATOM/game' );
@@ -32,7 +33,9 @@ define( function( require ) {
     Screen.call(
       this,
       function() { return new BAAGameModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new BAAGameScreenView( model, tandem.createTandem( 'view' ) ); },
+
+      // TODO: Support instrumented element that is dynamic/lazily created, see https://github.com/phetsims/phet-io/issues/1443
+      function( model ) { return new BAAGameScreenView( model, Tandem.optional ); },
       {
         name: gameString,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
