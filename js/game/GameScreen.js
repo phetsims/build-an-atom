@@ -34,7 +34,7 @@ define( function( require ) {
       this,
       function() { return new BAAGameModel( tandem.createTandem( 'model' ) ); },
 
-      // TODO: Support instrumented element that is dynamic/lazily created, see https://github.com/phetsims/phet-io/issues/1443
+      // TODO: Support instrumented element that is dynamic/lazily created, see https://github.com/phetsims/phet-io/issues/1454
       function( model ) { return new BAAGameScreenView( model, Tandem.optional ); },
       {
         name: gameString,
