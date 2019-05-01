@@ -22100,7 +22100,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PhetioCommandProcessorIO"
     },
-    "buildAnAtom.general.resizedEmitter": {
+    "buildAnAtom.general.resizedAction": {
       "phetioDocumentation": "Emits when the sim is resized",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -22144,7 +22144,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.general.stepSimulationEmitter": {
+    "buildAnAtom.general.stepSimulationAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
