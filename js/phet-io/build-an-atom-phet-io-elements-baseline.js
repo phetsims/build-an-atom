@@ -2894,7 +2894,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2905,7 +2905,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2916,7 +2916,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5028,8 +5028,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5039,8 +5039,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5138,7 +5138,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5149,7 +5149,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5160,7 +5160,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electronBucketDragHandler.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electronBucketDragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5490,7 +5490,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5501,7 +5501,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5512,7 +5512,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5633,7 +5633,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5644,7 +5644,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5655,7 +5655,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5776,7 +5776,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5787,7 +5787,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5798,7 +5798,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5919,7 +5919,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5930,7 +5930,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5941,7 +5941,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6062,7 +6062,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6073,7 +6073,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6084,7 +6084,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6205,7 +6205,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6216,7 +6216,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6227,7 +6227,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6348,7 +6348,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6359,7 +6359,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6370,7 +6370,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6491,7 +6491,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6502,7 +6502,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6513,7 +6513,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6634,7 +6634,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6645,7 +6645,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6656,7 +6656,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6777,7 +6777,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6788,7 +6788,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6799,7 +6799,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -7140,7 +7140,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.toggledEmitter": {
+    "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -7217,7 +7217,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.toggledEmitter": {
+    "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -7294,7 +7294,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.toggledEmitter": {
+    "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -7492,8 +7492,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7503,8 +7503,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7877,8 +7877,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7888,8 +7888,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8075,7 +8075,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8086,7 +8086,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8097,7 +8097,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.neutronBucketDragHandler.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.neutronBucketDragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8548,7 +8548,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8559,7 +8559,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8570,7 +8570,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8691,7 +8691,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8702,7 +8702,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8713,7 +8713,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8834,7 +8834,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8845,7 +8845,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8856,7 +8856,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8977,7 +8977,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8988,7 +8988,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8999,7 +8999,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9120,7 +9120,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9131,7 +9131,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9142,7 +9142,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9263,7 +9263,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9274,7 +9274,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9285,7 +9285,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9406,7 +9406,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9417,7 +9417,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9428,7 +9428,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9549,7 +9549,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9560,7 +9560,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9571,7 +9571,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9692,7 +9692,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9703,7 +9703,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9714,7 +9714,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9835,7 +9835,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9846,7 +9846,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9857,7 +9857,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9978,7 +9978,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9989,7 +9989,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10000,7 +10000,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10121,7 +10121,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10132,7 +10132,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10143,7 +10143,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10264,7 +10264,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10275,7 +10275,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10286,7 +10286,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10407,7 +10407,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10418,7 +10418,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10429,7 +10429,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10550,7 +10550,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10561,7 +10561,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10572,7 +10572,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10693,7 +10693,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10704,7 +10704,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10715,7 +10715,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10836,7 +10836,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10847,7 +10847,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10858,7 +10858,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10979,7 +10979,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10990,7 +10990,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11001,7 +11001,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11122,7 +11122,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11133,7 +11133,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11144,7 +11144,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11265,7 +11265,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11276,7 +11276,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11287,7 +11287,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11408,7 +11408,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11419,7 +11419,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11430,7 +11430,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11551,7 +11551,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11562,7 +11562,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11573,7 +11573,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11694,7 +11694,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11705,7 +11705,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11716,7 +11716,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11859,8 +11859,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11870,8 +11870,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12233,8 +12233,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12244,8 +12244,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -21396,7 +21396,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragEndedEmitter": {
+    "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -21407,7 +21407,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragStartedEmitter": {
+    "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -21418,7 +21418,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.protonBucketDragHandler.draggedEmitter": {
+    "buildAnAtom.atomScreen.view.protonBucketDragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -21649,8 +21649,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.atomScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -21660,8 +21660,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.atomScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -21858,8 +21858,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.general.barrierRectangle.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.general.barrierRectangle.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -21869,8 +21869,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.general.barrierRectangle.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.general.barrierRectangle.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -21924,7 +21924,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.general.controller.input.mouseDownEmitter": {
+    "buildAnAtom.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -21935,7 +21935,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.mouseMovedEmitter": {
+    "buildAnAtom.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -21946,7 +21946,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.mouseOutEmitter": {
+    "buildAnAtom.general.controller.input.mouseOutAction": {
       "phetioDocumentation": "Emits when the mouse moves out of the display",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -21957,7 +21957,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.mouseOverEmitter": {
+    "buildAnAtom.general.controller.input.mouseOverAction": {
       "phetioDocumentation": "Emits when the mouse is moved over a Node",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -21968,7 +21968,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.mouseUpEmitter": {
+    "buildAnAtom.general.controller.input.mouseUpAction": {
       "phetioDocumentation": "Emits when a mouse button is released",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -21979,7 +21979,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.penCanceledEmitter": {
+    "buildAnAtom.general.controller.input.penCanceledAction": {
       "phetioDocumentation": "Emits when a pen is canceled",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -21990,7 +21990,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.penEndedEmitter": {
+    "buildAnAtom.general.controller.input.penEndedAction": {
       "phetioDocumentation": "Emits when a pen is lifted",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22001,7 +22001,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.penMovedEmitter": {
+    "buildAnAtom.general.controller.input.penMovedAction": {
       "phetioDocumentation": "Emits when a pen is moved",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22012,7 +22012,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.penStartedEmitter": {
+    "buildAnAtom.general.controller.input.penStartedAction": {
       "phetioDocumentation": "Emits when a pen touches the screen",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22023,7 +22023,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.touchCanceledEmitter": {
+    "buildAnAtom.general.controller.input.touchCanceledAction": {
       "phetioDocumentation": "Emits when a touch is canceled",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22034,7 +22034,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.touchEndedEmitter": {
+    "buildAnAtom.general.controller.input.touchEndedAction": {
       "phetioDocumentation": "Emits when a touch ends",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22045,7 +22045,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.touchMovedEmitter": {
+    "buildAnAtom.general.controller.input.touchMovedAction": {
       "phetioDocumentation": "Emits when a touch moves",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22056,7 +22056,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.touchStartedEmitter": {
+    "buildAnAtom.general.controller.input.touchStartedAction": {
       "phetioDocumentation": "Emits when a touch begins",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22067,7 +22067,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "buildAnAtom.general.controller.input.validatePointersEmitter": {
+    "buildAnAtom.general.controller.input.validatePointersAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -22078,7 +22078,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<>"
     },
-    "buildAnAtom.general.controller.input.wheelScrolledEmitter": {
+    "buildAnAtom.general.controller.input.wheelScrolledAction": {
       "phetioDocumentation": "Emits when the mouse wheel scrolls",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -22101,7 +22101,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioTypeName": "PhetioCommandProcessorIO"
     },
     "buildAnAtom.general.resizedAction": {
-      "phetioDocumentation": "Emits when the sim is resized",
+      "phetioDocumentation": "Executes when the sim is resized",
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22199,8 +22199,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.homeScreen.view.atomScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.homeScreen.view.atomScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22210,8 +22210,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.homeScreen.view.atomScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.homeScreen.view.atomScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22331,8 +22331,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.homeScreen.view.atomScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.homeScreen.view.atomScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22342,8 +22342,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.homeScreen.view.atomScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.homeScreen.view.atomScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22463,8 +22463,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.homeScreen.view.gameScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.homeScreen.view.gameScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22474,8 +22474,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.homeScreen.view.gameScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.homeScreen.view.gameScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22595,8 +22595,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.homeScreen.view.gameScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.homeScreen.view.gameScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22606,8 +22606,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.homeScreen.view.gameScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.homeScreen.view.gameScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22749,8 +22749,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.homeScreen.view.symbolScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.homeScreen.view.symbolScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22760,8 +22760,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.homeScreen.view.symbolScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.homeScreen.view.symbolScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22881,8 +22881,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.homeScreen.view.symbolScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.homeScreen.view.symbolScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -22892,8 +22892,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.homeScreen.view.symbolScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.homeScreen.view.symbolScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23156,8 +23156,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.navigationBar.atomScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.atomScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23167,8 +23167,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.atomScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.atomScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23343,8 +23343,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.navigationBar.gameScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.gameScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23354,8 +23354,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.gameScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.gameScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23486,8 +23486,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.navigationBar.homeButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.homeButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23497,8 +23497,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.homeButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.homeButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23585,8 +23585,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23596,8 +23596,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23662,8 +23662,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23673,8 +23673,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23728,8 +23728,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.navigationBar.phetButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.phetButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23739,8 +23739,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.phetButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.phetButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23849,8 +23849,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.navigationBar.symbolScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.navigationBar.symbolScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -23860,8 +23860,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.navigationBar.symbolScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.navigationBar.symbolScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -26885,7 +26885,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26896,7 +26896,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26907,7 +26907,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27424,8 +27424,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -27435,8 +27435,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -27534,7 +27534,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27545,7 +27545,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27556,7 +27556,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electronBucketDragHandler.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electronBucketDragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27886,7 +27886,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27897,7 +27897,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27908,7 +27908,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28029,7 +28029,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28040,7 +28040,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28051,7 +28051,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28172,7 +28172,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28183,7 +28183,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28194,7 +28194,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28315,7 +28315,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28326,7 +28326,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28337,7 +28337,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28458,7 +28458,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28469,7 +28469,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28480,7 +28480,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28601,7 +28601,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28612,7 +28612,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28623,7 +28623,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28744,7 +28744,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28755,7 +28755,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28766,7 +28766,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28887,7 +28887,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28898,7 +28898,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28909,7 +28909,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29030,7 +29030,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29041,7 +29041,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29052,7 +29052,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29173,7 +29173,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29184,7 +29184,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29195,7 +29195,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29536,7 +29536,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.toggledEmitter": {
+    "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -29613,7 +29613,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.toggledEmitter": {
+    "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -29690,7 +29690,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.toggledEmitter": {
+    "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -29844,7 +29844,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29855,7 +29855,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29866,7 +29866,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30317,7 +30317,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30328,7 +30328,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30339,7 +30339,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30460,7 +30460,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30471,7 +30471,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30482,7 +30482,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30603,7 +30603,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30614,7 +30614,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30625,7 +30625,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30746,7 +30746,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30757,7 +30757,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30768,7 +30768,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30889,7 +30889,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30900,7 +30900,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30911,7 +30911,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31032,7 +31032,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31043,7 +31043,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31054,7 +31054,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31175,7 +31175,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31186,7 +31186,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31197,7 +31197,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31318,7 +31318,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31329,7 +31329,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31340,7 +31340,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31461,7 +31461,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31472,7 +31472,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31483,7 +31483,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31604,7 +31604,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31615,7 +31615,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31626,7 +31626,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31747,7 +31747,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31758,7 +31758,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31769,7 +31769,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31890,7 +31890,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31901,7 +31901,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31912,7 +31912,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32033,7 +32033,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32044,7 +32044,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32055,7 +32055,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32176,7 +32176,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32187,7 +32187,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32198,7 +32198,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32319,7 +32319,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32330,7 +32330,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32341,7 +32341,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32462,7 +32462,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32473,7 +32473,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32484,7 +32484,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32605,7 +32605,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32616,7 +32616,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32627,7 +32627,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32748,7 +32748,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32759,7 +32759,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32770,7 +32770,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32891,7 +32891,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32902,7 +32902,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32913,7 +32913,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33034,7 +33034,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33045,7 +33045,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33056,7 +33056,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33177,7 +33177,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33188,7 +33188,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33199,7 +33199,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33320,7 +33320,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33331,7 +33331,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33342,7 +33342,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33463,7 +33463,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33474,7 +33474,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33485,7 +33485,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33628,8 +33628,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -33639,8 +33639,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -34002,8 +34002,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -34013,8 +34013,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -43165,7 +43165,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragEndedEmitter": {
+    "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -43176,7 +43176,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragStartedEmitter": {
+    "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -43187,7 +43187,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.protonBucketDragHandler.draggedEmitter": {
+    "buildAnAtom.symbolScreen.view.protonBucketDragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -43418,8 +43418,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.symbolScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -43429,8 +43429,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.symbolScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -43506,8 +43506,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -43517,8 +43517,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
