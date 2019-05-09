@@ -57,7 +57,7 @@ define( function( require ) {
       // This may have been deserialized from the instance itself or from the array it was contained in (which
       // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
       // TODO: is there a better way to do this, or at least factor it out?
-      var instance = phetioEngine.hasInstance( stateObject.phetioID );
+      var instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
       if ( instance ) {
         return phetioEngine.getPhetioObject( stateObject.phetioID );
       }

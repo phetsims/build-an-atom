@@ -45,7 +45,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0": {
+    "buildAnAtom.atomScreen.model.electrons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -56,7 +56,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~0.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -67,7 +67,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~0.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -78,7 +78,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~0.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -89,7 +89,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~0.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -100,7 +100,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~0.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -111,7 +111,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~0.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~0.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -122,7 +122,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1": {
+    "buildAnAtom.atomScreen.model.electrons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -133,7 +133,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~1.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -144,7 +144,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~1.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -155,7 +155,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~1.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -166,7 +166,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~1.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -177,7 +177,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~1.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -188,7 +188,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~1.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~1.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -199,7 +199,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2": {
+    "buildAnAtom.atomScreen.model.electrons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -210,7 +210,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~2.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -221,7 +221,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~2.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -232,7 +232,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~2.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -243,7 +243,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~2.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -254,7 +254,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~2.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -265,7 +265,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~2.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~2.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -276,7 +276,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3": {
+    "buildAnAtom.atomScreen.model.electrons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -287,7 +287,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~3.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -298,7 +298,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~3.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -309,7 +309,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~3.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -320,7 +320,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~3.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -331,7 +331,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~3.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -342,7 +342,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~3.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~3.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -353,7 +353,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4": {
+    "buildAnAtom.atomScreen.model.electrons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -364,7 +364,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~4.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -375,7 +375,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~4.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -386,7 +386,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~4.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -397,7 +397,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~4.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -408,7 +408,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~4.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -419,7 +419,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~4.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~4.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -430,7 +430,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5": {
+    "buildAnAtom.atomScreen.model.electrons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -441,7 +441,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~5.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -452,7 +452,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~5.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -463,7 +463,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~5.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -474,7 +474,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~5.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -485,7 +485,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~5.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -496,7 +496,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~5.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~5.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -507,7 +507,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6": {
+    "buildAnAtom.atomScreen.model.electrons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -518,7 +518,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~6.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -529,7 +529,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~6.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -540,7 +540,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~6.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -551,7 +551,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~6.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -562,7 +562,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~6.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -573,7 +573,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~6.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~6.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -584,7 +584,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7": {
+    "buildAnAtom.atomScreen.model.electrons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -595,7 +595,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~7.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -606,7 +606,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~7.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -617,7 +617,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~7.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -628,7 +628,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~7.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -639,7 +639,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~7.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -650,7 +650,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~7.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~7.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -661,7 +661,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8": {
+    "buildAnAtom.atomScreen.model.electrons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -672,7 +672,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~8.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -683,7 +683,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~8.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -694,7 +694,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~8.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -705,7 +705,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~8.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -716,7 +716,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~8.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -727,7 +727,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~8.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~8.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -738,7 +738,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9": {
+    "buildAnAtom.atomScreen.model.electrons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -749,7 +749,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.electrons~9.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -760,7 +760,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9.destinationProperty": {
+    "buildAnAtom.atomScreen.model.electrons~9.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -771,7 +771,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9.positionProperty": {
+    "buildAnAtom.atomScreen.model.electrons~9.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -782,7 +782,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9.radiusProperty": {
+    "buildAnAtom.atomScreen.model.electrons~9.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -793,7 +793,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.electrons~9.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -804,7 +804,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.electrons.element~9.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.electrons~9.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -826,7 +826,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "SphereBucketIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0": {
+    "buildAnAtom.atomScreen.model.neutrons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -837,7 +837,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~0.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -848,7 +848,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~0.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -859,7 +859,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~0.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -870,7 +870,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~0.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -881,7 +881,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~0.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -892,7 +892,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~0.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~0.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -903,7 +903,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1": {
+    "buildAnAtom.atomScreen.model.neutrons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -914,7 +914,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~1.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -925,7 +925,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~1.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -936,7 +936,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~1.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -947,7 +947,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~1.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -958,7 +958,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~1.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -969,7 +969,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~1.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~1.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -980,7 +980,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10": {
+    "buildAnAtom.atomScreen.model.neutrons~10": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -991,7 +991,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~10.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1002,7 +1002,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~10.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1013,7 +1013,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~10.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1024,7 +1024,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~10.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1035,7 +1035,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~10.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1046,7 +1046,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~10.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~10.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1057,7 +1057,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11": {
+    "buildAnAtom.atomScreen.model.neutrons~11": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1068,7 +1068,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~11.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1079,7 +1079,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~11.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1090,7 +1090,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~11.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1101,7 +1101,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~11.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1112,7 +1112,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~11.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1123,7 +1123,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~11.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~11.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1134,7 +1134,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12": {
+    "buildAnAtom.atomScreen.model.neutrons~12": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1145,7 +1145,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~12.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1156,7 +1156,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~12.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1167,7 +1167,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~12.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1178,7 +1178,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~12.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1189,7 +1189,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~12.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1200,7 +1200,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~12.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~12.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1211,7 +1211,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2": {
+    "buildAnAtom.atomScreen.model.neutrons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1222,7 +1222,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~2.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1233,7 +1233,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~2.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1244,7 +1244,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~2.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1255,7 +1255,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~2.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1266,7 +1266,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~2.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1277,7 +1277,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~2.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~2.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1288,7 +1288,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3": {
+    "buildAnAtom.atomScreen.model.neutrons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1299,7 +1299,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~3.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1310,7 +1310,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~3.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1321,7 +1321,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~3.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1332,7 +1332,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~3.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1343,7 +1343,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~3.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1354,7 +1354,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~3.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~3.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1365,7 +1365,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4": {
+    "buildAnAtom.atomScreen.model.neutrons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1376,7 +1376,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~4.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1387,7 +1387,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~4.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1398,7 +1398,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~4.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1409,7 +1409,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~4.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1420,7 +1420,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~4.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1431,7 +1431,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~4.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~4.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1442,7 +1442,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5": {
+    "buildAnAtom.atomScreen.model.neutrons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1453,7 +1453,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~5.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1464,7 +1464,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~5.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1475,7 +1475,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~5.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1486,7 +1486,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~5.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1497,7 +1497,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~5.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1508,7 +1508,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~5.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~5.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1519,7 +1519,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6": {
+    "buildAnAtom.atomScreen.model.neutrons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1530,7 +1530,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~6.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1541,7 +1541,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~6.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1552,7 +1552,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~6.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1563,7 +1563,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~6.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1574,7 +1574,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~6.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1585,7 +1585,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~6.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~6.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1596,7 +1596,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7": {
+    "buildAnAtom.atomScreen.model.neutrons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1607,7 +1607,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~7.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1618,7 +1618,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~7.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1629,7 +1629,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~7.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1640,7 +1640,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~7.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1651,7 +1651,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~7.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1662,7 +1662,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~7.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~7.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1673,7 +1673,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8": {
+    "buildAnAtom.atomScreen.model.neutrons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1684,7 +1684,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~8.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1695,7 +1695,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~8.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1706,7 +1706,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~8.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1717,7 +1717,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~8.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1728,7 +1728,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~8.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1739,7 +1739,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~8.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~8.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1750,7 +1750,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9": {
+    "buildAnAtom.atomScreen.model.neutrons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1761,7 +1761,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~9.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1772,7 +1772,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9.destinationProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~9.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1783,7 +1783,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9.positionProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~9.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1794,7 +1794,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9.radiusProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~9.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1805,7 +1805,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~9.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1816,7 +1816,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.neutrons.element~9.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.neutrons~9.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2014,7 +2014,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "SphereBucketIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0": {
+    "buildAnAtom.atomScreen.model.protons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2025,7 +2025,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~0.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2036,7 +2036,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~0.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2047,7 +2047,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~0.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2058,7 +2058,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~0.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2069,7 +2069,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~0.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2080,7 +2080,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~0.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~0.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2091,7 +2091,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1": {
+    "buildAnAtom.atomScreen.model.protons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2102,7 +2102,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~1.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2113,7 +2113,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~1.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2124,7 +2124,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~1.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2135,7 +2135,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~1.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2146,7 +2146,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~1.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2157,7 +2157,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~1.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~1.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2168,7 +2168,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2": {
+    "buildAnAtom.atomScreen.model.protons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2179,7 +2179,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~2.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2190,7 +2190,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~2.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2201,7 +2201,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~2.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2212,7 +2212,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~2.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2223,7 +2223,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~2.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2234,7 +2234,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~2.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~2.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2245,7 +2245,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3": {
+    "buildAnAtom.atomScreen.model.protons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2256,7 +2256,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~3.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2267,7 +2267,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~3.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2278,7 +2278,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~3.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2289,7 +2289,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~3.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2300,7 +2300,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~3.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2311,7 +2311,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~3.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~3.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2322,7 +2322,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4": {
+    "buildAnAtom.atomScreen.model.protons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2333,7 +2333,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~4.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2344,7 +2344,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~4.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2355,7 +2355,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~4.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2366,7 +2366,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~4.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2377,7 +2377,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~4.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2388,7 +2388,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~4.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~4.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2399,7 +2399,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5": {
+    "buildAnAtom.atomScreen.model.protons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2410,7 +2410,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~5.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2421,7 +2421,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~5.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2432,7 +2432,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~5.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2443,7 +2443,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~5.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2454,7 +2454,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~5.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2465,7 +2465,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~5.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~5.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2476,7 +2476,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6": {
+    "buildAnAtom.atomScreen.model.protons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2487,7 +2487,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~6.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2498,7 +2498,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~6.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2509,7 +2509,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~6.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2520,7 +2520,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~6.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2531,7 +2531,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~6.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2542,7 +2542,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~6.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~6.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2553,7 +2553,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7": {
+    "buildAnAtom.atomScreen.model.protons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2564,7 +2564,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~7.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2575,7 +2575,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~7.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2586,7 +2586,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~7.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2597,7 +2597,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~7.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2608,7 +2608,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~7.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2619,7 +2619,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~7.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~7.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2630,7 +2630,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8": {
+    "buildAnAtom.atomScreen.model.protons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2641,7 +2641,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~8.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2652,7 +2652,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~8.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2663,7 +2663,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~8.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2674,7 +2674,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~8.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2685,7 +2685,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~8.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2696,7 +2696,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~8.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~8.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2707,7 +2707,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9": {
+    "buildAnAtom.atomScreen.model.protons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2718,7 +2718,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9.animationVelocityProperty": {
+    "buildAnAtom.atomScreen.model.protons~9.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2729,7 +2729,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9.destinationProperty": {
+    "buildAnAtom.atomScreen.model.protons~9.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2740,7 +2740,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9.positionProperty": {
+    "buildAnAtom.atomScreen.model.protons~9.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2751,7 +2751,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9.radiusProperty": {
+    "buildAnAtom.atomScreen.model.protons~9.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2762,7 +2762,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9.userControlledProperty": {
+    "buildAnAtom.atomScreen.model.protons~9.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2773,7 +2773,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.model.protons.element~9.zLayerProperty": {
+    "buildAnAtom.atomScreen.model.protons~9.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3411,7 +3411,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~0": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3422,7 +3422,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~0.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3433,7 +3433,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~0.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3444,7 +3444,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~0.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3455,7 +3455,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~1": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3466,7 +3466,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~1.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3477,7 +3477,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~1.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3488,7 +3488,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~1.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3499,7 +3499,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~2": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3510,7 +3510,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~2.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3521,7 +3521,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~2.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3532,7 +3532,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~2.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3543,7 +3543,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~3": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3554,7 +3554,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~3.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3565,7 +3565,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~3.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3576,7 +3576,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~3.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3587,7 +3587,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~4": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3598,7 +3598,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~4.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3609,7 +3609,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~4.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3620,7 +3620,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~4.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3631,7 +3631,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~5": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3642,7 +3642,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~5.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3653,7 +3653,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~5.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3664,7 +3664,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~5.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3675,7 +3675,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~6": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3686,7 +3686,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~6.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3697,7 +3697,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~6.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3708,7 +3708,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~6.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3719,7 +3719,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~7": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3730,7 +3730,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~7.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3741,7 +3741,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~7.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3752,7 +3752,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~7.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3763,7 +3763,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~8": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3774,7 +3774,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~8.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3785,7 +3785,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~8.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3796,7 +3796,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~8.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3807,7 +3807,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~9": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3818,7 +3818,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~9.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3829,7 +3829,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~9.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3840,7 +3840,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses.element~9.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.minuses~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3873,7 +3873,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~0": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3884,7 +3884,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~0.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3895,7 +3895,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~0.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3906,7 +3906,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~0.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3917,7 +3917,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~1": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3928,7 +3928,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~1.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3939,7 +3939,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~1.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3950,7 +3950,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~1.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3961,7 +3961,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~2": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3972,7 +3972,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~2.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3983,7 +3983,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~2.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3994,7 +3994,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~2.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4005,7 +4005,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~3": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4016,7 +4016,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~3.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4027,7 +4027,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~3.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4038,7 +4038,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~3.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4049,7 +4049,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~4": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4060,7 +4060,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~4.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4071,7 +4071,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~4.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4082,7 +4082,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~4.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4093,7 +4093,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~5": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4104,7 +4104,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~5.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4115,7 +4115,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~5.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4126,7 +4126,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~5.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4137,7 +4137,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~6": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4148,7 +4148,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~6.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4159,7 +4159,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~6.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4170,7 +4170,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~6.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4181,7 +4181,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~7": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4192,7 +4192,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~7.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4203,7 +4203,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~7.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4214,7 +4214,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~7.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4225,7 +4225,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~8": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4236,7 +4236,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~8.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4247,7 +4247,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~8.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4258,7 +4258,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~8.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4269,7 +4269,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~9": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4280,7 +4280,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~9.opacityProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4291,7 +4291,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~9.pickableProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4302,7 +4302,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses.element~9.visibleProperty": {
+    "buildAnAtom.atomScreen.view.chargeComparisonDisplay.plusses~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5479,7 +5479,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0": {
+    "buildAnAtom.atomScreen.view.electrons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5490,7 +5490,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~0.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5501,7 +5501,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5512,7 +5512,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5523,7 +5523,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5534,7 +5534,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5545,7 +5545,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5556,7 +5556,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~0.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5567,7 +5567,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5578,7 +5578,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5589,7 +5589,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5600,7 +5600,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5611,7 +5611,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~0.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5622,7 +5622,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1": {
+    "buildAnAtom.atomScreen.view.electrons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5633,7 +5633,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~1.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5644,7 +5644,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5655,7 +5655,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5666,7 +5666,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5677,7 +5677,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5688,7 +5688,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5699,7 +5699,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~1.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5710,7 +5710,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5721,7 +5721,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5732,7 +5732,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5743,7 +5743,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5754,7 +5754,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~1.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5765,7 +5765,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2": {
+    "buildAnAtom.atomScreen.view.electrons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5776,7 +5776,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~2.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5787,7 +5787,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5798,7 +5798,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5809,7 +5809,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5820,7 +5820,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5831,7 +5831,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5842,7 +5842,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~2.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5853,7 +5853,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5864,7 +5864,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5875,7 +5875,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5886,7 +5886,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5897,7 +5897,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~2.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5908,7 +5908,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3": {
+    "buildAnAtom.atomScreen.view.electrons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5919,7 +5919,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~3.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5930,7 +5930,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5941,7 +5941,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5952,7 +5952,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5963,7 +5963,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5974,7 +5974,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5985,7 +5985,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~3.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5996,7 +5996,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6007,7 +6007,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6018,7 +6018,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6029,7 +6029,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6040,7 +6040,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~3.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6051,7 +6051,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4": {
+    "buildAnAtom.atomScreen.view.electrons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6062,7 +6062,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~4.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6073,7 +6073,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6084,7 +6084,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6095,7 +6095,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6106,7 +6106,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6117,7 +6117,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6128,7 +6128,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~4.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6139,7 +6139,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6150,7 +6150,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6161,7 +6161,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6172,7 +6172,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6183,7 +6183,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~4.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6194,7 +6194,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5": {
+    "buildAnAtom.atomScreen.view.electrons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6205,7 +6205,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~5.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6216,7 +6216,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6227,7 +6227,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6238,7 +6238,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6249,7 +6249,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6260,7 +6260,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6271,7 +6271,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~5.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6282,7 +6282,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6293,7 +6293,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6304,7 +6304,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6315,7 +6315,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6326,7 +6326,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~5.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6337,7 +6337,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6": {
+    "buildAnAtom.atomScreen.view.electrons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6348,7 +6348,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~6.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6359,7 +6359,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6370,7 +6370,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6381,7 +6381,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6392,7 +6392,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6403,7 +6403,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6414,7 +6414,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~6.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6425,7 +6425,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6436,7 +6436,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6447,7 +6447,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6458,7 +6458,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6469,7 +6469,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~6.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6480,7 +6480,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7": {
+    "buildAnAtom.atomScreen.view.electrons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6491,7 +6491,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~7.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6502,7 +6502,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6513,7 +6513,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6524,7 +6524,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6535,7 +6535,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6546,7 +6546,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6557,7 +6557,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~7.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6568,7 +6568,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6579,7 +6579,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6590,7 +6590,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6601,7 +6601,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6612,7 +6612,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~7.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6623,7 +6623,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8": {
+    "buildAnAtom.atomScreen.view.electrons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6634,7 +6634,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~8.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6645,7 +6645,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6656,7 +6656,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6667,7 +6667,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6678,7 +6678,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6689,7 +6689,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6700,7 +6700,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~8.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6711,7 +6711,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6722,7 +6722,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6733,7 +6733,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6744,7 +6744,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6755,7 +6755,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~8.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6766,7 +6766,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9": {
+    "buildAnAtom.atomScreen.view.electrons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6777,7 +6777,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener": {
+    "buildAnAtom.atomScreen.view.electrons~9.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6788,7 +6788,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.electrons~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6799,7 +6799,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.electrons~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6810,7 +6810,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.electrons~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6821,7 +6821,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6832,7 +6832,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6843,7 +6843,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.electrons~9.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6854,7 +6854,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6865,7 +6865,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6876,7 +6876,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6887,7 +6887,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.pickableProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -6898,7 +6898,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.electrons.element~9.visibleProperty": {
+    "buildAnAtom.atomScreen.view.electrons~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8317,7 +8317,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~0": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8328,7 +8328,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~0.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8339,7 +8339,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~0.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8350,7 +8350,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~0.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8361,7 +8361,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~1": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8372,7 +8372,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~1.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8383,7 +8383,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~1.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8394,7 +8394,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~1.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8405,7 +8405,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~2": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8416,7 +8416,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~2.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8427,7 +8427,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~2.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8438,7 +8438,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~2.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8449,7 +8449,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~3": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8460,7 +8460,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~3.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8471,7 +8471,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~3.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8482,7 +8482,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~3.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8493,7 +8493,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~4": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8504,7 +8504,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~4.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8515,7 +8515,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~4.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8526,7 +8526,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleonLayers.element~4.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleonLayers~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8537,7 +8537,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0": {
+    "buildAnAtom.atomScreen.view.nucleons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8548,7 +8548,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~0.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8559,7 +8559,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8570,7 +8570,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8581,7 +8581,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8592,7 +8592,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8603,7 +8603,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8614,7 +8614,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~0.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8625,7 +8625,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8636,7 +8636,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8647,7 +8647,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8658,7 +8658,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8669,7 +8669,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~0.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8680,7 +8680,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1": {
+    "buildAnAtom.atomScreen.view.nucleons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8691,7 +8691,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~1.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8702,7 +8702,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8713,7 +8713,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8724,7 +8724,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8735,7 +8735,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8746,7 +8746,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8757,7 +8757,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~1.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8768,7 +8768,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8779,7 +8779,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8790,7 +8790,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8801,7 +8801,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8812,7 +8812,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~1.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8823,7 +8823,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10": {
+    "buildAnAtom.atomScreen.view.nucleons~10": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8834,7 +8834,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~10.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8845,7 +8845,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~10.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8856,7 +8856,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~10.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8867,7 +8867,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~10.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8878,7 +8878,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8889,7 +8889,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8900,7 +8900,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~10.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8911,7 +8911,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8922,7 +8922,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8933,7 +8933,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8944,7 +8944,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8955,7 +8955,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~10.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~10.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8966,7 +8966,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11": {
+    "buildAnAtom.atomScreen.view.nucleons~11": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8977,7 +8977,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~11.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8988,7 +8988,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~11.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -8999,7 +8999,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~11.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9010,7 +9010,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~11.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9021,7 +9021,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9032,7 +9032,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9043,7 +9043,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~11.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9054,7 +9054,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9065,7 +9065,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9076,7 +9076,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9087,7 +9087,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9098,7 +9098,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~11.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~11.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9109,7 +9109,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12": {
+    "buildAnAtom.atomScreen.view.nucleons~12": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9120,7 +9120,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~12.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9131,7 +9131,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~12.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9142,7 +9142,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~12.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9153,7 +9153,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~12.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9164,7 +9164,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9175,7 +9175,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9186,7 +9186,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~12.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9197,7 +9197,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9208,7 +9208,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9219,7 +9219,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9230,7 +9230,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9241,7 +9241,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~12.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~12.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9252,7 +9252,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13": {
+    "buildAnAtom.atomScreen.view.nucleons~13": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9263,7 +9263,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~13.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9274,7 +9274,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~13.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9285,7 +9285,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~13.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9296,7 +9296,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~13.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9307,7 +9307,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9318,7 +9318,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9329,7 +9329,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~13.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9340,7 +9340,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9351,7 +9351,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9362,7 +9362,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9373,7 +9373,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9384,7 +9384,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~13.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~13.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9395,7 +9395,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14": {
+    "buildAnAtom.atomScreen.view.nucleons~14": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9406,7 +9406,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~14.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9417,7 +9417,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~14.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9428,7 +9428,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~14.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9439,7 +9439,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~14.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9450,7 +9450,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9461,7 +9461,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9472,7 +9472,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~14.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9483,7 +9483,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9494,7 +9494,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9505,7 +9505,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9516,7 +9516,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9527,7 +9527,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~14.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~14.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9538,7 +9538,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15": {
+    "buildAnAtom.atomScreen.view.nucleons~15": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9549,7 +9549,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~15.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9560,7 +9560,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~15.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9571,7 +9571,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~15.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9582,7 +9582,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~15.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9593,7 +9593,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9604,7 +9604,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9615,7 +9615,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~15.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9626,7 +9626,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9637,7 +9637,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9648,7 +9648,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9659,7 +9659,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9670,7 +9670,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~15.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~15.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9681,7 +9681,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16": {
+    "buildAnAtom.atomScreen.view.nucleons~16": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9692,7 +9692,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~16.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9703,7 +9703,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~16.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9714,7 +9714,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~16.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9725,7 +9725,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~16.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9736,7 +9736,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9747,7 +9747,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9758,7 +9758,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~16.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9769,7 +9769,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9780,7 +9780,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9791,7 +9791,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9802,7 +9802,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9813,7 +9813,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~16.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~16.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9824,7 +9824,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17": {
+    "buildAnAtom.atomScreen.view.nucleons~17": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9835,7 +9835,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~17.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9846,7 +9846,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~17.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9857,7 +9857,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~17.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9868,7 +9868,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~17.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9879,7 +9879,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9890,7 +9890,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9901,7 +9901,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~17.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9912,7 +9912,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9923,7 +9923,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9934,7 +9934,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9945,7 +9945,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9956,7 +9956,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~17.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~17.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9967,7 +9967,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18": {
+    "buildAnAtom.atomScreen.view.nucleons~18": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -9978,7 +9978,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~18.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9989,7 +9989,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~18.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10000,7 +10000,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~18.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10011,7 +10011,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~18.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10022,7 +10022,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10033,7 +10033,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10044,7 +10044,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~18.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10055,7 +10055,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10066,7 +10066,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10077,7 +10077,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10088,7 +10088,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10099,7 +10099,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~18.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~18.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10110,7 +10110,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19": {
+    "buildAnAtom.atomScreen.view.nucleons~19": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10121,7 +10121,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~19.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10132,7 +10132,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~19.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10143,7 +10143,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~19.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10154,7 +10154,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~19.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10165,7 +10165,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10176,7 +10176,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10187,7 +10187,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~19.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10198,7 +10198,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10209,7 +10209,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10220,7 +10220,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10231,7 +10231,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10242,7 +10242,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~19.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~19.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10253,7 +10253,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2": {
+    "buildAnAtom.atomScreen.view.nucleons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10264,7 +10264,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~2.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10275,7 +10275,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10286,7 +10286,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10297,7 +10297,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10308,7 +10308,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10319,7 +10319,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10330,7 +10330,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~2.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10341,7 +10341,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10352,7 +10352,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10363,7 +10363,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10374,7 +10374,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10385,7 +10385,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~2.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10396,7 +10396,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20": {
+    "buildAnAtom.atomScreen.view.nucleons~20": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10407,7 +10407,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~20.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10418,7 +10418,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~20.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10429,7 +10429,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~20.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10440,7 +10440,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~20.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10451,7 +10451,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10462,7 +10462,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10473,7 +10473,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~20.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10484,7 +10484,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10495,7 +10495,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10506,7 +10506,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10517,7 +10517,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10528,7 +10528,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~20.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~20.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10539,7 +10539,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21": {
+    "buildAnAtom.atomScreen.view.nucleons~21": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10550,7 +10550,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~21.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10561,7 +10561,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~21.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10572,7 +10572,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~21.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10583,7 +10583,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~21.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10594,7 +10594,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10605,7 +10605,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10616,7 +10616,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~21.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10627,7 +10627,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10638,7 +10638,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10649,7 +10649,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10660,7 +10660,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10671,7 +10671,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~21.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~21.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10682,7 +10682,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22": {
+    "buildAnAtom.atomScreen.view.nucleons~22": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10693,7 +10693,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~22.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10704,7 +10704,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~22.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10715,7 +10715,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~22.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10726,7 +10726,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~22.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10737,7 +10737,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10748,7 +10748,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10759,7 +10759,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~22.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10770,7 +10770,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10781,7 +10781,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10792,7 +10792,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10803,7 +10803,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10814,7 +10814,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~22.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~22.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10825,7 +10825,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3": {
+    "buildAnAtom.atomScreen.view.nucleons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10836,7 +10836,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~3.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10847,7 +10847,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10858,7 +10858,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10869,7 +10869,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10880,7 +10880,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10891,7 +10891,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10902,7 +10902,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~3.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10913,7 +10913,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10924,7 +10924,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10935,7 +10935,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10946,7 +10946,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10957,7 +10957,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~3.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10968,7 +10968,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4": {
+    "buildAnAtom.atomScreen.view.nucleons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -10979,7 +10979,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~4.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10990,7 +10990,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11001,7 +11001,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11012,7 +11012,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11023,7 +11023,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11034,7 +11034,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11045,7 +11045,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~4.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11056,7 +11056,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11067,7 +11067,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11078,7 +11078,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11089,7 +11089,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11100,7 +11100,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~4.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11111,7 +11111,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5": {
+    "buildAnAtom.atomScreen.view.nucleons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11122,7 +11122,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~5.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11133,7 +11133,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11144,7 +11144,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11155,7 +11155,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11166,7 +11166,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11177,7 +11177,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11188,7 +11188,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~5.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11199,7 +11199,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11210,7 +11210,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11221,7 +11221,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11232,7 +11232,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11243,7 +11243,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~5.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11254,7 +11254,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6": {
+    "buildAnAtom.atomScreen.view.nucleons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11265,7 +11265,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~6.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11276,7 +11276,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11287,7 +11287,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11298,7 +11298,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11309,7 +11309,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11320,7 +11320,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11331,7 +11331,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~6.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11342,7 +11342,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11353,7 +11353,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11364,7 +11364,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11375,7 +11375,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11386,7 +11386,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~6.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11397,7 +11397,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7": {
+    "buildAnAtom.atomScreen.view.nucleons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11408,7 +11408,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~7.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11419,7 +11419,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11430,7 +11430,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11441,7 +11441,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11452,7 +11452,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11463,7 +11463,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11474,7 +11474,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~7.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11485,7 +11485,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11496,7 +11496,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11507,7 +11507,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11518,7 +11518,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11529,7 +11529,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~7.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11540,7 +11540,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8": {
+    "buildAnAtom.atomScreen.view.nucleons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11551,7 +11551,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~8.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11562,7 +11562,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11573,7 +11573,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11584,7 +11584,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11595,7 +11595,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11606,7 +11606,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11617,7 +11617,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~8.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11628,7 +11628,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11639,7 +11639,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11650,7 +11650,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11661,7 +11661,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11672,7 +11672,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~8.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11683,7 +11683,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9": {
+    "buildAnAtom.atomScreen.view.nucleons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11694,7 +11694,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener": {
+    "buildAnAtom.atomScreen.view.nucleons~9.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11705,7 +11705,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.dragEndedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11716,7 +11716,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.dragStartedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11727,7 +11727,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.draggedAction": {
+    "buildAnAtom.atomScreen.view.nucleons~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11738,7 +11738,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.inputListener.isDraggingProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11749,7 +11749,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11760,7 +11760,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.particleRepresentation": {
+    "buildAnAtom.atomScreen.view.nucleons~9.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11771,7 +11771,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.particleRepresentation.opacityProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11782,7 +11782,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.particleRepresentation.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11793,7 +11793,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.particleRepresentation.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11804,7 +11804,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.pickableProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -11815,7 +11815,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.atomScreen.view.nucleons.element~9.visibleProperty": {
+    "buildAnAtom.atomScreen.view.nucleons~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24047,7 +24047,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0": {
+    "buildAnAtom.symbolScreen.model.electrons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24058,7 +24058,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~0.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24069,7 +24069,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~0.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24080,7 +24080,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~0.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24091,7 +24091,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~0.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24102,7 +24102,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~0.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24113,7 +24113,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~0.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~0.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24124,7 +24124,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1": {
+    "buildAnAtom.symbolScreen.model.electrons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24135,7 +24135,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~1.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24146,7 +24146,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~1.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24157,7 +24157,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~1.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24168,7 +24168,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~1.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24179,7 +24179,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~1.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24190,7 +24190,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~1.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~1.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24201,7 +24201,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2": {
+    "buildAnAtom.symbolScreen.model.electrons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24212,7 +24212,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~2.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24223,7 +24223,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~2.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24234,7 +24234,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~2.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24245,7 +24245,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~2.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24256,7 +24256,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~2.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24267,7 +24267,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~2.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~2.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24278,7 +24278,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3": {
+    "buildAnAtom.symbolScreen.model.electrons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24289,7 +24289,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~3.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24300,7 +24300,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~3.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24311,7 +24311,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~3.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24322,7 +24322,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~3.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24333,7 +24333,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~3.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24344,7 +24344,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~3.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~3.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24355,7 +24355,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4": {
+    "buildAnAtom.symbolScreen.model.electrons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24366,7 +24366,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~4.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24377,7 +24377,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~4.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24388,7 +24388,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~4.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24399,7 +24399,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~4.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24410,7 +24410,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~4.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24421,7 +24421,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~4.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~4.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24432,7 +24432,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5": {
+    "buildAnAtom.symbolScreen.model.electrons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24443,7 +24443,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~5.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24454,7 +24454,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~5.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24465,7 +24465,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~5.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24476,7 +24476,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~5.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24487,7 +24487,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~5.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24498,7 +24498,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~5.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~5.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24509,7 +24509,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6": {
+    "buildAnAtom.symbolScreen.model.electrons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24520,7 +24520,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~6.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24531,7 +24531,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~6.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24542,7 +24542,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~6.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24553,7 +24553,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~6.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24564,7 +24564,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~6.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24575,7 +24575,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~6.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~6.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24586,7 +24586,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7": {
+    "buildAnAtom.symbolScreen.model.electrons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24597,7 +24597,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~7.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24608,7 +24608,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~7.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24619,7 +24619,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~7.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24630,7 +24630,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~7.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24641,7 +24641,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~7.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24652,7 +24652,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~7.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~7.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24663,7 +24663,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8": {
+    "buildAnAtom.symbolScreen.model.electrons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24674,7 +24674,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~8.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24685,7 +24685,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~8.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24696,7 +24696,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~8.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24707,7 +24707,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~8.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24718,7 +24718,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~8.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24729,7 +24729,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~8.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~8.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24740,7 +24740,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9": {
+    "buildAnAtom.symbolScreen.model.electrons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24751,7 +24751,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~9.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24762,7 +24762,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~9.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24773,7 +24773,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9.positionProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~9.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24784,7 +24784,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~9.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24795,7 +24795,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~9.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24806,7 +24806,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.electrons.element~9.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.electrons~9.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24828,7 +24828,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "SphereBucketIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0": {
+    "buildAnAtom.symbolScreen.model.neutrons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24839,7 +24839,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~0.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24850,7 +24850,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~0.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24861,7 +24861,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~0.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24872,7 +24872,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~0.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24883,7 +24883,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~0.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24894,7 +24894,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~0.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~0.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24905,7 +24905,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1": {
+    "buildAnAtom.symbolScreen.model.neutrons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24916,7 +24916,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~1.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24927,7 +24927,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~1.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24938,7 +24938,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~1.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24949,7 +24949,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~1.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24960,7 +24960,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~1.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24971,7 +24971,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~1.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~1.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24982,7 +24982,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10": {
+    "buildAnAtom.symbolScreen.model.neutrons~10": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -24993,7 +24993,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~10.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25004,7 +25004,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~10.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25015,7 +25015,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~10.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25026,7 +25026,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~10.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25037,7 +25037,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~10.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25048,7 +25048,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~10.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~10.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25059,7 +25059,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11": {
+    "buildAnAtom.symbolScreen.model.neutrons~11": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25070,7 +25070,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~11.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25081,7 +25081,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~11.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25092,7 +25092,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~11.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25103,7 +25103,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~11.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25114,7 +25114,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~11.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25125,7 +25125,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~11.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~11.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25136,7 +25136,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12": {
+    "buildAnAtom.symbolScreen.model.neutrons~12": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25147,7 +25147,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~12.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25158,7 +25158,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~12.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25169,7 +25169,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~12.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25180,7 +25180,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~12.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25191,7 +25191,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~12.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25202,7 +25202,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~12.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~12.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25213,7 +25213,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2": {
+    "buildAnAtom.symbolScreen.model.neutrons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25224,7 +25224,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~2.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25235,7 +25235,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~2.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25246,7 +25246,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~2.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25257,7 +25257,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~2.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25268,7 +25268,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~2.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25279,7 +25279,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~2.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~2.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25290,7 +25290,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3": {
+    "buildAnAtom.symbolScreen.model.neutrons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25301,7 +25301,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~3.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25312,7 +25312,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~3.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25323,7 +25323,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~3.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25334,7 +25334,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~3.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25345,7 +25345,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~3.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25356,7 +25356,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~3.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~3.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25367,7 +25367,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4": {
+    "buildAnAtom.symbolScreen.model.neutrons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25378,7 +25378,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~4.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25389,7 +25389,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~4.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25400,7 +25400,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~4.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25411,7 +25411,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~4.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25422,7 +25422,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~4.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25433,7 +25433,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~4.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~4.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25444,7 +25444,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5": {
+    "buildAnAtom.symbolScreen.model.neutrons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25455,7 +25455,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~5.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25466,7 +25466,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~5.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25477,7 +25477,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~5.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25488,7 +25488,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~5.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25499,7 +25499,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~5.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25510,7 +25510,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~5.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~5.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25521,7 +25521,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6": {
+    "buildAnAtom.symbolScreen.model.neutrons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25532,7 +25532,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~6.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25543,7 +25543,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~6.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25554,7 +25554,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~6.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25565,7 +25565,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~6.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25576,7 +25576,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~6.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25587,7 +25587,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~6.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~6.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25598,7 +25598,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7": {
+    "buildAnAtom.symbolScreen.model.neutrons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25609,7 +25609,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~7.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25620,7 +25620,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~7.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25631,7 +25631,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~7.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25642,7 +25642,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~7.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25653,7 +25653,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~7.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25664,7 +25664,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~7.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~7.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25675,7 +25675,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8": {
+    "buildAnAtom.symbolScreen.model.neutrons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25686,7 +25686,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~8.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25697,7 +25697,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~8.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25708,7 +25708,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~8.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25719,7 +25719,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~8.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25730,7 +25730,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~8.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25741,7 +25741,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~8.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~8.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25752,7 +25752,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9": {
+    "buildAnAtom.symbolScreen.model.neutrons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25763,7 +25763,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~9.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25774,7 +25774,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~9.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25785,7 +25785,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9.positionProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~9.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25796,7 +25796,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~9.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25807,7 +25807,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~9.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -25818,7 +25818,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.neutrons.element~9.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.neutrons~9.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26016,7 +26016,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "SphereBucketIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0": {
+    "buildAnAtom.symbolScreen.model.protons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26027,7 +26027,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~0.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26038,7 +26038,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~0.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26049,7 +26049,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~0.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26060,7 +26060,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~0.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26071,7 +26071,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~0.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26082,7 +26082,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~0.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~0.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26093,7 +26093,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1": {
+    "buildAnAtom.symbolScreen.model.protons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26104,7 +26104,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~1.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26115,7 +26115,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~1.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26126,7 +26126,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~1.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26137,7 +26137,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~1.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26148,7 +26148,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~1.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26159,7 +26159,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~1.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~1.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26170,7 +26170,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2": {
+    "buildAnAtom.symbolScreen.model.protons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26181,7 +26181,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~2.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26192,7 +26192,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~2.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26203,7 +26203,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~2.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26214,7 +26214,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~2.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26225,7 +26225,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~2.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26236,7 +26236,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~2.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~2.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26247,7 +26247,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3": {
+    "buildAnAtom.symbolScreen.model.protons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26258,7 +26258,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~3.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26269,7 +26269,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~3.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26280,7 +26280,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~3.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26291,7 +26291,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~3.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26302,7 +26302,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~3.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26313,7 +26313,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~3.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~3.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26324,7 +26324,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4": {
+    "buildAnAtom.symbolScreen.model.protons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26335,7 +26335,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~4.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26346,7 +26346,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~4.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26357,7 +26357,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~4.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26368,7 +26368,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~4.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26379,7 +26379,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~4.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26390,7 +26390,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~4.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~4.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26401,7 +26401,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5": {
+    "buildAnAtom.symbolScreen.model.protons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26412,7 +26412,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~5.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26423,7 +26423,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~5.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26434,7 +26434,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~5.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26445,7 +26445,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~5.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26456,7 +26456,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~5.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26467,7 +26467,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~5.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~5.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26478,7 +26478,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6": {
+    "buildAnAtom.symbolScreen.model.protons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26489,7 +26489,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~6.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26500,7 +26500,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~6.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26511,7 +26511,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~6.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26522,7 +26522,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~6.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26533,7 +26533,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~6.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26544,7 +26544,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~6.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~6.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26555,7 +26555,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7": {
+    "buildAnAtom.symbolScreen.model.protons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26566,7 +26566,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~7.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26577,7 +26577,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~7.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26588,7 +26588,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~7.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26599,7 +26599,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~7.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26610,7 +26610,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~7.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26621,7 +26621,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~7.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~7.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26632,7 +26632,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8": {
+    "buildAnAtom.symbolScreen.model.protons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26643,7 +26643,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~8.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26654,7 +26654,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~8.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26665,7 +26665,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~8.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26676,7 +26676,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~8.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26687,7 +26687,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~8.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26698,7 +26698,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~8.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~8.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26709,7 +26709,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9": {
+    "buildAnAtom.symbolScreen.model.protons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26720,7 +26720,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ParticleIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9.animationVelocityProperty": {
+    "buildAnAtom.symbolScreen.model.protons~9.animationVelocityProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26731,7 +26731,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9.destinationProperty": {
+    "buildAnAtom.symbolScreen.model.protons~9.destinationProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26742,7 +26742,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9.positionProperty": {
+    "buildAnAtom.symbolScreen.model.protons~9.positionProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26753,7 +26753,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<Vector2IO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9.radiusProperty": {
+    "buildAnAtom.symbolScreen.model.protons~9.radiusProperty": {
       "phetioDocumentation": "The radius of the particle.  Changes to radius may not be reflected in view.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26764,7 +26764,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9.userControlledProperty": {
+    "buildAnAtom.symbolScreen.model.protons~9.userControlledProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -26775,7 +26775,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.model.protons.element~9.zLayerProperty": {
+    "buildAnAtom.symbolScreen.model.protons~9.zLayerProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27886,7 +27886,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0": {
+    "buildAnAtom.symbolScreen.view.electrons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27897,7 +27897,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~0.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -27908,7 +27908,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27919,7 +27919,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27930,7 +27930,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27941,7 +27941,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27952,7 +27952,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27963,7 +27963,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~0.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27974,7 +27974,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27985,7 +27985,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -27996,7 +27996,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28007,7 +28007,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28018,7 +28018,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~0.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28029,7 +28029,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1": {
+    "buildAnAtom.symbolScreen.view.electrons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28040,7 +28040,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~1.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28051,7 +28051,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28062,7 +28062,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28073,7 +28073,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28084,7 +28084,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28095,7 +28095,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28106,7 +28106,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~1.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28117,7 +28117,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28128,7 +28128,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28139,7 +28139,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28150,7 +28150,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28161,7 +28161,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~1.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28172,7 +28172,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2": {
+    "buildAnAtom.symbolScreen.view.electrons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28183,7 +28183,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~2.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28194,7 +28194,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28205,7 +28205,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28216,7 +28216,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28227,7 +28227,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28238,7 +28238,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28249,7 +28249,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~2.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28260,7 +28260,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28271,7 +28271,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28282,7 +28282,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28293,7 +28293,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28304,7 +28304,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~2.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28315,7 +28315,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3": {
+    "buildAnAtom.symbolScreen.view.electrons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28326,7 +28326,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~3.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28337,7 +28337,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28348,7 +28348,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28359,7 +28359,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28370,7 +28370,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28381,7 +28381,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28392,7 +28392,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~3.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28403,7 +28403,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28414,7 +28414,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28425,7 +28425,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28436,7 +28436,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28447,7 +28447,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~3.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28458,7 +28458,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4": {
+    "buildAnAtom.symbolScreen.view.electrons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28469,7 +28469,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~4.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28480,7 +28480,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28491,7 +28491,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28502,7 +28502,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28513,7 +28513,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28524,7 +28524,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28535,7 +28535,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~4.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28546,7 +28546,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28557,7 +28557,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28568,7 +28568,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28579,7 +28579,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28590,7 +28590,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~4.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28601,7 +28601,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5": {
+    "buildAnAtom.symbolScreen.view.electrons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28612,7 +28612,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~5.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28623,7 +28623,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28634,7 +28634,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28645,7 +28645,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28656,7 +28656,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28667,7 +28667,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28678,7 +28678,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~5.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28689,7 +28689,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28700,7 +28700,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28711,7 +28711,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28722,7 +28722,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28733,7 +28733,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~5.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28744,7 +28744,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6": {
+    "buildAnAtom.symbolScreen.view.electrons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28755,7 +28755,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~6.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28766,7 +28766,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28777,7 +28777,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28788,7 +28788,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28799,7 +28799,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28810,7 +28810,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28821,7 +28821,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~6.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28832,7 +28832,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28843,7 +28843,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28854,7 +28854,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28865,7 +28865,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28876,7 +28876,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~6.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28887,7 +28887,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7": {
+    "buildAnAtom.symbolScreen.view.electrons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28898,7 +28898,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~7.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -28909,7 +28909,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28920,7 +28920,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28931,7 +28931,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28942,7 +28942,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28953,7 +28953,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28964,7 +28964,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~7.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28975,7 +28975,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28986,7 +28986,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -28997,7 +28997,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29008,7 +29008,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29019,7 +29019,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~7.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29030,7 +29030,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8": {
+    "buildAnAtom.symbolScreen.view.electrons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29041,7 +29041,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~8.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -29052,7 +29052,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29063,7 +29063,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29074,7 +29074,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29085,7 +29085,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29096,7 +29096,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29107,7 +29107,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~8.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29118,7 +29118,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29129,7 +29129,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29140,7 +29140,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29151,7 +29151,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29162,7 +29162,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~8.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29173,7 +29173,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9": {
+    "buildAnAtom.symbolScreen.view.electrons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29184,7 +29184,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener": {
+    "buildAnAtom.symbolScreen.view.electrons~9.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -29195,7 +29195,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29206,7 +29206,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29217,7 +29217,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.electrons~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29228,7 +29228,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29239,7 +29239,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29250,7 +29250,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.electrons~9.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29261,7 +29261,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29272,7 +29272,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29283,7 +29283,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29294,7 +29294,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -29305,7 +29305,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.electrons.element~9.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.electrons~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30097,7 +30097,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~0": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30108,7 +30108,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~0.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30119,7 +30119,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~0.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30130,7 +30130,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~0.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30141,7 +30141,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~1": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30152,7 +30152,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~1.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30163,7 +30163,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~1.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30174,7 +30174,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~1.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30185,7 +30185,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~2": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30196,7 +30196,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~2.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30207,7 +30207,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~2.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30218,7 +30218,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~2.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30229,7 +30229,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~3": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30240,7 +30240,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~3.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30251,7 +30251,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~3.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30262,7 +30262,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~3.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30273,7 +30273,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~4": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30284,7 +30284,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~4.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30295,7 +30295,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~4.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30306,7 +30306,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleonLayers.element~4.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleonLayers~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30317,7 +30317,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0": {
+    "buildAnAtom.symbolScreen.view.nucleons~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30328,7 +30328,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -30339,7 +30339,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30350,7 +30350,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30361,7 +30361,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30372,7 +30372,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30383,7 +30383,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30394,7 +30394,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30405,7 +30405,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30416,7 +30416,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30427,7 +30427,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30438,7 +30438,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30449,7 +30449,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~0.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30460,7 +30460,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1": {
+    "buildAnAtom.symbolScreen.view.nucleons~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30471,7 +30471,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -30482,7 +30482,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30493,7 +30493,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30504,7 +30504,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30515,7 +30515,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30526,7 +30526,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30537,7 +30537,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30548,7 +30548,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30559,7 +30559,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30570,7 +30570,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30581,7 +30581,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30592,7 +30592,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~1.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30603,7 +30603,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10": {
+    "buildAnAtom.symbolScreen.view.nucleons~10": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30614,7 +30614,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -30625,7 +30625,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30636,7 +30636,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30647,7 +30647,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30658,7 +30658,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30669,7 +30669,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30680,7 +30680,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30691,7 +30691,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30702,7 +30702,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30713,7 +30713,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30724,7 +30724,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30735,7 +30735,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~10.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~10.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30746,7 +30746,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11": {
+    "buildAnAtom.symbolScreen.view.nucleons~11": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30757,7 +30757,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -30768,7 +30768,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30779,7 +30779,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30790,7 +30790,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30801,7 +30801,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30812,7 +30812,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30823,7 +30823,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30834,7 +30834,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30845,7 +30845,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30856,7 +30856,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30867,7 +30867,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30878,7 +30878,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~11.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~11.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30889,7 +30889,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12": {
+    "buildAnAtom.symbolScreen.view.nucleons~12": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30900,7 +30900,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -30911,7 +30911,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30922,7 +30922,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30933,7 +30933,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30944,7 +30944,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30955,7 +30955,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30966,7 +30966,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30977,7 +30977,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30988,7 +30988,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -30999,7 +30999,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31010,7 +31010,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31021,7 +31021,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~12.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~12.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31032,7 +31032,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13": {
+    "buildAnAtom.symbolScreen.view.nucleons~13": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31043,7 +31043,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31054,7 +31054,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31065,7 +31065,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31076,7 +31076,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31087,7 +31087,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31098,7 +31098,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31109,7 +31109,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31120,7 +31120,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31131,7 +31131,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31142,7 +31142,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31153,7 +31153,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31164,7 +31164,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~13.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~13.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31175,7 +31175,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14": {
+    "buildAnAtom.symbolScreen.view.nucleons~14": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31186,7 +31186,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31197,7 +31197,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31208,7 +31208,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31219,7 +31219,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31230,7 +31230,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31241,7 +31241,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31252,7 +31252,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31263,7 +31263,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31274,7 +31274,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31285,7 +31285,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31296,7 +31296,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31307,7 +31307,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~14.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~14.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31318,7 +31318,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15": {
+    "buildAnAtom.symbolScreen.view.nucleons~15": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31329,7 +31329,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31340,7 +31340,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31351,7 +31351,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31362,7 +31362,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31373,7 +31373,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31384,7 +31384,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31395,7 +31395,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31406,7 +31406,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31417,7 +31417,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31428,7 +31428,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31439,7 +31439,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31450,7 +31450,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~15.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~15.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31461,7 +31461,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16": {
+    "buildAnAtom.symbolScreen.view.nucleons~16": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31472,7 +31472,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31483,7 +31483,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31494,7 +31494,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31505,7 +31505,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31516,7 +31516,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31527,7 +31527,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31538,7 +31538,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31549,7 +31549,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31560,7 +31560,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31571,7 +31571,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31582,7 +31582,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31593,7 +31593,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~16.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~16.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31604,7 +31604,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17": {
+    "buildAnAtom.symbolScreen.view.nucleons~17": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31615,7 +31615,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31626,7 +31626,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31637,7 +31637,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31648,7 +31648,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31659,7 +31659,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31670,7 +31670,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31681,7 +31681,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31692,7 +31692,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31703,7 +31703,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31714,7 +31714,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31725,7 +31725,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31736,7 +31736,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~17.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~17.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31747,7 +31747,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18": {
+    "buildAnAtom.symbolScreen.view.nucleons~18": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31758,7 +31758,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31769,7 +31769,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31780,7 +31780,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31791,7 +31791,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31802,7 +31802,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31813,7 +31813,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31824,7 +31824,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31835,7 +31835,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31846,7 +31846,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31857,7 +31857,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31868,7 +31868,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31879,7 +31879,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~18.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~18.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31890,7 +31890,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19": {
+    "buildAnAtom.symbolScreen.view.nucleons~19": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31901,7 +31901,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -31912,7 +31912,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31923,7 +31923,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31934,7 +31934,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31945,7 +31945,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31956,7 +31956,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31967,7 +31967,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31978,7 +31978,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -31989,7 +31989,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32000,7 +32000,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32011,7 +32011,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32022,7 +32022,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~19.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~19.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32033,7 +32033,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2": {
+    "buildAnAtom.symbolScreen.view.nucleons~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32044,7 +32044,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32055,7 +32055,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32066,7 +32066,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32077,7 +32077,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32088,7 +32088,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32099,7 +32099,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32110,7 +32110,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32121,7 +32121,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32132,7 +32132,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32143,7 +32143,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32154,7 +32154,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32165,7 +32165,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~2.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32176,7 +32176,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20": {
+    "buildAnAtom.symbolScreen.view.nucleons~20": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32187,7 +32187,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32198,7 +32198,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32209,7 +32209,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32220,7 +32220,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32231,7 +32231,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32242,7 +32242,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32253,7 +32253,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32264,7 +32264,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32275,7 +32275,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32286,7 +32286,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32297,7 +32297,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32308,7 +32308,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~20.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~20.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32319,7 +32319,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21": {
+    "buildAnAtom.symbolScreen.view.nucleons~21": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32330,7 +32330,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32341,7 +32341,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32352,7 +32352,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32363,7 +32363,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32374,7 +32374,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32385,7 +32385,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32396,7 +32396,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32407,7 +32407,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32418,7 +32418,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32429,7 +32429,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32440,7 +32440,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32451,7 +32451,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~21.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~21.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32462,7 +32462,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22": {
+    "buildAnAtom.symbolScreen.view.nucleons~22": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32473,7 +32473,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32484,7 +32484,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32495,7 +32495,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32506,7 +32506,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32517,7 +32517,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32528,7 +32528,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32539,7 +32539,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32550,7 +32550,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32561,7 +32561,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32572,7 +32572,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32583,7 +32583,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32594,7 +32594,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~22.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~22.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32605,7 +32605,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3": {
+    "buildAnAtom.symbolScreen.view.nucleons~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32616,7 +32616,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32627,7 +32627,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32638,7 +32638,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32649,7 +32649,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32660,7 +32660,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32671,7 +32671,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32682,7 +32682,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32693,7 +32693,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32704,7 +32704,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32715,7 +32715,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32726,7 +32726,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32737,7 +32737,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~3.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32748,7 +32748,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4": {
+    "buildAnAtom.symbolScreen.view.nucleons~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32759,7 +32759,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32770,7 +32770,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32781,7 +32781,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32792,7 +32792,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32803,7 +32803,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32814,7 +32814,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32825,7 +32825,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32836,7 +32836,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32847,7 +32847,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32858,7 +32858,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32869,7 +32869,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32880,7 +32880,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~4.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32891,7 +32891,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5": {
+    "buildAnAtom.symbolScreen.view.nucleons~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32902,7 +32902,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -32913,7 +32913,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32924,7 +32924,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32935,7 +32935,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32946,7 +32946,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32957,7 +32957,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32968,7 +32968,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32979,7 +32979,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -32990,7 +32990,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33001,7 +33001,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33012,7 +33012,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33023,7 +33023,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~5.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33034,7 +33034,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6": {
+    "buildAnAtom.symbolScreen.view.nucleons~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33045,7 +33045,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -33056,7 +33056,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33067,7 +33067,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33078,7 +33078,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33089,7 +33089,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33100,7 +33100,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33111,7 +33111,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33122,7 +33122,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33133,7 +33133,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33144,7 +33144,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33155,7 +33155,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33166,7 +33166,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~6.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33177,7 +33177,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7": {
+    "buildAnAtom.symbolScreen.view.nucleons~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33188,7 +33188,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -33199,7 +33199,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33210,7 +33210,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33221,7 +33221,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33232,7 +33232,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33243,7 +33243,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33254,7 +33254,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33265,7 +33265,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33276,7 +33276,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33287,7 +33287,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33298,7 +33298,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33309,7 +33309,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~7.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33320,7 +33320,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8": {
+    "buildAnAtom.symbolScreen.view.nucleons~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33331,7 +33331,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -33342,7 +33342,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33353,7 +33353,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33364,7 +33364,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33375,7 +33375,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33386,7 +33386,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33397,7 +33397,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33408,7 +33408,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33419,7 +33419,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33430,7 +33430,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33441,7 +33441,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33452,7 +33452,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~8.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33463,7 +33463,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9": {
+    "buildAnAtom.symbolScreen.view.nucleons~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33474,7 +33474,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.inputListener": {
       "phetioDocumentation": "",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -33485,7 +33485,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.dragEndedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33496,7 +33496,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.dragStartedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33507,7 +33507,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.draggedAction": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33518,7 +33518,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.inputListener.isDraggingProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33529,7 +33529,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33540,7 +33540,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.particleRepresentation": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.particleRepresentation": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33551,7 +33551,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.particleRepresentation.opacityProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.particleRepresentation.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33562,7 +33562,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.particleRepresentation.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.particleRepresentation.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33573,7 +33573,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.particleRepresentation.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.particleRepresentation.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33584,7 +33584,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.pickableProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -33595,7 +33595,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "buildAnAtom.symbolScreen.view.nucleons.element~9.visibleProperty": {
+    "buildAnAtom.symbolScreen.view.nucleons~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
