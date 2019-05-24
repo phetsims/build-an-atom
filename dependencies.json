@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.5.11-phetio Wed Apr 24 2019 14:42:11 GMT-0800 (Alaskan Daylight Time)",
+  "comment": "# build-an-atom 1.5.11-phetio Fri May 24 2019 14:27:44 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,12 +13,12 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "e1db0435b5b46341a0fbd9ca3bdb2fb30c05162e",
+    "sha": "74ab282586eca897e453a05e6d3c4027961464bf",
     "branch": "1.5-phetio"
   },
   "chipper": {
-    "sha": "aa5689a84931d2eb68a66894b3abb2c4d76ce601",
-    "branch": "HEAD"
+    "sha": "dbfa9c08ede848c37cc1a372dea69035fc747a28",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "dot": {
     "sha": "6b4ec39c10d667cd64543e59184f0a2fff4fad6e",
@@ -42,18 +42,6 @@
   },
   "phet-io-website": {
     "sha": "c36910eab70224d4c6d352b702a9da6eb57dce18",
-    "branch": "HEAD"
-  },
-  "phet-io-wrapper-classroom-activity": {
-    "sha": "0ea564c9e3729365b19635800259ca936cdd2a22",
-    "branch": "HEAD"
-  },
-  "phet-io-wrapper-lab-book": {
-    "sha": "e8c9f1d9ff94d67bf9e2682a8a591bbf19699f1d",
-    "branch": "HEAD"
-  },
-  "phet-io-wrapper-sonification": {
-    "sha": "91564c0d4fd00899f3f1431a7992b7ab469124bf",
     "branch": "HEAD"
   },
   "phet-io-wrappers": {
