@@ -7462,7 +7462,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7528,7 +7528,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7847,7 +7847,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7913,7 +7913,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -12203,7 +12203,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -12269,7 +12269,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -21597,7 +21597,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -21674,7 +21674,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23079,10 +23079,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.navigationBar.atomScreenButton.buttonModel.enabledProperty": {
+    "buildAnAtom.navigationBar.atomScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23090,7 +23090,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.navigationBar.atomScreenButton.buttonModel.firedEmitter": {
+    "buildAnAtom.navigationBar.atomScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -23266,10 +23266,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.navigationBar.gameScreenButton.buttonModel.enabledProperty": {
+    "buildAnAtom.navigationBar.gameScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23277,7 +23277,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.navigationBar.gameScreenButton.buttonModel.firedEmitter": {
+    "buildAnAtom.navigationBar.gameScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -23456,7 +23456,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23544,7 +23544,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23772,10 +23772,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "buildAnAtom.navigationBar.symbolScreenButton.buttonModel.enabledProperty": {
+    "buildAnAtom.navigationBar.symbolScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23783,7 +23783,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "buildAnAtom.navigationBar.symbolScreenButton.buttonModel.firedEmitter": {
+    "buildAnAtom.navigationBar.symbolScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -33983,7 +33983,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -34049,7 +34049,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43377,7 +43377,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43454,7 +43454,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43487,7 +43487,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43553,7 +43553,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
