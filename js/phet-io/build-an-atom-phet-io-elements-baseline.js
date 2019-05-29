@@ -7099,7 +7099,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7154,7 +7154,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7176,7 +7176,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7231,7 +7231,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7253,7 +7253,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7308,7 +7308,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7561,7 +7561,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7946,7 +7946,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -12357,7 +12357,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23731,7 +23731,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.navigationBar.phetButton.pickableProperty": {
       "phetioDocumentation": "Set whether the phetButton will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29506,7 +29506,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29561,7 +29561,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29583,7 +29583,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29638,7 +29638,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29660,7 +29660,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29715,7 +29715,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -34137,7 +34137,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43586,7 +43586,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
