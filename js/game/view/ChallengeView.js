@@ -14,7 +14,7 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var Color = require( 'SCENERY/util/Color' );
   var FaceNode = require( 'SCENERY_PHET/FaceNode' );
-  var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
+  var GameAudioPlayerOld = require( 'VEGAS/GameAudioPlayerOld' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -47,7 +47,7 @@ define( function( require ) {
     this.challenge = challenge;
 
     // Audio player used for audio feedback.
-    this.gameAudioPlayer = new GameAudioPlayer( challenge.model.soundEnabledProperty );
+    this.gameAudioPlayer = new GameAudioPlayerOld( challenge.model.soundEnabledProperty );
 
     // Layout assumes that bounds start at (0,0), so verify that this is true.
     assert && assert( layoutBounds.minX === 0 && layoutBounds.minY === 0 );
