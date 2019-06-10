@@ -98,7 +98,7 @@ define( function( require ) {
     _.each( model.buckets, function( bucket ) {
       self.addChild( new BucketHole( bucket, modelViewTransform, {
         pickable: false,
-        tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'Hole' )
+        tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Hole' )
       } ) );
     } );
 
@@ -188,11 +188,11 @@ define( function( require ) {
 
     _.each( model.buckets, function( bucket ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'Front' )
+        tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Front' )
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
-        tandem: tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
+        tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'DragHandler' )
       } ) );
     } );
 
