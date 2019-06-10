@@ -133,7 +133,7 @@ define( function( require ) {
       var bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       self.addChild( bucketFront );
       var bucketDragHandler = new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
-        tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.tail + 'DragHandler' )
+        tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.name + 'DragHandler' )
       } );
       bucketFront.addInputListener( bucketDragHandler );
 
