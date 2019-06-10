@@ -23,7 +23,6 @@ define( function( require ) {
   var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ShredConstants = require( 'SHRED/ShredConstants' );
-  var SoundToggleButton = require( 'SCENERY_PHET/buttons/SoundToggleButton' );
   var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
   var Text = require( 'SCENERY/nodes/Text' );
   var TimerToggleButton = require( 'SCENERY_PHET/buttons/TimerToggleButton' );
@@ -90,19 +89,12 @@ define( function( require ) {
     } );
     this.addChild( buttonHBox );
 
-    // sound and timer controls
-    var soundToggleButton = new SoundToggleButton( gameModel.soundEnabledProperty, {
-      stroke: 'gray',
-      tandem: tandem.createTandem( 'soundToggleButton' ),
-      left: CONTROLS_INSET,
-      bottom: layoutBounds.height - CONTROLS_INSET
-    } );
-    this.addChild( soundToggleButton );
+    // timer control
     var timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
       stroke: 'gray',
       tandem: tandem.createTandem( 'timerToggleButton' ),
-      left: soundToggleButton.left,
-      bottom: soundToggleButton.top - 10
+      left: CONTROLS_INSET,
+      bottom: layoutBounds.height - CONTROLS_INSET
     } );
     this.addChild( timerToggleButton );
 

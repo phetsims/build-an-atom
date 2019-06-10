@@ -64,11 +64,6 @@ define( function( require ) {
     } );
 
     // @public {Property.<boolean>}
-    this.soundEnabledProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'soundEnabledProperty' )
-    } );
-
-    // @public {Property.<boolean>}
     this.timerEnabledProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'timerEnabledProperty' )
     } );
@@ -261,7 +256,6 @@ define( function( require ) {
     // @public
     reset: function() {
       this.stateProperty.reset();
-      this.soundEnabledProperty.reset();
       this.timerEnabledProperty.reset();
       this.levelProperty.reset();
       this.challengeSetProperty.reset();

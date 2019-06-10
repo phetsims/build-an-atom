@@ -42,8 +42,7 @@ require.config( {
     SUN: '../../sun/js',
     TAMBO: '../../tambo/js',
     TANDEM: '../../tandem/js',
-    VEGAS: '../../vegas/js',
-    VIBE: '../../vibe/js'
+    VEGAS: '../../vegas/js'
   },
 
   // optional cache bust to make browser refresh load all included scripts, can be disabled with ?cacheBust=false

@@ -15,7 +15,7 @@ define( function( require ) {
   var BAARewardNode = require( 'BUILD_AN_ATOM/game/view/BAARewardNode' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var FiniteStatusBar = require( 'VEGAS/FiniteStatusBar' );
-  var GameAudioPlayerOld = require( 'VEGAS/GameAudioPlayerOld' );
+  var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -80,7 +80,7 @@ define( function( require ) {
 
     scoreboard.centerX = this.layoutBounds.centerX;
     scoreboard.top = 0;
-    var gameAudioPlayer = new GameAudioPlayerOld( gameModel.soundEnabledProperty );
+    var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     this.rewardNode = null;
     this.levelCompletedNode = null; // @private
 
