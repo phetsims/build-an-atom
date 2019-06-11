@@ -13,8 +13,7 @@
     "requirejsNamespace": "BUILD_AN_ATOM",
     "phetLibs": [
       "shred",
-      "vegas",
-      "vibe"
+      "vegas"
     ],
     "runnable": true,
     "supportedBrands": [
