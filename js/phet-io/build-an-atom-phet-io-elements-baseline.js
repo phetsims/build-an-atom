@@ -21792,17 +21792,6 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "buildAnAtom.gameScreen.model.soundEnabledProperty": {
-      "phetioDocumentation": "",
-      "phetioEventType": "model",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO.<BooleanIO>"
-    },
     "buildAnAtom.gameScreen.model.stateProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
