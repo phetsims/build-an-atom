@@ -7099,7 +7099,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7176,7 +7176,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7253,7 +7253,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -23533,7 +23533,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29495,7 +29495,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29572,7 +29572,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29649,7 +29649,7 @@ window.phet.phetio.phetioElementsBaseline =
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
