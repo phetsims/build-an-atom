@@ -1,5 +1,5 @@
 /* eslint-disable */
-window.phet.phetio.phetioElementsBaseline =
+window.phet.phetio.phetioElementsBaseline = assert &&
   {
     "buildAnAtom.atomScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
