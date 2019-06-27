@@ -7099,7 +7099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7176,7 +7176,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7253,7 +7253,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7462,7 +7462,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7858,7 +7858,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -12225,7 +12225,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -21630,7 +21630,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.atomScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -22136,7 +22136,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.general.navigationBar.atomScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -22323,7 +22323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.general.navigationBar.gameScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -22510,7 +22510,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.general.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -22829,7 +22829,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.general.navigationBar.symbolScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29528,7 +29528,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showElementNameCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29605,7 +29605,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showNeutralOrIonCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -29682,7 +29682,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.symbolScreen.view.labelVisibilityControlPanel.showStableOrUnstableCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -34005,7 +34005,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43410,7 +43410,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.symbolScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -43520,7 +43520,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
