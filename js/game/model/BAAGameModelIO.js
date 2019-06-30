@@ -33,7 +33,7 @@ define( function( require ) {
       returnType: VoidIO,
       parameterTypes: [ StringIO ],
       implementation: function( levelType ) {
-        this.instance.startGameLevel( levelType );
+        this.phetioObject.startGameLevel( levelType );
       },
       documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
       invocableForReadOnlyElements: false
@@ -43,7 +43,7 @@ define( function( require ) {
       returnType: VoidIO,
       parameterTypes: [ ArrayIO( ArrayIO( ObjectIO ) ) ],
       implementation: function( challenges ) {
-        this.instance.setChallenges( challenges );
+        this.phetioObject.setChallenges( challenges );
       },
       documentation: 'Specify exact challenges',
       invocableForReadOnlyElements: false
@@ -55,7 +55,7 @@ define( function( require ) {
 
       // TODO: change this to take index as 1st argument (for level index)
       implementation: function( allowedChallengeTypesByLevel ) {
-        this.instance.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
+        this.phetioObject.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
       },
 
       documentation: 'Specify which challenge types may be presented to the user for each level.',
@@ -77,7 +77,7 @@ define( function( require ) {
       baaGameModel.challengeSetProperty.reset();
     },
 
-    // addChildInstance: function( instance, tandem, stateObject ){
+    // addChildInstance: function( phetioObject, tandem, stateObject ){
     //
     // },
 
