@@ -25,7 +25,7 @@ define( function( require ) {
 
   // constants
   var INTER_BOX_SPACING = 7;
-  var ACCORDION_BOX_BUTTON_DILATION = 8;
+  var ACCORDION_BOX_BUTTON_DILATION = 12;
 
   /**
    * Constructor.

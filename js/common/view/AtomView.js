@@ -225,8 +225,8 @@ define( function( require ) {
       buttonAlign: 'right',
       expandedProperty: this.periodicTableAccordionBoxExpandedProperty,
       expandCollapseButtonOptions: {
-        touchAreaXDilation: 8,
-        touchAreaYDilation: 8
+        touchAreaXDilation: 12,
+        touchAreaYDilation: 12
       },
 
       // phet-io
