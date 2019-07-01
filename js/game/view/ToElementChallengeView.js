@@ -58,9 +58,9 @@ define( function( require ) {
       interactiveMax: 118,
       cellDimension: CELL_DIMENSION,
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
-      selectedCellColor: 'yellow'
+      selectedCellColor: 'yellow',
+      scale: 1.02
     } );
-    this.periodicTable.scale( 0.85 ); // scale value empirically determined
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Challenge title

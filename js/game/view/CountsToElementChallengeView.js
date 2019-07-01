@@ -30,7 +30,7 @@ define( function( require ) {
     this.challengePresentationNode.addChild( particleCountsNode );
 
     // Layout
-    particleCountsNode.centerX = layoutBounds.width * 0.25;
+    particleCountsNode.centerX = this.periodicTable.left / 2;
     particleCountsNode.centerY = this.periodicTable.centerY;
   }
 

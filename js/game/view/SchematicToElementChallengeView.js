@@ -42,6 +42,9 @@ define( function( require ) {
     );
     this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
+    nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
+    nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
+
     this.disposeSchematicToElementChallengeView = function(){
       nonInteractiveSchematicNode.dispose();
     };
