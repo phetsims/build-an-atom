@@ -17,6 +17,7 @@ define( function( require ) {
   var InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
   var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
@@ -71,7 +72,12 @@ define( function( require ) {
 
     // @public
     checkAnswer: function() {
-      this.challenge.checkAnswer( this.challenge.buildAnAtomModel.particleAtom );
+      const submittedAtom = new NumberAtom( {
+        protonCount: this.challenge.buildAnAtomModel.particleAtom.protonCountProperty.value,
+        neutronCount: this.challenge.buildAnAtomModel.particleAtom.neutronCountProperty.value,
+        electronCount: this.challenge.buildAnAtomModel.particleAtom.electronCountProperty.value
+      } );
+      this.challenge.checkAnswer( submittedAtom );
     },
 
     // @public
