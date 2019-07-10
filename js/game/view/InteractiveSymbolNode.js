@@ -170,8 +170,11 @@ define( function( require ) {
     }
 
     // @private called by dispose
-    this.disposeInteractiveSymbolNode = function() {
-      boundingBox.children.forEach( function( child ) { child.dispose();} );
+    this.disposeInteractiveSymbolNode = () => {
+      if ( this.protonCountProperty.hasListener( updateElement ) ) {
+        this.protonCountProperty.unlink( updateElement );
+      }
+      boundingBox.children.forEach( function( child ) { child.dispose(); } );
       this.protonCountProperty.dispose();
       this.massNumberProperty.dispose();
       this.chargeProperty.dispose();

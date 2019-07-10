@@ -180,13 +180,18 @@ define( function( require ) {
     };
 
     // Update the appearance of the challenge as the state changes.
-    challenge.challengeStateProperty.link( function( challengeState ) {
+    const handleStateChange = challengeState => {
       hideButtonsAndFace();
       // TODO: Is the check for undefined really needed
       if ( stateChangeHandlers[ challengeState ] !== undefined ) {
         stateChangeHandlers[ challengeState ]();
       }
-    } );
+    };
+    challenge.challengeStateProperty.link( handleStateChange );
+
+    this.disposeListeners = () => {
+      challenge.challengeStateProperty.unlink( handleStateChange );
+    };
 
     // Do an initial layout, but the subclasses can and should move the
     // buttons as needed.
@@ -204,6 +209,7 @@ define( function( require ) {
      * @public
      */
     dispose: function() {
+      this.disposeListeners();
       this.checkAnswerButton.dispose();
       this.nextButton.dispose();
       this.tryAgainButton.dispose();

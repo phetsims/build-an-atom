@@ -118,6 +118,8 @@ define( function( require ) {
 
     // @private called by dispose
     this.disposeToElementChallengeView = function() {
+      this.neutralOrIonProperty.unlink( updateCheckAnswerButton );
+      this.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
       this.periodicTableAtom.dispose();
       this.periodicTable.dispose();
       neutralAtomRadioButton.dispose();
