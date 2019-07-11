@@ -1,4 +1,4 @@
-// Copyright 2013-2018, University of Colorado Boulder
+// Copyright 2013-2019, University of Colorado Boulder
 
 /**
  * Node that represents an element symbol where each of the numbers on the
@@ -170,8 +170,11 @@ define( function( require ) {
     }
 
     // @private called by dispose
-    this.disposeInteractiveSymbolNode = function() {
-      boundingBox.children.forEach( function( child ) { child.dispose();} );
+    this.disposeInteractiveSymbolNode = () => {
+      if ( this.protonCountProperty.hasListener( updateElement ) ) {
+        this.protonCountProperty.unlink( updateElement );
+      }
+      boundingBox.children.forEach( function( child ) { child.dispose(); } );
       this.protonCountProperty.dispose();
       this.massNumberProperty.dispose();
       this.chargeProperty.dispose();

@@ -1,4 +1,4 @@
-// Copyright 2013-2018, University of Colorado Boulder
+// Copyright 2013-2019, University of Colorado Boulder
 
 /**
  * Base type for views of challenges where the user is asked to identify the
@@ -118,6 +118,8 @@ define( function( require ) {
 
     // @private called by dispose
     this.disposeToElementChallengeView = function() {
+      this.neutralOrIonProperty.unlink( updateCheckAnswerButton );
+      this.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
       this.periodicTableAtom.dispose();
       this.periodicTable.dispose();
       neutralAtomRadioButton.dispose();

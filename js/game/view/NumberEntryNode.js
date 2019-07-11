@@ -1,4 +1,4 @@
-// Copyright 2013-2017, University of Colorado Boulder
+// Copyright 2013-2019, University of Colorado Boulder
 
 /**
  * Node that allows a user to enter a numerical value using up/down arrow
@@ -61,7 +61,8 @@ define( function( require ) {
       lineWidth: 1
     } );
     self.addChild( answerValueBackground );
-    numberProperty.link( function( newValue ) {
+
+    const numberPropertyListener = newValue => {
       answerValueBackground.removeAllChildren();
       var prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
       var textNode = new Text( prepend + newValue, {
@@ -74,7 +75,8 @@ define( function( require ) {
       answerValueBackground.addChild( textNode );
       upArrowButton.enabled = ( newValue < options.maxValue );
       downArrowButton.enabled = ( newValue > options.minValue );
-    } );
+    };
+    numberProperty.link( numberPropertyListener );
 
     // Layout.  Upper left corner of overall node will be at (0,0).
     var interNodeSpacing = upArrowButton.height * 0.2;
@@ -105,6 +107,7 @@ define( function( require ) {
 
     // @private called by dispose
     this.disposeNumberEntryNode = function() {
+      numberProperty.unlink( numberPropertyListener );
       upArrowButton.dispose();
       downArrowButton.dispose();
     };
