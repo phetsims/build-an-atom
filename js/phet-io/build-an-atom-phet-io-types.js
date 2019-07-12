@@ -1203,11 +1203,6 @@ window.phet.phetio.phetioTypes = assert &&
           ],
           "returnType": "ObjectIO"
         },
-        "getPhetioElementsBaseline": {
-          "documentation": "Gets the baseline element API. Taken with the overrides and types, this produces the full API. Clients will probably not use this.",
-          "parameterTypes": [],
-          "returnType": "ObjectIO"
-        },
         "getPhetioIDs": {
           "documentation": "Gets a list of all of the PhET-iO elements.",
           "parameterTypes": [],
