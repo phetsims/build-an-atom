@@ -376,6 +376,17 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "ArrayIO.<BAAGameChallengeIO>"
     },
+    "ArrayIO.<ObjectIO>": {
+      "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "ObjectIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "ArrayIO.<ObjectIO>"
+    },
     "ArrayIO.<StringIO>": {
       "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
       "events": [],
@@ -386,6 +397,14 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "ArrayIO.<StringIO>"
+    },
+    "BAAGameChallengeIO": {
+      "documentation": "A challenge for the Game",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "ObjectIO",
+      "typeName": "BAAGameChallengeIO"
     },
     "BAAGameModelIO": {
       "documentation": "The model for the Game",
@@ -541,6 +560,14 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": "ObjectIO",
       "typeName": "EventIO"
+    },
+    "FocusIO": {
+      "documentation": "A IO type for the instance in the simulation which currently has keyboard focus.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "ObjectIO",
+      "typeName": "FocusIO"
     },
     "FontIO": {
       "documentation": "Font handling for text drawing. Options:<ul><li><strong>style:</strong> normal      &mdash; normal | italic | oblique </li><li><strong>variant:</strong> normal    &mdash; normal | small-caps </li><li><strong>weight:</strong> normal     &mdash; normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 </li><li><strong>stretch:</strong> normal    &mdash; normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded </li><li><strong>size:</strong> 10px         &mdash; absolute-size | relative-size | length | percentage -- unitless number interpreted as px. absolute suffixes: cm, mm, in, pt, pc, px. relative suffixes: em, ex, ch, rem, vw, vh, vmin, vmax. </li><li><strong>lineHeight:</strong> normal &mdash; normal | number | length | percentage -- NOTE: Canvas spec forces line-height to normal </li><li><strong>family:</strong> sans-serif &mdash; comma-separated list of families, including generic families (serif, sans-serif, cursive, fantasy, monospace). ideally escape with double-quotes</li></ul>",
@@ -891,6 +918,28 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "NodeIO"
     },
+    "NullableIO.<ArrayIO.<BAAGameChallengeIO>>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "ArrayIO.<BAAGameChallengeIO>"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO.<ArrayIO.<BAAGameChallengeIO>>"
+    },
+    "NullableIO.<BAAGameStateIO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "BAAGameStateIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO.<BAAGameStateIO>"
+    },
     "NullableIO.<BooleanIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
@@ -924,6 +973,39 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "NullableIO.<FocusIO>"
     },
+    "NullableIO.<NullableIO.<BooleanIO>>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NullableIO.<BooleanIO>"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO.<NullableIO.<BooleanIO>>"
+    },
+    "NullableIO.<NullableIO.<FocusIO>>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NullableIO.<FocusIO>"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO.<NullableIO.<FocusIO>>"
+    },
+    "NullableIO.<NumberIO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NumberIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO.<NumberIO>"
+    },
     "NullableIO.<StringIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
@@ -934,6 +1016,17 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "NullableIO.<StringIO>"
+    },
+    "NullableIO.<Vector2IO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "Vector2IO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO.<Vector2IO>"
     },
     "NumberIO": {
       "documentation": "Wrapper for the built-in JS number type (floating point, but also represents integers)",
