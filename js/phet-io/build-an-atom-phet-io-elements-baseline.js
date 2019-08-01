@@ -3158,7 +3158,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3167,10 +3167,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3179,10 +3179,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3191,7 +3191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.atomNode.electronCloud.dragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -5486,7 +5486,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5495,10 +5495,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5507,7 +5507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.atomScreen.view.cloudRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -5606,7 +5606,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -5615,10 +5615,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -5627,10 +5627,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electronBucketDragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -5639,7 +5639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electronBucketDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -5990,7 +5990,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~0.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -5999,10 +5999,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~0.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6011,10 +6011,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~0.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6023,7 +6023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -6146,7 +6146,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~1.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6155,10 +6155,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~1.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6167,10 +6167,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~1.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6179,7 +6179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -6302,7 +6302,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~2.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6311,10 +6311,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~2.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6323,10 +6323,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~2.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6335,7 +6335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -6458,7 +6458,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~3.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6467,10 +6467,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~3.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6479,10 +6479,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~3.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6491,7 +6491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -6614,7 +6614,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~4.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6623,10 +6623,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~4.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6635,10 +6635,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~4.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6647,7 +6647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -6770,7 +6770,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~5.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6779,10 +6779,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~5.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6791,10 +6791,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~5.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6803,7 +6803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -6926,7 +6926,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~6.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6935,10 +6935,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~6.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6947,10 +6947,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~6.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6959,7 +6959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -7082,7 +7082,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~7.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7091,10 +7091,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~7.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7103,10 +7103,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~7.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7115,7 +7115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -7238,7 +7238,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~8.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7247,10 +7247,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~8.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7259,10 +7259,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~8.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7271,7 +7271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -7394,7 +7394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.electrons~9.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7403,10 +7403,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~9.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7415,10 +7415,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~9.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7427,7 +7427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.electrons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -8174,7 +8174,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -8183,10 +8183,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -8195,7 +8195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.atomScreen.view.massNumberAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
@@ -8606,7 +8606,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -8615,10 +8615,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -8627,7 +8627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.atomScreen.view.netChargeAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
@@ -8834,7 +8834,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -8843,10 +8843,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -8855,10 +8855,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.neutronBucketDragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -8867,7 +8867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.neutronBucketDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -9350,7 +9350,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~0.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9359,10 +9359,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~0.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9371,10 +9371,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~0.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9383,7 +9383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -9506,7 +9506,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~1.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9515,10 +9515,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~1.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9527,10 +9527,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~1.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9539,7 +9539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -9662,7 +9662,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~10.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9671,10 +9671,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~10.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9683,10 +9683,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~10.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9695,7 +9695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~10.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -9818,7 +9818,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~11.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9827,10 +9827,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~11.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9839,10 +9839,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~11.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9851,7 +9851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~11.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -9974,7 +9974,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~12.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9983,10 +9983,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~12.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -9995,10 +9995,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~12.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10007,7 +10007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~12.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -10130,7 +10130,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~13.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10139,10 +10139,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~13.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10151,10 +10151,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~13.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10163,7 +10163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~13.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -10286,7 +10286,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~14.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10295,10 +10295,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~14.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10307,10 +10307,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~14.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10319,7 +10319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~14.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -10442,7 +10442,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~15.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10451,10 +10451,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~15.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10463,10 +10463,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~15.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10475,7 +10475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~15.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -10598,7 +10598,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~16.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10607,10 +10607,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~16.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10619,10 +10619,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~16.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10631,7 +10631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~16.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -10754,7 +10754,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~17.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10763,10 +10763,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~17.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10775,10 +10775,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~17.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10787,7 +10787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~17.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -10910,7 +10910,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~18.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10919,10 +10919,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~18.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10931,10 +10931,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~18.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -10943,7 +10943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~18.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -11066,7 +11066,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~19.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11075,10 +11075,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~19.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11087,10 +11087,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~19.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11099,7 +11099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~19.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -11222,7 +11222,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~2.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11231,10 +11231,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~2.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11243,10 +11243,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~2.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11255,7 +11255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -11378,7 +11378,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~20.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11387,10 +11387,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~20.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11399,10 +11399,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~20.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11411,7 +11411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~20.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -11534,7 +11534,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~21.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11543,10 +11543,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~21.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11555,10 +11555,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~21.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11567,7 +11567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~21.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -11690,7 +11690,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~22.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11699,10 +11699,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~22.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11711,10 +11711,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~22.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11723,7 +11723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~22.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -11846,7 +11846,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~3.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11855,10 +11855,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~3.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11867,10 +11867,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~3.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -11879,7 +11879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12002,7 +12002,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~4.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12011,10 +12011,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~4.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12023,10 +12023,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~4.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12035,7 +12035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12158,7 +12158,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~5.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12167,10 +12167,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~5.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12179,10 +12179,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~5.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12191,7 +12191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12314,7 +12314,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~6.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12323,10 +12323,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~6.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12335,10 +12335,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~6.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12347,7 +12347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12470,7 +12470,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~7.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12479,10 +12479,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~7.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12491,10 +12491,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~7.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12503,7 +12503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12626,7 +12626,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~8.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12635,10 +12635,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~8.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12647,10 +12647,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~8.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12659,7 +12659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12782,7 +12782,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.nucleons~9.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12791,10 +12791,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~9.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12803,10 +12803,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~9.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -12815,7 +12815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.nucleons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -12962,7 +12962,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -12971,10 +12971,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -12983,7 +12983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.atomScreen.view.orbitsRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -13370,7 +13370,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -13379,10 +13379,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -13391,7 +13391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.atomScreen.view.periodicTableAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
@@ -23378,7 +23378,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -23387,10 +23387,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -23399,10 +23399,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.protonBucketDragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -23411,7 +23411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.atomScreen.view.protonBucketDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -23654,7 +23654,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.atomScreen.view.resetAllButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -23663,10 +23663,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.atomScreen.view.resetAllButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -23675,7 +23675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.atomScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -23870,7 +23870,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.general.barrierRectangle.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -23879,10 +23879,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.barrierRectangle.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -23891,7 +23891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.barrierRectangle.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -24242,7 +24242,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.general.navigationBar.atomScreenButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24251,10 +24251,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.atomScreenButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24263,7 +24263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.atomScreenButton.text": {
       "phetioDocumentation": "",
@@ -24446,7 +24446,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.general.navigationBar.gameScreenButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24455,10 +24455,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.gameScreenButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24467,7 +24467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.gameScreenButton.text": {
       "phetioDocumentation": "",
@@ -24602,7 +24602,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.general.navigationBar.homeButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24611,10 +24611,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.homeButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24623,7 +24623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.homeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -24710,7 +24710,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24719,10 +24719,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24731,7 +24731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -24794,7 +24794,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24803,10 +24803,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24815,7 +24815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -24866,7 +24866,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.general.navigationBar.phetButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24875,10 +24875,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.phetButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -24887,7 +24887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.symbolScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'symbolScreen' screen",
@@ -24998,7 +24998,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.general.navigationBar.symbolScreenButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25007,10 +25007,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.general.navigationBar.symbolScreenButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25019,7 +25019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.general.navigationBar.symbolScreenButton.text": {
       "phetioDocumentation": "",
@@ -25274,7 +25274,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.homeScreen.view.atomScreenLargeButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25283,10 +25283,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.homeScreen.view.atomScreenLargeButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25295,7 +25295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.homeScreen.view.atomScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -25418,7 +25418,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.homeScreen.view.atomScreenSmallButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25427,10 +25427,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.homeScreen.view.atomScreenSmallButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25439,7 +25439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.homeScreen.view.atomScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -25562,7 +25562,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.homeScreen.view.gameScreenLargeButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25571,10 +25571,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.homeScreen.view.gameScreenLargeButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25583,7 +25583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.homeScreen.view.gameScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -25706,7 +25706,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.homeScreen.view.gameScreenSmallButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25715,10 +25715,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.homeScreen.view.gameScreenSmallButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25727,7 +25727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.homeScreen.view.gameScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -25874,7 +25874,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.homeScreen.view.symbolScreenLargeButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25883,10 +25883,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.homeScreen.view.symbolScreenLargeButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -25895,7 +25895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.homeScreen.view.symbolScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -26018,7 +26018,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.homeScreen.view.symbolScreenSmallButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -26027,10 +26027,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.homeScreen.view.symbolScreenSmallButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -26039,7 +26039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.homeScreen.view.symbolScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -29366,7 +29366,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -29375,10 +29375,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -29387,10 +29387,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -29399,7 +29399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.atomNode.electronCloud.dragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -29954,7 +29954,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -29963,10 +29963,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -29975,7 +29975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.symbolScreen.view.cloudRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -30074,7 +30074,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30083,10 +30083,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30095,10 +30095,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electronBucketDragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30107,7 +30107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electronBucketDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -30458,7 +30458,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~0.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30467,10 +30467,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~0.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30479,10 +30479,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~0.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30491,7 +30491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -30614,7 +30614,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~1.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30623,10 +30623,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~1.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30635,10 +30635,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~1.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30647,7 +30647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -30770,7 +30770,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~2.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30779,10 +30779,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~2.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30791,10 +30791,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~2.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30803,7 +30803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -30926,7 +30926,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~3.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30935,10 +30935,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~3.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30947,10 +30947,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~3.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -30959,7 +30959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -31082,7 +31082,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~4.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31091,10 +31091,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~4.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31103,10 +31103,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~4.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31115,7 +31115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -31238,7 +31238,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~5.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31247,10 +31247,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~5.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31259,10 +31259,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~5.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31271,7 +31271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -31394,7 +31394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~6.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31403,10 +31403,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~6.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31415,10 +31415,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~6.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31427,7 +31427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -31550,7 +31550,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~7.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31559,10 +31559,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~7.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31571,10 +31571,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~7.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31583,7 +31583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -31706,7 +31706,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~8.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31715,10 +31715,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~8.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31727,10 +31727,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~8.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31739,7 +31739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -31862,7 +31862,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.electrons~9.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31871,10 +31871,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~9.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31883,10 +31883,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~9.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -31895,7 +31895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.electrons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -32594,7 +32594,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -32603,10 +32603,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -32615,10 +32615,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -32627,7 +32627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.neutronBucketDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -33110,7 +33110,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33119,10 +33119,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33131,10 +33131,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33143,7 +33143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~0.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -33266,7 +33266,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33275,10 +33275,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33287,10 +33287,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33299,7 +33299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~1.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -33422,7 +33422,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33431,10 +33431,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33443,10 +33443,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33455,7 +33455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~10.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -33578,7 +33578,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33587,10 +33587,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33599,10 +33599,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33611,7 +33611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~11.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -33734,7 +33734,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33743,10 +33743,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33755,10 +33755,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33767,7 +33767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~12.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -33890,7 +33890,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33899,10 +33899,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33911,10 +33911,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -33923,7 +33923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~13.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34046,7 +34046,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34055,10 +34055,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34067,10 +34067,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34079,7 +34079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~14.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34202,7 +34202,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34211,10 +34211,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34223,10 +34223,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34235,7 +34235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~15.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34358,7 +34358,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34367,10 +34367,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34379,10 +34379,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34391,7 +34391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~16.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34514,7 +34514,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34523,10 +34523,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34535,10 +34535,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34547,7 +34547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~17.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34670,7 +34670,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34679,10 +34679,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34691,10 +34691,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34703,7 +34703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~18.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34826,7 +34826,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34835,10 +34835,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34847,10 +34847,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34859,7 +34859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~19.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -34982,7 +34982,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -34991,10 +34991,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35003,10 +35003,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35015,7 +35015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~2.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -35138,7 +35138,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35147,10 +35147,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35159,10 +35159,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35171,7 +35171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~20.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -35294,7 +35294,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35303,10 +35303,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35315,10 +35315,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35327,7 +35327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~21.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -35450,7 +35450,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35459,10 +35459,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35471,10 +35471,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35483,7 +35483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~22.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -35606,7 +35606,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35615,10 +35615,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35627,10 +35627,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35639,7 +35639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~3.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -35762,7 +35762,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35771,10 +35771,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35783,10 +35783,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35795,7 +35795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~4.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -35918,7 +35918,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35927,10 +35927,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35939,10 +35939,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -35951,7 +35951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~5.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -36074,7 +36074,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36083,10 +36083,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36095,10 +36095,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36107,7 +36107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~6.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -36230,7 +36230,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36239,10 +36239,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36251,10 +36251,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36263,7 +36263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~7.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -36386,7 +36386,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36395,10 +36395,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36407,10 +36407,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36419,7 +36419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~8.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -36542,7 +36542,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36551,10 +36551,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36563,10 +36563,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -36575,7 +36575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.nucleons~9.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -36722,7 +36722,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -36731,10 +36731,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -36743,7 +36743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.symbolScreen.view.orbitsRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
@@ -37130,7 +37130,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -37139,10 +37139,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -37151,7 +37151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.symbolScreen.view.periodicTableAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
@@ -47138,7 +47138,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -47147,10 +47147,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragEndAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -47159,10 +47159,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.protonBucketDragHandler.dragStartAction": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -47171,7 +47171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
+      "phetioTypeName": "ActionIO.<Vector2IO>"
     },
     "buildAnAtom.symbolScreen.view.protonBucketDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
@@ -47414,7 +47414,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.symbolScreen.view.resetAllButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -47423,10 +47423,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.symbolScreen.view.resetAllButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -47435,7 +47435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.symbolScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -47510,7 +47510,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -47519,10 +47519,10 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
+      "phetioTypeName": "ActionIO.<EventIO>"
     },
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -47531,7 +47531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "buildAnAtom.symbolScreen.view.symbolAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
