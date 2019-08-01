@@ -19,7 +19,6 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   var Emitter = require( 'AXON/Emitter' );
-  var EmitterIO = require( 'AXON/EmitterIO' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberAtom = require( 'SHRED/model/NumberAtom' );
   var NumberProperty = require( 'AXON/NumberProperty' );
@@ -105,7 +104,7 @@ define( function( require ) {
     // @private
     this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      phetioType: EmitterIO( [ { name: 'results', type: ObjectIO } ] )
+      parameters: [ { name: 'results', phetioType: ObjectIO } ]
     } );
 
     this.bestScores = []; // Properties that track progress on each game level.
@@ -130,7 +129,7 @@ define( function( require ) {
 
     this.checkAnswerEmitter = new Emitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      phetioType: EmitterIO( [ { name: 'result', type: ObjectIO } ] )
+      parameters: [ { name: 'result', phetioType: ObjectIO } ]
     } );
 
     // @private
