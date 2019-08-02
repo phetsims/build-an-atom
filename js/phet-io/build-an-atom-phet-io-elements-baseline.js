@@ -2039,7 +2039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO"
+      "phetioTypeName": "ObservableArrayIO.<ParticleIO>"
     },
     "buildAnAtom.atomScreen.model.particleAtom.electrons.lengthProperty": {
       "phetioDocumentation": "",
@@ -2087,7 +2087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO"
+      "phetioTypeName": "ObservableArrayIO.<ParticleIO>"
     },
     "buildAnAtom.atomScreen.model.particleAtom.neutrons.lengthProperty": {
       "phetioDocumentation": "",
@@ -2159,7 +2159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO"
+      "phetioTypeName": "ObservableArrayIO.<ParticleIO>"
     },
     "buildAnAtom.atomScreen.model.particleAtom.protons.lengthProperty": {
       "phetioDocumentation": "",
@@ -28247,7 +28247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO"
+      "phetioTypeName": "ObservableArrayIO.<ParticleIO>"
     },
     "buildAnAtom.symbolScreen.model.particleAtom.electrons.lengthProperty": {
       "phetioDocumentation": "",
@@ -28295,7 +28295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO"
+      "phetioTypeName": "ObservableArrayIO.<ParticleIO>"
     },
     "buildAnAtom.symbolScreen.model.particleAtom.neutrons.lengthProperty": {
       "phetioDocumentation": "",
@@ -28367,7 +28367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO"
+      "phetioTypeName": "ObservableArrayIO.<ParticleIO>"
     },
     "buildAnAtom.symbolScreen.model.particleAtom.protons.lengthProperty": {
       "phetioDocumentation": "",

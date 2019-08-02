@@ -907,7 +907,7 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": null,
       "typeName": "ObjectIO"
     },
-    "ObservableArrayIO": {
+    "ObservableArrayIO.<ParticleIO>": {
       "documentation": "An array that sends notifications when its values have changed.",
       "events": [
         "itemAdded",
@@ -935,8 +935,11 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "NumberIO"
         }
       },
+      "parameterTypes": [
+        "ParticleIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ObservableArrayIO"
+      "typeName": "ObservableArrayIO.<ParticleIO>"
     },
     "ParticleAtomIO": {
       "documentation": "A model of an atom that tracks and arranges the subatomic particles, i.e. protons, neutrons, and electrons, of which it is comprised.  When particles are added, they are moved into the appropriate places.  This object also keeps track of things like atomic number, mass number, and charge.",
