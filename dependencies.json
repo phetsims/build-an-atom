@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.4.9-phetio Mon Aug 19 2019 12:53:01 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.4.10-phetiorc.1 Mon Aug 19 2019 15:46:34 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "4b682309761b50e3ac6e3726bda61b01265decdc",
+    "sha": "950b9922347f1725adeba19cbcb618823b49327d",
     "branch": "1.4-phetio"
   },
   "chipper": {
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "ad70e3bd6f23aaebb8a9501b0063feb61c40e1a9",
-    "branch": "build-an-atom-1.4-phetio"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "f4c67cff6e24693f66b58fcea16069be3dbd8e88",
@@ -62,7 +62,7 @@
   },
   "scenery-phet": {
     "sha": "25363ef8f4bd876cc52bc4bd34a89aaa706d2365",
-    "branch": "build-an-atom-1.4-phetio"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "985665662c9862d5b38583a715896029b46feb44",
