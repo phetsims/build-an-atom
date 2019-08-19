@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.9 Mon Aug 05 2019 14:52:48 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.6.9 Mon Aug 19 2019 12:55:21 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "05fc9d05ad9f6729377c840e176cc7edcb6101de",
+    "sha": "9ab883f74037505d34f96e6f7f59e043da8191d9",
     "branch": "1.6"
   },
   "chipper": {
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "9f8ad8a29ab8a1e596eb4cf62d79deb7293f0a81",
-    "branch": "HEAD"
+    "sha": "492a5e5f60042e66b4900e36b74c03b779af7734",
+    "branch": "build-an-atom-1.6"
   },
   "kite": {
     "sha": "41ac3b7a27f0313bcafb9eb0fde1c1860a5c2cc6",
@@ -53,8 +53,8 @@
     "branch": "HEAD"
   },
   "scenery-phet": {
-    "sha": "effed588437936f4ffa088339776df18db4c65e8",
-    "branch": "HEAD"
+    "sha": "fe539936572e652129785b4c815bc6c1c5283df4",
+    "branch": "build-an-atom-1.6"
   },
   "sherpa": {
     "sha": "f1937ecb1c2fd45be748815eddeb89ff6a7ad537",
