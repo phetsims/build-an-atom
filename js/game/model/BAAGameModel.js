@@ -34,7 +34,6 @@ define( function( require ) {
   var MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
 
   /**
-   * main constructor function for the game model
    * {Tandem} tandem
    * @constructor
    */
