@@ -1513,7 +1513,7 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methods": {
         "addEventListener": {
-          "documentation": "Adds a listener to the PhET-iO dataStream, which can be used to respond to events or for data analysis. Unlike Client.launchSim( {onEvent} ) which is called recursively for each child event, this is only called with top-level events.",
+          "documentation": "Adds a listener to the PhET-iO dataStream, which can be used to respond to events or for data analysis. Unlike Client.launchSim( {onEvent} ) which is called recursively for each parsed child event, this is only called with stringified top-level events.",
           "parameterTypes": [
             "FunctionIO.(ObjectIO)=>VoidIO"
           ],
