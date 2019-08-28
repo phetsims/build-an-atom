@@ -27,7 +27,7 @@ window.phet.phetio.phetioTypes = assert &&
         }
       },
       "parameterTypes": [],
-      "supertype": "ParametricTypeIO.<>",
+      "supertype": "ParametricTypeImplIO.<>",
       "typeName": "ActionIO.<>"
     },
     "ActionIO.<BooleanIO>": {
@@ -49,7 +49,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "BooleanIO"
       ],
-      "supertype": "ParametricTypeIO.<BooleanIO>",
+      "supertype": "ParametricTypeImplIO.<BooleanIO>",
       "typeName": "ActionIO.<BooleanIO>"
     },
     "ActionIO.<DOMEventIO>": {
@@ -71,7 +71,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "DOMEventIO"
       ],
-      "supertype": "ParametricTypeIO.<DOMEventIO>",
+      "supertype": "ParametricTypeImplIO.<DOMEventIO>",
       "typeName": "ActionIO.<DOMEventIO>"
     },
     "ActionIO.<EventIO>": {
@@ -93,7 +93,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "EventIO"
       ],
-      "supertype": "ParametricTypeIO.<EventIO>",
+      "supertype": "ParametricTypeImplIO.<EventIO>",
       "typeName": "ActionIO.<EventIO>"
     },
     "ActionIO.<NullableIO.<EventIO>>": {
@@ -115,7 +115,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NullableIO.<EventIO>"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<EventIO>>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<EventIO>>",
       "typeName": "ActionIO.<NullableIO.<EventIO>>"
     },
     "ActionIO.<NumberIO, NumberIO>": {
@@ -139,7 +139,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NumberIO",
         "NumberIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO, NumberIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO, NumberIO>",
       "typeName": "ActionIO.<NumberIO, NumberIO>"
     },
     "ActionIO.<NumberIO, Vector2IO, DOMEventIO>": {
@@ -165,7 +165,7 @@ window.phet.phetio.phetioTypes = assert &&
         "Vector2IO",
         "DOMEventIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO, Vector2IO, DOMEventIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO, Vector2IO, DOMEventIO>",
       "typeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "ActionIO.<NumberIO>": {
@@ -187,7 +187,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NumberIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO>",
       "typeName": "ActionIO.<NumberIO>"
     },
     "ActionIO.<ObjectIO>": {
@@ -209,7 +209,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ObjectIO"
       ],
-      "supertype": "ParametricTypeIO.<ObjectIO>",
+      "supertype": "ParametricTypeImplIO.<ObjectIO>",
       "typeName": "ActionIO.<ObjectIO>"
     },
     "ActionIO.<Vector2IO, DOMEventIO>": {
@@ -233,7 +233,7 @@ window.phet.phetio.phetioTypes = assert &&
         "Vector2IO",
         "DOMEventIO"
       ],
-      "supertype": "ParametricTypeIO.<Vector2IO, DOMEventIO>",
+      "supertype": "ParametricTypeImplIO.<Vector2IO, DOMEventIO>",
       "typeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
     "ActionIO.<Vector2IO>": {
@@ -255,7 +255,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "Vector2IO"
       ],
-      "supertype": "ParametricTypeIO.<Vector2IO>",
+      "supertype": "ParametricTypeImplIO.<Vector2IO>",
       "typeName": "ActionIO.<Vector2IO>"
     },
     "ArrayIO.<ArrayIO.<ObjectIO>>": {
@@ -266,7 +266,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ArrayIO.<ObjectIO>"
       ],
-      "supertype": "ParametricTypeIO.<ArrayIO.<ObjectIO>>",
+      "supertype": "ParametricTypeImplIO.<ArrayIO.<ObjectIO>>",
       "typeName": "ArrayIO.<ArrayIO.<ObjectIO>>"
     },
     "ArrayIO.<ArrayIO.<StringIO>>": {
@@ -277,7 +277,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ArrayIO.<StringIO>"
       ],
-      "supertype": "ParametricTypeIO.<ArrayIO.<StringIO>>",
+      "supertype": "ParametricTypeImplIO.<ArrayIO.<StringIO>>",
       "typeName": "ArrayIO.<ArrayIO.<StringIO>>"
     },
     "ArrayIO.<BAAGameChallengeIO>": {
@@ -288,7 +288,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "BAAGameChallengeIO"
       ],
-      "supertype": "ParametricTypeIO.<BAAGameChallengeIO>",
+      "supertype": "ParametricTypeImplIO.<BAAGameChallengeIO>",
       "typeName": "ArrayIO.<BAAGameChallengeIO>"
     },
     "ArrayIO.<ObjectIO>": {
@@ -299,7 +299,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ObjectIO"
       ],
-      "supertype": "ParametricTypeIO.<ObjectIO>",
+      "supertype": "ParametricTypeImplIO.<ObjectIO>",
       "typeName": "ArrayIO.<ObjectIO>"
     },
     "ArrayIO.<StringIO>": {
@@ -310,7 +310,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "StringIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO>",
       "typeName": "ArrayIO.<StringIO>"
     },
     "BAAGameChallengeIO": {
@@ -500,7 +500,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<VoidIO>",
+      "supertype": "ParametricTypeImplIO.<VoidIO>",
       "typeName": "FunctionIO.()=>VoidIO"
     },
     "FunctionIO.(ArrayIO.<BAAGameChallengeIO>)=>VoidIO": {
@@ -512,7 +512,7 @@ window.phet.phetio.phetioTypes = assert &&
         "ArrayIO.<BAAGameChallengeIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>, VoidIO>",
       "typeName": "FunctionIO.(ArrayIO.<BAAGameChallengeIO>)=>VoidIO"
     },
     "FunctionIO.(ArrayIO.<BAAGameChallengeIO>,NullableIO.<ArrayIO.<BAAGameChallengeIO>>)=>VoidIO": {
@@ -525,7 +525,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<ArrayIO.<BAAGameChallengeIO>>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>, NullableIO.<ArrayIO.<BAAGameChallengeIO>>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>, NullableIO.<ArrayIO.<BAAGameChallengeIO>>, VoidIO>",
       "typeName": "FunctionIO.(ArrayIO.<BAAGameChallengeIO>,NullableIO.<ArrayIO.<BAAGameChallengeIO>>)=>VoidIO"
     },
     "FunctionIO.(BAAGameStateIO)=>VoidIO": {
@@ -537,7 +537,7 @@ window.phet.phetio.phetioTypes = assert &&
         "BAAGameStateIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<BAAGameStateIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<BAAGameStateIO, VoidIO>",
       "typeName": "FunctionIO.(BAAGameStateIO)=>VoidIO"
     },
     "FunctionIO.(BAAGameStateIO,NullableIO.<BAAGameStateIO>)=>VoidIO": {
@@ -550,7 +550,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<BAAGameStateIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<BAAGameStateIO, NullableIO.<BAAGameStateIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<BAAGameStateIO, NullableIO.<BAAGameStateIO>, VoidIO>",
       "typeName": "FunctionIO.(BAAGameStateIO,NullableIO.<BAAGameStateIO>)=>VoidIO"
     },
     "FunctionIO.(BooleanIO)=>VoidIO": {
@@ -562,7 +562,7 @@ window.phet.phetio.phetioTypes = assert &&
         "BooleanIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<BooleanIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<BooleanIO, VoidIO>",
       "typeName": "FunctionIO.(BooleanIO)=>VoidIO"
     },
     "FunctionIO.(BooleanIO,NullableIO.<BooleanIO>)=>VoidIO": {
@@ -575,7 +575,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<BooleanIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<BooleanIO, NullableIO.<BooleanIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<BooleanIO, NullableIO.<BooleanIO>, VoidIO>",
       "typeName": "FunctionIO.(BooleanIO,NullableIO.<BooleanIO>)=>VoidIO"
     },
     "FunctionIO.(NullableIO.<BooleanIO>)=>VoidIO": {
@@ -587,7 +587,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<BooleanIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<BooleanIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<BooleanIO>, VoidIO>",
       "typeName": "FunctionIO.(NullableIO.<BooleanIO>)=>VoidIO"
     },
     "FunctionIO.(NullableIO.<BooleanIO>,NullableIO.<NullableIO.<BooleanIO>>)=>VoidIO": {
@@ -600,7 +600,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<NullableIO.<BooleanIO>>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>, VoidIO>",
       "typeName": "FunctionIO.(NullableIO.<BooleanIO>,NullableIO.<NullableIO.<BooleanIO>>)=>VoidIO"
     },
     "FunctionIO.(NullableIO.<FocusIO>)=>VoidIO": {
@@ -612,7 +612,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<FocusIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<FocusIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<FocusIO>, VoidIO>",
       "typeName": "FunctionIO.(NullableIO.<FocusIO>)=>VoidIO"
     },
     "FunctionIO.(NullableIO.<FocusIO>,NullableIO.<NullableIO.<FocusIO>>)=>VoidIO": {
@@ -625,7 +625,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<NullableIO.<FocusIO>>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>, VoidIO>",
       "typeName": "FunctionIO.(NullableIO.<FocusIO>,NullableIO.<NullableIO.<FocusIO>>)=>VoidIO"
     },
     "FunctionIO.(NumberIO)=>VoidIO": {
@@ -637,7 +637,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NumberIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO, VoidIO>",
       "typeName": "FunctionIO.(NumberIO)=>VoidIO"
     },
     "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO": {
@@ -650,7 +650,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<NumberIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO, NullableIO.<NumberIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO, NullableIO.<NumberIO>, VoidIO>",
       "typeName": "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO"
     },
     "FunctionIO.(ObjectIO)=>VoidIO": {
@@ -662,7 +662,7 @@ window.phet.phetio.phetioTypes = assert &&
         "ObjectIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<ObjectIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<ObjectIO, VoidIO>",
       "typeName": "FunctionIO.(ObjectIO)=>VoidIO"
     },
     "FunctionIO.(ParticleIO)=>VoidIO": {
@@ -674,7 +674,7 @@ window.phet.phetio.phetioTypes = assert &&
         "ParticleIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<ParticleIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<ParticleIO, VoidIO>",
       "typeName": "FunctionIO.(ParticleIO)=>VoidIO"
     },
     "FunctionIO.(StringIO)=>VoidIO": {
@@ -686,7 +686,7 @@ window.phet.phetio.phetioTypes = assert &&
         "StringIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO, VoidIO>",
       "typeName": "FunctionIO.(StringIO)=>VoidIO"
     },
     "FunctionIO.(StringIO,NullableIO.<StringIO>)=>VoidIO": {
@@ -699,7 +699,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<StringIO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO, NullableIO.<StringIO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO, NullableIO.<StringIO>, VoidIO>",
       "typeName": "FunctionIO.(StringIO,NullableIO.<StringIO>)=>VoidIO"
     },
     "FunctionIO.(StringIO,ObjectIO,ObjectIO)=>VoidIO": {
@@ -713,7 +713,7 @@ window.phet.phetio.phetioTypes = assert &&
         "ObjectIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO, ObjectIO, ObjectIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO, ObjectIO, ObjectIO, VoidIO>",
       "typeName": "FunctionIO.(StringIO,ObjectIO,ObjectIO)=>VoidIO"
     },
     "FunctionIO.(StringIO,StringIO)=>VoidIO": {
@@ -726,7 +726,7 @@ window.phet.phetio.phetioTypes = assert &&
         "StringIO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO, StringIO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO, StringIO, VoidIO>",
       "typeName": "FunctionIO.(StringIO,StringIO)=>VoidIO"
     },
     "FunctionIO.(Vector2IO)=>VoidIO": {
@@ -738,7 +738,7 @@ window.phet.phetio.phetioTypes = assert &&
         "Vector2IO",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<Vector2IO, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<Vector2IO, VoidIO>",
       "typeName": "FunctionIO.(Vector2IO)=>VoidIO"
     },
     "FunctionIO.(Vector2IO,NullableIO.<Vector2IO>)=>VoidIO": {
@@ -751,7 +751,7 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<Vector2IO>",
         "VoidIO"
       ],
-      "supertype": "ParametricTypeIO.<Vector2IO, NullableIO.<Vector2IO>, VoidIO>",
+      "supertype": "ParametricTypeImplIO.<Vector2IO, NullableIO.<Vector2IO>, VoidIO>",
       "typeName": "FunctionIO.(Vector2IO,NullableIO.<Vector2IO>)=>VoidIO"
     },
     "LinkedElementIO": {
@@ -778,7 +778,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ArrayIO.<BAAGameChallengeIO>"
       ],
-      "supertype": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>>",
+      "supertype": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>>",
       "typeName": "NullableIO.<ArrayIO.<BAAGameChallengeIO>>"
     },
     "NullableIO.<BAAGameStateIO>": {
@@ -789,7 +789,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "BAAGameStateIO"
       ],
-      "supertype": "ParametricTypeIO.<BAAGameStateIO>",
+      "supertype": "ParametricTypeImplIO.<BAAGameStateIO>",
       "typeName": "NullableIO.<BAAGameStateIO>"
     },
     "NullableIO.<BooleanIO>": {
@@ -800,7 +800,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "BooleanIO"
       ],
-      "supertype": "ParametricTypeIO.<BooleanIO>",
+      "supertype": "ParametricTypeImplIO.<BooleanIO>",
       "typeName": "NullableIO.<BooleanIO>"
     },
     "NullableIO.<EventIO>": {
@@ -811,7 +811,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "EventIO"
       ],
-      "supertype": "ParametricTypeIO.<EventIO>",
+      "supertype": "ParametricTypeImplIO.<EventIO>",
       "typeName": "NullableIO.<EventIO>"
     },
     "NullableIO.<FocusIO>": {
@@ -822,7 +822,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "FocusIO"
       ],
-      "supertype": "ParametricTypeIO.<FocusIO>",
+      "supertype": "ParametricTypeImplIO.<FocusIO>",
       "typeName": "NullableIO.<FocusIO>"
     },
     "NullableIO.<NullableIO.<BooleanIO>>": {
@@ -833,7 +833,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NullableIO.<BooleanIO>"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<BooleanIO>>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<BooleanIO>>",
       "typeName": "NullableIO.<NullableIO.<BooleanIO>>"
     },
     "NullableIO.<NullableIO.<FocusIO>>": {
@@ -844,7 +844,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NullableIO.<FocusIO>"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<FocusIO>>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<FocusIO>>",
       "typeName": "NullableIO.<NullableIO.<FocusIO>>"
     },
     "NullableIO.<NumberIO>": {
@@ -855,7 +855,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NumberIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO>",
       "typeName": "NullableIO.<NumberIO>"
     },
     "NullableIO.<StringIO>": {
@@ -866,7 +866,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "StringIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO>",
       "typeName": "NullableIO.<StringIO>"
     },
     "NullableIO.<Vector2IO>": {
@@ -877,7 +877,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "Vector2IO"
       ],
-      "supertype": "ParametricTypeIO.<Vector2IO>",
+      "supertype": "ParametricTypeImplIO.<Vector2IO>",
       "typeName": "NullableIO.<Vector2IO>"
     },
     "NumberIO": {
@@ -938,19 +938,19 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ParticleIO"
       ],
-      "supertype": "ParametricTypeIO.<ParticleIO>",
+      "supertype": "ParametricTypeImplIO.<ParticleIO>",
       "typeName": "ObservableArrayIO.<ParticleIO>"
     },
-    "ParametricTypeIO.<>": {
+    "ParametricTypeImplIO.<>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
       "methods": {},
       "parameterTypes": [],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<>"
+      "typeName": "ParametricTypeImplIO.<>"
     },
-    "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>, NullableIO.<ArrayIO.<BAAGameChallengeIO>>, VoidIO>": {
+    "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>, NullableIO.<ArrayIO.<BAAGameChallengeIO>>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -961,9 +961,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>, NullableIO.<ArrayIO.<BAAGameChallengeIO>>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>, NullableIO.<ArrayIO.<BAAGameChallengeIO>>, VoidIO>"
     },
-    "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>, VoidIO>": {
+    "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -973,9 +973,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>, VoidIO>"
     },
-    "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>>": {
+    "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -984,9 +984,9 @@ window.phet.phetio.phetioTypes = assert &&
         "ArrayIO.<BAAGameChallengeIO>"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>>"
+      "typeName": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>>"
     },
-    "ParametricTypeIO.<ArrayIO.<ObjectIO>>": {
+    "ParametricTypeImplIO.<ArrayIO.<ObjectIO>>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -995,9 +995,9 @@ window.phet.phetio.phetioTypes = assert &&
         "ArrayIO.<ObjectIO>"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ArrayIO.<ObjectIO>>"
+      "typeName": "ParametricTypeImplIO.<ArrayIO.<ObjectIO>>"
     },
-    "ParametricTypeIO.<ArrayIO.<StringIO>>": {
+    "ParametricTypeImplIO.<ArrayIO.<StringIO>>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1006,9 +1006,9 @@ window.phet.phetio.phetioTypes = assert &&
         "ArrayIO.<StringIO>"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ArrayIO.<StringIO>>"
+      "typeName": "ParametricTypeImplIO.<ArrayIO.<StringIO>>"
     },
-    "ParametricTypeIO.<BAAGameChallengeIO>": {
+    "ParametricTypeImplIO.<BAAGameChallengeIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1017,9 +1017,9 @@ window.phet.phetio.phetioTypes = assert &&
         "BAAGameChallengeIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BAAGameChallengeIO>"
+      "typeName": "ParametricTypeImplIO.<BAAGameChallengeIO>"
     },
-    "ParametricTypeIO.<BAAGameStateIO, NullableIO.<BAAGameStateIO>, VoidIO>": {
+    "ParametricTypeImplIO.<BAAGameStateIO, NullableIO.<BAAGameStateIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1030,9 +1030,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BAAGameStateIO, NullableIO.<BAAGameStateIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<BAAGameStateIO, NullableIO.<BAAGameStateIO>, VoidIO>"
     },
-    "ParametricTypeIO.<BAAGameStateIO, VoidIO>": {
+    "ParametricTypeImplIO.<BAAGameStateIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1042,9 +1042,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BAAGameStateIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<BAAGameStateIO, VoidIO>"
     },
-    "ParametricTypeIO.<BAAGameStateIO>": {
+    "ParametricTypeImplIO.<BAAGameStateIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1053,9 +1053,9 @@ window.phet.phetio.phetioTypes = assert &&
         "BAAGameStateIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BAAGameStateIO>"
+      "typeName": "ParametricTypeImplIO.<BAAGameStateIO>"
     },
-    "ParametricTypeIO.<BooleanIO, NullableIO.<BooleanIO>, VoidIO>": {
+    "ParametricTypeImplIO.<BooleanIO, NullableIO.<BooleanIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1066,9 +1066,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BooleanIO, NullableIO.<BooleanIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<BooleanIO, NullableIO.<BooleanIO>, VoidIO>"
     },
-    "ParametricTypeIO.<BooleanIO, VoidIO>": {
+    "ParametricTypeImplIO.<BooleanIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1078,9 +1078,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BooleanIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<BooleanIO, VoidIO>"
     },
-    "ParametricTypeIO.<BooleanIO>": {
+    "ParametricTypeImplIO.<BooleanIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1089,9 +1089,9 @@ window.phet.phetio.phetioTypes = assert &&
         "BooleanIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<BooleanIO>"
+      "typeName": "ParametricTypeImplIO.<BooleanIO>"
     },
-    "ParametricTypeIO.<DOMEventIO>": {
+    "ParametricTypeImplIO.<DOMEventIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1100,9 +1100,9 @@ window.phet.phetio.phetioTypes = assert &&
         "DOMEventIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<DOMEventIO>"
+      "typeName": "ParametricTypeImplIO.<DOMEventIO>"
     },
-    "ParametricTypeIO.<EventIO>": {
+    "ParametricTypeImplIO.<EventIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1111,9 +1111,9 @@ window.phet.phetio.phetioTypes = assert &&
         "EventIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<EventIO>"
+      "typeName": "ParametricTypeImplIO.<EventIO>"
     },
-    "ParametricTypeIO.<FocusIO>": {
+    "ParametricTypeImplIO.<FocusIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1122,9 +1122,9 @@ window.phet.phetio.phetioTypes = assert &&
         "FocusIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<FocusIO>"
+      "typeName": "ParametricTypeImplIO.<FocusIO>"
     },
-    "ParametricTypeIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>, VoidIO>": {
+    "ParametricTypeImplIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1135,9 +1135,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>, VoidIO>"
     },
-    "ParametricTypeIO.<NullableIO.<BooleanIO>, VoidIO>": {
+    "ParametricTypeImplIO.<NullableIO.<BooleanIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1147,9 +1147,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<BooleanIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<BooleanIO>, VoidIO>"
     },
-    "ParametricTypeIO.<NullableIO.<BooleanIO>>": {
+    "ParametricTypeImplIO.<NullableIO.<BooleanIO>>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1158,9 +1158,9 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<BooleanIO>"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<BooleanIO>>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<BooleanIO>>"
     },
-    "ParametricTypeIO.<NullableIO.<EventIO>>": {
+    "ParametricTypeImplIO.<NullableIO.<EventIO>>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1169,9 +1169,9 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<EventIO>"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<EventIO>>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<EventIO>>"
     },
-    "ParametricTypeIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>, VoidIO>": {
+    "ParametricTypeImplIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1182,9 +1182,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>, VoidIO>"
     },
-    "ParametricTypeIO.<NullableIO.<FocusIO>, VoidIO>": {
+    "ParametricTypeImplIO.<NullableIO.<FocusIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1194,9 +1194,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<FocusIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<FocusIO>, VoidIO>"
     },
-    "ParametricTypeIO.<NullableIO.<FocusIO>>": {
+    "ParametricTypeImplIO.<NullableIO.<FocusIO>>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1205,9 +1205,9 @@ window.phet.phetio.phetioTypes = assert &&
         "NullableIO.<FocusIO>"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NullableIO.<FocusIO>>"
+      "typeName": "ParametricTypeImplIO.<NullableIO.<FocusIO>>"
     },
-    "ParametricTypeIO.<NumberIO, NullableIO.<NumberIO>, VoidIO>": {
+    "ParametricTypeImplIO.<NumberIO, NullableIO.<NumberIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1218,9 +1218,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NumberIO, NullableIO.<NumberIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<NumberIO, NullableIO.<NumberIO>, VoidIO>"
     },
-    "ParametricTypeIO.<NumberIO, NumberIO>": {
+    "ParametricTypeImplIO.<NumberIO, NumberIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1230,9 +1230,9 @@ window.phet.phetio.phetioTypes = assert &&
         "NumberIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NumberIO, NumberIO>"
+      "typeName": "ParametricTypeImplIO.<NumberIO, NumberIO>"
     },
-    "ParametricTypeIO.<NumberIO, Vector2IO, DOMEventIO>": {
+    "ParametricTypeImplIO.<NumberIO, Vector2IO, DOMEventIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1243,9 +1243,9 @@ window.phet.phetio.phetioTypes = assert &&
         "DOMEventIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NumberIO, Vector2IO, DOMEventIO>"
+      "typeName": "ParametricTypeImplIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "ParametricTypeIO.<NumberIO, VoidIO>": {
+    "ParametricTypeImplIO.<NumberIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1255,9 +1255,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NumberIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<NumberIO, VoidIO>"
     },
-    "ParametricTypeIO.<NumberIO>": {
+    "ParametricTypeImplIO.<NumberIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1266,9 +1266,9 @@ window.phet.phetio.phetioTypes = assert &&
         "NumberIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<NumberIO>"
+      "typeName": "ParametricTypeImplIO.<NumberIO>"
     },
-    "ParametricTypeIO.<ObjectIO, VoidIO>": {
+    "ParametricTypeImplIO.<ObjectIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1278,9 +1278,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ObjectIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<ObjectIO, VoidIO>"
     },
-    "ParametricTypeIO.<ObjectIO>": {
+    "ParametricTypeImplIO.<ObjectIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1289,9 +1289,9 @@ window.phet.phetio.phetioTypes = assert &&
         "ObjectIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ObjectIO>"
+      "typeName": "ParametricTypeImplIO.<ObjectIO>"
     },
-    "ParametricTypeIO.<ParticleIO, VoidIO>": {
+    "ParametricTypeImplIO.<ParticleIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1301,9 +1301,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ParticleIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<ParticleIO, VoidIO>"
     },
-    "ParametricTypeIO.<ParticleIO>": {
+    "ParametricTypeImplIO.<ParticleIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1312,9 +1312,9 @@ window.phet.phetio.phetioTypes = assert &&
         "ParticleIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<ParticleIO>"
+      "typeName": "ParametricTypeImplIO.<ParticleIO>"
     },
-    "ParametricTypeIO.<StringIO, NullableIO.<StringIO>, VoidIO>": {
+    "ParametricTypeImplIO.<StringIO, NullableIO.<StringIO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1325,9 +1325,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<StringIO, NullableIO.<StringIO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<StringIO, NullableIO.<StringIO>, VoidIO>"
     },
-    "ParametricTypeIO.<StringIO, ObjectIO, ObjectIO, VoidIO>": {
+    "ParametricTypeImplIO.<StringIO, ObjectIO, ObjectIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1339,9 +1339,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<StringIO, ObjectIO, ObjectIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<StringIO, ObjectIO, ObjectIO, VoidIO>"
     },
-    "ParametricTypeIO.<StringIO, StringIO, VoidIO>": {
+    "ParametricTypeImplIO.<StringIO, StringIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1352,9 +1352,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<StringIO, StringIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<StringIO, StringIO, VoidIO>"
     },
-    "ParametricTypeIO.<StringIO, VoidIO>": {
+    "ParametricTypeImplIO.<StringIO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1364,9 +1364,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<StringIO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<StringIO, VoidIO>"
     },
-    "ParametricTypeIO.<StringIO>": {
+    "ParametricTypeImplIO.<StringIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1375,9 +1375,9 @@ window.phet.phetio.phetioTypes = assert &&
         "StringIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<StringIO>"
+      "typeName": "ParametricTypeImplIO.<StringIO>"
     },
-    "ParametricTypeIO.<Vector2IO, DOMEventIO>": {
+    "ParametricTypeImplIO.<Vector2IO, DOMEventIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1387,9 +1387,9 @@ window.phet.phetio.phetioTypes = assert &&
         "DOMEventIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<Vector2IO, DOMEventIO>"
+      "typeName": "ParametricTypeImplIO.<Vector2IO, DOMEventIO>"
     },
-    "ParametricTypeIO.<Vector2IO, NullableIO.<Vector2IO>, VoidIO>": {
+    "ParametricTypeImplIO.<Vector2IO, NullableIO.<Vector2IO>, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1400,9 +1400,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<Vector2IO, NullableIO.<Vector2IO>, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<Vector2IO, NullableIO.<Vector2IO>, VoidIO>"
     },
-    "ParametricTypeIO.<Vector2IO, VoidIO>": {
+    "ParametricTypeImplIO.<Vector2IO, VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1412,9 +1412,9 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<Vector2IO, VoidIO>"
+      "typeName": "ParametricTypeImplIO.<Vector2IO, VoidIO>"
     },
-    "ParametricTypeIO.<Vector2IO>": {
+    "ParametricTypeImplIO.<Vector2IO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1423,9 +1423,9 @@ window.phet.phetio.phetioTypes = assert &&
         "Vector2IO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<Vector2IO>"
+      "typeName": "ParametricTypeImplIO.<Vector2IO>"
     },
-    "ParametricTypeIO.<VoidIO>": {
+    "ParametricTypeImplIO.<VoidIO>": {
       "documentation": "A Type that has parameters",
       "events": [],
       "methodOrder": [],
@@ -1434,7 +1434,7 @@ window.phet.phetio.phetioTypes = assert &&
         "VoidIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "ParametricTypeIO.<VoidIO>"
+      "typeName": "ParametricTypeImplIO.<VoidIO>"
     },
     "ParticleAtomIO": {
       "documentation": "A model of an atom that tracks and arranges the subatomic particles, i.e. protons, neutrons, and electrons, of which it is comprised.  When particles are added, they are moved into the appropriate places.  This object also keeps track of things like atomic number, mass number, and charge.",
@@ -1739,7 +1739,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "ArrayIO.<BAAGameChallengeIO>"
       ],
-      "supertype": "ParametricTypeIO.<ArrayIO.<BAAGameChallengeIO>>",
+      "supertype": "ParametricTypeImplIO.<ArrayIO.<BAAGameChallengeIO>>",
       "typeName": "PropertyIO.<ArrayIO.<BAAGameChallengeIO>>"
     },
     "PropertyIO.<BAAGameStateIO>": {
@@ -1790,7 +1790,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "BAAGameStateIO"
       ],
-      "supertype": "ParametricTypeIO.<BAAGameStateIO>",
+      "supertype": "ParametricTypeImplIO.<BAAGameStateIO>",
       "typeName": "PropertyIO.<BAAGameStateIO>"
     },
     "PropertyIO.<BooleanIO>": {
@@ -1841,7 +1841,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "BooleanIO"
       ],
-      "supertype": "ParametricTypeIO.<BooleanIO>",
+      "supertype": "ParametricTypeImplIO.<BooleanIO>",
       "typeName": "PropertyIO.<BooleanIO>"
     },
     "PropertyIO.<NullableIO.<BooleanIO>>": {
@@ -1892,7 +1892,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NullableIO.<BooleanIO>"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<BooleanIO>>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<BooleanIO>>",
       "typeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "PropertyIO.<NullableIO.<FocusIO>>": {
@@ -1943,7 +1943,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NullableIO.<FocusIO>"
       ],
-      "supertype": "ParametricTypeIO.<NullableIO.<FocusIO>>",
+      "supertype": "ParametricTypeImplIO.<NullableIO.<FocusIO>>",
       "typeName": "PropertyIO.<NullableIO.<FocusIO>>"
     },
     "PropertyIO.<NumberIO>": {
@@ -1994,7 +1994,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "NumberIO"
       ],
-      "supertype": "ParametricTypeIO.<NumberIO>",
+      "supertype": "ParametricTypeImplIO.<NumberIO>",
       "typeName": "PropertyIO.<NumberIO>"
     },
     "PropertyIO.<StringIO>": {
@@ -2045,7 +2045,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "StringIO"
       ],
-      "supertype": "ParametricTypeIO.<StringIO>",
+      "supertype": "ParametricTypeImplIO.<StringIO>",
       "typeName": "PropertyIO.<StringIO>"
     },
     "PropertyIO.<Vector2IO>": {
@@ -2096,7 +2096,7 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [
         "Vector2IO"
       ],
-      "supertype": "ParametricTypeIO.<Vector2IO>",
+      "supertype": "ParametricTypeImplIO.<Vector2IO>",
       "typeName": "PropertyIO.<Vector2IO>"
     },
     "SphereBucketIO": {
