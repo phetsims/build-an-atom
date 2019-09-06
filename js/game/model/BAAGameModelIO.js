@@ -13,21 +13,26 @@ define( function( require ) {
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {BAAGameModel} baaGameModel
-   * @param {string} phetioID
-   * @constructor
-   */
-  var BAAGameModelIO = function( baaGameModel, phetioID ) {
-    ObjectIO.call( this, baaGameModel, phetioID );
-  };
+  class BAAGameModelIO extends ObjectIO {
 
-  phetioInherit( ObjectIO, 'BAAGameModelIO', BAAGameModelIO, {
+    static clearChildInstances( baaGameModel ) {
+      validate( baaGameModel, this.validator );
+      baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
+        challenge.dispose();
+      } );
+      baaGameModel.challengeSetProperty.reset();
+    }
+
+    // static addChildInstance( phetioObject, tandem, stateObject ){
+    //
+    // },
+  }
+
+  BAAGameModelIO.methods = {
 
     startGameLevel: {
       returnType: VoidIO,
@@ -67,27 +72,12 @@ define( function( require ) {
       //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
       //  ]
     }
-  }, {
+  };
+  BAAGameModelIO.documentation = 'The model for the Game';
+  BAAGameModelIO.validator = { isValidValue: x => x instanceof phet.buildAnAtom.BAAGameModel };
+  BAAGameModelIO.typeName = 'BAAGameModelIO';
+  ObjectIO.validateSubtype( BAAGameModelIO );
 
-    clearChildInstances: function( baaGameModel ) {
-      validate( baaGameModel, this.validator );
-      baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
-        challenge.dispose();
-      } );
-      baaGameModel.challengeSetProperty.reset();
-    },
-
-    // addChildInstance: function( phetioObject, tandem, stateObject ){
-    //
-    // },
-
-
-    documentation: 'The model for the Game',
-    validator: { isValidValue: x => x instanceof phet.buildAnAtom.BAAGameModel }
-  } );
-
-  buildAnAtom.register( 'BAAGameModelIO', BAAGameModelIO );
-
-  return BAAGameModelIO;
+  return buildAnAtom.register( 'BAAGameModelIO', BAAGameModelIO );
 } );
 

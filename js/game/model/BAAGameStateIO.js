@@ -13,28 +13,16 @@ define( function( require ) {
   var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {BAAGameChallenge} baaGameState
-   * @param {string} phetioID
-   * @constructor
-   */
-  function BAAGameStateIO( baaGameState, phetioID ) {
-    ObjectIO.call( this, baaGameState, phetioID );
-  }
-
-  phetioInherit( ObjectIO, 'BAAGameStateIO', BAAGameStateIO, {}, {
-    validator: { valueType: BAAGameState },
-    documentation: 'A state for the game',
+  class BAAGameStateIO extends ObjectIO {
 
     /**
      * @param {BAAGameChallenge} baaGameState
      * @returns
      * @override
      */
-    toStateObject: function( baaGameState ) {
+    static toStateObject( baaGameState ) {
       validate( baaGameState, this.validator );
       if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
         return BAAGameChallengeIO.toStateObject( baaGameState );
@@ -42,14 +30,14 @@ define( function( require ) {
       else {
         return { name: baaGameState.name };
       }
-    },
+    }
 
     /**
      *
      * @param {Object} stateObject
      * @override
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
 
       if ( stateObject.name === 'choosingLevel' ) {
         return BAAGameState.CHOOSING_LEVEL;
@@ -64,9 +52,13 @@ define( function( require ) {
         assert && assert( false, 'unknown game state: ' + stateObject );
       }
     }
-  } );
-  buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
+  }
 
-  return BAAGameStateIO;
+  BAAGameStateIO.validator = { valueType: BAAGameState };
+  BAAGameStateIO.documentation = 'A state for the game';
+  BAAGameStateIO.typeName = 'BAAGameStateIO';
+  ObjectIO.validateSubtype( BAAGameStateIO );
+
+  return buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
 } );
 

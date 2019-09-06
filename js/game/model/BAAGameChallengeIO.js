@@ -12,31 +12,19 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var validate = require( 'AXON/validate' );
 
   // ifphetio
   var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
-  /**
-   * @param {BAAGameChallenge} baaGameChallenge
-   * @param {string} phetioID
-   * @constructor
-   */
-  function BAAGameChallengeIO( baaGameChallenge, phetioID ) {
-    ObjectIO.call( this, baaGameChallenge, phetioID );
-  }
-
-  phetioInherit( ObjectIO, 'BAAGameChallengeIO', BAAGameChallengeIO, {}, {
-    documentation: 'A challenge for the Game',
-    validator: { isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge },
+  class BAAGameChallengeIO extends ObjectIO {
 
     /**
      * @param {BAAGameChallenge} baaGameChallenge
      * @returns {Object}
      * @override
      */
-    toStateObject: function( baaGameChallenge ) {
+    static toStateObject( baaGameChallenge ) {
       validate( baaGameChallenge, this.validator );
       return {
         pointValue: baaGameChallenge.pointValue,
@@ -46,13 +34,13 @@ define( function( require ) {
         phetioID: baaGameChallenge.tandem.phetioID,
         name: baaGameChallenge.name
       };
-    },
+    }
 
     /**
      * @param {Object} stateObject
      * @override
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
 
       // This may have been deserialized from the instance itself or from the array it was contained in (which
       // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
@@ -73,9 +61,13 @@ define( function( require ) {
 
       return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
     }
-  } );
-  buildAnAtom.register( 'BAAGameChallengeIO', BAAGameChallengeIO );
+  }
 
-  return BAAGameChallengeIO;
+  BAAGameChallengeIO.documentation = 'A challenge for the Game';
+  BAAGameChallengeIO.validator = { isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge };
+  BAAGameChallengeIO.typeName = 'BAAGameChallengeIO';
+  ObjectIO.validateSubtype( BAAGameChallengeIO );
+
+  return buildAnAtom.register( 'BAAGameChallengeIO', BAAGameChallengeIO );
 } );
 
