@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.5.15-phetio Fri Aug 23 2019 12:43:29 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.5.15-phetio Mon Sep 09 2019 11:16:44 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "546b2e526eb1fc343a828e02bd26f28f73d16c51",
+    "sha": "1c999a0cc3c4e4d71dd965d658011e101ba87343",
     "branch": "1.5-phetio"
   },
   "chipper": {
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "d3a41f144e9518b1c3cfa57d1e942279827d0002",
-    "branch": "HEAD"
+    "sha": "85efde213e696a585da94e95ef5e00a2b4907b11",
+    "branch": "build-an-atom-1.5-phetio"
   },
   "kite": {
     "sha": "7d2df183bd47abec3c3f7da477eb9172556f04e8",
