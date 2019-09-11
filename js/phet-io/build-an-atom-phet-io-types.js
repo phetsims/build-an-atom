@@ -1240,6 +1240,18 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "PropertyIO.<Vector2IO>"
     },
+    "ResetAllButtonIO": {
+      "documentation": "Button that performs an action while it is being pressed, and stops the action when released",
+      "events": [
+        "pressed",
+        "released",
+        "releasedDisabled"
+      ],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "NodeIO",
+      "typeName": "ResetAllButtonIO"
+    },
     "SphereBucketIO": {
       "documentation": "A model of a bucket into which spherical objects can be placed.",
       "events": [],
