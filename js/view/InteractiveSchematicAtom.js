@@ -18,7 +18,7 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
-  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
+  const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
   /**
    * @param {BuildAnAtomModel} model
@@ -32,12 +32,12 @@ define( require => {
     }, options );
 
     Node.call( this );
-    var self = this;
+    const self = this;
 
-    var particleViews = []; // remember all the particleViews when using in dispose
+    const particleViews = []; // remember all the particleViews when using in dispose
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
-    var atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
+    const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
       showElementNameProperty: model.showElementNameProperty,
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
@@ -52,23 +52,23 @@ define( require => {
     } );
 
     // Add the layers where the nucleons will be maintained.
-    var nucleonLayers = [];
+    const nucleonLayers = [];
     _.times( NUM_NUCLEON_LAYERS, function() {
-      var nucleonLayer = new Node();
+      const nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
       self.addChild( nucleonLayer );
     } );
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will be maintained.
-    var electronLayer = new Node( { layerSplit: true } );
+    const electronLayer = new Node( { layerSplit: true } );
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    var nucleonGroupTandem = options.tandem && options.tandem.createGroupTandem( 'nucleons' );
-    var electronGroupTandem = options.tandem && options.tandem.createGroupTandem( 'electrons' );
+    const nucleonGroupTandem = options.tandem && options.tandem.createGroupTandem( 'nucleons' );
+    const electronGroupTandem = options.tandem && options.tandem.createGroupTandem( 'electrons' );
     model.nucleons.forEach( function( nucleon ) {
-      var particleView = new ParticleView( nucleon, modelViewTransform, {
+      const particleView = new ParticleView( nucleon, modelViewTransform, {
         tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
       } );
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( particleView );
@@ -80,7 +80,7 @@ define( require => {
           'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
 
         // Determine whether nucleon view is on the correct layer.
-        var onCorrectLayer = false;
+        let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
           if ( particleView.particle === nucleon ) {
             onCorrectLayer = true;
@@ -90,9 +90,9 @@ define( require => {
         if ( !onCorrectLayer ) {
 
           // Remove particle view from its current layer.
-          var particleView = null;
-          for ( var layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
-            for ( var childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
+          let particleView = null;
+          for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
+            for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
               if ( nucleonLayers[ layerIndex ].children[ childIndex ].particle === nucleon ) {
                 particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
@@ -110,7 +110,7 @@ define( require => {
 
     // Add the electron particle views.
     model.electrons.forEach( function( electron ) {
-      var particleView = new ParticleView( electron, modelViewTransform, {
+      const particleView = new ParticleView( electron, modelViewTransform, {
         tandem: electronGroupTandem.createNextTandem()
       } );
       electronLayer.addChild( particleView );
@@ -118,7 +118,7 @@ define( require => {
     } );
 
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
-    var updateElectronVisibility = function() {
+    const updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
         electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
@@ -127,12 +127,12 @@ define( require => {
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    var bucketGroupTandem = options.tandem.createGroupTandem( 'bucketFronts' );
-    var bucketFrontsAndDragHandlers = []; // keep track for disposal
+    const bucketGroupTandem = options.tandem.createGroupTandem( 'bucketFronts' );
+    const bucketFrontsAndDragHandlers = []; // keep track for disposal
     _.each( model.buckets, function( bucket ) {
-      var bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
+      const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       self.addChild( bucketFront );
-      var bucketDragHandler = new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
+      const bucketDragHandler = new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.name + 'DragHandler' )
       } );
       bucketFront.addInputListener( bucketDragHandler );
