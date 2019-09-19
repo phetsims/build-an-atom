@@ -18,9 +18,9 @@ define( require => {
   const buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
 
   // root tandem
-  var tandem = Tandem.rootTandem;
+  const tandem = Tandem.rootTandem;
 
-  var simOptions = {
+  const simOptions = {
     credits: {
       leadDesign: 'Kelly Lancaster',
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',

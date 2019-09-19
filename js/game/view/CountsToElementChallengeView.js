@@ -26,7 +26,7 @@ define( require => {
     ToElementChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem );
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToElementChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToElementChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
     // Layout

@@ -24,11 +24,11 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
-  var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var NUMBER_FONT = new PhetFont( 56 );
-  var NUMBER_INSET = 15; // In screen coords, which are roughly pixels.
-  var NUMBER_ENTRY_NODE_SIDE_INSET = 10; // In screen coords, which are roughly pixels.
+  const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
+  const SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
+  const NUMBER_FONT = new PhetFont( 56 );
+  const NUMBER_INSET = 15; // In screen coords, which are roughly pixels.
+  const NUMBER_ENTRY_NODE_SIDE_INSET = 10; // In screen coords, which are roughly pixels.
 
   /**
    * Constructor
@@ -40,7 +40,7 @@ define( require => {
   function InteractiveSymbolNode( numberAtom, tandem, options ) {
 
     Node.call( this, options );
-    var self = this;
+    const self = this;
 
     options = _.extend( { // defaults
       interactiveProtonCount: false,
@@ -63,7 +63,7 @@ define( require => {
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
-    var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
+    const boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
       stroke: 'black',
       lineWidth: 2,
       fill: 'white'
@@ -71,7 +71,7 @@ define( require => {
     this.addChild( boundingBox );
 
     // Add the symbol text.
-    var symbolText = new Text( '', {
+    const symbolText = new Text( '', {
       font: new PhetFont( 150 ),
       fill: 'black',
       center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
@@ -79,7 +79,7 @@ define( require => {
     boundingBox.addChild( symbolText );
 
     // Add the element caption.
-    var elementCaption = new Text( '', {
+    const elementCaption = new Text( '', {
       font: new PhetFont( 40 ),
       fill: PhetColorScheme.RED_COLORBLIND,
       top: SYMBOL_BOX_HEIGHT + 20,
@@ -89,7 +89,7 @@ define( require => {
     boundingBox.addChild( elementCaption );
 
     // Define a function to update the symbol text and element caption.
-    var updateElement = function( protonCount ) {
+    const updateElement = function( protonCount ) {
       symbolText.text = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
       elementCaption.text = protonCount > 0 ? AtomIdentifier.getName( protonCount ) : '';
@@ -98,7 +98,7 @@ define( require => {
 
     // So that the interactive and non-interactive numbers are vertically
     // aligned, we need to create a dummy number and look at its height.
-    var interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
+    const interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
 
     // Add the proton count display, either interactive or not.
     if ( options.interactiveProtonCount ) {
@@ -114,7 +114,7 @@ define( require => {
       self.protonCountProperty.link( updateElement );
     }
     else {
-      var protonCountDisplay = new Text( numberAtom.protonCountProperty.get(), {
+      const protonCountDisplay = new Text( numberAtom.protonCountProperty.get(), {
         font: NUMBER_FONT,
         fill: PhetColorScheme.RED_COLORBLIND,
         left: NUMBER_INSET,
@@ -136,7 +136,7 @@ define( require => {
         } ) );
     }
     else {
-      var massNumberDisplay = new Text( numberAtom.massNumberProperty.get(), {
+      const massNumberDisplay = new Text( numberAtom.massNumberProperty.get(), {
         font: NUMBER_FONT,
         fill: 'black',
         left: NUMBER_INSET,
@@ -159,8 +159,8 @@ define( require => {
         } ) );
     }
     else {
-      var chargeTextPrepend = numberAtom.chargeProperty.get() > 0 ? '+' : '';
-      var chargeDisplay = new Text( chargeTextPrepend + numberAtom.chargeProperty.get(), {
+      const chargeTextPrepend = numberAtom.chargeProperty.get() > 0 ? '+' : '';
+      const chargeDisplay = new Text( chargeTextPrepend + numberAtom.chargeProperty.get(), {
         font: NUMBER_FONT,
         fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() ),
         right: SYMBOL_BOX_WIDTH - NUMBER_INSET,

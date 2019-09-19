@@ -31,8 +31,8 @@ define( require => {
   const chooseYourGameString = require( 'string!BUILD_AN_ATOM/chooseYourGame' );
 
   // constants
-  var CONTROLS_INSET = 10;
-  var BASE_COLOR = '#D4AAD4';
+  const CONTROLS_INSET = 10;
+  const BASE_COLOR = '#D4AAD4';
 
   /**
    * @param {BAAGameModel} gameModel
@@ -45,7 +45,7 @@ define( require => {
     Node.call( this );
 
     // title
-    var title = new Text( chooseYourGameString, {
+    const title = new Text( chooseYourGameString, {
       font: new PhetFont( 30 ),
       maxWidth: layoutBounds.width,
       centerX: layoutBounds.centerX
@@ -53,35 +53,35 @@ define( require => {
     this.addChild( title );
 
     // buttons for starting a game level
-    var periodicTableGameButton = createLevelSelectionButton(
+    const periodicTableGameButton = createLevelSelectionButton(
       gameModel,
       periodicTableIcon,
       'periodic-table-game',
       'periodicTableGame',
       tandem
     );
-    var massAndChargeGameButton = createLevelSelectionButton(
+    const massAndChargeGameButton = createLevelSelectionButton(
       gameModel,
       massChargeIcon,
       'mass-and-charge-game',
       'massAndChargeGame',
       tandem
     );
-    var symbolGameButton = createLevelSelectionButton(
+    const symbolGameButton = createLevelSelectionButton(
       gameModel,
       symbolQuestionIcon,
       'symbol-game',
       'symbolGame',
       tandem
     );
-    var advancedSymbolGameButton = createLevelSelectionButton(
+    const advancedSymbolGameButton = createLevelSelectionButton(
       gameModel,
       questionMarkIcon,
       'advanced-symbol-game',
       'advancedSymbolGame',
       tandem
     );
-    var buttonHBox = new HBox( {
+    const buttonHBox = new HBox( {
       children: [ periodicTableGameButton, massAndChargeGameButton, symbolGameButton, advancedSymbolGameButton ],
       spacing: 30,
       centerY: layoutBounds.centerY,
@@ -90,7 +90,7 @@ define( require => {
     this.addChild( buttonHBox );
 
     // timer control
-    var timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
+    const timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
       stroke: 'gray',
       tandem: tandem.createTandem( 'timerToggleButton' ),
       left: CONTROLS_INSET,
@@ -99,7 +99,7 @@ define( require => {
     this.addChild( timerToggleButton );
 
     // reset all button
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       listener: function() {
         gameModel.reset();
       },

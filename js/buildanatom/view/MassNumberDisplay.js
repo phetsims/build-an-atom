@@ -20,8 +20,8 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var WIDTH = 122; // In screen coords, which are roughly pixels, empirically determined.
-  var READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
+  const WIDTH = 122; // In screen coords, which are roughly pixels, empirically determined.
+  const READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
   /**
    * @param {NumberAtom} numberAtom
@@ -34,12 +34,12 @@ define( require => {
     Node.call( this, { tandem: tandem } );
 
     // Add the background image, i.e. the scale.
-    var scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
+    const scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 
     // Add the numerical readout window.
-    var readoutBackground = new Rectangle( 0, 0, READOUT_SIZE.width, READOUT_SIZE.height, 4, 4, {
+    const readoutBackground = new Rectangle( 0, 0, READOUT_SIZE.width, READOUT_SIZE.height, 4, 4, {
       fill: 'white',
       stroke: 'black',
       lineWidth: 1,
@@ -51,7 +51,7 @@ define( require => {
     this.addChild( readoutBackground );
 
     // placeholder text value, will be changed later
-    var numericalText = new Text( ' ', {
+    const numericalText = new Text( ' ', {
       font: new PhetFont( { size: 24, weight: 'bold' } ),
       tandem: tandem.createTandem( 'numericalText' )
     } );
@@ -59,7 +59,7 @@ define( require => {
 
     // Add the listeners that will update the numerical display when the charge changes.
     numberAtom.massNumberProperty.link( function( massNumber ) {
-      var newText = '' + massNumber; // cast to a string explicitly just in case
+      const newText = '' + massNumber; // cast to a string explicitly just in case
       if ( newText !== numericalText.text ) {
         numericalText.text = newText;
 

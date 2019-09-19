@@ -34,17 +34,17 @@ define( require => {
   const protonsString = require( 'string!BUILD_AN_ATOM/protons' );
 
   // constants
-  var NUM_PROTONS = 10;
-  var NUM_NEUTRONS = 13;
-  var NUM_ELECTRONS = 10;
-  var NUCLEON_CAPTURE_RADIUS = 100;
-  var BUCKET_WIDTH = 120;
-  var BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
-  var BUCKET_Y_OFFSET = -205;
-  var NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
-  var MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
-  var JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
-  var JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
+  const NUM_PROTONS = 10;
+  const NUM_NEUTRONS = 13;
+  const NUM_ELECTRONS = 10;
+  const NUCLEON_CAPTURE_RADIUS = 100;
+  const BUCKET_WIDTH = 120;
+  const BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
+  const BUCKET_Y_OFFSET = -205;
+  const NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
+  const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
+  const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
+  const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
   /**
    * Constructor for main model object.
@@ -54,7 +54,7 @@ define( require => {
    */
   function BuildAnAtomModel( tandem, options ) {
 
-    var self = this;
+    const self = this;
 
     options = _.extend( {
       phetioState: true
@@ -138,11 +138,11 @@ define( require => {
     this.electrons = [];
 
     // Add the protons.
-    var protonGroupTandem = tandem.createGroupTandem( 'protons' );
-    var neutronGroupTandem = tandem.createGroupTandem( 'neutrons' );
-    var electronGroupTandem = tandem.createGroupTandem( 'electrons' );
+    const protonGroupTandem = tandem.createGroupTandem( 'protons' );
+    const neutronGroupTandem = tandem.createGroupTandem( 'neutrons' );
+    const electronGroupTandem = tandem.createGroupTandem( 'electrons' );
     _.times( NUM_PROTONS, function() {
-      var proton = new Particle( 'proton', {
+      const proton = new Particle( 'proton', {
         tandem: protonGroupTandem.createNextTandem(),
         maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
       } );
@@ -157,7 +157,7 @@ define( require => {
 
     // Add the neutrons.
     _.times( NUM_NEUTRONS, function() {
-      var neutron = new Particle( 'neutron', {
+      const neutron = new Particle( 'neutron', {
         tandem: neutronGroupTandem.createNextTandem(),
         maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
       } );
@@ -172,7 +172,7 @@ define( require => {
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, function() {
-      var electron = new Particle( 'electron', {
+      const electron = new Particle( 'electron', {
         tandem: electronGroupTandem.createNextTandem(),
         maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
       } );
@@ -270,8 +270,8 @@ define( require => {
           this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
           if ( this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO ) ) {
             this.nucleusJumpCount++;
-            var angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
-            var distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
+            const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
+            const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
             this.particleAtom.nucleusOffsetProperty.set(
               new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance )
             );
@@ -290,12 +290,12 @@ define( require => {
 
     // @private
     _moveParticlesFromAtomToBucket: function( particleCollection, bucket ) {
-      var particlesToRemove = [];
+      const particlesToRemove = [];
       // Copy the observable particle collection into a regular array.
-      for ( var i = 0; i < particleCollection.length; i++ ) {
+      for ( let i = 0; i < particleCollection.length; i++ ) {
         particlesToRemove[ i ] = particleCollection.get( i );
       }
-      var self = this;
+      const self = this;
       particlesToRemove.forEach( function( particle ) {
           self.particleAtom.removeParticle( particle );
           bucket.addParticleFirstOpen( particle );
@@ -332,7 +332,7 @@ define( require => {
 
       // Add all the particles back to their buckets so that they are
       // stacked in their original configurations.
-      var self = this;
+      const self = this;
       this.nucleons.forEach( function( nucleon ) {
         if ( nucleon.type === 'proton' ) {
           self.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
@@ -350,11 +350,11 @@ define( require => {
     setAtomConfiguration: function( numberAtom ) {
 
       // Define a function for transferring particles from buckets to atom.
-      var atomCenter = this.particleAtom.positionProperty.get();
-      var self = this;
-      var moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
+      const atomCenter = this.particleAtom.positionProperty.get();
+      const self = this;
+      const moveParticlesToAtom = function( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) {
         while ( currentCountInAtom < targetCountInAtom ) {
-          var particle = bucket.extractClosestParticle( atomCenter );
+          const particle = bucket.extractClosestParticle( atomCenter );
           particle.setPositionAndDestination( atomCenter );
           particle.userControlledProperty.set( false ); // Necessary to make it look like user released particle.
           currentCountInAtom++;

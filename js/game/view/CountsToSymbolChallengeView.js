@@ -43,7 +43,7 @@ define( require => {
     this.interactiveAnswerNode.addChild( this.interactiveSymbolNode );
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( toSymbolChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( toSymbolChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
     // Layout
@@ -65,7 +65,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var userSubmittedAtom = new NumberAtom( {
+      const userSubmittedAtom = new NumberAtom( {
         protonCount: this.interactiveSymbolNode.protonCountProperty.value,
         neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
         electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value

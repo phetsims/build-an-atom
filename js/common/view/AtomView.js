@@ -48,13 +48,13 @@ define( require => {
   const stableSlashUnstableString = require( 'string!BUILD_AN_ATOM/stableSlashUnstable' );
 
   // constants
-  var CONTROLS_INSET = 10;
-  var LABEL_CONTROL_FONT = new PhetFont( 12 );
-  var LABEL_CONTROL_MAX_WIDTH = 180;
-  var LABEL_CONTROL_LINE_WIDTH = 1;
-  var ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
-  var ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
-  var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
+  const CONTROLS_INSET = 10;
+  const LABEL_CONTROL_FONT = new PhetFont( 12 );
+  const LABEL_CONTROL_MAX_WIDTH = 180;
+  const LABEL_CONTROL_LINE_WIDTH = 1;
+  const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
+  const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
+  const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
   /**
    * @param {BuildAnAtomModel} model
@@ -69,7 +69,7 @@ define( require => {
       tandem: tandem
     } );
 
-    var self = this;
+    const self = this;
     this.model = model;
     this.resetFunctions = [];
 
@@ -79,13 +79,13 @@ define( require => {
     } );
 
     // Create the model-view transform.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( self.layoutBounds.width * 0.3, self.layoutBounds.height * 0.45 ),
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    var atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
+    const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
       showElementNameProperty: model.showElementNameProperty,
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
@@ -103,28 +103,28 @@ define( require => {
     } );
 
     // add the layer where the nucleons and electrons will go, this is added last so that it remains on top
-    var nucleonElectronLayer = new Node( { tandem: tandem.createTandem( 'nucleonElectronLayer' ) } );
+    const nucleonElectronLayer = new Node( { tandem: tandem.createTandem( 'nucleonElectronLayer' ) } );
 
     // Add the layers where the nucleons will exist.
-    var nucleonLayers = [];
-    var nucleonLayersTandem = tandem.createGroupTandem( 'nucleonLayers' );
+    const nucleonLayers = [];
+    const nucleonLayersTandem = tandem.createGroupTandem( 'nucleonLayers' );
     _.times( NUM_NUCLEON_LAYERS, function() {
-      var nucleonLayer = new Node( { tandem: nucleonLayersTandem.createNextTandem() } );
+      const nucleonLayer = new Node( { tandem: nucleonLayersTandem.createNextTandem() } );
       nucleonLayers.push( nucleonLayer );
       nucleonElectronLayer.addChild( nucleonLayer );
     } );
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will exist.
-    var electronLayer = new Node( { layerSplit: true, tandem: tandem.createTandem( 'electronLayer' ) } );
+    const electronLayer = new Node( { layerSplit: true, tandem: tandem.createTandem( 'electronLayer' ) } );
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    var nucleonsGroupTandem = tandem.createGroupTandem( 'nucleons' );
-    var electronsGroupTandem = tandem.createGroupTandem( 'electrons' );
+    const nucleonsGroupTandem = tandem.createGroupTandem( 'nucleons' );
+    const electronsGroupTandem = tandem.createGroupTandem( 'electrons' );
 
     // add the nucleons
-    var particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
+    const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
     model.nucleons.forEach( function( nucleon ) {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
@@ -138,7 +138,7 @@ define( require => {
           'zLayer for nucleon exceeds number of layers, max number may need increasing.'
         );
         // Determine whether nucleon view is on the correct layer.
-        var onCorrectLayer = false;
+        let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
           if ( particleView.particle === nucleon ) {
             onCorrectLayer = true;
@@ -148,9 +148,9 @@ define( require => {
         if ( !onCorrectLayer ) {
 
           // Remove particle view from its current layer.
-          var particleView = null;
-          for ( var layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
-            for ( var childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
+          let particleView = null;
+          for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
+            for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
               if ( nucleonLayers[ layerIndex ].children[ childIndex ].particle === nucleon ) {
                 particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
@@ -175,7 +175,7 @@ define( require => {
     } );
 
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
-    var updateElectronVisibility = function() {
+    const updateElectronVisibility = function() {
       electronLayer.getChildren().forEach( function( electronNode ) {
         electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
       } );
@@ -184,10 +184,10 @@ define( require => {
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    var bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
+    const bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
 
     _.each( model.buckets, function( bucket ) {
-      var bucketFront = new BucketFront( bucket, modelViewTransform, {
+      const bucketFront = new BucketFront( bucket, modelViewTransform, {
         tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Front' )
       } );
       bucketFrontLayer.addChild( bucketFront );
@@ -197,13 +197,13 @@ define( require => {
     } );
 
     // Add the particle count indicator.
-    var particleCountDisplay = new ParticleCountDisplay( model.particleAtom, 13, 250, {
+    const particleCountDisplay = new ParticleCountDisplay( model.particleAtom, 13, 250, {
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );  // Width arbitrarily chosen.
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display inside of an accordion box.
-    var periodicTableAndSymbol = new PeriodicTableAndSymbol(
+    const periodicTableAndSymbol = new PeriodicTableAndSymbol(
       model.particleAtom,
       tandem.createTandem( 'periodicTableAndSymbol' ),
       {
@@ -211,7 +211,7 @@ define( require => {
       }
     );
     periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
-    var periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
+    const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
     this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
       cornerRadius: 3,
       titleNode: new Text( elementString, {
@@ -237,8 +237,8 @@ define( require => {
     } );
     this.addChild( this.periodicTableAccordionBox );
 
-    var labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
-    var labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( [ {
+    const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
+    const labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( [ {
       node: new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
@@ -274,10 +274,10 @@ define( require => {
       resize: false,
       tandem: labelVisibilityControlPanelTandem
     } );
-    var numDividerLines = 2;
-    var dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisibilityControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
-    for ( var dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
-      var dividerLine1 = new Path( dividerLineShape, {
+    const numDividerLines = 2;
+    const dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisibilityControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
+    for ( let dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
+      const dividerLine1 = new Path( dividerLineShape, {
         lineWidth: 1,
         stroke: 'gray',
         centerY: labelVisibilityControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
@@ -287,7 +287,7 @@ define( require => {
     }
 
     this.addChild( labelVisibilityControlPanel );
-    var labelVisibilityControlPanelTitle = new Text( showString, {
+    const labelVisibilityControlPanelTitle = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
       maxWidth: labelVisibilityControlPanel.width,
       tandem: tandem.createTandem( 'labelVisibilityControlPanelTitle' )
@@ -295,9 +295,9 @@ define( require => {
     this.addChild( labelVisibilityControlPanelTitle );
 
     // Add the radio buttons that control the electron representation in the atom.
-    var radioButtonRadius = 6;
-    var orbitsRadioButtonTandem = tandem.createTandem( 'orbitsRadioButton' );
-    var orbitsRadioButton = new AquaRadioButton(
+    const radioButtonRadius = 6;
+    const orbitsRadioButtonTandem = tandem.createTandem( 'orbitsRadioButton' );
+    const orbitsRadioButton = new AquaRadioButton(
       model.electronShellDepictionProperty,
       'orbits',
       new Text( orbitsString, {
@@ -308,8 +308,8 @@ define( require => {
       ),
       { radius: radioButtonRadius, tandem: orbitsRadioButtonTandem }
     );
-    var cloudRadioButtonTandem = tandem.createTandem( 'cloudRadioButton' );
-    var cloudRadioButton = new AquaRadioButton(
+    const cloudRadioButtonTandem = tandem.createTandem( 'cloudRadioButton' );
+    const cloudRadioButton = new AquaRadioButton(
       model.electronShellDepictionProperty,
       'cloud',
       new Text( cloudString, {
@@ -319,7 +319,7 @@ define( require => {
       } ),
       { radius: radioButtonRadius, tandem: cloudRadioButtonTandem }
     );
-    var electronViewButtonGroup = new Node( { tandem: tandem.createTandem( 'electronViewButtonGroup' ) } );
+    const electronViewButtonGroup = new Node( { tandem: tandem.createTandem( 'electronViewButtonGroup' ) } );
     electronViewButtonGroup.addChild( new Text( modelString, {
       font: new PhetFont( {
         size: 14,
@@ -337,7 +337,7 @@ define( require => {
     this.addChild( electronViewButtonGroup );
 
     // Add the reset button.
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       listener: function() {
         self.model.reset();
         self.reset();

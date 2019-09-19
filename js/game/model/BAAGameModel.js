@@ -29,9 +29,9 @@ define( require => {
   const ShredConstants = require( 'SHRED/ShredConstants' );
 
   // constants
-  var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
-  var POSSIBLE_POINTS_PER_CHALLENGE = 2;
-  var MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
+  const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
+  const POSSIBLE_POINTS_PER_CHALLENGE = 2;
+  const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
 
   /**
    * {Tandem} tandem
@@ -39,7 +39,7 @@ define( require => {
    */
   function BAAGameModel( tandem ) {
 
-    var self = this;
+    const self = this;
 
     PhetioObject.call( this, {
       phetioType: BAAGameModelIO,
@@ -118,7 +118,7 @@ define( require => {
     } );
 
     this.timerEnabledProperty.lazyLink( function( timerEnabled ) {
-      for ( var i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
+      for ( let i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
         self.bestTimeVisible[ i ].value = timerEnabled && self.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
       }
     } );
@@ -179,7 +179,7 @@ define( require => {
       // assert && assert( this.challengeSetProperty.get().length === 0, 'challenges should be cleared before starting a new game' );
 
       // Use the predetermined challenges (if specified by phet-io) or generate a random challenge for the given level
-      var challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
+      const challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
         this.levelProperty.get(),
         CHALLENGES_PER_LEVEL,
         this,
@@ -213,7 +213,7 @@ define( require => {
 
     // @public - advance to the next challenge or to the 'game over' screen if all challenges finished
     next: function() {
-      var level = this.levelProperty.get();
+      const level = this.levelProperty.get();
       if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
         // Next challenge.
         this.challengeIndexProperty.set( this.challengeIndexProperty.get() + 1 );
@@ -288,7 +288,7 @@ define( require => {
      * @public (phet-io)
      */
     setChallenges: function( challengeSpecsForLevels ) {
-      var self = this;
+      const self = this;
       this.predeterminedChallenges = challengeSpecsForLevels.map( function( levelSpec ) {
         return levelSpec.map( function( challengeSpec ) {
           return ChallengeSetFactory.createChallenge( self, challengeSpec.challengeType, new NumberAtom( {
@@ -303,7 +303,7 @@ define( require => {
 
     // @public
     emitCheckAnswer: function( isCorrect, points, answerAtom, submittedAtom, extension ) {
-      var arg = {
+      const arg = {
         isCorrect: isCorrect,
 
         correctProtonCount: answerAtom.protonCountProperty.get(),

@@ -37,13 +37,13 @@ define( require => {
       numberType: 'Integer'
     } );
     ChallengeView.call( this, countsToMassNumberChallenge, layoutBounds, tandem );
-    var self = this;
+    const self = this;
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
     self.challengePresentationNode.addChild( particleCountsNode );
 
-    var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
+    const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
@@ -52,7 +52,7 @@ define( require => {
     self.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode(
+    const numberEntryNode = new NumberEntryNode(
       self.massNumberAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
         minValue: 0,
@@ -84,7 +84,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var userSubmittedAnswer = new NumberAtom( {
+      const userSubmittedAnswer = new NumberAtom( {
         protonCount: this.challenge.answerAtom.protonCountProperty.get(),
         neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
         electronCount: this.challenge.answerAtom.electronCountProperty.get()

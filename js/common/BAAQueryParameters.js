@@ -11,7 +11,7 @@ define( require => {
   // modules
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
-  var BAAQueryParameters = QueryStringMachine.getAll( {
+  const BAAQueryParameters = QueryStringMachine.getAll( {
 
     // shows the game reward regardless of score
     reward: { type: 'flag' },

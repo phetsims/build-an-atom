@@ -34,10 +34,10 @@ define( require => {
     } );
 
     // Add the symbol node within an accordion box.
-    var symbolNode = new SymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
+    const symbolNode = new SymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
       scale: 0.43 // scale empirically determined
     } );
-    var symbolAccordionBox = new AccordionBox( symbolNode, {
+    const symbolAccordionBox = new AccordionBox( symbolNode, {
       cornerRadius: 3,
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,

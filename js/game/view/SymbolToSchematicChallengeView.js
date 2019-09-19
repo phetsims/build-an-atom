@@ -29,7 +29,7 @@ define( require => {
   function SymbolToSchematicChallengeView( challenge, layoutBounds, tandem ) {
 
     // Create the model-view transform used by the schematic atom.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
       0.75
@@ -48,7 +48,7 @@ define( require => {
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
 
     // Symbol
-    var interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    const interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );
 

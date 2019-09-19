@@ -18,18 +18,18 @@ define( require => {
   const RewardNode = require( 'VEGAS/RewardNode' );
 
   // constants
-  var NUMBER_OF_NODES = 75;
-  var NUMBER_OF_SYMBOL_NODES = 5;
-  var FACE_DIAMETER = 40;
-  var MIN_CHILD_NODE_WIDTH = 40;
-  var MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
+  const NUMBER_OF_NODES = 75;
+  const NUMBER_OF_SYMBOL_NODES = 5;
+  const FACE_DIAMETER = 40;
+  const MIN_CHILD_NODE_WIDTH = 40;
+  const MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
 
   /**
    * @param {Tandem} tandem
    * @constructor
    */
   function BAARewardNode( tandem ) {
-    var nodes = this.createNodes( tandem );
+    const nodes = this.createNodes( tandem );
     RewardNode.call( this, { nodes: nodes } );
 
     // @private
@@ -54,7 +54,7 @@ define( require => {
 
     // @private
     _createRandomStableAtom: function() {
-      var atomicNumber = 1 + phet.joist.random.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
+      const atomicNumber = 1 + phet.joist.random.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
       return new NumberAtom( {
         protonCount: atomicNumber,
         neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
@@ -64,18 +64,18 @@ define( require => {
 
     // @public
     createNodes: function( tandem ) {
-      var self = this;
-      var nodes = [];
-      var groupTandem = tandem.createGroupTandem( 'interactiveSymbolNodes' );
-      for ( var i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
-        var interactiveSymbolNode = new InteractiveSymbolNode( self._createRandomStableAtom(), groupTandem.createNextTandem() );
+      const self = this;
+      const nodes = [];
+      const groupTandem = tandem.createGroupTandem( 'interactiveSymbolNodes' );
+      for ( let i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
+        const interactiveSymbolNode = new InteractiveSymbolNode( self._createRandomStableAtom(), groupTandem.createNextTandem() );
         interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH +
                                        phet.joist.random.nextDouble() *
                                        ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) /
                                      interactiveSymbolNode.width );
         nodes.push( interactiveSymbolNode );
       }
-      var faceNode = new FaceNode( FACE_DIAMETER );
+      const faceNode = new FaceNode( FACE_DIAMETER );
       nodes.push( faceNode );
       return RewardNode.createRandomNodes( nodes, NUMBER_OF_NODES );
     }

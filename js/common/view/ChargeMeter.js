@@ -23,10 +23,10 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var WIDTH = 70; // In screen coords, which are roughly pixels.
-  var _MAX_CHARGE = 10;
-  var CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
-  var SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
+  const WIDTH = 70; // In screen coords, which are roughly pixels.
+  const _MAX_CHARGE = 10;
+  const CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
+  const SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
   /**
    * @param {NumberAtom} numberAtom
@@ -41,8 +41,8 @@ define( require => {
     Node.call( this );
 
     // Add the background.
-    var backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
-    var background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, {
+    const backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
+    const background = new Rectangle( 0, 0, WIDTH, backgroundHeight, 7, 7, {
       fill: 'rgb( 210, 210, 210 )',
       stroke: 'gray',
       lineWidth: 1.0,
@@ -51,14 +51,14 @@ define( require => {
     this.addChild( background );
 
     // Add the meter window.
-    var meterWindowShape = new Shape();
-    var meterWindowWidth = background.width * 0.8;
-    var meterWindowHeight = meterWindowWidth * 0.5; // Empirically chosen, change if needed.
+    const meterWindowShape = new Shape();
+    const meterWindowWidth = background.width * 0.8;
+    const meterWindowHeight = meterWindowWidth * 0.5; // Empirically chosen, change if needed.
     meterWindowShape.moveTo( 0, meterWindowHeight );
     meterWindowShape.quadraticCurveTo( 0, 0, meterWindowWidth / 2, 0 );
     meterWindowShape.quadraticCurveTo( meterWindowWidth, 0, meterWindowWidth, meterWindowHeight );
     meterWindowShape.close();
-    var meterWindow = new Path( meterWindowShape, {
+    const meterWindow = new Path( meterWindowShape, {
       stroke: 'gray',
       lineWidth: 2,
       fill: new LinearGradient( 0, 0, meterWindowWidth, 0 )
@@ -72,9 +72,9 @@ define( require => {
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
-    var shadowOffset = 0.5; // In pixels.
-    var plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
-    var plusSymbol = new Node( { tandem: tandem.createTandem( 'plusSymbol' ) } );
+    const shadowOffset = 0.5; // In pixels.
+    const plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
+    const plusSymbol = new Node( { tandem: tandem.createTandem( 'plusSymbol' ) } );
     plusSymbol.addChild( new Path( plusShape, {
       lineWidth: SYMBOL_LINE_WIDTH,
       stroke: 'black',
@@ -91,8 +91,8 @@ define( require => {
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
-    var minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
-    var minusSymbol = new Node( { tandem: tandem.createTandem( 'minusSymbol' ) } );
+    const minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
+    const minusSymbol = new Node( { tandem: tandem.createTandem( 'minusSymbol' ) } );
     minusSymbol.addChild( new Path( minusShape, {
       lineWidth: SYMBOL_LINE_WIDTH,
       stroke: 'black',
@@ -109,13 +109,13 @@ define( require => {
     meterWindow.addChild( minusSymbol );
 
     // Add the layer that contains the meter line.
-    var meterNeedleLayer = new Node( {
+    const meterNeedleLayer = new Node( {
       x: meterWindow.centerX,
       y: meterWindow.bottom - 3,
       tandem: tandem.createTandem( 'meterNeedleWindow' )
     } );
     meterNeedleLayer.setScaleMagnitude( 1, 0.9 ); // match previous scaling behavior
-    var meterNeedle = new ArrowNode(
+    const meterNeedle = new ArrowNode(
       0, 0, // tip at origin, so we can rotate around it
       0, 3 - meterWindowHeight, {
         headHeight: 7,
@@ -126,11 +126,11 @@ define( require => {
     meterNeedleLayer.addChild( meterNeedle );
     this.addChild( meterNeedleLayer );
 
-    var numericalReadout;
-    var readoutText;
+    let numericalReadout;
+    let readoutText;
 
     // Add the numerical display, if present.
-    var readoutSize = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
+    const readoutSize = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );
     if ( options.showNumericalReadout ) {
       numericalReadout = new Rectangle( 0, 0, readoutSize.width, readoutSize.height, 3, 3, {
         fill: 'white',
@@ -155,8 +155,8 @@ define( require => {
       meterNeedle.rotation = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
 
       if ( numericalReadout !== undefined ) {
-        var sign = '';
-        var textColor;
+        let sign = '';
+        let textColor;
         if ( charge > 0 ) {
           sign = '+';
           textColor = PhetColorScheme.RED_COLORBLIND;
@@ -169,7 +169,7 @@ define( require => {
         }
         readoutText.fill = textColor;
 
-        var newText = sign + charge;
+        const newText = sign + charge;
         if ( newText !== readoutText.text ) {
           readoutText.text = newText;
 

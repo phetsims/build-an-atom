@@ -24,7 +24,7 @@ define( require => {
   const protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
 
   // constants
-  var MAX_WIDTH = 280;
+  const MAX_WIDTH = 280;
 
   /**
    * @param {NumberAtom} numberAtom
@@ -37,24 +37,24 @@ define( require => {
 
     options = _.extend( { font: new PhetFont( 24 ) }, options );
 
-    var protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
+    const protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( protonCountTitle );
-    var neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCountProperty.get() ), {
+    const neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( neutronCountTitle );
-    var electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCountProperty.get() ), {
+    const electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( electronCountTitle );
 
     // Layout - Line labels up on left edge, numbers on right edge.
-    var interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
+    const interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
     protonCountTitle.left = 0;
     protonCountTitle.top = 0;
     neutronCountTitle.left = 0;

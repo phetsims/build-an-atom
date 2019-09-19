@@ -40,13 +40,13 @@ define( require => {
     } );
 
     ChallengeView.call( this, countsToChargeChallenge, layoutBounds, tandem );
-    var self = this;
+    const self = this;
 
     // Particle counts
-    var particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     self.challengePresentationNode.addChild( particleCountsNode );
 
-    var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
+    const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
@@ -55,7 +55,7 @@ define( require => {
     self.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var numberEntryNode = new NumberEntryNode(
+    const numberEntryNode = new NumberEntryNode(
       self.chargeAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
         prependPlusSign: true,
@@ -88,7 +88,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var userSubmittedAnswer = new NumberAtom( {
+      const userSubmittedAnswer = new NumberAtom( {
         protonCount: this.challenge.answerAtom.protonCountProperty.get(),
         neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
         electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value

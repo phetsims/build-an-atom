@@ -24,8 +24,8 @@ define( require => {
   const netChargeString = require( 'string!BUILD_AN_ATOM/netCharge' );
 
   // constants
-  var INTER_BOX_SPACING = 7;
-  var ACCORDION_BOX_BUTTON_DILATION = 12;
+  const INTER_BOX_SPACING = 7;
+  const ACCORDION_BOX_BUTTON_DILATION = 12;
 
   /**
    * Constructor.
@@ -46,7 +46,7 @@ define( require => {
     } );
 
     // options that are common to all of the accordion boxes in this view
-    var commonAccordionBoxOptions = {
+    const commonAccordionBoxOptions = {
       cornerRadius: 3,
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -60,7 +60,7 @@ define( require => {
     };
 
     // Add the charge meter and charge comparison display inside of an accordion box.
-    var netChargeAccordionBoxContents = new HBox( {
+    const netChargeAccordionBoxContents = new HBox( {
       children: [
         new ChargeMeter( model.particleAtom, tandem.createTandem( 'chargeMeter' ) ),
         new ChargeComparisonDisplay(
@@ -78,7 +78,7 @@ define( require => {
       tagName: 'h6',
       innerContent: 'Net Charge Content' // TODO: export to a11y strings file
     } );
-    var netChargeAccordionBox = new AccordionBox(
+    const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
       _.extend( {}, {
         titleNode: new Text( netChargeString, {
@@ -98,7 +98,7 @@ define( require => {
     this.controlPanelLayer.addChild( netChargeAccordionBox );
 
     // Add the mass indicator inside of an accordion box.
-    var massNumberDisplay = new MassNumberDisplay(
+    const massNumberDisplay = new MassNumberDisplay(
       model.particleAtom,
       tandem.createTandem( 'massNumberDisplay' ),
       {
@@ -110,7 +110,7 @@ define( require => {
         innerContent: 'Mass Number Content' // TODO: export to a11y strings file
       }
     );
-    var massNumberAccordionBox = new AccordionBox(
+    const massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
       _.extend( {}, {
         titleNode: new Text( massNumberString, {

@@ -24,10 +24,10 @@ define( require => {
   const SymbolToSchematicChallenge = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicChallenge' );
 
   // constants
-  var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.
+  const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.
 
   // No constructor, not meant to be instantiated.
-  var ChallengeSetFactory = {};
+  const ChallengeSetFactory = {};
 
   /**
    * Generate a challenge set based on the specified criteria.
@@ -42,16 +42,16 @@ define( require => {
     this.challenges = [];
     this._previousChallengeType = null;
     this._availableChallengeTypes = [];
-    var groupTandem = tandem.createGroupTandem( 'challenges' );
+    const groupTandem = tandem.createGroupTandem( 'challenges' );
 
     // Create a pool of all atom values that can be used to create challenges
     // for the challenge set.
-    var atomValueList = new AtomValuePool( level );
+    const atomValueList = new AtomValuePool( level );
 
     // Now add challenges to the challenge set based on the atom values and the
     // challenge types associated with this level.
-    for ( var i = 0; i < numChallenges; i++ ) {
-      var challenge = this._generateChallenge( level, atomValueList, model, allowedChallengeTypesByLevel, groupTandem.createNextTandem() );
+    for ( let i = 0; i < numChallenges; i++ ) {
+      const challenge = this._generateChallenge( level, atomValueList, model, allowedChallengeTypesByLevel, groupTandem.createNextTandem() );
       if ( challenge !== null ) {
         this.challenges.push( challenge );
       }
@@ -81,12 +81,12 @@ define( require => {
 
     // Randomly pick a challenge type, but make sure that it isn't the same
     // as the previous challenge type.
-    var index = Math.floor( phet.joist.random.nextDouble() * ( this._availableChallengeTypes.length ) );
+    let index = Math.floor( phet.joist.random.nextDouble() * ( this._availableChallengeTypes.length ) );
     if ( this._previousChallengeType !== null && this._availableChallengeTypes.get( index ) === this._previousChallengeType ) {
       // This is the same as the previous prob type, so choose a different one.
       index = ( index + 1 ) % this._availableChallengeTypes.length;
     }
-    var challengeType = this._availableChallengeTypes[ index ];
+    const challengeType = this._availableChallengeTypes[ index ];
     this.previousChallengeType = challengeType;
 
     // Remove the chosen type from the list.  By doing this, we present
@@ -95,9 +95,9 @@ define( require => {
 
     // Pick an atom value from the list of those remaining.  This is where
     // constraints between challenge types and atom values are handled.
-    var minProtonCount = 0;
-    var maxProtonCount = Number.POSITIVE_INFINITY;
-    var requireCharged = false;
+    let minProtonCount = 0;
+    let maxProtonCount = Number.POSITIVE_INFINITY;
+    let requireCharged = false;
     if ( this._isSchematicProbType( challengeType ) ) {
       maxProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS;
     }
@@ -110,7 +110,7 @@ define( require => {
       // time we want a charged atom.
       requireCharged = phet.joist.random.nextBoolean();
     }
-    var atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
+    const atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
     return this.createChallenge( model, challengeType, atomValue, tandem );
   };
@@ -127,7 +127,7 @@ define( require => {
    * @public
    */
   ChallengeSetFactory.createChallenge = function( model, challengeType, atomValue, tandem ) {
-    var challenge = null;
+    let challenge = null;
     switch( challengeType ) {
       case 'counts-to-element':
         challenge = new CountsToElementChallenge( model, atomValue, challengeType, tandem );

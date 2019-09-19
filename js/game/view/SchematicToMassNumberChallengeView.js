@@ -40,23 +40,23 @@ define( require => {
       numberType: 'Integer'
     } ); // Must be defined before call to super constructor.
     ChallengeView.call( this, schematicToMassNumberChallenge, layoutBounds, tandem );
-    var self = this;
+    const self = this;
 
     // Create the model-view transform used by the schematic atom.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
       0.8 );
 
     // Add the schematic representation of the atom.
-    var nonInteractiveSchematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.answerAtom,
+    const nonInteractiveSchematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
 
     self.challengePresentationNode.addChild( nonInteractiveSchematicAtomNode );
 
     // Question
-    var questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
+    const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
@@ -65,7 +65,7 @@ define( require => {
     self.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var massEntryNode = new NumberEntryNode(
+    const massEntryNode = new NumberEntryNode(
       self.massNumberAnswerProperty,
       tandem.createTandem( 'massEntryNode' ), {
         minValue: 0,
@@ -95,7 +95,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var userSubmittedAnswer = new NumberAtom( {
+      const userSubmittedAnswer = new NumberAtom( {
         protonCount: this.challenge.answerAtom.protonCountProperty.get(),
         neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
         electronCount: this.challenge.answerAtom.electronCountProperty.get()

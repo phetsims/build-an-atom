@@ -45,13 +45,13 @@ define( require => {
     this.interactiveAnswerNode.addChild( this.interactiveSymbolNode );
 
     // Create the model-view transform used by the schematic atom.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
       0.8 );
 
     // Add the schematic representation of the atom.
-    var schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolChallenge.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+    const schematicAtomNode = new NonInteractiveSchematicAtomNode( toSymbolChallenge.answerAtom, modelViewTransform, tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
     this.challengePresentationNode.addChild( schematicAtomNode );
 
     // Layout - bounds of AtomNode is dependent on its stability indicator text, so place relative to left
@@ -74,7 +74,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var userSubmittedAtom = new NumberAtom( {
+      const userSubmittedAtom = new NumberAtom( {
         protonCount: this.interactiveSymbolNode.protonCountProperty.value,
         neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
         electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value

@@ -25,10 +25,10 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
-  var SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
-  var NUMBER_FONT = new PhetFont( 56 );
-  var NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
+  const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
+  const SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
+  const NUMBER_FONT = new PhetFont( 56 );
+  const NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
 
   /**
    * Constructor
@@ -42,7 +42,7 @@ define( require => {
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
-    var boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
+    const boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
       stroke: 'black',
       lineWidth: 2,
       fill: 'white',
@@ -51,7 +51,7 @@ define( require => {
     this.addChild( boundingBox );
 
     // Add the symbol text.
-    var symbolText = new Text( '', {
+    const symbolText = new Text( '', {
       font: new PhetFont( 150 ),
       fill: 'black',
       center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 ),
@@ -59,16 +59,16 @@ define( require => {
     } );
 
     // Add the listener to update the symbol text.
-    var textCenter = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
+    const textCenter = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     numberAtom.protonCountProperty.link( function( protonCount ) {
-      var symbol = AtomIdentifier.getSymbol( protonCount );
+      const symbol = AtomIdentifier.getSymbol( protonCount );
       symbolText.text = protonCount > 0 ? symbol : '';
       symbolText.center = textCenter;
     } );
     boundingBox.addChild( symbolText );
 
     // Add the atomic number display.
-    var atomicNumberDisplay = new Text( '0', {
+    const atomicNumberDisplay = new Text( '0', {
       font: NUMBER_FONT,
       fill: PhetColorScheme.RED_COLORBLIND,
       tandem: tandem.createTandem( 'atomicNumberDisplay' )
@@ -83,7 +83,7 @@ define( require => {
     boundingBox.addChild( atomicNumberDisplay );
 
     // Add the mass number display.
-    var massNumberDisplay = new Text( '0', {
+    const massNumberDisplay = new Text( '0', {
       font: NUMBER_FONT,
       fill: 'black',
       tandem: tandem.createTandem( 'massNumberDisplay' )
@@ -98,7 +98,7 @@ define( require => {
     } );
 
     // Add the charge display.
-    var chargeDisplay = new Text( '0', {
+    const chargeDisplay = new Text( '0', {
       font: NUMBER_FONT,
       fill: 'black',
       tandem: tandem.createTandem( 'chargeDisplay' )
@@ -114,12 +114,12 @@ define( require => {
     } );
 
     // Add the scale image - just an image with no functionality.
-    var scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
+    const scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
     scaleImage.scale( 0.32 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
     // Add the charge meter.
-    var chargeMeter = new ChargeMeter( numberAtom, tandem.createTandem( 'chargeMeter' ), {
+    const chargeMeter = new ChargeMeter( numberAtom, tandem.createTandem( 'chargeMeter' ), {
       showNumericalReadout: false
     } );
     chargeMeter.scale( 1.5 );

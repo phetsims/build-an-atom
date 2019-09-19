@@ -19,7 +19,7 @@ define( require => {
   // Challenge pools for creating game challenges, extracted from the design doc.
   // These define the configuration for each of the challenges that can be used
   // in a challenge set for a given sub-game.
-  var CHALLENGE_POOLS = [
+  const CHALLENGE_POOLS = [
     [
       new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 0 } ),
       new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ),
@@ -247,14 +247,14 @@ define( require => {
   AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProtonCount, requireCharged ) {
 
     // Define a function that returns true if a given atom matches the criteria.
-    var meetsCriteria = function( numberAtom ) {
+    const meetsCriteria = function( numberAtom ) {
       return numberAtom.protonCountProperty.get() >= minProtonCount &&
              numberAtom.protonCountProperty.get() < maxProtonCount &&
              ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
     };
 
     // Make a list of the atoms that meet the criteria.
-    var allowableAtomValues = [];
+    const allowableAtomValues = [];
     this.remainingAtomValues.forEach( function( numberAtom ) {
       if ( meetsCriteria( numberAtom ) ) {
         allowableAtomValues.push( numberAtom );
@@ -272,7 +272,7 @@ define( require => {
     }
 
     // Choose a random value from the list.
-    var atomValue = null;
+    let atomValue = null;
     if ( allowableAtomValues.length > 0 ) {
       atomValue = allowableAtomValues[ Math.floor( phet.joist.random.nextDouble() * allowableAtomValues.length ) ];
     }

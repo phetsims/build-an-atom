@@ -29,11 +29,11 @@ define( require => {
   const tryAgainString = require( 'string!VEGAS/tryAgain' );
 
   // constants
-  var BUTTON_FONT = new PhetFont( 20 );
-  var BUTTON_FILL = new Color( 0, 255, 153 );
-  var POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
-  var BUTTON_MAX_WIDTH = 350;
-  var BUTTON_TOUCH_AREA_DILATION = 8;
+  const BUTTON_FONT = new PhetFont( 20 );
+  const BUTTON_FILL = new Color( 0, 255, 153 );
+  const POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
+  const BUTTON_MAX_WIDTH = 350;
+  const BUTTON_TOUCH_AREA_DILATION = 8;
 
   /**
    * @param {BAAGameChallenge} challenge
@@ -43,7 +43,7 @@ define( require => {
    */
   function ChallengeView( challenge, layoutBounds, tandem ) {
     Node.call( this );
-    var self = this;
+    const self = this;
     this.challenge = challenge;
 
     // Audio player used for audio feedback.
@@ -60,8 +60,8 @@ define( require => {
     this.addChild( this.interactiveAnswerNode );
 
     // Face node used to signal correct/incorrect answers.
-    var faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
-    var pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
+    const faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
+    const pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
     pointDisplay.centerX = 0;
     pointDisplay.top = faceNode.height / 2;
     faceNode.addChild( pointDisplay );
@@ -126,7 +126,7 @@ define( require => {
     this.buttons.push( this.displayCorrectAnswerButton );
 
     // Utility function to hide all buttons and the feedback face.
-    var hideButtonsAndFace = function hideButtonsAndFace() {
+    const hideButtonsAndFace = function hideButtonsAndFace() {
       self.buttons.forEach( function( button ) {
         button.visible = false;
       } );
@@ -136,14 +136,14 @@ define( require => {
 
     // Utility function to enable/disable interaction with answer portion of
     // the displayed challenge.
-    var setAnswerNodeInteractive = function( interactive ) {
+    const setAnswerNodeInteractive = function( interactive ) {
       self.interactiveAnswerNode.pickable = interactive;
     };
 
     // Update the visibility of the various buttons and other nodes based on
     // the challenge state.
     // Set up the handlers that update the visibility of the various buttons and other nodes based on the challenge state.
-    var stateChangeHandlers = {};
+    const stateChangeHandlers = {};
     stateChangeHandlers[ BAAChallengeState.PRESENTING_CHALLENGE ] = function() {
       self.clearAnswer();
       setAnswerNodeInteractive( true );

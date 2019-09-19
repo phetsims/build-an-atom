@@ -32,10 +32,10 @@ define( require => {
   const neutralAtomString = require( 'string!BUILD_AN_ATOM/neutralAtom' );
 
   // constants
-  var TITLE_FONT = new PhetFont( 30 );
-  var INSET = 10;
-  var CELL_DIMENSION = 25;
-  var MAX_WIDTH = 100; // empirically determined for long strings
+  const TITLE_FONT = new PhetFont( 30 );
+  const INSET = 10;
+  const CELL_DIMENSION = 25;
+  const MAX_WIDTH = 100; // empirically determined for long strings
 
   /**
    * @param {CountsToElementChallenge} countsToElementChallenge
@@ -50,7 +50,7 @@ define( require => {
       phetioType: PropertyIO( StringIO )
     } );
     ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem );
-    var self = this;
+    const self = this;
 
     // Periodic table
     this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, {
@@ -64,32 +64,32 @@ define( require => {
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Challenge title
-    var challengeTitle = new Text( findTheElementString, {
+    const challengeTitle = new Text( findTheElementString, {
       font: TITLE_FONT,
       maxWidth: this.periodicTable.width
     } );
     this.challengePresentationNode.addChild( challengeTitle );
 
     // Neutral atom versus ion question.
-    var neutralVersusIonPrompt = new Text( isItString, {
+    const neutralVersusIonPrompt = new Text( isItString, {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH
     } );
-    var neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( neutralAtomString, {
+    const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( neutralAtomString, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
       tandem: tandem.createTandem( 'neutralAtomRadioButton' )
     } );
-    var ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( ionString, {
+    const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( ionString, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
       tandem: tandem.createTandem( 'ionRadioButton' )
     } );
-    var neutralAtomVersusIonQuestion = new Node();
+    const neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
     neutralAtomRadioButton.left = neutralVersusIonPrompt.right + 10;
     neutralAtomRadioButton.centerY = neutralVersusIonPrompt.centerY;
@@ -99,7 +99,7 @@ define( require => {
     neutralAtomVersusIonQuestion.addChild( ionRadioButton );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    var updateNeutralAtomVersusIonQuestionVisibility = function( protonCount ) {
+    const updateNeutralAtomVersusIonQuestionVisibility = function( protonCount ) {
       // Once the user has selected an element, make the ion question visible.
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
     };
@@ -109,7 +109,7 @@ define( require => {
     // Don't enable the "check answer" button until the user has answered the
     // "neutral vs. ion" question.
 
-    var updateCheckAnswerButton = function( neutralOrIon ) {
+    const updateCheckAnswerButton = function( neutralOrIon ) {
       self.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
       self.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
     };
@@ -132,7 +132,7 @@ define( require => {
     this.periodicTable.right = layoutBounds.width - INSET;
     this.periodicTable.centerY = layoutBounds.height * 0.55;
 
-    var maxTitleWidth = this.periodicTable.width * 0.9;
+    const maxTitleWidth = this.periodicTable.width * 0.9;
     if ( challengeTitle.width > maxTitleWidth ) {
       challengeTitle.scale( maxTitleWidth / challengeTitle.width );
     }
@@ -150,7 +150,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var submittedAtom = new NumberAtom( {
+      const submittedAtom = new NumberAtom( {
         protonCount: this.periodicTableAtom.protonCountProperty.get(),
         neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
         electronCount: this.challenge.answerAtom.electronCountProperty.get()

@@ -29,13 +29,13 @@ define( require => {
     ToElementChallengeView.call( this, schematicToElementChallenge, layoutBounds, tandem );
 
     // Create the model-view transform used by the schematic atom.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
       0.8 );
 
     // Add the schematic representation of the atom.
-    var nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
       schematicToElementChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )

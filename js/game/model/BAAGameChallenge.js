@@ -89,7 +89,7 @@ define( require => {
     handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ) {
 
       this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
-      var pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
+      const pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
       this.pointValue = isCorrect ? pointsIfCorrect : 0;
       this.model.scoreProperty.set( this.model.scoreProperty.get() + this.pointValue );
       this.model.emitCheckAnswer( isCorrect, this.pointValue, this.answerAtom, submittedAtom, emitMessageOptions );
@@ -133,7 +133,7 @@ define( require => {
         'Unexpected challenge state: ' + this.challengeStateProperty.get()
       );
 
-      var isCorrect = this.answerAtom.equals( submittedAtom );
+      const isCorrect = this.answerAtom.equals( submittedAtom );
       this.handleEvaluatedAnswer( submittedAtom, isCorrect );
     },
 

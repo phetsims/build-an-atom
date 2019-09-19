@@ -44,7 +44,7 @@ define( require => {
         this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
         'Unexpected challenge state: ' + this.challengeStateProperty.get()
       );
-      var isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
+      const isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
                       submittedAtom.neutronCountProperty.get() === this.answerAtom.neutronCountProperty.get() &&
                       ( ( submittedNeutralOrIon === 'neutral' && this.answerAtom.chargeProperty.get() === 0 ) ||
                         ( submittedNeutralOrIon === 'ion' && this.answerAtom.chargeProperty.get() !== 0 ) );

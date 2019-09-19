@@ -19,8 +19,8 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var SYMBOL_WIDTH_PROPORTION = 0.2;
-  var SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
+  const SYMBOL_WIDTH_PROPORTION = 0.2;
+  const SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
   /**
    * @param {NumberAtom} numberAtom
@@ -34,7 +34,7 @@ define( require => {
     Node.call( this );
 
     // Create and add the periodic table.
-    var periodicTable = new PeriodicTableNode( numberAtom, {
+    const periodicTable = new PeriodicTableNode( numberAtom, {
       interactiveMax: 0,
       disabledCellColor: 'white',
       tandem: tandem.createTandem( 'periodicTable' )
@@ -42,7 +42,7 @@ define( require => {
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.
-    var symbolRectangle = new Rectangle(
+    const symbolRectangle = new Rectangle(
       0,
       0,
       periodicTable.width * SYMBOL_WIDTH_PROPORTION,
@@ -59,7 +59,7 @@ define( require => {
     // Add the text that represents the chosen element.
     numberAtom.protonCountProperty.link( function( protonCount ) {
       symbolRectangle.removeAllChildren();
-      var symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
+      const symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
         font: new PhetFont( { size: 48, weight: 'bold' } )
       } );
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );

@@ -19,10 +19,10 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
 
   // constants
-  var SYMBOL_WIDTH = 12;
-  var VERTICAL_INSET = 5;
-  var INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
-  var SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
+  const SYMBOL_WIDTH = 12;
+  const VERTICAL_INSET = 5;
+  const INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
+  const SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 
   /**
    * @param {NumberAtom} numberAtom - model representation of the atom
@@ -34,20 +34,20 @@ define( require => {
 
     Node.call( this, { tandem: tandem } );
 
-    var MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
-    var i;
+    const MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
+    let i;
 
     // Parent node for all symbols.
-    var symbolLayer = new Node( { tandem: tandem.createTandem( 'symbolLayer' ) } );
+    const symbolLayer = new Node( { tandem: tandem.createTandem( 'symbolLayer' ) } );
 
-    var minusSymbolShape = new Shape();
+    const minusSymbolShape = new Shape();
     minusSymbolShape.moveTo( -SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.lineTo( SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.lineTo( SYMBOL_WIDTH / 2, SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, SYMBOL_LINE_WIDTH / 2 );
     minusSymbolShape.close();
 
-    var minusSymbolPath = new Path( minusSymbolShape, {
+    const minusSymbolPath = new Path( minusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
       fill: 'rgb( 100, 100, 255 )',
@@ -55,10 +55,10 @@ define( require => {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
     } );
 
-    var minusesGroupTandem = tandem.createGroupTandem( 'minuses' );
-    var minuses = [];
+    const minusesGroupTandem = tandem.createGroupTandem( 'minuses' );
+    const minuses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
-      var minusSymbol = new Node( {
+      const minusSymbol = new Node( {
         children: [ minusSymbolPath ],
         x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
         tandem: minusesGroupTandem.createNextTandem()
@@ -67,7 +67,7 @@ define( require => {
       symbolLayer.addChild( minusSymbol );
     }
 
-    var plusSymbolShape = new Shape();
+    const plusSymbolShape = new Shape();
     plusSymbolShape.moveTo( -SYMBOL_LINE_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
     plusSymbolShape.lineTo( -SYMBOL_LINE_WIDTH / 2, -SYMBOL_WIDTH / 2 );
     plusSymbolShape.lineTo( SYMBOL_LINE_WIDTH / 2, -SYMBOL_WIDTH / 2 );
@@ -82,7 +82,7 @@ define( require => {
     plusSymbolShape.lineTo( -SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
     plusSymbolShape.close();
 
-    var plusSymbolPath = new Path( plusSymbolShape, {
+    const plusSymbolPath = new Path( plusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
       fill: PhetColorScheme.RED_COLORBLIND,
@@ -90,10 +90,10 @@ define( require => {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );
 
-    var plussesGroupTandem = tandem.createGroupTandem( 'plusses' );
-    var plusses = [];
+    const plussesGroupTandem = tandem.createGroupTandem( 'plusses' );
+    const plusses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
-      var plusSymbol = new Node( {
+      const plusSymbol = new Node( {
         children: [ plusSymbolPath ],
         x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
         tandem: plussesGroupTandem.createNextTandem()
@@ -103,7 +103,7 @@ define( require => {
     }
 
     // width will be changed dynamically, all of the others will remain static
-    var matchBox = new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4, {
+    const matchBox = new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4, {
       lineWidth: 1,
       stroke: 'black',
       visible: false,
@@ -112,20 +112,20 @@ define( require => {
     symbolLayer.addChild( matchBox );
 
     // Function that updates that displayed charge.
-    var update = function( atom ) {
+    const update = function( atom ) {
 
       // toggle plus visibility
-      for ( var numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
+      for ( let numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
         plusses[ numProtons ].visible = numProtons < atom.protonCountProperty.get();
       }
 
       // toggle minus visibility
-      for ( var numElectrons = 0; numElectrons < MAX_CHARGE; numElectrons++ ) {
+      for ( let numElectrons = 0; numElectrons < MAX_CHARGE; numElectrons++ ) {
         minuses[ numElectrons ].visible = numElectrons < atom.electronCountProperty.get();
       }
 
       // matching box
-      var numMatchedSymbols = Math.min( atom.protonCountProperty.get(), atom.electronCountProperty.get() );
+      const numMatchedSymbols = Math.min( atom.protonCountProperty.get(), atom.electronCountProperty.get() );
       matchBox.visible = numMatchedSymbols > 0;
       matchBox.rectWidth = INTER_SYMBOL_DISTANCE / 2 + ( numMatchedSymbols * SYMBOL_WIDTH ) + ( ( numMatchedSymbols - 0.5 ) * INTER_SYMBOL_DISTANCE );
     };

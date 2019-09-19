@@ -41,22 +41,22 @@ define( require => {
       numberType: 'Integer'
     } );
     ChallengeView.call( this, schematicToChargeChallenge, layoutBounds, tandem ); 
-    var self = this;
+    const self = this;
 
     // Create the model-view transform used by the schematic atom.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
       0.8 );
 
     // Add the schematic representation of the atom.
-    var nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode( schematicToChargeChallenge.answerAtom,
+    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode( schematicToChargeChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
     this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
     // Question
-    var questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
+    const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
@@ -65,7 +65,7 @@ define( require => {
     this.interactiveAnswerNode.addChild( questionPrompt );
 
     // Node for entering the answer
-    var chargeEntryNode = new NumberEntryNode(
+    const chargeEntryNode = new NumberEntryNode(
       self.chargeAnswerProperty,
       tandem.createTandem( 'chargeEntryNode' ), {
         minValue: -99,
@@ -97,7 +97,7 @@ define( require => {
 
     // @public
     checkAnswer: function() {
-      var userSubmittedAnswer = new NumberAtom( {
+      const userSubmittedAnswer = new NumberAtom( {
         protonCount: this.challenge.answerAtom.protonCountProperty.get(),
         neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
         electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value

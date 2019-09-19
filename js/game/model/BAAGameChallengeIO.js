@@ -45,19 +45,19 @@ define( require => {
       // This may have been deserialized from the instance itself or from the array it was contained in (which
       // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
       // TODO: is there a better way to do this, or at least factor it out?
-      var instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
+      const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
       if ( instance ) {
         return phetioEngine.getPhetioObject( stateObject.phetioID );
       }
 
-      var model = phetioEngine.getPhetioObject( stateObject.modelPhetioID );
+      const model = phetioEngine.getPhetioObject( stateObject.modelPhetioID );
 
-      var answerAtom = new phet.shred.NumberAtom( {
+      const answerAtom = new phet.shred.NumberAtom( {
         protonCount: stateObject.answerAtom.protonCount,
         neutronCount: stateObject.answerAtom.neutronCount,
         electronCount: stateObject.answerAtom.electronCount
       } );
-      var tandem = new phet.tandem.Tandem( stateObject.phetioID );
+      const tandem = new phet.tandem.Tandem( stateObject.phetioID );
 
       return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
     }

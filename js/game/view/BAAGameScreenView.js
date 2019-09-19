@@ -39,19 +39,19 @@ define( require => {
       layoutBounds: ShredConstants.LAYOUT_BOUNDS,
       tandem: tandem
     } );
-    var self = this;
+    const self = this;
 
     // Add a root node where all of the game-related nodes will live.
-    var rootNode = new Node();
+    const rootNode = new Node();
     self.addChild( rootNode );
 
-    var startGameLevelNode = new StartGameLevelNode(
+    const startGameLevelNode = new StartGameLevelNode(
       gameModel,
       this.layoutBounds,
       tandem.createTandem( 'startGameLevelNode' )
     );
 
-    var scoreboard = new FiniteStatusBar(
+    const scoreboard = new FiniteStatusBar(
       this.layoutBounds,
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
@@ -80,7 +80,7 @@ define( require => {
 
     scoreboard.centerX = this.layoutBounds.centerX;
     scoreboard.top = 0;
-    var gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
+    const gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
     this.rewardNode = null;
     this.levelCompletedNode = null; // @private
 
@@ -143,7 +143,7 @@ define( require => {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
         rootNode.removeAllChildren();
-        var challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.tandem.name + 'View' ) );
+        const challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.tandem.name + 'View' ) );
         state.disposeEmitter.addListener( function disposeListener() {
           challengeView.dispose();
           state.disposeEmitter.removeListener( disposeListener );

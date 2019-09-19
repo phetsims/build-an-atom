@@ -11,7 +11,7 @@ define( require => {
   // modules
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
-  var BAAChallengeState = {
+  const BAAChallengeState = {
     PRESENTING_CHALLENGE: 'presentingChallenge',
     CHALLENGE_SOLVED_CORRECTLY: 'challengeSolvedCorrectly',
     PRESENTING_TRY_AGAIN: 'presentingTryAgain',
