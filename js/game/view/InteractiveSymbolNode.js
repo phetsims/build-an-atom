@@ -6,22 +6,22 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.

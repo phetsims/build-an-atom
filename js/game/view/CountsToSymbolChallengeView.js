@@ -7,16 +7,16 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const ParticleCountsNode = require( 'BUILD_AN_ATOM/game/view/ParticleCountsNode' );
 
   /**
    * @param {CountsToSymbolChallenge} toSymbolChallenge

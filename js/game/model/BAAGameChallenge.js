@@ -7,22 +7,22 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
-  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
-  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
-  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var Emitter = require( 'AXON/Emitter' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var Range = require( 'DOT/Range' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
+  const BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
+  const BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
+  const BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
+  const BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const Emitter = require( 'AXON/Emitter' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const Range = require( 'DOT/Range' );
+  const StringIO = require( 'TANDEM/types/StringIO' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel

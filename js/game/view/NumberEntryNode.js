@@ -6,18 +6,18 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var ArrowButton = require( 'SUN/buttons/ArrowButton' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Shape = require( 'KITE/Shape' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const ArrowButton = require( 'SUN/buttons/ArrowButton' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const Shape = require( 'KITE/Shape' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // constants
   var NUMBER_BOX_SIZE = { width: 55, height: 48 }; // Size empirically determined.

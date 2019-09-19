@@ -5,28 +5,28 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
-  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
-  var BAAGameModelIO = require( 'BUILD_AN_ATOM/game/model/BAAGameModelIO' );
-  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
-  var BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
-  var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
-  var Emitter = require( 'AXON/Emitter' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
+  const ArrayIO = require( 'TANDEM/types/ArrayIO' );
+  const BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
+  const BAAGameModelIO = require( 'BUILD_AN_ATOM/game/model/BAAGameModelIO' );
+  const BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
+  const BAAGameStateIO = require( 'BUILD_AN_ATOM/game/model/BAAGameStateIO' );
+  const BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
+  const Emitter = require( 'AXON/Emitter' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const PhetioObject = require( 'TANDEM/PhetioObject' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
 
   // constants
   var CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;

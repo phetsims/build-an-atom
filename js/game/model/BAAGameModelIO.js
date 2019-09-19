@@ -6,16 +6,16 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
-  var VoidIO = require( 'TANDEM/types/VoidIO' );
-  var validate = require( 'AXON/validate' );
+  const ArrayIO = require( 'TANDEM/types/ArrayIO' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const StringIO = require( 'TANDEM/types/StringIO' );
+  const VoidIO = require( 'TANDEM/types/VoidIO' );
+  const validate = require( 'AXON/validate' );
 
   class BAAGameModelIO extends ObjectIO {
 

@@ -5,25 +5,25 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
-  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
-  var BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
-  var BAARewardNode = require( 'BUILD_AN_ATOM/game/view/BAARewardNode' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var FiniteStatusBar = require( 'VEGAS/FiniteStatusBar' );
-  var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Property = require( 'AXON/Property' );
-  var ScreenView = require( 'JOIST/ScreenView' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
+  const BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
+  const BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
+  const BAAQueryParameters = require( 'BUILD_AN_ATOM/common/BAAQueryParameters' );
+  const BAARewardNode = require( 'BUILD_AN_ATOM/game/view/BAARewardNode' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const FiniteStatusBar = require( 'VEGAS/FiniteStatusBar' );
+  const GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LevelCompletedNode = require( 'VEGAS/LevelCompletedNode' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
+  const ScreenView = require( 'JOIST/ScreenView' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const StartGameLevelNode = require( 'BUILD_AN_ATOM/game/view/StartGameLevelNode' );
 
   /**
    * Constructor.

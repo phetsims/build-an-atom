@@ -8,16 +8,16 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
-  var ToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/ToElementChallengeView' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
+  const ToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/ToElementChallengeView' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {SchematicToElementChallenge} schematicToElementChallenge

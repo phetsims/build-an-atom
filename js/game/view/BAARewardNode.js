@@ -5,17 +5,17 @@
  *
  * @author Aadish Gupta
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var FaceNode = require( 'SCENERY_PHET/FaceNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var RewardNode = require( 'VEGAS/RewardNode' );
+  const AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const FaceNode = require( 'SCENERY_PHET/FaceNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const RewardNode = require( 'VEGAS/RewardNode' );
 
   // constants
   var NUMBER_OF_NODES = 75;

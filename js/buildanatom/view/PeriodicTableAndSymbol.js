@@ -4,19 +4,19 @@
  * Combination of a periodic table and an enlarged, dynamic, element symbol
  * sitting above the table.
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var SYMBOL_WIDTH_PROPORTION = 0.2;

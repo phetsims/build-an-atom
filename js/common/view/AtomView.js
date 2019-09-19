@@ -8,44 +8,44 @@
  * @author John Blanco
  * @author Aadish Gupta
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AccordionBox = require( 'SUN/AccordionBox' );
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var AtomNode = require( 'SHRED/view/AtomNode' );
-  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
-  var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
-  var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Panel = require( 'SUN/Panel' );
-  var ParticleCountDisplay = require( 'SHRED/view/ParticleCountDisplay' );
-  var ParticleView = require( 'SHRED/view/ParticleView' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var ScreenView = require( 'JOIST/ScreenView' );
-  var Shape = require( 'KITE/Shape' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var VerticalCheckboxGroup = require( 'SUN/VerticalCheckboxGroup' );
+  const AccordionBox = require( 'SUN/AccordionBox' );
+  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const AtomNode = require( 'SHRED/view/AtomNode' );
+  const BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
+  const BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
+  const BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Panel = require( 'SUN/Panel' );
+  const ParticleCountDisplay = require( 'SHRED/view/ParticleCountDisplay' );
+  const ParticleView = require( 'SHRED/view/ParticleView' );
+  const Path = require( 'SCENERY/nodes/Path' );
+  const PeriodicTableAndSymbol = require( 'BUILD_AN_ATOM/buildanatom/view/PeriodicTableAndSymbol' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
+  const ScreenView = require( 'JOIST/ScreenView' );
+  const Shape = require( 'KITE/Shape' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const VerticalCheckboxGroup = require( 'SUN/VerticalCheckboxGroup' );
 
   // strings
-  var cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
-  var elementString = require( 'string!BUILD_AN_ATOM/element' );
-  var modelString = require( 'string!BUILD_AN_ATOM/model' );
-  var neutralSlashIonString = require( 'string!BUILD_AN_ATOM/neutralSlashIon' );
-  var orbitsString = require( 'string!BUILD_AN_ATOM/orbits' );
-  var showString = require( 'string!BUILD_AN_ATOM/show' );
-  var stableSlashUnstableString = require( 'string!BUILD_AN_ATOM/stableSlashUnstable' );
+  const cloudString = require( 'string!BUILD_AN_ATOM/cloud' );
+  const elementString = require( 'string!BUILD_AN_ATOM/element' );
+  const modelString = require( 'string!BUILD_AN_ATOM/model' );
+  const neutralSlashIonString = require( 'string!BUILD_AN_ATOM/neutralSlashIon' );
+  const orbitsString = require( 'string!BUILD_AN_ATOM/orbits' );
+  const showString = require( 'string!BUILD_AN_ATOM/show' );
+  const stableSlashUnstableString = require( 'string!BUILD_AN_ATOM/stableSlashUnstable' );
 
   // constants
   var CONTROLS_INSET = 10;

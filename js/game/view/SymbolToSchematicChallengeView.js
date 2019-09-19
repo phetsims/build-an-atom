@@ -7,18 +7,18 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
-  var InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
+  const InteractiveSymbolNode = require( 'BUILD_AN_ATOM/game/view/InteractiveSymbolNode' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {SymbolToSchematicChallenge} challenge

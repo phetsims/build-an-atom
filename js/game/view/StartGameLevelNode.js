@@ -5,30 +5,30 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
-  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
-  var massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
-  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var TimerToggleButton = require( 'SCENERY_PHET/buttons/TimerToggleButton' );
+  const BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
+  const BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LevelSelectionButton = require( 'VEGAS/LevelSelectionButton' );
+  const massChargeIcon = require( 'image!BUILD_AN_ATOM/mass_charge_icon.png' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const periodicTableIcon = require( 'image!BUILD_AN_ATOM/periodic_table_icon.png' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const questionMarkIcon = require( 'image!BUILD_AN_ATOM/question_mark_icon.png' );
+  const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const symbolQuestionIcon = require( 'image!BUILD_AN_ATOM/symbol_question_icon.png' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const TimerToggleButton = require( 'SCENERY_PHET/buttons/TimerToggleButton' );
 
   // strings
-  var chooseYourGameString = require( 'string!BUILD_AN_ATOM/chooseYourGame' );
+  const chooseYourGameString = require( 'string!BUILD_AN_ATOM/chooseYourGame' );
 
   // constants
   var CONTROLS_INSET = 10;

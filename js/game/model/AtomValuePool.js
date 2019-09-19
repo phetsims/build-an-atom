@@ -9,12 +9,12 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
 
   // Challenge pools for creating game challenges, extracted from the design doc.
   // These define the configuration for each of the challenges that can be used

@@ -7,25 +7,25 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
-  var NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const MultiLineText = require( 'SCENERY_PHET/MultiLineText' );
+  const NonInteractiveSchematicAtomNode = require( 'BUILD_AN_ATOM/game/view/NonInteractiveSchematicAtomNode' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
+  const whatIsTheTotalChargeString = require( 'string!BUILD_AN_ATOM/whatIsTheTotalCharge' );
 
   /**
    * @param {SchematicToChargeChallenge} schematicToChargeChallenge

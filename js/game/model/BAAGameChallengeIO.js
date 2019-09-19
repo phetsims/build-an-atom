@@ -5,17 +5,17 @@
  *
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var validate = require( 'AXON/validate' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const NumberAtomIO = require( 'SHRED/model/NumberAtomIO' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const validate = require( 'AXON/validate' );
 
   // ifphetio
-  var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
+  const phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
   class BAAGameChallengeIO extends ObjectIO {
 

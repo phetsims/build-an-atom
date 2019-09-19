@@ -5,23 +5,23 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // imports
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
-  var BuildAnAtomView = require( 'BUILD_AN_ATOM/buildanatom/view/BuildAnAtomView' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Screen = require( 'JOIST/Screen' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
+  const BuildAnAtomView = require( 'BUILD_AN_ATOM/buildanatom/view/BuildAnAtomView' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Screen = require( 'JOIST/Screen' );
 
   // strings
-  var atomString = require( 'string!BUILD_AN_ATOM/atom' );
+  const atomString = require( 'string!BUILD_AN_ATOM/atom' );
 
   // images
-  var atomIcon = require( 'image!BUILD_AN_ATOM/atom_icon.png' );
-  var atomIconSmall = require( 'image!BUILD_AN_ATOM/atom_icon_small.png' );
+  const atomIcon = require( 'image!BUILD_AN_ATOM/atom_icon.png' );
+  const atomIconSmall = require( 'image!BUILD_AN_ATOM/atom_icon_small.png' );
 
   /**
    * @constructor

@@ -7,14 +7,14 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var SchematicToChargeChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToChargeChallengeView' );
+  const BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const SchematicToChargeChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToChargeChallengeView' );
 
   /**
    * @param {BAAGameModel} buildAnAtomGameModel

@@ -5,19 +5,19 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomNode = require( 'SHRED/view/AtomNode' );
-  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Particle = require( 'SHRED/model/Particle' );
-  var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
-  var ParticleView = require( 'SHRED/view/ParticleView' );
-  var Property = require( 'AXON/Property' );
+  const AtomNode = require( 'SHRED/view/AtomNode' );
+  const AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Particle = require( 'SHRED/model/Particle' );
+  const ParticleAtom = require( 'SHRED/model/ParticleAtom' );
+  const ParticleView = require( 'SHRED/view/ParticleView' );
+  const Property = require( 'AXON/Property' );
 
   /**
    * @param {NumberAtom} numberAtom

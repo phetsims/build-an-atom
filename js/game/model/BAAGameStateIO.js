@@ -5,15 +5,15 @@
  *
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
-  var BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var validate = require( 'AXON/validate' );
+  const BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
+  const BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const validate = require( 'AXON/validate' );
 
   class BAAGameStateIO extends ObjectIO {
 

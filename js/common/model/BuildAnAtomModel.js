@@ -5,33 +5,33 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
-  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Particle = require( 'SHRED/model/Particle' );
-  var ParticleAtom = require( 'SHRED/model/ParticleAtom' );
-  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  const AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  const BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Particle = require( 'SHRED/model/Particle' );
+  const ParticleAtom = require( 'SHRED/model/ParticleAtom' );
+  const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const SphereBucket = require( 'PHETCOMMON/model/SphereBucket' );
+  const StringIO = require( 'TANDEM/types/StringIO' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
-  var neutronsString = require( 'string!BUILD_AN_ATOM/neutrons' );
-  var protonsString = require( 'string!BUILD_AN_ATOM/protons' );
+  const electronsString = require( 'string!BUILD_AN_ATOM/electrons' );
+  const neutronsString = require( 'string!BUILD_AN_ATOM/neutrons' );
+  const protonsString = require( 'string!BUILD_AN_ATOM/protons' );
 
   // constants
   var NUM_PROTONS = 10;

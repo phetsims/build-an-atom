@@ -5,25 +5,25 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // imports
-  var BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
-  var BAAGameScreenView = require( 'BUILD_AN_ATOM/game/view/BAAGameScreenView' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var Screen = require( 'JOIST/Screen' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
+  const BAAGameScreenView = require( 'BUILD_AN_ATOM/game/view/BAAGameScreenView' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Property = require( 'AXON/Property' );
+  const Screen = require( 'JOIST/Screen' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var gameString = require( 'string!BUILD_AN_ATOM/game' );
+  const gameString = require( 'string!BUILD_AN_ATOM/game' );
 
   // images
-  var gameIcon = require( 'image!BUILD_AN_ATOM/game_icon.png' );
-  var gameIconSmall = require( 'image!BUILD_AN_ATOM/game_icon_small.png' );
+  const gameIcon = require( 'image!BUILD_AN_ATOM/game_icon.png' );
+  const gameIconSmall = require( 'image!BUILD_AN_ATOM/game_icon_small.png' );
 
   /**
    * @constructor

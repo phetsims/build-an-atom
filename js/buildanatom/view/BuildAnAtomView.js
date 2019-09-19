@@ -3,25 +3,25 @@
 /**
  * Main view for the first screen of the Build an Atom simulation.
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AccordionBox = require( 'SUN/AccordionBox' );
-  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
-  var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const AccordionBox = require( 'SUN/AccordionBox' );
+  const AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ChargeComparisonDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/ChargeComparisonDisplay' );
+  const ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var massNumberString = require( 'string!BUILD_AN_ATOM/massNumber' );
-  var netChargeString = require( 'string!BUILD_AN_ATOM/netCharge' );
+  const massNumberString = require( 'string!BUILD_AN_ATOM/massNumber' );
+  const netChargeString = require( 'string!BUILD_AN_ATOM/netCharge' );
 
   // constants
   var INTER_BOX_SPACING = 7;

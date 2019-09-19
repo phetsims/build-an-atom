@@ -7,21 +7,21 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var electronsColonPatternString = require( 'string!BUILD_AN_ATOM/electronsColonPattern' );
-  var neutronsColonPatternString = require( 'string!BUILD_AN_ATOM/neutronsColonPattern' );
-  var protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
+  const electronsColonPatternString = require( 'string!BUILD_AN_ATOM/electronsColonPattern' );
+  const neutronsColonPatternString = require( 'string!BUILD_AN_ATOM/neutronsColonPattern' );
+  const protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
 
   // constants
   var MAX_WIDTH = 280;

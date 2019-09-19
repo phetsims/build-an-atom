@@ -4,20 +4,20 @@
  * Type that portrays the current mass number in the view.  It consists of
  * a graphical representation of a scale with a numerical display on it.
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var scaleIcon = require( 'image!BUILD_AN_ATOM/scale.png' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const scaleIcon = require( 'image!BUILD_AN_ATOM/scale.png' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var WIDTH = 122; // In screen coords, which are roughly pixels, empirically determined.

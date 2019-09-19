@@ -5,11 +5,11 @@
  *
  * @author Aadish Gupta
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var BAAQueryParameters = QueryStringMachine.getAll( {
 

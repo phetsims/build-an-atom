@@ -5,21 +5,21 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AccordionBox = require( 'SUN/AccordionBox' );
-  var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ShredConstants = require( 'SHRED/ShredConstants' );
-  var SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const AccordionBox = require( 'SUN/AccordionBox' );
+  const AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ShredConstants = require( 'SHRED/ShredConstants' );
+  const SymbolNode = require( 'BUILD_AN_ATOM/symbol/view/SymbolNode' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
+  const symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
 
   /**
    * @param {BuildAnAtomModel} model

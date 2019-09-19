@@ -5,22 +5,22 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var electronsColonString = require( 'string!BUILD_AN_ATOM/electronsColon' );
-  var neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
-  var protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
+  const electronsColonString = require( 'string!BUILD_AN_ATOM/electronsColon' );
+  const neutronsColonString = require( 'string!BUILD_AN_ATOM/neutronsColon' );
+  const protonsColonString = require( 'string!BUILD_AN_ATOM/protonsColon' );
 
   // constants
   var MAX_WIDTH = 200;

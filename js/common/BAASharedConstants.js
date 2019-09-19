@@ -5,11 +5,11 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var BAASharedConstants = {
     RESET_BUTTON_RADIUS: 20,

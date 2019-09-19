@@ -3,19 +3,19 @@
 /**
  * Main file for the Build an Atom simulation.
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BuildAnAtomScreen = require( 'BUILD_AN_ATOM/buildanatom/BuildAnAtomScreen' );
-  var GameScreen = require( 'BUILD_AN_ATOM/game/GameScreen' );
-  var Sim = require( 'JOIST/Sim' );
-  var SimLauncher = require( 'JOIST/SimLauncher' );
-  var SymbolScreen = require( 'BUILD_AN_ATOM/symbol/SymbolScreen' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const BuildAnAtomScreen = require( 'BUILD_AN_ATOM/buildanatom/BuildAnAtomScreen' );
+  const GameScreen = require( 'BUILD_AN_ATOM/game/GameScreen' );
+  const Sim = require( 'JOIST/Sim' );
+  const SimLauncher = require( 'JOIST/SimLauncher' );
+  const SymbolScreen = require( 'BUILD_AN_ATOM/symbol/SymbolScreen' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
+  const buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
 
   // root tandem
   var tandem = Tandem.rootTandem;

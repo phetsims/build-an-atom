@@ -7,29 +7,29 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var NumberAtom = require( 'SHRED/model/NumberAtom' );
-  var PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const ChallengeView = require( 'BUILD_AN_ATOM/game/view/ChallengeView' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const NumberAtom = require( 'SHRED/model/NumberAtom' );
+  const PeriodicTableNode = require( 'SHRED/view/PeriodicTableNode' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const StringIO = require( 'TANDEM/types/StringIO' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var findTheElementString = require( 'string!BUILD_AN_ATOM/findTheElement' );
-  var ionString = require( 'string!BUILD_AN_ATOM/ion' );
-  var isItString = require( 'string!BUILD_AN_ATOM/isIt' );
-  var neutralAtomString = require( 'string!BUILD_AN_ATOM/neutralAtom' );
+  const findTheElementString = require( 'string!BUILD_AN_ATOM/findTheElement' );
+  const ionString = require( 'string!BUILD_AN_ATOM/ion' );
+  const isItString = require( 'string!BUILD_AN_ATOM/isIt' );
+  const neutralAtomString = require( 'string!BUILD_AN_ATOM/neutralAtom' );
 
   // constants
   var TITLE_FONT = new PhetFont( 30 );

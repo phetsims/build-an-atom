@@ -6,22 +6,22 @@
  * @author John Blanco
  * @author Sam Reid
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomValuePool = require( 'BUILD_AN_ATOM/game/model/AtomValuePool' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var CountsToChargeChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToChargeChallenge' );
-  var CountsToElementChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToElementChallenge' );
-  var CountsToMassNumberChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToMassNumberChallenge' );
-  var CountsToSymbolChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolChallenge' );
-  var SchematicToChargeChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToChargeChallenge' );
-  var SchematicToElementChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToElementChallenge' );
-  var SchematicToMassNumberChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberChallenge' );
-  var SchematicToSymbolChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToSymbolChallenge' );
-  var SymbolToCountsChallenge = require( 'BUILD_AN_ATOM/game/model/SymbolToCountsChallenge' );
-  var SymbolToSchematicChallenge = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicChallenge' );
+  const AtomValuePool = require( 'BUILD_AN_ATOM/game/model/AtomValuePool' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const CountsToChargeChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToChargeChallenge' );
+  const CountsToElementChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToElementChallenge' );
+  const CountsToMassNumberChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToMassNumberChallenge' );
+  const CountsToSymbolChallenge = require( 'BUILD_AN_ATOM/game/model/CountsToSymbolChallenge' );
+  const SchematicToChargeChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToChargeChallenge' );
+  const SchematicToElementChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToElementChallenge' );
+  const SchematicToMassNumberChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToMassNumberChallenge' );
+  const SchematicToSymbolChallenge = require( 'BUILD_AN_ATOM/game/model/SchematicToSymbolChallenge' );
+  const SymbolToCountsChallenge = require( 'BUILD_AN_ATOM/game/model/SymbolToCountsChallenge' );
+  const SymbolToSchematicChallenge = require( 'BUILD_AN_ATOM/game/model/SymbolToSchematicChallenge' );
 
   // constants
   var MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3; // Disallow schematic (Bohr model) probs above this size.

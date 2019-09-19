@@ -6,27 +6,27 @@
  *
  * @author John Blanco
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
-  var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  var Color = require( 'SCENERY/util/Color' );
-  var FaceNode = require( 'SCENERY_PHET/FaceNode' );
-  var GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
-  var timer = require( 'AXON/timer' );
+  const BAAChallengeState = require( 'BUILD_AN_ATOM/game/model/BAAChallengeState' );
+  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+  const Color = require( 'SCENERY/util/Color' );
+  const FaceNode = require( 'SCENERY_PHET/FaceNode' );
+  const GameAudioPlayer = require( 'VEGAS/GameAudioPlayer' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const TextPushButton = require( 'SUN/buttons/TextPushButton' );
+  const timer = require( 'AXON/timer' );
 
   // strings
-  var checkString = require( 'string!VEGAS/check' );
-  var nextString = require( 'string!VEGAS/next' );
-  var showAnswerString = require( 'string!VEGAS/showAnswer' );
-  var tryAgainString = require( 'string!VEGAS/tryAgain' );
+  const checkString = require( 'string!VEGAS/check' );
+  const nextString = require( 'string!VEGAS/next' );
+  const showAnswerString = require( 'string!VEGAS/showAnswer' );
+  const tryAgainString = require( 'string!VEGAS/tryAgain' );
 
   // constants
   var BUTTON_FONT = new PhetFont( 20 );
