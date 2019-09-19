@@ -3,19 +3,19 @@
 /**
  * Node that depicts an interactive atom where the user can add subatomic particles from a set of buckets.
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AtomNode = require( 'SHRED/view/AtomNode' );
-  var BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
-  var BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
-  var BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var ParticleView = require( 'SHRED/view/ParticleView' );
-  var shred = require( 'SHRED/shred' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const AtomNode = require( 'SHRED/view/AtomNode' );
+  const BucketDragHandler = require( 'SHRED/view/BucketDragHandler' );
+  const BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
+  const BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const ParticleView = require( 'SHRED/view/ParticleView' );
+  const shred = require( 'SHRED/shred' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
   var NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
