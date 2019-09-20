@@ -1,4 +1,4 @@
-// Copyright 2016-2018, University of Colorado Boulder
+// Copyright 2016-2019, University of Colorado Boulder
 /**
  * The reward that is displayed when a game is completed with a perfect score. For testing, the simulation can be run
  * with the 'reward' query parameter to show the reward at the end of every game, regardless of score.
