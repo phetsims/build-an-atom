@@ -38,7 +38,7 @@ define( require => {
         interactiveCharge: toSymbolChallenge.configurableCharge
       } );
 
-    ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem ); 
+    ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem );
 
     // Add the interactive symbol.
     this.interactiveSymbolNode.scale( 0.75 );

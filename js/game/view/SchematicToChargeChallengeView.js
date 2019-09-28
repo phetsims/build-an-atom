@@ -40,7 +40,7 @@ define( require => {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
       numberType: 'Integer'
     } );
-    ChallengeView.call( this, schematicToChargeChallenge, layoutBounds, tandem ); 
+    ChallengeView.call( this, schematicToChargeChallenge, layoutBounds, tandem );
     const self = this;
 
     // Create the model-view transform used by the schematic atom.
