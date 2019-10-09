@@ -26,10 +26,6 @@ define( require => {
       } );
       baaGameModel.challengeSetProperty.reset();
     }
-
-    // static addChildInstance( phetioObject, tandem, stateObject ){
-    //
-    // },
   }
 
   BAAGameModelIO.methods = {
