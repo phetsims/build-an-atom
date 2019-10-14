@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.12 Thu Oct 03 2019 10:37:06 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.6.12 Mon Oct 14 2019 13:00:25 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "9125de25af73bb7b96e97fa924d4a2c8eefc1a0b",
+    "sha": "58dd69024c9ff8134977d7eb4bc57184dee90632",
     "branch": "1.6"
   },
   "chipper": {
@@ -33,8 +33,8 @@
     "branch": "HEAD"
   },
   "phet-core": {
-    "sha": "5c20f437b7a9973ff7109ff7476824c09e2417e8",
-    "branch": "HEAD"
+    "sha": "66488008dcd651a0ad2cbe55f2cc22d16622e273",
+    "branch": "build-an-atom-1.6"
   },
   "phetcommon": {
     "sha": "3d5edf711aa0a9dfde3cd0ac567d41fc9ee575b0",
@@ -77,7 +77,7 @@
     "branch": "HEAD"
   },
   "vibe": {
-    "sha": "e97a4460a7ea1af0b426df0f2e5853e415d6b21f",
-    "branch": "HEAD"
+    "sha": "6833849cc1fa836d566b60f02539472d5acc155e",
+    "branch": "build-an-atom-1.6"
   }
 }
