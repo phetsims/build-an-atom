@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.12 Tue Oct 15 2019 12:52:52 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.6.13-rc.1 Tue Oct 15 2019 17:31:56 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "9006c0c16aca52d196ed8211ac4f21a9ea596ffd",
+    "sha": "7565b1f17391408ac8a6b1796c40ac854793f9d7",
     "branch": "1.6"
   },
   "chipper": {
@@ -34,7 +34,7 @@
   },
   "phet-core": {
     "sha": "461e373526f826064d715cdee8545a1460c3d969",
-    "branch": "build-an-atom-1.6"
+    "branch": "HEAD"
   },
   "phetcommon": {
     "sha": "3d5edf711aa0a9dfde3cd0ac567d41fc9ee575b0",
