@@ -12,6 +12,7 @@ define( require => {
   const BucketFront = require( 'SCENERY_PHET/bucket/BucketFront' );
   const BucketHole = require( 'SCENERY_PHET/bucket/BucketHole' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const ParticleView = require( 'SHRED/view/ParticleView' );
   const shred = require( 'SHRED/shred' );
@@ -27,7 +28,7 @@ define( require => {
    * @constructor
    */
   function InteractiveSchematicAtom( model, modelViewTransform, options ) {
-    options = _.extend( {
+    options = merge( {
       tandem: Tandem.required
     }, options );
 
