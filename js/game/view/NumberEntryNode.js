@@ -13,6 +13,7 @@ define( require => {
   const ArrowButton = require( 'SUN/buttons/ArrowButton' );
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -34,7 +35,7 @@ define( require => {
     Node.call( this );
     const self = this;
 
-    options = _.extend( {
+    options = merge( {
       prependPlusSign: false, // Generally set to true when depicting charge.
       getTextColor: function() { return 'black'; },
       minValue: Number.NEGATIVE_INFINITY,
@@ -45,13 +46,13 @@ define( require => {
     const arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15, fireOnHoldDelay: 200 };
     const upArrowButton = new ArrowButton( 'up', function() {
       numberProperty.value = numberProperty.value + 1;
-    }, _.extend( {
+    }, merge( {
       tandem: tandem.createTandem( 'upArrowButton' )
     }, arrowButtonOptions ) );
     self.addChild( upArrowButton );
     const downArrowButton = new ArrowButton( 'down', function() {
       numberProperty.value = numberProperty.value - 1;
-    }, _.extend( {
+    }, merge( {
       tandem: tandem.createTandem( 'downArrowButton' )
     }, arrowButtonOptions ) );
     self.addChild( downArrowButton );

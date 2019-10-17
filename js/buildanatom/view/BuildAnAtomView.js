@@ -16,6 +16,7 @@ define( require => {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const inherit = require( 'PHET_CORE/inherit' );
   const MassNumberDisplay = require( 'BUILD_AN_ATOM/buildanatom/view/MassNumberDisplay' );
+  const merge = require( 'PHET_CORE/merge' );
   const ShredConstants = require( 'SHRED/ShredConstants' );
   const Text = require( 'SCENERY/nodes/Text' );
 
@@ -80,7 +81,7 @@ define( require => {
     } );
     const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
-      _.extend( {}, {
+      merge( {}, {
         titleNode: new Text( netChargeString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
@@ -112,7 +113,7 @@ define( require => {
     );
     const massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
-      _.extend( {}, {
+      merge( {}, {
         titleNode: new Text( massNumberString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,

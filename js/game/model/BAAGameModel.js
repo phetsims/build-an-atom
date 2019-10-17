@@ -20,6 +20,7 @@ define( require => {
   const ChallengeSetFactory = require( 'BUILD_AN_ATOM/game/model/ChallengeSetFactory' );
   const Emitter = require( 'AXON/Emitter' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const NumberAtom = require( 'SHRED/model/NumberAtom' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
@@ -316,7 +317,7 @@ define( require => {
 
         points: points
       };
-      this.checkAnswerEmitter.emit( _.extend( extension, arg ) );
+      this.checkAnswerEmitter.emit( merge( extension || {}, arg ) );
     }
   }, {
 

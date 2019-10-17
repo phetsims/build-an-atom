@@ -18,6 +18,7 @@ define( require => {
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const Dimension2 = require( 'DOT/Dimension2' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Particle = require( 'SHRED/model/Particle' );
   const ParticleAtom = require( 'SHRED/model/ParticleAtom' );
   const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
@@ -56,7 +57,7 @@ define( require => {
 
     const self = this;
 
-    options = _.extend( {
+    options = merge( {
       phetioState: true
     }, options );
 

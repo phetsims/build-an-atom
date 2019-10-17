@@ -11,6 +11,7 @@ define( require => {
   // modules
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberAtom = require( 'SHRED/model/NumberAtom' );
   const NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
@@ -34,7 +35,7 @@ define( require => {
 
     Node.call( this, options );
 
-    options = _.extend( { font: new PhetFont( 24 ) }, options );
+    options = merge( { font: new PhetFont( 24 ) }, options );
 
     this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
 

@@ -13,6 +13,7 @@ define( require => {
   const Dimension2 = require( 'DOT/Dimension2' );
   const inherit = require( 'PHET_CORE/inherit' );
   const LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
@@ -36,7 +37,7 @@ define( require => {
    */
   function ChargeMeter( numberAtom, tandem, options ) {
 
-    options = _.extend( { showNumericalReadout: true, tandem: tandem }, options );
+    options = merge( { showNumericalReadout: true, tandem: tandem }, options );
 
     Node.call( this );
 

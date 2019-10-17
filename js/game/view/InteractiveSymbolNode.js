@@ -13,6 +13,7 @@ define( require => {
   const AtomIdentifier = require( 'SHRED/AtomIdentifier' );
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberEntryNode = require( 'BUILD_AN_ATOM/game/view/NumberEntryNode' );
   const NumberProperty = require( 'AXON/NumberProperty' );
@@ -42,7 +43,7 @@ define( require => {
     Node.call( this, options );
     const self = this;
 
-    options = _.extend( { // defaults
+    options = merge( { // defaults
       interactiveProtonCount: false,
       interactiveMassNumber: false,
       interactiveCharge: false
