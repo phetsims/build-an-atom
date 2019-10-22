@@ -42,6 +42,7 @@ require.config( {
     SUN: '../../sun/js',
     TAMBO: '../../tambo/js',
     TANDEM: '../../tandem/js',
+    UTTERANCE_QUEUE: '../../utterance-queue/js',
     VEGAS: '../../vegas/js'
   },
 
