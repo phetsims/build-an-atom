@@ -317,7 +317,7 @@ define( require => {
 
         points: points
       };
-      this.checkAnswerEmitter.emit( merge( extension || {}, arg ) );
+      this.checkAnswerEmitter.emit( merge( arg, extension ) );
     }
   }, {
 
