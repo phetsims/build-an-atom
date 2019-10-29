@@ -137,7 +137,7 @@ define( require => {
     massNumberAccordionBox.top = netChargeAccordionBox.top + netChargeAccordionBox.height + INTER_BOX_SPACING;
 
     // a11y - set navigation order for the Atom screen view
-    this.playAreaNode.accessibleOrder = [ this.periodicTableAccordionBox, netChargeAccordionBox, massNumberAccordionBox ];
+    this.pdomPlayAreaNode.accessibleOrder = [ this.periodicTableAccordionBox, netChargeAccordionBox, massNumberAccordionBox ];
   }
 
   buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
