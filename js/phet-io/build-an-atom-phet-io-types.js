@@ -892,17 +892,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "PhetMenuIO"
     },
-    "PhetioSingletonIO<DialogIO>": {
-      "documentation": "An array that sends notifications when its values have changed.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "DialogIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "PhetioSingletonIO<DialogIO>"
-    },
     "PhetioCommandProcessorIO": {
       "documentation": "Invokes PhET-iO API commands on a running simulation.",
       "events": [
@@ -1125,6 +1114,17 @@ window.phet.phetio.phetioTypes = assert &&
       },
       "supertype": "ObjectIO",
       "typeName": "PhetioEngineIO"
+    },
+    "PhetioSingletonIO<DialogIO>": {
+      "documentation": "An array that sends notifications when its values have changed.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "DialogIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "PhetioSingletonIO<DialogIO>"
     },
     "PropertyIO<ArrayIO<BAAGameChallengeIO>>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
