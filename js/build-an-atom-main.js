@@ -30,8 +30,7 @@ define( require => {
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
             'Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    },
-    supportsSound: true
+    }
   };
 
   SimLauncher.launch( function() {
