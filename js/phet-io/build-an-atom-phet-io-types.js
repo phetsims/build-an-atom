@@ -1490,6 +1490,14 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "NodeIO",
       "typeName": "ResetAllButtonIO"
     },
+    "RichTextIO": {
+      "documentation": "The tandem IO type for the scenery RichText node",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "NodeIO",
+      "typeName": "RichTextIO"
+    },
     "SphereBucketIO": {
       "documentation": "A model of a bucket into which spherical objects can be placed.",
       "events": [],
