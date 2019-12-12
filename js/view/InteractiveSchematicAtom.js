@@ -29,7 +29,7 @@ define( require => {
    */
   function InteractiveSchematicAtom( model, modelViewTransform, options ) {
     options = merge( {
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     Node.call( this );
