@@ -35,7 +35,7 @@ define( require => {
       function() { return new BAAGameModel( tandem.createTandem( 'model' ) ); },
 
       // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
-      function( model ) { return new BAAGameScreenView( model, Tandem.optional ); },
+      function( model ) { return new BAAGameScreenView( model, Tandem.OPTIONAL ); },
       {
         name: gameString,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),

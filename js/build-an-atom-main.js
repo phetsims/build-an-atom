@@ -18,7 +18,7 @@ define( require => {
   const buildAnAtomTitleString = require( 'string!BUILD_AN_ATOM/build-an-atom.title' );
 
   // root tandem
-  const tandem = Tandem.rootTandem;
+  const tandem = Tandem.ROOT;
 
   const simOptions = {
     credits: {
