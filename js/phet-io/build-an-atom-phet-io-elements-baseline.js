@@ -5929,7 +5929,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.firedEmitter": {
+    "buildAnAtom.atomScreen.view.cloudRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -5942,7 +5942,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.pressAction": {
+    "buildAnAtom.atomScreen.view.cloudRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -5955,7 +5955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "buildAnAtom.atomScreen.view.cloudRadioButton.inputListener.releaseAction": {
+    "buildAnAtom.atomScreen.view.cloudRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -14041,7 +14041,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.firedEmitter": {
+    "buildAnAtom.atomScreen.view.orbitsRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -14054,7 +14054,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.pressAction": {
+    "buildAnAtom.atomScreen.view.orbitsRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -14067,7 +14067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "buildAnAtom.atomScreen.view.orbitsRadioButton.inputListener.releaseAction": {
+    "buildAnAtom.atomScreen.view.orbitsRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -32839,7 +32839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.firedEmitter": {
+    "buildAnAtom.symbolScreen.view.cloudRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -32852,7 +32852,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.pressAction": {
+    "buildAnAtom.symbolScreen.view.cloudRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -32865,7 +32865,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "buildAnAtom.symbolScreen.view.cloudRadioButton.inputListener.releaseAction": {
+    "buildAnAtom.symbolScreen.view.cloudRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -40184,7 +40184,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.firedEmitter": {
+    "buildAnAtom.symbolScreen.view.orbitsRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -40197,7 +40197,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.pressAction": {
+    "buildAnAtom.symbolScreen.view.orbitsRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -40210,7 +40210,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "buildAnAtom.symbolScreen.view.orbitsRadioButton.inputListener.releaseAction": {
+    "buildAnAtom.symbolScreen.view.orbitsRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
