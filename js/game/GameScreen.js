@@ -8,7 +8,7 @@
 define( require => {
   'use strict';
 
-  // imports
+  // modules
   const BAAGameModel = require( 'BUILD_AN_ATOM/game/model/BAAGameModel' );
   const BAAGameScreenView = require( 'BUILD_AN_ATOM/game/view/BAAGameScreenView' );
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );

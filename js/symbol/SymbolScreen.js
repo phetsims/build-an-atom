@@ -8,7 +8,7 @@
 define( require => {
   'use strict';
 
-  // imports
+  // modules
   const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   const BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
   const Image = require( 'SCENERY/nodes/Image' );
