@@ -574,19 +574,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FunctionIO(NullableIO<FocusIO>,NullableIO<NullableIO<FocusIO>>)=>VoidIO"
     },
-    "FunctionIO(NullableIO<RangeIO>,NullableIO<NullableIO<RangeIO>>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<RangeIO>, NullableIO<NullableIO<RangeIO>><br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "NullableIO<RangeIO>",
-        "NullableIO<NullableIO<RangeIO>>",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO(NullableIO<RangeIO>,NullableIO<NullableIO<RangeIO>>)=>VoidIO"
-    },
     "FunctionIO(NullableIO<SceneryEventIO>)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<SceneryEventIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
@@ -771,17 +758,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "NullableIO<NullableIO<FocusIO>>"
     },
-    "NullableIO<NullableIO<RangeIO>>": {
-      "documentation": "A wrapper to wrap another IOType, adding support for null.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "NullableIO<RangeIO>"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "NullableIO<NullableIO<RangeIO>>"
-    },
     "NullableIO<NumberIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
@@ -792,17 +768,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "NullableIO<NumberIO>"
-    },
-    "NullableIO<RangeIO>": {
-      "documentation": "A wrapper to wrap another IOType, adding support for null.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "RangeIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "NullableIO<RangeIO>"
     },
     "NullableIO<SceneryEventIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
@@ -1414,50 +1379,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "PropertyIO<NullableIO<FocusIO>>"
     },
-    "PropertyIO<NullableIO<RangeIO>>": {
-      "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
-      "events": [
-        "changed"
-      ],
-      "methodOrder": [
-        "link",
-        "lazyLink"
-      ],
-      "methods": {
-        "getValue": {
-          "documentation": "Gets the current value.",
-          "parameterTypes": [],
-          "returnType": "NullableIO<RangeIO>"
-        },
-        "lazyLink": {
-          "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
-          "parameterTypes": [
-            "FunctionIO(NullableIO<RangeIO>,NullableIO<NullableIO<RangeIO>>)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "link": {
-          "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
-          "parameterTypes": [
-            "FunctionIO(NullableIO<RangeIO>,NullableIO<NullableIO<RangeIO>>)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "setValue": {
-          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "NullableIO<RangeIO>"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "NullableIO<RangeIO>"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "PropertyIO<NumberIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
@@ -1589,14 +1510,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "PropertyIO<Vector2IO>"
-    },
-    "RangeIO": {
-      "documentation": "A range with \"min\" and a \"max\" members.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "ObjectIO",
-      "typeName": "RangeIO"
     },
     "ResetAllButtonIO": {
       "documentation": "Button that performs an action while it is being pressed, and stops the action when released",
