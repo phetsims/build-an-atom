@@ -27,7 +27,7 @@ define( require => {
   /**
    * @param {NumberAtom} numberAtom - model representation of the atom
    * @param {Tandem} tandem
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function ChargeComparisonDisplay( numberAtom, tandem, options ) {

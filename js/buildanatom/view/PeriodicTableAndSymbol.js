@@ -25,7 +25,7 @@ define( require => {
   /**
    * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function PeriodicTableAndSymbol( numberAtom, tandem, options ) {
