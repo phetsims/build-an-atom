@@ -168,28 +168,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "ActionIO<NumberIO>"
     },
-    "ActionIO<ObjectIO>": {
-      "documentation": "Executes when an event occurs.",
-      "events": [
-        "emitted"
-      ],
-      "methodOrder": [],
-      "methods": {
-        "execute": {
-          "documentation": "Executes the function the Action is wrapping.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "ObjectIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "ObjectIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "ActionIO<ObjectIO>"
-    },
     "ActionIO<SceneryEventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
@@ -258,30 +236,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "ActionIO<Vector2IO>"
     },
-    "ArrayIO<ArrayIO<ObjectIO>>": {
-      "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "ObjectIO",
-      "typeName": "ArrayIO<ArrayIO<ObjectIO>>"
-    },
-    "ArrayIO<ArrayIO<StringIO>>": {
-      "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "ObjectIO",
-      "typeName": "ArrayIO<ArrayIO<StringIO>>"
-    },
-    "ArrayIO<BAAGameChallengeIO>": {
-      "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "ObjectIO",
-      "typeName": "ArrayIO<BAAGameChallengeIO>"
-    },
     "ArrayIO<StringIO>": {
       "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
       "events": [],
@@ -289,47 +243,6 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": "ObjectIO",
       "typeName": "ArrayIO<StringIO>"
-    },
-    "BAAGameModelIO": {
-      "documentation": "The model for the Game",
-      "events": [],
-      "methodOrder": [],
-      "methods": {
-        "setAllowedChallengeTypesByLevel": {
-          "documentation": "Specify which challenge types may be presented to the user for each level.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "ArrayIO<ArrayIO<StringIO>>"
-          ],
-          "returnType": "VoidIO"
-        },
-        "setChallenges": {
-          "documentation": "Specify exact challenges",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "ArrayIO<ArrayIO<ObjectIO>>"
-          ],
-          "returnType": "VoidIO"
-        },
-        "startGameLevel": {
-          "documentation": "Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "StringIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "supertype": "ObjectIO",
-      "typeName": "BAAGameModelIO"
-    },
-    "BAAGameStateIO": {
-      "documentation": "A state for the game",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "ObjectIO",
-      "typeName": "BAAGameStateIO"
     },
     "BooleanIO": {
       "documentation": "Wrapper for the built-in JS boolean type (true/false)",
@@ -445,35 +358,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ActionIO<NullableIO<SceneryEventIO>>",
       "typeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "EmitterIO<ObjectIO>": {
-      "documentation": "Emits when an event occurs and calls added listeners.",
-      "events": [
-        "emitted"
-      ],
-      "methodOrder": [],
-      "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO(ObjectIO)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "emit": {
-          "documentation": "Emits a single event to all listeners.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "ObjectIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "ObjectIO"
-      ],
-      "supertype": "ActionIO<ObjectIO>",
-      "typeName": "EmitterIO<ObjectIO>"
-    },
     "EventIO": {
       "documentation": "A DOM Event",
       "events": [],
@@ -508,32 +392,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "FunctionIO()=>VoidIO"
-    },
-    "FunctionIO(ArrayIO<BAAGameChallengeIO>,NullableIO<ArrayIO<BAAGameChallengeIO>>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> ArrayIO<BAAGameChallengeIO>, NullableIO<ArrayIO<BAAGameChallengeIO>><br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "ArrayIO<BAAGameChallengeIO>",
-        "NullableIO<ArrayIO<BAAGameChallengeIO>>",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO(ArrayIO<BAAGameChallengeIO>,NullableIO<ArrayIO<BAAGameChallengeIO>>)=>VoidIO"
-    },
-    "FunctionIO(BAAGameStateIO,NullableIO<BAAGameStateIO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> BAAGameStateIO, NullableIO<BAAGameStateIO><br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "BAAGameStateIO",
-        "NullableIO<BAAGameStateIO>",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO(BAAGameStateIO,NullableIO<BAAGameStateIO>)=>VoidIO"
     },
     "FunctionIO(BooleanIO,NullableIO<BooleanIO>)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> BooleanIO, NullableIO<BooleanIO><br><strong>Return Type:</strong> VoidIO",
@@ -717,28 +575,6 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": "ObjectIO",
       "typeName": "NodeIO"
-    },
-    "NullableIO<ArrayIO<BAAGameChallengeIO>>": {
-      "documentation": "A wrapper to wrap another IOType, adding support for null.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "ArrayIO<BAAGameChallengeIO>"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "NullableIO<ArrayIO<BAAGameChallengeIO>>"
-    },
-    "NullableIO<BAAGameStateIO>": {
-      "documentation": "A wrapper to wrap another IOType, adding support for null.",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "BAAGameStateIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "NullableIO<BAAGameStateIO>"
     },
     "NullableIO<BooleanIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
@@ -1206,94 +1042,6 @@ window.phet.phetio.phetioTypes = assert &&
       },
       "supertype": "ObjectIO",
       "typeName": "PhetioEngineIO"
-    },
-    "PropertyIO<ArrayIO<BAAGameChallengeIO>>": {
-      "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
-      "events": [
-        "changed"
-      ],
-      "methodOrder": [
-        "link",
-        "lazyLink"
-      ],
-      "methods": {
-        "getValue": {
-          "documentation": "Gets the current value.",
-          "parameterTypes": [],
-          "returnType": "ArrayIO<BAAGameChallengeIO>"
-        },
-        "lazyLink": {
-          "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
-          "parameterTypes": [
-            "FunctionIO(ArrayIO<BAAGameChallengeIO>,NullableIO<ArrayIO<BAAGameChallengeIO>>)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "link": {
-          "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
-          "parameterTypes": [
-            "FunctionIO(ArrayIO<BAAGameChallengeIO>,NullableIO<ArrayIO<BAAGameChallengeIO>>)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "setValue": {
-          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "ArrayIO<BAAGameChallengeIO>"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "ArrayIO<BAAGameChallengeIO>"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "PropertyIO<ArrayIO<BAAGameChallengeIO>>"
-    },
-    "PropertyIO<BAAGameStateIO>": {
-      "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
-      "events": [
-        "changed"
-      ],
-      "methodOrder": [
-        "link",
-        "lazyLink"
-      ],
-      "methods": {
-        "getValue": {
-          "documentation": "Gets the current value.",
-          "parameterTypes": [],
-          "returnType": "BAAGameStateIO"
-        },
-        "lazyLink": {
-          "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
-          "parameterTypes": [
-            "FunctionIO(BAAGameStateIO,NullableIO<BAAGameStateIO>)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "link": {
-          "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
-          "parameterTypes": [
-            "FunctionIO(BAAGameStateIO,NullableIO<BAAGameStateIO>)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "setValue": {
-          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "BAAGameStateIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "BAAGameStateIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "PropertyIO<BAAGameStateIO>"
     },
     "PropertyIO<BooleanIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",

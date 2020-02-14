@@ -28,21 +28,22 @@ define( require => {
             'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson, ' +
             'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
-            'Elise Morgan, Ben Roberts',
+                        'Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     }
   };
 
   SimLauncher.launch( function() {
-    new Sim(
-      buildAnAtomTitleString,
-      [
-        new BuildAnAtomScreen( tandem.createTandem( 'atomScreen' ) ),
-        new SymbolScreen( tandem.createTandem( 'symbolScreen' ) ),
-        new GameScreen( tandem.createTandem( 'gameScreen' ) )
-      ],
-      simOptions
-    ).start();
+    const screens = [
+      new BuildAnAtomScreen( tandem.createTandem( 'atomScreen' ) ),
+      new SymbolScreen( tandem.createTandem( 'symbolScreen' ) )
+    ];
+
+    // PhET-iO does not support the game screen (yet), see https://github.com/phetsims/build-an-atom/issues/156
+    if ( !Tandem.PHET_IO_ENABLED ) {
+      screens.push( new GameScreen( tandem.createTandem( 'gameScreen' ) ) );
+    }
+    new Sim( buildAnAtomTitleString, screens, simOptions ).start();
   } );
 } );
 
