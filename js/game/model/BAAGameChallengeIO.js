@@ -14,9 +14,6 @@ define( require => {
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const validate = require( 'AXON/validate' );
 
-  // ifphetio
-  const phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
-
   class BAAGameChallengeIO extends ObjectIO {
 
     /**
@@ -41,6 +38,7 @@ define( require => {
      * @override
      */
     static fromStateObject( stateObject ) {
+      const phetioEngine = phet.phetIo.phetioEngine;
 
       // This may have been deserialized from the instance itself or from the array it was contained in (which
       // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
