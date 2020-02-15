@@ -469,18 +469,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FunctionIO(ObjectIO)=>VoidIO"
     },
-    "FunctionIO(ParticleIO)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> ParticleIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "ParticleIO",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO(ParticleIO)=>VoidIO"
-    },
     "FunctionIO(ReferenceIO,NullableIO<ReferenceIO>)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> ReferenceIO, NullableIO<ReferenceIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
@@ -742,40 +730,6 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": null,
       "typeName": "ObjectIO"
-    },
-    "ObservableArrayIO<ParticleIO>": {
-      "documentation": "An array that sends notifications when its values have changed.",
-      "events": [
-        "itemAdded",
-        "itemRemoved"
-      ],
-      "methodOrder": [],
-      "methods": {
-        "addItemAddedListener": {
-          "documentation": "Add a listener that is called when an item is added to the observable array.",
-          "parameterTypes": [
-            "FunctionIO(ParticleIO)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "addItemRemovedListener": {
-          "documentation": "Add a listener that is called when an item is removed from the observable array.",
-          "parameterTypes": [
-            "FunctionIO(ParticleIO)=>VoidIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "getLength": {
-          "documentation": "Get the number of elements in the observable array",
-          "parameterTypes": [],
-          "returnType": "NumberIO"
-        }
-      },
-      "parameterTypes": [
-        "ParticleIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "ObservableArrayIO<ParticleIO>"
     },
     "ParticleAtomIO": {
       "documentation": "A model of an atom that tracks and arranges the subatomic particles, i.e. protons, neutrons, and electrons, of which it is comprised.  When particles are added, they are moved into the appropriate places.  This object also keeps track of things like atomic number, mass number, and charge.",

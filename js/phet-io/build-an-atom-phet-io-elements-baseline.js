@@ -2211,32 +2211,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
-    "buildAnAtom.atomScreen.model.particleAtom.electrons": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO<ParticleIO>"
-    },
-    "buildAnAtom.atomScreen.model.particleAtom.electrons.lengthProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
-    },
     "buildAnAtom.atomScreen.model.particleAtom.massNumberProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -2262,32 +2236,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
-    },
-    "buildAnAtom.atomScreen.model.particleAtom.neutrons": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO<ParticleIO>"
-    },
-    "buildAnAtom.atomScreen.model.particleAtom.neutrons.lengthProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
     },
     "buildAnAtom.atomScreen.model.particleAtom.nucleusOffsetProperty": {
       "phetioDocumentation": "",
@@ -2340,32 +2288,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
-    },
-    "buildAnAtom.atomScreen.model.particleAtom.protons": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO<ParticleIO>"
-    },
-    "buildAnAtom.atomScreen.model.particleAtom.protons.lengthProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
     },
     "buildAnAtom.atomScreen.model.protonBucket": {
       "phetioDocumentation": "",
@@ -30720,32 +30642,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
-    "buildAnAtom.symbolScreen.model.particleAtom.electrons": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO<ParticleIO>"
-    },
-    "buildAnAtom.symbolScreen.model.particleAtom.electrons.lengthProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
-    },
     "buildAnAtom.symbolScreen.model.particleAtom.massNumberProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -30771,32 +30667,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
-    },
-    "buildAnAtom.symbolScreen.model.particleAtom.neutrons": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO<ParticleIO>"
-    },
-    "buildAnAtom.symbolScreen.model.particleAtom.neutrons.lengthProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
     },
     "buildAnAtom.symbolScreen.model.particleAtom.nucleusOffsetProperty": {
       "phetioDocumentation": "",
@@ -30849,32 +30719,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
-    },
-    "buildAnAtom.symbolScreen.model.particleAtom.protons": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ObservableArrayIO<ParticleIO>"
-    },
-    "buildAnAtom.symbolScreen.model.particleAtom.protons.lengthProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
     },
     "buildAnAtom.symbolScreen.model.protonBucket": {
       "phetioDocumentation": "",
