@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.13 Mon Feb 24 2020 14:05:11 GMT-0700 (Mountain Standard Time)",
+  "comment": "# build-an-atom 1.6.14-rc.1 Mon Feb 24 2020 14:59:24 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "c464124675d27a935d11022a8aa33d2ec21f056a",
+    "sha": "8e42b132f69eadf76ca9af1b0d0ddf48ebd48eed",
     "branch": "1.6"
   },
   "chipper": {
@@ -74,7 +74,7 @@
   },
   "vegas": {
     "sha": "d5f8b3d193019827615dd445f8a2219c1493ebd1",
-    "branch": "build-an-atom-1.6"
+    "branch": "HEAD"
   },
   "vibe": {
     "sha": "6833849cc1fa836d566b60f02539472d5acc155e",
