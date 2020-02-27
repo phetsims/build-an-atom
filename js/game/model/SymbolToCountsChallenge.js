@@ -7,34 +7,30 @@
  *
  * @author John Blanco
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const SymbolToCountsChallengeView = require( 'BUILD_AN_ATOM/game/view/SymbolToCountsChallengeView' );
+import inherit from '../../../../phet-core/js/inherit.js';
+import buildAnAtom from '../../buildAnAtom.js';
+import SymbolToCountsChallengeView from '../view/SymbolToCountsChallengeView.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 
-  /**
-   * @param {BAAGameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function SymbolToCountsChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+/**
+ * @param {BAAGameModel} buildAnAtomGameModel
+ * @param {NumberAtom} answerAtom
+ * @param {string} challengeType
+ * @param {Tandem} tandem
+ * @constructor
+ */
+function SymbolToCountsChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+  BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+}
+
+buildAnAtom.register( 'SymbolToCountsChallenge', SymbolToCountsChallenge );
+
+// Inherit from base class and define the methods for this object.
+export default inherit( BAAGameChallenge, SymbolToCountsChallenge, {
+
+  // Create the view needed to visual represent this challenge.
+  createView: function( layoutBounds, tandem ) {
+    return new SymbolToCountsChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToCountsChallengeView' ) );
   }
-
-  buildAnAtom.register( 'SymbolToCountsChallenge', SymbolToCountsChallenge );
-
-  // Inherit from base class and define the methods for this object.
-  return inherit( BAAGameChallenge, SymbolToCountsChallenge, {
-
-    // Create the view needed to visual represent this challenge.
-    createView: function( layoutBounds, tandem ) {
-      return new SymbolToCountsChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToCountsChallengeView' ) );
-    }
-  } );
 } );

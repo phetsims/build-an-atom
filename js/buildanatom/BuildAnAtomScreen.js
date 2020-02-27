@@ -5,43 +5,39 @@
  *
  * @author John Blanco
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
-  const BuildAnAtomView = require( 'BUILD_AN_ATOM/buildanatom/view/BuildAnAtomView' );
-  const Image = require( 'SCENERY/nodes/Image' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const Screen = require( 'JOIST/Screen' );
+import Screen from '../../../joist/js/Screen.js';
+import inherit from '../../../phet-core/js/inherit.js';
+import Image from '../../../scenery/js/nodes/Image.js';
+import atomIcon from '../../images/atom_icon_png.js';
+import atomIconSmall from '../../images/atom_icon_small_png.js';
+import buildAnAtomStrings from '../build-an-atom-strings.js';
+import buildAnAtom from '../buildAnAtom.js';
+import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
+import BuildAnAtomView from './view/BuildAnAtomView.js';
 
-  // strings
-  const atomString = require( 'string!BUILD_AN_ATOM/atom' );
+const atomString = buildAnAtomStrings.atom;
 
-  // images
-  const atomIcon = require( 'image!BUILD_AN_ATOM/atom_icon.png' );
-  const atomIconSmall = require( 'image!BUILD_AN_ATOM/atom_icon_small.png' );
 
-  /**
-   * @constructor
-   * @param {Tandem} tandem
-   */
-  function BuildAnAtomScreen( tandem ) {
-    Screen.call(
-      this,
-      function() { return new BuildAnAtomModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new BuildAnAtomView( model, tandem.createTandem( 'view' ) ); },
-      {
-        name: atomString,
-        homeScreenIcon: new Image( atomIcon ),
-        navigationBarIcon: new Image( atomIconSmall ),
-        tandem: tandem
-      }
-    );
-  }
+/**
+ * @constructor
+ * @param {Tandem} tandem
+ */
+function BuildAnAtomScreen( tandem ) {
+  Screen.call(
+    this,
+    function() { return new BuildAnAtomModel( tandem.createTandem( 'model' ) ); },
+    function( model ) { return new BuildAnAtomView( model, tandem.createTandem( 'view' ) ); },
+    {
+      name: atomString,
+      homeScreenIcon: new Image( atomIcon ),
+      navigationBarIcon: new Image( atomIconSmall ),
+      tandem: tandem
+    }
+  );
+}
 
-  buildAnAtom.register( 'BuildAnAtomScreen', BuildAnAtomScreen );
+buildAnAtom.register( 'BuildAnAtomScreen', BuildAnAtomScreen );
 
-  return inherit( Screen, BuildAnAtomScreen );
-} );
+inherit( Screen, BuildAnAtomScreen );
+export default BuildAnAtomScreen;

@@ -5,45 +5,41 @@
  *
  * @author John Blanco
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const BuildAnAtomModel = require( 'BUILD_AN_ATOM/common/model/BuildAnAtomModel' );
-  const Image = require( 'SCENERY/nodes/Image' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const Property = require( 'AXON/Property' );
-  const Screen = require( 'JOIST/Screen' );
-  const SymbolView = require( 'BUILD_AN_ATOM/symbol/view/SymbolView' );
+import Property from '../../../axon/js/Property.js';
+import Screen from '../../../joist/js/Screen.js';
+import inherit from '../../../phet-core/js/inherit.js';
+import Image from '../../../scenery/js/nodes/Image.js';
+import elementIcon from '../../images/element_icon_png.js';
+import elementIconSmall from '../../images/element_icon_small_png.js';
+import buildAnAtomStrings from '../build-an-atom-strings.js';
+import buildAnAtom from '../buildAnAtom.js';
+import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
+import SymbolView from './view/SymbolView.js';
 
-  // strings
-  const symbolString = require( 'string!BUILD_AN_ATOM/symbol' );
+const symbolString = buildAnAtomStrings.symbol;
 
-  // images
-  const elementIcon = require( 'image!BUILD_AN_ATOM/element_icon.png' );
-  const elementIconSmall = require( 'image!BUILD_AN_ATOM/element_icon_small.png' );
 
-  /**
-   * @constructor
-   * @param {Tandem} tandem
-   */
-  function SymbolScreen( tandem ) {
-    Screen.call(
-      this,
-      function() { return new BuildAnAtomModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new SymbolView( model, tandem.createTandem( 'view' ) ); },
-      {
-        name: symbolString,
-        backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
-        homeScreenIcon: new Image( elementIcon ),
-        navigationBarIcon: new Image( elementIconSmall ),
-        tandem: tandem
-      }
-    );
-  }
+/**
+ * @constructor
+ * @param {Tandem} tandem
+ */
+function SymbolScreen( tandem ) {
+  Screen.call(
+    this,
+    function() { return new BuildAnAtomModel( tandem.createTandem( 'model' ) ); },
+    function( model ) { return new SymbolView( model, tandem.createTandem( 'view' ) ); },
+    {
+      name: symbolString,
+      backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
+      homeScreenIcon: new Image( elementIcon ),
+      navigationBarIcon: new Image( elementIconSmall ),
+      tandem: tandem
+    }
+  );
+}
 
-  buildAnAtom.register( 'SymbolScreen', SymbolScreen );
+buildAnAtom.register( 'SymbolScreen', SymbolScreen );
 
-  return inherit( Screen, SymbolScreen );
-} );
+inherit( Screen, SymbolScreen );
+export default SymbolScreen;

@@ -7,34 +7,30 @@
  *
  * @author John Blanco
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const BAAGameChallenge = require( 'BUILD_AN_ATOM/game/model/BAAGameChallenge' );
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const SchematicToMassNumberChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToMassNumberChallengeView' );
+import inherit from '../../../../phet-core/js/inherit.js';
+import buildAnAtom from '../../buildAnAtom.js';
+import SchematicToMassNumberChallengeView from '../view/SchematicToMassNumberChallengeView.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 
-  /**
-   * @param {BAAGameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function SchematicToMassNumberChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
-    BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+/**
+ * @param {BAAGameModel} buildAnAtomGameModel
+ * @param {NumberAtom} answerAtom
+ * @param {string} challengeType
+ * @param {Tandem} tandem
+ * @constructor
+ */
+function SchematicToMassNumberChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+  BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+}
+
+buildAnAtom.register( 'SchematicToMassNumberChallenge', SchematicToMassNumberChallenge );
+
+// Inherit from base class and define the methods for this object.
+export default inherit( BAAGameChallenge, SchematicToMassNumberChallenge, {
+
+  // Create the view needed to visual represent this challenge.
+  createView: function( layoutBounds, tandem ) {
+    return new SchematicToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToMassNumberChallengeView' ) );
   }
-
-  buildAnAtom.register( 'SchematicToMassNumberChallenge', SchematicToMassNumberChallenge );
-
-  // Inherit from base class and define the methods for this object.
-  return inherit( BAAGameChallenge, SchematicToMassNumberChallenge, {
-
-    // Create the view needed to visual represent this challenge.
-    createView: function( layoutBounds, tandem ) {
-      return new SchematicToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToMassNumberChallengeView' ) );
-    }
-  } );
 } );

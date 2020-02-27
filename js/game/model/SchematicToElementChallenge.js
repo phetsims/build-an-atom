@@ -7,34 +7,30 @@
  *
  * @author John Blanco
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const SchematicToElementChallengeView = require( 'BUILD_AN_ATOM/game/view/SchematicToElementChallengeView' );
-  const ToElementChallenge = require( 'BUILD_AN_ATOM/game/model/ToElementChallenge' );
+import inherit from '../../../../phet-core/js/inherit.js';
+import buildAnAtom from '../../buildAnAtom.js';
+import SchematicToElementChallengeView from '../view/SchematicToElementChallengeView.js';
+import ToElementChallenge from './ToElementChallenge.js';
 
-  /**
-   * @param {BAAGameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function SchematicToElementChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
-    ToElementChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+/**
+ * @param {BAAGameModel} buildAnAtomGameModel
+ * @param {NumberAtom} answerAtom
+ * @param {string} challengeType
+ * @param {Tandem} tandem
+ * @constructor
+ */
+function SchematicToElementChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+  ToElementChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+}
+
+buildAnAtom.register( 'SchematicToElementChallenge', SchematicToElementChallenge );
+
+// Inherit from base class and define the methods for this object.
+export default inherit( ToElementChallenge, SchematicToElementChallenge, {
+
+  // Create the view needed to visual represent this challenge.
+  createView: function( layoutBounds, tandem ) {
+    return new SchematicToElementChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToElementChallengeView' ) );
   }
-
-  buildAnAtom.register( 'SchematicToElementChallenge',  SchematicToElementChallenge );
-
-  // Inherit from base class and define the methods for this object.
-  return inherit( ToElementChallenge, SchematicToElementChallenge, {
-
-    // Create the view needed to visual represent this challenge.
-    createView: function( layoutBounds, tandem ) {
-      return new SchematicToElementChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToElementChallengeView' ) );
-    }
-  } );
 } );

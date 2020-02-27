@@ -5,24 +5,20 @@
  *
  * @author Aadish Gupta
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
+import buildAnAtom from '../buildAnAtom.js';
 
-  const BAAQueryParameters = QueryStringMachine.getAll( {
+const BAAQueryParameters = QueryStringMachine.getAll( {
 
-    // shows the game reward regardless of score
-    reward: { type: 'flag' },
+  // shows the game reward regardless of score
+  reward: { type: 'flag' },
 
-    challengesPerLevel: {
-      type: 'number',
-      defaultValue: 5
-    }
-  } );
-
-  buildAnAtom.register('BAAQueryParameters', BAAQueryParameters);
-
-  return BAAQueryParameters;
+  challengesPerLevel: {
+    type: 'number',
+    defaultValue: 5
+  }
 } );
+
+buildAnAtom.register( 'BAAQueryParameters', BAAQueryParameters );
+
+export default BAAQueryParameters;

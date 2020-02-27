@@ -5,60 +5,56 @@
  *
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const BAAGameChallengeIO = require( 'BUILD_AN_ATOM/game/model/BAAGameChallengeIO' );
-  const BAAGameState = require( 'BUILD_AN_ATOM/game/model/BAAGameState' );
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  const validate = require( 'AXON/validate' );
+import validate from '../../../../axon/js/validate.js';
+import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import buildAnAtom from '../../buildAnAtom.js';
+import BAAGameChallengeIO from './BAAGameChallengeIO.js';
+import BAAGameState from './BAAGameState.js';
 
-  class BAAGameStateIO extends ObjectIO {
+class BAAGameStateIO extends ObjectIO {
 
-    /**
-     * @param {BAAGameChallenge} baaGameState
-     * @returns
-     * @override
-     */
-    static toStateObject( baaGameState ) {
-      validate( baaGameState, this.validator );
-      if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
-        return BAAGameChallengeIO.toStateObject( baaGameState );
-      }
-      else {
-        return { name: baaGameState.name };
-      }
+  /**
+   * @param {BAAGameChallenge} baaGameState
+   * @returns
+   * @override
+   */
+  static toStateObject( baaGameState ) {
+    validate( baaGameState, this.validator );
+    if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
+      return BAAGameChallengeIO.toStateObject( baaGameState );
     }
-
-    /**
-     *
-     * @param {Object} stateObject
-     * @override
-     */
-    static fromStateObject( stateObject ) {
-
-      if ( stateObject.name === 'choosingLevel' ) {
-        return BAAGameState.CHOOSING_LEVEL;
-      }
-      else if ( stateObject.name === 'levelCompleted' ) {
-        return BAAGameState.LEVEL_COMPLETED;
-      }
-      else if ( stateObject.name === 'challenge' ) {
-        return BAAGameChallengeIO.fromStateObject( stateObject );
-      }
-      else {
-        assert && assert( false, 'unknown game state: ' + stateObject );
-      }
+    else {
+      return { name: baaGameState.name };
     }
   }
 
-  BAAGameStateIO.validator = { valueType: BAAGameState };
-  BAAGameStateIO.documentation = 'A state for the game';
-  BAAGameStateIO.typeName = 'BAAGameStateIO';
-  ObjectIO.validateSubtype( BAAGameStateIO );
+  /**
+   *
+   * @param {Object} stateObject
+   * @override
+   */
+  static fromStateObject( stateObject ) {
 
-  return buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
-} );
+    if ( stateObject.name === 'choosingLevel' ) {
+      return BAAGameState.CHOOSING_LEVEL;
+    }
+    else if ( stateObject.name === 'levelCompleted' ) {
+      return BAAGameState.LEVEL_COMPLETED;
+    }
+    else if ( stateObject.name === 'challenge' ) {
+      return BAAGameChallengeIO.fromStateObject( stateObject );
+    }
+    else {
+      assert && assert( false, 'unknown game state: ' + stateObject );
+    }
+  }
+}
 
+BAAGameStateIO.validator = { valueType: BAAGameState };
+BAAGameStateIO.documentation = 'A state for the game';
+BAAGameStateIO.typeName = 'BAAGameStateIO';
+ObjectIO.validateSubtype( BAAGameStateIO );
+
+buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
+export default BAAGameStateIO;

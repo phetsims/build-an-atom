@@ -7,65 +7,62 @@
  *
  * @author John Blanco
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Text = require( 'SCENERY/nodes/Text' );
+import inherit from '../../../../phet-core/js/inherit.js';
+import merge from '../../../../phet-core/js/merge.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtom from '../../buildAnAtom.js';
 
-  // strings
-  const electronsColonPatternString = require( 'string!BUILD_AN_ATOM/electronsColonPattern' );
-  const neutronsColonPatternString = require( 'string!BUILD_AN_ATOM/neutronsColonPattern' );
-  const protonsColonPatternString = require( 'string!BUILD_AN_ATOM/protonsColonPattern' );
+const electronsColonPatternString = buildAnAtomStrings.electronsColonPattern;
+const neutronsColonPatternString = buildAnAtomStrings.neutronsColonPattern;
+const protonsColonPatternString = buildAnAtomStrings.protonsColonPattern;
 
-  // constants
-  const MAX_WIDTH = 280;
+// constants
+const MAX_WIDTH = 280;
 
-  /**
-   * @param {NumberAtom} numberAtom
-   * @param {Object} [options]
-   * @constructor
-   */
-  function ParticleCountsNode( numberAtom, options ) {
+/**
+ * @param {NumberAtom} numberAtom
+ * @param {Object} [options]
+ * @constructor
+ */
+function ParticleCountsNode( numberAtom, options ) {
 
-    Node.call( this, options );
+  Node.call( this, options );
 
-    options = merge( { font: new PhetFont( 24 ) }, options );
+  options = merge( { font: new PhetFont( 24 ) }, options );
 
-    const protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
-      font: options.font,
-      maxWidth: MAX_WIDTH
-    } );
-    this.addChild( protonCountTitle );
-    const neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCountProperty.get() ), {
-      font: options.font,
-      maxWidth: MAX_WIDTH
-    } );
-    this.addChild( neutronCountTitle );
-    const electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCountProperty.get() ), {
-      font: options.font,
-      maxWidth: MAX_WIDTH
-    } );
-    this.addChild( electronCountTitle );
+  const protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
+    font: options.font,
+    maxWidth: MAX_WIDTH
+  } );
+  this.addChild( protonCountTitle );
+  const neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCountProperty.get() ), {
+    font: options.font,
+    maxWidth: MAX_WIDTH
+  } );
+  this.addChild( neutronCountTitle );
+  const electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCountProperty.get() ), {
+    font: options.font,
+    maxWidth: MAX_WIDTH
+  } );
+  this.addChild( electronCountTitle );
 
-    // Layout - Line labels up on left edge, numbers on right edge.
-    const interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
-    protonCountTitle.left = 0;
-    protonCountTitle.top = 0;
-    neutronCountTitle.left = 0;
-    neutronCountTitle.top = protonCountTitle.bottom + interLineSpacing;
-    electronCountTitle.left = 0;
-    electronCountTitle.top = neutronCountTitle.bottom + interLineSpacing;
-  }
+  // Layout - Line labels up on left edge, numbers on right edge.
+  const interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
+  protonCountTitle.left = 0;
+  protonCountTitle.top = 0;
+  neutronCountTitle.left = 0;
+  neutronCountTitle.top = protonCountTitle.bottom + interLineSpacing;
+  electronCountTitle.left = 0;
+  electronCountTitle.top = neutronCountTitle.bottom + interLineSpacing;
+}
 
-  buildAnAtom.register( 'ParticleCountsNode', ParticleCountsNode );
+buildAnAtom.register( 'ParticleCountsNode', ParticleCountsNode );
 
-  // Inherit from Node.
-  return inherit( Node, ParticleCountsNode );
-} );
+// Inherit from Node.
+inherit( Node, ParticleCountsNode );
+export default ParticleCountsNode;
