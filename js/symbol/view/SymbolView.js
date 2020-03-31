@@ -11,7 +11,7 @@ import inherit from '../../../../phet-core/js/inherit.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
-import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AtomView from '../../common/view/AtomView.js';
 import SymbolNode from './SymbolNode.js';

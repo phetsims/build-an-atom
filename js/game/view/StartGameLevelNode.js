@@ -20,7 +20,7 @@ import massChargeIcon from '../../../images/mass_charge_icon_png.js';
 import periodicTableIcon from '../../../images/periodic_table_icon_png.js';
 import questionMarkIcon from '../../../images/question_mark_icon_png.js';
 import symbolQuestionIcon from '../../../images/symbol_question_icon_png.js';
-import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAGameModel from '../model/BAAGameModel.js';

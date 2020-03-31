@@ -13,7 +13,7 @@ import Image from '../../../scenery/js/nodes/Image.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import gameIcon from '../../images/game_icon_png.js';
 import gameIconSmall from '../../images/game_icon_small_png.js';
-import buildAnAtomStrings from '../build-an-atom-strings.js';
+import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BAAGameModel from './model/BAAGameModel.js';
 import BAAGameScreenView from './view/BAAGameScreenView.js';

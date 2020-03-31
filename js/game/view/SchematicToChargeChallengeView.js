@@ -16,7 +16,7 @@ import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';

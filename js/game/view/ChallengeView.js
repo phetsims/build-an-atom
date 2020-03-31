@@ -16,7 +16,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import vegasStrings from '../../../../vegas/js/vegas-strings.js';
+import vegasStrings from '../../../../vegas/js/vegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAChallengeState from '../model/BAAChallengeState.js';
 

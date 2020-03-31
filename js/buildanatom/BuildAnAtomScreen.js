@@ -11,7 +11,7 @@ import inherit from '../../../phet-core/js/inherit.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import atomIcon from '../../images/atom_icon_png.js';
 import atomIconSmall from '../../images/atom_icon_small_png.js';
-import buildAnAtomStrings from '../build-an-atom-strings.js';
+import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import BuildAnAtomView from './view/BuildAnAtomView.js';

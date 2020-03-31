@@ -19,7 +19,7 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
-import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from './ChallengeView.js';
 

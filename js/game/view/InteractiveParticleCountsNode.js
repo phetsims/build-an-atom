@@ -12,7 +12,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import NumberEntryNode from './NumberEntryNode.js';
 

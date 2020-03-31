@@ -31,7 +31,7 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
-import buildAnAtomStrings from '../../build-an-atom-strings.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import PeriodicTableAndSymbol from '../../buildanatom/view/PeriodicTableAndSymbol.js';
 import BAASharedConstants from '../BAASharedConstants.js';

@@ -12,7 +12,7 @@ import inherit from '../../../phet-core/js/inherit.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import elementIcon from '../../images/element_icon_png.js';
 import elementIconSmall from '../../images/element_icon_small_png.js';
-import buildAnAtomStrings from '../build-an-atom-strings.js';
+import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import SymbolView from './view/SymbolView.js';
