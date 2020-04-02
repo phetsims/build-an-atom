@@ -35,7 +35,7 @@ class BAAGameChallengeIO extends ObjectIO {
    * @override
    */
   static fromStateObject( stateObject ) {
-    const phetioEngine = phet.phetIo.phetioEngine;
+    const phetioEngine = phet.phetio.phetioEngine;
 
     // This may have been deserialized from the instance itself or from the array it was contained in (which
     // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
