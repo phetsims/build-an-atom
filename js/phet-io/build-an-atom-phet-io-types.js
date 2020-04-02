@@ -1,5 +1,5 @@
 /* eslint-disable */
-window.phet.phetio.preload.phetioTypes = assert &&
+window.phet.preloads.phetio.phetioTypes = assert &&
   {
     "AccordionBoxIO": {
       "documentation": "A traditional accordionBox",

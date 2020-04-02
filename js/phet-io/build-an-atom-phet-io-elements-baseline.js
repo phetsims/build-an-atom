@@ -1,5 +1,5 @@
 /* eslint-disable */
-window.phet.phetio.preload.phetioElementsBaseline = assert &&
+window.phet.preloads.phetio.phetioElementsBaseline = assert &&
   {
     "buildAnAtom.atomScreen": {
       "phetioDocumentation": "",
