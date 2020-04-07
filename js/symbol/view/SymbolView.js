@@ -55,7 +55,7 @@ function SymbolView( model, tandem ) {
     // phet-io
     tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
-    // a11y
+    // pdom
     labelContent: symbolString
   } );
   this.controlPanelLayer.addChild( symbolAccordionBox );

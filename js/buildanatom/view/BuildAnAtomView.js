@@ -72,7 +72,7 @@ function BuildAnAtomView( model, tandem ) {
     pickable: false,
     tandem: tandem.createTandem( 'netChargeAccordionBoxContents' ),
 
-    // a11y
+    // pdom
     tagName: 'h6',
     innerContent: 'Net Charge Content' // TODO: export to a11y strings file
   } );
@@ -89,7 +89,7 @@ function BuildAnAtomView( model, tandem ) {
       // phet-io
       tandem: tandem.createTandem( 'netChargeAccordionBox' ),
 
-      // a11y
+      // pdom
       labelContent: netChargeString
     }, commonAccordionBoxOptions )
   );
@@ -103,7 +103,7 @@ function BuildAnAtomView( model, tandem ) {
       pickable: false,
       scale: 0.85, // empirically determined to make the control panels all fit on the screen
 
-      // a11y
+      // pdom
       tagName: 'h6',
       innerContent: 'Mass Number Content' // TODO: export to a11y strings file
     }
@@ -121,7 +121,7 @@ function BuildAnAtomView( model, tandem ) {
       // phet-io
       tandem: tandem.createTandem( 'massNumberAccordionBox' ),
 
-      // a11y
+      // pdom
       labelContent: massNumberString
     }, commonAccordionBoxOptions )
   );
@@ -133,7 +133,7 @@ function BuildAnAtomView( model, tandem ) {
   massNumberAccordionBox.right = this.periodicTableAccordionBox.right;
   massNumberAccordionBox.top = netChargeAccordionBox.top + netChargeAccordionBox.height + INTER_BOX_SPACING;
 
-  // a11y - set navigation order for the Atom screen view
+  // pdom - set navigation order for the Atom screen view
   this.pdomPlayAreaNode.accessibleOrder = [ this.periodicTableAccordionBox, netChargeAccordionBox, massNumberAccordionBox ];
 }
 

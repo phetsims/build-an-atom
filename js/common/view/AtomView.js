@@ -229,7 +229,7 @@ function AtomView( model, tandem ) {
     // phet-io
     tandem: periodicTableAccordionBoxTandem,
 
-    // a11y
+    // pdom
     labelContent: elementString
   } );
   this.addChild( this.periodicTableAccordionBox );
