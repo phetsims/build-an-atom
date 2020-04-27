@@ -27645,7 +27645,7 @@ window.phet.preloads.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "buildAnAtom.general.view.simNameProperty": {
+    "buildAnAtom.general.model.simNameProperty": {
       "phetioDocumentation": "The name of the sim. Changing this value will update the title text on the navigation bar and the title text on the home screen, if it exists.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
