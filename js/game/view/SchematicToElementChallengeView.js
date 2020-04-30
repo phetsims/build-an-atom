@@ -49,8 +49,7 @@ function SchematicToElementChallengeView( schematicToElementChallenge, layoutBou
 
 buildAnAtom.register( 'SchematicToElementChallengeView', SchematicToElementChallengeView );
 
-// Inherit from ToElementChallengeView.
-export default inherit( ToElementChallengeView, SchematicToElementChallengeView, {
+inherit( ToElementChallengeView, SchematicToElementChallengeView, {
 
   // @public
   dispose: function() {
@@ -58,3 +57,5 @@ export default inherit( ToElementChallengeView, SchematicToElementChallengeView,
     ToElementChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default SchematicToElementChallengeView;

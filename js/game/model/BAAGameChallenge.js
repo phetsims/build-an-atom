@@ -60,7 +60,7 @@ function BAAGameChallenge( buildAnAtomGameModel, answerAtom, challengeType, tand
 
 buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
 
-export default inherit( BAAGameState, BAAGameChallenge, {
+inherit( BAAGameState, BAAGameChallenge, {
 
   /**
    * @public - release resources when no longer used
@@ -157,3 +157,5 @@ export default inherit( BAAGameState, BAAGameChallenge, {
     this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
   }
 } );
+
+export default BAAGameChallenge;

@@ -115,11 +115,12 @@ function NumberEntryNode( numberProperty, tandem, options ) {
 
 buildAnAtom.register( 'NumberEntryNode', NumberEntryNode );
 
-// Inherit from Node.
-export default inherit( Node, NumberEntryNode, {
+inherit( Node, NumberEntryNode, {
   dispose: function() {
     this.disposeNumberEntryNode();
 
     Node.prototype.dispose.call( this );
   }
 } );
+
+export default NumberEntryNode;

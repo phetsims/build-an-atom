@@ -26,11 +26,12 @@ function SchematicToElementChallenge( buildAnAtomGameModel, answerAtom, challeng
 
 buildAnAtom.register( 'SchematicToElementChallenge', SchematicToElementChallenge );
 
-// Inherit from base class and define the methods for this object.
-export default inherit( ToElementChallenge, SchematicToElementChallenge, {
+inherit( ToElementChallenge, SchematicToElementChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new SchematicToElementChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToElementChallengeView' ) );
   }
 } );
+
+export default SchematicToElementChallenge;

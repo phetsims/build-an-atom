@@ -66,8 +66,7 @@ function SchematicToSymbolChallengeView( toSymbolChallenge, layoutBounds, tandem
 
 buildAnAtom.register( 'SchematicToSymbolChallengeView', SchematicToSymbolChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, SchematicToSymbolChallengeView, {
+inherit( ChallengeView, SchematicToSymbolChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -92,3 +91,5 @@ export default inherit( ChallengeView, SchematicToSymbolChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default SchematicToSymbolChallengeView;

@@ -228,7 +228,7 @@ BuildAnAtomModel.MAX_ELECTRONS = NUM_ELECTRONS;
 
 buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );
 
-export default inherit( Object, BuildAnAtomModel, {
+inherit( Object, BuildAnAtomModel, {
 
   dispose: function() {
 
@@ -386,3 +386,5 @@ export default inherit( Object, BuildAnAtomModel, {
     this.particleAtom.moveAllParticlesToDestination();
   }
 } );
+
+export default BuildAnAtomModel;

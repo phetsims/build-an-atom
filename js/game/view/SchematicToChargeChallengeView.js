@@ -89,8 +89,7 @@ function SchematicToChargeChallengeView( schematicToChargeChallenge, layoutBound
 
 buildAnAtom.register( 'SchematicToChargeChallengeView', SchematicToChargeChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, SchematicToChargeChallengeView, {
+inherit( ChallengeView, SchematicToChargeChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -112,3 +111,5 @@ export default inherit( ChallengeView, SchematicToChargeChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default SchematicToChargeChallengeView;

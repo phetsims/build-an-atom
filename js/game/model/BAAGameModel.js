@@ -145,8 +145,7 @@ function BAAGameModel( tandem ) {
 
 buildAnAtom.register( 'BAAGameModel', BAAGameModel );
 
-// Inherit from base class and define the methods for this object.
-export default inherit( PhetioObject, BAAGameModel, {
+inherit( PhetioObject, BAAGameModel, {
 
   // @public - time stepping function, called by the framework
   step: function( dt ) {
@@ -322,3 +321,5 @@ export default inherit( PhetioObject, BAAGameModel, {
   MAX_POINTS_PER_GAME_LEVEL: MAX_POINTS_PER_GAME_LEVEL,
   CHALLENGES_PER_LEVEL: CHALLENGES_PER_LEVEL
 } );
+
+export default BAAGameModel;

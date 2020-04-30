@@ -33,10 +33,13 @@ function SchematicToSymbolChallenge( buildAnAtomGameModel, answerAtom, challenge
 buildAnAtom.register( 'SchematicToSymbolChallenge', SchematicToSymbolChallenge );
 
 // Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, SchematicToSymbolChallenge, {
+
+inherit( BAAGameChallenge, SchematicToSymbolChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new SchematicToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolChallengeView' ) );
   }
 } );
+
+export default SchematicToSymbolChallenge;

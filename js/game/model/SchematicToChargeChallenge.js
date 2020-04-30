@@ -26,11 +26,12 @@ function SchematicToChargeChallenge( buildAnAtomGameModel, answerAtom, challenge
 
 buildAnAtom.register( 'SchematicToChargeChallenge', SchematicToChargeChallenge );
 
-// Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, SchematicToChargeChallenge, {
+inherit( BAAGameChallenge, SchematicToChargeChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new SchematicToChargeChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToChargeChallengeView' ) );
   }
 } );
+
+export default SchematicToChargeChallenge;

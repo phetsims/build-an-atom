@@ -27,10 +27,13 @@ function SymbolToCountsChallenge( buildAnAtomGameModel, answerAtom, challengeTyp
 buildAnAtom.register( 'SymbolToCountsChallenge', SymbolToCountsChallenge );
 
 // Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, SymbolToCountsChallenge, {
+
+inherit( BAAGameChallenge, SymbolToCountsChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new SymbolToCountsChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToCountsChallengeView' ) );
   }
 } );
+
+export default SymbolToCountsChallenge;

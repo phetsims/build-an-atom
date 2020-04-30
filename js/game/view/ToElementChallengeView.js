@@ -142,8 +142,7 @@ function ToElementChallengeView( countsToElementChallenge, layoutBounds, tandem 
 
 buildAnAtom.register( 'ToElementChallengeView', ToElementChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, ToElementChallengeView, {
+inherit( ChallengeView, ToElementChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -177,3 +176,5 @@ export default inherit( ChallengeView, ToElementChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default ToElementChallengeView;

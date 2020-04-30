@@ -67,7 +67,7 @@ function SymbolView( model, tandem ) {
 
 buildAnAtom.register( 'SymbolView', SymbolView );
 
-export default inherit( AtomView, SymbolView, {
+inherit( AtomView, SymbolView, {
 
   /**
    * @public
@@ -77,3 +77,5 @@ export default inherit( AtomView, SymbolView, {
     this.symbolAccordionBoxExpandedProperty.reset();
   }
 } );
+
+export default SymbolView;

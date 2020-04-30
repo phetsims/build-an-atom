@@ -26,11 +26,12 @@ function CountsToElementChallenge( buildAnAtomGameModel, answerAtom, challengeTy
 
 buildAnAtom.register( 'CountsToElementChallenge', CountsToElementChallenge );
 
-// Inherit from base class and define the methods for this object.
-export default inherit( ToElementChallenge, CountsToElementChallenge, {
+inherit( ToElementChallenge, CountsToElementChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new CountsToElementChallengeView( this, layoutBounds, tandem.createTandem( 'countsToElementChallengeView' ) );
   }
 } );
+
+export default CountsToElementChallenge;

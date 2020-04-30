@@ -139,7 +139,7 @@ function BuildAnAtomView( model, tandem ) {
 
 buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
 
-export default inherit( AtomView, BuildAnAtomView, {
+inherit( AtomView, BuildAnAtomView, {
 
   /**
    * @public
@@ -150,3 +150,5 @@ export default inherit( AtomView, BuildAnAtomView, {
     this.massNumberAccordionBoxExpandedProperty.reset();
   }
 } );
+
+export default BuildAnAtomView;

@@ -27,7 +27,8 @@ function ToElementChallenge( buildAnAtomGameModel, answerAtom, challengeType, ta
 buildAnAtom.register( 'ToElementChallenge', ToElementChallenge );
 
 // Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, ToElementChallenge, {
+
+inherit( BAAGameChallenge, ToElementChallenge, {
 
   /**
    * Override the method for checking the correct answer, since this challenge class has the additional step of user
@@ -51,3 +52,5 @@ export default inherit( BAAGameChallenge, ToElementChallenge, {
     } );
   }
 } );
+
+export default ToElementChallenge;

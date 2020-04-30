@@ -199,8 +199,7 @@ function ChallengeView( challenge, layoutBounds, tandem ) {
 
 buildAnAtom.register( 'ChallengeView', ChallengeView );
 
-// Inherit from Node.
-export default inherit( Node, ChallengeView, {
+inherit( Node, ChallengeView, {
 
   /**
    * @public
@@ -250,3 +249,5 @@ export default inherit( Node, ChallengeView, {
     } );
   }
 } );
+
+export default ChallengeView;

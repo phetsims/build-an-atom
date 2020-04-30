@@ -153,8 +153,7 @@ function BAAGameScreenView( gameModel, tandem ) {
 
 buildAnAtom.register( 'BAAGameScreenView', BAAGameScreenView );
 
-// Inherit from ScreenView.
-export default inherit( ScreenView, BAAGameScreenView, {
+inherit( ScreenView, BAAGameScreenView, {
 
   // @public - step function for the view, called by the framework
   step: function( elapsedTime ) {
@@ -163,3 +162,5 @@ export default inherit( ScreenView, BAAGameScreenView, {
     }
   }
 } );
+
+export default BAAGameScreenView;

@@ -181,8 +181,7 @@ function InteractiveSymbolNode( numberAtom, tandem, options ) {
 
 buildAnAtom.register( 'InteractiveSymbolNode', InteractiveSymbolNode );
 
-// Inherit from Node.
-export default inherit( Node, InteractiveSymbolNode, {
+inherit( Node, InteractiveSymbolNode, {
 
   // @public
   reset: function() {
@@ -197,3 +196,5 @@ export default inherit( Node, InteractiveSymbolNode, {
     Node.prototype.dispose.call( this );
   }
 } );
+
+export default InteractiveSymbolNode;

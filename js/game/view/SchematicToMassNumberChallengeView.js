@@ -87,8 +87,7 @@ function SchematicToMassNumberChallengeView( schematicToMassNumberChallenge, lay
 
 buildAnAtom.register( 'SchematicToMassNumberChallengeView', SchematicToMassNumberChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, SchematicToMassNumberChallengeView, {
+inherit( ChallengeView, SchematicToMassNumberChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -111,3 +110,5 @@ export default inherit( ChallengeView, SchematicToMassNumberChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default SchematicToMassNumberChallengeView;

@@ -76,8 +76,7 @@ function CountsToMassNumberChallengeView( countsToMassNumberChallenge, layoutBou
 
 buildAnAtom.register( 'CountsToMassNumberChallengeView', CountsToMassNumberChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, CountsToMassNumberChallengeView, {
+inherit( ChallengeView, CountsToMassNumberChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -99,3 +98,5 @@ export default inherit( ChallengeView, CountsToMassNumberChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default CountsToMassNumberChallengeView;

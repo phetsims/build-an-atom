@@ -26,11 +26,12 @@ function SchematicToMassNumberChallenge( buildAnAtomGameModel, answerAtom, chall
 
 buildAnAtom.register( 'SchematicToMassNumberChallenge', SchematicToMassNumberChallenge );
 
-// Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, SchematicToMassNumberChallenge, {
+inherit( BAAGameChallenge, SchematicToMassNumberChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new SchematicToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToMassNumberChallengeView' ) );
   }
 } );
+
+export default SchematicToMassNumberChallenge;

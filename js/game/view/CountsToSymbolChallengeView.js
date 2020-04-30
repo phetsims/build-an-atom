@@ -57,8 +57,7 @@ function CountsToSymbolChallengeView( toSymbolChallenge, layoutBounds, tandem ) 
 
 buildAnAtom.register( 'CountsToSymbolChallengeView', CountsToSymbolChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, CountsToSymbolChallengeView, {
+inherit( ChallengeView, CountsToSymbolChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -82,3 +81,5 @@ export default inherit( ChallengeView, CountsToSymbolChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default CountsToSymbolChallengeView;

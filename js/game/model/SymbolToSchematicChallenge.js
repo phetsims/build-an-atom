@@ -35,7 +35,8 @@ function SymbolToSchematicChallenge( buildAnAtomGameModel, answerAtom, challenge
 buildAnAtom.register( 'SymbolToSchematicChallenge', SymbolToSchematicChallenge );
 
 // Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, SymbolToSchematicChallenge, {
+
+inherit( BAAGameChallenge, SymbolToSchematicChallenge, {
 
   dispose: function() {
 
@@ -56,3 +57,5 @@ export default inherit( BAAGameChallenge, SymbolToSchematicChallenge, {
     this.buildAnAtomModel.step( dt );
   }
 } );
+
+export default SymbolToSchematicChallenge;

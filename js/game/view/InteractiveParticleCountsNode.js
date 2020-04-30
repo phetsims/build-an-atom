@@ -102,11 +102,12 @@ function InteractiveParticleCountsNode( tandem, options ) {
 
 buildAnAtom.register( 'InteractiveParticleCountsNode', InteractiveParticleCountsNode );
 
-// Inherit from Node.
-export default inherit( Node, InteractiveParticleCountsNode, {
+inherit( Node, InteractiveParticleCountsNode, {
 
   dispose: function() {
     this.disposeInteractiveParticlCountsNode( this );
     Node.prototype.dispose.call( this );
   }
 } );
+
+export default InteractiveParticleCountsNode;

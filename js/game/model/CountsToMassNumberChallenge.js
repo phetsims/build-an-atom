@@ -25,11 +25,12 @@ function CountsToMassNumberChallenge( buildAnAtomGameModel, answerAtom, challeng
 
 buildAnAtom.register( 'CountsToMassNumberChallenge', CountsToMassNumberChallenge );
 
-// Inherit from base class and define the methods for this object.
-export default inherit( BAAGameChallenge, CountsToMassNumberChallenge, {
+inherit( BAAGameChallenge, CountsToMassNumberChallenge, {
 
   // Create the view needed to visual represent this challenge.
   createView: function( layoutBounds, tandem ) {
     return new CountsToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'countsToMassNumberChallengeView' ) );
   }
 } );
+
+export default CountsToMassNumberChallenge;

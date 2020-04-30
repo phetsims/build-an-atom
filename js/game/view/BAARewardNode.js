@@ -39,7 +39,7 @@ function BAARewardNode( tandem ) {
 
 buildAnAtom.register( 'BAARewardNode', BAARewardNode );
 
-export default inherit( RewardNode, BAARewardNode, {
+inherit( RewardNode, BAARewardNode, {
 
   /**
    * @public
@@ -77,3 +77,5 @@ export default inherit( RewardNode, BAARewardNode, {
     return RewardNode.createRandomNodes( nodes, NUMBER_OF_NODES );
   }
 } );
+
+export default BAARewardNode;

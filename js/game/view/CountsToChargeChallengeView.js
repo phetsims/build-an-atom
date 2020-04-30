@@ -80,8 +80,7 @@ function CountsToChargeChallengeView( countsToChargeChallenge, layoutBounds, tan
 
 buildAnAtom.register( 'CountsToChargeChallengeView', CountsToChargeChallengeView );
 
-// Inherit from ChallengeView.
-export default inherit( ChallengeView, CountsToChargeChallengeView, {
+inherit( ChallengeView, CountsToChargeChallengeView, {
 
   // @public
   checkAnswer: function() {
@@ -103,3 +102,5 @@ export default inherit( ChallengeView, CountsToChargeChallengeView, {
     ChallengeView.prototype.dispose.call( this );
   }
 } );
+
+export default CountsToChargeChallengeView;

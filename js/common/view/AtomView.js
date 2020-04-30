@@ -368,8 +368,7 @@ function AtomView( model, tandem ) {
 
 buildAnAtom.register( 'AtomView', AtomView );
 
-// Inherit from ScreenView.
-export default inherit( ScreenView, AtomView, {
+inherit( ScreenView, AtomView, {
   reset: function() {
     this.periodicTableAccordionBoxExpandedProperty.reset();
   }
@@ -378,3 +377,5 @@ export default inherit( ScreenView, AtomView, {
   // export for usage when creating shred Particles
   NUM_NUCLEON_LAYERS: NUM_NUCLEON_LAYERS
 } );
+
+export default AtomView;

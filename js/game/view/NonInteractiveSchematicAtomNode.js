@@ -99,8 +99,7 @@ function NonInteractiveSchematicAtomNode( numberAtom, modelViewTransform, tandem
 
 buildAnAtom.register( 'NonInteractiveSchematicAtomNode', NonInteractiveSchematicAtomNode );
 
-// Inherit from Node.
-export default inherit( Node, NonInteractiveSchematicAtomNode, {
+inherit( Node, NonInteractiveSchematicAtomNode, {
 
   // @public
   dispose: function() {
@@ -108,3 +107,5 @@ export default inherit( Node, NonInteractiveSchematicAtomNode, {
     Node.prototype.dispose.call( this );
   }
 } );
+
+export default NonInteractiveSchematicAtomNode;
