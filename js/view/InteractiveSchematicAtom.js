@@ -153,10 +153,12 @@ function InteractiveSchematicAtom( model, modelViewTransform, options ) {
 
 shred.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
 
-export default inherit( Node, InteractiveSchematicAtom, {
+inherit( Node, InteractiveSchematicAtom, {
   // @public
   dispose: function() {
     this.disposeInteractiveSchematicAtom();
     Node.prototype.dispose.call( this );
   }
 } );
+
+export default InteractiveSchematicAtom;
