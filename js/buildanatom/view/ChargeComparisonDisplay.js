@@ -127,7 +127,7 @@ function ChargeComparisonDisplay( numberAtom, tandem, options ) {
     matchBox.rectWidth = INTER_SYMBOL_DISTANCE / 2 + ( numMatchedSymbols * SYMBOL_WIDTH ) + ( ( numMatchedSymbols - 0.5 ) * INTER_SYMBOL_DISTANCE );
   };
 
-  // Workaround for issue where location can't be set if no bounds exist.
+  // Workaround for issue where position can't be set if no bounds exist.
   this.addChild( new Rectangle( 0, 0, SYMBOL_WIDTH, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 0, 0, {
     fill: 'rgba( 0, 0, 0, 0 )'
   } ) );

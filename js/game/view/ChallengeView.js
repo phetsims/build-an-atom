@@ -237,7 +237,7 @@ inherit( Node, ChallengeView, {
   checkAnswer: function() {},
 
   /**
-   * Function to set the location of all buttons.
+   * Function to set the positions of all buttons.
    * @param {number} x
    * @param {number} y
    * @public
