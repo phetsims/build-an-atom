@@ -16,6 +16,10 @@ import buildAnAtom from '../../buildAnAtom.js';
 
 class BAAGameModelIO extends ObjectIO {
 
+  /**
+   * @param {BAAGameModel} baaGameModel
+   * @public
+   */
   static clearChildInstances( baaGameModel ) {
     validate( baaGameModel, this.validator );
     baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
@@ -27,6 +31,9 @@ class BAAGameModelIO extends ObjectIO {
 
 BAAGameModelIO.methods = {
 
+  /**
+   * @public
+   */
   startGameLevel: {
     returnType: VoidIO,
     parameterTypes: [ StringIO ],
@@ -37,6 +44,9 @@ BAAGameModelIO.methods = {
     invocableForReadOnlyElements: false
   },
 
+  /**
+   * @public
+   */
   setChallenges: {
     returnType: VoidIO,
     parameterTypes: [ ArrayIO( ArrayIO( ObjectIO ) ) ],
@@ -47,6 +57,9 @@ BAAGameModelIO.methods = {
     invocableForReadOnlyElements: false
   },
 
+  /**
+   * @public
+   */
   setAllowedChallengeTypesByLevel: {
     returnType: VoidIO,
     parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],

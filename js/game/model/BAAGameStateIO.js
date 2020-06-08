@@ -17,6 +17,7 @@ class BAAGameStateIO extends ObjectIO {
   /**
    * @param {BAAGameChallenge} baaGameState
    * @returns
+   * @public
    * @override
    */
   static toStateObject( baaGameState ) {
@@ -30,8 +31,8 @@ class BAAGameStateIO extends ObjectIO {
   }
 
   /**
-   *
    * @param {Object} stateObject
+   * @public
    * @override
    */
   static fromStateObject( stateObject ) {
