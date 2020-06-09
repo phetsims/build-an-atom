@@ -7,12 +7,13 @@
  */
 
 import Screen from '../../../joist/js/Screen.js';
+import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import inherit from '../../../phet-core/js/inherit.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import atomIcon from '../../images/atom_icon_png.js';
 import atomIconSmall from '../../images/atom_icon_small_png.js';
-import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import buildAnAtom from '../buildAnAtom.js';
+import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import BuildAnAtomView from './view/BuildAnAtomView.js';
 
@@ -30,8 +31,14 @@ function BuildAnAtomScreen( tandem ) {
     function( model ) { return new BuildAnAtomView( model, tandem.createTandem( 'view' ) ); },
     {
       name: atomString,
-      homeScreenIcon: new Image( atomIcon ),
-      navigationBarIcon: new Image( atomIconSmall ),
+      homeScreenIcon: new ScreenIcon( new Image( atomIcon ), {
+        maxIconWidthProportion: 1,
+        maxIconHeightProportion: 1
+      } ),
+      navigationBarIcon: new ScreenIcon( new Image( atomIconSmall ), {
+        maxIconWidthProportion: 1,
+        maxIconHeightProportion: 1
+      } ),
       tandem: tandem
     }
   );

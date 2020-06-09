@@ -8,12 +8,13 @@
 
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
+import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import inherit from '../../../phet-core/js/inherit.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import elementIcon from '../../images/element_icon_png.js';
 import elementIconSmall from '../../images/element_icon_small_png.js';
-import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import buildAnAtom from '../buildAnAtom.js';
+import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import SymbolView from './view/SymbolView.js';
 
@@ -32,8 +33,14 @@ function SymbolScreen( tandem ) {
     {
       name: symbolString,
       backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
-      homeScreenIcon: new Image( elementIcon ),
-      navigationBarIcon: new Image( elementIconSmall ),
+      homeScreenIcon: new ScreenIcon( new Image( elementIcon ), {
+        maxIconWidthProportion: 1,
+        maxIconHeightProportion: 1
+      } ),
+      navigationBarIcon: new ScreenIcon( new Image( elementIconSmall ), {
+        maxIconWidthProportion: 1,
+        maxIconHeightProportion: 1
+      } ),
       tandem: tandem
     }
   );
