@@ -31,9 +31,9 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import PeriodicTableAndSymbol from '../../buildanatom/view/PeriodicTableAndSymbol.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
 const cloudString = buildAnAtomStrings.cloud;
@@ -174,7 +174,7 @@ function AtomView( model, tandem ) {
   // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
   const updateElectronVisibility = function() {
     electronLayer.getChildren().forEach( function( electronNode ) {
-      electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
+      electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.includes( electronNode.particle );
     } );
   };
   model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
