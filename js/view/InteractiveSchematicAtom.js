@@ -118,7 +118,7 @@ function InteractiveSchematicAtom( model, modelViewTransform, options ) {
   // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
   const updateElectronVisibility = function() {
     electronLayer.getChildren().forEach( function( electronNode ) {
-      electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.contains( electronNode.particle );
+      electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.includes( electronNode.particle );
     } );
   };
   model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
