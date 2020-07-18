@@ -22,7 +22,10 @@
       "adapted-from-phet"
     ],
     "supportsSound": true,
-    "simulation": true
+    "simulation": true,
+    "phet-io": {
+      "validation" : true
+    }
   },
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js"
