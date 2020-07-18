@@ -24,7 +24,7 @@
     "supportsSound": true,
     "simulation": true,
     "phet-io": {
-      "validation" : true
+      "validation": true
     }
   },
   "eslintConfig": {
