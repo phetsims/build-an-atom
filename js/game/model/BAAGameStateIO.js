@@ -55,7 +55,7 @@ class BAAGameStateIO extends ObjectIO {
 BAAGameStateIO.validator = { valueType: BAAGameState };
 BAAGameStateIO.documentation = 'A state for the game';
 BAAGameStateIO.typeName = 'BAAGameStateIO';
-ObjectIO.validateSubtype( BAAGameStateIO );
+ObjectIO.validateIOType( BAAGameStateIO );
 
 buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
 export default BAAGameStateIO;

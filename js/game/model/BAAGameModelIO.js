@@ -82,7 +82,7 @@ BAAGameModelIO.methods = {
 BAAGameModelIO.documentation = 'The model for the Game';
 BAAGameModelIO.validator = { isValidValue: x => x instanceof phet.buildAnAtom.BAAGameModel };
 BAAGameModelIO.typeName = 'BAAGameModelIO';
-ObjectIO.validateSubtype( BAAGameModelIO );
+ObjectIO.validateIOType( BAAGameModelIO );
 
 buildAnAtom.register( 'BAAGameModelIO', BAAGameModelIO );
 export default BAAGameModelIO;

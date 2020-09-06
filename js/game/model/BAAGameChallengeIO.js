@@ -63,7 +63,7 @@ class BAAGameChallengeIO extends ObjectIO {
 BAAGameChallengeIO.documentation = 'A challenge for the Game';
 BAAGameChallengeIO.validator = { isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge };
 BAAGameChallengeIO.typeName = 'BAAGameChallengeIO';
-ObjectIO.validateSubtype( BAAGameChallengeIO );
+ObjectIO.validateIOType( BAAGameChallengeIO );
 
 buildAnAtom.register( 'BAAGameChallengeIO', BAAGameChallengeIO );
 export default BAAGameChallengeIO;
