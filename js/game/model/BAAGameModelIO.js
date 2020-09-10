@@ -38,7 +38,7 @@ BAAGameModelIO.methods = {
     returnType: VoidIO,
     parameterTypes: [ StringIO ],
     implementation: function( levelType ) {
-      this.phetioObject.startGameLevel( levelType );
+      this.startGameLevel( levelType );
     },
     documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
     invocableForReadOnlyElements: false
@@ -51,7 +51,7 @@ BAAGameModelIO.methods = {
     returnType: VoidIO,
     parameterTypes: [ ArrayIO( ArrayIO( ObjectIO ) ) ],
     implementation: function( challenges ) {
-      this.phetioObject.setChallenges( challenges );
+      this.setChallenges( challenges );
     },
     documentation: 'Specify exact challenges',
     invocableForReadOnlyElements: false
@@ -66,7 +66,7 @@ BAAGameModelIO.methods = {
 
     // TODO: change this to take index as 1st argument (for level index)
     implementation: function( allowedChallengeTypesByLevel ) {
-      this.phetioObject.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
+      this.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
     },
 
     documentation: 'Specify which challenge types may be presented to the user for each level.',
