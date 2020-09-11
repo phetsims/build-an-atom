@@ -7,7 +7,7 @@
  * @author John Blanco
  */
 
-import timer from '../../../../axon/js/timer.js';
+import stepTimer from '../../../../axon/js/stepTimer.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -84,7 +84,7 @@ function ChallengeView( challenge, layoutBounds, tandem ) {
       // Since the button disposes itself while triggering other events, we must run this in the next animation frame
       // to avoid mismatched PhET-iO message indices, see https://github.com/phetsims/build-an-atom/issues/181
       // N.B. That is to say, I don't really understand the problem nor why this solution works.
-      timer.setTimeout( function() {
+      stepTimer.setTimeout( function() {
         challenge.next();
       }, 0 );
     },
