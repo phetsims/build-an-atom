@@ -71,7 +71,7 @@ const BAAGameModelIO = new IOType( 'BAAGameModelIO', {
    * @public
    * // TODO: https://github.com/phetsims/tandem/issues/211 is never called
    */
-  clearChildInstances( baaGameModel ) {
+  clearChildInstances: baaGameModel => {
     baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
       challenge.dispose();
     } );
