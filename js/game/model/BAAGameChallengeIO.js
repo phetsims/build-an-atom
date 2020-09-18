@@ -6,21 +6,20 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import NumberAtomIO from '../../../../shred/js/model/NumberAtomIO.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
-class BAAGameChallengeIO extends ObjectIO {
-
+const BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
+  isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge,
+  documentation: 'A challenge for the Game',
   /**
    * @param {BAAGameChallenge} baaGameChallenge
    * @returns {Object}
    * @public
    * @override
    */
-  static toStateObject( baaGameChallenge ) {
-    validate( baaGameChallenge, this.validator );
+  toStateObject( baaGameChallenge ) {
     return {
       pointValue: baaGameChallenge.pointValue,
       answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
@@ -29,14 +28,14 @@ class BAAGameChallengeIO extends ObjectIO {
       phetioID: baaGameChallenge.tandem.phetioID,
       name: baaGameChallenge.name
     };
-  }
+  },
 
   /**
    * @param {Object} stateObject
    * @public
    * @override
    */
-  static fromStateObject( stateObject ) {
+  fromStateObject( stateObject ) {
     const phetioEngine = phet.phetio.phetioEngine;
 
     // This may have been deserialized from the instance itself or from the array it was contained in (which
@@ -58,12 +57,7 @@ class BAAGameChallengeIO extends ObjectIO {
 
     return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
   }
-}
-
-BAAGameChallengeIO.documentation = 'A challenge for the Game';
-BAAGameChallengeIO.validator = { isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge };
-BAAGameChallengeIO.typeName = 'BAAGameChallengeIO';
-ObjectIO.validateIOType( BAAGameChallengeIO );
+} );
 
 buildAnAtom.register( 'BAAGameChallengeIO', BAAGameChallengeIO );
 export default BAAGameChallengeIO;

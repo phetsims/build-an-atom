@@ -6,36 +6,23 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallengeIO from './BAAGameChallengeIO.js';
 import BAAGameState from './BAAGameState.js';
 
-class BAAGameStateIO extends ObjectIO {
-
-  /**
-   * @param {BAAGameChallenge} baaGameState
-   * @returns
-   * @public
-   * @override
-   */
-  static toStateObject( baaGameState ) {
-    validate( baaGameState, this.validator );
+const BAAGameStateIO = new IOType( 'BAAGameStateIO', {
+  valueType: BAAGameState,
+  documentation: 'A state for the game',
+  toStateObject( baaGameState ) {
     if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
       return BAAGameChallengeIO.toStateObject( baaGameState );
     }
     else {
       return { name: baaGameState.name };
     }
-  }
-
-  /**
-   * @param {Object} stateObject
-   * @public
-   * @override
-   */
-  static fromStateObject( stateObject ) {
+  },
+  fromStateObject( stateObject ) {
 
     if ( stateObject.name === 'choosingLevel' ) {
       return BAAGameState.CHOOSING_LEVEL;
@@ -50,12 +37,7 @@ class BAAGameStateIO extends ObjectIO {
       assert && assert( false, 'unknown game state: ' + stateObject );
     }
   }
-}
-
-BAAGameStateIO.validator = { valueType: BAAGameState };
-BAAGameStateIO.documentation = 'A state for the game';
-BAAGameStateIO.typeName = 'BAAGameStateIO';
-ObjectIO.validateIOType( BAAGameStateIO );
+} );
 
 buildAnAtom.register( 'BAAGameStateIO', BAAGameStateIO );
 export default BAAGameStateIO;

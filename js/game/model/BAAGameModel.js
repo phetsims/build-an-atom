@@ -17,7 +17,7 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import BAAGameChallengeIO from './BAAGameChallengeIO.js';
@@ -101,7 +101,7 @@ function BAAGameModel( tandem ) {
   // @private
   this.levelCompletedEmitter = new Emitter( {
     tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-    parameters: [ { name: 'results', phetioType: ObjectIO } ]
+    parameters: [ { name: 'results', phetioType: IOType.ObjectIO } ]
   } );
 
   this.bestScores = []; // Properties that track progress on each game level.
@@ -126,7 +126,7 @@ function BAAGameModel( tandem ) {
 
   this.checkAnswerEmitter = new Emitter( {
     tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-    parameters: [ { name: 'result', phetioType: ObjectIO } ]
+    parameters: [ { name: 'result', phetioType: IOType.ObjectIO } ]
   } );
 
   // @private
