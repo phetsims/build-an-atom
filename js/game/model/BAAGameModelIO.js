@@ -18,9 +18,6 @@ const BAAGameModelIO = new IOType( 'BAAGameModelIO', {
   documentation: 'The model for the Game',
   methods: {
 
-    /**
-     * @public
-     */
     startGameLevel: {
       returnType: VoidIO,
       parameterTypes: [ StringIO ],
@@ -31,9 +28,6 @@ const BAAGameModelIO = new IOType( 'BAAGameModelIO', {
       invocableForReadOnlyElements: false
     },
 
-    /**
-     * @public
-     */
     setChallenges: {
       returnType: VoidIO,
       parameterTypes: [ ArrayIO( ArrayIO( IOType.ObjectIO ) ) ],
@@ -44,9 +38,6 @@ const BAAGameModelIO = new IOType( 'BAAGameModelIO', {
       invocableForReadOnlyElements: false
     },
 
-    /**
-     * @public
-     */
     setAllowedChallengeTypesByLevel: {
       returnType: VoidIO,
       parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
