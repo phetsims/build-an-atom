@@ -13,29 +13,15 @@ import buildAnAtom from '../../buildAnAtom.js';
 const BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
   isValidValue: v => v instanceof phet.buildAnAtom.BAAGameChallenge,
   documentation: 'A challenge for the Game',
-  /**
-   * @param {BAAGameChallenge} baaGameChallenge
-   * @returns {Object}
-   * @public
-   * @override
-   */
-  toStateObject( baaGameChallenge ) {
-    return {
-      pointValue: baaGameChallenge.pointValue,
-      answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
-      modelPhetioID: baaGameChallenge.model.tandem.phetioID,
-      challengeType: baaGameChallenge.challengeType,
-      phetioID: baaGameChallenge.tandem.phetioID,
-      name: baaGameChallenge.name
-    };
-  },
-
-  /**
-   * @param {Object} stateObject
-   * @public
-   * @override
-   */
-  fromStateObject( stateObject ) {
+  toStateObject: baaGameChallenge => ( {
+    pointValue: baaGameChallenge.pointValue,
+    answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
+    modelPhetioID: baaGameChallenge.model.tandem.phetioID,
+    challengeType: baaGameChallenge.challengeType,
+    phetioID: baaGameChallenge.tandem.phetioID,
+    name: baaGameChallenge.name
+  } ),
+  fromStateObject: stateObject => {
     const phetioEngine = phet.phetio.phetioEngine;
 
     // This may have been deserialized from the instance itself or from the array it was contained in (which

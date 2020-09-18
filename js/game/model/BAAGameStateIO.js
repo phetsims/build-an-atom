@@ -14,7 +14,7 @@ import BAAGameState from './BAAGameState.js';
 const BAAGameStateIO = new IOType( 'BAAGameStateIO', {
   valueType: BAAGameState,
   documentation: 'A state for the game',
-  toStateObject( baaGameState ) {
+  toStateObject: baaGameState => {
     if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
       return BAAGameChallengeIO.toStateObject( baaGameState );
     }
@@ -22,7 +22,7 @@ const BAAGameStateIO = new IOType( 'BAAGameStateIO', {
       return { name: baaGameState.name };
     }
   },
-  fromStateObject( stateObject ) {
+  fromStateObject: stateObject => {
 
     if ( stateObject.name === 'choosingLevel' ) {
       return BAAGameState.CHOOSING_LEVEL;
