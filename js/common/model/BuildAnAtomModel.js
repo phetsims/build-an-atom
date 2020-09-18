@@ -8,7 +8,6 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import Property from '../../../../axon/js/Property.js';
 import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -197,7 +196,7 @@ function BuildAnAtomModel( tandem, options ) {
     {
       tandem: tandem.createTandem( 'nucleusStableProperty' ),
       phetioState: options.phetioState,
-      phetioType: DerivedPropertyIO( BooleanIO )
+      phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
     }
   );
 
