@@ -24,7 +24,7 @@ import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
-import BucketDragHandler from '../../../../shred/js/view/BucketDragHandler.js';
+import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
@@ -188,8 +188,8 @@ function AtomView( model, tandem ) {
       tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Front' )
     } );
     bucketFrontLayer.addChild( bucketFront );
-    bucketFront.addInputListener( new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
-      tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'DragHandler' )
+    bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
+      tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'DragListener' )
     } ) );
   } );
 
