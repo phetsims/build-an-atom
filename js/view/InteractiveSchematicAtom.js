@@ -12,7 +12,7 @@ import Node from '../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import shred from '../shred.js';
 import AtomNode from './AtomNode.js';
-import BucketDragHandler from './BucketDragHandler.js';
+import BucketDragListener from './BucketDragListener.js';
 import ParticleView from './ParticleView.js';
 
 // constants
@@ -130,14 +130,14 @@ function InteractiveSchematicAtom( model, modelViewTransform, options ) {
   _.each( model.buckets, function( bucket ) {
     const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
     self.addChild( bucketFront );
-    const bucketDragHandler = new BucketDragHandler( bucket, bucketFront, modelViewTransform, {
-      tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.name + 'DragHandler' )
+    const bucketDragListener = new BucketDragListener( bucket, bucketFront, modelViewTransform, {
+      tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.name + 'DragListener' )
     } );
-    bucketFront.addInputListener( bucketDragHandler );
+    bucketFront.addInputListener( bucketDragListener );
 
     // add to separate list for later disposal
     bucketFrontsAndDragHandlers.push( bucketFront );
-    bucketFrontsAndDragHandlers.push( bucketDragHandler );
+    bucketFrontsAndDragHandlers.push( bucketDragListener );
   } );
 
   this.disposeInteractiveSchematicAtom = function() {
