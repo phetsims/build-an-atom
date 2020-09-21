@@ -154,7 +154,11 @@ function InteractiveSchematicAtom( model, modelViewTransform, options ) {
 shred.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
 
 inherit( Node, InteractiveSchematicAtom, {
-  // @public
+
+  /**
+   * @public
+   * @override
+   */
   dispose: function() {
     this.disposeInteractiveSchematicAtom();
     Node.prototype.dispose.call( this );
