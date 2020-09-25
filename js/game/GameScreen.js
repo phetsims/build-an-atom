@@ -9,7 +9,6 @@
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import inherit from '../../../phet-core/js/inherit.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import gameIcon from '../../images/game_icon_png.js';
@@ -19,37 +18,33 @@ import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BAAGameModel from './model/BAAGameModel.js';
 import BAAGameScreenView from './view/BAAGameScreenView.js';
 
-const gameString = buildAnAtomStrings.game;
+class GameScreen extends Screen {
 
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
+    super(
+      function() { return new BAAGameModel( tandem.createTandem( 'model' ) ); },
 
-/**
- * @constructor
- * @param {Tandem} tandem
- */
-function GameScreen( tandem ) {
-  Screen.call(
-    this,
-    function() { return new BAAGameModel( tandem.createTandem( 'model' ) ); },
-
-    // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
-    function( model ) { return new BAAGameScreenView( model, Tandem.OPTIONAL ); },
-    {
-      name: gameString,
-      backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
-      homeScreenIcon: new ScreenIcon( new Image( gameIcon ), {
-        maxIconWidthProportion: 1,
-        maxIconHeightProportion: 1
-      } ),
-      navigationBarIcon: new ScreenIcon( new Image( gameIconSmall ), {
-        maxIconWidthProportion: 1,
-        maxIconHeightProportion: 1
-      } ),
-      tandem: tandem
-    }
-  );
+      // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
+      function( model ) { return new BAAGameScreenView( model, Tandem.OPTIONAL ); },
+      {
+        name: buildAnAtomStrings.game,
+        backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
+        homeScreenIcon: new ScreenIcon( new Image( gameIcon ), {
+          maxIconWidthProportion: 1,
+          maxIconHeightProportion: 1
+        } ),
+        navigationBarIcon: new ScreenIcon( new Image( gameIconSmall ), {
+          maxIconWidthProportion: 1,
+          maxIconHeightProportion: 1
+        } ),
+        tandem: tandem
+      }
+    );
+  }
 }
 
 buildAnAtom.register( 'GameScreen', GameScreen );
-
-inherit( Screen, GameScreen );
 export default GameScreen;
