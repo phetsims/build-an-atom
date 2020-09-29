@@ -9,7 +9,6 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import inherit from '../../../../phet-core/js/inherit.js';
@@ -75,7 +74,7 @@ function BuildAnAtomModel( tandem, options ) {
   this.electronShellDepictionProperty = new Property( 'orbits', {
     tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
     phetioState: options.phetioState,
-    phetioType: PropertyIO( StringIO ),
+    phetioType: Property.PropertyIO( StringIO ),
     validValues: [ 'orbits', 'cloud' ]
   } );
 

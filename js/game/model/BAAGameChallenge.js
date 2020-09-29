@@ -11,7 +11,6 @@
 import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import Range from '../../../../dot/js/Range.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
@@ -38,7 +37,7 @@ function BAAGameChallenge( buildAnAtomGameModel, answerAtom, challengeType, tand
   } );
   this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
     tandem: tandem.createTandem( 'challengeStateProperty' ),
-    phetioType: PropertyIO( StringIO ), // TODO why not an Enum?
+    phetioType: Property.PropertyIO( StringIO ), // TODO why not an Enum?
     phetioReadOnly: true,
     phetioState: false,
     validValues: _.values( BAAChallengeState )

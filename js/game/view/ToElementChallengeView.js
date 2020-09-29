@@ -9,7 +9,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -44,7 +43,7 @@ function ToElementChallengeView( countsToElementChallenge, layoutBounds, tandem 
   this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
   this.neutralOrIonProperty = new Property( 'noSelection', {
     tandem: tandem.createTandem( 'neutralOrIonProperty' ),
-    phetioType: PropertyIO( StringIO )
+    phetioType: Property.PropertyIO( StringIO )
   } );
   ChallengeView.call( this, countsToElementChallenge, layoutBounds, tandem );
   const self = this;

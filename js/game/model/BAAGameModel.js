@@ -10,7 +10,6 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
@@ -55,7 +54,7 @@ function BAAGameModel( tandem ) {
 
   // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
   this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-    phetioType: PropertyIO( BAAGameStateIO ),
+    phetioType: Property.PropertyIO( BAAGameStateIO ),
     tandem: tandem.createTandem( 'stateProperty' )
   } );
 
@@ -74,7 +73,7 @@ function BAAGameModel( tandem ) {
   // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
   this.challengeSetProperty = new Property( [], {
     tandem: tandem.createTandem( 'challengeSetProperty' ),
-    phetioType: PropertyIO( ArrayIO( BAAGameChallengeIO ) )
+    phetioType: Property.PropertyIO( ArrayIO( BAAGameChallengeIO ) )
   } );
 
   // @public (read-only) {Property.<number>}
