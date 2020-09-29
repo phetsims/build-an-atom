@@ -13,11 +13,12 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import inherit from '../../../../phet-core/js/inherit.js';
+import NumberAtomIO from '../../../../shred/js/model/NumberAtomIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
-import BAAGameChallengeIO from './BAAGameChallengeIO.js';
 import BAAGameState from './BAAGameState.js';
 
 /**
@@ -33,7 +34,7 @@ function BAAGameChallenge( buildAnAtomGameModel, answerAtom, challengeType, tand
   BAAGameState.call( this, 'challenge', {
     tandem: tandem,
     phetioState: false,
-    phetioType: BAAGameChallengeIO
+    phetioType: BAAGameChallenge.BAAGameChallengeIO
   } );
   this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
     tandem: tandem.createTandem( 'challengeStateProperty' ),
@@ -154,6 +155,41 @@ inherit( BAAGameState, BAAGameChallenge, {
    */
   displayCorrectAnswer: function() {
     this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
+  }
+} );
+
+BAAGameChallenge.BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
+  valueType: BAAGameChallenge,
+  documentation: 'A challenge for the Game',
+  toStateObject: baaGameChallenge => ( {
+    pointValue: baaGameChallenge.pointValue,
+    answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
+    modelPhetioID: baaGameChallenge.model.tandem.phetioID,
+    challengeType: baaGameChallenge.challengeType,
+    phetioID: baaGameChallenge.tandem.phetioID,
+    name: baaGameChallenge.name
+  } ),
+  fromStateObject: stateObject => {
+    const phetioEngine = phet.phetio.phetioEngine;
+
+    // This may have been deserialized from the instance itself or from the array it was contained in (which
+    // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
+    // TODO: is there a better way to do this, or at least factor it out?
+    const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
+    if ( instance ) {
+      return phetioEngine.getPhetioObject( stateObject.phetioID );
+    }
+
+    const model = phetioEngine.getPhetioObject( stateObject.modelPhetioID );
+
+    const answerAtom = new phet.shred.NumberAtom( {
+      protonCount: stateObject.answerAtom.protonCount,
+      neutronCount: stateObject.answerAtom.neutronCount,
+      electronCount: stateObject.answerAtom.electronCount
+    } );
+    const tandem = new phet.tandem.Tandem( stateObject.phetioID );
+
+    return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
   }
 } );
 

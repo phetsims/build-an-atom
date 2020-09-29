@@ -19,7 +19,7 @@ import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import BAAGameChallengeIO from './BAAGameChallengeIO.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 import BAAGameModelIO from './BAAGameModelIO.js';
 import BAAGameState from './BAAGameState.js';
 import BAAGameStateIO from './BAAGameStateIO.js';
@@ -73,7 +73,7 @@ function BAAGameModel( tandem ) {
   // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
   this.challengeSetProperty = new Property( [], {
     tandem: tandem.createTandem( 'challengeSetProperty' ),
-    phetioType: Property.PropertyIO( ArrayIO( BAAGameChallengeIO ) )
+    phetioType: Property.PropertyIO( ArrayIO( BAAGameChallenge.BAAGameChallengeIO ) )
   } );
 
   // @public (read-only) {Property.<number>}

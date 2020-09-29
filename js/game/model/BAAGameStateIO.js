@@ -8,7 +8,7 @@
 
 import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAGameChallengeIO from './BAAGameChallengeIO.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 import BAAGameState from './BAAGameState.js';
 
 const BAAGameStateIO = new IOType( 'BAAGameStateIO', {
@@ -16,7 +16,7 @@ const BAAGameStateIO = new IOType( 'BAAGameStateIO', {
   documentation: 'A state for the game',
   toStateObject: baaGameState => {
     if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
-      return BAAGameChallengeIO.toStateObject( baaGameState );
+      return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState );
     }
     else {
       return { name: baaGameState.name };
@@ -31,7 +31,7 @@ const BAAGameStateIO = new IOType( 'BAAGameStateIO', {
       return BAAGameState.LEVEL_COMPLETED;
     }
     else if ( stateObject.name === 'challenge' ) {
-      return BAAGameChallengeIO.fromStateObject( stateObject );
+      return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject );
     }
     else {
       assert && assert( false, 'unknown game state: ' + stateObject );
