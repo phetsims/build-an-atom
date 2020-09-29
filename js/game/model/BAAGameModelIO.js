@@ -60,7 +60,7 @@ const BAAGameModelIO = new IOType( 'BAAGameModelIO', {
   /**
    * @param {BAAGameModel} baaGameModel
    * @public
-   * // TODO: https://github.com/phetsims/tandem/issues/211 is never called
+   * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
    */
   clearChildInstances: baaGameModel => {
     baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
