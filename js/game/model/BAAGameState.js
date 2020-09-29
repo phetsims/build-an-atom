@@ -12,7 +12,9 @@
 
 import inherit from '../../../../phet-core/js/inherit.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 
 /**
  * @param {String} name
@@ -92,5 +94,34 @@ inherit( PhetioObject, BAAGameState, {
 // static instance of game states
 BAAGameState.CHOOSING_LEVEL = new BAAGameState( 'choosingLevel' );
 BAAGameState.LEVEL_COMPLETED = new BAAGameState( 'levelCompleted' );
+
+BAAGameState.BAAGameStateIO = new IOType( 'BAAGameStateIO', {
+  valueType: BAAGameState,
+  documentation: 'A state for the game',
+  toStateObject: baaGameState => {
+    if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
+      return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState );
+    }
+    else {
+      return { name: baaGameState.name };
+    }
+  },
+  fromStateObject: stateObject => {
+
+    if ( stateObject.name === 'choosingLevel' ) {
+      return BAAGameState.CHOOSING_LEVEL;
+    }
+    else if ( stateObject.name === 'levelCompleted' ) {
+      return BAAGameState.LEVEL_COMPLETED;
+    }
+    else if ( stateObject.name === 'challenge' ) {
+      return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject );
+    }
+    else {
+      assert && assert( false, 'unknown game state: ' + stateObject );
+    }
+  }
+} );
+
 
 export default BAAGameState;

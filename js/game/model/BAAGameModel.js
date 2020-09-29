@@ -17,12 +17,12 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
+import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
-import BAAGameModelIO from './BAAGameModelIO.js';
 import BAAGameState from './BAAGameState.js';
-import BAAGameStateIO from './BAAGameStateIO.js';
 import ChallengeSetFactory from './ChallengeSetFactory.js';
 
 // constants
@@ -39,7 +39,7 @@ function BAAGameModel( tandem ) {
   const self = this;
 
   PhetioObject.call( this, {
-    phetioType: BAAGameModelIO,
+    phetioType: BAAGameModel.BAAGameModelIO,
     tandem: tandem,
     phetioState: false
   } );
@@ -54,7 +54,7 @@ function BAAGameModel( tandem ) {
 
   // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
   this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-    phetioType: Property.PropertyIO( BAAGameStateIO ),
+    phetioType: Property.PropertyIO( BAAGameState.BAAGameStateIO ),
     tandem: tandem.createTandem( 'stateProperty' )
   } );
 
@@ -319,6 +319,63 @@ inherit( PhetioObject, BAAGameModel, {
   // statics
   MAX_POINTS_PER_GAME_LEVEL: MAX_POINTS_PER_GAME_LEVEL,
   CHALLENGES_PER_LEVEL: CHALLENGES_PER_LEVEL
+} );
+
+BAAGameModel.BAAGameModelIO = new IOType( 'BAAGameModelIO', {
+  valueType: BAAGameModel,
+  documentation: 'The model for the Game',
+  methods: {
+
+    startGameLevel: {
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
+      implementation: function( levelType ) {
+        this.startGameLevel( levelType );
+      },
+      documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
+      invocableForReadOnlyElements: false
+    },
+
+    setChallenges: {
+      returnType: VoidIO,
+      parameterTypes: [ ArrayIO( ArrayIO( IOType.ObjectIO ) ) ],
+      implementation: function( challenges ) {
+        this.setChallenges( challenges );
+      },
+      documentation: 'Specify exact challenges',
+      invocableForReadOnlyElements: false
+    },
+
+    setAllowedChallengeTypesByLevel: {
+      returnType: VoidIO,
+      parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
+
+      // TODO: change this to take index as 1st argument (for level index)
+      implementation: function( allowedChallengeTypesByLevel ) {
+        this.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
+      },
+
+      documentation: 'Specify which challenge types may be presented to the user for each level.',
+      invocableForReadOnlyElements: false
+      // The default value is [
+      //    [ 'schematic-to-element', 'counts-to-element' ],
+      //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
+      //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
+      //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+      //  ]
+    }
+  },
+  /**
+   * @param {BAAGameModel} baaGameModel
+   * @public
+   * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
+   */
+  clearChildInstances: baaGameModel => {
+    baaGameModel.challengeSetProperty.value.forEach( function( challenge ) {
+      challenge.dispose();
+    } );
+    baaGameModel.challengeSetProperty.reset();
+  }
 } );
 
 export default BAAGameModel;
