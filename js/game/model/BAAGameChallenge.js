@@ -13,7 +13,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import inherit from '../../../../phet-core/js/inherit.js';
-import NumberAtomIO from '../../../../shred/js/model/NumberAtomIO.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -163,7 +163,7 @@ BAAGameChallenge.BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
   documentation: 'A challenge for the Game',
   toStateObject: baaGameChallenge => ( {
     pointValue: baaGameChallenge.pointValue,
-    answerAtom: NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
+    answerAtom: NumberAtom.NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
     modelPhetioID: baaGameChallenge.model.tandem.phetioID,
     challengeType: baaGameChallenge.challengeType,
     phetioID: baaGameChallenge.tandem.phetioID,
