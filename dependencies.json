@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.7.0-dev.1 Mon Nov 09 2020 16:37:13 GMT-0700 (Mountain Standard Time)",
+  "comment": "# build-an-atom 1.7.0-dev.2 Mon Nov 09 2020 16:49:50 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "49aa67d01046326d85dcd8f265db91e8753038a1",
     "branch": "master"
@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "build-an-atom": {
-    "sha": "05c0fcd9578d25cca513e221c7b21179c3c57e23",
+    "sha": "afbceec77a82468fc8758efa9fc571152d42f99c",
     "branch": "master"
   },
   "chipper": {
@@ -73,7 +73,7 @@
     "branch": "master"
   },
   "shred": {
-    "sha": "6760e9eb19e25185b3474e6abc4a7629f0783a12",
+    "sha": "d53c77d8ee0e741a0ab806d335b232482c095a97",
     "branch": "master"
   },
   "studio": {
