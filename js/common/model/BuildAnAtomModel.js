@@ -202,19 +202,6 @@ function BuildAnAtomModel( tandem, options ) {
   // @private - variables used to animate the nucleus when it is unstable
   this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
   this.nucleusOffset = Vector2.ZERO;
-  //this.nucleusStableProperty.link( function( nucleusIsStable ) {
-  //  if ( nucleusIsStable ) {
-  //    self.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-  //    self.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
-  //  }
-  //} );
-
-  // If stability label visibility is turned off when nucleus animation is in progress, move nucleus to center.
-  //this.showStableOrUnstableProperty.link( function( showStableOrUnstable ) {
-  //  if ( !showStableOrUnstable ) {
-  //    self.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
-  //  }
-  //} );
 
   // add a variable used when making the nucleus jump in order to indicate instability
   this.nucleusJumpCount = 0;
