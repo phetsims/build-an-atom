@@ -8,7 +8,7 @@ import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import buildAnAtomStrings from './buildAnAtomStrings.js';
-import BuildAnAtomScreen from './buildanatom/BuildAnAtomScreen.js';
+import BuildAnAtomScreen from './atom/BuildAnAtomScreen.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
