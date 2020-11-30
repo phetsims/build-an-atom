@@ -12,7 +12,6 @@ import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
@@ -21,69 +20,67 @@ import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
 
-/**
- * @param {BAAGameModel} buildAnAtomGameModel
- * @param {NumberAtom} answerAtom
- * @param {string} challengeType
- * @param {Tandem} tandem
- * @constructor
- */
-function BAAGameChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+class BAAGameChallenge extends BAAGameState {
 
-  // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
-  BAAGameState.call( this, 'challenge', {
-    tandem: tandem,
-    phetioState: false,
-    phetioType: BAAGameChallenge.BAAGameChallengeIO
-  } );
-  this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
-    tandem: tandem.createTandem( 'challengeStateProperty' ),
-    phetioType: Property.PropertyIO( StringIO ), // TODO why not an Enum?
-    phetioReadOnly: true,
-    phetioState: false,
-    validValues: _.values( BAAChallengeState )
-  } );
-  this.numSubmissionsProperty = new NumberProperty( 0, {
-    tandem: tandem.createTandem( 'numSubmissionsProperty' ),
-    range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
-    phetioReadOnly: true,
-    phetioState: false
-  } );
-  this.answerAtom = answerAtom; // @public (phet-io)
-  this.pointValue = 0; // @public (phet-io)
-  this.model = buildAnAtomGameModel; // @public (phet-io)
-  this.challengeType = challengeType; // @public (phet-io)
+  /**
+   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
+   */
+  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
 
-  // @public
-  this.disposeEmitter = new Emitter();
-}
+    // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether.
+    super( 'challenge', {
+      tandem: tandem,
+      phetioState: false,
+      phetioType: BAAGameChallenge.BAAGameChallengeIO
+    } );
+    this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
+      tandem: tandem.createTandem( 'challengeStateProperty' ),
+      phetioType: Property.PropertyIO( StringIO ), // TODO why not an Enum?
+      phetioReadOnly: true,
+      phetioState: false,
+      validValues: _.values( BAAChallengeState )
+    } );
+    this.numSubmissionsProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'numSubmissionsProperty' ),
+      range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
+      phetioReadOnly: true,
+      phetioState: false
+    } );
+    this.answerAtom = answerAtom; // @public (phet-io)
+    this.pointValue = 0; // @public (phet-io)
+    this.model = buildAnAtomGameModel; // @public (phet-io)
+    this.challengeType = challengeType; // @public (phet-io)
 
-buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
-
-inherit( BAAGameState, BAAGameChallenge, {
+    // @public
+    this.disposeEmitter = new Emitter();
+  }
 
   /**
    * @public - release resources when no longer used
    */
-  dispose: function() {
+  dispose() {
     assert && assert( !this.isDisposed, 'only dispose once' );
     this.disposeEmitter.emit();
     this.challengeStateProperty.dispose();
     this.numSubmissionsProperty.dispose();
 
-    BAAGameState.prototype.dispose.call( this );
+    super.dispose();
 
     // Remove all listeners from the dispose emitter to avoid memory leaks.
     this.disposeEmitter.dispose();
 
     // make sure disposed flag is set (though it should have been set by the superclass's dispose function)
     this.isDisposed = true;
-  },
+  }
 
   /**
+   * @public
    * @override
    */
-  handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ) {
+  handleEvaluatedAnswer( submittedAtom, isCorrect, emitMessageOptions ) {
 
     this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
     const pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
@@ -117,12 +114,13 @@ inherit( BAAGameState, BAAGameChallenge, {
       // don't provide any feedback - just go to the next challenge
       this.next();
     }
-  },
+  }
 
   /**
    * @override
+   * @public
    */
-  checkAnswer: function( submittedAtom ) {
+  checkAnswer( submittedAtom ) {
 
     // Verify that the current state is as expected.
     assert && assert(
@@ -132,31 +130,36 @@ inherit( BAAGameState, BAAGameChallenge, {
 
     const isCorrect = this.answerAtom.equals( submittedAtom );
     this.handleEvaluatedAnswer( submittedAtom, isCorrect );
-  },
+  }
 
   /**
    * @override
+   * @public
    */
-  tryAgain: function() {
+  tryAgain() {
     this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
-  },
+  }
 
   /**
    * @override
+   * @public
    */
-  next: function() {
+  next() {
     // This event is basically handled by the model, which will remove this challenge and do whatever should happen
     // next.
     this.model.next();
-  },
+  }
 
   /**
    * @override
+   * @public
    */
-  displayCorrectAnswer: function() {
+  displayCorrectAnswer() {
     this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
   }
-} );
+}
+
+buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
 
 BAAGameChallenge.BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
   valueType: BAAGameChallenge,

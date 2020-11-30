@@ -17,15 +17,15 @@ import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import SymbolView from './view/SymbolView.js';
 
-class SymbolScreen extends  Screen {
+class SymbolScreen extends Screen {
 
   /**
    * @param {Tandem} tandem
    */
   constructor( tandem ) {
     super(
-      function() { return new BuildAnAtomModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new SymbolView( model, tandem.createTandem( 'view' ) ); },
+      () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
+      model => new SymbolView( model, tandem.createTandem( 'view' ) ),
       {
         name: buildAnAtomStrings.symbol,
         backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */

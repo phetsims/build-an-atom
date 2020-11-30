@@ -244,15 +244,13 @@ AtomValuePool.prototype.markAtomAsUsed = function( atomValueToRemove ) {
 AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProtonCount, requireCharged ) {
 
   // Define a function that returns true if a given atom matches the criteria.
-  const meetsCriteria = function( numberAtom ) {
-    return numberAtom.protonCountProperty.get() >= minProtonCount &&
-           numberAtom.protonCountProperty.get() < maxProtonCount &&
-           ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
-  };
+  const meetsCriteria = numberAtom => numberAtom.protonCountProperty.get() >= minProtonCount &&
+                                      numberAtom.protonCountProperty.get() < maxProtonCount &&
+                                      ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
 
   // Make a list of the atoms that meet the criteria.
   const allowableAtomValues = [];
-  this.remainingAtomValues.forEach( function( numberAtom ) {
+  this.remainingAtomValues.forEach( numberAtom => {
     if ( meetsCriteria( numberAtom ) ) {
       allowableAtomValues.push( numberAtom );
     }
@@ -261,7 +259,7 @@ AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProton
   if ( allowableAtomValues.length === 0 ) {
     // There were none available on the list of unused atoms, so
     // add them from the list of used atoms instead.
-    this.usedAtomValues.forEach( function( numberAtom ) {
+    this.usedAtomValues.forEach( numberAtom => {
       if ( meetsCriteria( numberAtom ) ) {
         allowableAtomValues.push( numberAtom );
       }

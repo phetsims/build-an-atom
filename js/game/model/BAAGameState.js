@@ -10,24 +10,20 @@
  * @author John Blanco
  */
 
-import inherit from '../../../../phet-core/js/inherit.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 
-/**
- * @param {String} name
- * @constructor
- */
-function BAAGameState( name, options ) {
-  this.name = name;
-  PhetioObject.call( this, options );
-}
+class BAAGameState extends PhetioObject {
 
-buildAnAtom.register( 'BAAGameState', BAAGameState );
-
-inherit( PhetioObject, BAAGameState, {
+  /**
+   * @param {String} name
+   */
+  constructor( name, options ) {
+    super( options );
+    this.name = name;
+  }
 
   //-----------------------------------------------------------------------------------------------------------------
   // The following functions comprise the API used by the challenge view to send user events to the challenge.
@@ -40,9 +36,9 @@ inherit( PhetioObject, BAAGameState, {
    * @param {Object} emitMessageOptions
    * @public
    */
-  handleEvaluatedAnswer: function( submittedAtom, isCorrect, emitMessageOptions ) {
+  handleEvaluatedAnswer( submittedAtom, isCorrect, emitMessageOptions ) {
     throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
-  },
+  }
 
   /**
    * Process the answer submitted by the user.  This is the most basic check, and more elaborate ways of verifying
@@ -50,46 +46,45 @@ inherit( PhetioObject, BAAGameState, {
    * @param {NumberAtom} submittedAtom
    * @public
    */
-  checkAnswer: function( submittedAtom ) {
+  checkAnswer( submittedAtom ) {
     throw new Error( 'checkAnswer should never be called in base class' );
-  },
+  }
 
   /**
    * allow the user to try again to correctly answer the question
    * @public
    */
-  tryAgain: function() {
+  tryAgain() {
     throw new Error( 'tryAgain should never be called in base class' );
-  },
+  }
 
   /**
    * advance to the next question or finish the level
    * @public
    */
-  next: function() {
+  next() {
     throw new Error( 'next should never be called in base class' );
-  },
+  }
 
   /**
    * display the correct answer to the user
    * @public
    */
-  displayCorrectAnswer: function() {
+  displayCorrectAnswer() {
     throw new Error( 'displayCorrectAnswer should never be called in base class' );
-  },
+  }
 
   /**
    * step the challenge in time, override in any states/challenges that have time-dependent behavior
    * @param dt
+   * @public
    */
-  step: function( dt ) {
+  step( dt ) {
     // stubbed in base class
-  },
-
-  dispose: function() {
-    PhetioObject.prototype.dispose.call( this );
   }
-} );
+}
+
+buildAnAtom.register( 'BAAGameState', BAAGameState );
 
 // static instance of game states
 BAAGameState.CHOOSING_LEVEL = new BAAGameState( 'choosingLevel' );

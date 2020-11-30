@@ -8,95 +8,97 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
 const whatIsTheMassNumberString = buildAnAtomStrings.whatIsTheMassNumber;
 
-/**
- * @param {CountsToMassNumberChallenge} countsToMassNumberChallenge
- * @param {Bounds2} layoutBounds
- * @param {Tandem} tandem
- * @constructor
- */
-function CountsToMassNumberChallengeView( countsToMassNumberChallenge, layoutBounds, tandem ) {
+class CountsToMassNumberChallengeView extends ChallengeView {
 
-  // Must be defined before call to super constructor.
-  this.massNumberAnswerProperty = new NumberProperty( 0, {
-    tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
-    numberType: 'Integer'
-  } );
-  ChallengeView.call( this, countsToMassNumberChallenge, layoutBounds, tandem );
-  const self = this;
+  /**
+   * @param {CountsToMassNumberChallenge} countsToMassNumberChallenge
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
+   */
+  constructor( countsToMassNumberChallenge, layoutBounds, tandem ) {
 
-  // Particle counts
-  const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
-  self.challengePresentationNode.addChild( particleCountsNode );
+    super( countsToMassNumberChallenge, layoutBounds, tandem );
 
-  const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
-    align: 'left',
-    font: new PhetFont( 24 ),
-    maxWidth: 200,
-    tandem: tandem.createTandem( 'questionPrompt' )
-  } );
-  self.interactiveAnswerNode.addChild( questionPrompt );
-
-  // Node for entering the answer
-  const numberEntryNode = new NumberEntryNode(
-    self.massNumberAnswerProperty,
-    tandem.createTandem( 'numberEntryNode' ), {
-      minValue: 0,
-      maxValue: 99
+    // TODO: Must be defined before call to super constructor.
+    this.massNumberAnswerProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
+      numberType: 'Integer'
     } );
-  self.interactiveAnswerNode.addChild( numberEntryNode );
 
-  // Layout
-  particleCountsNode.centerX = layoutBounds.width * 0.3;
-  particleCountsNode.centerY = layoutBounds.height * 0.5;
-  questionPrompt.centerX = layoutBounds.width * 0.65;
-  questionPrompt.centerY = layoutBounds.height * 0.5;
-  numberEntryNode.left = questionPrompt.right + 10;
-  numberEntryNode.centerY = questionPrompt.centerY;
+    // Particle counts
+    const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
+    this.challengePresentationNode.addChild( particleCountsNode );
 
-  // @private - called by dispose
-  this.disposeCountsToMassNumberChallengeView = function() {
-    particleCountsNode.dispose();
-    questionPrompt.dispose();
-    numberEntryNode.dispose();
-    this.massNumberAnswerProperty.dispose();
-  };
-}
+    const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
+      align: 'left',
+      font: new PhetFont( 24 ),
+      maxWidth: 200,
+      tandem: tandem.createTandem( 'questionPrompt' )
+    } );
+    this.interactiveAnswerNode.addChild( questionPrompt );
 
-buildAnAtom.register( 'CountsToMassNumberChallengeView', CountsToMassNumberChallengeView );
+    // Node for entering the answer
+    const numberEntryNode = new NumberEntryNode(
+      this.massNumberAnswerProperty,
+      tandem.createTandem( 'numberEntryNode' ), {
+        minValue: 0,
+        maxValue: 99
+      } );
+    this.interactiveAnswerNode.addChild( numberEntryNode );
 
-inherit( ChallengeView, CountsToMassNumberChallengeView, {
+    // Layout
+    particleCountsNode.centerX = layoutBounds.width * 0.3;
+    particleCountsNode.centerY = layoutBounds.height * 0.5;
+    questionPrompt.centerX = layoutBounds.width * 0.65;
+    questionPrompt.centerY = layoutBounds.height * 0.5;
+    numberEntryNode.left = questionPrompt.right + 10;
+    numberEntryNode.centerY = questionPrompt.centerY;
+
+    // @private - called by dispose
+    this.disposeCountsToMassNumberChallengeView = function() {
+      particleCountsNode.dispose();
+      questionPrompt.dispose();
+      numberEntryNode.dispose();
+      this.massNumberAnswerProperty.dispose();
+    };
+  }
 
   // @public
-  checkAnswer: function() {
+  checkAnswer() {
     const userSubmittedAnswer = new NumberAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
       electronCount: this.challenge.answerAtom.electronCountProperty.get()
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
-  },
+  }
 
   // @public
-  displayCorrectAnswer: function() {
+  displayCorrectAnswer() {
     this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
-  },
-
-  dispose: function() {
-    this.disposeCountsToMassNumberChallengeView();
-    ChallengeView.prototype.dispose.call( this );
   }
-} );
+
+  /**
+   * release references
+   * @public
+   */
+  dispose() {
+    this.disposeCountsToMassNumberChallengeView();
+    super.dispose();
+  }
+}
+
+buildAnAtom.register( 'CountsToMassNumberChallengeView', CountsToMassNumberChallengeView );
 
 export default CountsToMassNumberChallengeView;

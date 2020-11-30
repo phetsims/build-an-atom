@@ -30,8 +30,8 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
+import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
@@ -65,7 +65,6 @@ class AtomView extends ScreenView {
       tandem: tandem
     } );
 
-    const self = this;
     this.model = model;
     this.resetFunctions = [];
 
@@ -77,7 +76,7 @@ class AtomView extends ScreenView {
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
-      new Vector2( self.layoutBounds.width * 0.3, self.layoutBounds.height * 0.45 ),
+      new Vector2( this.layoutBounds.width * 0.3, this.layoutBounds.height * 0.45 ),
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
@@ -91,8 +90,8 @@ class AtomView extends ScreenView {
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
-    _.each( model.buckets, function( bucket ) {
-      self.addChild( new BucketHole( bucket, modelViewTransform, {
+    _.each( model.buckets, bucket => {
+      this.addChild( new BucketHole( bucket, modelViewTransform, {
         pickable: false,
         tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Hole' )
       } ) );
@@ -104,7 +103,7 @@ class AtomView extends ScreenView {
     // Add the layers where the nucleons will exist.
     const nucleonLayers = [];
     const nucleonLayersTandem = tandem.createGroupTandem( 'nucleonLayers' );
-    _.times( NUM_NUCLEON_LAYERS, function() {
+    _.times( NUM_NUCLEON_LAYERS, () => {
       const nucleonLayer = new Node( { tandem: nucleonLayersTandem.createNextTandem() } );
       nucleonLayers.push( nucleonLayer );
       nucleonElectronLayer.addChild( nucleonLayer );
@@ -121,21 +120,21 @@ class AtomView extends ScreenView {
 
     // add the nucleons
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
-    model.nucleons.forEach( function( nucleon ) {
+    model.nucleons.forEach( nucleon => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
         tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
       // Add a listener that adjusts a nucleon's z-order layering.
-      nucleon.zLayerProperty.link( function( zLayer ) {
+      nucleon.zLayerProperty.link( zLayer => {
         assert && assert(
           nucleonLayers.length > zLayer,
           'zLayer for nucleon exceeds number of layers, max number may need increasing.'
         );
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
-        nucleonLayers[ zLayer ].children.forEach( function( particleView ) {
+        nucleonLayers[ zLayer ].children.forEach( particleView => {
           if ( particleView.particle === nucleon ) {
             onCorrectLayer = true;
           }
@@ -163,7 +162,7 @@ class AtomView extends ScreenView {
     } );
 
     // Add the electron particle views.
-    model.electrons.forEach( function( electron ) {
+    model.electrons.forEach( electron => {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
         tandem: electronsGroupTandem.createNextTandem()
@@ -171,8 +170,8 @@ class AtomView extends ScreenView {
     } );
 
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
-    const updateElectronVisibility = function() {
-      electronLayer.getChildren().forEach( function( electronNode ) {
+    const updateElectronVisibility = () => {
+      electronLayer.getChildren().forEach( electronNode => {
         electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.includes( electronNode.particle );
       } );
     };
@@ -182,7 +181,7 @@ class AtomView extends ScreenView {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
 
-    _.each( model.buckets, function( bucket ) {
+    _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Front' )
       } );
@@ -334,9 +333,9 @@ class AtomView extends ScreenView {
 
     // Add the reset button.
     const resetAllButton = new ResetAllButton( {
-      listener: function() {
-        self.model.reset();
-        self.reset();
+      listener: () => {
+        this.model.reset();
+        this.reset();
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,

@@ -10,52 +10,50 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
 
-/**
- * @param {SchematicToElementChallenge} schematicToElementChallenge
- * @param {Bounds2} layoutBounds
- * @param {Tandem} tandem
- * @constructor
- */
-function SchematicToElementChallengeView( schematicToElementChallenge, layoutBounds, tandem ) {
-  ToElementChallengeView.call( this, schematicToElementChallenge, layoutBounds, tandem );
+class SchematicToElementChallengeView extends ToElementChallengeView {
 
-  // Create the model-view transform used by the schematic atom.
-  const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
-    Vector2.ZERO,
-    new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
-    0.8 );
+  /**
+   * @param {SchematicToElementChallenge} schematicToElementChallenge
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
+   */
+  constructor( schematicToElementChallenge, layoutBounds, tandem ) {
+    super( schematicToElementChallenge, layoutBounds, tandem );
 
-  // Add the schematic representation of the atom.
-  const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
-    schematicToElementChallenge.answerAtom,
-    modelViewTransform,
-    tandem.createTandem( 'noninteractiveSchematicAtomNode' )
-  );
-  this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
+    // Create the model-view transform used by the schematic atom.
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+      Vector2.ZERO,
+      new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
+      0.8 );
 
-  nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
-  nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
+    // Add the schematic representation of the atom.
+    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+      schematicToElementChallenge.answerAtom,
+      modelViewTransform,
+      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+    );
+    this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
-  this.disposeSchematicToElementChallengeView = function() {
-    nonInteractiveSchematicNode.dispose();
-  };
+    nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
+    nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
+
+    this.disposeSchematicToElementChallengeView = () => {
+      nonInteractiveSchematicNode.dispose();
+    };
+  }
+
+  // @public
+  dispose() {
+    this.disposeSchematicToElementChallengeView();
+    super.dispose();
+  }
 }
 
 buildAnAtom.register( 'SchematicToElementChallengeView', SchematicToElementChallengeView );
-
-inherit( ToElementChallengeView, SchematicToElementChallengeView, {
-
-  // @public
-  dispose: function() {
-    this.disposeSchematicToElementChallengeView();
-    ToElementChallengeView.prototype.dispose.call( this );
-  }
-} );
 
 export default SchematicToElementChallengeView;

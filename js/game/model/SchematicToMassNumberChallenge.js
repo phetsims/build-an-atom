@@ -8,30 +8,34 @@
  * @author John Blanco
  */
 
-import inherit from '../../../../phet-core/js/inherit.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToMassNumberChallengeView from '../view/SchematicToMassNumberChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 
-/**
- * @param {BAAGameModel} buildAnAtomGameModel
- * @param {NumberAtom} answerAtom
- * @param {string} challengeType
- * @param {Tandem} tandem
- * @constructor
- */
-function SchematicToMassNumberChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
-  BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
+class SchematicToMassNumberChallenge extends BAAGameChallenge {
+
+  /**
+   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
+   */
+  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+    super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
+  }
+
+  /**
+   * Create the view needed to visual represent this challenge.
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
+   * @returns {CountsToChargeChallengeView}
+   * @public
+   */
+  createView( layoutBounds, tandem ) {
+    return new SchematicToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToMassNumberChallengeView' ) );
+  }
 }
 
 buildAnAtom.register( 'SchematicToMassNumberChallenge', SchematicToMassNumberChallenge );
-
-inherit( BAAGameChallenge, SchematicToMassNumberChallenge, {
-
-  // Create the view needed to visual represent this challenge.
-  createView: function( layoutBounds, tandem ) {
-    return new SchematicToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToMassNumberChallengeView' ) );
-  }
-} );
 
 export default SchematicToMassNumberChallenge;

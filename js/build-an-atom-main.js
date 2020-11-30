@@ -7,8 +7,8 @@
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
-import buildAnAtomStrings from './buildAnAtomStrings.js';
 import BuildAnAtomScreen from './atom/BuildAnAtomScreen.js';
+import buildAnAtomStrings from './buildAnAtomStrings.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
@@ -30,7 +30,7 @@ const simOptions = {
   }
 };
 
-simLauncher.launch( function() {
+simLauncher.launch( () => {
   const screens = [
     new BuildAnAtomScreen( tandem.createTandem( 'atomScreen' ) ),
     new SymbolScreen( tandem.createTandem( 'symbolScreen' ) )

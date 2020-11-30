@@ -8,27 +8,21 @@
  * @author John Blanco
  */
 
-import inherit from '../../../../phet-core/js/inherit.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 
-/**
- * @param {BAAGameModel} buildAnAtomGameModel
- * @param {NumberAtom} answerAtom
- * @param {string} challengeType
- * @param {Tandem} tandem
- * @constructor
- */
-function ToElementChallenge( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
-  BAAGameChallenge.call( this, buildAnAtomGameModel, answerAtom, challengeType, tandem );
-}
+class ToElementChallenge extends BAAGameChallenge {
 
-buildAnAtom.register( 'ToElementChallenge', ToElementChallenge );
-
-// Inherit from base class and define the methods for this object.
-
-inherit( BAAGameChallenge, ToElementChallenge, {
+  /**
+   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {NumberAtom} answerAtom
+   * @param {string} challengeType
+   * @param {Tandem} tandem
+   */
+  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+    super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
+  }
 
   /**
    * Override the method for checking the correct answer, since this challenge class has the additional step of user
@@ -37,7 +31,7 @@ inherit( BAAGameChallenge, ToElementChallenge, {
    * @param {string} submittedNeutralOrIon
    * @public
    */
-  checkAnswer: function( submittedAtom, submittedNeutralOrIon ) {
+  checkAnswer( submittedAtom, submittedNeutralOrIon ) {
     assert && assert(
       this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
       'Unexpected challenge state: ' + this.challengeStateProperty.get()
@@ -51,6 +45,8 @@ inherit( BAAGameChallenge, ToElementChallenge, {
       submittedCharge: submittedNeutralOrIon
     } );
   }
-} );
+}
+
+buildAnAtom.register( 'ToElementChallenge', ToElementChallenge );
 
 export default ToElementChallenge;

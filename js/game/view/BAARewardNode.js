@@ -32,7 +32,7 @@ class BAARewardNode extends RewardNode {
     super( { nodes: nodes } );
 
     // @private
-    this.disposeBAARewardNode = function() {
+    this.disposeBAARewardNode = () => {
       nodes.forEach( node => {
         !node.isDisposed && node.dispose();
       } );

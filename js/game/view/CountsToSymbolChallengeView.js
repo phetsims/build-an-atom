@@ -8,78 +8,81 @@
  * @author John Blanco
  */
 
-import inherit from '../../../../phet-core/js/inherit.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-/**
- * @param {CountsToSymbolChallenge} toSymbolChallenge
- * @param {Bounds2} layoutBounds
- * @param {Tandem} tandem
- * @constructor
- */
-function CountsToSymbolChallengeView( toSymbolChallenge, layoutBounds, tandem ) {
+class CountsToSymbolChallengeView extends ChallengeView {
 
-  // Interactive Symbol (must be defined before the super constructor is invoked).
-  this.interactiveSymbolNode = new InteractiveSymbolNode(
-    toSymbolChallenge.answerAtom,
-    tandem.createTandem( 'interactiveSymbolNode' ), {
-      interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
-      interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
-      interactiveCharge: toSymbolChallenge.configurableCharge
-    }
-  );
+  /**
+   * @param {CountsToSymbolChallenge} toSymbolChallenge
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
+   */
+  constructor( toSymbolChallenge, layoutBounds, tandem ) {
 
-  ChallengeView.call( this, toSymbolChallenge, layoutBounds, tandem );
+    super( toSymbolChallenge, layoutBounds, tandem );
 
-  // Add the interactive symbol.
-  this.interactiveSymbolNode.scale( 0.75 );
-  this.interactiveAnswerNode.addChild( this.interactiveSymbolNode );
+    // TODO: Interactive Symbol (must be defined before the super constructor is invoked).
+    this.interactiveSymbolNode = new InteractiveSymbolNode(
+      toSymbolChallenge.answerAtom,
+      tandem.createTandem( 'interactiveSymbolNode' ), {
+        interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
+        interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
+        interactiveCharge: toSymbolChallenge.configurableCharge
+      }
+    );
 
-  // Particle counts
-  const particleCountsNode = new ParticleCountsNode( toSymbolChallenge.answerAtom );
-  this.challengePresentationNode.addChild( particleCountsNode );
 
-  // Layout
-  particleCountsNode.centerX = layoutBounds.width * 0.3;
-  particleCountsNode.centerY = layoutBounds.height * 0.48;
-  this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
-  this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
+    // Add the interactive symbol.
+    this.interactiveSymbolNode.scale( 0.75 );
+    this.interactiveAnswerNode.addChild( this.interactiveSymbolNode );
 
-  // @private called by dispose
-  this.disposeCountsToSymbolChallengeView = function() {
-    this.interactiveSymbolNode.dispose();
-  };
-}
+    // Particle counts
+    const particleCountsNode = new ParticleCountsNode( toSymbolChallenge.answerAtom );
+    this.challengePresentationNode.addChild( particleCountsNode );
 
-buildAnAtom.register( 'CountsToSymbolChallengeView', CountsToSymbolChallengeView );
+    // Layout
+    particleCountsNode.centerX = layoutBounds.width * 0.3;
+    particleCountsNode.centerY = layoutBounds.height * 0.48;
+    this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
+    this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
-inherit( ChallengeView, CountsToSymbolChallengeView, {
+    // @private called by dispose
+    this.disposeCountsToSymbolChallengeView = function() {
+      this.interactiveSymbolNode.dispose();
+    };
+  }
 
   // @public
-  checkAnswer: function() {
+  checkAnswer() {
     const userSubmittedAtom = new NumberAtom( {
       protonCount: this.interactiveSymbolNode.protonCountProperty.value,
       neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
       electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAtom );
-  },
+  }
 
   // @public
-  displayCorrectAnswer: function() {
+  displayCorrectAnswer() {
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
     this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
-  },
-
-  dispose: function() {
-    this.disposeCountsToSymbolChallengeView();
-    ChallengeView.prototype.dispose.call( this );
   }
-} );
+
+  /**
+   * release references
+   * @public
+   */
+  dispose() {
+    this.disposeCountsToSymbolChallengeView();
+    super.dispose();
+  }
+}
+
+buildAnAtom.register( 'CountsToSymbolChallengeView', CountsToSymbolChallengeView );
 
 export default CountsToSymbolChallengeView;

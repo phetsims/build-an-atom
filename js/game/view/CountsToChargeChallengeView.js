@@ -8,99 +8,101 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
 const whatIsTheTotalChargeString = buildAnAtomStrings.whatIsTheTotalCharge;
 
-/**
- * @param {CountsToChargeChallenge} countsToChargeChallenge
- * @param {Bounds2} layoutBounds
- * @param {Tandem} tandem
- * @constructor
- */
-function CountsToChargeChallengeView( countsToChargeChallenge, layoutBounds, tandem ) {
+class CountsToChargeChallengeView extends ChallengeView {
 
-  // @private
-  // Must be defined before call to super constructor.
-  this.chargeAnswerProperty = new NumberProperty( 0, {
-    tandem: tandem.createTandem( 'chargeAnswerProperty' ),
-    numberType: 'Integer'
-  } );
+  /**
+   * @param {CountsToChargeChallenge} countsToChargeChallenge
+   * @param {Bounds2} layoutBounds
+   * @param {Tandem} tandem
+   */
+  constructor( countsToChargeChallenge, layoutBounds, tandem ) {
 
-  ChallengeView.call( this, countsToChargeChallenge, layoutBounds, tandem );
-  const self = this;
+    super( countsToChargeChallenge, layoutBounds, tandem );
 
-  // Particle counts
-  const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
-  self.challengePresentationNode.addChild( particleCountsNode );
-
-  const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
-    align: 'left',
-    font: new PhetFont( 24 ),
-    maxWidth: 200,
-    tandem: tandem.createTandem( 'questionPrompt' )
-  } );
-  self.interactiveAnswerNode.addChild( questionPrompt );
-
-  // Node for entering the answer
-  const numberEntryNode = new NumberEntryNode(
-    self.chargeAnswerProperty,
-    tandem.createTandem( 'numberEntryNode' ), {
-      prependPlusSign: true,
-      getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
-      maxValue: 99,
-      minValue: -99
+    // @private
+    // TODO: Must be defined before call to super constructor.
+    this.chargeAnswerProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'chargeAnswerProperty' ),
+      numberType: 'Integer'
     } );
-  self.interactiveAnswerNode.addChild( numberEntryNode );
 
-  // Layout
-  particleCountsNode.centerX = layoutBounds.width * 0.3;
-  particleCountsNode.centerY = layoutBounds.height * 0.5;
-  questionPrompt.centerX = layoutBounds.width * 0.65;
-  questionPrompt.centerY = layoutBounds.height * 0.5;
-  numberEntryNode.left = questionPrompt.right + 10;
-  numberEntryNode.centerY = questionPrompt.centerY;
 
-  // @private called by dispose
-  this.disposeCountsToChargeChallengeView = function() {
-    this.chargeAnswerProperty.dispose();
-    questionPrompt.dispose();
-    numberEntryNode.dispose();
-  };
-}
+    // Particle counts
+    const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
+    this.challengePresentationNode.addChild( particleCountsNode );
 
-buildAnAtom.register( 'CountsToChargeChallengeView', CountsToChargeChallengeView );
+    const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
+      align: 'left',
+      font: new PhetFont( 24 ),
+      maxWidth: 200,
+      tandem: tandem.createTandem( 'questionPrompt' )
+    } );
+    this.interactiveAnswerNode.addChild( questionPrompt );
 
-inherit( ChallengeView, CountsToChargeChallengeView, {
+    // Node for entering the answer
+    const numberEntryNode = new NumberEntryNode(
+      this.chargeAnswerProperty,
+      tandem.createTandem( 'numberEntryNode' ), {
+        prependPlusSign: true,
+        getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
+        maxValue: 99,
+        minValue: -99
+      } );
+    this.interactiveAnswerNode.addChild( numberEntryNode );
+
+    // Layout
+    particleCountsNode.centerX = layoutBounds.width * 0.3;
+    particleCountsNode.centerY = layoutBounds.height * 0.5;
+    questionPrompt.centerX = layoutBounds.width * 0.65;
+    questionPrompt.centerY = layoutBounds.height * 0.5;
+    numberEntryNode.left = questionPrompt.right + 10;
+    numberEntryNode.centerY = questionPrompt.centerY;
+
+    // @private called by dispose
+    this.disposeCountsToChargeChallengeView = function() {
+      this.chargeAnswerProperty.dispose();
+      questionPrompt.dispose();
+      numberEntryNode.dispose();
+    };
+  }
 
   // @public
-  checkAnswer: function() {
+  checkAnswer() {
     const userSubmittedAnswer = new NumberAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
       electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
-  },
+  }
 
   // @public
-  displayCorrectAnswer: function() {
+  displayCorrectAnswer() {
     this.chargeAnswerProperty.value = this.challenge.answerAtom.chargeProperty.get();
-  },
-
-  dispose: function() {
-    this.disposeCountsToChargeChallengeView();
-    ChallengeView.prototype.dispose.call( this );
   }
-} );
+
+  /**
+   * release references
+   * @public
+   */
+  dispose() {
+    this.disposeCountsToChargeChallengeView();
+    super.dispose();
+  }
+}
+
+buildAnAtom.register( 'CountsToChargeChallengeView', CountsToChargeChallengeView );
 
 export default CountsToChargeChallengeView;

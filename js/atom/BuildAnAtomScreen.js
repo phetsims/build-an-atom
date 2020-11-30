@@ -23,8 +23,8 @@ class BuildAnAtomScreen extends Screen {
    */
   constructor( tandem ) {
     super(
-      function() { return new BuildAnAtomModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new BuildAnAtomView( model, tandem.createTandem( 'view' ) ); },
+      () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
+      model => new BuildAnAtomView( model, tandem.createTandem( 'view' ) ),
       {
         name: buildAnAtomStrings.atom,
         homeScreenIcon: new ScreenIcon( new Image( atomIcon ), {

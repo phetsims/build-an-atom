@@ -123,7 +123,7 @@ ChallengeSetFactory._generateChallenge = function( level, availableAtomValues, m
  * @returns {BAAGameChallenge}
  * @public
  */
-ChallengeSetFactory.createChallenge = function( model, challengeType, atomValue, tandem ) {
+ChallengeSetFactory.createChallenge = ( model, challengeType, atomValue, tandem ) => {
   let challenge = null;
   switch( challengeType ) {
     case 'counts-to-element':
@@ -187,16 +187,14 @@ ChallengeSetFactory.createChallenge = function( model, challengeType, atomValue,
  * @param challengeType
  * @return
  */
-ChallengeSetFactory._isSchematicProbType = function( challengeType ) {
-  return ( challengeType === 'schematic-to-element' ||
-           challengeType === 'schematic-to-charge' ||
-           challengeType === 'schematic-to-mass' ||
-           challengeType === 'schematic-to-symbol-all' ||
-           challengeType === 'schematic-to-symbol-proton-count' ||
-           challengeType === 'schematic-to-symbol-charge' ||
-           challengeType === 'schematic-to-symbol-mass-number' ||
-           challengeType === 'symbol-to-schematic' );
-};
+ChallengeSetFactory._isSchematicProbType = challengeType => challengeType === 'schematic-to-element' ||
+                                                            challengeType === 'schematic-to-charge' ||
+                                                            challengeType === 'schematic-to-mass' ||
+                                                            challengeType === 'schematic-to-symbol-all' ||
+                                                            challengeType === 'schematic-to-symbol-proton-count' ||
+                                                            challengeType === 'schematic-to-symbol-charge' ||
+                                                            challengeType === 'schematic-to-symbol-mass-number' ||
+                                                            challengeType === 'symbol-to-schematic';
 
 /**
  * Helper function to determine whether a given challenge is requesting an
@@ -205,13 +203,10 @@ ChallengeSetFactory._isSchematicProbType = function( challengeType ) {
  * @param challengeType
  * @return
  */
-ChallengeSetFactory._isChargeProbType = function( challengeType ) {
-  return ( challengeType === 'schematic-to-charge' ||
-           challengeType === 'counts-to-charge' ||
-           challengeType === 'counts-to-symbol-charge' ||
-           challengeType === 'schematic-to-symbol-charge'
-  );
-};
+ChallengeSetFactory._isChargeProbType = challengeType => challengeType === 'schematic-to-charge' ||
+                                                         challengeType === 'counts-to-charge' ||
+                                                         challengeType === 'counts-to-symbol-charge' ||
+                                                         challengeType === 'schematic-to-symbol-charge';
 
 buildAnAtom.register( 'ChallengeSetFactory', ChallengeSetFactory );
 export default ChallengeSetFactory;

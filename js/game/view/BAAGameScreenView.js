@@ -33,11 +33,9 @@ class BAAGameScreenView extends ScreenView {
       layoutBounds: ShredConstants.LAYOUT_BOUNDS,
       tandem: tandem
     } );
-    const self = this;
-
     // Add a root node where all of the game-related nodes will live.
     const rootNode = new Node();
-    self.addChild( rootNode );
+    this.addChild( rootNode );
 
     const startGameLevelNode = new StartGameLevelNode(
       gameModel,
@@ -66,7 +64,7 @@ class BAAGameScreenView extends ScreenView {
           baseColor: '#e5f3ff',
           xMargin: 6,
           yMargin: 5,
-          listener: function() { gameModel.newGame(); }
+          listener: () => { gameModel.newGame(); }
         },
         tandem: tandem.createTandem( 'scoreboard' )
       }
@@ -79,29 +77,29 @@ class BAAGameScreenView extends ScreenView {
     this.levelCompletedNode = null; // @private
 
     // Monitor the game state and update the view accordingly.
-    gameModel.stateProperty.link( function( state, previousState ) {
+    gameModel.stateProperty.link( ( state, previousState ) => {
 
       ( previousState && previousState.disposeEmitter ) && previousState.disposeEmitter.emit();
 
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();
         rootNode.addChild( startGameLevelNode );
-        if ( self.rewardNode !== null ) {
-          self.rewardNode.dispose();
+        if ( this.rewardNode !== null ) {
+          this.rewardNode.dispose();
         }
-        if ( self.levelCompletedNode !== null ) {
-          self.levelCompletedNode.dispose();
+        if ( this.levelCompletedNode !== null ) {
+          this.levelCompletedNode.dispose();
         }
-        self.rewardNode = null;
-        self.levelCompletedNode = null;
+        this.rewardNode = null;
+        this.levelCompletedNode = null;
       }
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {
         rootNode.removeAllChildren();
         if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
-          self.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
-          rootNode.addChild( self.rewardNode );
+          this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
+          rootNode.addChild( this.rewardNode );
 
           // Play the appropriate audio feedback
           gameAudioPlayer.gameOverPerfectScore();
@@ -113,7 +111,7 @@ class BAAGameScreenView extends ScreenView {
         if ( gameModel.provideFeedbackProperty.get() ) {
 
           // Add the dialog node that indicates that the level has been completed.
-          self.levelCompletedNode = new LevelCompletedNode(
+          this.levelCompletedNode = new LevelCompletedNode(
             gameModel.levelProperty.get() + 1,
             gameModel.scoreProperty.get(),
             BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
@@ -122,22 +120,22 @@ class BAAGameScreenView extends ScreenView {
             gameModel.elapsedTimeProperty.get(),
             gameModel.bestTimes[ gameModel.levelProperty.get() ].value,
             gameModel.newBestTime,
-            function() { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
-              centerX: self.layoutBounds.width / 2,
-              centerY: self.layoutBounds.height / 2,
+            () => { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
+              centerX: this.layoutBounds.width / 2,
+              centerY: this.layoutBounds.height / 2,
               levelVisible: false,
-              maxWidth: self.layoutBounds.width,
+              maxWidth: this.layoutBounds.width,
               tandem: tandem.createTandem( 'levelCompletedNode' )
             }
           );
-          rootNode.addChild( self.levelCompletedNode );
+          rootNode.addChild( this.levelCompletedNode );
         }
       }
       else if ( typeof ( state.createView ) === 'function' ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
         rootNode.removeAllChildren();
-        const challengeView = state.createView( self.layoutBounds, tandem.createTandem( state.tandem.name + 'View' ) );
+        const challengeView = state.createView( this.layoutBounds, tandem.createTandem( state.tandem.name + 'View' ) );
         state.disposeEmitter.addListener( function disposeListener() {
           challengeView.dispose();
           state.disposeEmitter.removeListener( disposeListener );
