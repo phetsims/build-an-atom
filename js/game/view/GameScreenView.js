@@ -16,15 +16,15 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import BAAGameModel from '../model/BAAGameModel.js';
+import GameModel from '../model/GameModel.js';
 import BAAGameState from '../model/BAAGameState.js';
 import BAARewardNode from './BAARewardNode.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 
-class BAAGameScreenView extends ScreenView {
+class GameScreenView extends ScreenView {
 
   /**
-   * @param {BAAGameModel} gameModel
+   * @param {GameModel} gameModel
    * @param {Tandem} tandem
    */
   constructor( gameModel, tandem ) {
@@ -49,7 +49,7 @@ class BAAGameScreenView extends ScreenView {
       gameModel.scoreProperty,
       {
         challengeIndexProperty: gameModel.challengeIndexProperty,
-        numberOfChallengesProperty: new Property( BAAGameModel.CHALLENGES_PER_LEVEL ),
+        numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
         elapsedTimeProperty: gameModel.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
         barFill: 'rgb( 49, 117, 202 )',
@@ -95,7 +95,7 @@ class BAAGameScreenView extends ScreenView {
       }
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {
         rootNode.removeAllChildren();
-        if ( gameModel.scoreProperty.get() === BAAGameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
+        if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
           this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
@@ -114,8 +114,8 @@ class BAAGameScreenView extends ScreenView {
           this.levelCompletedNode = new LevelCompletedNode(
             gameModel.levelProperty.get() + 1,
             gameModel.scoreProperty.get(),
-            BAAGameModel.MAX_POINTS_PER_GAME_LEVEL,
-            BAAGameModel.CHALLENGES_PER_LEVEL,
+            GameModel.MAX_POINTS_PER_GAME_LEVEL,
+            GameModel.CHALLENGES_PER_LEVEL,
             gameModel.timerEnabledProperty.get(),
             gameModel.elapsedTimeProperty.get(),
             gameModel.bestTimes[ gameModel.levelProperty.get() ].value,
@@ -154,5 +154,5 @@ class BAAGameScreenView extends ScreenView {
   }
 }
 
-buildAnAtom.register( 'BAAGameScreenView', BAAGameScreenView );
-export default BAAGameScreenView;
+buildAnAtom.register( 'GameScreenView', GameScreenView );
+export default GameScreenView;

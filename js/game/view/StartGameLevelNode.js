@@ -22,7 +22,7 @@ import symbolQuestionIcon from '../../../images/symbol_question_icon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
-import BAAGameModel from '../model/BAAGameModel.js';
+import GameModel from '../model/GameModel.js';
 
 const chooseYourGameString = buildAnAtomStrings.chooseYourGame;
 
@@ -33,7 +33,7 @@ const BASE_COLOR = '#D4AAD4';
 class StartGameLevelNode extends Node {
 
   /**
-   * @param {BAAGameModel} gameModel
+   * @param {GameModel} gameModel
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    */
@@ -126,8 +126,8 @@ function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandem
       bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) ],
       tandem: tandem.createTandem( gameLevelTandemName + 'Button' ),
       scoreDisplayOptions: {
-        numberOfStars: BAAGameModel.CHALLENGES_PER_LEVEL,
-        perfectScore: BAAGameModel.MAX_POINTS_PER_GAME_LEVEL
+        numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
+        perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
       }
     }
   );

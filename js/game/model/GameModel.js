@@ -29,16 +29,15 @@ const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
 
-class BAAGameModel extends PhetioObject {
+class GameModel extends PhetioObject {
 
   /**
    * {Tandem} tandem
    */
   constructor( tandem ) {
 
-
     super( {
-      phetioType: BAAGameModel.BAAGameModelIO,
+      phetioType: GameModel.BAAGameModelIO,
       tandem: tandem,
       phetioState: false
     } );
@@ -309,13 +308,13 @@ class BAAGameModel extends PhetioObject {
 
 
 // statics
-BAAGameModel.MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
-BAAGameModel.CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
+GameModel.MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
+GameModel.CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
 
-buildAnAtom.register( 'BAAGameModel', BAAGameModel );
+buildAnAtom.register( 'GameModel', GameModel );
 
-BAAGameModel.BAAGameModelIO = new IOType( 'BAAGameModelIO', {
-  valueType: BAAGameModel,
+GameModel.BAAGameModelIO = new IOType( 'BAAGameModelIO', {
+  valueType: GameModel,
   documentation: 'The model for the Game',
   methods: {
 
@@ -359,7 +358,7 @@ BAAGameModel.BAAGameModelIO = new IOType( 'BAAGameModelIO', {
     }
   },
   /**
-   * @param {BAAGameModel} baaGameModel
+   * @param {GameModel} baaGameModel
    * @public
    * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
    */
@@ -371,4 +370,4 @@ BAAGameModel.BAAGameModelIO = new IOType( 'BAAGameModelIO', {
   }
 } );
 
-export default BAAGameModel;
+export default GameModel;

@@ -15,8 +15,8 @@ import gameIcon from '../../images/game_icon_png.js';
 import gameIconSmall from '../../images/game_icon_small_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import buildAnAtomStrings from '../buildAnAtomStrings.js';
-import BAAGameModel from './model/BAAGameModel.js';
-import BAAGameScreenView from './view/BAAGameScreenView.js';
+import GameModel from './model/GameModel.js';
+import GameScreenView from './view/GameScreenView.js';
 
 class GameScreen extends Screen {
 
@@ -25,10 +25,10 @@ class GameScreen extends Screen {
    */
   constructor( tandem ) {
     super(
-      () => new BAAGameModel( tandem.createTandem( 'model' ) ),
+      () => new GameModel( tandem.createTandem( 'model' ) ),
 
       // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
-      model => new BAAGameScreenView( model, Tandem.OPTIONAL ),
+      model => new GameScreenView( model, Tandem.OPTIONAL ),
       {
         name: buildAnAtomStrings.game,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),

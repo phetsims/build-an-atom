@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Main model class for the first tab of the Build an Atom simulation.
+ * A model of a set of subatomic particles - protons, neutrons, and electrons - that can be assembled into atoms.
  *
  * @author John Blanco
  */
@@ -22,7 +22,7 @@ import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
-import AtomView from '../view/AtomView.js';
+import BAAScreenView from '../view/BAAScreenView.js';
 
 const electronsString = buildAnAtomStrings.electrons;
 const neutronsString = buildAnAtomStrings.neutrons;
@@ -36,7 +36,7 @@ const NUCLEON_CAPTURE_RADIUS = 100;
 const BUCKET_WIDTH = 120;
 const BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
 const BUCKET_Y_OFFSET = -205;
-const NUCLEUS_JUMP_PERIOD = 0.1; // In seconds
+const NUCLEUS_JUMP_PERIOD = 0.1; // in seconds
 const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
@@ -138,7 +138,7 @@ class BuildAnAtomModel {
     _.times( NUM_PROTONS, () => {
       const proton = new Particle( 'proton', {
         tandem: protonGroupTandem.createNextTandem(),
-        maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
       this.nucleons.push( proton );
       this.buckets.protonBucket.addParticleFirstOpen( proton, false );
@@ -153,7 +153,7 @@ class BuildAnAtomModel {
     _.times( NUM_NEUTRONS, () => {
       const neutron = new Particle( 'neutron', {
         tandem: neutronGroupTandem.createNextTandem(),
-        maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
       this.nucleons.push( neutron );
       this.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
@@ -168,7 +168,7 @@ class BuildAnAtomModel {
     _.times( NUM_ELECTRONS, () => {
       const electron = new Particle( 'electron', {
         tandem: electronGroupTandem.createNextTandem(),
-        maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
       this.electrons.push( electron );
       this.buckets.electronBucket.addParticleFirstOpen( electron, false );

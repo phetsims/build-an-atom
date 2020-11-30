@@ -3,7 +3,7 @@
 /**
  * ScreenView that presents an interactive atom on the left side, buckets of particles underneath, and controls for
  * label visibility and reset.  A periodic table is included on the right side.  This is intended to be used as a base
- * type for screens with similar views.
+ * class for screens with similar views.
  *
  * @author John Blanco
  * @author Aadish Gupta
@@ -35,6 +35,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
+// strings
 const cloudString = buildAnAtomStrings.cloud;
 const elementString = buildAnAtomStrings.element;
 const modelString = buildAnAtomStrings.model;
@@ -52,7 +53,7 @@ const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
 const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 
-class AtomView extends ScreenView {
+class BAAScreenView extends ScreenView {
 
   /**
    * @param {BuildAnAtomModel} model
@@ -371,7 +372,7 @@ class AtomView extends ScreenView {
 }
 
 // @public export for usage when creating shred Particles
-AtomView.NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
+BAAScreenView.NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
 
-buildAnAtom.register( 'AtomView', AtomView );
-export default AtomView;
+buildAnAtom.register( 'BAAScreenView', BAAScreenView );
+export default BAAScreenView;

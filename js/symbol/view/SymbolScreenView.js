@@ -12,12 +12,12 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
-import AtomView from '../../common/view/AtomView.js';
+import BAAScreenView from '../../common/view/BAAScreenView.js';
 import SymbolNode from './SymbolNode.js';
 
 const symbolString = buildAnAtomStrings.symbol;
 
-class SymbolView extends AtomView {
+class SymbolScreenView extends BAAScreenView {
 
   /**
    * @param {BuildAnAtomModel} model
@@ -74,5 +74,5 @@ class SymbolView extends AtomView {
   }
 }
 
-buildAnAtom.register( 'SymbolView', SymbolView );
-export default SymbolView;
+buildAnAtom.register( 'SymbolScreenView', SymbolScreenView );
+export default SymbolScreenView;

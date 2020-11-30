@@ -14,9 +14,9 @@ import atomIconSmall from '../../images/atom_icon_small_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
-import BuildAnAtomView from './view/BuildAnAtomView.js';
+import AtomScreenView from './view/AtomScreenView.js';
 
-class BuildAnAtomScreen extends Screen {
+class AtomScreen extends Screen {
 
   /**
    * @param {Tandem} tandem
@@ -24,7 +24,7 @@ class BuildAnAtomScreen extends Screen {
   constructor( tandem ) {
     super(
       () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
-      model => new BuildAnAtomView( model, tandem.createTandem( 'view' ) ),
+      model => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: buildAnAtomStrings.atom,
         homeScreenIcon: new ScreenIcon( new Image( atomIcon ), {
@@ -41,5 +41,5 @@ class BuildAnAtomScreen extends Screen {
   }
 }
 
-buildAnAtom.register( 'BuildAnAtomScreen', BuildAnAtomScreen );
-export default BuildAnAtomScreen;
+buildAnAtom.register( 'AtomScreen', AtomScreen );
+export default AtomScreen;

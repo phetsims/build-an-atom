@@ -13,7 +13,7 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import AtomView from '../../common/view/AtomView.js';
+import BAAScreenView from '../../common/view/BAAScreenView.js';
 
 class NonInteractiveSchematicAtomNode extends Node {
 
@@ -48,7 +48,7 @@ class NonInteractiveSchematicAtomNode extends Node {
       _.times( number, () => {
         const particle = new Particle( particleType, {
           tandem: particleGroupTandem.createNextTandem(),
-          maxZLayer: AtomView.NUM_NUCLEON_LAYERS - 1
+          maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
         } );
         modelParticles.push( particle );
         particleAtom.addParticle( particle );

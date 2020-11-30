@@ -12,7 +12,7 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
-import AtomView from '../../common/view/AtomView.js';
+import BAAScreenView from '../../common/view/BAAScreenView.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
 import MassNumberDisplay from './MassNumberDisplay.js';
@@ -24,7 +24,7 @@ const netChargeString = buildAnAtomStrings.netCharge;
 const INTER_BOX_SPACING = 7;
 const ACCORDION_BOX_BUTTON_DILATION = 12;
 
-class BuildAnAtomView extends AtomView {
+class AtomScreenView extends BAAScreenView {
 
   /**
    * @param {BuildAnAtomModel} model Build an Atom model object.
@@ -145,5 +145,5 @@ class BuildAnAtomView extends AtomView {
   }
 }
 
-buildAnAtom.register( 'BuildAnAtomView', BuildAnAtomView );
-export default BuildAnAtomView;
+buildAnAtom.register( 'AtomScreenView', AtomScreenView );
+export default AtomScreenView;

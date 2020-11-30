@@ -15,7 +15,7 @@ import elementIconSmall from '../../images/element_icon_small_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
-import SymbolView from './view/SymbolView.js';
+import SymbolScreenView from './view/SymbolScreenView.js';
 
 class SymbolScreen extends Screen {
 
@@ -25,7 +25,7 @@ class SymbolScreen extends Screen {
   constructor( tandem ) {
     super(
       () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
-      model => new SymbolView( model, tandem.createTandem( 'view' ) ),
+      model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: buildAnAtomStrings.symbol,
         backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
