@@ -15,7 +15,7 @@ import BAAGameChallenge from './BAAGameChallenge.js';
 class SymbolToCountsChallenge extends BAAGameChallenge {
 
   /**
-   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {GameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
    * @param {string} challengeType
    * @param {Tandem} tandem

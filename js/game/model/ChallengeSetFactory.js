@@ -31,7 +31,7 @@ const ChallengeSetFactory = {};
  *
  * @param {number} level
  * @param {number} numChallenges
- * @param {BAAGameModel} model
+ * @param {GameModel} model
  * @param {string[][]} allowedChallengeTypesByLevel
  * @param {Tandem} tandem
  */
@@ -63,7 +63,7 @@ ChallengeSetFactory.generate = function( level, numChallenges, model, allowedCha
  *
  * @param {number} level
  * @param {AtomValuePool} availableAtomValues
- * @param {BAAGameModel} model
+ * @param {GameModel} model
  * @param {String[][]} allowedChallengeTypesByLevel
  * @param {Tandem} tandem
  * @return
@@ -116,7 +116,7 @@ ChallengeSetFactory._generateChallenge = function( level, availableAtomValues, m
  * Create a single challenge given a challenge type (e.g. Schematic to Element) and an atom value that defines that
  * atom configuration.
  *
- * @param {BAAGameModel} model
+ * @param {GameModel} model
  * @param {string} challengeType // TODO: change to enum
  * @param {NumberAtom} atomValue
  * @param {Tandem} tandem

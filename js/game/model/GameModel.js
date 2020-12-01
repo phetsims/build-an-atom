@@ -37,7 +37,7 @@ class GameModel extends PhetioObject {
   constructor( tandem ) {
 
     super( {
-      phetioType: GameModel.BAAGameModelIO,
+      phetioType: GameModel.GameModelIO,
       tandem: tandem,
       phetioState: false
     } );
@@ -313,7 +313,7 @@ GameModel.CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
 
 buildAnAtom.register( 'GameModel', GameModel );
 
-GameModel.BAAGameModelIO = new IOType( 'BAAGameModelIO', {
+GameModel.GameModelIO = new IOType( 'GameModelIO', {
   valueType: GameModel,
   documentation: 'The model for the Game',
   methods: {

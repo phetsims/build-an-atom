@@ -20,7 +20,7 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 class SchematicToSymbolChallengeView extends ChallengeView {
 
   /**
-   * @param {ToSymbolChallenge} toSymbolChallenge
+   * @param {BAAGameChallenge} toSymbolChallenge
    * @param {Bounds2} layoutBounds
    * @param {Tandem} tandem
    */
@@ -28,15 +28,14 @@ class SchematicToSymbolChallengeView extends ChallengeView {
 
     super( toSymbolChallenge, layoutBounds, tandem );
 
-    // TODO: Interactive Symbol (must be defined before the call to the super constructor).
     this.interactiveSymbolNode = new InteractiveSymbolNode(
       toSymbolChallenge.answerAtom,
       tandem.createTandem( 'interactiveSymbolNode' ), {
         interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
         interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
         interactiveCharge: toSymbolChallenge.configurableCharge
-      } );
-
+      }
+    );
 
     // Add the interactive symbol.
     this.interactiveSymbolNode.scale( 0.75 );

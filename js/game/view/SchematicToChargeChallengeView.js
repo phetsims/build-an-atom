@@ -34,7 +34,6 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
     super( schematicToChargeChallenge, layoutBounds, tandem );
 
-    // TODO: Must be defined before call to super constructor.
     this.chargeAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
       numberType: 'Integer'

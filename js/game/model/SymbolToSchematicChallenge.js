@@ -16,7 +16,7 @@ import BAAGameChallenge from './BAAGameChallenge.js';
 class SymbolToSchematicChallenge extends BAAGameChallenge {
 
   /**
-   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {GameMode} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
    * @param {string} challengeType
    * @param {Tandem} tandem

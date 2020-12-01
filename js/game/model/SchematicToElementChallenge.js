@@ -15,7 +15,7 @@ import ToElementChallenge from './ToElementChallenge.js';
 class SchematicToElementChallenge extends ToElementChallenge {
 
   /**
-   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {GameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
    * @param {string} challengeType
    * @param {Tandem} tandem

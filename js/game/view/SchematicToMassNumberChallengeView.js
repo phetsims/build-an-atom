@@ -36,7 +36,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       numberType: 'Integer'
-    } ); // TODO: Must be defined before call to super constructor.
+    } );
 
     // Create the model-view transform used by the schematic atom.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(

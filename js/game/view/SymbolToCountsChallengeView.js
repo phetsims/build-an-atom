@@ -24,7 +24,6 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
     super( symbolToCountsChallenge, layoutBounds, tandem );
 
-    // TODO: Interactive particle count node - must be defined before call to super constructor.
     this.interactiveParticleCountsNode = new InteractiveParticleCountsNode( tandem );
 
     // Add interactive particle count.

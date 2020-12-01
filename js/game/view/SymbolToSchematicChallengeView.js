@@ -34,7 +34,6 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
     super( challenge, layoutBounds, tandem );
 
-    // TODO: Interactive schematic atom node - must be defined before call to super constructor.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.buildAnAtomModel, modelViewTransform, {
       tandem: tandem.createTandem( 'interactiveSchematicAtom' )
     } );

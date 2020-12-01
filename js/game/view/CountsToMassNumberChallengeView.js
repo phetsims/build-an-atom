@@ -30,7 +30,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
     super( countsToMassNumberChallenge, layoutBounds, tandem );
 
-    // TODO: Must be defined before call to super constructor.
+    // @public
     this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       numberType: 'Integer'

@@ -23,7 +23,7 @@ import BAAGameState from './BAAGameState.js';
 class BAAGameChallenge extends BAAGameState {
 
   /**
-   * @param {BAAGameModel} buildAnAtomGameModel
+   * @param {GameModel} buildAnAtomGameModel
    * @param {NumberAtom} answerAtom
    * @param {string} challengeType
    * @param {Tandem} tandem

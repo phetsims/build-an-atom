@@ -25,7 +25,7 @@ class CountsToSymbolChallengeView extends ChallengeView {
 
     super( toSymbolChallenge, layoutBounds, tandem );
 
-    // TODO: Interactive Symbol (must be defined before the super constructor is invoked).
+    // @public {read-only)
     this.interactiveSymbolNode = new InteractiveSymbolNode(
       toSymbolChallenge.answerAtom,
       tandem.createTandem( 'interactiveSymbolNode' ), {
@@ -34,7 +34,6 @@ class CountsToSymbolChallengeView extends ChallengeView {
         interactiveCharge: toSymbolChallenge.configurableCharge
       }
     );
-
 
     // Add the interactive symbol.
     this.interactiveSymbolNode.scale( 0.75 );
