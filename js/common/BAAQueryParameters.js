@@ -13,6 +13,9 @@ const BAAQueryParameters = QueryStringMachine.getAll( {
   // shows the game reward regardless of score
   reward: { type: 'flag' },
 
+  // if present, high-contrast particles will be on initially
+  highContrastParticles: { type: 'flag' },
+
   challengesPerLevel: {
     type: 'number',
     defaultValue: 5

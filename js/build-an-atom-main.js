@@ -6,6 +6,8 @@
 
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
+import BAAGlobalOptions from './common/BAAGlobalOptions.js';
+import GlobalOptionsNode from './common/view/GlobalOptionsNode.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
 import buildAnAtomStrings from './buildAnAtomStrings.js';
@@ -27,7 +29,10 @@ const simOptions = {
     qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
                       'Elise Morgan, Ben Roberts',
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-  }
+  },
+
+  // create content for the Options dialog
+  createOptionsDialogContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty, tandem )
 };
 
 simLauncher.launch( () => {
