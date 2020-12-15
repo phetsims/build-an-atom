@@ -10,11 +10,18 @@ import buildAnAtom from '../buildAnAtom.js';
 
 const BAAQueryParameters = QueryStringMachine.getAll( {
 
+  /**
+   * If present, high-contrast particles will be on initially, and still controllable through the "Options" menu
+   * Requested by users, see https://github.com/phetsims/build-an-atom/issues/217
+   * @public
+   */
+  highContrastParticles: {
+    type: 'flag',
+    public: true
+  },
+
   // shows the game reward regardless of score
   reward: { type: 'flag' },
-
-  // if present, high-contrast particles will be on initially
-  highContrastParticles: { type: 'flag' },
 
   challengesPerLevel: {
     type: 'number',
