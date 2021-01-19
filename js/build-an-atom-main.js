@@ -8,7 +8,9 @@ define( function( require ) {
 
   // modules
   var BuildAnAtomScreen = require( 'BUILD_AN_ATOM/buildanatom/BuildAnAtomScreen' );
+  var BAAGlobalOptions = require( 'BUILD_AN_ATOM/common/BAAGlobalOptions' );
   var GameScreen = require( 'BUILD_AN_ATOM/game/GameScreen' );
+  var GlobalOptionsNode = require( 'BUILD_AN_ATOM/common/view/GlobalOptionsNode' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var SymbolScreen = require( 'BUILD_AN_ATOM/symbol/SymbolScreen' );
@@ -28,9 +30,12 @@ define( function( require ) {
             'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson,\n' +
             'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson,\n' +
-            'Elise Morgan, Ben Roberts',
+                        'Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    }
+    },
+
+    // options node presented from PhET menu
+    optionsNode: new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty, tandem )
   };
 
   SimLauncher.launch( function() {

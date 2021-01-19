@@ -18,6 +18,7 @@ define( function( require ) {
   var Particle = require( 'SHRED/model/Particle' );
   var Property = require( 'AXON/Property' );
   var AtomView = require( 'BUILD_AN_ATOM/common/view/AtomView' );
+  var BAAGlobalOptions = require( 'BUILD_AN_ATOM/common/BAAGlobalOptions' );
 
   /**
    * @param {NumberAtom} numberAtom
@@ -54,6 +55,7 @@ define( function( require ) {
         } );
         particleAtom.addParticle( particle );
         var particleView = new ParticleView( particle, modelViewTransform, {
+          highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
           tandem: particleViewGroupTandem.createNextTandem()
         } );
         particleLayer.addChild( particleView );

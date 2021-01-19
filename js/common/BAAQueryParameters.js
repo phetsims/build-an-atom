@@ -12,8 +12,13 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var BAAQueryParameters = QueryStringMachine.getAll( {
+
     // shows the game reward regardless of score
-    reward: { type: 'flag' }
+    reward: { type: 'flag' },
+
+    // if present, high-contrast particles will be on initially
+    highContrastParticles: { type: 'flag' }
+
   } );
 
   buildAnAtom.register('BAAQueryParameters', BAAQueryParameters);

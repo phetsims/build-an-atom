@@ -15,6 +15,7 @@ define( function( require ) {
   var AccordionBox = require( 'SUN/AccordionBox' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var AtomNode = require( 'SHRED/view/AtomNode' );
+  var BAAGlobalOptions = require( 'BUILD_AN_ATOM/common/BAAGlobalOptions' );
   var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -122,6 +123,7 @@ define( function( require ) {
     model.nucleons.forEach( function( nucleon ) {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
+        highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
         tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
@@ -164,6 +166,7 @@ define( function( require ) {
     model.electrons.forEach( function( electron ) {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
+        highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
         tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
