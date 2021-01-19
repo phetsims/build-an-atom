@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BAAGlobalOptions = require( 'BUILD_AN_ATOM/common/BAAGlobalOptions' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var InteractiveSchematicAtom = require( 'SHRED/view/InteractiveSchematicAtom' );
@@ -36,6 +37,7 @@ define( function( require ) {
 
     // Interactive schematic atom node - must be defined before call to super constructor.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( problem.buildAnAtomModel, modelViewTransform, {
+      highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
       tandem: tandem.createTandem( 'interactiveSchematicAtom' )
     } );
     this.interactiveSchematicAtom.scale( 0.95 );
