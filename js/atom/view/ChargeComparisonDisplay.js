@@ -52,13 +52,11 @@ class ChargeComparisonDisplay extends Node {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
     } );
 
-    const minusesGroupTandem = tandem.createGroupTandem( 'minuses' );
     const minuses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       const minusSymbol = new Node( {
         children: [ minusSymbolPath ],
-        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
-        tandem: minusesGroupTandem.createNextTandem()
+        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE )
       } );
       minuses.push( minusSymbol );
       symbolLayer.addChild( minusSymbol );
@@ -87,13 +85,11 @@ class ChargeComparisonDisplay extends Node {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );
 
-    const plussesGroupTandem = tandem.createGroupTandem( 'plusses' );
     const plusses = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       const plusSymbol = new Node( {
         children: [ plusSymbolPath ],
-        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE ),
-        tandem: plussesGroupTandem.createNextTandem()
+        x: i * ( SYMBOL_WIDTH + INTER_SYMBOL_DISTANCE )
       } );
       plusses.push( plusSymbol );
       symbolLayer.addChild( plusSymbol );
