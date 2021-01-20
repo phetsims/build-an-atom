@@ -7,6 +7,7 @@
  * @author Sam Reid
  */
 
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AtomValuePool from './AtomValuePool.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
@@ -39,7 +40,6 @@ ChallengeSetFactory.generate = function( level, numChallenges, model, allowedCha
   this.challenges = [];
   this._previousChallengeType = null;
   this._availableChallengeTypes = [];
-  const groupTandem = tandem.createGroupTandem( 'challenges' );
 
   // Create a pool of all atom values that can be used to create challenges
   // for the challenge set.
@@ -48,7 +48,7 @@ ChallengeSetFactory.generate = function( level, numChallenges, model, allowedCha
   // Now add challenges to the challenge set based on the atom values and the
   // challenge types associated with this level.
   for ( let i = 0; i < numChallenges; i++ ) {
-    const challenge = this._generateChallenge( level, atomValueList, model, allowedChallengeTypesByLevel, groupTandem.createNextTandem() );
+    const challenge = this._generateChallenge( level, atomValueList, model, allowedChallengeTypesByLevel, Tandem.OPT_OUT );
     if ( challenge !== null ) {
       this.challenges.push( challenge );
     }

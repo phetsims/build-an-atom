@@ -14,6 +14,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
@@ -127,10 +128,10 @@ class GameModel extends PhetioObject {
     } );
 
     // @private
-    this.challengeSetGroupTandem = tandem.createGroupTandem( 'challengeSets' );
+    this.challengeSetGroupTandem = Tandem.OPT_OUT;
 
     // @private {GroupTandem}
-    this.numberAtomGroupTandem = tandem.createGroupTandem( 'numberAtoms' );// TODO: unify with tandem names in random challenge sets
+    this.numberAtomGroupTandem = Tandem.OPT_OUT;
 
     // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will be
     // used instead of randomly generated
@@ -174,7 +175,7 @@ class GameModel extends PhetioObject {
       CHALLENGES_PER_LEVEL,
       this,
       this.allowedChallengeTypesByLevel,
-      this.challengeSetGroupTandem.createNextTandem()
+      Tandem.OPT_OUT
     );
     this.challengeSetProperty.set( challengeSet );
     this.scoreProperty.set( 0 );
@@ -282,8 +283,8 @@ class GameModel extends PhetioObject {
       protonCount: challengeSpec.numberAtom.protonCount,
       neutronCount: challengeSpec.numberAtom.neutronCount,
       electronCount: challengeSpec.numberAtom.electronCount,
-      tandem: this.numberAtomGroupTandem.createNextTandem()
-    } ), this.challengeSetGroupTandem.createNextTandem() ) ) );
+      tandem: Tandem.OPT_OUT
+    } ), Tandem.OPT_OUT ) ) );
   }
 
   // @public
