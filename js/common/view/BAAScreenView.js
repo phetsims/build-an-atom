@@ -104,9 +104,8 @@ class BAAScreenView extends ScreenView {
 
     // Add the layers where the nucleons will exist.
     const nucleonLayers = [];
-    const nucleonLayersTandem = tandem.createGroupTandem( 'nucleonLayers' );
     _.times( NUM_NUCLEON_LAYERS, () => {
-      const nucleonLayer = new Node( { tandem: nucleonLayersTandem.createNextTandem() } );
+      const nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
       nucleonElectronLayer.addChild( nucleonLayer );
     } );
