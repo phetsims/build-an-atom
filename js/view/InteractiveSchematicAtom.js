@@ -26,6 +26,10 @@ class InteractiveSchematicAtom extends Node {
    */
   constructor( model, modelViewTransform, options ) {
     options = merge( {
+
+      // {Property.<boolean>|null} - property that can be used to turn on high-contrast particles
+      highContrastProperty: null,
+
       tandem: Tandem.REQUIRED
     }, options );
 
@@ -64,6 +68,7 @@ class InteractiveSchematicAtom extends Node {
     const electronGroupTandem = options.tandem && options.tandem.createGroupTandem( 'electrons' );
     model.nucleons.forEach( nucleon => {
       const particleView = new ParticleView( nucleon, modelViewTransform, {
+        highContrastProperty: options.highContrastProperty,
         tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
       } );
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( particleView );
@@ -106,6 +111,7 @@ class InteractiveSchematicAtom extends Node {
     // Add the electron particle views.
     model.electrons.forEach( electron => {
       const particleView = new ParticleView( electron, modelViewTransform, {
+        highContrastProperty: options.highContrastProperty,
         tandem: electronGroupTandem.createNextTandem()
       } );
       electronLayer.addChild( particleView );
