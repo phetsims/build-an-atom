@@ -23,11 +23,11 @@ const SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 class ChargeComparisonDisplay extends Node {
 
   /**
-   * @param {NumberAtom} numberAtom - model representation of the atom
+   * @param {ParticleAtom} particleAtom - model representation of the atom
    * @param {Tandem} tandem
    * @param {Object} [options]
    */
-  constructor( numberAtom, tandem, options ) {
+  constructor( particleAtom, tandem, options ) {
 
     super( { tandem: tandem } );
 
@@ -133,8 +133,8 @@ class ChargeComparisonDisplay extends Node {
     } ) );
 
     // Hook up the update function.
-    numberAtom.particleCountProperty.link( () => {
-      update( numberAtom );
+    particleAtom.particleCountProperty.link( () => {
+      update( particleAtom );
     } );
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
