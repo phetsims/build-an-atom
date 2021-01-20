@@ -41,21 +41,21 @@ class NonInteractiveSchematicAtomNode extends Node {
     this.addChild( particleLayer );
 
     // Utility function to create and add particles.
-    const particleGroupTandem = tandem.createGroupTandem( 'particle' );
-    const particleViewGroupTandem = tandem.createGroupTandem( 'particleView' );
+    const particleTandem = tandem.createTandem( 'particles' );
+    const particleViewsTandem = tandem.createTandem( 'particleView' );
     const particleViews = [];
     let modelParticles = []; // (phet-io) keep track for disposal
     const createAndAddParticles = ( particleType, number ) => {
-      _.times( number, () => {
+      _.times( number, index => {
         const particle = new Particle( particleType, {
-          tandem: particleGroupTandem.createNextTandem(),
+          tandem: particleTandem.createTandem( `particle${index}` ),
           maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
         } );
         modelParticles.push( particle );
         particleAtom.addParticle( particle );
         const particleView = new ParticleView( particle, modelViewTransform, {
           highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
-          tandem: particleViewGroupTandem.createNextTandem()
+          tandem: particleViewsTandem.createTandem( `particleView${index}` )
         } );
         particleLayer.addChild( particleView );
         particleViews.push( particleView );
