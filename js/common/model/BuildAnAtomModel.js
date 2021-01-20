@@ -132,12 +132,12 @@ class BuildAnAtomModel {
     this.electrons = [];
 
     // Add the protons.
-    const protonGroupTandem = tandem.createGroupTandem( 'protons' );
-    const neutronGroupTandem = tandem.createGroupTandem( 'neutrons' );
-    const electronGroupTandem = tandem.createGroupTandem( 'electrons' );
-    _.times( NUM_PROTONS, () => {
+    const protonTandem = tandem.createTandem( 'protons' );
+    const neutronTandem = tandem.createTandem( 'neutrons' );
+    const electronTandem = tandem.createTandem( 'electrons' );
+    _.times( NUM_PROTONS, index => {
       const proton = new Particle( 'proton', {
-        tandem: protonGroupTandem.createNextTandem(),
+        tandem: protonTandem.createTandem( `proton${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
       this.nucleons.push( proton );
@@ -150,9 +150,9 @@ class BuildAnAtomModel {
     } );
 
     // Add the neutrons.
-    _.times( NUM_NEUTRONS, () => {
+    _.times( NUM_NEUTRONS, index => {
       const neutron = new Particle( 'neutron', {
-        tandem: neutronGroupTandem.createNextTandem(),
+        tandem: neutronTandem.createTandem( `neutron${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
       this.nucleons.push( neutron );
@@ -165,9 +165,9 @@ class BuildAnAtomModel {
     } );
 
     // Add the electrons.
-    _.times( NUM_ELECTRONS, () => {
+    _.times( NUM_ELECTRONS, index => {
       const electron = new Particle( 'electron', {
-        tandem: electronGroupTandem.createNextTandem(),
+        tandem: electronTandem.createTandem( `electron${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
       this.electrons.push( electron );
