@@ -18,6 +18,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
+import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -99,7 +100,7 @@ class GameModel extends PhetioObject {
     // @private
     this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      parameters: [ { name: 'results', phetioType: IOType.ObjectIO } ]
+      parameters: [ { name: 'results', phetioType: ObjectLiteralIO } ]
     } );
 
     this.bestScores = []; // Properties that track progress on each game level.
@@ -124,7 +125,7 @@ class GameModel extends PhetioObject {
 
     this.checkAnswerEmitter = new Emitter( {
       tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      parameters: [ { name: 'result', phetioType: IOType.ObjectIO } ]
+      parameters: [ { name: 'result', phetioType: ObjectLiteralIO } ]
     } );
 
     // @private
@@ -331,7 +332,7 @@ GameModel.GameModelIO = new IOType( 'GameModelIO', {
 
     setChallenges: {
       returnType: VoidIO,
-      parameterTypes: [ ArrayIO( ArrayIO( IOType.ObjectIO ) ) ],
+      parameterTypes: [ ArrayIO( ArrayIO( ObjectLiteralIO ) ) ],
       implementation: function( challenges ) {
         this.setChallenges( challenges );
       },
