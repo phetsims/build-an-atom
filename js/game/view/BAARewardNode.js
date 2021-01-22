@@ -7,6 +7,7 @@
  * @author Aadish Gupta
  */
 
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
@@ -51,7 +52,7 @@ class BAARewardNode extends RewardNode {
 
 // @private
 function createRandomStableAtom() {
-  const atomicNumber = 1 + phet.joist.random.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
+  const atomicNumber = 1 + dotRandom.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
   return new NumberAtom( {
     protonCount: atomicNumber,
     neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
@@ -65,7 +66,7 @@ function createNodes( tandem ) {
   for ( let i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
     const interactiveSymbolNode = new InteractiveSymbolNode( createRandomStableAtom(), Tandem.OPT_OUT );
     interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH +
-                                   phet.joist.random.nextDouble() *
+                                   dotRandom.nextDouble() *
                                    ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) /
                                  interactiveSymbolNode.width );
     nodes.push( interactiveSymbolNode );

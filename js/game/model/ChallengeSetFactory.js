@@ -7,6 +7,7 @@
  * @author Sam Reid
  */
 
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AtomValuePool from './AtomValuePool.js';
@@ -78,7 +79,7 @@ ChallengeSetFactory._generateChallenge = function( level, availableAtomValues, m
 
   // Randomly pick a challenge type, but make sure that it isn't the same
   // as the previous challenge type.
-  let index = Math.floor( phet.joist.random.nextDouble() * ( this._availableChallengeTypes.length ) );
+  let index = Math.floor( dotRandom.nextDouble() * ( this._availableChallengeTypes.length ) );
   if ( this._previousChallengeType !== null && this._availableChallengeTypes.get( index ) === this._previousChallengeType ) {
     // This is the same as the previous prob type, so choose a different one.
     index = ( index + 1 ) % this._availableChallengeTypes.length;
@@ -105,7 +106,7 @@ ChallengeSetFactory._generateChallenge = function( level, availableAtomValues, m
 
     // If the challenge is asking about the charge, at least 50% of the
     // time we want a charged atom.
-    requireCharged = phet.joist.random.nextBoolean();
+    requireCharged = dotRandom.nextBoolean();
   }
   const atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
   availableAtomValues.markAtomAsUsed( atomValue );

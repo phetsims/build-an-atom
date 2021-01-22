@@ -10,6 +10,7 @@
  * @author John Blanco
  */
 
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -269,7 +270,7 @@ AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProton
   // Choose a random value from the list.
   let atomValue = null;
   if ( allowableAtomValues.length > 0 ) {
-    atomValue = allowableAtomValues[ Math.floor( phet.joist.random.nextDouble() * allowableAtomValues.length ) ];
+    atomValue = allowableAtomValues[ Math.floor( dotRandom.nextDouble() * allowableAtomValues.length ) ];
   }
   else {
     throw 'Error: No atoms found that match the specified criteria';
