@@ -64,8 +64,8 @@ class InteractiveSchematicAtom extends Node {
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    const nucleonGroupTandem = options.tandem && options.tandem.createGroupTandem( 'nucleons' );
-    const electronGroupTandem = options.tandem && options.tandem.createGroupTandem( 'electrons' );
+    const nucleonGroupTandem = options.tandem && options.tandem.createTandem('nucleons').createGroupTandem( 'nucleon' );
+    const electronGroupTandem = options.tandem && options.tandem.createTandem('electrons').createGroupTandem( 'electron' );
     model.nucleons.forEach( nucleon => {
       const particleView = new ParticleView( nucleon, modelViewTransform, {
         highContrastProperty: options.highContrastProperty,
@@ -129,7 +129,7 @@ class InteractiveSchematicAtom extends Node {
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    const bucketGroupTandem = options.tandem.createGroupTandem( 'bucketFronts' );
+    const bucketGroupTandem = options.tandem.createTandem('bucketFronts').createGroupTandem( 'bucketFront' );
     const bucketFrontsAndDragHandlers = []; // keep track for disposal
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
