@@ -116,16 +116,16 @@ class BAAScreenView extends ScreenView {
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    const nucleonsTandem = tandem.createTandem( 'nucleons' );
-    const electronsTandem = tandem.createTandem( 'electrons' );
+    const nucleonsGroupTandem = tandem.createTandem('nucleons').createGroupTandem( 'nucleon' );
+    const electronsGroupTandem = tandem.createTandem('electrons').createGroupTandem( 'electron' );
 
     // add the nucleons
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
-    model.nucleons.forEach( ( nucleon, index ) => {
+    model.nucleons.forEach( nucleon => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
         highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
-        tandem: nucleonsTandem.createTandem( `nucleonNode${index}` )
+        tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
       // Add a listener that adjusts a nucleon's z-order layering.
@@ -164,11 +164,11 @@ class BAAScreenView extends ScreenView {
     } );
 
     // Add the electron particle views.
-    model.electrons.forEach( ( electron, index ) => {
+    model.electrons.forEach( electron => {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
         highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
-        tandem: electronsTandem.createTandem( `electron${index}` )
+        tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
 
