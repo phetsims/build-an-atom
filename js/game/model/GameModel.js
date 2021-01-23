@@ -358,17 +358,6 @@ GameModel.GameModelIO = new IOType( 'GameModelIO', {
       //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
       //  ]
     }
-  },
-  /**
-   * @param {GameModel} baaGameModel
-   * @public
-   * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
-   */
-  clearChildInstances: baaGameModel => {
-    baaGameModel.challengeSetProperty.value.forEach( challenge => {
-      challenge.dispose();
-    } );
-    baaGameModel.challengeSetProperty.reset();
   }
 } );
 
