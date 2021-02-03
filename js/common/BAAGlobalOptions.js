@@ -12,7 +12,7 @@ import buildAnAtom from '../buildAnAtom.js';
 import BAAQueryParameters from './BAAQueryParameters.js';
 
 // constants
-const optionsTandem = Tandem.GLOBAL.createTandem( 'options' );
+const optionsTandem = Tandem.GLOBAL_MODEL.createTandem( 'options' );
 
 const BAAGlobalOptions = {
 
