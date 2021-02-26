@@ -116,8 +116,8 @@ class BAAScreenView extends ScreenView {
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    const nucleonsGroupTandem = tandem.createTandem('nucleons').createGroupTandem( 'nucleon' );
-    const electronsGroupTandem = tandem.createTandem('electrons').createGroupTandem( 'electron' );
+    const nucleonsGroupTandem = tandem.createTandem( 'nucleons' ).createGroupTandem( 'nucleon' );
+    const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron' );
 
     // add the nucleons
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
