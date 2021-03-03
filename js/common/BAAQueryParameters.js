@@ -26,6 +26,14 @@ const BAAQueryParameters = QueryStringMachine.getAll( {
   challengesPerLevel: {
     type: 'number',
     defaultValue: 5
+  },
+
+  /**
+   * Add a way to hide the stable/unstable checkbox for a research study, see https://github.com/phetsims/special-ops/issues/189
+   */
+  showStableUnstableCheckbox: {
+    type: 'boolean',
+    defaultValue: true
   }
 } );
 

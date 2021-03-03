@@ -34,6 +34,7 @@ import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAAGlobalOptions from '../BAAGlobalOptions.js';
+import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
 // strings
@@ -236,7 +237,7 @@ class BAAScreenView extends ScreenView {
     this.addChild( this.periodicTableAccordionBox );
 
     const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
-    const labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( [ {
+    const checkboxItems = [ {
       node: new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
@@ -252,15 +253,21 @@ class BAAScreenView extends ScreenView {
       } ),
       property: model.showNeutralOrIonProperty,
       tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckbox' )
-    }, {
-      node: new Text( stableSlashUnstableString, {
-        font: LABEL_CONTROL_FONT,
-        maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
-      } ),
-      property: model.showStableOrUnstableProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckbox' )
-    } ], {
+    } ];
+
+    if ( BAAQueryParameters.showStableUnstableCheckbox ) {
+      checkboxItems.push( {
+        node: new Text( stableSlashUnstableString, {
+          font: LABEL_CONTROL_FONT,
+          maxWidth: LABEL_CONTROL_MAX_WIDTH,
+          tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
+        } ),
+        property: model.showStableOrUnstableProperty,
+        tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckbox' )
+      } );
+    }
+
+    const labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
       spacing: 8,
       tandem: tandem.createTandem( 'labelVisibilityCheckboxGroup' )
@@ -272,7 +279,7 @@ class BAAScreenView extends ScreenView {
       resize: false,
       tandem: labelVisibilityControlPanelTandem
     } );
-    const numDividerLines = 2;
+    const numDividerLines = checkboxItems.length - 1;
     const dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisibilityControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
     for ( let dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
       const dividerLine1 = new Path( dividerLineShape, {
