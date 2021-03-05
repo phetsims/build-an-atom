@@ -255,6 +255,8 @@ class BAAScreenView extends ScreenView {
       tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckbox' )
     } ];
 
+    // In support of a research study, it is possible to exclude the stable/unstable checkbox, see
+    // https://github.com/phetsims/special-ops/issues/189.
     if ( BAAQueryParameters.showStableUnstableCheckbox ) {
       checkboxItems.push( {
         node: new Text( stableSlashUnstableString, {
