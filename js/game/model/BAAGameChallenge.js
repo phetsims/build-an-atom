@@ -10,11 +10,10 @@
 
 import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
@@ -36,9 +35,10 @@ class BAAGameChallenge extends BAAGameState {
       phetioState: false,
       phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
-    this.challengeStateProperty = new Property( BAAChallengeState.PRESENTING_CHALLENGE, {
+
+    // TODO why not an Enum?
+    this.challengeStateProperty = new StringProperty( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
-      phetioType: Property.PropertyIO( StringIO ), // TODO why not an Enum?
       phetioReadOnly: true,
       phetioState: false,
       validValues: _.values( BAAChallengeState )

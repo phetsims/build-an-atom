@@ -8,7 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import StringProperty from '../../../../axon/js/StringProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -19,7 +19,6 @@ import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAAScreenView from '../view/BAAScreenView.js';
@@ -69,10 +68,9 @@ class BuildAnAtomModel {
     } );
 
     // Property that controls electron depiction in the view.
-    this.electronShellDepictionProperty = new Property( 'orbits', {
+    this.electronShellDepictionProperty = new StringProperty( 'orbits', {
       tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
       phetioState: options.phetioState,
-      phetioType: Property.PropertyIO( StringIO ),
       validValues: [ 'orbits', 'cloud' ]
     } );
 

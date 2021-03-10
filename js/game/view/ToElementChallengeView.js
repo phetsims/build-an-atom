@@ -8,7 +8,7 @@
  * @author John Blanco
  */
 
-import Property from '../../../../axon/js/Property.js';
+import StringProperty from '../../../../axon/js/StringProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -16,7 +16,6 @@ import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
@@ -45,9 +44,10 @@ class ToElementChallengeView extends ChallengeView {
 
     // @private
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
-    this.neutralOrIonProperty = new Property( 'noSelection', {
-      tandem: tandem.createTandem( 'neutralOrIonProperty' ),
-      phetioType: Property.PropertyIO( StringIO )
+
+    // TODO: Why not an enum?
+    this.neutralOrIonProperty = new StringProperty( 'noSelection', {
+      tandem: tandem.createTandem( 'neutralOrIonProperty' )
     } );
 
     // Periodic table
