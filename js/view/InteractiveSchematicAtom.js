@@ -135,7 +135,7 @@ class InteractiveSchematicAtom extends Node {
       const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       this.addChild( bucketFront );
       const bucketDragListener = new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: options.tandem && options.tandem.createTandem( bucket.sphereBucketTandem.name + 'DragListener' )
+        tandem: options.tandem && options.tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } );
       bucketFront.addInputListener( bucketDragListener );
 
