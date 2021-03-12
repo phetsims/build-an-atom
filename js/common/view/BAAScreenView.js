@@ -96,7 +96,7 @@ class BAAScreenView extends ScreenView {
     _.each( model.buckets, bucket => {
       this.addChild( new BucketHole( bucket, modelViewTransform, {
         pickable: false,
-        tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Hole' )
+        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}Hole` )
       } ) );
     } );
 
@@ -187,11 +187,11 @@ class BAAScreenView extends ScreenView {
 
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'Front' )
+        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}Front` )
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: tandem.createTandem( bucket.sphereBucketTandem.name + 'DragListener' )
+        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } ) );
     } );
 

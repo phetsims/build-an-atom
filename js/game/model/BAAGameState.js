@@ -113,7 +113,7 @@ BAAGameState.BAAGameStateIO = new IOType( 'BAAGameStateIO', {
       return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject );
     }
     else {
-      assert && assert( false, 'unknown game state: ' + stateObject );
+      assert && assert( false, `unknown game state: ${stateObject}` );
     }
   }
 } );

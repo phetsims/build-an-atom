@@ -176,7 +176,7 @@ ChallengeSetFactory.createChallenge = ( model, challengeType, atomValue, tandem 
       challenge = new SymbolToSchematicChallenge( model, atomValue, challengeType, tandem );
       break;
     default:
-      throw new Error( 'Error: Request to create unknown challenge type, type = ' + challengeType );
+      throw new Error( `Error: Request to create unknown challenge type, type = ${challengeType}` );
   }
   return challenge;
 };

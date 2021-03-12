@@ -124,7 +124,7 @@ function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandem
       baseColor: BASE_COLOR,
       bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) ],
       bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) ],
-      tandem: tandem.createTandem( gameLevelTandemName + 'Button' ),
+      tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
       scoreDisplayOptions: {
         numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
         perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL

@@ -147,7 +147,7 @@ class ChallengeView extends Node {
     stateChangeHandlers[ BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY ] = () => {
       setAnswerNodeInteractive( false );
       faceNode.smile();
-      pointDisplay.text = '+' + challenge.pointValue;
+      pointDisplay.text = `+${challenge.pointValue}`;
       faceNode.visible = true;
       this.nextButton.visible = true;
       this.gameAudioPlayer.correctAnswer();

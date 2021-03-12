@@ -34,7 +34,7 @@ class ToElementChallenge extends BAAGameChallenge {
   checkAnswer( submittedAtom, submittedNeutralOrIon ) {
     assert && assert(
       this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
-      'Unexpected challenge state: ' + this.challengeStateProperty.get()
+      `Unexpected challenge state: ${this.challengeStateProperty.get()}`
     );
     const isCorrect = submittedAtom.protonCountProperty.get() === this.answerAtom.protonCountProperty.get() &&
                       submittedAtom.neutronCountProperty.get() === this.answerAtom.neutronCountProperty.get() &&

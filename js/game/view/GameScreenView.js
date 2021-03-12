@@ -135,7 +135,7 @@ class GameScreenView extends ScreenView {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
         rootNode.removeAllChildren();
-        const challengeView = state.createView( this.layoutBounds, tandem.createTandem( state.tandem.name + 'View' ) );
+        const challengeView = state.createView( this.layoutBounds, tandem.createTandem( `${state.tandem.name}View` ) );
         state.disposeEmitter.addListener( function disposeListener() {
           challengeView.dispose();
           state.disposeEmitter.removeListener( disposeListener );

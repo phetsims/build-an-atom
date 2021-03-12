@@ -56,7 +56,7 @@ class MassNumberDisplay extends Node {
 
     // Add the listeners that will update the numerical display when the charge changes.
     numberAtom.massNumberProperty.link( massNumber => {
-      const newText = '' + massNumber; // cast to a string explicitly just in case
+      const newText = `${massNumber}`; // cast to a string explicitly just in case
       if ( newText !== numericalText.text ) {
         numericalText.text = newText;
 

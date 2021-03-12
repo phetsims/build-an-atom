@@ -125,7 +125,7 @@ class BAAGameChallenge extends BAAGameState {
     // Verify that the current state is as expected.
     assert && assert(
       this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
-      'Unexpected challenge state: ' + this.challengeStateProperty.get()
+      `Unexpected challenge state: ${this.challengeStateProperty.get()}`
     );
 
     const isCorrect = this.answerAtom.equals( submittedAtom );
