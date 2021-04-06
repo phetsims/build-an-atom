@@ -102,7 +102,6 @@ BAAGameState.BAAGameStateIO = new IOType( 'BAAGameStateIO', {
     }
   },
   fromStateObject: stateObject => {
-
     if ( stateObject.name === 'choosingLevel' ) {
       return BAAGameState.CHOOSING_LEVEL;
     }
@@ -113,7 +112,7 @@ BAAGameState.BAAGameStateIO = new IOType( 'BAAGameStateIO', {
       return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject );
     }
     else {
-      assert && assert( false, `unknown game state: ${stateObject}` );
+      throw new Error( `unknown game state: ${stateObject}` );
     }
   }
 } );
