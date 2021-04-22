@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.15 Wed Jan 20 2021 13:01:26 GMT-0700 (Mountain Standard Time)",
+  "comment": "# build-an-atom 1.6.15 Wed Apr 21 2021 18:17:52 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "e17f5c394e78adad1ed94f08a1052c12e5f61687",
+    "sha": "f59a290c30c1a7a42458900b39acfebb908fdb80",
     "branch": "1.6"
   },
   "chipper": {
@@ -49,8 +49,8 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "722e0b74b85e0b5ae613f0bea3950f95cd811781",
-    "branch": "HEAD"
+    "sha": "135584b9726ebc52e7b2a8d5e1db9aa3d30d5c8c",
+    "branch": "build-an-atom-1.6"
   },
   "scenery-phet": {
     "sha": "fe539936572e652129785b4c815bc6c1c5283df4",
