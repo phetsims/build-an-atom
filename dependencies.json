@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.7.0-rc.2 Wed Apr 21 2021 18:20:29 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.7.0-rc.2 Sat May 08 2021 20:25:48 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "3df8c5ff9a465b031f84195a90bbb7e1be10a14d",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "be52eafb099a9181e7cf4dca240138d7bf0b0f0e",
+    "sha": "9706bd155138609e3af4330409f792b565f0c168",
     "branch": "1.7"
   },
   "chipper": {
@@ -53,8 +53,8 @@
     "branch": "HEAD"
   },
   "phetmarks": {
-    "sha": "14fd8d81341d265ae38bcb8dd75c5875cc566d09",
-    "branch": "HEAD"
+    "sha": "b7bedec79d2d7dbf755bc2a7b2f2ab80d30662c1",
+    "branch": "build-an-atom-1.7"
   },
   "query-string-machine": {
     "sha": "d2a940285b03e342045e3d9df0d76802b0199d0c",
@@ -62,7 +62,7 @@
   },
   "scenery": {
     "sha": "d379efb17e23b6964e3868de61c599195d9cc36f",
-    "branch": "build-an-atom-1.7"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "f6c8300513122b560bc89e573cb6204a3711c7d7",
