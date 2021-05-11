@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.7.0-rc.2 Sat May 08 2021 20:25:48 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.7.0-rc.2 Tue May 11 2021 16:28:36 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "3df8c5ff9a465b031f84195a90bbb7e1be10a14d",
     "branch": "HEAD"
@@ -13,12 +13,12 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "9706bd155138609e3af4330409f792b565f0c168",
+    "sha": "c5a290f1d41130c601cc1efa4a83a384582525a5",
     "branch": "1.7"
   },
   "chipper": {
-    "sha": "17cf4bf811acde71829f0633893ac085e6b372c7",
-    "branch": "HEAD"
+    "sha": "7a9442f8a5091d381a4d14d6f48dfab1c1d0f182",
+    "branch": "build-an-atom-1.7"
   },
   "dot": {
     "sha": "a2df2ec483796e25de1e6467bc45678bae144318",
@@ -54,7 +54,7 @@
   },
   "phetmarks": {
     "sha": "b7bedec79d2d7dbf755bc2a7b2f2ab80d30662c1",
-    "branch": "build-an-atom-1.7"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "d2a940285b03e342045e3d9df0d76802b0199d0c",
