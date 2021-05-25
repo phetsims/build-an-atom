@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * A node that presents a comparison of the protons and electrons in an atom in order to make the net charge apparent.
