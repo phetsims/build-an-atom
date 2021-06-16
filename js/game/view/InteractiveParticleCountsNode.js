@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+[object Promise]
 
 /**
  * Node for entering numbers of protons, neutrons, electrons.

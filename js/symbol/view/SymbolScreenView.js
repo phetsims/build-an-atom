@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+[object Promise]
 
 /**
  * Main view for the "Symbol" screen of the Build an Atom simulation.

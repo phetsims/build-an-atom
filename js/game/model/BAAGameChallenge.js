@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * Base class (or base type) for the challenges used in the Build an Atom game.

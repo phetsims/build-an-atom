@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * A model of a set of subatomic particles - protons, neutrons, and electrons - that can be assembled into atoms.

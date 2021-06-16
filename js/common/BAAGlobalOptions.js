@@ -1,4 +1,4 @@
-// Copyright 2020-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * BAAGlobalOptions defines the global options for this simulation, accessed via PhET > Options.
