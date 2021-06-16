@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * Combination of a periodic table and an enlarged, dynamic, element symbol

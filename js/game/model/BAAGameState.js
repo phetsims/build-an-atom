@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2017-2021, University of Colorado Boulder
 
 /**
  * Base type for Build and Atom game states.  These states use the Object Oriented state pattern, please see

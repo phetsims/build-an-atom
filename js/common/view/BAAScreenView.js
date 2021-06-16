@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * ScreenView that presents an interactive atom on the left side, buckets of particles underneath, and controls for

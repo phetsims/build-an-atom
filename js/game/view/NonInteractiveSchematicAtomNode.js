@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * A non-interactive representation of an atom where the individual sub-atomic particles are visible.
