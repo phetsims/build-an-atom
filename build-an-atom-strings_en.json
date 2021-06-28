@@ -62,6 +62,9 @@
   "protonsColonPattern": {
     "value": "Protons: {0}"
   },
+  "protonAxis": {
+    "value": "Proton number"
+  },
   "cloud": {
     "value": "Cloud"
   },
@@ -70,6 +73,9 @@
   },
   "neutronsColonPattern": {
     "value": "Neutrons: {0}"
+  },
+  "neutronAxis": {
+    "value": "Neutron number"
   },
   "electrons": {
     "value": "Electrons"
@@ -88,5 +94,44 @@
   },
   "highContrastParticles": {
     "value": "High Contrast Particles"
+  },
+  "partialNuclideChart": {
+    "value": "Partial Nuclide Chart"
+  },
+  "fullNuclideChart": {
+    "value": "Full Nuclide Chart"
+  },
+  "alphaDecay": {
+    "value": "α decay"
+  },
+  "betaMinusDecay": {
+    "value": "β- decay"
+  },
+  "betaPlusDecay": {
+    "value": "β+ decay /"
+  },
+  "electronCapture": {
+    "value": "electron capture"
+  },
+  "neutronEmission": {
+    "value": "Neutron emission"
+  },
+  "protonEmission": {
+    "value": "Proton emission"
+  },
+  "stable": {
+    "value": "Stable"
+  },
+  "unstable": {
+    "value": "Unstable"
+  },
+  "selected": {
+    "value": "Selected"
+  },
+  "magicNumbers": {
+    "value": "Magic numbers"
+  },
+  "doesNotForm": {
+    "value": "Does not form"
   }
 }
