@@ -114,21 +114,23 @@ class StartGameLevelNode extends Node {
 
 // helper function to create level selection buttons, helps to avoid code duplication
 function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandemName, tandem ) {
+  const levelNumber = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
   return new LevelSelectionButton(
     new Image( icon ),
-    gameModel.scores[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) ],
+    gameModel.scores[ levelNumber ],
     {
       listener: () => {
         gameModel.startGameLevel( levelName, tandem.createTandem( gameLevelTandemName ) );
       },
       baseColor: BASE_COLOR,
-      bestTimeProperty: gameModel.bestTimes[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) ],
-      bestTimeVisibleProperty: gameModel.bestTimeVisible[ ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) ],
+      bestTimeProperty: gameModel.bestTimes[ levelNumber ],
+      bestTimeVisibleProperty: gameModel.bestTimeVisible[ levelNumber ],
       tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
       scoreDisplayOptions: {
         numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
         perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
-      }
+      },
+      soundPlayerIndex: levelNumber
     }
   );
 }
