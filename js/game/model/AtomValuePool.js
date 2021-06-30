@@ -273,7 +273,7 @@ AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProton
     atomValue = allowableAtomValues[ Math.floor( dotRandom.nextDouble() * allowableAtomValues.length ) ];
   }
   else {
-    throw 'Error: No atoms found that match the specified criteria';
+    throw new Error( 'Error: No atoms found that match the specified criteria' );
   }
   return atomValue;
 };
