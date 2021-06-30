@@ -32,7 +32,7 @@ class PeriodicTableAndSymbol extends Node {
       resizeSymbol: false,
       tandem: tandem
     }, options );
-    super( options ); //put options in super? why yes when merge but not w/o merge?
+    super();
 
     const SYMBOL_WIDTH_PROPORTION = options.resizeSymbol ? 0.1 : 0.2;
 
