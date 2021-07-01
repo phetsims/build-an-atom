@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+// Copyright 2021, University of Colorado Boulder
 
 /**
  * The partial Nuclide Chart at the bottom right.
