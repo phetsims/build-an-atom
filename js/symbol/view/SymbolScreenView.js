@@ -13,7 +13,7 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
-import AtomSymbolNode from './AtomSymbolNode.js';
+import SymbolNode from './SymbolNode.js';
 
 const symbolString = buildAnAtomStrings.symbol;
 
@@ -31,7 +31,7 @@ class SymbolScreenView extends BAAScreenView {
     } );
 
     // Add the symbol node within an accordion box.
-    const symbolNode = new AtomSymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
+    const symbolNode = new SymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
       scale: 0.43 // scale empirically determined
     } );
     const symbolAccordionBox = new AccordionBox( symbolNode, {
