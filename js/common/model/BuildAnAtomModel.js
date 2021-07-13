@@ -369,7 +369,7 @@ class BuildAnAtomModel {
       this.particleAtom.neutrons,
       this.buckets.neutronBucket
     );
-    if ( this.includeChargeAndElectrons ) {
+    if ( options.includeChargeAndElectrons ) {
       moveParticlesToAtom(
         this.particleAtom.electrons.length,
         numberAtom.electronCountProperty.get(),
