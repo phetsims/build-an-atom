@@ -29,6 +29,7 @@ const protonsString = buildAnAtomStrings.protons;
 
 // constants
 const NUM_PROTONS = 10;
+const NUM_NEUTRONS = 13;
 const NUM_ELECTRONS = 10;
 const NUCLEON_CAPTURE_RADIUS = 100;
 const BUCKET_WIDTH = 120;
@@ -49,25 +50,18 @@ class BuildAnAtomModel {
   constructor( tandem, options ) {
 
     options = merge( {
-      includeChargeAndElectrons: true, // {boolean} - to include to the charge Property and electrons for Build an Atom
       phetioState: true
     }, options );
-
-    // @private
-    this.includeChargeAndElectrons = options.includeChargeAndElectrons;
-    this.numberOfNeutrons = options.includeChargeAndElectrons ? 13 : 12;
 
     // Properties that control label visibility in the view.
     this.showElementNameProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'showElementNameProperty' ),
       phetioState: options.phetioState
     } );
-    if ( options.includeChargeAndElectrons ) {
-      this.showNeutralOrIonProperty = new BooleanProperty( true, {
-        tandem: tandem.createTandem( 'showNeutralOrIonProperty' ),
-        phetioState: options.phetioState
-      } );
-    }
+    this.showNeutralOrIonProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'showNeutralOrIonProperty' ),
+      phetioState: options.phetioState
+    } );
     this.showStableOrUnstableProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'showStableOrUnstableProperty' ),
       phetioState: options.phetioState
@@ -89,7 +83,7 @@ class BuildAnAtomModel {
     // Create the buckets that will hold the sub-atomic particles.
     this.buckets = {
       protonBucket: new SphereBucket( {
-        position: new Vector2( -BUCKET_WIDTH * ( options.includeChargeAndElectrons ? 1.1 : 0.6 ), BUCKET_Y_OFFSET ),
+        position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: PhetColorScheme.RED_COLORBLIND,
@@ -99,7 +93,7 @@ class BuildAnAtomModel {
         phetioState: options.phetioState
       } ),
       neutronBucket: new SphereBucket( {
-        position: new Vector2( options.includeChargeAndElectrons ? 0 : ( BUCKET_WIDTH * 0.6 ), BUCKET_Y_OFFSET ),
+        position: new Vector2( 0, BUCKET_Y_OFFSET ),
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: 'rgb( 100, 100, 100 )',
@@ -107,11 +101,8 @@ class BuildAnAtomModel {
         captionColor: 'white',
         tandem: tandem.createTandem( 'neutronBucket' ),
         phetioState: options.phetioState
-      } )
-    };
-
-    if ( options.includeChargeAndElectrons ) {
-      this.buckets.electronBucket = new SphereBucket( {
+      } ),
+      electronBucket: new SphereBucket( {
         position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.ELECTRON_RADIUS,
@@ -121,15 +112,12 @@ class BuildAnAtomModel {
         captionColor: 'white',
         tandem: tandem.createTandem( 'electronBucket' ),
         phetioState: options.phetioState
-      } );
-    }
+      } )
+    };
 
     // Define a function that will decide where to put nucleons.
     function placeNucleon( particle, bucket, atom ) {
-      if ( options.includeChargeAndElectrons ?
-           ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) :
-           ( particle.positionProperty.get().y > -133 && particle.positionProperty.get().y < 80 && particle.positionProperty.get().x > -170 && particle.positionProperty.get().x < 170 )
-      ) {
+      if ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
       }
       else {
@@ -139,33 +127,12 @@ class BuildAnAtomModel {
 
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
+    this.electrons = [];
 
-    if ( options.includeChargeAndElectrons ) {
-      this.electrons = [];
-      const electronTandem = tandem.createTandem( 'electrons' );
-      // Add the electrons.
-      _.times( NUM_ELECTRONS, index => {
-        const electron = new Particle( 'electron', {
-          tandem: electronTandem.createTandem( `electron${index}` ),
-          maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
-        } );
-        this.electrons.push( electron );
-        this.buckets.electronBucket.addParticleFirstOpen( electron, false );
-        electron.userControlledProperty.link( userControlled => {
-          if ( !userControlled && !this.buckets.electronBucket.containsParticle( electron ) ) {
-            if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.particleAtom.outerElectronShellRadius * 1.1 ) {
-              this.particleAtom.addParticle( electron );
-            }
-            else {
-              this.buckets.electronBucket.addParticleNearestOpen( electron, true );
-            }
-          }
-        } );
-      } );
-    }
     // Add the protons.
     const protonTandem = tandem.createTandem( 'protons' );
     const neutronTandem = tandem.createTandem( 'neutrons' );
+    const electronTandem = tandem.createTandem( 'electrons' );
     _.times( NUM_PROTONS, index => {
       const proton = new Particle( 'proton', {
         tandem: protonTandem.createTandem( `proton${index}` ),
@@ -181,7 +148,7 @@ class BuildAnAtomModel {
     } );
 
     // Add the neutrons.
-    _.times( this.numberOfNeutrons, index => {
+    _.times( NUM_NEUTRONS, index => {
       const neutron = new Particle( 'neutron', {
         tandem: neutronTandem.createTandem( `neutron${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
@@ -195,6 +162,25 @@ class BuildAnAtomModel {
       } );
     } );
 
+    // Add the electrons.
+    _.times( NUM_ELECTRONS, index => {
+      const electron = new Particle( 'electron', {
+        tandem: electronTandem.createTandem( `electron${index}` ),
+        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
+      } );
+      this.electrons.push( electron );
+      this.buckets.electronBucket.addParticleFirstOpen( electron, false );
+      electron.userControlledProperty.link( userControlled => {
+        if ( !userControlled && !this.buckets.electronBucket.containsParticle( electron ) ) {
+          if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.particleAtom.outerElectronShellRadius * 1.1 ) {
+            this.particleAtom.addParticle( electron );
+          }
+          else {
+            this.buckets.electronBucket.addParticleNearestOpen( electron, true );
+          }
+        }
+      } );
+    } );
 
     // Update the stability state and counter on changes.
     this.nucleusStableProperty = new DerivedProperty(
@@ -226,20 +212,17 @@ class BuildAnAtomModel {
 
     // next dispose the root (non-derived) properties
     this.showElementNameProperty.dispose();
+    this.showNeutralOrIonProperty.dispose();
     this.showStableOrUnstableProperty.dispose();
     this.electronShellDepictionProperty.dispose();
 
     // etc...
     this.particleAtom.dispose();
     this.buckets.protonBucket.dispose();
+    this.buckets.electronBucket.dispose();
     this.buckets.neutronBucket.dispose();
+    this.electrons.forEach( electron => { electron.dispose();} );
     this.nucleons.forEach( nucleon => { nucleon.dispose();} );
-
-    if ( this.includeChargeAndElectrons ) {
-      this.showNeutralOrIonProperty.dispose();
-      this.buckets.electronBucket.dispose();
-      this.electrons.forEach( electron => { electron.dispose();} );
-    }
   }
 
   // @public - main model step function, called by the framework
@@ -249,11 +232,9 @@ class BuildAnAtomModel {
     this.nucleons.forEach( nucleon => {
       nucleon.step( dt );
     } );
-    if ( this.includeChargeAndElectrons ) {
-      this.electrons.forEach( electron => {
-        electron.step( dt );
-      } );
-    }
+    this.electrons.forEach( electron => {
+      electron.step( dt );
+    } );
 
     // Animate the unstable nucleus by making it jump periodically.
     if ( !this.nucleusStableProperty.get() && this.showStableOrUnstableProperty.get() ) {
@@ -297,6 +278,7 @@ class BuildAnAtomModel {
   // @public
   reset() {
     this.showElementNameProperty.reset();
+    this.showNeutralOrIonProperty.reset();
     this.showStableOrUnstableProperty.reset();
     this.electronShellDepictionProperty.reset();
 
@@ -306,6 +288,11 @@ class BuildAnAtomModel {
         nucleon.moveImmediatelyToDestination();
       }
     } );
+    this.electrons.forEach( electron => {
+      if ( !electron.positionProperty.get().equals( electron.destinationProperty.get() ) ) {
+        electron.moveImmediatelyToDestination();
+      }
+    } );
 
     // Remove all particles from the particle atom.
     this.particleAtom.clear();
@@ -313,6 +300,7 @@ class BuildAnAtomModel {
     // Remove all particles from the buckets.
     this.buckets.protonBucket.reset();
     this.buckets.neutronBucket.reset();
+    this.buckets.electronBucket.reset();
 
     // Add all the particles back to their buckets so that they are
     // stacked in their original configurations.
@@ -324,19 +312,9 @@ class BuildAnAtomModel {
         this.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
       }
     } );
-
-    if ( this.includeChargeAndElectrons ) {
-      this.showNeutralOrIonProperty.reset();
-      this.electrons.forEach( electron => {
-        if ( !electron.positionProperty.get().equals( electron.destinationProperty.get() ) ) {
-          electron.moveImmediatelyToDestination();
-        }
-      } );
-      this.buckets.electronBucket.reset();
-      this.electrons.forEach( electron => {
-        this.buckets.electronBucket.addParticleFirstOpen( electron, false );
-      } );
-    }
+    this.electrons.forEach( electron => {
+      this.buckets.electronBucket.addParticleFirstOpen( electron, false );
+    } );
   }
 
   // @public - set the atom to the specified configuration
@@ -369,14 +347,12 @@ class BuildAnAtomModel {
       this.particleAtom.neutrons,
       this.buckets.neutronBucket
     );
-    if ( options.includeChargeAndElectrons ) {
-      moveParticlesToAtom(
-        this.particleAtom.electrons.length,
-        numberAtom.electronCountProperty.get(),
-        this.particleAtom.electrons,
-        this.buckets.electronBucket
-      );
-    }
+    moveParticlesToAtom(
+      this.particleAtom.electrons.length,
+      numberAtom.electronCountProperty.get(),
+      this.particleAtom.electrons,
+      this.buckets.electronBucket
+    );
 
     // Finalize particle positions.
     this.particleAtom.moveAllParticlesToDestination();
