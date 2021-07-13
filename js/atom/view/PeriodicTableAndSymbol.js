@@ -6,7 +6,6 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
@@ -16,6 +15,7 @@ import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
+const SYMBOL_WIDTH_PROPORTION = 0.2;
 const SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
 class PeriodicTableAndSymbol extends Node {
@@ -27,14 +27,8 @@ class PeriodicTableAndSymbol extends Node {
    */
   constructor( numberAtom, tandem, options ) {
 
-    options = merge( {
-
-      resizeSymbol: false,
-      tandem: tandem
-    }, options );
-    super( options ); //put options in super? why yes when merge but not w/o merge?
-
-    const SYMBOL_WIDTH_PROPORTION = options.resizeSymbol ? 0.1 : 0.2;
+    options.tandem = tandem;
+    super();
 
     // Create and add the periodic table.
     const periodicTable = new PeriodicTableNode( numberAtom, {
@@ -63,7 +57,7 @@ class PeriodicTableAndSymbol extends Node {
     numberAtom.protonCountProperty.link( protonCount => {
       symbolRectangle.removeAllChildren();
       const symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
-        font: new PhetFont( { size: options.resizeSymbol ? 36 : 48, weight: 'bold' } )
+        font: new PhetFont( { size: 48, weight: 'bold' } )
       } );
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );
       symbolText.center = new Vector2( symbolRectangle.width / 2, symbolRectangle.height / 2 );
