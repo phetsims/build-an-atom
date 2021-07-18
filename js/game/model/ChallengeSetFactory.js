@@ -4,7 +4,7 @@
  * Type that generates a list of challenges for use in a sub-game.
  *
  * @author John Blanco
- * @author Sam Reid
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import dotRandom from '../../../../dot/js/dotRandom.js';
