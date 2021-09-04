@@ -16,9 +16,5 @@
     "sounds/**/*",
     "mipmaps/**/*",
     "images/**/*"
-  ],
-  "exclude": [
-    "js/buildAnAtomStrings.js",
-    "js/buildAnAtom.js"
   ]
 }
