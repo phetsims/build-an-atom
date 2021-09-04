@@ -1,0 +1,24 @@
+{
+  "extends": "../chipper/tsconfig-core.json",
+  "references": [
+    {
+      "path": "../shred"
+    },
+    {
+      "path": "../vegas"
+    },
+    {
+      "path": "../joist"
+    }
+  ],
+  "include": [
+    "js/**/*",
+    "sounds/**/*",
+    "mipmaps/**/*",
+    "images/**/*"
+  ],
+  "exclude": [
+    "js/buildAnAtomStrings.js",
+    "js/buildAnAtom.js"
+  ]
+}
