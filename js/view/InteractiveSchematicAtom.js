@@ -7,7 +7,7 @@
 import merge from '../../../phet-core/js/merge.js';
 import BucketFront from '../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../scenery-phet/js/bucket/BucketHole.js';
-import Node from '../../../scenery/js/nodes/Node.js';
+import { Node } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import shred from '../shred.js';
 import AtomNode from './AtomNode.js';
