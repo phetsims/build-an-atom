@@ -9,7 +9,7 @@
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import Image from '../../../scenery/js/nodes/Image.js';
+import { Image } from '../../../scenery/js/imports.js';
 import elementIcon from '../../images/element_icon_png.js';
 import elementIconSmall from '../../images/element_icon_small_png.js';
 import buildAnAtom from '../buildAnAtom.js';
