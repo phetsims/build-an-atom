@@ -10,8 +10,8 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import { Image } from '../../../scenery/js/imports.js';
-import elementIcon from '../../images/element_icon_png.js';
-import elementIconSmall from '../../images/element_icon_small_png.js';
+import elementIcon_png from '../../images/elementIcon_png.js';
+import elementIconSmall_png from '../../images/elementIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
@@ -29,11 +29,11 @@ class SymbolScreen extends Screen {
       {
         name: buildAnAtomStrings.symbol,
         backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
-        homeScreenIcon: new ScreenIcon( new Image( elementIcon ), {
+        homeScreenIcon: new ScreenIcon( new Image( elementIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
         } ),
-        navigationBarIcon: new ScreenIcon( new Image( elementIconSmall ), {
+        navigationBarIcon: new ScreenIcon( new Image( elementIconSmall_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
         } ),

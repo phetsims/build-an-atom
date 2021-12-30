@@ -1,5 +1,5 @@
 {
-  "atom_icon.png": {
+  "atomIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -7,7 +7,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Sharon Siman-Tov"
   },
-  "atom_icon_small.png": {
+  "atomIconSmall.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -15,7 +15,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by John Blanco"
   },
-  "element_icon.png": {
+  "elementIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -23,7 +23,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Sharon Siman-Tov"
   },
-  "element_icon_small.png": {
+  "elementIconSmall.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -31,7 +31,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by John Blanco and Sharon Siman-Tov"
   },
-  "game_icon.png": {
+  "gameIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -39,7 +39,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Sharon Siman-Tov"
   },
-  "game_icon_small.png": {
+  "gameIconSmall.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -47,7 +47,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by John Blanco and Sharon Siman-Tov"
   },
-  "mass_charge_icon.png": {
+  "massChargeIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -55,7 +55,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by John Blanco"
   },
-  "periodic_table_icon.png": {
+  "periodicTableIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -63,7 +63,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by John Blanco"
   },
-  "question_mark_icon.png": {
+  "questionMarkIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -79,7 +79,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Sharon Siman-Tov"
   },
-  "symbol_question_icon.png": {
+  "symbolQuestionIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],

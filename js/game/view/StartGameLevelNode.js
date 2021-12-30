@@ -15,10 +15,10 @@ import { Node } from '../../../../scenery/js/imports.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
-import massChargeIcon from '../../../images/mass_charge_icon_png.js';
-import periodicTableIcon from '../../../images/periodic_table_icon_png.js';
-import questionMarkIcon from '../../../images/question_mark_icon_png.js';
-import symbolQuestionIcon from '../../../images/symbol_question_icon_png.js';
+import massChargeIcon_png from '../../../images/massChargeIcon_png.js';
+import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
+import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
+import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
@@ -52,28 +52,28 @@ class StartGameLevelNode extends Node {
     // buttons for starting a game level
     const periodicTableGameButton = createLevelSelectionButton(
       gameModel,
-      periodicTableIcon,
+      periodicTableIcon_png,
       'periodic-table-game',
       'periodicTableGame',
       tandem
     );
     const massAndChargeGameButton = createLevelSelectionButton(
       gameModel,
-      massChargeIcon,
+      massChargeIcon_png,
       'mass-and-charge-game',
       'massAndChargeGame',
       tandem
     );
     const symbolGameButton = createLevelSelectionButton(
       gameModel,
-      symbolQuestionIcon,
+      symbolQuestionIcon_png,
       'symbol-game',
       'symbolGame',
       tandem
     );
     const advancedSymbolGameButton = createLevelSelectionButton(
       gameModel,
-      questionMarkIcon,
+      questionMarkIcon_png,
       'advanced-symbol-game',
       'advancedSymbolGame',
       tandem

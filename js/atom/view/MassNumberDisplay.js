@@ -12,7 +12,7 @@ import { Image } from '../../../../scenery/js/imports.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import { Rectangle } from '../../../../scenery/js/imports.js';
 import { Text } from '../../../../scenery/js/imports.js';
-import scaleIcon from '../../../images/scale_png.js';
+import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
@@ -31,7 +31,7 @@ class MassNumberDisplay extends Node {
     super( { tandem: tandem } );
 
     // Add the background image, i.e. the scale.
-    const scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
+    const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 

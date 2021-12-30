@@ -11,8 +11,8 @@ import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import { Image } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import gameIcon from '../../images/game_icon_png.js';
-import gameIconSmall from '../../images/game_icon_small_png.js';
+import gameIcon_png from '../../images/gameIcon_png.js';
+import gameIconSmall_png from '../../images/gameIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import GameModel from './model/GameModel.js';
@@ -32,11 +32,11 @@ class GameScreen extends Screen {
       {
         name: buildAnAtomStrings.game,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
-        homeScreenIcon: new ScreenIcon( new Image( gameIcon ), {
+        homeScreenIcon: new ScreenIcon( new Image( gameIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
         } ),
-        navigationBarIcon: new ScreenIcon( new Image( gameIconSmall ), {
+        navigationBarIcon: new ScreenIcon( new Image( gameIconSmall_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
         } ),

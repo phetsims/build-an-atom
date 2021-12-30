@@ -9,8 +9,8 @@
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import { Image } from '../../../scenery/js/imports.js';
-import atomIcon from '../../images/atom_icon_png.js';
-import atomIconSmall from '../../images/atom_icon_small_png.js';
+import atomIcon_png from '../../images/atomIcon_png.js';
+import atomIconSmall_png from '../../images/atomIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import buildAnAtomStrings from '../buildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
@@ -27,11 +27,11 @@ class AtomScreen extends Screen {
       model => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: buildAnAtomStrings.atom,
-        homeScreenIcon: new ScreenIcon( new Image( atomIcon ), {
+        homeScreenIcon: new ScreenIcon( new Image( atomIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
         } ),
-        navigationBarIcon: new ScreenIcon( new Image( atomIconSmall ), {
+        navigationBarIcon: new ScreenIcon( new Image( atomIconSmall_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
         } ),

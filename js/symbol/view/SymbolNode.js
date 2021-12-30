@@ -16,7 +16,7 @@ import { Rectangle } from '../../../../scenery/js/imports.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import scaleIcon from '../../../images/scale_png.js';
+import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 
@@ -111,7 +111,7 @@ class SymbolNode extends Node {
     } );
 
     // Add the scale image - just an image with no functionality.
-    const scaleImage = new Image( scaleIcon, { tandem: tandem.createTandem( 'scaleImage' ) } );
+    const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
     scaleImage.scale( 0.32 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
