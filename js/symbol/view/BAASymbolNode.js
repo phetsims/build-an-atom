@@ -7,24 +7,12 @@
  * @author John Blanco
  */
 
-import Vector2 from '../../../../dot/js/Vector2.js';
-import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Image } from '../../../../scenery/js/imports.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import SymbolNode from '../../../../shred/js/view/SymbolNode.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
-
-// constants
-const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
-const SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
-const NUMBER_FONT = new PhetFont( 56 );
-const NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
 
 class BAASymbolNode extends Node {
 
@@ -37,78 +25,13 @@ class BAASymbolNode extends Node {
 
     super( { tandem: tandem, pickable: false } );
 
-    // Add the bounding box, which is also the root node for everything else
-    // that comprises this node.
-    const boundingBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
-      stroke: 'black',
-      lineWidth: 2,
-      fill: 'white',
-      tandem: tandem.createTandem( 'boundingBox' )
+    // Add the symbol node box (contains the element symbol and a display for the proton number, mass number, and charge number)
+    const symbolNode = new SymbolNode( numberAtom.protonCountProperty, numberAtom.massNumberProperty, {
+      chargeProperty: numberAtom.chargeProperty,
+      tandem: tandem.createTandem( 'symbolNode' ),
+      scale: 0.95
     } );
-    this.addChild( boundingBox );
-
-    // Add the symbol text.
-    const symbolText = new Text( '', {
-      font: new PhetFont( 150 ),
-      fill: 'black',
-      center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 ),
-      tandem: tandem.createTandem( 'symbolText' )
-    } );
-
-    // Add the listener to update the symbol text.
-    const textCenter = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
-    numberAtom.protonCountProperty.link( protonCount => {
-      const symbol = AtomIdentifier.getSymbol( protonCount );
-      symbolText.text = protonCount > 0 ? symbol : '';
-      symbolText.center = textCenter;
-    } );
-    boundingBox.addChild( symbolText );
-
-    // Add the atomic number display.
-    const atomicNumberDisplay = new Text( '0', {
-      font: NUMBER_FONT,
-      fill: PhetColorScheme.RED_COLORBLIND,
-      tandem: tandem.createTandem( 'atomicNumberDisplay' )
-    } );
-
-    // Add the listener to update the proton count.
-    numberAtom.protonCountProperty.link( protonCount => {
-      atomicNumberDisplay.text = protonCount;
-      atomicNumberDisplay.left = NUMBER_INSET;
-      atomicNumberDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
-    } );
-    boundingBox.addChild( atomicNumberDisplay );
-
-    // Add the mass number display.
-    const massNumberDisplay = new Text( '0', {
-      font: NUMBER_FONT,
-      fill: 'black',
-      tandem: tandem.createTandem( 'massNumberDisplay' )
-    } );
-    boundingBox.addChild( massNumberDisplay );
-
-    // Add the listener to update the mass number.
-    numberAtom.massNumberProperty.link( massNumber => {
-      massNumberDisplay.text = massNumber;
-      massNumberDisplay.left = NUMBER_INSET;
-      massNumberDisplay.top = NUMBER_INSET;
-    } );
-
-    // Add the charge display.
-    const chargeDisplay = new Text( '0', {
-      font: NUMBER_FONT,
-      fill: 'black',
-      tandem: tandem.createTandem( 'chargeDisplay' )
-    } );
-    boundingBox.addChild( chargeDisplay );
-
-    // Add the listener to update the charge.
-    numberAtom.chargeProperty.link( charge => {
-      chargeDisplay.text = ( charge > 0 ? '+' : '' ) + charge;
-      chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
-      chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
-      chargeDisplay.top = NUMBER_INSET;
-    } );
+    this.addChild( symbolNode );
 
     // Add the scale image - just an image with no functionality.
     const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
@@ -124,11 +47,11 @@ class BAASymbolNode extends Node {
 
     // Do the layout.
     scaleImage.left = 0;
-    scaleImage.centerY = massNumberDisplay.centerY;
-    boundingBox.top = 0;
-    boundingBox.left = scaleImage.right + 10;
-    chargeMeter.left = boundingBox.right + 10;
-    chargeMeter.centerY = chargeDisplay.centerY;
+    scaleImage.centerY = symbolNode.massNumberDisplay.centerY;
+    symbolNode.top = 0;
+    symbolNode.left = scaleImage.right + 10;
+    chargeMeter.left = symbolNode.right + 10;
+    chargeMeter.centerY = symbolNode.chargeDisplay.centerY;
 
     this.mutate( options );
   }
