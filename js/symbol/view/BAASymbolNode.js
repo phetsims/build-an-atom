@@ -26,7 +26,7 @@ const SYMBOL_BOX_HEIGHT = 300; // In screen coords, which are roughly pixels.
 const NUMBER_FONT = new PhetFont( 56 );
 const NUMBER_INSET = 20; // In screen coords, which are roughly pixels.
 
-class SymbolNode extends Node {
+class BAASymbolNode extends Node {
 
   /**
    * Constructor
@@ -134,6 +134,6 @@ class SymbolNode extends Node {
   }
 }
 
-buildAnAtom.register( 'SymbolNode', SymbolNode );
+buildAnAtom.register( 'BAASymbolNode', BAASymbolNode );
 
-export default SymbolNode;
+export default BAASymbolNode;
