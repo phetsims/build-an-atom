@@ -30,12 +30,11 @@ class SymbolScreenView extends BAAScreenView {
       tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' )
     } );
 
-    // TODO: can a constant start with capital letters? baaSymbolNode looks weird.
     // Add the symbol node within an accordion box.
-    const baaSymbolNode = new BAASymbolNode( model.particleAtom, tandem.createTandem( 'baaSymbolNode' ), {
-      scale: 0.43 // scale empirically determined
+    const symbolNode = new BAASymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
+      scale: 0.41 // scale empirically determined
     } );
-    const symbolAccordionBox = new AccordionBox( baaSymbolNode, {
+    const symbolAccordionBox = new AccordionBox( symbolNode, {
       cornerRadius: 3,
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
