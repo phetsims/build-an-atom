@@ -9,12 +9,10 @@
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox } from '../../../../scenery/js/imports.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { HBox, Image, Node, Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
+import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import massChargeIcon_png from '../../../images/massChargeIcon_png.js';
 import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
 import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
@@ -126,10 +124,10 @@ function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandem
       bestTimeProperty: gameModel.bestTimes[ levelNumber ],
       bestTimeVisibleProperty: gameModel.bestTimeVisible[ levelNumber ],
       tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
-      scoreDisplayOptions: {
+      createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
         numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
         perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
-      },
+      } ),
       soundPlayerIndex: levelNumber
     }
   );
