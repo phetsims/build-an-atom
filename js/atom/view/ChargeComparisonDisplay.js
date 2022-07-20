@@ -8,9 +8,7 @@
 
 import { Shape } from '../../../../kite/js/imports.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Path } from '../../../../scenery/js/imports.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
+import { Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 

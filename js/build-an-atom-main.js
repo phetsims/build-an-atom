@@ -6,11 +6,11 @@
 
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
-import BAAGlobalOptions from './common/BAAGlobalOptions.js';
-import GlobalOptionsNode from './common/view/GlobalOptionsNode.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
 import buildAnAtomStrings from './buildAnAtomStrings.js';
+import BAAGlobalOptions from './common/BAAGlobalOptions.js';
+import GlobalOptionsNode from './common/view/GlobalOptionsNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 

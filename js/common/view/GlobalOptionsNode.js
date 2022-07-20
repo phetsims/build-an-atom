@@ -8,11 +8,10 @@
  */
 
 import OptionsDialog from '../../../../joist/js/OptionsDialog.js';
-import { Text } from '../../../../scenery/js/imports.js';
-import { VBox } from '../../../../scenery/js/imports.js';
+import { Text, VBox } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 
 class GlobalOptionsNode extends VBox {
 

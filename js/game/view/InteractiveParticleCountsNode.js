@@ -8,8 +8,7 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { Node, Text } from '../../../../scenery/js/imports.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';

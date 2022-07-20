@@ -16,8 +16,8 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import GameModel from '../model/GameModel.js';
 import BAAGameState from '../model/BAAGameState.js';
+import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 

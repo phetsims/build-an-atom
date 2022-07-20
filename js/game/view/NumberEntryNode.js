@@ -10,9 +10,7 @@
 import { Shape } from '../../../../kite/js/imports.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import ArrowButton from '../../../../sun/js/buttons/ArrowButton.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
