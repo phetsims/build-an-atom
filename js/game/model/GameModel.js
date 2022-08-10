@@ -54,7 +54,7 @@ class GameModel extends PhetioObject {
 
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      phetioType: Property.PropertyIO( BAAGameState.BAAGameStateIO ),
+      phetioValueType: BAAGameState.BAAGameStateIO,
       tandem: tandem.createTandem( 'stateProperty' )
     } );
 
@@ -73,7 +73,7 @@ class GameModel extends PhetioObject {
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioType: Property.PropertyIO( ArrayIO( BAAGameChallenge.BAAGameChallengeIO ) )
+      phetioValueType: ArrayIO( BAAGameChallenge.BAAGameChallengeIO )
     } );
 
     // @public (read-only) {Property.<number>}

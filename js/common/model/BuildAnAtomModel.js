@@ -189,7 +189,7 @@ class BuildAnAtomModel {
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
         phetioState: options.phetioState,
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       }
     );
 
