@@ -4,6 +4,7 @@
  * Main file for the Build an Atom simulation.
  */
 
+import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
@@ -31,8 +32,13 @@ const simOptions = {
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
   },
 
-  // create content for the Options dialog
-  createOptionsDialogContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty, tandem )
+  preferencesModel: new PreferencesModel( {
+    generalOptions: {
+      customPreferences: [ {
+        createContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty, tandem )
+      } ]
+    }
+  } )
 };
 
 simLauncher.launch( () => {
