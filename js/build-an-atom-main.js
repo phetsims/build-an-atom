@@ -35,7 +35,8 @@ const simOptions = {
   preferencesModel: new PreferencesModel( {
     generalOptions: {
       customPreferences: [ {
-        createContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty, tandem )
+        createContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty,
+          tandem.createTandem( 'buildAnAtomPreferencesContent' ) )
       } ]
     }
   } )
