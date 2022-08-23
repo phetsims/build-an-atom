@@ -1,7 +1,7 @@
 // Copyright 2020-2022, University of Colorado Boulder
 
 /**
- * Global options shown in the "Options" dialog from the PhET Menu
+ * Controls for visual options for this sim.
  *
  * @author John Blanco
  * @author Siddhartha Chinthapally (Actual Concepts)
@@ -13,7 +13,7 @@ import Checkbox from '../../../../sun/js/Checkbox.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
 
-class GlobalOptionsNode extends VBox {
+class VisualPreferencesNode extends VBox {
 
   /**
    * @param {BooleanProperty} highContrastParticlesProperty
@@ -36,7 +36,7 @@ class GlobalOptionsNode extends VBox {
     } );
 
     // @private
-    this.disposeGlobalOptionsNode = () => {
+    this.disposeVisualPreferencesNode = () => {
       highContrastParticlesCheckbox.dispose();
     };
   }
@@ -46,10 +46,10 @@ class GlobalOptionsNode extends VBox {
    * @override
    */
   dispose() {
-    this.disposeGlobalOptionsNode();
+    this.disposeVisualPreferencesNode();
     super.dispose();
   }
 }
 
-buildAnAtom.register( 'GlobalOptionsNode', GlobalOptionsNode );
-export default GlobalOptionsNode;
+buildAnAtom.register( 'VisualPreferencesNode', VisualPreferencesNode );
+export default VisualPreferencesNode;

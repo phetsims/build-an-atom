@@ -11,7 +11,7 @@ import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
 import buildAnAtomStrings from './buildAnAtomStrings.js';
 import BAAGlobalOptions from './common/BAAGlobalOptions.js';
-import GlobalOptionsNode from './common/view/GlobalOptionsNode.js';
+import VisualPreferencesNode from './common/view/VisualPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
@@ -33,9 +33,9 @@ const simOptions = {
   },
 
   preferencesModel: new PreferencesModel( {
-    generalOptions: {
+    visualOptions: {
       customPreferences: [ {
-        createContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty,
+        createContent: tandem => new VisualPreferencesNode( BAAGlobalOptions.highContrastParticlesProperty,
           tandem.createTandem( 'buildAnAtomPreferencesContent' ) )
       } ]
     }
