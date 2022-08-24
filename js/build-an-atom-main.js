@@ -36,7 +36,7 @@ const simOptions = {
     visualOptions: {
       customPreferences: [ {
         createContent: tandem => new VisualPreferencesNode( BAAGlobalPreferences.highContrastParticlesProperty,
-          tandem.createTandem( 'buildAnAtomPreferencesContent' ) )
+          tandem.createTandem( 'simPreferences' ) )
       } ]
     }
   } )
