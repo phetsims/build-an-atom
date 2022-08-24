@@ -10,7 +10,7 @@ import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
 import buildAnAtomStrings from './buildAnAtomStrings.js';
-import BAAGlobalOptions from './common/BAAGlobalOptions.js';
+import BAAGlobalPreferences from './common/BAAGlobalPreferences.js';
 import VisualPreferencesNode from './common/view/VisualPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
@@ -35,7 +35,7 @@ const simOptions = {
   preferencesModel: new PreferencesModel( {
     visualOptions: {
       customPreferences: [ {
-        createContent: tandem => new VisualPreferencesNode( BAAGlobalOptions.highContrastParticlesProperty,
+        createContent: tandem => new VisualPreferencesNode( BAAGlobalPreferences.highContrastParticlesProperty,
           tandem.createTandem( 'buildAnAtomPreferencesContent' ) )
       } ]
     }

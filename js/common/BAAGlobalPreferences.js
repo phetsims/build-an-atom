@@ -1,7 +1,7 @@
 // Copyright 2020-2021, University of Colorado Boulder
 
 /**
- * BAAGlobalOptions defines the global options for this simulation.
+ * BAAGlobalPreferences defines the global options for this simulation.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -14,7 +14,7 @@ import BAAQueryParameters from './BAAQueryParameters.js';
 // constants
 const optionsTandem = Tandem.GLOBAL_MODEL.createTandem( 'options' );
 
-const BAAGlobalOptions = {
+const BAAGlobalPreferences = {
 
   // @public
   highContrastParticlesProperty:
@@ -24,5 +24,5 @@ const BAAGlobalOptions = {
     } )
 };
 
-buildAnAtom.register( 'BAAGlobalOptions', BAAGlobalOptions );
-export default BAAGlobalOptions;
+buildAnAtom.register( 'BAAGlobalPreferences', BAAGlobalPreferences );
+export default BAAGlobalPreferences;

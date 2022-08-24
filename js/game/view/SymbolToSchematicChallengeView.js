@@ -13,7 +13,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import InteractiveSchematicAtom from '../../../../shred/js/view/InteractiveSchematicAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAGlobalOptions from '../../common/BAAGlobalOptions.js';
+import BAAGlobalPreferences from '../../common/BAAGlobalPreferences.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 
@@ -36,7 +36,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     super( challenge, layoutBounds, tandem );
 
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.buildAnAtomModel, modelViewTransform, {
-      highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
+      highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
       tandem: tandem.createTandem( 'interactiveSchematicAtom' )
     } );
     this.interactiveSchematicAtom.scale( 0.95 );

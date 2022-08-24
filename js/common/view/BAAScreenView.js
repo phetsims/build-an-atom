@@ -31,7 +31,7 @@ import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import buildAnAtomStrings from '../../buildAnAtomStrings.js';
-import BAAGlobalOptions from '../BAAGlobalOptions.js';
+import BAAGlobalPreferences from '../BAAGlobalPreferences.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
@@ -123,7 +123,7 @@ class BAAScreenView extends ScreenView {
     model.nucleons.forEach( nucleon => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
-        highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
+        highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
         tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
@@ -166,7 +166,7 @@ class BAAScreenView extends ScreenView {
     model.electrons.forEach( electron => {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
-        highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
+        highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
         tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
