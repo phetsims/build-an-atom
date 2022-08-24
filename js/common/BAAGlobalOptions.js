@@ -1,7 +1,7 @@
 // Copyright 2020-2021, University of Colorado Boulder
 
 /**
- * BAAGlobalOptions defines the global options for this simulation, accessed via PhET > Options.
+ * BAAGlobalOptions defines the global options for this simulation.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
