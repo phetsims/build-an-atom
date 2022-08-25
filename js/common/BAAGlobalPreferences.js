@@ -11,15 +11,12 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BAAQueryParameters from './BAAQueryParameters.js';
 
-// constants
-const optionsTandem = Tandem.GLOBAL_MODEL.createTandem( 'options' );
-
 const BAAGlobalPreferences = {
 
   // @public
   highContrastParticlesProperty:
     new BooleanProperty( BAAQueryParameters.highContrastParticles, {
-      tandem: optionsTandem.createTandem( 'highContrastParticlesProperty' ),
+      tandem: Tandem.PREFERENCES.createTandem( 'highContrastParticlesProperty' ),
       phetioDocumentation: 'determines whether the particles are presented with more contrast for better visibility'
     } )
 };
