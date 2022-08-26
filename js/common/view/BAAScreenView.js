@@ -185,7 +185,7 @@ class BAAScreenView extends ScreenView {
 
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}Front` )
+        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}FrontNode` )
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
