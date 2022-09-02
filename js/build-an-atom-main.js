@@ -15,7 +15,7 @@ import VisualPreferencesNode from './common/view/VisualPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
-const buildAnAtomTitleString = buildAnAtomStrings[ 'build-an-atom' ].title;
+const buildAnAtomTitleStringProperty = buildAnAtomStrings[ 'build-an-atom' ].titleStringProperty;
 
 // root tandem
 const tandem = Tandem.ROOT;
@@ -52,5 +52,5 @@ simLauncher.launch( () => {
   if ( !Tandem.PHET_IO_ENABLED ) {
     screens.push( new GameScreen( tandem.createTandem( 'gameScreen' ) ) );
   }
-  new Sim( buildAnAtomTitleString, screens, simOptions ).start();
+  new Sim( buildAnAtomTitleStringProperty, screens, simOptions ).start();
 } );
