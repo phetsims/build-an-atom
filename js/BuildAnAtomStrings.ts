@@ -73,8 +73,8 @@ type StringsType = {
   'highContrastParticlesStringProperty': TReadOnlyProperty<string>;
 };
 
-const buildAnAtomStrings = getStringModule( 'BUILD_AN_ATOM' ) as StringsType;
+const BuildAnAtomStrings = getStringModule( 'BUILD_AN_ATOM' ) as StringsType;
 
-buildAnAtom.register( 'buildAnAtomStrings', buildAnAtomStrings );
+buildAnAtom.register( 'BuildAnAtomStrings', BuildAnAtomStrings );
 
-export default buildAnAtomStrings;
+export default BuildAnAtomStrings;

@@ -11,7 +11,7 @@ import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialo
 import { Text, VBox } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 class VisualPreferencesNode extends VBox {
 
@@ -24,7 +24,7 @@ class VisualPreferencesNode extends VBox {
     // Add support for turning on high-contrast particles.
     const highContrastParticlesCheckbox = new Checkbox(
       highContrastParticlesProperty,
-      new Text( buildAnAtomStrings.highContrastParticles, { font: PreferencesDialog.CONTENT_FONT } ), {
+      new Text( BuildAnAtomStrings.highContrastParticles, { font: PreferencesDialog.CONTENT_FONT } ), {
         tandem: tandem.createTandem( 'highContrastParticlesCheckbox' )
       } );
 

@@ -15,13 +15,13 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 
-const findTheElementString = buildAnAtomStrings.findTheElement;
-const ionString = buildAnAtomStrings.ion;
-const isItString = buildAnAtomStrings.isIt;
-const neutralAtomString = buildAnAtomStrings.neutralAtom;
+const findTheElementString = BuildAnAtomStrings.findTheElement;
+const ionString = BuildAnAtomStrings.ion;
+const isItString = BuildAnAtomStrings.isIt;
+const neutralAtomString = BuildAnAtomStrings.neutralAtom;
 
 // constants
 const TITLE_FONT = new PhetFont( 30 );

@@ -18,11 +18,11 @@ import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
 import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
 import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import GameModel from '../model/GameModel.js';
 
-const chooseYourGameString = buildAnAtomStrings.chooseYourGame;
+const chooseYourGameString = BuildAnAtomStrings.chooseYourGame;
 
 // constants
 const CONTROLS_INSET = 10;

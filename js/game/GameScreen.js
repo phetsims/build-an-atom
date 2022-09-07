@@ -14,7 +14,7 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import gameIcon_png from '../../images/gameIcon_png.js';
 import gameIconSmall_png from '../../images/gameIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
-import buildAnAtomStrings from '../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import GameModel from './model/GameModel.js';
 import GameScreenView from './view/GameScreenView.js';
 
@@ -30,7 +30,7 @@ class GameScreen extends Screen {
       // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
       model => new GameScreenView( model, Tandem.OPTIONAL ),
       {
-        name: buildAnAtomStrings.game,
+        name: BuildAnAtomStrings.game,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
         homeScreenIcon: new ScreenIcon( new Image( gameIcon_png ), {
           maxIconWidthProportion: 1,

@@ -9,13 +9,13 @@ import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
-import buildAnAtomStrings from './buildAnAtomStrings.js';
+import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 import BAAGlobalPreferences from './common/BAAGlobalPreferences.js';
 import VisualPreferencesNode from './common/view/VisualPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
-const buildAnAtomTitleStringProperty = buildAnAtomStrings[ 'build-an-atom' ].titleStringProperty;
+const buildAnAtomTitleStringProperty = BuildAnAtomStrings[ 'build-an-atom' ].titleStringProperty;
 
 // root tandem
 const tandem = Tandem.ROOT;

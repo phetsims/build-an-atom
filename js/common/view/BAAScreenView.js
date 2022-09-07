@@ -30,19 +30,19 @@ import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAGlobalPreferences from '../BAAGlobalPreferences.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
 // strings
-const cloudString = buildAnAtomStrings.cloud;
-const elementString = buildAnAtomStrings.element;
-const modelString = buildAnAtomStrings.model;
-const neutralSlashIonString = buildAnAtomStrings.neutralSlashIon;
-const orbitsString = buildAnAtomStrings.orbits;
-const showString = buildAnAtomStrings.show;
-const stableSlashUnstableString = buildAnAtomStrings.stableSlashUnstable;
+const cloudString = BuildAnAtomStrings.cloud;
+const elementString = BuildAnAtomStrings.element;
+const modelString = BuildAnAtomStrings.model;
+const neutralSlashIonString = BuildAnAtomStrings.neutralSlashIon;
+const orbitsString = BuildAnAtomStrings.orbits;
+const showString = BuildAnAtomStrings.show;
+const stableSlashUnstableString = BuildAnAtomStrings.stableSlashUnstable;
 
 // constants
 const CONTROLS_INSET = 10;

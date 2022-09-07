@@ -13,11 +13,11 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
-const electronsColonPatternString = buildAnAtomStrings.electronsColonPattern;
-const neutronsColonPatternString = buildAnAtomStrings.neutronsColonPattern;
-const protonsColonPatternString = buildAnAtomStrings.protonsColonPattern;
+const electronsColonPatternString = BuildAnAtomStrings.electronsColonPattern;
+const neutronsColonPatternString = BuildAnAtomStrings.neutronsColonPattern;
+const protonsColonPatternString = BuildAnAtomStrings.protonsColonPattern;
 
 // constants
 const MAX_WIDTH = 280;

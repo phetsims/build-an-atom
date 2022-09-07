@@ -11,11 +11,11 @@ import { Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import SymbolNode from './SymbolNode.js';
 
-const symbolString = buildAnAtomStrings.symbol;
+const symbolString = BuildAnAtomStrings.symbol;
 
 class SymbolScreenView extends BAAScreenView {
 

@@ -16,12 +16,12 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
-const whatIsTheTotalChargeString = buildAnAtomStrings.whatIsTheTotalCharge;
+const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
 
 class SchematicToChargeChallengeView extends ChallengeView {
 

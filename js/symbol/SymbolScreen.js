@@ -13,7 +13,7 @@ import { Image } from '../../../scenery/js/imports.js';
 import elementIcon_png from '../../images/elementIcon_png.js';
 import elementIconSmall_png from '../../images/elementIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
-import buildAnAtomStrings from '../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import SymbolScreenView from './view/SymbolScreenView.js';
 
@@ -27,7 +27,7 @@ class SymbolScreen extends Screen {
       () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: buildAnAtomStrings.symbol,
+        name: BuildAnAtomStrings.symbol,
         backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
         homeScreenIcon: new ScreenIcon( new Image( elementIcon_png ), {
           maxIconWidthProportion: 1,

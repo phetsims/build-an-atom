@@ -12,12 +12,12 @@ import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-const whatIsTheMassNumberString = buildAnAtomStrings.whatIsTheMassNumber;
+const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
 
 class CountsToMassNumberChallengeView extends ChallengeView {
 

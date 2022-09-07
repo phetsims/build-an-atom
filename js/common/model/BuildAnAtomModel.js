@@ -20,12 +20,12 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../view/BAAScreenView.js';
 
-const electronsString = buildAnAtomStrings.electrons;
-const neutronsString = buildAnAtomStrings.neutrons;
-const protonsString = buildAnAtomStrings.protons;
+const electronsString = BuildAnAtomStrings.electrons;
+const neutronsString = BuildAnAtomStrings.neutrons;
+const protonsString = BuildAnAtomStrings.protons;
 
 // constants
 const NUM_PROTONS = 10;

@@ -13,12 +13,12 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-const whatIsTheTotalChargeString = buildAnAtomStrings.whatIsTheTotalCharge;
+const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
 
 class CountsToChargeChallengeView extends ChallengeView {
 

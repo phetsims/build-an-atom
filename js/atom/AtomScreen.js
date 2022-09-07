@@ -12,7 +12,7 @@ import { Image } from '../../../scenery/js/imports.js';
 import atomIcon_png from '../../images/atomIcon_png.js';
 import atomIconSmall_png from '../../images/atomIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
-import buildAnAtomStrings from '../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import AtomScreenView from './view/AtomScreenView.js';
 
@@ -26,7 +26,7 @@ class AtomScreen extends Screen {
       () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
       model => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: buildAnAtomStrings.atom,
+        name: BuildAnAtomStrings.atom,
         homeScreenIcon: new ScreenIcon( new Image( atomIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
