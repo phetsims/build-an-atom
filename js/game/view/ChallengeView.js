@@ -13,14 +13,14 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Color, Node, Text } from '../../../../scenery/js/imports.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import vegasStrings from '../../../../vegas/js/vegasStrings.js';
+import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAChallengeState from '../model/BAAChallengeState.js';
 
-const checkString = vegasStrings.check;
-const nextString = vegasStrings.next;
-const showAnswerString = vegasStrings.showAnswer;
-const tryAgainString = vegasStrings.tryAgain;
+const checkString = VegasStrings.check;
+const nextString = VegasStrings.next;
+const showAnswerString = VegasStrings.showAnswer;
+const tryAgainString = VegasStrings.tryAgain;
 
 // constants
 const BUTTON_FONT = new PhetFont( 20 );
