@@ -79,7 +79,7 @@ class AtomScreenView extends BAAScreenView {
         titleNode: new Text( netChargeString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: tandem.createTandem( 'netChargeAccordionBoxTitle' )
+          tandem: tandem.createTandem( 'netChargeAccordionBoxTitleText' )
         } ),
         expandedProperty: this.netChargeAccordionBoxExpandedProperty,
 
@@ -111,7 +111,7 @@ class AtomScreenView extends BAAScreenView {
         titleNode: new Text( massNumberString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: tandem.createTandem( 'massNumberAccordionBoxTitle' )
+          tandem: tandem.createTandem( 'massNumberAccordionBoxTitleText' )
         } ),
         expandedProperty: this.massNumberAccordionBoxExpandedProperty,
 

@@ -39,7 +39,7 @@ class SymbolScreenView extends BAAScreenView {
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'symbolAccordionBoxTitle' )
+        tandem: tandem.createTandem( 'symbolAccordionBoxTitleText' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableAccordionBox.width,

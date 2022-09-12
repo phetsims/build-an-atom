@@ -214,7 +214,7 @@ class BAAScreenView extends ScreenView {
       titleNode: new Text( elementString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: periodicTableAccordionBoxTandem.createTandem( 'title' )
+        tandem: periodicTableAccordionBoxTandem.createTandem( 'titleText' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -292,12 +292,12 @@ class BAAScreenView extends ScreenView {
     }
 
     this.addChild( labelVisibilityControlPanel );
-    const labelVisibilityControlPanelTitle = new Text( showString, {
+    const labelVisibilityControlPanelTitleText = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
       maxWidth: labelVisibilityControlPanel.width,
-      tandem: tandem.createTandem( 'labelVisibilityControlPanelTitle' )
+      tandem: tandem.createTandem( 'labelVisibilityControlPanelTitleText' )
     } );
-    this.addChild( labelVisibilityControlPanelTitle );
+    this.addChild( labelVisibilityControlPanelTitleText );
 
     // Add the radio buttons that control the electron representation in the atom.
     const radioButtonRadius = 6;
@@ -331,7 +331,7 @@ class BAAScreenView extends ScreenView {
         weight: 'bold'
       } ),
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20,
-      tandem: tandem.createTandem( 'electronViewButtonGroupLabel' )
+      tandem: tandem.createTandem( 'electronViewButtonGroupLabelText' )
     } ) );
     orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
     orbitsRadioButton.left = electronViewButtonGroup.left;
@@ -361,8 +361,8 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     labelVisibilityControlPanel.left = this.periodicTableAccordionBox.left;
     labelVisibilityControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    labelVisibilityControlPanelTitle.bottom = labelVisibilityControlPanel.top;
-    labelVisibilityControlPanelTitle.centerX = labelVisibilityControlPanel.centerX;
+    labelVisibilityControlPanelTitleText.bottom = labelVisibilityControlPanel.top;
+    labelVisibilityControlPanelTitleText.centerX = labelVisibilityControlPanel.centerX;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 

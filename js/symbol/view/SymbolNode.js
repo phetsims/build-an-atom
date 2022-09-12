@@ -62,49 +62,49 @@ class SymbolNode extends Node {
     boundingBox.addChild( symbolText );
 
     // Add the atomic number display.
-    const atomicNumberDisplay = new Text( '0', {
+    const atomicNumberDisplayText = new Text( '0', {
       font: NUMBER_FONT,
       fill: PhetColorScheme.RED_COLORBLIND,
-      tandem: tandem.createTandem( 'atomicNumberDisplay' )
+      tandem: tandem.createTandem( 'atomicNumberDisplayText' )
     } );
 
     // Add the listener to update the proton count.
     numberAtom.protonCountProperty.link( protonCount => {
-      atomicNumberDisplay.text = protonCount;
-      atomicNumberDisplay.left = NUMBER_INSET;
-      atomicNumberDisplay.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
+      atomicNumberDisplayText.text = protonCount;
+      atomicNumberDisplayText.left = NUMBER_INSET;
+      atomicNumberDisplayText.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
     } );
-    boundingBox.addChild( atomicNumberDisplay );
+    boundingBox.addChild( atomicNumberDisplayText );
 
     // Add the mass number display.
-    const massNumberDisplay = new Text( '0', {
+    const massNumberDisplayText = new Text( '0', {
       font: NUMBER_FONT,
       fill: 'black',
-      tandem: tandem.createTandem( 'massNumberDisplay' )
+      tandem: tandem.createTandem( 'massNumberDisplayText' )
     } );
-    boundingBox.addChild( massNumberDisplay );
+    boundingBox.addChild( massNumberDisplayText );
 
     // Add the listener to update the mass number.
     numberAtom.massNumberProperty.link( massNumber => {
-      massNumberDisplay.text = massNumber;
-      massNumberDisplay.left = NUMBER_INSET;
-      massNumberDisplay.top = NUMBER_INSET;
+      massNumberDisplayText.text = massNumber;
+      massNumberDisplayText.left = NUMBER_INSET;
+      massNumberDisplayText.top = NUMBER_INSET;
     } );
 
     // Add the charge display.
-    const chargeDisplay = new Text( '0', {
+    const chargeDisplayText = new Text( '0', {
       font: NUMBER_FONT,
       fill: 'black',
-      tandem: tandem.createTandem( 'chargeDisplay' )
+      tandem: tandem.createTandem( 'chargeDisplayText' )
     } );
-    boundingBox.addChild( chargeDisplay );
+    boundingBox.addChild( chargeDisplayText );
 
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( charge => {
-      chargeDisplay.text = ( charge > 0 ? '+' : '' ) + charge;
-      chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
-      chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
-      chargeDisplay.top = NUMBER_INSET;
+      chargeDisplayText.text = ( charge > 0 ? '+' : '' ) + charge;
+      chargeDisplayText.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
+      chargeDisplayText.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
+      chargeDisplayText.top = NUMBER_INSET;
     } );
 
     // Add the scale image - just an image with no functionality.
@@ -121,11 +121,11 @@ class SymbolNode extends Node {
 
     // Do the layout.
     scaleImage.left = 0;
-    scaleImage.centerY = massNumberDisplay.centerY;
+    scaleImage.centerY = massNumberDisplayText.centerY;
     boundingBox.top = 0;
     boundingBox.left = scaleImage.right + 10;
     chargeMeter.left = boundingBox.right + 10;
-    chargeMeter.centerY = chargeDisplay.centerY;
+    chargeMeter.centerY = chargeDisplayText.centerY;
 
     this.mutate( options );
   }
