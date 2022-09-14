@@ -30,7 +30,7 @@ class GameScreen extends Screen {
       // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
       model => new GameScreenView( model, Tandem.OPTIONAL ),
       {
-        name: BuildAnAtomStrings.game,
+        name: BuildAnAtomStrings.gameStringProperty,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
         homeScreenIcon: new ScreenIcon( new Image( gameIcon_png ), {
           maxIconWidthProportion: 1,

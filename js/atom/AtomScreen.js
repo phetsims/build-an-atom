@@ -26,7 +26,7 @@ class AtomScreen extends Screen {
       () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
       model => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: BuildAnAtomStrings.atom,
+        name: BuildAnAtomStrings.atomStringProperty,
         homeScreenIcon: new ScreenIcon( new Image( atomIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1

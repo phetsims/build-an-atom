@@ -27,7 +27,7 @@ class SymbolScreen extends Screen {
       () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: BuildAnAtomStrings.symbol,
+        name: BuildAnAtomStrings.symbolStringProperty,
         backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
         homeScreenIcon: new ScreenIcon( new Image( elementIcon_png ), {
           maxIconWidthProportion: 1,
