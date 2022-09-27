@@ -236,34 +236,34 @@ class BAAScreenView extends ScreenView {
 
     const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
     const checkboxItems = [ {
-      node: new Text( elementString, {
+      createNode: tandem => new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'elementText' )
+        tandem: tandem.createTandem( 'elementText' )
       } ),
       property: model.showElementNameProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showElementNameCheckbox' )
+      tandemName: 'showElementNameCheckbox'
     }, {
-      node: new Text( neutralSlashIonString, {
+      createNode: tandem => new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'neutralOrIonText' )
+        tandem: tandem.createTandem( 'neutralOrIonText' )
       } ),
       property: model.showNeutralOrIonProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckbox' )
+      tandemName: 'showNeutralOrIonCheckbox'
     } ];
 
     // In support of a research study, it is possible to exclude the stable/unstable checkbox, see
     // https://github.com/phetsims/special-ops/issues/189.
     if ( BAAQueryParameters.showStableUnstableCheckbox ) {
       checkboxItems.push( {
-        node: new Text( stableSlashUnstableString, {
+        createNode: tandem => new Text( stableSlashUnstableString, {
           font: LABEL_CONTROL_FONT,
           maxWidth: LABEL_CONTROL_MAX_WIDTH,
-          tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
+          tandem: tandem.createTandem( 'stableUnstableText' )
         } ),
         property: model.showStableOrUnstableProperty,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckbox' )
+        tandemName: 'showStableOrUnstableCheckbox'
       } );
     }
 
