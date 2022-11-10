@@ -8,7 +8,6 @@
  * @author John Blanco
  */
 
-import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
@@ -53,27 +52,23 @@ class BAAGameChallenge extends BAAGameState {
     this.pointValue = 0; // @public (phet-io)
     this.model = buildAnAtomGameModel; // @public (phet-io)
     this.challengeType = challengeType; // @public (phet-io)
-
-    // @public
-    this.disposeEmitter = new Emitter();
   }
 
   /**
    * @public - release resources when no longer used
    */
   dispose() {
-    assert && assert( !this.isDisposed, 'only dispose once' );
-    this.disposeEmitter.emit();
     this.challengeStateProperty.dispose();
     this.numSubmissionsProperty.dispose();
 
     super.dispose();
+  }
 
-    // Remove all listeners from the dispose emitter to avoid memory leaks.
-    this.disposeEmitter.dispose();
-
-    // make sure disposed flag is set (though it should have been set by the superclass's dispose function)
-    this.isDisposed = true;
+  /**
+   * @public - presence of this method will trigger disposal when game state changes
+   */
+  disposeState() {
+    this.dispose();
   }
 
   /**

@@ -7,6 +7,9 @@
  * game model, and stimuli from the user, such as submitting an answer, are submitted to the states via the API
  * defined below.
  *
+ * If your game state needs to be disposed, then implement the disposeState() function, otherwise there will be no cleanup
+ * on state change.
+ *
  * @author John Blanco
  */
 
