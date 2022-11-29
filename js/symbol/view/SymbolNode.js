@@ -8,6 +8,7 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Image, Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
@@ -29,6 +30,7 @@ class SymbolNode extends Node {
    * Constructor
    * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
+   * @param {Object} [options]
    */
   constructor( numberAtom, tandem, options ) {
 
@@ -86,7 +88,7 @@ class SymbolNode extends Node {
 
     // Add the listener to update the mass number.
     numberAtom.massNumberProperty.link( massNumber => {
-      massNumberDisplayText.text = massNumber;
+      massNumberDisplayText.text = massNumber.toString();
       massNumberDisplayText.left = NUMBER_INSET;
       massNumberDisplayText.top = NUMBER_INSET;
     } );
@@ -101,7 +103,8 @@ class SymbolNode extends Node {
 
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( charge => {
-      chargeDisplayText.text = ( charge > 0 ? '+' : '' ) + charge;
+      const chargeChar = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
+      chargeDisplayText.text = `${Math.abs( charge ).toString( 10 )}${chargeChar}`;
       chargeDisplayText.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
       chargeDisplayText.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplayText.top = NUMBER_INSET;
