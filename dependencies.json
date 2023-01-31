@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.21 Wed Jan 18 2023 11:30:55 GMT-0700 (Mountain Standard Time)",
+  "comment": "# build-an-atom 1.6.22-rc.1 Tue Jan 31 2023 14:59:12 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "5a0bfbbbe35e56ccc53bc31de112170210692673",
+    "sha": "208fb295d653b3f37fb017220e777cef4c0f637f",
     "branch": "1.6"
   },
   "chipper": {
