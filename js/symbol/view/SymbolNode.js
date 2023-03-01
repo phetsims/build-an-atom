@@ -58,7 +58,7 @@ class SymbolNode extends Node {
     const textCenter = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
     numberAtom.protonCountProperty.link( protonCount => {
       const symbol = AtomIdentifier.getSymbol( protonCount );
-      symbolText.text = protonCount > 0 ? symbol : '';
+      symbolText.string = protonCount > 0 ? symbol : '';
       symbolText.center = textCenter;
     } );
     boundingBox.addChild( symbolText );
@@ -72,7 +72,7 @@ class SymbolNode extends Node {
 
     // Add the listener to update the proton count.
     numberAtom.protonCountProperty.link( protonCount => {
-      atomicNumberDisplayText.text = protonCount;
+      atomicNumberDisplayText.string = protonCount;
       atomicNumberDisplayText.left = NUMBER_INSET;
       atomicNumberDisplayText.bottom = SYMBOL_BOX_HEIGHT - NUMBER_INSET;
     } );
@@ -88,7 +88,7 @@ class SymbolNode extends Node {
 
     // Add the listener to update the mass number.
     numberAtom.massNumberProperty.link( massNumber => {
-      massNumberDisplayText.text = massNumber.toString();
+      massNumberDisplayText.string = massNumber.toString();
       massNumberDisplayText.left = NUMBER_INSET;
       massNumberDisplayText.top = NUMBER_INSET;
     } );
@@ -104,7 +104,7 @@ class SymbolNode extends Node {
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( charge => {
       const chargeChar = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
-      chargeDisplayText.text = `${Math.abs( charge ).toString( 10 )}${chargeChar}`;
+      chargeDisplayText.string = `${Math.abs( charge ).toString( 10 )}${chargeChar}`;
       chargeDisplayText.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
       chargeDisplayText.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplayText.top = NUMBER_INSET;

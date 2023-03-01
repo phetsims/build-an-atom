@@ -145,7 +145,7 @@ class ChallengeView extends Node {
     stateChangeHandlers[ BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY ] = () => {
       setAnswerNodeInteractive( false );
       faceNode.smile();
-      pointDisplay.text = `+${challenge.pointValue}`;
+      pointDisplay.string = `+${challenge.pointValue}`;
       faceNode.visible = true;
       this.nextButton.visible = true;
       this.gameAudioPlayer.correctAnswer();
@@ -153,7 +153,7 @@ class ChallengeView extends Node {
     stateChangeHandlers[ BAAChallengeState.PRESENTING_TRY_AGAIN ] = () => {
       setAnswerNodeInteractive( false );
       faceNode.frown();
-      pointDisplay.text = '';
+      pointDisplay.string = '';
       faceNode.visible = true;
       this.tryAgainButton.visible = true;
       this.gameAudioPlayer.wrongAnswer();
@@ -162,7 +162,7 @@ class ChallengeView extends Node {
       setAnswerNodeInteractive( false );
       this.displayCorrectAnswerButton.visible = true;
       faceNode.frown();
-      pointDisplay.text = '';
+      pointDisplay.string = '';
       faceNode.visible = true;
       this.gameAudioPlayer.wrongAnswer();
     };

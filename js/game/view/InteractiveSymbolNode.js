@@ -85,9 +85,9 @@ class InteractiveSymbolNode extends Node {
 
     // Define a function to update the symbol text and element caption.
     const updateElement = protonCount => {
-      symbolText.text = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
+      symbolText.string = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
-      elementCaption.text = protonCount > 0 ? AtomIdentifier.getName( protonCount ) : '';
+      elementCaption.string = protonCount > 0 ? AtomIdentifier.getName( protonCount ) : '';
       elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
     };
 

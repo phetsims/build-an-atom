@@ -164,8 +164,8 @@ class ChargeMeter extends Node {
         readoutText.fill = textColor;
 
         const newText = sign + charge;
-        if ( newText !== readoutText.text ) {
-          readoutText.text = newText;
+        if ( newText !== readoutText.string ) {
+          readoutText.string = newText;
 
           // reposition as necessary.
           readoutText.resetTransform();
