@@ -11,7 +11,7 @@
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -52,7 +52,8 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
     // Question
-    const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
+    const questionPrompt = new RichText( whatIsTheTotalChargeString, {
+      replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,

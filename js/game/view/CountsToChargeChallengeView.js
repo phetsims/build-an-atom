@@ -8,7 +8,7 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -41,7 +41,8 @@ class CountsToChargeChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
+    const questionPrompt = new RichText( whatIsTheTotalChargeString, {
+      replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,

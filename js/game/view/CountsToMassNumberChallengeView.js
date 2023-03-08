@@ -8,8 +8,8 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -40,7 +40,8 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
+    const questionPrompt = new RichText( whatIsTheMassNumberString, {
+      replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
