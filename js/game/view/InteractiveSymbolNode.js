@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -155,15 +156,16 @@ define( function( require ) {
         tandem.createTandem( 'chargeEntryNode' ), {
           minValue: -99,
           maxValue: 99,
-          prependPlusSign: true,
+          showPlusForPositive: true,
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );
     }
     else {
-      var chargeTextPrepend = numberAtom.chargeProperty.get() > 0 ? '+' : '';
-      var chargeDisplay = new Text( chargeTextPrepend + numberAtom.chargeProperty.get(), {
+      var charge = numberAtom.chargeProperty.get();
+      var chargeSign = charge > 0 ? '+' : charge < 0 ? BAASharedConstants.MINUS_SIGN : '';
+      var chargeDisplay = new Text( Math.abs( charge ).toString() + chargeSign, {
         font: NUMBER_FONT,
         fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() ),
         right: SYMBOL_BOX_WIDTH - NUMBER_INSET,

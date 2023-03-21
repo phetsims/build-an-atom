@@ -63,7 +63,8 @@ define( function( require ) {
     var numberEntryNode = new NumberEntryNode(
       self.chargeAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
-        prependPlusSign: true,
+        showPlusForPositive: true,
+        signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99

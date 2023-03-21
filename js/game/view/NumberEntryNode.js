@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var ArrowButton = require( 'SUN/buttons/ArrowButton' );
+  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -35,8 +36,20 @@ define( function( require ) {
     var self = this;
 
     options = _.extend( {
-      prependPlusSign: false, // Generally set to true when depicting charge.
+
+      // {boolean} - A flag that controls whether the plus sign is shown for positive numbers.  This is generally on
+      // when depicting charge, off for other things like mass number or atomic number.  Off (false) means that no sign
+      // is depicted.
+      showPlusForPositive: false,
+
+      // {boolean} - Controls whether the sign (i.e. +/-) is shown before or after the numeric value.  For charge, the
+      // sign is generally shown after, which is the most common use case for this, and hence the default.
+      signAfterValue: true,
+
+      // {function} - A function that can be used to change the color used to depict the value based on the value.
       getTextColor: function() { return 'black'; },
+
+      // {number} - min and max supported values
       minValue: Number.NEGATIVE_INFINITY,
       maxValue: Number.POSITIVE_INFINITY
     }, options );
@@ -63,8 +76,14 @@ define( function( require ) {
     self.addChild( answerValueBackground );
     numberProperty.link( function( newValue ) {
       answerValueBackground.removeAllChildren();
-      var prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
-      var textNode = new Text( prepend + newValue, {
+
+      var minusSign = options.signAfterValue ? BAASharedConstants.MINUS_SIGN : '-';
+      var sign = newValue < 0 ? minusSign :
+                 newValue > 0 && options.showPlusForPositive ? '+' :
+                 '';
+      var absoluteValueString = Math.abs( newValue ).toString();
+      var valueText = options.signAfterValue ? absoluteValueString + sign : sign + absoluteValueString;
+      var textNode = new Text( valueText, {
         font: NUMBER_FONT,
         fill: options.getTextColor( newValue )
       } );

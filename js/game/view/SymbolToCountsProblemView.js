@@ -35,7 +35,10 @@ define( function( require ) {
     this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );
 
     // Symbol
-    var interactiveSymbolNode = new InteractiveSymbolNode( symbolToCountsProblem.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    var interactiveSymbolNode = new InteractiveSymbolNode(
+      symbolToCountsProblem.answerAtom,
+      tandem.createTandem( 'interactiveSymbolNode' )
+    );
     interactiveSymbolNode.scale( 0.75 );
     this.problemPresentationNode.addChild( interactiveSymbolNode );
 

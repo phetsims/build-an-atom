@@ -73,7 +73,8 @@ define( function( require ) {
       tandem.createTandem( 'chargeEntryNode' ), {
         minValue: -99,
         maxValue: 99,
-        prependPlusSign: true,
+        showPlusForPositive: true,
+        signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR
       } );
     self.interactiveAnswerNode.addChild( chargeEntryNode );
