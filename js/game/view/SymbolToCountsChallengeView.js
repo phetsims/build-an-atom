@@ -30,7 +30,10 @@ class SymbolToCountsChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );
 
     // Symbol
-    const interactiveSymbolNode = new InteractiveSymbolNode( symbolToCountsChallenge.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    const interactiveSymbolNode = new InteractiveSymbolNode(
+      symbolToCountsChallenge.answerAtom,
+      tandem.createTandem( 'interactiveSymbolNode' )
+    );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );
 

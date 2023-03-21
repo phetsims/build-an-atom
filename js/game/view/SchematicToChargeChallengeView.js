@@ -67,7 +67,8 @@ class SchematicToChargeChallengeView extends ChallengeView {
       tandem.createTandem( 'chargeEntryNode' ), {
         minValue: -99,
         maxValue: 99,
-        prependPlusSign: true,
+        showPlusForPositive: true,
+        signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR
       } );
     this.interactiveAnswerNode.addChild( chargeEntryNode );

@@ -10,6 +10,7 @@
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
@@ -147,15 +148,16 @@ class InteractiveSymbolNode extends Node {
         tandem.createTandem( 'chargeEntryNode' ), {
           minValue: -99,
           maxValue: 99,
-          prependPlusSign: true,
+          showPlusForPositive: true,
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );
     }
     else {
-      const chargeTextPrepend = numberAtom.chargeProperty.get() > 0 ? '+' : '';
-      const chargeDisplay = new Text( chargeTextPrepend + numberAtom.chargeProperty.get(), {
+      const charge = numberAtom.chargeProperty.value;
+      const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
+      const chargeDisplay = new Text( `${Math.abs( charge ).toString()}${chargeSign}`, {
         font: NUMBER_FONT,
         fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() ),
         right: SYMBOL_BOX_WIDTH - NUMBER_INSET,

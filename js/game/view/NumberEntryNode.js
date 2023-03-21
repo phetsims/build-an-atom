@@ -9,6 +9,7 @@
 
 import { Shape } from '../../../../kite/js/imports.js';
 import merge from '../../../../phet-core/js/merge.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import ArrowButton from '../../../../sun/js/buttons/ArrowButton.js';
@@ -30,8 +31,20 @@ class NumberEntryNode extends Node {
     super();
 
     options = merge( {
-      prependPlusSign: false, // Generally set to true when depicting charge.
+
+      // {boolean} - A flag that controls whether the plus sign is shown for positive numbers.  This is generally on
+      // when depicting charge, off for other things like mass number or atomic number.  Off (false) means that no sign
+      // is depicted.
+      showPlusForPositive: false,
+
+      // {boolean} - Controls whether the sign (i.e. +/-) is shown before or after the numeric value.  For charge, the
+      // sign is generally shown after, which is the most common use case for this, and hence the default.
+      signAfterValue: true,
+
+      // {function} - A function that can be used to change the color used to depict the value based on the value.
       getTextColor: () => 'black',
+
+      // {number} - min and max supported values
       minValue: Number.NEGATIVE_INFINITY,
       maxValue: Number.POSITIVE_INFINITY
     }, options );
@@ -59,8 +72,14 @@ class NumberEntryNode extends Node {
 
     const numberPropertyListener = newValue => {
       answerValueBackground.removeAllChildren();
-      const prepend = options.prependPlusSign && newValue > 0 ? '+' : '';
-      const textNode = new Text( prepend + newValue, {
+      const minusSign = options.signAfterValue ? MathSymbols.MINUS : MathSymbols.UNARY_MINUS;
+      const plusSign = options.signAfterValue ? MathSymbols.PLUS : MathSymbols.UNARY_PLUS;
+      const sign = newValue < 0 ? minusSign :
+                   newValue > 0 && options.showPlusForPositive ? plusSign :
+                   '';
+      const absoluteValueString = Math.abs( newValue ).toString();
+      const valueText = options.signAfterValue ? `${absoluteValueString}${sign}` : `${sign}${absoluteValueString}`;
+      const textNode = new Text( valueText, {
         font: NUMBER_FONT,
         fill: options.getTextColor( newValue )
       } );
