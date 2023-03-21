@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var AtomIdentifier = require( 'SHRED/AtomIdentifier' );
+  var BAASharedConstants = require( 'BUILD_AN_ATOM/common/BAASharedConstants' );
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ChargeMeter = require( 'BUILD_AN_ATOM/common/view/ChargeMeter' );
@@ -34,6 +35,7 @@ define( function( require ) {
    * Constructor
    * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
   function SymbolNode( numberAtom, tandem, options ) {
@@ -92,7 +94,7 @@ define( function( require ) {
 
     // Add the listener to update the mass number.
     numberAtom.massNumberProperty.link( function( massNumber ) {
-      massNumberDisplay.text = massNumber;
+      massNumberDisplay.text = massNumber.toString();
       massNumberDisplay.left = NUMBER_INSET;
       massNumberDisplay.top = NUMBER_INSET;
     } );
@@ -107,7 +109,8 @@ define( function( require ) {
 
     // Add the listener to update the charge.
     numberAtom.chargeProperty.link( function( charge ) {
-      chargeDisplay.text = ( charge > 0 ? '+' : '' ) + charge;
+      var chargeChar = charge > 0 ? '+' : charge < 0 ? BAASharedConstants.MINUS_SIGN : '';
+      chargeDisplay.text = Math.abs( charge ).toString( 10 ) + chargeChar;
       chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( charge );
       chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       chargeDisplay.top = NUMBER_INSET;

@@ -12,7 +12,8 @@ define( function( require ) {
   var buildAnAtom = require( 'BUILD_AN_ATOM/buildAnAtom' );
 
   var BAASharedConstants = {
-    RESET_BUTTON_RADIUS: 20
+    RESET_BUTTON_RADIUS: 20,
+    MINUS_SIGN: '\u2212'
   };
 
   buildAnAtom.register( 'BAASharedConstants', BAASharedConstants );
