@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * View for game challenges where the user is presented with a chemical symbol
