@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.6.25-rc.1 Wed Mar 22 2023 12:34:03 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.6.25 Wed Mar 29 2023 13:21:33 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "5f6017c2f79579bd9ab7a34b2db00fb6ca898d1a",
+    "sha": "b0e75d39521509191fd84fd0286d1a4ffaf52102",
     "branch": "1.6"
   },
   "chipper": {
