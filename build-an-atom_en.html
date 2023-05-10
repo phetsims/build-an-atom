@@ -22,7 +22,7 @@
   window.phet.chipper.packageObject =
     {
       "name": "build-an-atom",
-      "version": "1.7.0-dev.5",
+      "version": "1.8.0-dev.0",
       "license": "GPL-3.0",
       "repository": {
         "type": "git",
@@ -48,12 +48,18 @@
         },
         "simulation": true,
         "supportsOutputJS": true,
-        "published": true
+        "published": true,
+        "screenNameKeys": [
+          "BUILD_AN_ATOM/atom",
+          "BUILD_AN_ATOM/symbol",
+          "BUILD_AN_ATOM/game"
+        ]
       },
       "eslintConfig": {
         "extends": "../chipper/eslint/sim_eslintrc.js",
         "rules": {
-          "todo-should-have-issue": "off"
+          "todo-should-have-issue": "off",
+          "no-view-imported-from-model": "off"
         }
       }
     };
