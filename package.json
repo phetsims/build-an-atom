@@ -15,6 +15,10 @@
       "shred",
       "vegas",
       "vibe"
+    ],
+    "screenNameKeys": [
+      "BUILD_AN_ATOM/atom",
+      "BUILD_AN_ATOM/symbol"
     ]
   }
 }
