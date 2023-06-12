@@ -34,20 +34,6 @@ class VisualPreferencesNode extends VBox {
       spacing: PreferencesDialog.CONTENT_SPACING,
       align: 'left'
     } );
-
-    // @private
-    this.disposeVisualPreferencesNode = () => {
-      highContrastParticlesCheckbox.dispose();
-    };
-  }
-
-  /**
-   * @public
-   * @override
-   */
-  dispose() {
-    this.disposeVisualPreferencesNode();
-    super.dispose();
   }
 }
 
