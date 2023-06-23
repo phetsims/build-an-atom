@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "675b93fe903d096df6956a5c2dd1465b23847ab2",
+    "sha": "9ade94dc1c80148b9f46ff6e3a929bf3b78953d9",
     "branch": "1.6"
   },
   "chipper": {
@@ -61,7 +61,7 @@
     "branch": "HEAD"
   },
   "shred": {
-    "sha": "fc19ce5e9cb58ccd057c8644795ed70d0745a178",
+    "sha": "f0010c79cf374a4fc44b53689b37b3cac8cfa90b",
     "branch": "HEAD"
   },
   "sun": {
