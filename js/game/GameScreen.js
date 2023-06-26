@@ -28,7 +28,7 @@ class GameScreen extends Screen {
       () => new GameModel( tandem.createTandem( 'model' ) ),
 
       // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
-      model => new GameScreenView( model, Tandem.OPTIONAL ),
+      model => new GameScreenView( model, Tandem.OPT_OUT ),
       {
         name: BuildAnAtomStrings.gameStringProperty,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
