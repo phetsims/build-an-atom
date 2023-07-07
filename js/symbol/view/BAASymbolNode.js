@@ -19,6 +19,7 @@ class BAASymbolNode extends SymbolNode {
    * Constructor
    * @param {NumberAtom} numberAtom
    * @param {Tandem} tandem
+   * @param {Object} [options]
    */
   constructor( numberAtom, tandem, options ) {
 
