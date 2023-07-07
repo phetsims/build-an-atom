@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Node for entering numbers of protons, neutrons, electrons.
@@ -8,16 +8,15 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { Node, Text } from '../../../../scenery/js/imports.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
-const electronsColonString = buildAnAtomStrings.electronsColon;
-const neutronsColonString = buildAnAtomStrings.neutronsColon;
-const protonsColonString = buildAnAtomStrings.protonsColon;
+const electronsColonString = BuildAnAtomStrings.electronsColon;
+const neutronsColonString = BuildAnAtomStrings.neutronsColon;
+const protonsColonString = BuildAnAtomStrings.protonsColon;
 
 // constants
 const MAX_WIDTH = 200;

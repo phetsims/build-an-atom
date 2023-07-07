@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Main view for the second tab of the Build an Atom simulation.
@@ -16,8 +16,8 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import GameModel from '../model/GameModel.js';
 import BAAGameState from '../model/BAAGameState.js';
+import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 
@@ -79,7 +79,7 @@ class GameScreenView extends ScreenView {
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( ( state, previousState ) => {
 
-      ( previousState && previousState.disposeEmitter ) && previousState.disposeEmitter.emit();
+      ( previousState && previousState.disposeState ) && previousState.disposeState();
 
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();

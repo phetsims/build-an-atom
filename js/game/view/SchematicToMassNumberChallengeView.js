@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Visual representation of a challenge where the user is presented with a
@@ -11,16 +11,16 @@
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
-const whatIsTheMassNumberString = buildAnAtomStrings.whatIsTheMassNumber;
+const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
 
 class SchematicToMassNumberChallengeView extends ChallengeView {
 
@@ -52,7 +52,8 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( nonInteractiveSchematicAtomNode );
 
     // Question
-    const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
+    const questionPrompt = new RichText( whatIsTheMassNumberString, {
+      replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,

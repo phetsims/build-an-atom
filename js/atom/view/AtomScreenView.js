@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Main view for the first screen of the Build an Atom simulation.
@@ -6,19 +6,18 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import merge from '../../../../phet-core/js/merge.js';
-import { HBox } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { HBox, Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
 import MassNumberDisplay from './MassNumberDisplay.js';
 
-const massNumberString = buildAnAtomStrings.massNumber;
-const netChargeString = buildAnAtomStrings.netCharge;
+const massNumberString = BuildAnAtomStrings.massNumber;
+const netChargeString = BuildAnAtomStrings.netCharge;
 
 // constants
 const INTER_BOX_SPACING = 7;
@@ -80,7 +79,7 @@ class AtomScreenView extends BAAScreenView {
         titleNode: new Text( netChargeString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: tandem.createTandem( 'netChargeAccordionBoxTitle' )
+          tandem: tandem.createTandem( 'netChargeAccordionBoxTitleText' )
         } ),
         expandedProperty: this.netChargeAccordionBoxExpandedProperty,
 
@@ -112,7 +111,7 @@ class AtomScreenView extends BAAScreenView {
         titleNode: new Text( massNumberString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: tandem.createTandem( 'massNumberAccordionBoxTitle' )
+          tandem: tandem.createTandem( 'massNumberAccordionBoxTitleText' )
         } ),
         expandedProperty: this.massNumberAccordionBoxExpandedProperty,
 

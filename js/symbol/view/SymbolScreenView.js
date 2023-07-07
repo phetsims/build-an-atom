@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Main view for the "Symbol" screen of the Build an Atom simulation.
@@ -11,11 +11,11 @@ import { Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BAASymbolNode from './BAASymbolNode.js';
 
-const symbolString = buildAnAtomStrings.symbol;
+const symbolString = BuildAnAtomStrings.symbol;
 
 class SymbolScreenView extends BAAScreenView {
 
@@ -39,7 +39,7 @@ class SymbolScreenView extends BAAScreenView {
       titleNode: new Text( symbolString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'symbolAccordionBoxTitle' )
+        tandem: tandem.createTandem( 'symbolAccordionBoxTitleText' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableAccordionBox.width,

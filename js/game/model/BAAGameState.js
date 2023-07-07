@@ -1,4 +1,4 @@
-// Copyright 2017-2021, University of Colorado Boulder
+// Copyright 2017-2022, University of Colorado Boulder
 
 /**
  * Base type for Build and Atom game states.  These states use the Object Oriented state pattern, please see
@@ -6,6 +6,9 @@
  * Object-Oriented Software" by Gamma et al.  The basic idea here is that the game challenges act as the state of the
  * game model, and stimuli from the user, such as submitting an answer, are submitted to the states via the API
  * defined below.
+ *
+ * If your game state needs to be disposed, then implement the disposeState() function, otherwise there will be no cleanup
+ * on state change.
  *
  * @author John Blanco
  */

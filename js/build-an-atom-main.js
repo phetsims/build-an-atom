@@ -1,20 +1,21 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Main file for the Build an Atom simulation.
  */
 
+import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
-import BAAGlobalOptions from './common/BAAGlobalOptions.js';
-import GlobalOptionsNode from './common/view/GlobalOptionsNode.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
-import buildAnAtomStrings from './buildAnAtomStrings.js';
+import BuildAnAtomStrings from './BuildAnAtomStrings.js';
+import BAAGlobalPreferences from './common/BAAGlobalPreferences.js';
+import VisualPreferencesNode from './common/view/VisualPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
-const buildAnAtomTitleString = buildAnAtomStrings[ 'build-an-atom' ].title;
+const buildAnAtomTitleStringProperty = BuildAnAtomStrings[ 'build-an-atom' ].titleStringProperty;
 
 // root tandem
 const tandem = Tandem.ROOT;
@@ -31,8 +32,14 @@ const simOptions = {
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
   },
 
-  // create content for the Options dialog
-  createOptionsDialogContent: tandem => new GlobalOptionsNode( BAAGlobalOptions.highContrastParticlesProperty, tandem )
+  preferencesModel: new PreferencesModel( {
+    visualOptions: {
+      customPreferences: [ {
+        createContent: tandem => new VisualPreferencesNode( BAAGlobalPreferences.highContrastParticlesProperty,
+          tandem.createTandem( 'simPreferences' ) )
+      } ]
+    }
+  } )
 };
 
 simLauncher.launch( () => {
@@ -45,5 +52,5 @@ simLauncher.launch( () => {
   if ( !Tandem.PHET_IO_ENABLED ) {
     screens.push( new GameScreen( tandem.createTandem( 'gameScreen' ) ) );
   }
-  new Sim( buildAnAtomTitleString, screens, simOptions ).start();
+  new Sim( buildAnAtomTitleStringProperty, screens, simOptions ).start();
 } );

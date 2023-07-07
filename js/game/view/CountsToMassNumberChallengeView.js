@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Challenge where the user is presented with a set of counts for protons,
@@ -8,16 +8,16 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-const whatIsTheMassNumberString = buildAnAtomStrings.whatIsTheMassNumber;
+const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
 
 class CountsToMassNumberChallengeView extends ChallengeView {
 
@@ -40,7 +40,8 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new MultiLineText( whatIsTheMassNumberString, {
+    const questionPrompt = new RichText( whatIsTheMassNumberString, {
+      replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,

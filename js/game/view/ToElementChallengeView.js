@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Base type for views of challenges where the user is asked to identify the
@@ -10,20 +10,18 @@
 
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
-import { LinearGradient } from '../../../../scenery/js/imports.js';
+import { LinearGradient, Node, Text } from '../../../../scenery/js/imports.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 
-const findTheElementString = buildAnAtomStrings.findTheElement;
-const ionString = buildAnAtomStrings.ion;
-const isItString = buildAnAtomStrings.isIt;
-const neutralAtomString = buildAnAtomStrings.neutralAtom;
+const findTheElementString = BuildAnAtomStrings.findTheElement;
+const ionString = BuildAnAtomStrings.ion;
+const isItString = BuildAnAtomStrings.isIt;
+const neutralAtomString = BuildAnAtomStrings.neutralAtom;
 
 // constants
 const TITLE_FONT = new PhetFont( 30 );

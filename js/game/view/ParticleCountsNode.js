@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Node that takes a number atom and displays a set of counts for the various
@@ -11,14 +11,13 @@
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { Node, Text } from '../../../../scenery/js/imports.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
-const electronsColonPatternString = buildAnAtomStrings.electronsColonPattern;
-const neutronsColonPatternString = buildAnAtomStrings.neutronsColonPattern;
-const protonsColonPatternString = buildAnAtomStrings.protonsColonPattern;
+const electronsColonPatternString = BuildAnAtomStrings.electronsColonPattern;
+const neutronsColonPatternString = BuildAnAtomStrings.neutronsColonPattern;
+const protonsColonPatternString = BuildAnAtomStrings.protonsColonPattern;
 
 // constants
 const MAX_WIDTH = 280;

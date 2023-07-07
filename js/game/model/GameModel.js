@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Primary model class for the Build an Atom Game tab.
@@ -17,8 +17,8 @@ import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -54,7 +54,7 @@ class GameModel extends PhetioObject {
 
     // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      phetioType: Property.PropertyIO( BAAGameState.BAAGameStateIO ),
+      phetioValueType: BAAGameState.BAAGameStateIO,
       tandem: tandem.createTandem( 'stateProperty' )
     } );
 
@@ -73,7 +73,7 @@ class GameModel extends PhetioObject {
     // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
     this.challengeSetProperty = new Property( [], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioType: Property.PropertyIO( ArrayIO( BAAGameChallenge.BAAGameChallengeIO ) )
+      phetioValueType: ArrayIO( BAAGameChallenge.BAAGameChallengeIO )
     } );
 
     // @public (read-only) {Property.<number>}

@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Challenge where the user is presented with a set of counts for protons,
@@ -8,17 +8,17 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import MultiLineText from '../../../../scenery-phet/js/MultiLineText.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-const whatIsTheTotalChargeString = buildAnAtomStrings.whatIsTheTotalCharge;
+const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
 
 class CountsToChargeChallengeView extends ChallengeView {
 
@@ -41,7 +41,8 @@ class CountsToChargeChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new MultiLineText( whatIsTheTotalChargeString, {
+    const questionPrompt = new RichText( whatIsTheTotalChargeString, {
+      replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
@@ -53,7 +54,8 @@ class CountsToChargeChallengeView extends ChallengeView {
     const numberEntryNode = new NumberEntryNode(
       this.chargeAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
-        prependPlusSign: true,
+        showPlusForPositive: true,
+        signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99

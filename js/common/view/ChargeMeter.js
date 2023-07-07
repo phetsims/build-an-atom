@@ -1,4 +1,4 @@
-// Copyright 2013-2022, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Type that represents a change meter that displays the charge of the
@@ -12,11 +12,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Path } from '../../../../scenery/js/imports.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
-import { LinearGradient } from '../../../../scenery/js/imports.js';
+import { LinearGradient, Node, Path, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
@@ -168,8 +164,8 @@ class ChargeMeter extends Node {
         readoutText.fill = textColor;
 
         const newText = sign + charge;
-        if ( newText !== readoutText.text ) {
-          readoutText.text = newText;
+        if ( newText !== readoutText.string ) {
+          readoutText.string = newText;
 
           // reposition as necessary.
           readoutText.resetTransform();

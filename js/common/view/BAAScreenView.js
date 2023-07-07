@@ -18,9 +18,7 @@ import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Path } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { Node, Path, Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
@@ -32,19 +30,19 @@ import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
-import BAAGlobalOptions from '../BAAGlobalOptions.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BAAGlobalPreferences from '../BAAGlobalPreferences.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 
 // strings
-const cloudString = buildAnAtomStrings.cloud;
-const elementString = buildAnAtomStrings.element;
-const modelString = buildAnAtomStrings.model;
-const neutralSlashIonString = buildAnAtomStrings.neutralSlashIon;
-const orbitsString = buildAnAtomStrings.orbits;
-const showString = buildAnAtomStrings.show;
-const stableSlashUnstableString = buildAnAtomStrings.stableSlashUnstable;
+const cloudString = BuildAnAtomStrings.cloud;
+const elementString = BuildAnAtomStrings.element;
+const modelString = BuildAnAtomStrings.model;
+const neutralSlashIonString = BuildAnAtomStrings.neutralSlashIon;
+const orbitsString = BuildAnAtomStrings.orbits;
+const showString = BuildAnAtomStrings.show;
+const stableSlashUnstableString = BuildAnAtomStrings.stableSlashUnstable;
 
 // constants
 const CONTROLS_INSET = 10;
@@ -125,7 +123,7 @@ class BAAScreenView extends ScreenView {
     model.nucleons.forEach( nucleon => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
-        highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
+        highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
         tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
@@ -168,7 +166,7 @@ class BAAScreenView extends ScreenView {
     model.electrons.forEach( electron => {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
-        highContrastProperty: BAAGlobalOptions.highContrastParticlesProperty,
+        highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
         tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
@@ -187,7 +185,7 @@ class BAAScreenView extends ScreenView {
 
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}Front` )
+        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}FrontNode` )
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
@@ -216,7 +214,7 @@ class BAAScreenView extends ScreenView {
       titleNode: new Text( elementString, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: periodicTableAccordionBoxTandem.createTandem( 'title' )
+        tandem: periodicTableAccordionBoxTandem.createTandem( 'titleText' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -238,34 +236,34 @@ class BAAScreenView extends ScreenView {
 
     const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
     const checkboxItems = [ {
-      node: new Text( elementString, {
+      createNode: tandem => new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'elementText' )
+        tandem: tandem.createTandem( 'elementText' )
       } ),
       property: model.showElementNameProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showElementNameCheckbox' )
+      tandemName: 'showElementNameCheckbox'
     }, {
-      node: new Text( neutralSlashIonString, {
+      createNode: tandem => new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'neutralOrIonText' )
+        tandem: tandem.createTandem( 'neutralOrIonText' )
       } ),
       property: model.showNeutralOrIonProperty,
-      tandem: labelVisibilityControlPanelTandem.createTandem( 'showNeutralOrIonCheckbox' )
+      tandemName: 'showNeutralOrIonCheckbox'
     } ];
 
     // In support of a research study, it is possible to exclude the stable/unstable checkbox, see
     // https://github.com/phetsims/special-ops/issues/189.
     if ( BAAQueryParameters.showStableUnstableCheckbox ) {
       checkboxItems.push( {
-        node: new Text( stableSlashUnstableString, {
+        createNode: tandem => new Text( stableSlashUnstableString, {
           font: LABEL_CONTROL_FONT,
           maxWidth: LABEL_CONTROL_MAX_WIDTH,
-          tandem: labelVisibilityControlPanelTandem.createTandem( 'stableUnstableText' )
+          tandem: tandem.createTandem( 'stableUnstableText' )
         } ),
         property: model.showStableOrUnstableProperty,
-        tandem: labelVisibilityControlPanelTandem.createTandem( 'showStableOrUnstableCheckbox' )
+        tandemName: 'showStableOrUnstableCheckbox'
       } );
     }
 
@@ -294,12 +292,12 @@ class BAAScreenView extends ScreenView {
     }
 
     this.addChild( labelVisibilityControlPanel );
-    const labelVisibilityControlPanelTitle = new Text( showString, {
+    const labelVisibilityControlPanelTitleText = new Text( showString, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
       maxWidth: labelVisibilityControlPanel.width,
-      tandem: tandem.createTandem( 'labelVisibilityControlPanelTitle' )
+      tandem: tandem.createTandem( 'labelVisibilityControlPanelTitleText' )
     } );
-    this.addChild( labelVisibilityControlPanelTitle );
+    this.addChild( labelVisibilityControlPanelTitleText );
 
     // Add the radio buttons that control the electron representation in the atom.
     const radioButtonRadius = 6;
@@ -333,7 +331,7 @@ class BAAScreenView extends ScreenView {
         weight: 'bold'
       } ),
       maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20,
-      tandem: tandem.createTandem( 'electronViewButtonGroupLabel' )
+      tandem: tandem.createTandem( 'electronViewButtonGroupLabelText' )
     } ) );
     orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
     orbitsRadioButton.left = electronViewButtonGroup.left;
@@ -363,8 +361,8 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     labelVisibilityControlPanel.left = this.periodicTableAccordionBox.left;
     labelVisibilityControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    labelVisibilityControlPanelTitle.bottom = labelVisibilityControlPanel.top;
-    labelVisibilityControlPanelTitle.centerX = labelVisibilityControlPanel.centerX;
+    labelVisibilityControlPanelTitleText.bottom = labelVisibilityControlPanel.top;
+    labelVisibilityControlPanelTitleText.centerX = labelVisibilityControlPanel.centerX;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 

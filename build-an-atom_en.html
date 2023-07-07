@@ -22,14 +22,14 @@
   window.phet.chipper.packageObject =
     {
       "name": "build-an-atom",
-      "version": "1.7.0-dev.5",
+      "version": "1.8.0-dev.0",
       "license": "GPL-3.0",
       "repository": {
         "type": "git",
         "url": "https://github.com/phetsims/build-an-atom.git"
       },
       "devDependencies": {
-        "grunt": "~1.4.0"
+        "grunt": "~1.5.3"
       },
       "phet": {
         "requirejsNamespace": "BUILD_AN_ATOM",
@@ -47,10 +47,20 @@
           "supportsSound": true
         },
         "simulation": true,
-        "supportsOutputJS": true
+        "supportsOutputJS": true,
+        "published": true,
+        "screenNameKeys": [
+          "BUILD_AN_ATOM/atom",
+          "BUILD_AN_ATOM/symbol",
+          "BUILD_AN_ATOM/game"
+        ]
       },
       "eslintConfig": {
-        "extends": "../chipper/eslint/sim_eslintrc.js"
+        "extends": "../chipper/eslint/sim_eslintrc.js",
+        "rules": {
+          "todo-should-have-issue": "off",
+          "no-view-imported-from-model": "off"
+        }
       }
     };
   window.phet.chipper.stringRepos =
@@ -88,6 +98,7 @@
         "requirejsNamespace": "VEGAS"
       }
     ];
+  window.phet.chipper.allowLocaleSwitching = true;
 
   // Identify the brand (assume generated brand if not provided with query parameters)
   const brandMatch = location.search.match( /brand=([^&]+)/ );
@@ -100,6 +111,7 @@
     '../sherpa/lib/lodash-4.17.4.js',
     '../sherpa/lib/FileSaver-b8054a2.js',
     '../sherpa/lib/himalaya-1.1.0.js',
+    '../sherpa/lib/linebreak-1.1.0.js',
     '../sherpa/lib/flatqueue-1.2.1.js',
     '../sherpa/lib/he-1.1.1.js',
     '../assert/js/assert.js',

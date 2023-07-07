@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * View for game challenges where the user is presented with a chemical symbol
@@ -30,7 +30,10 @@ class SymbolToCountsChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );
 
     // Symbol
-    const interactiveSymbolNode = new InteractiveSymbolNode( symbolToCountsChallenge.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    const interactiveSymbolNode = new InteractiveSymbolNode(
+      symbolToCountsChallenge.answerAtom,
+      tandem.createTandem( 'interactiveSymbolNode' )
+    );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );
 

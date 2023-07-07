@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Type that portrays the current mass number in the view.  It consists of
@@ -8,10 +8,7 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { Image, Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -57,8 +54,8 @@ class MassNumberDisplay extends Node {
     // Add the listeners that will update the numerical display when the charge changes.
     numberAtom.massNumberProperty.link( massNumber => {
       const newText = `${massNumber}`; // cast to a string explicitly just in case
-      if ( newText !== numericalText.text ) {
-        numericalText.text = newText;
+      if ( newText !== numericalText.string ) {
+        numericalText.string = newText;
 
         numericalText.resetTransform();
         numericalText.scale( Math.min( READOUT_SIZE.height * 0.9 / numericalText.height,

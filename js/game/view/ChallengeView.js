@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Base class for challenge views.  This type adds the titles, buttons, and such
@@ -10,19 +10,17 @@
 import stepTimer from '../../../../axon/js/stepTimer.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
-import { Color } from '../../../../scenery/js/imports.js';
+import { Color, Node, Text } from '../../../../scenery/js/imports.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import vegasStrings from '../../../../vegas/js/vegasStrings.js';
+import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAChallengeState from '../model/BAAChallengeState.js';
 
-const checkString = vegasStrings.check;
-const nextString = vegasStrings.next;
-const showAnswerString = vegasStrings.showAnswer;
-const tryAgainString = vegasStrings.tryAgain;
+const checkString = VegasStrings.check;
+const nextString = VegasStrings.next;
+const showAnswerString = VegasStrings.showAnswer;
+const tryAgainString = VegasStrings.tryAgain;
 
 // constants
 const BUTTON_FONT = new PhetFont( 20 );
@@ -147,7 +145,7 @@ class ChallengeView extends Node {
     stateChangeHandlers[ BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY ] = () => {
       setAnswerNodeInteractive( false );
       faceNode.smile();
-      pointDisplay.text = `+${challenge.pointValue}`;
+      pointDisplay.string = `+${challenge.pointValue}`;
       faceNode.visible = true;
       this.nextButton.visible = true;
       this.gameAudioPlayer.correctAnswer();
@@ -155,7 +153,7 @@ class ChallengeView extends Node {
     stateChangeHandlers[ BAAChallengeState.PRESENTING_TRY_AGAIN ] = () => {
       setAnswerNodeInteractive( false );
       faceNode.frown();
-      pointDisplay.text = '';
+      pointDisplay.string = '';
       faceNode.visible = true;
       this.tryAgainButton.visible = true;
       this.gameAudioPlayer.wrongAnswer();
@@ -164,7 +162,7 @@ class ChallengeView extends Node {
       setAnswerNodeInteractive( false );
       this.displayCorrectAnswerButton.visible = true;
       faceNode.frown();
-      pointDisplay.text = '';
+      pointDisplay.string = '';
       faceNode.visible = true;
       this.gameAudioPlayer.wrongAnswer();
     };

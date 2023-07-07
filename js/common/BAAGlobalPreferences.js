@@ -1,7 +1,7 @@
-// Copyright 2020-2021, University of Colorado Boulder
+// Copyright 2020-2022, University of Colorado Boulder
 
 /**
- * BAAGlobalOptions defines the global options for this simulation, accessed via PhET > Options.
+ * BAAGlobalPreferences defines the global options for this simulation.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -11,18 +11,15 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BAAQueryParameters from './BAAQueryParameters.js';
 
-// constants
-const optionsTandem = Tandem.GLOBAL_MODEL.createTandem( 'options' );
-
-const BAAGlobalOptions = {
+const BAAGlobalPreferences = {
 
   // @public
   highContrastParticlesProperty:
     new BooleanProperty( BAAQueryParameters.highContrastParticles, {
-      tandem: optionsTandem.createTandem( 'highContrastParticlesProperty' ),
+      tandem: Tandem.PREFERENCES.createTandem( 'highContrastParticlesProperty' ),
       phetioDocumentation: 'determines whether the particles are presented with more contrast for better visibility'
     } )
 };
 
-buildAnAtom.register( 'BAAGlobalOptions', BAAGlobalOptions );
-export default BAAGlobalOptions;
+buildAnAtom.register( 'BAAGlobalPreferences', BAAGlobalPreferences );
+export default BAAGlobalPreferences;

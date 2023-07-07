@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * a Scenery Node that allows the user to select which game level to play
@@ -9,22 +9,20 @@
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox } from '../../../../scenery/js/imports.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { HBox, Image, Node, Text } from '../../../../scenery/js/imports.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
+import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import massChargeIcon_png from '../../../images/massChargeIcon_png.js';
 import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
 import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
 import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import GameModel from '../model/GameModel.js';
 
-const chooseYourGameString = buildAnAtomStrings.chooseYourGame;
+const chooseYourGameString = BuildAnAtomStrings.chooseYourGame;
 
 // constants
 const CONTROLS_INSET = 10;
@@ -126,10 +124,10 @@ function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandem
       bestTimeProperty: gameModel.bestTimes[ levelNumber ],
       bestTimeVisibleProperty: gameModel.bestTimeVisible[ levelNumber ],
       tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
-      scoreDisplayOptions: {
+      createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
         numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
         perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
-      },
+      } ),
       soundPlayerIndex: levelNumber
     }
   );

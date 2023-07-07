@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * A model of a set of subatomic particles - protons, neutrons, and electrons - that can be assembled into atoms.
@@ -20,12 +20,12 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import buildAnAtomStrings from '../../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../view/BAAScreenView.js';
 
-const electronsString = buildAnAtomStrings.electrons;
-const neutronsString = buildAnAtomStrings.neutrons;
-const protonsString = buildAnAtomStrings.protons;
+const electronsString = BuildAnAtomStrings.electrons;
+const neutronsString = BuildAnAtomStrings.neutrons;
+const protonsString = BuildAnAtomStrings.protons;
 
 // constants
 const NUM_PROTONS = 10;
@@ -189,7 +189,7 @@ class BuildAnAtomModel {
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
         phetioState: options.phetioState,
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       }
     );
 

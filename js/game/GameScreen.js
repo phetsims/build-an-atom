@@ -1,4 +1,4 @@
-// Copyright 2017-2021, University of Colorado Boulder
+// Copyright 2017-2023, University of Colorado Boulder
 
 /**
  * The 'Build an Atom' screen in the 'Build an Atom' simulation. Conforms to the contract specified in joist/Screen.
@@ -14,7 +14,7 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import gameIcon_png from '../../images/gameIcon_png.js';
 import gameIconSmall_png from '../../images/gameIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
-import buildAnAtomStrings from '../buildAnAtomStrings.js';
+import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import GameModel from './model/GameModel.js';
 import GameScreenView from './view/GameScreenView.js';
 
@@ -28,9 +28,9 @@ class GameScreen extends Screen {
       () => new GameModel( tandem.createTandem( 'model' ) ),
 
       // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
-      model => new GameScreenView( model, Tandem.OPTIONAL ),
+      model => new GameScreenView( model, Tandem.OPT_OUT ),
       {
-        name: buildAnAtomStrings.game,
+        name: BuildAnAtomStrings.gameStringProperty,
         backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
         homeScreenIcon: new ScreenIcon( new Image( gameIcon_png ), {
           maxIconWidthProportion: 1,
