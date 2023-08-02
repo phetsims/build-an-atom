@@ -16,11 +16,12 @@ import ParticleView from './ParticleView.js';
 import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import optionize from '../../../phet-core/js/optionize.js';
+import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 type SelfOptions = {
-  highContrastProperty?: null | TReadOnlyProperty<boolean>;
+  highContrastProperty?: TReadOnlyProperty<boolean>;
 };
 
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
@@ -29,10 +30,12 @@ class InteractiveSchematicAtom extends Node {
   private readonly disposeInteractiveSchematicAtom: VoidFunction;
 
   public constructor( model: BuildAnAtomModel, modelViewTransform: ModelViewTransform2, providedOptions?: InteractiveSchematicAtomOptions ) {
+    const ownsHighContrastProperty = providedOptions && !providedOptions.highContrastProperty;
+
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
 
       // {Property.<boolean>|null} - property that can be used to turn on high-contrast particles
-      highContrastProperty: null,
+      highContrastProperty: new BooleanProperty( false ),
 
       tandem: Tandem.REQUIRED
     }, providedOptions );
@@ -156,6 +159,7 @@ class InteractiveSchematicAtom extends Node {
       atomNode.dispose();
       model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
       model.electronShellDepictionProperty.unlink( updateElectronVisibility );
+      ownsHighContrastProperty && options.highContrastProperty.dispose();
     };
 
     this.mutate( options );
