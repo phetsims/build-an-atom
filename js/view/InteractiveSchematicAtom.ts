@@ -4,44 +4,50 @@
  * Node that depicts an interactive atom where the user can add subatomic particles from a set of buckets.
  */
 
-import merge from '../../../phet-core/js/merge.js';
 import BucketFront from '../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../scenery-phet/js/bucket/BucketHole.js';
-import { Node } from '../../../scenery/js/imports.js';
+import { Node, NodeOptions } from '../../../scenery/js/imports.js';
+import BuildAnAtomModel from '../../../build-an-atom/js/common/model/BuildAnAtomModel.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import shred from '../shred.js';
 import AtomNode from './AtomNode.js';
 import BucketDragListener from './BucketDragListener.js';
 import ParticleView from './ParticleView.js';
+import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
+import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
+import optionize from '../../../phet-core/js/optionize.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
+type SelfOptions = {
+  highContrastProperty?: null | TReadOnlyProperty<boolean>;
+};
+
+type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
 class InteractiveSchematicAtom extends Node {
+  private readonly disposeInteractiveSchematicAtom: VoidFunction;
 
-  /**
-   * @param {BuildAnAtomModel} model
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( model, modelViewTransform, options ) {
-    options = merge( {
+  public constructor( model: BuildAnAtomModel, modelViewTransform: ModelViewTransform2, providedOptions?: InteractiveSchematicAtomOptions ) {
+    const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
 
       // {Property.<boolean>|null} - property that can be used to turn on high-contrast particles
       highContrastProperty: null,
 
       tandem: Tandem.REQUIRED
-    }, options );
+    }, providedOptions );
 
     super();
 
-    const particleViews = []; // remember all the particleViews when using in dispose
+    const particleViews: ParticleView[] = []; // remember all the particleViews when using in dispose
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
       showElementNameProperty: model.showElementNameProperty,
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+
+      // @ts-expect-error - once BuildAnAtomModel is converted to TypeScript, then this won't be a stringProperty anymore
       electronShellDepictionProperty: model.electronShellDepictionProperty,
       tandem: options.tandem.createTandem( 'atomNode' )
     } );
@@ -51,7 +57,7 @@ class InteractiveSchematicAtom extends Node {
     _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) );
 
     // Add the layers where the nucleons will be maintained.
-    const nucleonLayers = [];
+    const nucleonLayers: Node[] = [];
     _.times( NUM_NUCLEON_LAYERS, () => {
       const nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
@@ -75,14 +81,14 @@ class InteractiveSchematicAtom extends Node {
       particleViews.push( particleView );
 
       // Add a listener that adjusts a nucleon's z-order layering.
-      nucleon.zLayerProperty.link( zLayer => {
+      nucleon.zLayerProperty.link( ( zLayer: number ) => {
         assert && assert( nucleonLayers.length > zLayer,
           'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
 
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( particleView => {
-          if ( particleView.particle === nucleon ) {
+          if ( ( particleView as ParticleView ).particle === nucleon ) {
             onCorrectLayer = true;
           }
         } );
@@ -90,11 +96,12 @@ class InteractiveSchematicAtom extends Node {
         if ( !onCorrectLayer ) {
 
           // Remove particle view from its current layer.
-          let particleView = null;
+          let particleView: ParticleView | null = null;
           for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
             for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
-              if ( nucleonLayers[ layerIndex ].children[ childIndex ].particle === nucleon ) {
-                particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
+              const currentParticleView = nucleonLayers[ layerIndex ].children[ childIndex ] as ParticleView;
+              if ( currentParticleView.particle === nucleon ) {
+                particleView = currentParticleView;
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
                 break;
               }
@@ -103,7 +110,7 @@ class InteractiveSchematicAtom extends Node {
 
           // Add the particle view to its new layer.
           assert && assert( particleView !== null, 'Particle view not found during relayering' );
-          nucleonLayers[ zLayer ].addChild( particleView );
+          nucleonLayers[ zLayer ].addChild( particleView! );
         }
       } );
     } );
@@ -122,7 +129,7 @@ class InteractiveSchematicAtom extends Node {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
-                               !model.particleAtom.electrons.includes( electronNode.particle );
+                               !model.particleAtom.electrons.includes( ( electronNode as ParticleView ).particle );
       } );
     };
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
@@ -130,7 +137,7 @@ class InteractiveSchematicAtom extends Node {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketGroupTandem = options.tandem.createTandem( 'bucketFronts' ).createGroupTandem( 'bucketFront' );
-    const bucketFrontsAndDragHandlers = []; // keep track for disposal
+    const bucketFrontsAndDragHandlers: { dispose: VoidFunction }[] = []; // keep track for disposal
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       this.addChild( bucketFront );
@@ -143,8 +150,6 @@ class InteractiveSchematicAtom extends Node {
       bucketFrontsAndDragHandlers.push( bucketFront );
       bucketFrontsAndDragHandlers.push( bucketDragListener );
     } );
-
-    // @private
     this.disposeInteractiveSchematicAtom = () => {
       particleViews.forEach( particleView => particleView.dispose() );
       bucketFrontsAndDragHandlers.forEach( bucketItem => bucketItem.dispose() );
@@ -156,11 +161,7 @@ class InteractiveSchematicAtom extends Node {
     this.mutate( options );
   }
 
-  /**
-   * @public
-   * @override
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeInteractiveSchematicAtom();
     super.dispose();
   }
