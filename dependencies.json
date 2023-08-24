@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.5.29-phetio Fri Jun 23 2023 11:28:37 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.5.29-phetio Thu Aug 24 2023 11:29:37 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "5c3f92048a9c2ffd6df8ede54fd64f1f7a7e4ef2",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "e407c6a6ce1b8275fe37fe604f8ea86e1a20136b",
+    "sha": "6d2b7e128068fe4f8639160bc34afb6e5d21fd20",
     "branch": "1.5-phetio"
   },
   "chipper": {
