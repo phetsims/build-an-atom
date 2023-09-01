@@ -103,12 +103,12 @@ class ChargeMeter extends Node {
     meterWindow.addChild( minusSymbol );
 
     // Add the layer that contains the meter line.
-    const meterNeedleLayer = new Node( {
+    const meterNeedleWindow = new Node( {
       x: meterWindow.centerX,
       y: meterWindow.bottom - 3,
       tandem: tandem.createTandem( 'meterNeedleWindow' )
     } );
-    meterNeedleLayer.setScaleMagnitude( 1, 0.9 ); // match previous scaling behavior
+    meterNeedleWindow.setScaleMagnitude( 1, 0.9 ); // match previous scaling behavior
     const meterNeedle = new ArrowNode(
       0, 0, // tip at origin, so we can rotate around it
       0, 3 - meterWindowHeight, {
@@ -117,8 +117,8 @@ class ChargeMeter extends Node {
         tailWidth: 1,
         tandem: tandem.createTandem( 'meterNeedle' )
       } );
-    meterNeedleLayer.addChild( meterNeedle );
-    this.addChild( meterNeedleLayer );
+    meterNeedleWindow.addChild( meterNeedle );
+    this.addChild( meterNeedleWindow );
 
     let numericalReadout;
     let readoutText;
