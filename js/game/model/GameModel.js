@@ -344,7 +344,7 @@ GameModel.GameModelIO = new IOType( 'GameModelIO', {
       returnType: VoidIO,
       parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
 
-      // TODO: change this to take index as 1st argument (for level index)
+      // TODO: change this to take index as 1st argument (for level index) https://github.com/phetsims/tasks/issues/1129
       implementation: function( allowedChallengeTypesByLevel ) {
         this.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
       },

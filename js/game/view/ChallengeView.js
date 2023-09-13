@@ -175,7 +175,7 @@ class ChallengeView extends Node {
     // Update the appearance of the challenge as the state changes.
     const handleStateChange = challengeState => {
       hideButtonsAndFace();
-      // TODO: Is the check for undefined really needed
+      // TODO: Is the check for undefined really needed https://github.com/phetsims/tasks/issues/1129
       if ( stateChangeHandlers[ challengeState ] !== undefined ) {
         stateChangeHandlers[ challengeState ]();
       }

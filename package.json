@@ -36,7 +36,6 @@
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js",
     "rules": {
-      "todo-should-have-issue": "off",
       "no-view-imported-from-model": "off"
     }
   }
