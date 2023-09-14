@@ -71,7 +71,7 @@ class AtomScreenView extends BAAScreenView {
 
       // pdom
       tagName: 'h6',
-      innerContent: 'Net Charge Content' // TODO: export to a11y strings file https://github.com/phetsims/tasks/issues/1129
+      innerContent: 'Net Charge Content' //TODO https://github.com/phetsims/build-an-atom/issues/240 export to a11y strings file
     } );
     const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
@@ -102,7 +102,7 @@ class AtomScreenView extends BAAScreenView {
 
         // pdom
         tagName: 'h6',
-        innerContent: 'Mass Number Content' // TODO: export to a11y strings file https://github.com/phetsims/tasks/issues/1129
+        innerContent: 'Mass Number Content' //TODO https://github.com/phetsims/build-an-atom/issues/240 export to a11y strings file
       }
     );
     const massNumberAccordionBox = new AccordionBox(

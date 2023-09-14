@@ -28,14 +28,14 @@ class BAAGameChallenge extends BAAGameState {
    */
   constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
 
-    // TODO: Consider either having all the subclasses define a name, or just getting rid of the name altogether. https://github.com/phetsims/tasks/issues/1129
+    //TODO https://github.com/phetsims/build-an-atom/issues/240 Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     super( 'challenge', {
       tandem: tandem,
       phetioState: false,
       phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
 
-    // TODO why not an Enum? https://github.com/phetsims/tasks/issues/1129
+    //TODO https://github.com/phetsims/build-an-atom/issues/240 why not an Enum?
     this.challengeStateProperty = new StringProperty( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
       phetioReadOnly: true,
@@ -172,7 +172,7 @@ BAAGameChallenge.BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
 
     // This may have been deserialized from the instance itself or from the array it was contained in (which
     // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
-    // TODO: is there a better way to do this, or at least factor it out? https://github.com/phetsims/tasks/issues/1129
+    //TODO https://github.com/phetsims/build-an-atom/issues/240 Is there a better way to do this, or at least factor it out?
     const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
     if ( instance ) {
       return phetioEngine.getPhetioObject( stateObject.phetioID );

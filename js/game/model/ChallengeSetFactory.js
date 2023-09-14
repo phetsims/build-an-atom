@@ -118,7 +118,7 @@ ChallengeSetFactory._generateChallenge = function( level, availableAtomValues, m
  * atom configuration.
  *
  * @param {GameModel} model
- * @param {string} challengeType // TODO: change to enum https://github.com/phetsims/tasks/issues/1129
+ * @param {string} challengeType //TODO https://github.com/phetsims/build-an-atom/issues/240 change to enum
  * @param {NumberAtom} atomValue
  * @param {Tandem} tandem
  * @returns {BAAGameChallenge}
