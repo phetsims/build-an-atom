@@ -175,10 +175,10 @@ BAAGameChallenge.BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
     //TODO https://github.com/phetsims/build-an-atom/issues/240 Is there a better way to do this, or at least factor it out?
     const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
     if ( instance ) {
-      return phetioEngine.getPhetioObject( stateObject.phetioID );
+      return phetioEngine.getPhetioElement( stateObject.phetioID );
     }
 
-    const model = phetioEngine.getPhetioObject( stateObject.modelPhetioID );
+    const model = phetioEngine.getPhetioElement( stateObject.modelPhetioID );
 
     const answerAtom = new phet.shred.NumberAtom( {
       protonCount: stateObject.answerAtom.protonCount,
