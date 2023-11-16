@@ -88,7 +88,7 @@ class InteractiveSymbolNode extends Node {
     const updateElement = protonCount => {
       symbolText.string = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
-      elementCaption.string = protonCount > 0 ? AtomIdentifier.getName( protonCount ) : '';
+      elementCaption.string = protonCount > 0 ? AtomIdentifier.getName( protonCount ).value : '';
       elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
     };
 
