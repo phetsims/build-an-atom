@@ -10,6 +10,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import { Shape } from '../../../../kite/js/imports.js';
@@ -62,7 +63,11 @@ class BAAScreenView extends ScreenView {
   constructor( model, tandem ) {
 
     super( {
-      layoutBounds: ShredConstants.LAYOUT_BOUNDS,
+
+      // A PhET wide decision was made to not update custom layout bounds even if they do not match the
+      // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
+      // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
+      layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       tandem: tandem
     } );
 

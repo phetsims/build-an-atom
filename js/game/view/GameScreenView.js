@@ -7,10 +7,10 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
@@ -30,7 +30,11 @@ class GameScreenView extends ScreenView {
   constructor( gameModel, tandem ) {
 
     super( {
-      layoutBounds: ShredConstants.LAYOUT_BOUNDS,
+
+      // A PhET wide decision was made to not update custom layout bounds even if they do not match the
+      // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
+      // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
+      layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       tandem: tandem
     } );
     // Add a root node where all of the game-related nodes will live.
