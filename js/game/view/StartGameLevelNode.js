@@ -121,8 +121,6 @@ function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandem
         gameModel.startGameLevel( levelName, tandem.createTandem( gameLevelTandemName ) );
       },
       baseColor: BASE_COLOR,
-      bestTimeProperty: gameModel.bestTimes[ levelNumber ],
-      bestTimeVisibleProperty: gameModel.bestTimeVisible[ levelNumber ],
       tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
       createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
         numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
