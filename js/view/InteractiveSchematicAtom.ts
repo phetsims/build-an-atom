@@ -144,6 +144,8 @@ class InteractiveSchematicAtom extends Node {
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       this.addChild( bucketFront );
+
+      // @ts-expect-error - We need to change BAA model to have buckets of type SHRED/Particle, TODO: remove in https://github.com/phetsims/build-an-atom/issues/241
       const bucketDragListener = new BucketDragListener( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } );
