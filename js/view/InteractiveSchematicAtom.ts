@@ -2,6 +2,8 @@
 
 /**
  * Node that depicts an interactive atom where the user can add subatomic particles from a set of buckets.
+ *
+ * @author Jesse Greenberg (PhET Interactive Simulations)
  */
 
 import BucketFront from '../../../scenery-phet/js/bucket/BucketFront.js';
