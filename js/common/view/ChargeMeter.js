@@ -3,6 +3,8 @@
 /**
  * Type that represents a change meter that displays the charge of the
  * provided atom.
+ *
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';

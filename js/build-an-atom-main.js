@@ -2,6 +2,8 @@
 
 /**
  * Main file for the Build an Atom simulation.
+ *
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';

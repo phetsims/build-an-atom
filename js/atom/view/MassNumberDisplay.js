@@ -3,6 +3,8 @@
 /**
  * Type that portrays the current mass number in the view.  It consists of
  * a graphical representation of a scale with a numerical display on it.
+ *
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';

@@ -2,6 +2,8 @@
 
 /**
  * Main view for the first screen of the Build an Atom simulation.
+ *
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

@@ -1,8 +1,9 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
 /**
- * Combination of a periodic table and an enlarged, dynamic, element symbol
- * sitting above the table.
+ * Combination of a periodic table and an enlarged, dynamic, element symbol sitting above the table.
+ *
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
