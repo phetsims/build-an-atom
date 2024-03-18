@@ -13,11 +13,11 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "0e9713df728566c8bcb4a30ffb5a88b4f46c1682",
+    "sha": "32987937eb9794a6ed8bdb7f671cf2632df041d1",
     "branch": "1.6"
   },
   "chipper": {
-    "sha": "67fb399e3ebe3bcbc7d39c3150d191b1fd575452",
+    "sha": "230f404144514546ed308bd8e18d1daba1f018b5",
     "branch": "HEAD"
   },
   "dot": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "8af29cbc880ef38735b7139b22486a3c6ab82bb6",
+    "sha": "b36a363e22349a8aee93b0796e4f0a80c15f36f7",
     "branch": "HEAD"
   },
   "kite": {
