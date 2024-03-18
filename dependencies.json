@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "b9dcd03d556b27851bf19e60f8dc540ecf6b1004",
+    "sha": "eb96701eaac2bd625019f207136236f7bd4a6287",
     "branch": "1.5-phetio"
   },
   "chipper": {
@@ -49,7 +49,7 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "62f875a41d407f8ac3297baf8d6d597c1e0d2ddd",
+    "sha": "d9a4c9c14e9b14d9b698d39505d252d064ac5b06",
     "branch": "HEAD"
   },
   "phetmarks": {
