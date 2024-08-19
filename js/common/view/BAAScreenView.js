@@ -53,6 +53,8 @@ const LABEL_CONTROL_LINE_WIDTH = 1;
 const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
 const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
+const CHECKBOX_PANEL_PADDING = 7.5;
+const CHECKBOX_PANEL_VERTICAL_MARGIN = 5;
 
 class BAAScreenView extends ScreenView {
 
@@ -272,29 +274,34 @@ class BAAScreenView extends ScreenView {
       } );
     }
 
-    const labelVisibilityControlPanel = new Panel( new VerticalCheckboxGroup( checkboxItems, {
+    const panelContent = new Node();
+    const labelVisibilityCheckboxGroup = new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
       spacing: 8,
       tandem: tandem.createTandem( 'labelVisibilityCheckboxGroup' )
-    } ), {
+    } );
+    panelContent.addChild( labelVisibilityCheckboxGroup );
+    const numDividerLines = checkboxItems.length - 1;
+    const dividerLineShape = new Shape().moveTo( -CHECKBOX_PANEL_PADDING, 0 ).lineTo( labelVisibilityCheckboxGroup.width + CHECKBOX_PANEL_PADDING, 0 );
+    for ( let dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
+      const dividerLine1 = new Path( dividerLineShape, {
+        lineWidth: LABEL_CONTROL_LINE_WIDTH,
+        stroke: 'gray',
+        centerY: labelVisibilityCheckboxGroup.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ) - ( CHECKBOX_PANEL_VERTICAL_MARGIN / 2 ) + CHECKBOX_PANEL_VERTICAL_MARGIN * ( dividerLines ),
+        x: 0
+      } );
+      panelContent.addChild( dividerLine1 );
+    }
+
+    const labelVisibilityControlPanel = new Panel( panelContent, {
       fill: 'rgb( 245, 245, 245 )',
       lineWidth: LABEL_CONTROL_LINE_WIDTH,
-      xMargin: 7.5,
+      xMargin: LABEL_CONTROL_LINE_WIDTH / 2,
+      yMargin: CHECKBOX_PANEL_VERTICAL_MARGIN,
       cornerRadius: 5,
       resize: false,
       tandem: labelVisibilityControlPanelTandem
     } );
-    const numDividerLines = checkboxItems.length - 1;
-    const dividerLineShape = new Shape().moveTo( 0, 0 ).lineTo( labelVisibilityControlPanel.width - 2 * LABEL_CONTROL_LINE_WIDTH, 0 );
-    for ( let dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
-      const dividerLine1 = new Path( dividerLineShape, {
-        lineWidth: 1,
-        stroke: 'gray',
-        centerY: labelVisibilityControlPanel.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ),
-        x: LABEL_CONTROL_LINE_WIDTH / 2
-      } );
-      labelVisibilityControlPanel.addChild( dividerLine1 );
-    }
 
     this.addChild( labelVisibilityControlPanel );
     const labelVisibilityControlPanelTitleText = new Text( showString, {
