@@ -30,7 +30,6 @@ type SelfOptions = {
 
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
-// TODO: https://github.com/phetsims/chipper/issues/1356 fix type
 type TModel = {
   particleAtom: ParticleAtom;
   showElementNameProperty: TReadOnlyProperty<boolean>;
