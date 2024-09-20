@@ -9,7 +9,6 @@
 import BucketFront from '../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../scenery-phet/js/bucket/BucketHole.js';
 import { Node, NodeOptions } from '../../../scenery/js/imports.js';
-import BuildAnAtomModel from '../../../build-an-atom/js/common/model/BuildAnAtomModel.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import shred from '../shred.js';
 import AtomNode from './AtomNode.js';
@@ -19,6 +18,9 @@ import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import optionize from '../../../phet-core/js/optionize.js';
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
+import ParticleAtom from '../model/ParticleAtom.js';
+import Particle from '../model/Particle.js';
+import SphereBucket from '../../../phetcommon/js/model/SphereBucket.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -28,10 +30,22 @@ type SelfOptions = {
 
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
+// TODO: https://github.com/phetsims/chipper/issues/1356 fix type
+type TModel = {
+  particleAtom: ParticleAtom;
+  showElementNameProperty: TReadOnlyProperty<boolean>;
+  showNeutralOrIonProperty: TReadOnlyProperty<boolean>;
+  showStableOrUnstableProperty: TReadOnlyProperty<boolean>;
+  electronShellDepictionProperty: TReadOnlyProperty<string>;
+  buckets: SphereBucket<Particle>[];
+  nucleons: Particle[];
+  electrons: Particle[];
+};
+
 class InteractiveSchematicAtom extends Node {
   private readonly disposeInteractiveSchematicAtom: VoidFunction;
 
-  public constructor( model: BuildAnAtomModel, modelViewTransform: ModelViewTransform2, providedOptions?: InteractiveSchematicAtomOptions ) {
+  public constructor( model: TModel, modelViewTransform: ModelViewTransform2, providedOptions?: InteractiveSchematicAtomOptions ) {
     const ownsHighContrastProperty = providedOptions && !providedOptions.highContrastProperty;
 
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
@@ -147,7 +161,6 @@ class InteractiveSchematicAtom extends Node {
       const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
       this.addChild( bucketFront );
 
-      // @ts-expect-error - We need to change BAA model to have buckets of type SHRED/Particle, TODO: remove in https://github.com/phetsims/build-an-atom/issues/241
       const bucketDragListener = new BucketDragListener( bucket, bucketFront, modelViewTransform, {
         tandem: options.tandem && options.tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } );
