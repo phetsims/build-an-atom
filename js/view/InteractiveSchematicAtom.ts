@@ -6,21 +6,21 @@
  * @author Jesse Greenberg (PhET Interactive Simulations)
  */
 
+import BooleanProperty from '../../../axon/js/BooleanProperty.js';
+import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
+import optionize from '../../../phet-core/js/optionize.js';
+import SphereBucket from '../../../phetcommon/js/model/SphereBucket.js';
+import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../scenery-phet/js/bucket/BucketHole.js';
 import { Node, NodeOptions } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
+import Particle from '../model/Particle.js';
+import ParticleAtom from '../model/ParticleAtom.js';
 import shred from '../shred.js';
 import AtomNode from './AtomNode.js';
 import BucketDragListener from './BucketDragListener.js';
 import ParticleView from './ParticleView.js';
-import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
-import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
-import optionize from '../../../phet-core/js/optionize.js';
-import BooleanProperty from '../../../axon/js/BooleanProperty.js';
-import ParticleAtom from '../model/ParticleAtom.js';
-import Particle from '../model/Particle.js';
-import SphereBucket from '../../../phetcommon/js/model/SphereBucket.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
