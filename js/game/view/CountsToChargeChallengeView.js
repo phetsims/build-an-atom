@@ -8,8 +8,8 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import { RichText } from '../../../../scenery/js/imports.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import { RichText } from '../../../../scenery/js/imports.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
