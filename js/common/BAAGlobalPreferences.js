@@ -17,7 +17,8 @@ const BAAGlobalPreferences = {
   highContrastParticlesProperty:
     new BooleanProperty( BAAQueryParameters.highContrastParticles, {
       tandem: Tandem.PREFERENCES.createTandem( 'highContrastParticlesProperty' ),
-      phetioDocumentation: 'determines whether the particles are presented with more contrast for better visibility'
+      phetioDocumentation: 'determines whether the particles are presented with more contrast for better visibility',
+      phetioFeatured: true
     } )
 };
 

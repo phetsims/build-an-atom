@@ -56,15 +56,18 @@ class BuildAnAtomModel {
     // Properties that control label visibility in the view.
     this.showElementNameProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'showElementNameProperty' ),
-      phetioState: options.phetioState
+      phetioState: options.phetioState,
+      phetioFeatured: true
     } );
     this.showNeutralOrIonProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'showNeutralOrIonProperty' ),
-      phetioState: options.phetioState
+      phetioState: options.phetioState,
+      phetioFeatured: true
     } );
     this.showStableOrUnstableProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'showStableOrUnstableProperty' ),
-      phetioState: options.phetioState
+      phetioState: options.phetioState,
+      phetioFeatured: true
     } );
 
     // Property that controls electron depiction in the view.
