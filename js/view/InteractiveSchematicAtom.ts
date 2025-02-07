@@ -13,7 +13,7 @@ import SphereBucket from '../../../phetcommon/js/model/SphereBucket.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../scenery-phet/js/bucket/BucketHole.js';
-import { Node, NodeOptions } from '../../../scenery/js/imports.js';
+import Node, { NodeOptions } from '../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import Particle from '../model/Particle.js';
 import ParticleAtom from '../model/ParticleAtom.js';
