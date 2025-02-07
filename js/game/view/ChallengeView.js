@@ -10,7 +10,9 @@
 import stepTimer from '../../../../axon/js/stepTimer.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Color, Node, Text } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';

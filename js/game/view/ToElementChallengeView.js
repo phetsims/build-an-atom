@@ -10,7 +10,9 @@
 
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { LinearGradient, Node, Text } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';

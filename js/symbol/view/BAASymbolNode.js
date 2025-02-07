@@ -7,7 +7,7 @@
  * @author Luisa Vargas
  */
 
-import { Image } from '../../../../scenery/js/imports.js';
+import Image from '../../../../scenery/js/nodes/Image.js';
 import SymbolNode from '../../../../shred/js/view/SymbolNode.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';

@@ -8,7 +8,7 @@
 
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import { Image } from '../../../scenery/js/imports.js';
+import Image from '../../../scenery/js/nodes/Image.js';
 import atomIcon_png from '../../images/atomIcon_png.js';
 import atomIconSmall_png from '../../images/atomIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';

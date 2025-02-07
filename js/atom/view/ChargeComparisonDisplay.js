@@ -6,9 +6,11 @@
  * @author John Blanco
  */
 
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import { Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 
