@@ -7,7 +7,7 @@
  * @author Siddhartha Chinthapally (Actual Concepts)
  */
 
-import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
+import PreferencesDialogConstants from '../../../../joist/js/preferences/PreferencesDialogConstants.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
@@ -25,14 +25,14 @@ class VisualPreferencesNode extends VBox {
     // Add support for turning on high-contrast particles.
     const highContrastParticlesCheckbox = new Checkbox(
       highContrastParticlesProperty,
-      new Text( BuildAnAtomStrings.highContrastParticles, { font: PreferencesDialog.CONTENT_FONT } ), {
+      new Text( BuildAnAtomStrings.highContrastParticles, { font: PreferencesDialogConstants.CONTENT_FONT } ), {
         tandem: tandem.createTandem( 'highContrastParticlesCheckbox' )
       } );
 
     // VBox is used to make it easy to add additional options
     super( {
       children: [ highContrastParticlesCheckbox ],
-      spacing: PreferencesDialog.CONTENT_SPACING,
+      spacing: PreferencesDialogConstants.CONTENT_SPACING,
       align: 'left'
     } );
   }
