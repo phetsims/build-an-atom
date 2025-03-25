@@ -6,6 +6,7 @@
  * @author Aadish Gupta
  */
 
+import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
 import buildAnAtom from '../buildAnAtom.js';
 
 const BAAQueryParameters = QueryStringMachine.getAll( {
