@@ -70,11 +70,7 @@ class AtomScreenView extends BAAScreenView {
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
       pickable: false,
-      tandem: tandem.createTandem( 'netChargeAccordionBoxContents' ),
-
-      // pdom
-      tagName: 'h6',
-      innerContent: 'Net Charge Content' //TODO https://github.com/phetsims/build-an-atom/issues/240 export to a11y strings file
+      tandem: tandem.createTandem( 'netChargeAccordionBoxContents' )
     } );
     const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
@@ -101,11 +97,7 @@ class AtomScreenView extends BAAScreenView {
       tandem.createTandem( 'massNumberDisplay' ),
       {
         pickable: false,
-        scale: 0.85, // empirically determined to make the control panels all fit on the screen
-
-        // pdom
-        tagName: 'h6',
-        innerContent: 'Mass Number Content' //TODO https://github.com/phetsims/build-an-atom/issues/240 export to a11y strings file
+        scale: 0.85 // empirically determined to make the control panels all fit on the screen
       }
     );
     const massNumberAccordionBox = new AccordionBox(
