@@ -6,6 +6,7 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -52,7 +53,7 @@ class GameScreenView extends ScreenView {
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
       {
-        challengeIndexProperty: gameModel.challengeIndexProperty,
+        challengeNumberProperty: new DerivedProperty( [ gameModel.challengeIndexProperty ], challengeIndex => challengeIndex + 1 ),
         numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
         elapsedTimeProperty: gameModel.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
