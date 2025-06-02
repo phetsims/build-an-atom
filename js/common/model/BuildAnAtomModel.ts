@@ -7,17 +7,21 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -40,16 +44,32 @@ const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
+type SelfOptions = {
+  phetioState: boolean;
+};
+
+export type BuildAnAtomModelOptions = SelfOptions;
+
 class BuildAnAtomModel {
 
-  /**
-   * Constructor for main model object.
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( tandem, options ) {
+  public showElementNameProperty: BooleanProperty;
+  public showNeutralOrIonProperty: BooleanProperty;
+  public showStableOrUnstableProperty: BooleanProperty;
+  public electronShellDepictionProperty: StringProperty;
+  public particleAtom: ParticleAtom;
+  public buckets: Record<string, SphereBucket<Particle>>;
+  public nucleons: Particle[];
+  public electrons: Particle[];
+  public nucleusStableProperty: TReadOnlyProperty<boolean>;
+  public nucleusJumpCountdown: number; // countdown for nucleus jump animation
+  public nucleusOffset: Vector2; // offset for nucleus jump animation
+  public nucleusJumpCount: number; // count for how many times the nucleus has jumped
+  public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
+  public static readonly MAX_ELECTRONS = NUM_ELECTRONS;
 
-    options = merge( {
+  public constructor( tandem: Tandem, options: BuildAnAtomModelOptions ) {
+
+    options = combineOptions<BuildAnAtomModelOptions>( {
       phetioState: true
     }, options );
 
@@ -119,14 +139,18 @@ class BuildAnAtomModel {
     };
 
     // Define a function that will decide where to put nucleons.
-    function placeNucleon( particle, bucket, atom ) {
+    const placeNucleon = (
+      particle: Particle,
+      bucket: SphereBucket<Particle>,
+      atom: ParticleAtom
+    ): void => {
       if ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
       }
       else {
         bucket.addParticleNearestOpen( particle, true );
       }
-    }
+    };
 
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
@@ -196,7 +220,6 @@ class BuildAnAtomModel {
       }
     );
 
-    // @private - variables used to animate the nucleus when it is unstable
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     this.nucleusOffset = Vector2.ZERO;
 
@@ -204,11 +227,7 @@ class BuildAnAtomModel {
     this.nucleusJumpCount = 0;
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public dispose(): void {
 
     // DerivedProperties should be disposed first, see https://github.com/phetsims/axon/issues/167
     this.nucleusStableProperty.dispose();
@@ -228,8 +247,7 @@ class BuildAnAtomModel {
     this.nucleons.forEach( nucleon => { nucleon.dispose();} );
   }
 
-  // @public - main model step function, called by the framework
-  step( dt ) {
+  public step( dt: number ): void {
 
     // Update particle positions.
     this.nucleons.forEach( nucleon => {
@@ -244,16 +262,13 @@ class BuildAnAtomModel {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-        if ( this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO ) ) {
+        if ( this.particleAtom.nucleusOffsetProperty ) {
           this.nucleusJumpCount++;
           const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
           const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
           this.particleAtom.nucleusOffsetProperty.set(
             new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance )
           );
-        }
-        else {
-          this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
         }
       }
     }
@@ -264,8 +279,7 @@ class BuildAnAtomModel {
     }
   }
 
-  // @private
-  _moveParticlesFromAtomToBucket( particleCollection, bucket ) {
+  private _moveParticlesFromAtomToBucket( particleCollection: ObservableArray<Particle>, bucket: SphereBucket<Particle> ): void {
     const particlesToRemove = [];
     // Copy the observable particle collection into a regular array.
     for ( let i = 0; i < particleCollection.length; i++ ) {
@@ -273,13 +287,12 @@ class BuildAnAtomModel {
     }
     particlesToRemove.forEach( particle => {
         this.particleAtom.removeParticle( particle );
-        bucket.addParticleFirstOpen( particle );
+        bucket.addParticleFirstOpen( particle, true );
       }
     );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.showElementNameProperty.reset();
     this.showNeutralOrIonProperty.reset();
     this.showStableOrUnstableProperty.reset();
@@ -320,14 +333,18 @@ class BuildAnAtomModel {
     } );
   }
 
-  // @public - set the atom to the specified configuration
-  setAtomConfiguration( numberAtom ) {
+  public setAtomConfiguration( numberAtom: NumberAtom ): void {
 
     // Define a function for transferring particles from buckets to atom.
     const atomCenter = this.particleAtom.positionProperty.get();
-    const moveParticlesToAtom = ( currentCountInAtom, targetCountInAtom, particlesInAtom, bucket ) => {
+    const moveParticlesToAtom = (
+      currentCountInAtom: number,
+      targetCountInAtom: number,
+      particlesInAtom: ObservableArray<Particle>,
+      bucket: SphereBucket<Particle>
+    ) => {
       while ( currentCountInAtom < targetCountInAtom ) {
-        const particle = bucket.extractClosestParticle( atomCenter );
+        const particle = bucket.extractClosestParticle( atomCenter )!;
         particle.setPositionAndDestination( atomCenter );
         particle.userControlledProperty.set( false ); // Necessary to make it look like user released particle.
         currentCountInAtom++;
@@ -361,10 +378,6 @@ class BuildAnAtomModel {
     this.particleAtom.moveAllParticlesToDestination();
   }
 }
-
-// Externally visible constants
-BuildAnAtomModel.MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
-BuildAnAtomModel.MAX_ELECTRONS = NUM_ELECTRONS;
 
 buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );
 
