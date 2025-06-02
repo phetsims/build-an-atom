@@ -8,22 +8,29 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import CountsToSymbolChallengeView from '../view/CountsToSymbolChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import GameModel from './GameModel.js';
 
 class CountsToSymbolChallenge extends BAAGameChallenge {
 
-  /**
-   * @param {GameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   * @param {boolean} configurableProtonCount
-   * @param {boolean} configurableMassNumber
-   * @param {boolean} configurableCharge
-   */
-  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem, configurableProtonCount, configurableMassNumber, configurableCharge ) {
+  public readonly configurableProtonCount: boolean;
+  public readonly configurableMassNumber: boolean;
+  public readonly configurableCharge: boolean;
+
+  public constructor(
+    buildAnAtomGameModel: GameModel,
+    answerAtom: NumberAtom,
+    challengeType: string,
+    tandem: Tandem,
+    configurableProtonCount: boolean,
+    configurableMassNumber: boolean,
+    configurableCharge: boolean
+  ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
@@ -31,13 +38,9 @@ class CountsToSymbolChallenge extends BAAGameChallenge {
   }
 
   /**
-   * Create the view needed to visual represent this challenge.
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   * @returns {CountsToChargeChallengeView}
-   * @public
+   * Create the view needed to visually represent this challenge.
    */
-  createView( layoutBounds, tandem ) {
+  public createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToSymbolChallengeView {
     return new CountsToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'countsToSymbolChallengeView' ) );
   }
 }

@@ -13,7 +13,7 @@ export default [
   ...simEslintConfig,
   {
     rules: {
-      'phet/no-view-imported-from-model': 'off'
+      'phet/no-view-imported-from-model': 'off' // TODO: Why? https://github.com/phetsims/build-an-atom/issues/241
     }
   }
 ];
