@@ -7,21 +7,22 @@
  * @author Luisa Vargas
  */
 
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
-import SymbolNode from '../../../../shred/js/view/SymbolNode.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 
+type SelfOptions = EmptySelfOptions;
+
+export type BAASymbolNodeOptions = SelfOptions & SymbolNodeOptions;
+
 class BAASymbolNode extends SymbolNode {
 
-  /**
-   * Constructor
-   * @param {NumberAtom} numberAtom
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( numberAtom, tandem, options ) {
+  public constructor( numberAtom: NumberAtom, tandem: Tandem, options?: BAASymbolNodeOptions ) {
 
     super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, {
       chargeProperty: numberAtom.chargeProperty,
@@ -45,7 +46,9 @@ class BAASymbolNode extends SymbolNode {
     scaleImage.centerY = this.massNumberDisplay.centerY;
     this.boundingBox.left = scaleImage.right + 10;
     chargeMeter.left = this.boundingBox.right + 10;
-    chargeMeter.centerY = this.chargeDisplay.centerY;
+    if ( this.chargeDisplay ) {
+      chargeMeter.centerY = this.chargeDisplay.centerY;
+    }
 
     this.mutate( options );
   }

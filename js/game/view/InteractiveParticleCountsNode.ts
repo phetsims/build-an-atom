@@ -6,11 +6,13 @@
  * @author John Blanco
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Font from '../../../../scenery/js/util/Font.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import NumberEntryNode from './NumberEntryNode.js';
@@ -22,17 +24,24 @@ const protonsColonString = BuildAnAtomStrings.protonsColon;
 // constants
 const MAX_WIDTH = 200;
 
+type SelfOptions = {
+  font?: Font | string;
+};
+
+export type InteractiveParticleCountsNodeOptions = SelfOptions & NodeOptions;
+
 class InteractiveParticleCountsNode extends Node {
 
-  /**
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( tandem, options ) {
+  public readonly numberAtom: NumberAtom;
+  private disposeInteractiveParticlCountsNode: () => void;
+
+  public constructor( tandem: Tandem, options?: InteractiveParticleCountsNodeOptions ) {
 
     super( options );
 
-    options = merge( { font: new PhetFont( 24 ) }, options );
+    options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
+      font: new PhetFont( 24 )
+    }, options );
 
     this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
 
@@ -91,8 +100,7 @@ class InteractiveParticleCountsNode extends Node {
     neutronCountEntryNode.left = protonCountEntryNode.left;
     electronCountEntryNode.left = protonCountEntryNode.left;
 
-    // @private called by dispose
-    this.disposeInteractiveParticlCountsNode = function() {
+    this.disposeInteractiveParticlCountsNode = () => {
       electronCountEntryNode.dispose();
       neutronCountEntryNode.dispose();
       protonCountEntryNode.dispose();
@@ -100,12 +108,8 @@ class InteractiveParticleCountsNode extends Node {
     };
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
-    this.disposeInteractiveParticlCountsNode( this );
+  public override dispose(): void {
+    this.disposeInteractiveParticlCountsNode();
     super.dispose();
   }
 }

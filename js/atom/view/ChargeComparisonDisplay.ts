@@ -7,10 +7,13 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 
@@ -20,14 +23,13 @@ const VERTICAL_INSET = 5;
 const INTER_SYMBOL_DISTANCE = SYMBOL_WIDTH * 0.4;
 const SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 
+type SelfOptions = EmptySelfOptions;
+
+export type ChargeComparisonDisplayOptions = SelfOptions & NodeOptions;
+
 class ChargeComparisonDisplay extends Node {
 
-  /**
-   * @param {ParticleAtom} particleAtom - model representation of the atom
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( particleAtom, tandem, options ) {
+  public constructor( particleAtom: ParticleAtom, tandem: Tandem, options?: ChargeComparisonDisplayOptions ) {
 
     super( { tandem: tandem } );
 
@@ -52,7 +54,7 @@ class ChargeComparisonDisplay extends Node {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH * 1.5
     } );
 
-    const minuses = [];
+    const minuses: Node[] = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       const minusSymbol = new Node( {
         children: [ minusSymbolPath ],
@@ -85,7 +87,7 @@ class ChargeComparisonDisplay extends Node {
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );
 
-    const plusses = [];
+    const plusses: Node[] = [];
     for ( i = 0; i < MAX_CHARGE; i++ ) {
       const plusSymbol = new Node( {
         children: [ plusSymbolPath ],
@@ -105,7 +107,7 @@ class ChargeComparisonDisplay extends Node {
     symbolLayer.addChild( matchBox );
 
     // Function that updates that displayed charge.
-    const update = atom => {
+    const update = ( atom: ParticleAtom ): void => {
 
       // toggle plus visibility
       for ( let numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {

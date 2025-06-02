@@ -9,6 +9,7 @@
 
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -25,14 +26,12 @@ const MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
 
 class BAARewardNode extends RewardNode {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
-    const nodes = createNodes( tandem );
+  private disposeBAARewardNode: () => void;
+
+  public constructor( tandem: Tandem ) {
+    const nodes = BAARewardNode.createNodes( tandem );
     super( { nodes: nodes } );
 
-    // @private
     this.disposeBAARewardNode = () => {
       nodes.forEach( node => {
         !node.isDisposed && node.dispose();
@@ -40,40 +39,34 @@ class BAARewardNode extends RewardNode {
     };
   }
 
-  /**
-   * @public
-   * @override
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeBAARewardNode();
     super.dispose();
   }
-}
 
-// @private
-function createRandomStableAtom() {
-  const atomicNumber = 1 + dotRandom.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
-  return new NumberAtom( {
-    protonCount: atomicNumber,
-    neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
-    electronCount: atomicNumber
-  } );
-}
-
-// @public
-function createNodes( tandem ) {
-  const nodes = [];
-  for ( let i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
-    const interactiveSymbolNode = new InteractiveSymbolNode( createRandomStableAtom(), Tandem.OPT_OUT );
-    interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH +
-                                   dotRandom.nextDouble() *
-                                   ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) /
-                                 interactiveSymbolNode.width );
-    nodes.push( interactiveSymbolNode );
+  private static createRandomStableAtom(): NumberAtom {
+    const atomicNumber = 1 + dotRandom.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
+    return new NumberAtom( {
+      protonCount: atomicNumber,
+      neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
+      electronCount: atomicNumber
+    } );
   }
-  const faceNode = new FaceNode( FACE_DIAMETER );
-  nodes.push( faceNode );
-  return RewardNode.createRandomNodes( nodes, NUMBER_OF_NODES );
+
+  private static createNodes( tandem: Tandem ): Node[] {
+    const nodes = [];
+    for ( let i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
+      const interactiveSymbolNode = new InteractiveSymbolNode( BAARewardNode.createRandomStableAtom(), Tandem.OPT_OUT );
+      interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH +
+                                     dotRandom.nextDouble() *
+                                     ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) /
+                                   interactiveSymbolNode.width );
+      nodes.push( interactiveSymbolNode );
+    }
+    const faceNode = new FaceNode( FACE_DIAMETER );
+    nodes.push( faceNode );
+    return RewardNode.createRandomNodes( nodes, NUMBER_OF_NODES );
+  }
 }
 
 buildAnAtom.register( 'BAARewardNode', BAARewardNode );

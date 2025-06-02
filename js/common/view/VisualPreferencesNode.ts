@@ -7,20 +7,18 @@
  * @author Siddhartha Chinthapally (Actual Concepts)
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import PreferencesDialogConstants from '../../../../joist/js/preferences/PreferencesDialogConstants.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 class VisualPreferencesNode extends VBox {
 
-  /**
-   * @param {BooleanProperty} highContrastParticlesProperty
-   * @param {Tandem} tandem
-   */
-  constructor( highContrastParticlesProperty, tandem ) {
+  public constructor( highContrastParticlesProperty: BooleanProperty, tandem: Tandem ) {
 
     // Add support for turning on high-contrast particles.
     const highContrastParticlesCheckbox = new Checkbox(

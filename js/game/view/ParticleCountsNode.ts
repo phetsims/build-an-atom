@@ -8,11 +8,13 @@
  * @author John Blanco
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Font from '../../../../scenery/js/util/Font.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
@@ -23,18 +25,23 @@ const protonsColonPatternString = BuildAnAtomStrings.protonsColonPattern;
 // constants
 const MAX_WIDTH = 280;
 
+type SelfOptions = {
+  font?: Font | string;
+};
+
+export type ParticleCountsNodeOptions = SelfOptions & NodeOptions;
+
 class ParticleCountsNode extends Node {
 
-  /**
-   * @param {NumberAtom} numberAtom
-   * @param {Object} [options]
-   */
-  constructor( numberAtom, options ) {
+  public constructor( numberAtom: NumberAtom, options?: ParticleCountsNodeOptions ) {
 
     super( options );
 
-    options = merge( { font: new PhetFont( 24 ) }, options );
+    options = optionize<ParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
+      font: new PhetFont( 24 )
+    }, options );
 
+    // TODO: Use StringProperties fillIn instead https://github.com/phetsims/build-an-atom/issues/252
     const protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH

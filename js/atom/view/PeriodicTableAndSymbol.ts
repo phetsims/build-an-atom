@@ -7,28 +7,29 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
 const SYMBOL_WIDTH_PROPORTION = 0.2;
 const SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
+type SelfOptions = EmptySelfOptions;
+
+export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
+
 class PeriodicTableAndSymbol extends Node {
 
-  /**
-   * @param {NumberAtom} numberAtom
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( numberAtom, tandem, options ) {
+  public constructor( numberAtom: NumberAtom, tandem: Tandem, options?: PeriodicTableAndSymbolOptions ) {
 
-    options.tandem = tandem;
     super();
 
     // Create and add the periodic table.
