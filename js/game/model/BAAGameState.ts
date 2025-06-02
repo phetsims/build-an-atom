@@ -13,17 +13,55 @@
  * @author John Blanco
  */
 
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 
+type SelfOptions = EmptySelfOptions;
+
+type BAAGameStateOptions = SelfOptions & PhetioObjectOptions;
+
 class BAAGameState extends PhetioObject {
 
-  /**
-   * @param {String} name
-   */
-  constructor( name, options ) {
+  public name: string;
+
+  // static instance of game states
+  public static readonly CHOOSING_LEVEL = new BAAGameState( 'choosingLevel' );
+  public static readonly LEVEL_COMPLETED = new BAAGameState( 'levelCompleted' );
+
+  public static readonly BAAGameStateIO = new IOType( 'BAAGameStateIO', {
+    valueType: BAAGameState,
+    documentation: 'A state for the game',
+    toStateObject: ( baaGameState: BAAGameState ) => {
+      if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
+        // TODO: Are these 'as never' castings correct?  https://github.com/phetsims/build-an-atom/issues/241
+        return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState as never );
+      }
+      else {
+        return { name: baaGameState.name };
+      }
+    },
+    fromStateObject: stateObject => {
+      if ( stateObject.name === 'choosingLevel' ) {
+        return BAAGameState.CHOOSING_LEVEL;
+      }
+      else if ( stateObject.name === 'levelCompleted' ) {
+        return BAAGameState.LEVEL_COMPLETED;
+      }
+      else if ( stateObject.name === 'challenge' ) {
+        return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject as never );
+      }
+      else {
+        throw new Error( `unknown game state: ${stateObject.name}` );
+      }
+    }
+  } );
+
+  public constructor( name: string, options?: BAAGameStateOptions ) {
     super( options );
     this.name = name;
   }
@@ -34,91 +72,49 @@ class BAAGameState extends PhetioObject {
 
   /**
    * update score and state based on whether the user submitted a correct or incorrect answer
-   * @param {NumberAtom} submittedAtom
-   * @param {boolean} isCorrect
-   * @param {Object} emitMessageOptions
-   * @public
+   * // TODO: What's the actual type of emitMessageOptions?  https://github.com/phetsims/build-an-atom/issues/241
    */
-  handleEvaluatedAnswer( submittedAtom, isCorrect, emitMessageOptions ) {
+  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions: IntentionalAny ): void {
     throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
   }
 
   /**
    * Process the answer submitted by the user.  This is the most basic check, and more elaborate ways of verifying
    * can be implemented in sub-classes.
-   * @param {NumberAtom} submittedAtom
-   * @public
    */
-  checkAnswer( submittedAtom ) {
+  public checkAnswer( submittedAtom: NumberAtom ): void {
     throw new Error( 'checkAnswer should never be called in base class' );
   }
 
   /**
    * allow the user to try again to correctly answer the question
-   * @public
    */
-  tryAgain() {
+  public tryAgain(): void {
     throw new Error( 'tryAgain should never be called in base class' );
   }
 
   /**
    * advance to the next question or finish the level
-   * @public
    */
-  next() {
+  public next(): void {
     throw new Error( 'next should never be called in base class' );
   }
 
   /**
    * display the correct answer to the user
-   * @public
    */
-  displayCorrectAnswer() {
+  public displayCorrectAnswer(): void {
     throw new Error( 'displayCorrectAnswer should never be called in base class' );
   }
 
   /**
    * step the challenge in time, override in any states/challenges that have time-dependent behavior
-   * @param dt
-   * @public
    */
-  step( dt ) {
+  public step( dt: number ): void {
     // stubbed in base class
   }
 }
 
 buildAnAtom.register( 'BAAGameState', BAAGameState );
-
-// static instance of game states
-BAAGameState.CHOOSING_LEVEL = new BAAGameState( 'choosingLevel' );
-BAAGameState.LEVEL_COMPLETED = new BAAGameState( 'levelCompleted' );
-
-BAAGameState.BAAGameStateIO = new IOType( 'BAAGameStateIO', {
-  valueType: BAAGameState,
-  documentation: 'A state for the game',
-  toStateObject: baaGameState => {
-    if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
-      return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState );
-    }
-    else {
-      return { name: baaGameState.name };
-    }
-  },
-  fromStateObject: stateObject => {
-    if ( stateObject.name === 'choosingLevel' ) {
-      return BAAGameState.CHOOSING_LEVEL;
-    }
-    else if ( stateObject.name === 'levelCompleted' ) {
-      return BAAGameState.LEVEL_COMPLETED;
-    }
-    else if ( stateObject.name === 'challenge' ) {
-      return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject );
-    }
-    else {
-      throw new Error( `unknown game state: ${stateObject}` );
-    }
-  }
-} );
-
 
 export default BAAGameState;
