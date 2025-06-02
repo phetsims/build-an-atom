@@ -8,22 +8,30 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToSymbolChallengeView from '../view/SchematicToSymbolChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import GameModel from './GameModel.js';
 
 class SchematicToSymbolChallenge extends BAAGameChallenge {
 
-  /**
-   * @param {GameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   * @param {boolean} configurableProtonCount
-   * @param {boolean} configurableMassNumber
-   * @param {boolean} configurableCharge
-   */
-  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem, configurableProtonCount, configurableMassNumber, configurableCharge ) {
+  // TODO: Maybe these Symbol challenges should be made a parent class? https://github.com/phetsims/build-an-atom/issues/241
+  public readonly configurableProtonCount: boolean;
+  public readonly configurableMassNumber: boolean;
+  public readonly configurableCharge: boolean;
+
+  public constructor(
+    buildAnAtomGameModel: GameModel,
+    answerAtom: NumberAtom,
+    challengeType: string,
+    tandem: Tandem,
+    configurableProtonCount: boolean,
+    configurableMassNumber: boolean,
+    configurableCharge: boolean
+  ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
@@ -31,13 +39,9 @@ class SchematicToSymbolChallenge extends BAAGameChallenge {
   }
 
   /**
-   * Create the view needed to visual represent this challenge.
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   * @returns {CountsToChargeChallengeView}
-   * @public
+   * Create the view needed to visually represent this challenge.
    */
-  createView( layoutBounds, tandem ) {
+  public createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToSymbolChallengeView {
     return new SchematicToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolChallengeView' ) );
   }
 }

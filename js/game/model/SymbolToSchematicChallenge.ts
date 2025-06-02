@@ -8,20 +8,20 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 import SymbolToSchematicChallengeView from '../view/SymbolToSchematicChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import GameModel from './GameModel.js';
 
 class SymbolToSchematicChallenge extends BAAGameChallenge {
 
-  /**
-   * @param {GameMode} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   */
-  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+  public readonly buildAnAtomModel: BuildAnAtomModel;
+
+  public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with
@@ -32,11 +32,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
     this.buildAnAtomModel.showStableOrUnstableProperty.set( false );
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
 
     // Normally we must dispose objects in the reverse order they are created.  However, in this case, disposing
     // the model before disposing the view causes failures when the view tries to remove its listeners from the model.
@@ -46,18 +42,16 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
   }
 
   /**
-   * Create the view needed to visual represent this challenge.
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   * @returns {CountsToChargeChallengeView}
-   * @public
+   * Create the view needed to visually represent this challenge.
    */
-  createView( layoutBounds, tandem ) {
+  public createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToSchematicChallengeView {
     return new SymbolToSchematicChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToSchematicChallengeView' ) );
   }
 
-  // @public - step the atom model when the challenge is stepped
-  step( dt ) {
+  /**
+   * step the atom model when the challenge is stepped
+   */
+  public override step( dt: number ): void {
     this.buildAnAtomModel.step( dt );
   }
 }
