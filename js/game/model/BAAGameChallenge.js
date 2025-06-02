@@ -112,10 +112,11 @@ class BAAGameChallenge extends BAAGameState {
   }
 
   /**
+   * submittedNeutralOrIon is used in child classes that allow the user to submit a neutral atom or an ion.
    * @override
    * @public
    */
-  checkAnswer( submittedAtom ) {
+  checkAnswer( submittedAtom, submittedNeutralOrIon = '' ) {
 
     // Verify that the current state is as expected.
     assert && assert(

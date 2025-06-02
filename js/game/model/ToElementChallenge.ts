@@ -8,30 +8,24 @@
  * @author John Blanco
  */
 
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import GameModel from './GameModel.js';
 
 class ToElementChallenge extends BAAGameChallenge {
 
-  /**
-   * @param {GameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   */
-  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+  public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
   }
 
   /**
    * Override the method for checking the correct answer, since this challenge class has the additional step of user
    * deciding whether atom is an ion.
-   * @param {NumberAtom} submittedAtom
-   * @param {string} submittedNeutralOrIon
-   * @public
    */
-  checkAnswer( submittedAtom, submittedNeutralOrIon ) {
+  public override checkAnswer( submittedAtom: NumberAtom, submittedNeutralOrIon: string ): void {
     assert && assert(
       this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
       `Unexpected challenge state: ${this.challengeStateProperty.get()}`
