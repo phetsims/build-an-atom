@@ -30,13 +30,13 @@ type SelfOptions = {
 
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
-type TModel = {
+export type TModel = {
   particleAtom: ParticleAtom;
   showElementNameProperty: TReadOnlyProperty<boolean>;
   showNeutralOrIonProperty: TReadOnlyProperty<boolean>;
   showStableOrUnstableProperty: TReadOnlyProperty<boolean>;
   electronShellDepictionProperty: TReadOnlyProperty<string>;
-  buckets: SphereBucket<Particle>[];
+  buckets: Record<string, SphereBucket<Particle>>;
   nucleons: Particle[];
   electrons: Particle[];
 };
