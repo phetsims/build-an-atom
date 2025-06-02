@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import Image from '../../../scenery/js/nodes/Image.js';
@@ -14,6 +13,7 @@ import elementIcon_png from '../../images/elementIcon_png.js';
 import elementIconSmall_png from '../../images/elementIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
+import BAAColors from '../common/BAAColors.js';
 import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
 import SymbolScreenView from './view/SymbolScreenView.js';
 
@@ -28,7 +28,7 @@ class SymbolScreen extends Screen {
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.symbolStringProperty,
-        backgroundColorProperty: new Property( 'rgb( 242, 255, 204 )' ), /* Light yellow-green */
+        backgroundColorProperty: BAAColors.symbolsScreenBackgroundColorProperty,
         homeScreenIcon: new ScreenIcon( new Image( elementIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1

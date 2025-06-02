@@ -34,6 +34,7 @@ import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BAAColors from '../BAAColors.js';
 import BAAGlobalPreferences from '../BAAGlobalPreferences.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
@@ -192,9 +193,23 @@ class BAAScreenView extends ScreenView {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
 
-    _.each( model.buckets, bucket => {
+    model.buckets.forEach( bucket => {
+      const bucketTandem = tandem.createTandem( `${bucket.sphereBucketTandem.name}FrontNode` );
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}FrontNode` )
+        tandem: bucketTandem,
+        labelNode: new Panel(
+          new Text( bucket.captionText, {
+            font: new PhetFont( 20 ),
+            fill: bucket.captionColor,
+            tandem: bucketTandem.createTandem( 'labelText' )
+          } ), {
+            fill: BAAColors.bucketTextBackgroundColorProperty,
+            cornerRadius: 0,
+            stroke: null,
+            xMargin: 0,
+            yMargin: 0
+          }
+        )
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {

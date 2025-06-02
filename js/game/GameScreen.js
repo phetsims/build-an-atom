@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import Image from '../../../scenery/js/nodes/Image.js';
@@ -15,6 +14,7 @@ import gameIcon_png from '../../images/gameIcon_png.js';
 import gameIconSmall_png from '../../images/gameIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
+import BAAColors from '../common/BAAColors.js';
 import GameModel from './model/GameModel.js';
 import GameScreenView from './view/GameScreenView.js';
 
@@ -31,7 +31,7 @@ class GameScreen extends Screen {
       model => new GameScreenView( model, Tandem.OPT_OUT ),
       {
         name: BuildAnAtomStrings.gameStringProperty,
-        backgroundColorProperty: new Property( 'rgb( 255, 254, 223 )' ),
+        backgroundColorProperty: BAAColors.gameScreenBackgroundColorProperty,
         homeScreenIcon: new ScreenIcon( new Image( gameIcon_png ), {
           maxIconWidthProportion: 1,
           maxIconHeightProportion: 1
