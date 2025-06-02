@@ -9,13 +9,16 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import SchematicToMassNumberChallenge from '../model/SchematicToMassNumberChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import NumberEntryNode from './NumberEntryNode.js';
@@ -24,12 +27,10 @@ const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
 
 class SchematicToMassNumberChallengeView extends ChallengeView {
 
-  /**
-   * @param {SchematicToMassNumberChallenge} schematicToMassNumberChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( schematicToMassNumberChallenge, layoutBounds, tandem ) {
+  public readonly massNumberAnswerProperty: NumberProperty;
+  private readonly disposeSchematicToMassNumberChallengeView: () => void;
+
+  public constructor( schematicToMassNumberChallenge: SchematicToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( schematicToMassNumberChallenge, layoutBounds, tandem );
 
@@ -76,7 +77,6 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     massEntryNode.left = questionPrompt.right + 10;
     massEntryNode.centerY = questionPrompt.centerY;
 
-    // @private called by dispose
     this.disposeSchematicToMassNumberChallengeView = () => {
       nonInteractiveSchematicAtomNode.dispose();
       questionPrompt.dispose();
@@ -85,8 +85,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     };
   }
 
-  // @public
-  checkAnswer() {
+  public override checkAnswer(): void {
     const userSubmittedAnswer = new NumberAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
@@ -95,13 +94,11 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
-  // @public
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
   }
 
-  // @public
-  dispose() {
+  public override dispose(): void {
     this.disposeSchematicToMassNumberChallengeView();
     super.dispose();
   }

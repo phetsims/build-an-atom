@@ -8,11 +8,14 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import CountsToMassNumberChallenge from '../model/CountsToMassNumberChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
@@ -21,16 +24,13 @@ const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
 
 class CountsToMassNumberChallengeView extends ChallengeView {
 
-  /**
-   * @param {CountsToMassNumberChallenge} countsToMassNumberChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( countsToMassNumberChallenge, layoutBounds, tandem ) {
+  public readonly massNumberAnswerProperty: NumberProperty;
+  private readonly disposeCountsToMassNumberChallengeView: () => void;
+
+  public constructor( countsToMassNumberChallenge: CountsToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( countsToMassNumberChallenge, layoutBounds, tandem );
 
-    // @public
     this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       numberType: 'Integer'
@@ -66,7 +66,6 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     numberEntryNode.left = questionPrompt.right + 10;
     numberEntryNode.centerY = questionPrompt.centerY;
 
-    // @private - called by dispose
     this.disposeCountsToMassNumberChallengeView = function() {
       particleCountsNode.dispose();
       questionPrompt.dispose();
@@ -75,8 +74,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     };
   }
 
-  // @public
-  checkAnswer() {
+  public override checkAnswer(): void {
     const userSubmittedAnswer = new NumberAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
@@ -85,16 +83,11 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
-  // @public
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeCountsToMassNumberChallengeView();
     super.dispose();
   }

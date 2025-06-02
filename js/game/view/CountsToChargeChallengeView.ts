@@ -8,12 +8,15 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import CountsToChargeChallenge from '../model/CountsToChargeChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
@@ -22,16 +25,13 @@ const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
 
 class CountsToChargeChallengeView extends ChallengeView {
 
-  /**
-   * @param {CountsToChargeChallenge} countsToChargeChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( countsToChargeChallenge, layoutBounds, tandem ) {
+  private readonly chargeAnswerProperty: NumberProperty;
+  private readonly disposeCountsToChargeChallengeView: () => void;
+
+  public constructor( countsToChargeChallenge: CountsToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( countsToChargeChallenge, layoutBounds, tandem );
 
-    // @private
     this.chargeAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
       numberType: 'Integer'
@@ -70,7 +70,6 @@ class CountsToChargeChallengeView extends ChallengeView {
     numberEntryNode.left = questionPrompt.right + 10;
     numberEntryNode.centerY = questionPrompt.centerY;
 
-    // @private called by dispose
     this.disposeCountsToChargeChallengeView = function() {
       this.chargeAnswerProperty.dispose();
       questionPrompt.dispose();
@@ -78,8 +77,7 @@ class CountsToChargeChallengeView extends ChallengeView {
     };
   }
 
-  // @public
-  checkAnswer() {
+  public override checkAnswer(): void {
     const userSubmittedAnswer = new NumberAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
@@ -88,16 +86,11 @@ class CountsToChargeChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
-  // @public
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.chargeAnswerProperty.value = this.challenge.answerAtom.chargeProperty.get();
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeCountsToChargeChallengeView();
     super.dispose();
   }

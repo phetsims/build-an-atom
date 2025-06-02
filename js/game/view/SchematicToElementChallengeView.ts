@@ -9,20 +9,21 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
 
 class SchematicToElementChallengeView extends ToElementChallengeView {
 
-  /**
-   * @param {SchematicToElementChallenge} schematicToElementChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( schematicToElementChallenge, layoutBounds, tandem ) {
+  private readonly disposeSchematicToElementChallengeView: () => void;
+
+  public constructor( schematicToElementChallenge: SchematicToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
+
     super( schematicToElementChallenge, layoutBounds, tandem );
 
     // Create the model-view transform used by the schematic atom.
@@ -47,8 +48,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     };
   }
 
-  // @public
-  dispose() {
+  public override dispose(): void {
     this.disposeSchematicToElementChallengeView();
     super.dispose();
   }

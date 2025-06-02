@@ -8,24 +8,24 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import CountsToSymbolChallenge from '../model/CountsToSymbolChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
 class CountsToSymbolChallengeView extends ChallengeView {
 
-  /**
-   * @param {CountsToSymbolChallenge} toSymbolChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( toSymbolChallenge, layoutBounds, tandem ) {
+  public readonly interactiveSymbolNode: InteractiveSymbolNode;
+  private readonly disposeCountsToSymbolChallengeView: () => void;
+
+  public constructor( toSymbolChallenge: CountsToSymbolChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( toSymbolChallenge, layoutBounds, tandem );
 
-    // @public {read-only)
     this.interactiveSymbolNode = new InteractiveSymbolNode(
       toSymbolChallenge.answerAtom,
       tandem.createTandem( 'interactiveSymbolNode' ), {
@@ -49,14 +49,12 @@ class CountsToSymbolChallengeView extends ChallengeView {
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
-    // @private called by dispose
     this.disposeCountsToSymbolChallengeView = function() {
       this.interactiveSymbolNode.dispose();
     };
   }
 
-  // @public
-  checkAnswer() {
+  public override checkAnswer(): void {
     const userSubmittedAtom = new NumberAtom( {
       protonCount: this.interactiveSymbolNode.protonCountProperty.value,
       neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
@@ -65,18 +63,13 @@ class CountsToSymbolChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAtom );
   }
 
-  // @public
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
     this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeCountsToSymbolChallengeView();
     super.dispose();
   }

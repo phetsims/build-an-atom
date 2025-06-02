@@ -8,18 +8,16 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
 
 class CountsToElementChallengeView extends ToElementChallengeView {
 
-  /**
-   * @param {CountsToElementChallenge} countsToElementChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( countsToElementChallenge, layoutBounds, tandem ) {
+  public constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( countsToElementChallenge, layoutBounds, tandem );
 
     // Particle counts

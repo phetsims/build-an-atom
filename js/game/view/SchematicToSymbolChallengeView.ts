@@ -9,22 +9,30 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 
+// TODO: Remove this transient type once BAAGameChallenge is converted to TS https://github.com/phetsims/build-an-atom/issues/241
+type BAAGameChallengeType = {
+  answerAtom: NumberAtom;
+  configurableProtonCount: boolean;
+  configurableMassNumber: boolean;
+  configurableCharge: boolean;
+};
+
 class SchematicToSymbolChallengeView extends ChallengeView {
 
-  /**
-   * @param {BAAGameChallenge} toSymbolChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( toSymbolChallenge, layoutBounds, tandem ) {
+  public readonly interactiveSymbolNode: InteractiveSymbolNode;
+  private readonly disposeSchematicToSymbolChallengeView: () => void;
+
+  public constructor( toSymbolChallenge: BAAGameChallengeType, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( toSymbolChallenge, layoutBounds, tandem );
 
@@ -57,15 +65,13 @@ class SchematicToSymbolChallengeView extends ChallengeView {
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
 
-    // @private called by dispose
     this.disposeSchematicToSymbolChallengeView = function() {
       schematicAtomNode.dispose();
       this.interactiveSymbolNode.dispose();
     };
   }
 
-  // @public
-  checkAnswer() {
+  public override checkAnswer(): void {
     const userSubmittedAtom = new NumberAtom( {
       protonCount: this.interactiveSymbolNode.protonCountProperty.value,
       neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
@@ -74,15 +80,13 @@ class SchematicToSymbolChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAtom );
   }
 
-  // @public
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
     this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
   }
 
-  // @public
-  dispose() {
+  public override dispose(): void {
     this.disposeSchematicToSymbolChallengeView();
     super.dispose();
   }

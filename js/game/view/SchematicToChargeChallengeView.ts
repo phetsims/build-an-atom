@@ -9,14 +9,17 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import SchematicToChargeChallenge from '../model/SchematicToChargeChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import NumberEntryNode from './NumberEntryNode.js';
@@ -25,12 +28,10 @@ const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
 
 class SchematicToChargeChallengeView extends ChallengeView {
 
-  /**
-   * @param {SchematicToChargeChallenge} schematicToChargeChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( schematicToChargeChallenge, layoutBounds, tandem ) {
+  public readonly chargeAnswerProperty: NumberProperty;
+  private readonly disposeSchematicToChargeChallengeView: () => void;
+
+  public constructor( schematicToChargeChallenge: SchematicToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( schematicToChargeChallenge, layoutBounds, tandem );
 
@@ -79,7 +80,6 @@ class SchematicToChargeChallengeView extends ChallengeView {
     chargeEntryNode.left = questionPrompt.right + 10;
     chargeEntryNode.centerY = questionPrompt.centerY;
 
-    // @private called by dispose
     this.disposeSchematicToChargeChallengeView = function() {
       nonInteractiveSchematicNode.dispose();
       questionPrompt.dispose();
@@ -88,8 +88,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     };
   }
 
-  // @public
-  checkAnswer() {
+  public override checkAnswer(): void {
     const userSubmittedAnswer = new NumberAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
@@ -98,16 +97,11 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
-  // @public
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.chargeAnswerProperty.value = this.challenge.answerAtom.chargeProperty.get();
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeSchematicToChargeChallengeView();
     super.dispose();
   }
