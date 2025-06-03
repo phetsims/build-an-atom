@@ -11,22 +11,62 @@
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
+import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
+import GameModel from './GameModel.js';
 
 class BAAGameChallenge extends BAAGameState {
 
-  /**
-   * @param {GameModel} buildAnAtomGameModel
-   * @param {NumberAtom} answerAtom
-   * @param {string} challengeType
-   * @param {Tandem} tandem
-   */
-  constructor( buildAnAtomGameModel, answerAtom, challengeType, tandem ) {
+  public readonly challengeStateProperty: StringProperty;
+  public readonly numSubmissionsProperty: NumberProperty;
+  public readonly answerAtom: NumberAtom;
+  public pointValue: number;
+  public readonly model: GameModel;
+  public readonly challengeType: string;
+
+  public static readonly BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
+    valueType: BAAGameChallenge,
+    documentation: 'A challenge for the Game',
+    toStateObject: ( baaGameChallenge: BAAGameChallenge ) => ( {
+      pointValue: baaGameChallenge.pointValue,
+      answerAtom: NumberAtom.NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
+      modelPhetioID: baaGameChallenge.model.tandem.phetioID,
+      challengeType: baaGameChallenge.challengeType,
+      phetioID: baaGameChallenge.tandem.phetioID,
+      name: baaGameChallenge.name
+    } ),
+    fromStateObject: stateObject => {
+      const phetioEngine = phet.phetio.phetioEngine;
+
+      // This may have been deserialized from the instance itself or from the array it was contained in (which
+      // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
+      //TODO https://github.com/phetsims/build-an-atom/issues/240 Is there a better way to do this, or at least factor it out?
+      const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
+      if ( instance ) {
+        return phetioEngine.getPhetioElement( stateObject.phetioID );
+      }
+
+      const model = phetioEngine.getPhetioElement( stateObject.modelPhetioID );
+
+      const answerAtom = new phet.shred.NumberAtom( {
+        protonCount: stateObject.answerAtom.protonCount,
+        neutronCount: stateObject.answerAtom.neutronCount,
+        electronCount: stateObject.answerAtom.electronCount
+      } );
+      const tandem = new phet.tandem.Tandem( stateObject.phetioID );
+
+      return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
+    }
+  } );
+
+
+  public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
 
     //TODO https://github.com/phetsims/build-an-atom/issues/240 Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     super( 'challenge', {
@@ -48,34 +88,27 @@ class BAAGameChallenge extends BAAGameState {
       phetioReadOnly: true,
       phetioState: false
     } );
-    this.answerAtom = answerAtom; // @public (phet-io)
-    this.pointValue = 0; // @public (phet-io)
-    this.model = buildAnAtomGameModel; // @public (phet-io)
-    this.challengeType = challengeType; // @public (phet-io)
+    this.answerAtom = answerAtom;
+    this.pointValue = 0;
+    this.model = buildAnAtomGameModel;
+    this.challengeType = challengeType;
   }
 
-  /**
-   * @public - release resources when no longer used
-   */
-  dispose() {
+  public override dispose(): void {
     this.challengeStateProperty.dispose();
     this.numSubmissionsProperty.dispose();
 
     super.dispose();
   }
 
-  /**
-   * @public - presence of this method will trigger disposal when game state changes
-   */
-  disposeState() {
+  public disposeState(): void {
     this.dispose();
   }
 
   /**
-   * @public
-   * @override
+   * // TODO: What's the actual type of emitMessageOptions?  https://github.com/phetsims/build-an-atom/issues/241
    */
-  handleEvaluatedAnswer( submittedAtom, isCorrect, emitMessageOptions ) {
+  public override handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: IntentionalAny ): void {
 
     this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
     const pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
@@ -111,12 +144,7 @@ class BAAGameChallenge extends BAAGameState {
     }
   }
 
-  /**
-   * submittedNeutralOrIon is used in child classes that allow the user to submit a neutral atom or an ion.
-   * @override
-   * @public
-   */
-  checkAnswer( submittedAtom, submittedNeutralOrIon = '' ) {
+  public override checkAnswer( submittedAtom: NumberAtom, submittedNeutralOrIon = '' ): void {
 
     // Verify that the current state is as expected.
     assert && assert(
@@ -128,68 +156,21 @@ class BAAGameChallenge extends BAAGameState {
     this.handleEvaluatedAnswer( submittedAtom, isCorrect );
   }
 
-  /**
-   * @override
-   * @public
-   */
-  tryAgain() {
+  public override tryAgain(): void {
     this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
   }
 
-  /**
-   * @override
-   * @public
-   */
-  next() {
+  public override next(): void {
     // This event is basically handled by the model, which will remove this challenge and do whatever should happen
     // next.
     this.model.next();
   }
 
-  /**
-   * @override
-   * @public
-   */
-  displayCorrectAnswer() {
+  public override displayCorrectAnswer(): void {
     this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
   }
 }
 
 buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
-
-BAAGameChallenge.BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
-  valueType: BAAGameChallenge,
-  documentation: 'A challenge for the Game',
-  toStateObject: baaGameChallenge => ( {
-    pointValue: baaGameChallenge.pointValue,
-    answerAtom: NumberAtom.NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
-    modelPhetioID: baaGameChallenge.model.tandem.phetioID,
-    challengeType: baaGameChallenge.challengeType,
-    phetioID: baaGameChallenge.tandem.phetioID,
-    name: baaGameChallenge.name
-  } ),
-  fromStateObject: stateObject => {
-    const phetioEngine = phet.phetio.phetioEngine;
-
-    // This may have been deserialized from the instance itself or from the array it was contained in (which
-    // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
-    //TODO https://github.com/phetsims/build-an-atom/issues/240 Is there a better way to do this, or at least factor it out?
-    const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
-    if ( instance ) {
-      return phetioEngine.getPhetioElement( stateObject.phetioID );
-    }
-
-    const model = phetioEngine.getPhetioElement( stateObject.modelPhetioID );
-
-    const answerAtom = new phet.shred.NumberAtom( {
-      protonCount: stateObject.answerAtom.protonCount,
-      neutronCount: stateObject.answerAtom.neutronCount,
-      electronCount: stateObject.answerAtom.electronCount
-    } );
-    const tandem = new phet.tandem.Tandem( stateObject.phetioID );
-
-    return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
-  }
-} );
 
 export default BAAGameChallenge;

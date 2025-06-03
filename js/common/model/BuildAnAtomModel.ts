@@ -69,7 +69,7 @@ class BuildAnAtomModel {
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
   public static readonly MAX_ELECTRONS = NUM_ELECTRONS;
 
-  public constructor( tandem: Tandem, options: BuildAnAtomModelOptions ) {
+  public constructor( tandem: Tandem, options?: BuildAnAtomModelOptions ) {
 
     options = combineOptions<BuildAnAtomModelOptions>( {
       phetioState: true
