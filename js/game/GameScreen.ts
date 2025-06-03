@@ -18,12 +18,9 @@ import BAAColors from '../common/BAAColors.js';
 import GameModel from './model/GameModel.js';
 import GameScreenView from './view/GameScreenView.js';
 
-class GameScreen extends Screen {
+class GameScreen extends Screen<GameModel, GameScreenView> {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
+  public constructor( tandem: Tandem ) {
     super(
       () => new GameModel( tandem.createTandem( 'model' ) ),
 

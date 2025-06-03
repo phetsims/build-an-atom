@@ -23,7 +23,7 @@ const buildAnAtomTitleStringProperty = BuildAnAtomStrings[ 'build-an-atom' ].tit
 const tandem = Tandem.ROOT;
 
 simLauncher.launch( () => {
-  const screens = [
+  const screens: ( AtomScreen | SymbolScreen | GameScreen )[] = [
     new AtomScreen( tandem.createTandem( 'atomScreen' ) ),
     new SymbolScreen( tandem.createTandem( 'symbolScreen' ) )
   ];
