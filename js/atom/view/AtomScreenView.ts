@@ -7,13 +7,15 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import merge from '../../../../phet-core/js/merge.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import AccordionBox from '../../../../sun/js/AccordionBox.js';
+import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
@@ -28,14 +30,12 @@ const ACCORDION_BOX_BUTTON_DILATION = 12;
 
 class AtomScreenView extends BAAScreenView {
 
-  /**
-   * @param {BuildAnAtomModel} model Build an Atom model object.
-   * @param {Tandem} tandem
-   */
-  constructor( model, tandem ) {
+  private readonly netChargeAccordionBoxExpandedProperty: BooleanProperty;
+  private readonly massNumberAccordionBoxExpandedProperty: BooleanProperty;
+
+  public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
     super( model, tandem );
 
-    // @private - properties that are passed to the accordion boxes that control their expansion state
     this.netChargeAccordionBoxExpandedProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' )
     } );
@@ -44,7 +44,7 @@ class AtomScreenView extends BAAScreenView {
     } );
 
     // options that are common to all of the accordion boxes in this view
-    const commonAccordionBoxOptions = {
+    const commonAccordionBoxOptions: AccordionBoxOptions = {
       cornerRadius: 3,
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -74,7 +74,7 @@ class AtomScreenView extends BAAScreenView {
     } );
     const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
-      merge( {}, {
+      combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( netChargeString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
@@ -102,7 +102,7 @@ class AtomScreenView extends BAAScreenView {
     );
     const massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
-      merge( {}, {
+      combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( massNumberString, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
@@ -129,10 +129,7 @@ class AtomScreenView extends BAAScreenView {
     this.pdomPlayAreaNode.pdomOrder = [ this.periodicTableAccordionBox, netChargeAccordionBox, massNumberAccordionBox ];
   }
 
-  /**
-   * @public
-   */
-  reset() {
+  public override reset(): void {
     super.reset();
     this.netChargeAccordionBoxExpandedProperty.reset();
     this.massNumberAccordionBoxExpandedProperty.reset();

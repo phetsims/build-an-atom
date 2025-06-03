@@ -18,10 +18,6 @@ import GameModel from './GameModel.js';
 
 class CountsToSymbolChallenge extends BAAGameChallenge {
 
-  public readonly configurableProtonCount: boolean;
-  public readonly configurableMassNumber: boolean;
-  public readonly configurableCharge: boolean;
-
   public constructor(
     buildAnAtomGameModel: GameModel,
     answerAtom: NumberAtom,

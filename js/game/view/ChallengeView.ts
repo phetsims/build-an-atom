@@ -8,21 +8,24 @@
  */
 
 import stepTimer from '../../../../axon/js/stepTimer.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAChallengeState from '../model/BAAChallengeState.js';
+import BAAGameChallenge from '../model/BAAGameChallenge.js';
 
-const checkString = VegasStrings.check;
-const nextString = VegasStrings.next;
-const showAnswerString = VegasStrings.showAnswer;
-const tryAgainString = VegasStrings.tryAgain;
+const checkStringProperty = VegasStrings.checkStringProperty;
+const nextStringProperty = VegasStrings.nextStringProperty;
+const showAnswerStringProperty = VegasStrings.showAnswerStringProperty;
+const tryAgainStringProperty = VegasStrings.tryAgainStringProperty;
 
 // constants
 const BUTTON_FONT = new PhetFont( 20 );
@@ -33,12 +36,19 @@ const BUTTON_TOUCH_AREA_DILATION = 8;
 
 class ChallengeView extends Node {
 
-  /**
-   * @param {BAAGameChallenge} challenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( challenge, layoutBounds, tandem ) {
+  public readonly challenge: BAAGameChallenge;
+  public readonly challengePresentationNode: Node;
+  public readonly interactiveAnswerNode: Node;
+  public readonly gameAudioPlayer: GameAudioPlayer;
+  public readonly buttons: TextPushButton[];
+  public readonly checkAnswerButton: TextPushButton;
+  public readonly nextButton: TextPushButton;
+  public readonly tryAgainButton: TextPushButton;
+  public readonly displayCorrectAnswerButton: TextPushButton;
+  private readonly disposeListeners: () => void;
+
+
+  public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super();
     this.challenge = challenge;
 
@@ -64,7 +74,7 @@ class ChallengeView extends Node {
 
     // buttons
     this.buttons = [];
-    this.checkAnswerButton = new TextPushButton( checkString, {
+    this.checkAnswerButton = new TextPushButton( checkStringProperty, {
       listener: () => { this.checkAnswer(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
@@ -76,7 +86,7 @@ class ChallengeView extends Node {
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
-    this.nextButton = new TextPushButton( nextString, {
+    this.nextButton = new TextPushButton( nextStringProperty, {
       listener: () => {
 
         // Since the button disposes itself while triggering other events, we must run this in the next animation frame
@@ -96,7 +106,7 @@ class ChallengeView extends Node {
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
-    this.tryAgainButton = new TextPushButton( tryAgainString, {
+    this.tryAgainButton = new TextPushButton( tryAgainStringProperty, {
       listener: () => { challenge.tryAgain(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
@@ -108,7 +118,7 @@ class ChallengeView extends Node {
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextPushButton( showAnswerString, {
+    this.displayCorrectAnswerButton = new TextPushButton( showAnswerStringProperty, {
       listener: () => { challenge.displayCorrectAnswer(); },
       font: BUTTON_FONT,
       baseColor: BUTTON_FILL,
@@ -131,14 +141,15 @@ class ChallengeView extends Node {
 
     // Utility function to enable/disable interaction with answer portion of
     // the displayed challenge.
-    const setAnswerNodeInteractive = interactive => {
+    const setAnswerNodeInteractive = ( interactive: boolean ) => {
       this.interactiveAnswerNode.pickable = interactive;
     };
 
     // Update the visibility of the various buttons and other nodes based on
     // the challenge state.
     // Set up the handlers that update the visibility of the various buttons and other nodes based on the challenge state.
-    const stateChangeHandlers = {};
+    type StateChangeHandler = Record<string, () => void>;
+    const stateChangeHandlers: StateChangeHandler = {};
     stateChangeHandlers[ BAAChallengeState.PRESENTING_CHALLENGE ] = () => {
       this.clearAnswer();
       setAnswerNodeInteractive( true );
@@ -175,7 +186,7 @@ class ChallengeView extends Node {
     };
 
     // Update the appearance of the challenge as the state changes.
-    const handleStateChange = challengeState => {
+    const handleStateChange = ( challengeState: string ) => {
       hideButtonsAndFace();
       //TODO https://github.com/phetsims/build-an-atom/issues/240 Is the check for undefined really needed?
       if ( stateChangeHandlers[ challengeState ] !== undefined ) {
@@ -195,10 +206,7 @@ class ChallengeView extends Node {
     faceNode.centerY = layoutBounds.height / 2;
   }
 
-  /**
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeListeners();
     this.checkAnswerButton.dispose();
     this.nextButton.dispose();
@@ -214,29 +222,29 @@ class ChallengeView extends Node {
   /**
    * Function to clear the user's answer, generally used when giving the user another chance to answer.  Must be
    * implemented in subclasses if any action is desired.
-   * @public
    */
-  clearAnswer() {}
+  public clearAnswer(): void {
+    // no-op, implemented in subclass
+  }
 
   /**
    * Function to display the correct answer.  Must be implemented in subclasses.
-   * @public
    */
-  displayCorrectAnswer() {}
+  public displayCorrectAnswer(): void {
+    // no-op, implemented in subclass
+  }
 
   /**
    * Function to check the user's submitted answer.  Must be implemented in subclasses.
-   * @public
    */
-  checkAnswer() {}
+  public checkAnswer(): void {
+    // no-op, implemented in subclass
+  }
 
   /**
    * Function to set the positions of all buttons.
-   * @param {number} x
-   * @param {number} y
-   * @public
    */
-  setButtonCenter( x, y ) {
+  public setButtonCenter( x: number, y: number ): void {
     this.buttons.forEach( button => {
       button.centerX = x;
       button.centerY = y;

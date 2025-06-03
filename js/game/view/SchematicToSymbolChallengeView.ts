@@ -15,24 +15,17 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
-
-// TODO: Remove this transient type once BAAGameChallenge is converted to TS https://github.com/phetsims/build-an-atom/issues/241
-type BAAGameChallengeType = {
-  answerAtom: NumberAtom;
-  configurableProtonCount: boolean;
-  configurableMassNumber: boolean;
-  configurableCharge: boolean;
-};
 
 class SchematicToSymbolChallengeView extends ChallengeView {
 
   public readonly interactiveSymbolNode: InteractiveSymbolNode;
   private readonly disposeSchematicToSymbolChallengeView: () => void;
 
-  public constructor( toSymbolChallenge: BAAGameChallengeType, layoutBounds: Bounds2, tandem: Tandem ) {
+  public constructor( toSymbolChallenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( toSymbolChallenge, layoutBounds, tandem );
 

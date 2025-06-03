@@ -22,6 +22,7 @@ import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 
 class SymbolToSchematicChallengeView extends ChallengeView {
 
+  public override challenge: SymbolToSchematicChallenge;
   public interactiveSchematicAtom: InteractiveSchematicAtom;
   private disposeSymbolToSchematicChallengeView: () => void;
 
@@ -35,6 +36,8 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     );
 
     super( challenge, layoutBounds, tandem );
+
+    this.challenge = challenge;
 
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.buildAnAtomModel, modelViewTransform, {
       highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,

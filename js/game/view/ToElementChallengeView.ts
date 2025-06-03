@@ -8,7 +8,8 @@
  * @author John Blanco
  */
 
-import StringProperty from '../../../../axon/js/StringProperty.js';
+import Property from '../../../../axon/js/Property.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -16,8 +17,10 @@ import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ChallengeView from './ChallengeView.js';
 
 const findTheElementString = BuildAnAtomStrings.findTheElement;
@@ -31,22 +34,23 @@ const INSET = 10;
 const CELL_DIMENSION = 25;
 const MAX_WIDTH = 100; // empirically determined for long strings
 
+type NeutralOrIon = 'neutral' | 'ion' | 'noSelection';
+
 class ToElementChallengeView extends ChallengeView {
 
-  /**
-   * @param {CountsToElementChallenge} countsToElementChallenge
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( countsToElementChallenge, layoutBounds, tandem ) {
+  protected readonly periodicTableAtom: NumberAtom;
+  protected readonly periodicTable: PeriodicTableNode;
+  protected readonly neutralOrIonProperty: Property<NeutralOrIon>;
+  protected readonly disposeToElementChallengeView: () => void;
+
+  public constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( countsToElementChallenge, layoutBounds, tandem );
 
-    // @private
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
 
     //TODO https://github.com/phetsims/build-an-atom/issues/240 Why not an enum?
-    this.neutralOrIonProperty = new StringProperty( 'noSelection', {
+    this.neutralOrIonProperty = new Property<NeutralOrIon>( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' )
     } );
 
@@ -97,7 +101,7 @@ class ToElementChallengeView extends ChallengeView {
     neutralAtomVersusIonQuestion.addChild( ionRadioButton );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    const updateNeutralAtomVersusIonQuestionVisibility = protonCount => {
+    const updateNeutralAtomVersusIonQuestionVisibility = ( protonCount: number ) => {
       // Once the user has selected an element, make the ion question visible.
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
     };
@@ -107,14 +111,13 @@ class ToElementChallengeView extends ChallengeView {
     // Don't enable the "check answer" button until the user has answered the
     // "neutral vs. ion" question.
 
-    const updateCheckAnswerButton = neutralOrIon => {
+    const updateCheckAnswerButton = ( neutralOrIon: NeutralOrIon ) => {
       this.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
       this.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
     };
 
     this.neutralOrIonProperty.link( updateCheckAnswerButton );
 
-    // @private called by dispose
     this.disposeToElementChallengeView = function() {
       this.neutralOrIonProperty.unlink( updateCheckAnswerButton );
       this.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
@@ -141,8 +144,8 @@ class ToElementChallengeView extends ChallengeView {
     neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
   }
 
-  // @public
-  checkAnswer() {
+
+  public override checkAnswer(): void {
     const submittedAtom = new NumberAtom( {
       protonCount: this.periodicTableAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
@@ -151,8 +154,8 @@ class ToElementChallengeView extends ChallengeView {
     this.challenge.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
   }
 
-  // @public
-  clearAnswer() {
+
+  public override clearAnswer(): void {
 
     // This method can be called before the superconstructor has completed, so the existence of the items being cleared
     // must be checked.
@@ -164,16 +167,16 @@ class ToElementChallengeView extends ChallengeView {
     this.neutralOrIonProperty && this.neutralOrIonProperty.reset();
   }
 
-  // @public
-  displayCorrectAnswer() {
+
+  public override displayCorrectAnswer(): void {
     this.periodicTableAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
     this.periodicTableAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
     this.periodicTableAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
     this.neutralOrIonProperty.value = this.challenge.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
   }
 
-  // @public
-  dispose() {
+
+  public override dispose(): void {
     this.disposeToElementChallengeView();
     super.dispose();
   }

@@ -16,6 +16,7 @@ const BAAChallengeState = {
   DISPLAYING_CORRECT_ANSWER: 'displayingCorrectAnswer'
 };
 
+
 // verify that enum is immutable, without the runtime penalty in production code
 if ( assert ) { Object.freeze( BAAChallengeState ); }
 

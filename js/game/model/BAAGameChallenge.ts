@@ -23,12 +23,16 @@ import GameModel from './GameModel.js';
 
 class BAAGameChallenge extends BAAGameState {
 
+  public readonly answerAtom: NumberAtom;
   public readonly challengeStateProperty: StringProperty;
   public readonly numSubmissionsProperty: NumberProperty;
-  public readonly answerAtom: NumberAtom;
-  public pointValue: number;
   public readonly model: GameModel;
   public readonly challengeType: string;
+  public pointValue: number;
+
+  public configurableProtonCount = false;
+  public configurableMassNumber = false;
+  public configurableCharge = false;
 
   public static readonly BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
     valueType: BAAGameChallenge,

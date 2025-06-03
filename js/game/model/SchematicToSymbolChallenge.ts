@@ -18,11 +18,6 @@ import GameModel from './GameModel.js';
 
 class SchematicToSymbolChallenge extends BAAGameChallenge {
 
-  // TODO: Maybe these Symbol challenges should be made a parent class? https://github.com/phetsims/build-an-atom/issues/241
-  public readonly configurableProtonCount: boolean;
-  public readonly configurableMassNumber: boolean;
-  public readonly configurableCharge: boolean;
-
   public constructor(
     buildAnAtomGameModel: GameModel,
     answerAtom: NumberAtom,
