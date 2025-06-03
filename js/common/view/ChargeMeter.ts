@@ -10,15 +10,17 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
+import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
@@ -27,16 +29,20 @@ const _MAX_CHARGE = 10;
 const CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
 const SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
 
+type SelfOptions = {
+  showNumericalReadout?: boolean;
+};
+
+export type ChargeMeterOptions = SelfOptions & NodeOptions;
+
 class ChargeMeter extends Node {
 
-  /**
-   * @param {NumberAtom} numberAtom
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( numberAtom, tandem, options ) {
+  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, providedOptions?: ChargeMeterOptions ) {
 
-    options = merge( { showNumericalReadout: true, tandem: tandem }, options );
+    const options = optionize<ChargeMeterOptions, SelfOptions, NodeOptions>()( {
+      showNumericalReadout: true,
+      tandem: tandem
+    }, providedOptions );
 
     super();
 
@@ -126,8 +132,8 @@ class ChargeMeter extends Node {
     meterNeedleWindow.addChild( meterNeedle );
     this.addChild( meterNeedleWindow );
 
-    let numericalReadout;
-    let readoutText;
+    let numericalReadout: Node;
+    let readoutText: Text;
 
     // Add the numerical display, if present.
     const readoutSize = new Dimension2( WIDTH * 0.6, ( background.height - meterWindow.height ) * 0.6 );

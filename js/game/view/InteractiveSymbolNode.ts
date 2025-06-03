@@ -9,15 +9,17 @@
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
@@ -28,23 +30,31 @@ const NUMBER_FONT = new PhetFont( 56 );
 const NUMBER_INSET = 15; // In screen coords, which are roughly pixels.
 const NUMBER_ENTRY_NODE_SIDE_INSET = 10; // In screen coords, which are roughly pixels.
 
+type SelfOptions = {
+  interactiveProtonCount?: boolean; // If true, the proton count is interactive.
+  interactiveMassNumber?: boolean; // If true, the mass number is interactive.
+  interactiveCharge?: boolean; // If true, the charge is interactive.
+};
+
+export type InteractiveSymbolNodeOptions = SelfOptions & NodeOptions;
+
 class InteractiveSymbolNode extends Node {
 
-  /**
-   * Constructor
-   * @param {NumberAtom} numberAtom
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( numberAtom, tandem, options ) {
+  public readonly protonCountProperty: NumberProperty;
+  public readonly massNumberProperty: NumberProperty;
+  public readonly chargeProperty: NumberProperty;
 
-    super( options );
+  private readonly disposeInteractiveSymbolNode: () => void;
 
-    options = merge( { // defaults
+  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
+
+    const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( { // defaults
       interactiveProtonCount: false,
       interactiveMassNumber: false,
       interactiveCharge: false
-    }, options );
+    }, providedOptions );
+
+    super( options );
 
     this.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' ),
@@ -87,7 +97,7 @@ class InteractiveSymbolNode extends Node {
     boundingBox.addChild( elementCaption );
 
     // Define a function to update the symbol text and element caption.
-    const updateElement = protonCount => {
+    const updateElement = ( protonCount: number ) => {
       symbolText.string = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
       elementCaption.string = protonCount > 0 ? AtomIdentifier.getName( protonCount ).value : '';
@@ -168,7 +178,6 @@ class InteractiveSymbolNode extends Node {
       boundingBox.addChild( chargeDisplay );
     }
 
-    // @private called by dispose
     this.disposeInteractiveSymbolNode = () => {
       if ( this.protonCountProperty.hasListener( updateElement ) ) {
         this.protonCountProperty.unlink( updateElement );
@@ -180,18 +189,13 @@ class InteractiveSymbolNode extends Node {
     };
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.protonCountProperty.reset();
     this.massNumberProperty.reset();
     this.chargeProperty.reset();
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeInteractiveSymbolNode();
 
     super.dispose();
