@@ -9,7 +9,7 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -21,8 +21,10 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
+import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../view/BAAScreenView.js';
@@ -55,7 +57,7 @@ class BuildAnAtomModel {
   public showElementNameProperty: BooleanProperty;
   public showNeutralOrIonProperty: BooleanProperty;
   public showStableOrUnstableProperty: BooleanProperty;
-  public electronShellDepictionProperty: StringProperty;
+  public electronShellDepictionProperty: Property<ElectronShellDepiction>;
   public particleAtom: ParticleAtom;
   public buckets: Record<string, SphereBucket<Particle>>;
   public nucleons: Particle[];
@@ -91,10 +93,12 @@ class BuildAnAtomModel {
     } );
 
     // Property that controls electron depiction in the view.
-    this.electronShellDepictionProperty = new StringProperty( 'orbits', {
+    const electronShellValidValues: ElectronShellDepiction[] = [ 'orbits', 'cloud' ];
+    this.electronShellDepictionProperty = new Property<ElectronShellDepiction>( 'orbits', {
       tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
+      phetioValueType: StringUnionIO( electronShellValidValues ),
       phetioState: options.phetioState,
-      validValues: [ 'orbits', 'cloud' ]
+      validValues: electronShellValidValues
     } );
 
     // Create the atom that the user will build, modify, and generally play with.

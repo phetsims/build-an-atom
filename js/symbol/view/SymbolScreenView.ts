@@ -10,8 +10,10 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BAASymbolNode from './BAASymbolNode.js';
 
@@ -19,11 +21,9 @@ const symbolString = BuildAnAtomStrings.symbol;
 
 class SymbolScreenView extends BAAScreenView {
 
-  /**
-   * @param {BuildAnAtomModel} model
-   * @param {Tandem} tandem
-   */
-  constructor( model, tandem ) {
+  public readonly symbolAccordionBoxExpandedProperty: BooleanProperty;
+
+  public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
     super( model, tandem );
 
     this.symbolAccordionBoxExpandedProperty = new BooleanProperty( true, {
@@ -65,10 +65,7 @@ class SymbolScreenView extends BAAScreenView {
     symbolAccordionBox.left = this.periodicTableAccordionBox.left;
   }
 
-  /**
-   * @public
-   */
-  reset() {
+  public override reset(): void {
     super.reset();
     this.symbolAccordionBoxExpandedProperty.reset();
   }

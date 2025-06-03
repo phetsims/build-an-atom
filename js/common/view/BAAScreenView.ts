@@ -14,6 +14,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import Shape from '../../../../kite/js/Shape.js';
+import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
@@ -22,6 +23,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
@@ -31,6 +33,7 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -38,6 +41,7 @@ import BAAColors from '../BAAColors.js';
 import BAAGlobalPreferences from '../BAAGlobalPreferences.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
+import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 
 // strings
 const cloudString = BuildAnAtomStrings.cloud;
@@ -61,11 +65,15 @@ const CHECKBOX_PANEL_VERTICAL_MARGIN = 5;
 
 class BAAScreenView extends ScreenView {
 
-  /**
-   * @param {BuildAnAtomModel} model
-   * @param {Tandem} tandem
-   */
-  constructor( model, tandem ) {
+  public readonly periodicTableAccordionBoxExpandedProperty: BooleanProperty;
+  public readonly periodicTableAccordionBox: AccordionBox;
+  public readonly controlPanelLayer: Node;
+  public readonly model: BuildAnAtomModel;
+  private readonly resetFunctions: ( () => void )[];
+
+  public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
+
+  public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
 
     super( {
 
@@ -79,7 +87,6 @@ class BAAScreenView extends ScreenView {
     this.model = model;
     this.resetFunctions = [];
 
-    // @protected
     this.periodicTableAccordionBoxExpandedProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'periodicTableAccordionBoxExpandedProperty' )
     } );
@@ -112,7 +119,7 @@ class BAAScreenView extends ScreenView {
     const nucleonElectronLayer = new Node( { tandem: tandem.createTandem( 'nucleonElectronLayer' ) } );
 
     // Add the layers where the nucleons will exist.
-    const nucleonLayers = [];
+    const nucleonLayers: Node[] = [];
     _.times( NUM_NUCLEON_LAYERS, () => {
       const nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
@@ -146,7 +153,7 @@ class BAAScreenView extends ScreenView {
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( particleView => {
-          if ( particleView.particle === nucleon ) {
+          if ( particleView instanceof ParticleView && particleView.particle === nucleon ) {
             onCorrectLayer = true;
           }
         } );
@@ -157,8 +164,8 @@ class BAAScreenView extends ScreenView {
           let particleView = null;
           for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
             for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
-              if ( nucleonLayers[ layerIndex ].children[ childIndex ].particle === nucleon ) {
-                particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
+              particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
+              if ( particleView instanceof ParticleView && particleView.particle === nucleon ) {
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
                 break;
               }
@@ -167,7 +174,7 @@ class BAAScreenView extends ScreenView {
 
           // Add the particle view to its new layer.
           assert && assert( particleView !== null, 'Particle view not found during relayering' );
-          nucleonLayers[ zLayer ].addChild( particleView );
+          particleView && nucleonLayers[ zLayer ].addChild( particleView );
         }
       } );
     } );
@@ -184,7 +191,9 @@ class BAAScreenView extends ScreenView {
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
-        electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.includes( electronNode.particle );
+        if ( electronNode instanceof ParticleView ) {
+          electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.includes( electronNode.particle );
+        }
       } );
     };
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
@@ -193,7 +202,7 @@ class BAAScreenView extends ScreenView {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
 
-    model.buckets.forEach( bucket => {
+    _.each( model.buckets, ( bucket: SphereBucket<Particle> ) => {
       const bucketTandem = tandem.createTandem( `${bucket.sphereBucketTandem.name}FrontNode` );
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         tandem: bucketTandem,
@@ -260,7 +269,7 @@ class BAAScreenView extends ScreenView {
 
     const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
     const checkboxItems = [ {
-      createNode: tandem => new Text( elementString, {
+      createNode: ( tandem: Tandem ) => new Text( elementString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: tandem.createTandem( 'elementText' )
@@ -268,7 +277,7 @@ class BAAScreenView extends ScreenView {
       property: model.showElementNameProperty,
       tandemName: 'showElementNameCheckbox'
     }, {
-      createNode: tandem => new Text( neutralSlashIonString, {
+      createNode: ( tandem: Tandem ) => new Text( neutralSlashIonString, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: tandem.createTandem( 'neutralOrIonText' )
@@ -281,7 +290,7 @@ class BAAScreenView extends ScreenView {
     // https://github.com/phetsims/special-ops/issues/189.
     if ( BAAQueryParameters.showStableUnstableCheckbox ) {
       checkboxItems.push( {
-        createNode: tandem => new Text( stableSlashUnstableString, {
+        createNode: ( tandem: Tandem ) => new Text( stableSlashUnstableString, {
           font: LABEL_CONTROL_FONT,
           maxWidth: LABEL_CONTROL_MAX_WIDTH,
           tandem: tandem.createTandem( 'stableUnstableText' )
@@ -403,14 +412,10 @@ class BAAScreenView extends ScreenView {
     this.addChild( bucketFrontLayer );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.periodicTableAccordionBoxExpandedProperty.reset();
   }
 }
-
-// @public export for usage when creating shred Particles
-BAAScreenView.NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
 
 buildAnAtom.register( 'BAAScreenView', BAAScreenView );
 export default BAAScreenView;
