@@ -7,23 +7,23 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Particle from '../../../../shred/js/model/Particle.js';
+import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import Particle, { ParticleTypeString } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGlobalPreferences from '../../common/BAAGlobalPreferences.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 
 class NonInteractiveSchematicAtomNode extends Node {
 
-  /**
-   * @param {NumberAtom} numberAtom
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
-   */
-  constructor( numberAtom, modelViewTransform, tandem ) {
+  public disposeNonInteractiveSchematicAtomNode: () => void;
+
+  public constructor( numberAtom: NumberAtomCounts, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
     super( { pickable: false } );
 
     // Add the electron shells.
@@ -43,9 +43,9 @@ class NonInteractiveSchematicAtomNode extends Node {
     // Utility function to create and add particles.
     const particleTandem = tandem.createTandem( 'particles' );
     const particleViewsTandem = tandem.createTandem( 'particleView' );
-    const particleViews = [];
-    let modelParticles = []; // (phet-io) keep track for disposal
-    const createAndAddParticles = ( particleType, number ) => {
+    const particleViews: ParticleView[] = [];
+    let modelParticles: Particle[] = []; // (phet-io) keep track for disposal
+    const createAndAddParticles = ( particleType: ParticleTypeString, number: number ) => {
       _.times( number, index => {
         const particle = new Particle( particleType, {
           tandem: particleTandem.createTandem( `particle${index}` ),
@@ -70,7 +70,7 @@ class NonInteractiveSchematicAtomNode extends Node {
 
     // Layer the particle views so that the nucleus looks good, with the
     // particles closer to the center being higher in the z-order.
-    let particleViewsInNucleus = _.filter( particleLayer.children, particleView => particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) < particleAtom.innerElectronShellRadius );
+    let particleViewsInNucleus: ParticleView[] = _.filter( particleLayer.children, ( particleView: ParticleView ): boolean => particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) < particleAtom.innerElectronShellRadius ) as ParticleView[];
 
     if ( particleViewsInNucleus.length > 3 ) {
       particleViewsInNucleus = _.sortBy( particleViewsInNucleus, particleView => -particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) );
@@ -80,7 +80,6 @@ class NonInteractiveSchematicAtomNode extends Node {
       } );
     }
 
-    // @private called by dispose
     this.disposeNonInteractiveSchematicAtomNode = () => {
       particleViews.forEach( particleView => {
         particleView.dispose();
@@ -94,8 +93,7 @@ class NonInteractiveSchematicAtomNode extends Node {
     };
   }
 
-  // @public
-  dispose() {
+  public override dispose(): void {
     this.disposeNonInteractiveSchematicAtomNode();
     super.dispose();
   }

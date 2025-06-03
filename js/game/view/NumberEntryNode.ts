@@ -7,32 +7,43 @@
  * @author John Blanco
  */
 
+import TProperty from '../../../../axon/js/TProperty.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import TColor from '../../../../scenery/js/util/TColor.js';
 import ArrowButton from '../../../../sun/js/buttons/ArrowButton.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
 const NUMBER_BOX_SIZE = { width: 55, height: 48 }; // Size empirically determined.
 const NUMBER_FONT = new PhetFont( 28 );
 
+type SelfOptions = {
+  showPlusForPositive?: boolean; // Whether to show a plus sign for positive numbers.
+  signAfterValue?: boolean; // Whether the sign is shown after the value.
+  getTextColor?: ( value: number ) => TColor; // Function to determine text color based on value.
+  minValue?: number; // Minimum value supported.
+  maxValue?: number; // Maximum value supported.
+};
+
+export type NumberEntryNodeOptions = SelfOptions & NodeOptions;
+
 class NumberEntryNode extends Node {
 
-  /**
-   * @param {Property.<number>} numberProperty
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( numberProperty, tandem, options ) {
+  private readonly disposeNumberEntryNode: () => void;
+
+  public constructor( numberProperty: TProperty<number>, tandem: Tandem, providedOptions?: NumberEntryNodeOptions ) {
 
     super();
 
-    options = merge( {
+    const options = optionize<NumberEntryNodeOptions, SelfOptions, NodeOptions>()( {
 
       // {boolean} - A flag that controls whether the plus sign is shown for positive numbers.  This is generally on
       // when depicting charge, off for other things like mass number or atomic number.  Off (false) means that no sign
@@ -49,7 +60,7 @@ class NumberEntryNode extends Node {
       // {number} - min and max supported values
       minValue: Number.NEGATIVE_INFINITY,
       maxValue: Number.POSITIVE_INFINITY
-    }, options );
+    }, providedOptions );
 
     // Node creation
     const arrowButtonOptions = { arrowHeight: 12, arrowWidth: 15, fireOnHoldDelay: 200 };
@@ -72,7 +83,7 @@ class NumberEntryNode extends Node {
     } );
     this.addChild( answerValueBackground );
 
-    const numberPropertyListener = newValue => {
+    const numberPropertyListener = ( newValue: number ) => {
       answerValueBackground.removeAllChildren();
       const minusSign = options.signAfterValue ? MathSymbols.MINUS : MathSymbols.UNARY_MINUS;
       const plusSign = options.signAfterValue ? MathSymbols.PLUS : MathSymbols.UNARY_PLUS;
@@ -121,7 +132,6 @@ class NumberEntryNode extends Node {
       touchAreaYDilation
     );
 
-    // @private called by dispose
     this.disposeNumberEntryNode = () => {
       numberProperty.unlink( numberPropertyListener );
       upArrowButton.dispose();
@@ -131,11 +141,7 @@ class NumberEntryNode extends Node {
     this.mutate( options );
   }
 
-  /**
-   * release references
-   * @public
-   */
-  dispose() {
+  public override dispose(): void {
     this.disposeNumberEntryNode();
 
     super.dispose();
