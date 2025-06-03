@@ -1,4 +1,4 @@
-// Copyright 2021-2025, University of Colorado Boulder
+// Copyright 2025, University of Colorado Boulder
 
 /**
  * BAAColors defines the color profile for this sim.

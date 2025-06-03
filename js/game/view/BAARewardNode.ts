@@ -1,4 +1,4 @@
-// Copyright 2016-2021, University of Colorado Boulder
+// Copyright 2016-2025, University of Colorado Boulder
 
 /**
  * The reward that is displayed when a game is completed with a perfect score. For testing, the simulation can be run
