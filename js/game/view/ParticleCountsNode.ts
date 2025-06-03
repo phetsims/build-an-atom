@@ -14,7 +14,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
@@ -33,7 +33,7 @@ export type ParticleCountsNodeOptions = SelfOptions & NodeOptions;
 
 class ParticleCountsNode extends Node {
 
-  public constructor( numberAtom: NumberAtomCounts, options?: ParticleCountsNodeOptions ) {
+  public constructor( numberAtom: TNumberAtom, options?: ParticleCountsNodeOptions ) {
 
     super( options );
 

@@ -15,7 +15,7 @@ import Image from '../../../../scenery/js/nodes/Image.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -30,7 +30,7 @@ export type MassNumberDisplayOptions = SelfOptions & NodeOptions;
 
 class MassNumberDisplay extends Node {
 
-  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, options?: MassNumberDisplayOptions ) {
+  public constructor( numberAtom: TNumberAtom, tandem: Tandem, options?: MassNumberDisplayOptions ) {
 
     super( { tandem: tandem } );
 

@@ -13,7 +13,7 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -28,7 +28,7 @@ export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
 class PeriodicTableAndSymbol extends Node {
 
-  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, options?: PeriodicTableAndSymbolOptions ) {
+  public constructor( numberAtom: TNumberAtom, tandem: Tandem, options?: PeriodicTableAndSymbolOptions ) {
 
     super();
 

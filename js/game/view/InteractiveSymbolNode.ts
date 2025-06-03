@@ -17,7 +17,7 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -46,7 +46,7 @@ class InteractiveSymbolNode extends Node {
 
   private readonly disposeInteractiveSymbolNode: () => void;
 
-  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
+  public constructor( numberAtom: TNumberAtom, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
 
     const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( { // defaults
       interactiveProtonCount: false,

@@ -19,7 +19,7 @@ import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -37,7 +37,7 @@ export type ChargeMeterOptions = SelfOptions & NodeOptions;
 
 class ChargeMeter extends Node {
 
-  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, providedOptions?: ChargeMeterOptions ) {
+  public constructor( numberAtom: TNumberAtom, tandem: Tandem, providedOptions?: ChargeMeterOptions ) {
 
     const options = optionize<ChargeMeterOptions, SelfOptions, NodeOptions>()( {
       showNumericalReadout: true,

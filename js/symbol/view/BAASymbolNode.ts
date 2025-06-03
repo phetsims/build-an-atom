@@ -9,7 +9,7 @@
 
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import scale_png from '../../../images/scale_png.js';
@@ -22,7 +22,7 @@ export type BAASymbolNodeOptions = SelfOptions & SymbolNodeOptions;
 
 class BAASymbolNode extends SymbolNode {
 
-  public constructor( numberAtom: NumberAtomCounts, tandem: Tandem, options?: BAASymbolNodeOptions ) {
+  public constructor( numberAtom: TNumberAtom, tandem: Tandem, options?: BAASymbolNodeOptions ) {
 
     super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, {
       chargeProperty: numberAtom.chargeProperty,

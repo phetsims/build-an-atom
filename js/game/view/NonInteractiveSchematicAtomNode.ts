@@ -9,7 +9,7 @@
 import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import { NumberAtomCounts } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import Particle, { ParticleTypeString } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
@@ -23,7 +23,7 @@ class NonInteractiveSchematicAtomNode extends Node {
 
   public disposeNonInteractiveSchematicAtomNode: () => void;
 
-  public constructor( numberAtom: NumberAtomCounts, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
+  public constructor( numberAtom: TNumberAtom, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
     super( { pickable: false } );
 
     // Add the electron shells.
