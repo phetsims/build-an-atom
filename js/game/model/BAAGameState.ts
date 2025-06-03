@@ -20,6 +20,7 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import { ChallengeResult } from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -72,9 +73,8 @@ class BAAGameState extends PhetioObject {
 
   /**
    * update score and state based on whether the user submitted a correct or incorrect answer
-   * // TODO: What's the actual type of emitMessageOptions?  https://github.com/phetsims/build-an-atom/issues/241
    */
-  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions: IntentionalAny ): void {
+  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: ChallengeResult ): void {
     throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
   }
 
@@ -112,6 +112,14 @@ class BAAGameState extends PhetioObject {
    */
   public step( dt: number ): void {
     // stubbed in base class
+  }
+
+  public createView( layoutBounds: IntentionalAny, tandem: IntentionalAny ): IntentionalAny {
+    throw new Error( 'createView should never be called in base class' );
+  }
+
+  public disposeState(): void {
+    this.dispose();
   }
 }
 

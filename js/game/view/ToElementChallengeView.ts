@@ -34,7 +34,7 @@ const INSET = 10;
 const CELL_DIMENSION = 25;
 const MAX_WIDTH = 100; // empirically determined for long strings
 
-type NeutralOrIon = 'neutral' | 'ion' | 'noSelection';
+export type NeutralOrIon = 'neutral' | 'ion' | 'noSelection';
 
 class ToElementChallengeView extends ChallengeView {
 

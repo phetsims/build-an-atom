@@ -25,7 +25,7 @@ class CountsToElementChallenge extends ToElementChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToElementChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToElementChallengeView {
     return new CountsToElementChallengeView( this, layoutBounds, tandem.createTandem( 'countsToElementChallengeView' ) );
   }
 }

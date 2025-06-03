@@ -25,7 +25,7 @@ class SchematicToChargeChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToChargeChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToChargeChallengeView {
     return new SchematicToChargeChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToChargeChallengeView' ) );
   }
 }

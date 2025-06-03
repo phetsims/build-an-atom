@@ -11,7 +11,6 @@
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
@@ -19,7 +18,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
-import GameModel from './GameModel.js';
+import GameModel, { IonChallengeResult } from './GameModel.js';
 
 class BAAGameChallenge extends BAAGameState {
 
@@ -105,14 +104,7 @@ class BAAGameChallenge extends BAAGameState {
     super.dispose();
   }
 
-  public disposeState(): void {
-    this.dispose();
-  }
-
-  /**
-   * // TODO: What's the actual type of emitMessageOptions?  https://github.com/phetsims/build-an-atom/issues/241
-   */
-  public override handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: IntentionalAny ): void {
+  public override handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: IonChallengeResult ): void {
 
     this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
     const pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;

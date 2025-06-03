@@ -36,7 +36,7 @@ class CountsToSymbolChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToSymbolChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToSymbolChallengeView {
     return new CountsToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'countsToSymbolChallengeView' ) );
   }
 }

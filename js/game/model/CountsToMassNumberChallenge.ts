@@ -24,7 +24,7 @@ class CountsToMassNumberChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToMassNumberChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToMassNumberChallengeView {
     return new CountsToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'countsToMassNumberChallengeView' ) );
   }
 }

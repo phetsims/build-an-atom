@@ -10,18 +10,17 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import { TEmitterListener } from '../../../../axon/js/TEmitter.js';
 import merge from '../../../../phet-core/js/merge.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import NumberAtom, { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
+import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
-import IOType from '../../../../tandem/js/types/IOType.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
-import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
+import { NeutralOrIon } from '../view/ToElementChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import BAAGameState from './BAAGameState.js';
 import ChallengeSetFactory from './ChallengeSetFactory.js';
@@ -31,20 +30,122 @@ const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
 
+type LevelResult = {
+  level: number;
+  maxPoints: number;
+  challenges: number;
+  timerEnabled: boolean;
+  elapsedTime: number;
+  bestTime: number;
+  newBestTime: boolean;
+};
+
+type ChallengeSpec = {
+  challengeType: string; // The type of challenge, e.g. 'schematic-to-element', 'counts-to-mass', etc.
+  numberAtom: {
+    protonCount: number;
+    neutronCount: number;
+    electronCount: number;
+  };
+};
+
+export type ChallengeResult = {
+  isCorrect: boolean; // Whether the answer was correct.
+  points: number; // Points awarded for the answer.
+  correctProtonCount: number; // The correct proton count.
+  correctNeutronCount: number; // The correct neutron count.
+  correctElectronCount: number; // The correct electron count.
+  submittedProtonCount: number; // The proton count submitted by the user.
+  submittedNeutronCount: number; // The neutron count submitted by the user.
+  submittedElectronCount: number; // The electron count submitted by the user.
+} & IonChallengeResult;
+
+export type IonChallengeResult = {
+  correctCharge?: NeutralOrIon;
+  submittedCharge?: NeutralOrIon;
+};
+
 class GameModel extends PhetioObject {
 
-  /**
-   * {Tandem} tandem
-   */
-  constructor( tandem ) {
+  public readonly stateProperty: Property<BAAGameState>;
+  public readonly timerEnabledProperty: BooleanProperty;
+  public readonly levelProperty: NumberProperty;
+  public readonly challengeSetProperty: Property<Array<BAAGameChallenge>>;
+  public readonly challengeIndexProperty: NumberProperty;
+  public readonly scoreProperty: NumberProperty; // Score on current game level.
+  public readonly elapsedTimeProperty: Property<number>; // Elapsed time in seconds.
+  public readonly provideFeedbackProperty: BooleanProperty; // Whether to provide feedback during the game.
+  public readonly bestScores: Array<Property<number>>; // Properties that track progress on each game level.
+  public readonly scores: Array<Property<number>>; // Properties that track score at each game level
+  public readonly bestTimes: Array<Property<number | null>>; // Best times at each level.
+  public readonly bestTimeVisible: Array<Property<boolean>>; // Properties that track whether to show best time at each game level.
+  public readonly checkAnswerEmitter: Emitter<[ChallengeResult]>; // Emitter for check answer events.
+  public readonly levelCompletedEmitter: Emitter<[ LevelResult ]>; // Emitter for level completed events.
+  public readonly challengeSetGroupTandem: Tandem; // Tandem for the group of challenges.
+  public readonly numberAtomGroupTandem: Tandem; // Tandem for the group of NumberAtoms.
+  public newBestTime: boolean; // Flag set to indicate new best time, cleared each time a level is started.
+  public allowedChallengeTypesByLevel: Array<Array<string>>; // Allowed challenge types for each level.
+  public stepListeners: Array<( dt: number ) => void>; // Set of external functions that the model will step.
+  public predeterminedChallenges: Array<Array<BAAGameChallenge>>; // Challenges that will be used instead of randomly generated ones.
+
+  public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
+  public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
+
+  // TODO: CHeck this for PhETIO, implement real PhET-iO - https://github.com/phetsims/build-an-atom/issues/241
+  // public static readonly GameModelIO = new IOType( 'GameModelIO', {
+  //   valueType: GameModel,
+  //   documentation: 'The model for the Game',
+  //   methods: {
+  //
+  //     startGameLevel: {
+  //       returnType: VoidIO,
+  //       parameterTypes: [ StringIO ],
+  //       implementation: function( levelType ) {
+  //         this.startGameLevel( levelType );
+  //       },
+  //       documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
+  //       invocableForReadOnlyElements: false
+  //     },
+  //
+  //     setChallenges: {
+  //       returnType: VoidIO,
+  //       parameterTypes: [ ArrayIO( ArrayIO( ObjectLiteralIO ) ) ],
+  //       implementation: function( challenges ) {
+  //         this.setChallenges( challenges );
+  //       },
+  //       documentation: 'Specify exact challenges',
+  //       invocableForReadOnlyElements: false
+  //     },
+  //
+  //     setAllowedChallengeTypesByLevel: {
+  //       returnType: VoidIO,
+  //       parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
+  //
+  //       //TODO https://github.com/phetsims/build-an-atom/issues/240 change this to take index as 1st argument (for level index)
+  //       implementation: function( allowedChallengeTypesByLevel ) {
+  //         this.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
+  //       },
+  //
+  //       documentation: 'Specify which challenge types may be presented to the user for each level.',
+  //       invocableForReadOnlyElements: false
+  //       // The default value is [
+  //       //    [ 'schematic-to-element', 'counts-to-element' ],
+  //       //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
+  //       //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
+  //       //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+  //       //  ]
+  //     }
+  //   }
+  // } );
+
+  public constructor( tandem: Tandem ) {
 
     super( {
-      phetioType: GameModel.GameModelIO,
+      // phetioType: GameModel.GameModelIO,
       tandem: tandem,
       phetioState: false
     } );
 
-    // @private (phet-io), phet-io can set this value to customize which levels are presented
     this.allowedChallengeTypesByLevel = [
       [ 'schematic-to-element', 'counts-to-element' ],
       [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
@@ -52,52 +153,42 @@ class GameModel extends PhetioObject {
       [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
     ];
 
-    // @public {Property.<BAAGameState>} - current state, each challenge is a unique state
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
       phetioValueType: BAAGameState.BAAGameStateIO,
       tandem: tandem.createTandem( 'stateProperty' )
     } );
 
-    // @public {Property.<boolean>}
     this.timerEnabledProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'timerEnabledProperty' )
     } );
 
-    // @public (read-only) {Property.<number>}
     this.levelProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'levelProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
 
-    // @public (read-only) {Property.<Array.<BAAGameChallenge>>}
-    this.challengeSetProperty = new Property( [], {
+    this.challengeSetProperty = new Property( [] as BAAGameChallenge[], {
       tandem: tandem.createTandem( 'challengeSetProperty' ),
       phetioValueType: ArrayIO( BAAGameChallenge.BAAGameChallengeIO )
     } );
 
-    // @public (read-only) {Property.<number>}
     this.challengeIndexProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'challengeIndexProperty' )
     } );
 
-    // @public (read-only) {NumberProperty}
     this.scoreProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'scoreProperty' )
     } ); // Score on current game level.
 
-    // @public (read-only) {Property.<number>}
     this.elapsedTimeProperty = new Property( 0 );
 
-    // @public (phet-io) {Property.<boolean>} - enables a mode where no feedback is provided during the game
     this.provideFeedbackProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'provideFeedbackProperty' )
     } );
 
-    // @private, set of external functions that the model will step
     this.stepListeners = [];
 
-    // @private
     this.levelCompletedEmitter = new Emitter( {
       tandem: tandem.createTandem( 'levelCompletedEmitter' ),
       parameters: [ { name: 'results', phetioType: ObjectLiteralIO } ]
@@ -110,7 +201,7 @@ class GameModel extends PhetioObject {
     _.times( ShredConstants.LEVEL_NAMES.length, () => {
       this.bestScores.push( new Property( 0 ) );
       this.scores.push( new Property( 0 ) );
-      this.bestTimes.push( new Property( null ) );
+      this.bestTimes.push( new Property<number | null>( null ) );
       this.bestTimeVisible.push( new Property( false ) );
     } );
 
@@ -128,22 +219,15 @@ class GameModel extends PhetioObject {
       parameters: [ { name: 'result', phetioType: ObjectLiteralIO } ]
     } );
 
-    // @private
     this.challengeSetGroupTandem = Tandem.OPT_OUT;
 
-    // @private {GroupTandem}
     this.numberAtomGroupTandem = Tandem.OPT_OUT;
 
-    // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will be
-    // used instead of randomly generated
-    this.predeterminedChallenges = [];
-    // @private (phet-io) {Array.<Array.<BAAGameChallenge>} - when set by the PhET-iO API, these challenges will
     // be used instead of randomly generated
     this.predeterminedChallenges = [];
   }
 
-  // @public - time stepping function, called by the framework
-  step( dt ) {
+  public step( dt: number ): void {
 
     // Increment the game timer if running.  Note that this assumes that dt is not clamped, because we want it to
     // essentially continue running if the user switches tabs or hides the browser.
@@ -161,9 +245,7 @@ class GameModel extends PhetioObject {
     this.stepListeners.forEach( stepListener => { stepListener( dt ); } );
   }
 
-  // Start a new game.
-  // @private (StartGameLevelNode.js, phet-io)
-  startGameLevel( levelName ) {
+  public startGameLevel( levelName: Level ): void {
     this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
     this.challengeIndexProperty.set( 0 );
 
@@ -191,8 +273,7 @@ class GameModel extends PhetioObject {
     }
   }
 
-  // @public - go to the level selection dialog and allow the user to start a new game
-  newGame() {
+  public newGame(): void {
     this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
     this.scoreProperty.set( 0 );
 
@@ -203,8 +284,7 @@ class GameModel extends PhetioObject {
     this.challengeSetProperty.get().length = 0;
   }
 
-  // @public - advance to the next challenge or to the 'game over' screen if all challenges finished
-  next() {
+  public next(): void {
     const level = this.levelProperty.get();
     if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
       // Next challenge.
@@ -235,7 +315,7 @@ class GameModel extends PhetioObject {
         challenges: CHALLENGES_PER_LEVEL,
         timerEnabled: this.timerEnabledProperty.get(),
         elapsedTime: this.elapsedTimeProperty.get(),
-        bestTimes: this.bestTimes[ level ],
+        bestTime: this.bestTimes[ level ].value!,
         newBestTime: this.newBestTime
       } );
 
@@ -243,8 +323,7 @@ class GameModel extends PhetioObject {
     }
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.stateProperty.reset();
     this.timerEnabledProperty.reset();
     this.levelProperty.reset();
@@ -255,31 +334,23 @@ class GameModel extends PhetioObject {
     this.bestScores.forEach( bestScoreProperty => { bestScoreProperty.reset(); } );
     this.scores.forEach( scoreProperty => { scoreProperty.reset(); } );
     this.bestTimes.forEach( bestTimeProperty => { bestTimeProperty.reset(); } );
-    this.bestTimeVisible.push( bestTimeVisibleProperty => { bestTimeVisibleProperty.reset(); } );
+    this.bestTimeVisible.forEach( bestTimeVisibleProperty => { bestTimeVisibleProperty.reset(); } );
   }
 
-  // @public
-  addStepListener( stepListener ) {
+  public addStepListener( stepListener: TEmitterListener<[ number ]> ): void {
     this.stepListeners.push( stepListener );
   }
 
-  // @public
-  removeStepListener( stepListener ) {
+  public removeStepListener( stepListener: TEmitterListener<[ number ]> ): void {
     this.stepListeners = _.without( this.stepListeners, stepListener );
   }
 
   // Set the allowed challenge types to customize for phet-io
-  // @private (phet-io)
-  setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel ) {
+  public setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel: Array<Array<string>> ): void {
     this.allowedChallengeTypesByLevel = allowedChallengeTypesByLevel;
   }
 
-  /**
-   * Specify exact challenges (and ordering) for each level.
-   * @param {Array.<Array.<Object>>} challengeSpecsForLevels
-   * @public (phet-io)
-   */
-  setChallenges( challengeSpecsForLevels ) {
+  public setChallenges( challengeSpecsForLevels: Array<Array<ChallengeSpec>> ): void {
     this.predeterminedChallenges = challengeSpecsForLevels.map( levelSpec => levelSpec.map( challengeSpec => ChallengeSetFactory.createChallenge( this, challengeSpec.challengeType, new NumberAtom( {
       protonCount: challengeSpec.numberAtom.protonCount,
       neutronCount: challengeSpec.numberAtom.neutronCount,
@@ -288,9 +359,8 @@ class GameModel extends PhetioObject {
     } ), Tandem.OPT_OUT ) ) );
   }
 
-  // @public
-  emitCheckAnswer( isCorrect, points, answerAtom, submittedAtom, extension ) {
-    const arg = {
+  public emitCheckAnswer( isCorrect: boolean, points: number, answerAtom: TNumberAtom, submittedAtom: TNumberAtom, extension?: IonChallengeResult ): void {
+    const arg: ChallengeResult = {
       isCorrect: isCorrect,
 
       correctProtonCount: answerAtom.protonCountProperty.get(),
@@ -308,57 +378,5 @@ class GameModel extends PhetioObject {
 
 }
 
-
-// statics
-GameModel.MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
-GameModel.CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
-
 buildAnAtom.register( 'GameModel', GameModel );
-
-GameModel.GameModelIO = new IOType( 'GameModelIO', {
-  valueType: GameModel,
-  documentation: 'The model for the Game',
-  methods: {
-
-    startGameLevel: {
-      returnType: VoidIO,
-      parameterTypes: [ StringIO ],
-      implementation: function( levelType ) {
-        this.startGameLevel( levelType );
-      },
-      documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
-      invocableForReadOnlyElements: false
-    },
-
-    setChallenges: {
-      returnType: VoidIO,
-      parameterTypes: [ ArrayIO( ArrayIO( ObjectLiteralIO ) ) ],
-      implementation: function( challenges ) {
-        this.setChallenges( challenges );
-      },
-      documentation: 'Specify exact challenges',
-      invocableForReadOnlyElements: false
-    },
-
-    setAllowedChallengeTypesByLevel: {
-      returnType: VoidIO,
-      parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
-
-      //TODO https://github.com/phetsims/build-an-atom/issues/240 change this to take index as 1st argument (for level index)
-      implementation: function( allowedChallengeTypesByLevel ) {
-        this.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
-      },
-
-      documentation: 'Specify which challenge types may be presented to the user for each level.',
-      invocableForReadOnlyElements: false
-      // The default value is [
-      //    [ 'schematic-to-element', 'counts-to-element' ],
-      //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-      //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-      //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
-      //  ]
-    }
-  }
-} );
-
 export default GameModel;

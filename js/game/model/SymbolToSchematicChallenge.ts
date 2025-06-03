@@ -44,7 +44,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToSchematicChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToSchematicChallengeView {
     return new SymbolToSchematicChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToSchematicChallengeView' ) );
   }
 

@@ -25,7 +25,7 @@ class SchematicToMassNumberChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToMassNumberChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToMassNumberChallengeView {
     return new SchematicToMassNumberChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToMassNumberChallengeView' ) );
   }
 }

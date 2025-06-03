@@ -12,6 +12,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
@@ -24,11 +25,10 @@ import StartGameLevelNode from './StartGameLevelNode.js';
 
 class GameScreenView extends ScreenView {
 
-  /**
-   * @param {GameModel} gameModel
-   * @param {Tandem} tandem
-   */
-  constructor( gameModel, tandem ) {
+  public rewardNode: BAARewardNode | null;
+  private levelCompletedNode: LevelCompletedNode | null;
+
+  public constructor( gameModel: GameModel, tandem: Tandem ) {
 
     super( {
 
@@ -77,14 +77,14 @@ class GameScreenView extends ScreenView {
 
     scoreboard.centerX = this.layoutBounds.centerX;
     scoreboard.top = 0;
-    const gameAudioPlayer = new GameAudioPlayer( gameModel.soundEnabledProperty );
+    const gameAudioPlayer = new GameAudioPlayer();
     this.rewardNode = null;
-    this.levelCompletedNode = null; // @private
+    this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
     gameModel.stateProperty.link( ( state, previousState ) => {
 
-      ( previousState && previousState.disposeState ) && previousState.disposeState();
+      ( previousState && previousState.disposeState() );
 
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();
@@ -136,7 +136,7 @@ class GameScreenView extends ScreenView {
           rootNode.addChild( this.levelCompletedNode );
         }
       }
-      else if ( typeof ( state.createView ) === 'function' ) {
+      else if ( state.createView ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
         rootNode.removeAllChildren();
@@ -151,8 +151,7 @@ class GameScreenView extends ScreenView {
     } );
   }
 
-  // @public - step function for the view, called by the framework
-  step( elapsedTime ) {
+  public override step( elapsedTime: number ): void {
     if ( this.rewardNode ) {
       this.rewardNode.step( elapsedTime );
     }

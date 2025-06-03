@@ -24,7 +24,7 @@ class CountsToChargeChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToChargeChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToChargeChallengeView {
     return new CountsToChargeChallengeView( this, layoutBounds, tandem.createTandem( 'countsToChargeChallengeView' ) );
   }
 }

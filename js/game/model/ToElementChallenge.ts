@@ -11,6 +11,7 @@
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import { NeutralOrIon } from '../view/ToElementChallengeView.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
@@ -25,7 +26,7 @@ class ToElementChallenge extends BAAGameChallenge {
    * Override the method for checking the correct answer, since this challenge class has the additional step of user
    * deciding whether atom is an ion.
    */
-  public override checkAnswer( submittedAtom: NumberAtom, submittedNeutralOrIon: string ): void {
+  public override checkAnswer( submittedAtom: NumberAtom, submittedNeutralOrIon: NeutralOrIon ): void {
     assert && assert(
       this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
       `Unexpected challenge state: ${this.challengeStateProperty.get()}`

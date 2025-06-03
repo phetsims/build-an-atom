@@ -25,7 +25,7 @@ class SymbolToCountsChallenge extends BAAGameChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToCountsChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToCountsChallengeView {
     return new SymbolToCountsChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToCountsChallengeView' ) );
   }
 }

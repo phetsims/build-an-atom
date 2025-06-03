@@ -25,7 +25,7 @@ class SchematicToElementChallenge extends ToElementChallenge {
   /**
    * Create the view needed to visually represent this challenge.
    */
-  public createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToElementChallengeView {
+  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToElementChallengeView {
     return new SchematicToElementChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToElementChallengeView' ) );
   }
 }
