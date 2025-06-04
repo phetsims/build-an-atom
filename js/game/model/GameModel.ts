@@ -245,7 +245,8 @@ class GameModel extends PhetioObject {
     this.stepListeners.forEach( stepListener => { stepListener( dt ); } );
   }
 
-  public startGameLevel( levelName: Level ): void {
+  // TODO: Implement Tandem for the challenges, see https://github.com/phetsims/build-an-atom/issues/185
+  public startGameLevel( levelName: Level, tandem?: Tandem ): void {
     this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
     this.challengeIndexProperty.set( 0 );
 

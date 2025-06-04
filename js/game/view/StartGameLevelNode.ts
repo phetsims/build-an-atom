@@ -6,6 +6,7 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -13,7 +14,8 @@ import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import massChargeIcon_png from '../../../images/massChargeIcon_png.js';
@@ -33,16 +35,10 @@ const BASE_COLOR = '#D4AAD4';
 
 class StartGameLevelNode extends Node {
 
-  /**
-   * @param {GameModel} gameModel
-   * @param {Bounds2} layoutBounds
-   * @param {Tandem} tandem
-   */
-  constructor( gameModel, layoutBounds, tandem ) {
+  public constructor( gameModel: GameModel, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super();
 
-    // title
     const title = new Text( chooseYourGameString, {
       font: new PhetFont( 30 ),
       maxWidth: layoutBounds.width,
@@ -51,28 +47,28 @@ class StartGameLevelNode extends Node {
     this.addChild( title );
 
     // buttons for starting a game level
-    const periodicTableGameButton = createLevelSelectionButton(
+    const periodicTableGameButton = this.createLevelSelectionButton(
       gameModel,
       periodicTableIcon_png,
       'periodic-table-game',
       'periodicTableGame',
       tandem
     );
-    const massAndChargeGameButton = createLevelSelectionButton(
+    const massAndChargeGameButton = this.createLevelSelectionButton(
       gameModel,
       massChargeIcon_png,
       'mass-and-charge-game',
       'massAndChargeGame',
       tandem
     );
-    const symbolGameButton = createLevelSelectionButton(
+    const symbolGameButton = this.createLevelSelectionButton(
       gameModel,
       symbolQuestionIcon_png,
       'symbol-game',
       'symbolGame',
       tandem
     );
-    const advancedSymbolGameButton = createLevelSelectionButton(
+    const advancedSymbolGameButton = this.createLevelSelectionButton(
       gameModel,
       questionMarkIcon_png,
       'advanced-symbol-game',
@@ -111,27 +107,33 @@ class StartGameLevelNode extends Node {
     // additional layout
     title.centerY = ( layoutBounds.minY + buttonHBox.top ) / 2;
   }
-}
 
 // helper function to create level selection buttons, helps to avoid code duplication
-function createLevelSelectionButton( gameModel, icon, levelName, gameLevelTandemName, tandem ) {
-  const levelNumber = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
-  return new LevelSelectionButton(
-    new Image( icon ),
-    gameModel.scores[ levelNumber ],
-    {
-      listener: () => {
-        gameModel.startGameLevel( levelName, tandem.createTandem( gameLevelTandemName ) );
-      },
-      baseColor: BASE_COLOR,
-      tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
-      createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
-        numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
-        perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
-      } ),
-      soundPlayerIndex: levelNumber
-    }
-  );
+  private createLevelSelectionButton(
+    gameModel: GameModel,
+    icon: HTMLImageElement,
+    levelName: Level,
+    gameLevelTandemName: string,
+    tandem: Tandem
+  ): LevelSelectionButton {
+    const levelNumber = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
+    return new LevelSelectionButton(
+      new Image( icon ),
+      gameModel.scores[ levelNumber ],
+      {
+        listener: () => {
+          gameModel.startGameLevel( levelName, tandem.createTandem( gameLevelTandemName ) );
+        },
+        baseColor: BASE_COLOR,
+        tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
+        createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
+          numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
+          perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
+        } ),
+        soundPlayerIndex: levelNumber
+      }
+    );
+  }
 }
 
 buildAnAtom.register( 'StartGameLevelNode', StartGameLevelNode );
