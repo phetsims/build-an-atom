@@ -1,4 +1,4 @@
-// Copyright 2013-2023, University of Colorado Boulder
+// Copyright 2013-2025, University of Colorado Boulder
 
 /**
  * Primary model class for the Build an Atom Game tab.
