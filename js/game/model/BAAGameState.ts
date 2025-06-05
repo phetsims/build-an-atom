@@ -13,11 +13,13 @@
  * @author John Blanco
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import ChallengeView from '../view/ChallengeView.js';
 import { ChallengeResult } from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -112,7 +114,7 @@ class BAAGameState extends PhetioObject {
     // stubbed in base class
   }
 
-  public createView( layoutBounds: IntentionalAny, tandem: IntentionalAny ): IntentionalAny {
+  public createView( layoutBounds: Bounds2, tandem: Tandem ): ChallengeView {
     throw new Error( 'createView should never be called in base class' );
   }
 
