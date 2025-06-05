@@ -16,7 +16,6 @@ import NumberAtom, { TNumberAtom } from '../../../../shred/js/model/NumberAtom.j
 import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -154,8 +153,8 @@ class GameModel extends PhetioObject {
     ];
 
     this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      phetioValueType: BAAGameState.BAAGameStateIO,
-      tandem: tandem.createTandem( 'stateProperty' )
+      // phetioValueType: BAAGameState.BAAGameStateIO,
+      // tandem: tandem.createTandem( 'stateProperty' )
     } );
 
     this.timerEnabledProperty = new BooleanProperty( false, {
@@ -169,8 +168,8 @@ class GameModel extends PhetioObject {
     } );
 
     this.challengeSetProperty = new Property( [] as BAAGameChallenge[], {
-      tandem: tandem.createTandem( 'challengeSetProperty' ),
-      phetioValueType: ArrayIO( BAAGameChallenge.BAAGameChallengeIO )
+      // tandem: tandem.createTandem( 'challengeSetProperty' )
+      // phetioValueType: ArrayIO( BAAGameChallenge.BAAGameChallengeIO )
     } );
 
     this.challengeIndexProperty = new NumberProperty( 0, {

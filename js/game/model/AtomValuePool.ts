@@ -17,7 +17,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 // Challenge pools for creating game challenges, extracted from the design doc.
 // These define the configuration for each of the challenges that can be used
 // in a challenge set for a given sub-game.
-const CHALLENGE_POOLS = [
+const CHALLENGE_POOLS: NumberAtom[][] = [
   [
     new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 0 } ),
     new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 1 } ),
@@ -212,71 +212,60 @@ const CHALLENGE_POOLS = [
   ]
 ];
 
-/**
- * @param {number} level
- * @constructor
- */
-function AtomValuePool( level ) {
-  this.remainingAtomValues = CHALLENGE_POOLS[ level ];
-  this.usedAtomValues = [];
-}
+export default class AtomValuePool {
+  private remainingAtomValues: NumberAtom[];
+  private usedAtomValues: NumberAtom[];
 
-/**
- * Remove the specified atom value from the list of those available.
- *
- * @param atomValueToRemove
- */
-AtomValuePool.prototype.markAtomAsUsed = function( atomValueToRemove ) {
-  if ( this.remainingAtomValues.indexOf( atomValueToRemove ) !== -1 ) {
-    this.remainingAtomValues = _.without( this.remainingAtomValues, atomValueToRemove );
-    this.usedAtomValues.push( atomValueToRemove );
+  public constructor( level: number ) {
+    this.remainingAtomValues = CHALLENGE_POOLS[ level ];
+    this.usedAtomValues = [];
   }
-};
 
-/**
- * Get a random atom value from the pool that matches the specified criteria.
- *
- * @param minProtonCount
- * @param maxProtonCount
- * @param requireCharged
- * @returns an atom that matches, or null if none exist in the pool
- * @public
- */
-AtomValuePool.prototype.getRandomAtomValue = function( minProtonCount, maxProtonCount, requireCharged ) {
-
-  // Define a function that returns true if a given atom matches the criteria.
-  const meetsCriteria = numberAtom => numberAtom.protonCountProperty.get() >= minProtonCount &&
-                                      numberAtom.protonCountProperty.get() < maxProtonCount &&
-                                      ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
-
-  // Make a list of the atoms that meet the criteria.
-  const allowableAtomValues = [];
-  this.remainingAtomValues.forEach( numberAtom => {
-    if ( meetsCriteria( numberAtom ) ) {
-      allowableAtomValues.push( numberAtom );
+  public markAtomAsUsed( atomValueToRemove: NumberAtom ): void {
+    const index = this.remainingAtomValues.indexOf( atomValueToRemove );
+    if ( index !== -1 ) {
+      this.remainingAtomValues.splice( index, 1 );
+      this.usedAtomValues.push( atomValueToRemove );
     }
-  } );
+  }
 
-  if ( allowableAtomValues.length === 0 ) {
-    // There were none available on the list of unused atoms, so
-    // add them from the list of used atoms instead.
-    this.usedAtomValues.forEach( numberAtom => {
+  public getRandomAtomValue( minProtonCount: number, maxProtonCount: number, requireCharged: boolean ): NumberAtom {
+    const meetsCriteria = ( numberAtom: NumberAtom ): boolean => {
+      return numberAtom.protonCountProperty.get() >= minProtonCount &&
+             numberAtom.protonCountProperty.get() < maxProtonCount &&
+             ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
+
+    };
+
+    // Make a list of the atoms that meet the criteria.
+    const allowableAtomValues: NumberAtom[] = [];
+    this.remainingAtomValues.forEach( numberAtom => {
       if ( meetsCriteria( numberAtom ) ) {
         allowableAtomValues.push( numberAtom );
       }
     } );
-  }
 
-  // Choose a random value from the list.
-  let atomValue = null;
-  if ( allowableAtomValues.length > 0 ) {
-    atomValue = allowableAtomValues[ Math.floor( dotRandom.nextDouble() * allowableAtomValues.length ) ];
+    if ( allowableAtomValues.length === 0 ) {
+      // There were none available on the list of unused atoms, so
+      // add them from the list of used atoms instead.
+      this.usedAtomValues.forEach( numberAtom => {
+        if ( meetsCriteria( numberAtom ) ) {
+          allowableAtomValues.push( numberAtom );
+        }
+      } );
+    }
+
+
+    // Choose a random value from the list.
+    let atomValue: NumberAtom;
+    if ( allowableAtomValues.length > 0 ) {
+      atomValue = allowableAtomValues[ Math.floor( dotRandom.nextDouble() * allowableAtomValues.length ) ];
+    }
+    else {
+      throw new Error( 'Error: No atoms found that match the specified criteria' );
+    }
+    return atomValue;
   }
-  else {
-    throw new Error( 'Error: No atoms found that match the specified criteria' );
-  }
-  return atomValue;
-};
+}
 
 buildAnAtom.register( 'AtomValuePool', AtomValuePool );
-export default AtomValuePool;

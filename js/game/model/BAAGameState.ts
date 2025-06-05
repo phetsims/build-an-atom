@@ -17,9 +17,7 @@ import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeResult } from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -34,33 +32,33 @@ class BAAGameState extends PhetioObject {
   public static readonly CHOOSING_LEVEL = new BAAGameState( 'choosingLevel' );
   public static readonly LEVEL_COMPLETED = new BAAGameState( 'levelCompleted' );
 
-  public static readonly BAAGameStateIO = new IOType( 'BAAGameStateIO', {
-    valueType: BAAGameState,
-    documentation: 'A state for the game',
-    toStateObject: ( baaGameState: BAAGameState ) => {
-      if ( baaGameState instanceof phet.buildAnAtom.BAAGameChallenge ) {
-        // TODO: Are these 'as never' castings correct?  https://github.com/phetsims/build-an-atom/issues/241
-        return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState as never );
-      }
-      else {
-        return { name: baaGameState.name };
-      }
-    },
-    fromStateObject: stateObject => {
-      if ( stateObject.name === 'choosingLevel' ) {
-        return BAAGameState.CHOOSING_LEVEL;
-      }
-      else if ( stateObject.name === 'levelCompleted' ) {
-        return BAAGameState.LEVEL_COMPLETED;
-      }
-      else if ( stateObject.name === 'challenge' ) {
-        return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject as never );
-      }
-      else {
-        throw new Error( `unknown game state: ${stateObject.name}` );
-      }
-    }
-  } );
+  // public static readonly BAAGameStateIO = new IOType( 'BAAGameStateIO', {
+  //   valueType: BAAGameState,
+  //   documentation: 'A state for the game',
+  //   toStateObject: ( baaGameState: BAAGameState ) => {
+  //     if ( baaGameState instanceof BAAGameChallenge ) {
+  //       // TODO: Are these 'as never' castings correct?  https://github.com/phetsims/build-an-atom/issues/241
+  //       return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState as never );
+  //     }
+  //     else {
+  //       return { name: baaGameState.name };
+  //     }
+  //   },
+  //   fromStateObject: stateObject => {
+  //     if ( stateObject.name === 'choosingLevel' ) {
+  //       return BAAGameState.CHOOSING_LEVEL;
+  //     }
+  //     else if ( stateObject.name === 'levelCompleted' ) {
+  //       return BAAGameState.LEVEL_COMPLETED;
+  //     }
+  //     else if ( stateObject.name === 'challenge' ) {
+  //       return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject as never );
+  //     }
+  //     else {
+  //       throw new Error( `unknown game state: ${stateObject.name}` );
+  //     }
+  //   }
+  // } );
 
   public constructor( name: string, options?: BAAGameStateOptions ) {
     super( options );

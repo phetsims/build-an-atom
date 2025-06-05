@@ -13,7 +13,6 @@ import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import IOType from '../../../../tandem/js/types/IOType.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
@@ -33,40 +32,39 @@ class BAAGameChallenge extends BAAGameState {
   public configurableMassNumber = false;
   public configurableCharge = false;
 
-  public static readonly BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
-    valueType: BAAGameChallenge,
-    documentation: 'A challenge for the Game',
-    toStateObject: ( baaGameChallenge: BAAGameChallenge ) => ( {
-      pointValue: baaGameChallenge.pointValue,
-      answerAtom: NumberAtom.NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
-      modelPhetioID: baaGameChallenge.model.tandem.phetioID,
-      challengeType: baaGameChallenge.challengeType,
-      phetioID: baaGameChallenge.tandem.phetioID,
-      name: baaGameChallenge.name
-    } ),
-    fromStateObject: stateObject => {
-      const phetioEngine = phet.phetio.phetioEngine;
-
-      // This may have been deserialized from the instance itself or from the array it was contained in (which
-      // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
-      //TODO https://github.com/phetsims/build-an-atom/issues/240 Is there a better way to do this, or at least factor it out?
-      const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
-      if ( instance ) {
-        return phetioEngine.getPhetioElement( stateObject.phetioID );
-      }
-
-      const model = phetioEngine.getPhetioElement( stateObject.modelPhetioID );
-
-      const answerAtom = new phet.shred.NumberAtom( {
-        protonCount: stateObject.answerAtom.protonCount,
-        neutronCount: stateObject.answerAtom.neutronCount,
-        electronCount: stateObject.answerAtom.electronCount
-      } );
-      const tandem = new phet.tandem.Tandem( stateObject.phetioID );
-
-      return phet.buildAnAtom.ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
-    }
-  } );
+  // public static readonly BAAGameChallengeIO = new IOType( 'BAAGameChallengeIO', {
+  //   valueType: BAAGameChallenge,
+  //   documentation: 'A challenge for the Game',
+  //   toStateObject: ( baaGameChallenge: BAAGameChallenge ) => ( {
+  //     pointValue: baaGameChallenge.pointValue,
+  //     answerAtom: NumberAtom.NumberAtomIO.toStateObject( baaGameChallenge.answerAtom ),
+  //     modelPhetioID: baaGameChallenge.model.tandem.phetioID,
+  //     challengeType: baaGameChallenge.challengeType,
+  //     phetioID: baaGameChallenge.tandem.phetioID,
+  //     name: baaGameChallenge.name
+  //   } ),
+  //   fromStateObject: stateObject => {
+  //     const phetioEngine = PhetioEngine;
+  //
+  //     // This may have been deserialized from the instance itself or from the array it was contained in (which
+  //     // is instrumented as ArrayIO), so check to see if it is already deserialized before deserializing.
+  //     //TODO https://github.com/phetsims/build-an-atom/issues/240 Is there a better way to do this, or at least factor it out?
+  //     const instance = phetioEngine.hasPhetioObject( stateObject.phetioID );
+  //     if ( instance ) {
+  //       return phetioEngine.getPhetioElement( stateObject.phetioID );
+  //     }
+  //
+  //     const model = phetioEngine.getPhetioElement( stateObject.modelPhetioID );
+  //
+  //     const answerAtom = new NumberAtom( {
+  //       protonCount: stateObject.answerAtom.protonCount,
+  //       neutronCount: stateObject.answerAtom.neutronCount,
+  //       electronCount: stateObject.answerAtom.electronCount
+  //     } );
+  //
+  //     return ChallengeSetFactory.createChallenge( model, stateObject.challengeType, answerAtom, tandem );
+  //   }
+  // } );
 
 
   public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
@@ -74,8 +72,8 @@ class BAAGameChallenge extends BAAGameState {
     //TODO https://github.com/phetsims/build-an-atom/issues/240 Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     super( 'challenge', {
       tandem: tandem,
-      phetioState: false,
-      phetioType: BAAGameChallenge.BAAGameChallengeIO
+      phetioState: false
+      // phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
 
     //TODO https://github.com/phetsims/build-an-atom/issues/240 why not an Enum?

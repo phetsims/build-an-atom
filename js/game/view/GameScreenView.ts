@@ -82,9 +82,7 @@ class GameScreenView extends ScreenView {
     this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
-    gameModel.stateProperty.link( ( state, previousState ) => {
-
-      ( previousState && previousState.disposeState() );
+    gameModel.stateProperty.link( ( state: BAAGameState ) => {
 
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
         rootNode.removeAllChildren();
