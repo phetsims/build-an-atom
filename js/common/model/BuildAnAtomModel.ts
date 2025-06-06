@@ -29,10 +29,6 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../view/BAAScreenView.js';
 
-const electronsString = BuildAnAtomStrings.electrons;
-const neutronsString = BuildAnAtomStrings.neutrons;
-const protonsString = BuildAnAtomStrings.protons;
-
 // constants
 const NUM_PROTONS = 10;
 const NUM_NEUTRONS = 13;
@@ -114,7 +110,7 @@ class BuildAnAtomModel {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: PhetColorScheme.RED_COLORBLIND,
-        captionText: protonsString,
+        captionText: BuildAnAtomStrings.protonsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'protonBucket' ),
         phetioState: options.phetioState
@@ -124,7 +120,7 @@ class BuildAnAtomModel {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: 'rgb( 100, 100, 100 )',
-        captionText: neutronsString,
+        captionText: BuildAnAtomStrings.neutronsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'neutronBucket' ),
         phetioState: options.phetioState
@@ -135,7 +131,7 @@ class BuildAnAtomModel {
         sphereRadius: ShredConstants.ELECTRON_RADIUS,
         usableWidthProportion: 0.8,
         baseColor: 'blue',
-        captionText: electronsString,
+        captionText: BuildAnAtomStrings.electronsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'electronBucket' ),
         phetioState: options.phetioState

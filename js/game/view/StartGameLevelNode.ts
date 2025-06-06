@@ -43,6 +43,9 @@ class StartGameLevelNode extends Node {
       centerX: layoutBounds.centerX
     } );
     this.addChild( title );
+    title.boundsProperty.link( () => {
+      title.centerX = layoutBounds.centerX;
+    } );
 
     // buttons for starting a game level
     const periodicTableGameButton = this.createLevelSelectionButton(

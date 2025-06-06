@@ -13,7 +13,6 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
-import Shape from '../../../../kite/js/Shape.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
@@ -21,7 +20,6 @@ import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -47,12 +45,9 @@ import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
-const LABEL_CONTROL_LINE_WIDTH = 1;
 const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
 const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
-const CHECKBOX_PANEL_PADDING = 7.5;
-const CHECKBOX_PANEL_VERTICAL_MARGIN = 5;
 
 class BAAScreenView extends ScreenView {
 
@@ -258,12 +253,12 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( this.periodicTableAccordionBox );
 
-    const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
+    const labelVisibilityControlsTandem = tandem.createTandem( 'labelVisibilityControls' );
     const checkboxItems = [ {
       createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.elementStringProperty, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: tandem.createTandem( 'elementText' )
+        tandem: labelVisibilityControlsTandem.createTandem( 'elementText' )
       } ),
       property: model.showElementNameProperty,
       tandemName: 'showElementNameCheckbox'
@@ -271,7 +266,7 @@ class BAAScreenView extends ScreenView {
       createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: tandem.createTandem( 'neutralOrIonText' )
+        tandem: labelVisibilityControlsTandem.createTandem( 'neutralOrIonText' )
       } ),
       property: model.showNeutralOrIonProperty,
       tandemName: 'showNeutralOrIonCheckbox'
@@ -284,49 +279,19 @@ class BAAScreenView extends ScreenView {
         createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, {
           font: LABEL_CONTROL_FONT,
           maxWidth: LABEL_CONTROL_MAX_WIDTH,
-          tandem: tandem.createTandem( 'stableUnstableText' )
+          tandem: labelVisibilityControlsTandem.createTandem( 'stableUnstableText' )
         } ),
         property: model.showStableOrUnstableProperty,
         tandemName: 'showStableOrUnstableCheckbox'
       } );
     }
 
-    const panelContent = new Node();
     const labelVisibilityCheckboxGroup = new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
       spacing: 8,
       tandem: tandem.createTandem( 'labelVisibilityCheckboxGroup' )
     } );
-    panelContent.addChild( labelVisibilityCheckboxGroup );
-    const numDividerLines = checkboxItems.length - 1;
-    const dividerLineShape = new Shape().moveTo( -CHECKBOX_PANEL_PADDING, 0 ).lineTo( labelVisibilityCheckboxGroup.width + CHECKBOX_PANEL_PADDING, 0 );
-    for ( let dividerLines = 0; dividerLines < numDividerLines; dividerLines++ ) {
-      const dividerLine1 = new Path( dividerLineShape, {
-        lineWidth: LABEL_CONTROL_LINE_WIDTH,
-        stroke: 'gray',
-        centerY: labelVisibilityCheckboxGroup.height * ( dividerLines + 1 ) / ( numDividerLines + 1 ) - ( CHECKBOX_PANEL_VERTICAL_MARGIN / 2 ) + CHECKBOX_PANEL_VERTICAL_MARGIN * ( dividerLines ),
-        x: 0
-      } );
-      panelContent.addChild( dividerLine1 );
-    }
-
-    const labelVisibilityControlPanel = new Panel( panelContent, {
-      fill: 'rgb( 245, 245, 245 )',
-      lineWidth: LABEL_CONTROL_LINE_WIDTH,
-      xMargin: LABEL_CONTROL_LINE_WIDTH / 2,
-      yMargin: CHECKBOX_PANEL_VERTICAL_MARGIN,
-      cornerRadius: 5,
-      resize: false,
-      tandem: labelVisibilityControlPanelTandem
-    } );
-
-    this.addChild( labelVisibilityControlPanel );
-    const labelVisibilityControlPanelTitleText = new Text( BuildAnAtomStrings.showStringProperty, {
-      font: new PhetFont( { size: 16, weight: 'bold' } ),
-      maxWidth: labelVisibilityControlPanel.width,
-      tandem: tandem.createTandem( 'labelVisibilityControlPanelTitleText' )
-    } );
-    this.addChild( labelVisibilityControlPanelTitleText );
+    this.addChild( labelVisibilityCheckboxGroup );
 
     // Add the radio buttons that control the electron representation in the atom.
     const radioButtonRadius = 6;
@@ -388,10 +353,8 @@ class BAAScreenView extends ScreenView {
     particleCountDisplay.left = CONTROLS_INSET;
     this.periodicTableAccordionBox.top = CONTROLS_INSET;
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    labelVisibilityControlPanel.left = this.periodicTableAccordionBox.left;
-    labelVisibilityControlPanel.bottom = this.layoutBounds.height - CONTROLS_INSET;
-    labelVisibilityControlPanelTitleText.bottom = labelVisibilityControlPanel.top;
-    labelVisibilityControlPanelTitleText.centerX = labelVisibilityControlPanel.centerX;
+    labelVisibilityCheckboxGroup.left = this.periodicTableAccordionBox.left;
+    labelVisibilityCheckboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 
