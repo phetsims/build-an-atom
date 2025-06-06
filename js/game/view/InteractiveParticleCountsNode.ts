@@ -17,10 +17,6 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
-const electronsColonString = BuildAnAtomStrings.electronsColon;
-const neutronsColonString = BuildAnAtomStrings.neutronsColon;
-const protonsColonString = BuildAnAtomStrings.protonsColon;
-
 // constants
 const MAX_WIDTH = 200;
 
@@ -45,7 +41,7 @@ class InteractiveParticleCountsNode extends Node {
 
     this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
 
-    const protonCountPrompt = new Text( protonsColonString, {
+    const protonCountPrompt = new Text( BuildAnAtomStrings.protonsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
@@ -58,7 +54,7 @@ class InteractiveParticleCountsNode extends Node {
       } );
     this.addChild( protonCountEntryNode );
 
-    const neutronCountPrompt = new Text( neutronsColonString, {
+    const neutronCountPrompt = new Text( BuildAnAtomStrings.neutronsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
@@ -70,7 +66,7 @@ class InteractiveParticleCountsNode extends Node {
       } );
     this.addChild( neutronCountEntryNode );
 
-    const electronCountPrompt = new Text( electronsColonString, {
+    const electronCountPrompt = new Text( BuildAnAtomStrings.electronsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );

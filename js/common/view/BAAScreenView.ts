@@ -43,15 +43,6 @@ import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 
-// strings
-const cloudString = BuildAnAtomStrings.cloud;
-const elementString = BuildAnAtomStrings.element;
-const modelString = BuildAnAtomStrings.model;
-const neutralSlashIonString = BuildAnAtomStrings.neutralSlashIon;
-const orbitsString = BuildAnAtomStrings.orbits;
-const showString = BuildAnAtomStrings.show;
-const stableSlashUnstableString = BuildAnAtomStrings.stableSlashUnstable;
-
 // constants
 const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
@@ -244,7 +235,7 @@ class BAAScreenView extends ScreenView {
     const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
     this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
       cornerRadius: 3,
-      titleNode: new Text( elementString, {
+      titleNode: new Text( BuildAnAtomStrings.elementStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
         tandem: periodicTableAccordionBoxTandem.createTandem( 'titleText' )
@@ -263,13 +254,13 @@ class BAAScreenView extends ScreenView {
       tandem: periodicTableAccordionBoxTandem,
 
       // pdom
-      labelContent: elementString
+      labelContent: BuildAnAtomStrings.elementStringProperty
     } );
     this.addChild( this.periodicTableAccordionBox );
 
     const labelVisibilityControlPanelTandem = tandem.createTandem( 'labelVisibilityControlPanel' );
     const checkboxItems = [ {
-      createNode: ( tandem: Tandem ) => new Text( elementString, {
+      createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.elementStringProperty, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: tandem.createTandem( 'elementText' )
@@ -277,7 +268,7 @@ class BAAScreenView extends ScreenView {
       property: model.showElementNameProperty,
       tandemName: 'showElementNameCheckbox'
     }, {
-      createNode: ( tandem: Tandem ) => new Text( neutralSlashIonString, {
+      createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, {
         font: LABEL_CONTROL_FONT,
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: tandem.createTandem( 'neutralOrIonText' )
@@ -290,7 +281,7 @@ class BAAScreenView extends ScreenView {
     // https://github.com/phetsims/special-ops/issues/189.
     if ( BAAQueryParameters.showStableUnstableCheckbox ) {
       checkboxItems.push( {
-        createNode: ( tandem: Tandem ) => new Text( stableSlashUnstableString, {
+        createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, {
           font: LABEL_CONTROL_FONT,
           maxWidth: LABEL_CONTROL_MAX_WIDTH,
           tandem: tandem.createTandem( 'stableUnstableText' )
@@ -330,7 +321,7 @@ class BAAScreenView extends ScreenView {
     } );
 
     this.addChild( labelVisibilityControlPanel );
-    const labelVisibilityControlPanelTitleText = new Text( showString, {
+    const labelVisibilityControlPanelTitleText = new Text( BuildAnAtomStrings.showStringProperty, {
       font: new PhetFont( { size: 16, weight: 'bold' } ),
       maxWidth: labelVisibilityControlPanel.width,
       tandem: tandem.createTandem( 'labelVisibilityControlPanelTitleText' )
@@ -343,7 +334,7 @@ class BAAScreenView extends ScreenView {
     const orbitsRadioButton = new AquaRadioButton(
       model.electronShellDepictionProperty,
       'orbits',
-      new Text( orbitsString, {
+      new Text( BuildAnAtomStrings.orbitsStringProperty, {
           font: ELECTRON_VIEW_CONTROL_FONT,
           maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
           tandem: orbitsRadioButtonTandem.createTandem( 'orbitsText' )
@@ -355,7 +346,7 @@ class BAAScreenView extends ScreenView {
     const cloudRadioButton = new AquaRadioButton(
       model.electronShellDepictionProperty,
       'cloud',
-      new Text( cloudString, {
+      new Text( BuildAnAtomStrings.cloudStringProperty, {
         font: ELECTRON_VIEW_CONTROL_FONT,
         maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
         tandem: cloudRadioButtonTandem.createTandem( 'cloudText' )
@@ -363,7 +354,7 @@ class BAAScreenView extends ScreenView {
       { radius: radioButtonRadius, tandem: cloudRadioButtonTandem }
     );
     const electronViewButtonGroup = new Node( { tandem: tandem.createTandem( 'electronViewButtonGroup' ) } );
-    electronViewButtonGroup.addChild( new Text( modelString, {
+    electronViewButtonGroup.addChild( new Text( BuildAnAtomStrings.modelStringProperty, {
       font: new PhetFont( {
         size: 14,
         weight: 'bold'

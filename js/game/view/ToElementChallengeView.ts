@@ -23,11 +23,6 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ChallengeView from './ChallengeView.js';
 
-const findTheElementString = BuildAnAtomStrings.findTheElement;
-const ionString = BuildAnAtomStrings.ion;
-const isItString = BuildAnAtomStrings.isIt;
-const neutralAtomString = BuildAnAtomStrings.neutralAtom;
-
 // constants
 const TITLE_FONT = new PhetFont( 30 );
 const INSET = 10;
@@ -66,25 +61,25 @@ class ToElementChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Challenge title
-    const challengeTitle = new Text( findTheElementString, {
+    const challengeTitle = new Text( BuildAnAtomStrings.findTheElementStringProperty, {
       font: TITLE_FONT,
       maxWidth: this.periodicTable.width
     } );
     this.challengePresentationNode.addChild( challengeTitle );
 
     // Neutral atom versus ion question.
-    const neutralVersusIonPrompt = new Text( isItString, {
+    const neutralVersusIonPrompt = new Text( BuildAnAtomStrings.isItStringProperty, {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH
     } );
-    const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( neutralAtomString, {
+    const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( BuildAnAtomStrings.neutralAtomStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
       tandem: tandem.createTandem( 'neutralAtomRadioButton' )
     } );
-    const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( ionString, {
+    const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( BuildAnAtomStrings.ionStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {

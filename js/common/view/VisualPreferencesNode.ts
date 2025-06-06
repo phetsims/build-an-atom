@@ -23,7 +23,7 @@ class VisualPreferencesNode extends VBox {
     // Add support for turning on high-contrast particles.
     const highContrastParticlesCheckbox = new Checkbox(
       highContrastParticlesProperty,
-      new Text( BuildAnAtomStrings.highContrastParticles, { font: PreferencesDialogConstants.CONTENT_FONT } ), {
+      new Text( BuildAnAtomStrings.highContrastParticlesStringProperty, { font: PreferencesDialogConstants.CONTENT_FONT } ), {
         tandem: tandem.createTandem( 'highContrastParticlesCheckbox' )
       } );
 

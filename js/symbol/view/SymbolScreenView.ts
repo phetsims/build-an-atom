@@ -17,8 +17,6 @@ import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BAASymbolNode from './BAASymbolNode.js';
 
-const symbolString = BuildAnAtomStrings.symbol;
-
 class SymbolScreenView extends BAAScreenView {
 
   public readonly symbolAccordionBoxExpandedProperty: BooleanProperty;
@@ -36,7 +34,7 @@ class SymbolScreenView extends BAAScreenView {
     } );
     const symbolAccordionBox = new AccordionBox( symbolNode, {
       cornerRadius: 3,
-      titleNode: new Text( symbolString, {
+      titleNode: new Text( BuildAnAtomStrings.symbolStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
         tandem: tandem.createTandem( 'symbolAccordionBoxTitleText' )
@@ -56,7 +54,7 @@ class SymbolScreenView extends BAAScreenView {
       tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
       // pdom
-      labelContent: symbolString
+      labelContent: BuildAnAtomStrings.symbolStringProperty
     } );
     this.controlPanelLayer.addChild( symbolAccordionBox );
 

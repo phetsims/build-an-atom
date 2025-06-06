@@ -21,9 +21,6 @@ import ChargeMeter from '../../common/view/ChargeMeter.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
 import MassNumberDisplay from './MassNumberDisplay.js';
 
-const massNumberString = BuildAnAtomStrings.massNumber;
-const netChargeString = BuildAnAtomStrings.netCharge;
-
 // constants
 const INTER_BOX_SPACING = 7;
 const ACCORDION_BOX_BUTTON_DILATION = 12;
@@ -75,7 +72,7 @@ class AtomScreenView extends BAAScreenView {
     const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
-        titleNode: new Text( netChargeString, {
+        titleNode: new Text( BuildAnAtomStrings.netChargeStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
           tandem: tandem.createTandem( 'netChargeAccordionBoxTitleText' )
@@ -86,7 +83,7 @@ class AtomScreenView extends BAAScreenView {
         tandem: tandem.createTandem( 'netChargeAccordionBox' ),
 
         // pdom
-        labelContent: netChargeString
+        labelContent: BuildAnAtomStrings.netChargeStringProperty
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( netChargeAccordionBox );
@@ -103,7 +100,7 @@ class AtomScreenView extends BAAScreenView {
     const massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
       combineOptions<AccordionBoxOptions>( {}, {
-        titleNode: new Text( massNumberString, {
+        titleNode: new Text( BuildAnAtomStrings.massNumberStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
           tandem: tandem.createTandem( 'massNumberAccordionBoxTitleText' )
@@ -114,7 +111,7 @@ class AtomScreenView extends BAAScreenView {
         tandem: tandem.createTandem( 'massNumberAccordionBox' ),
 
         // pdom
-        labelContent: massNumberString
+        labelContent: BuildAnAtomStrings.massNumberStringProperty
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( massNumberAccordionBox );

@@ -27,8 +27,6 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAASharedConstants from '../../common/BAASharedConstants.js';
 import GameModel from '../model/GameModel.js';
 
-const chooseYourGameString = BuildAnAtomStrings.chooseYourGame;
-
 // constants
 const CONTROLS_INSET = 10;
 const BASE_COLOR = '#D4AAD4';
@@ -39,7 +37,7 @@ class StartGameLevelNode extends Node {
 
     super();
 
-    const title = new Text( chooseYourGameString, {
+    const title = new Text( BuildAnAtomStrings.chooseYourGameStringProperty, {
       font: new PhetFont( 30 ),
       maxWidth: layoutBounds.width,
       centerX: layoutBounds.centerX
