@@ -24,8 +24,6 @@ import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
-const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
-
 class SchematicToChargeChallengeView extends ChallengeView {
 
   public readonly chargeAnswerProperty: NumberProperty;
@@ -53,7 +51,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
     // Question
-    const questionPrompt = new RichText( whatIsTheTotalChargeString, {
+    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),

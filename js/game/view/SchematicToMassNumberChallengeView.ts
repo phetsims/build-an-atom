@@ -23,8 +23,6 @@ import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
-const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
-
 class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public readonly massNumberAnswerProperty: NumberProperty;
@@ -53,7 +51,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( nonInteractiveSchematicAtomNode );
 
     // Question
-    const questionPrompt = new RichText( whatIsTheMassNumberString, {
+    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),

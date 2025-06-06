@@ -18,10 +18,6 @@ import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
-const electronsColonPatternString = BuildAnAtomStrings.electronsColonPattern;
-const neutronsColonPatternString = BuildAnAtomStrings.neutronsColonPattern;
-const protonsColonPatternString = BuildAnAtomStrings.protonsColonPattern;
-
 // constants
 const MAX_WIDTH = 280;
 
@@ -41,18 +37,23 @@ class ParticleCountsNode extends Node {
       font: new PhetFont( 24 )
     }, options );
 
-    // TODO: Use StringProperties fillIn instead https://github.com/phetsims/build-an-atom/issues/252
-    const protonCountTitle = new Text( StringUtils.format( protonsColonPatternString, numberAtom.protonCountProperty.get() ), {
+    const protonCountTitle = new Text( StringUtils.fillIn( BuildAnAtomStrings.protonsColonPatternStringProperty, {
+      number: numberAtom.protonCountProperty.get()
+    } ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( protonCountTitle );
-    const neutronCountTitle = new Text( StringUtils.format( neutronsColonPatternString, numberAtom.neutronCountProperty.get() ), {
+    const neutronCountTitle = new Text( StringUtils.fillIn( BuildAnAtomStrings.neutronsColonPatternStringProperty, {
+      number: numberAtom.neutronCountProperty.get()
+    } ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( neutronCountTitle );
-    const electronCountTitle = new Text( StringUtils.format( electronsColonPatternString, numberAtom.electronCountProperty.get() ), {
+    const electronCountTitle = new Text( StringUtils.fillIn( BuildAnAtomStrings.electronsColonPatternStringProperty, {
+      number: numberAtom.electronCountProperty.get()
+    } ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );

@@ -21,8 +21,6 @@ import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-const whatIsTheTotalChargeString = BuildAnAtomStrings.whatIsTheTotalCharge;
-
 class CountsToChargeChallengeView extends ChallengeView {
 
   private readonly chargeAnswerProperty: NumberProperty;
@@ -41,7 +39,7 @@ class CountsToChargeChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new RichText( whatIsTheTotalChargeString, {
+    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),

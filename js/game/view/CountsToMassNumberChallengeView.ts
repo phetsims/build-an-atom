@@ -20,8 +20,6 @@ import ChallengeView from './ChallengeView.js';
 import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
-const whatIsTheMassNumberString = BuildAnAtomStrings.whatIsTheMassNumber;
-
 class CountsToMassNumberChallengeView extends ChallengeView {
 
   public readonly massNumberAnswerProperty: NumberProperty;
@@ -40,7 +38,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new RichText( whatIsTheMassNumberString, {
+    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
