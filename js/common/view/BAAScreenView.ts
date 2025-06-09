@@ -204,7 +204,10 @@ class BAAScreenView extends ScreenView {
             xMargin: 0,
             yMargin: 0
           }
-        )
+        ),
+        // pdom
+        tagName: 'div',
+        focusable: true
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
@@ -364,6 +367,14 @@ class BAAScreenView extends ScreenView {
 
     this.addChild( nucleonElectronLayer );
     this.addChild( bucketFrontLayer );
+
+    // pdom - set navigation order for the Atom screen view
+    this.pdomPlayAreaNode.pdomOrder = [
+      bucketFrontLayer,
+      atomNode,
+      electronViewButtonGroup,
+      this.periodicTableAccordionBox
+    ];
   }
 
   public reset(): void {

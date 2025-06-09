@@ -123,7 +123,11 @@ class AtomScreenView extends BAAScreenView {
     massNumberAccordionBox.top = netChargeAccordionBox.top + netChargeAccordionBox.height + INTER_BOX_SPACING;
 
     // pdom - set navigation order for the Atom screen view
-    this.pdomPlayAreaNode.pdomOrder = [ this.periodicTableAccordionBox, netChargeAccordionBox, massNumberAccordionBox ];
+    this.pdomPlayAreaNode.pdomOrder = [
+      ...this.pdomPlayAreaNode.pdomOrder!,
+      netChargeAccordionBox,
+      massNumberAccordionBox
+    ];
   }
 
   public override reset(): void {
