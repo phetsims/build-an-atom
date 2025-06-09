@@ -11,7 +11,7 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BAAQueryParameters from './BAAQueryParameters.js';
 
-// TODO: Some sims make these preferences a class https://github.com/phetsims/build-an-atom/issues/241
+// TODO: Some sims make these preferences a class https://github.com/phetsims/build-an-atom/issues/255
 
 const BAAGlobalPreferences = {
 

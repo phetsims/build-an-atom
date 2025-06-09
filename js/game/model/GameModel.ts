@@ -90,7 +90,7 @@ class GameModel extends PhetioObject {
   public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
   public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
 
-  // TODO: CHeck this for PhETIO, implement real PhET-iO - https://github.com/phetsims/build-an-atom/issues/241
+  // TODO: CHeck this for PhETIO, implement real PhET-iO - https://github.com/phetsims/build-an-atom/issues/156
   // public static readonly GameModelIO = new IOType( 'GameModelIO', {
   //   valueType: GameModel,
   //   documentation: 'The model for the Game',

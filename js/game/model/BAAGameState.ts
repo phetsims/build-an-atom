@@ -39,7 +39,6 @@ class BAAGameState extends PhetioObject {
   //   documentation: 'A state for the game',
   //   toStateObject: ( baaGameState: BAAGameState ) => {
   //     if ( baaGameState instanceof BAAGameChallenge ) {
-  //       // TODO: Are these 'as never' castings correct?  https://github.com/phetsims/build-an-atom/issues/241
   //       return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState as never );
   //     }
   //     else {
