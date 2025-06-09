@@ -23,7 +23,8 @@
     ],
     "simFeatures": {
       "supportsSound": true,
-      "supportsDynamicLocale": true
+      "supportsDynamicLocale": true,
+      "supportsInteractiveDescription": true
     },
     "simulation": true,
     "supportsOutputJS": true,
