@@ -224,7 +224,7 @@ export default class AtomValuePool {
   public markAtomAsUsed( atomValueToRemove: NumberAtom ): void {
     const index = this.remainingAtomValues.indexOf( atomValueToRemove );
     if ( index !== -1 ) {
-      this.remainingAtomValues.splice( index, 1 );
+      this.remainingAtomValues = _.without( this.remainingAtomValues, atomValueToRemove );
       this.usedAtomValues.push( atomValueToRemove );
     }
   }
