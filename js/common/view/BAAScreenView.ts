@@ -19,6 +19,7 @@ import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import SceneryEvent from '../../../../scenery/js/input/SceneryEvent.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
@@ -206,13 +207,21 @@ class BAAScreenView extends ScreenView {
           }
         ),
         // pdom
-        tagName: 'div',
+        tagName: 'button',
         focusable: true
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
         tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } ) );
+      bucketFront.addInputListener( {
+        click: ( event: SceneryEvent ) => {
+          const activeParticle = bucket.extractClosestParticle( bucket.position );
+          if ( activeParticle !== null ) {
+            activeParticle.userControlledProperty.set( true );
+          }
+        }
+      } );
     } );
 
     // Add the particle count indicator.
