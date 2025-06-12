@@ -37,7 +37,6 @@ import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
-import BAAGlobalPreferences from '../BAAGlobalPreferences.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAASharedConstants from '../BAASharedConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
@@ -127,7 +126,6 @@ class BAAScreenView extends ScreenView {
     model.nucleons.forEach( ( nucleon: Particle ) => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
-        highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
         tandem: nucleonsGroupTandem.createNextTandem()
       } ) );
 
@@ -171,7 +169,6 @@ class BAAScreenView extends ScreenView {
     model.electrons.forEach( electron => {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
-        highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
         tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );

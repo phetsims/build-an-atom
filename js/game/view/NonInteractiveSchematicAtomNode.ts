@@ -16,7 +16,6 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAGlobalPreferences from '../../common/BAAGlobalPreferences.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 
 class NonInteractiveSchematicAtomNode extends Node {
@@ -54,7 +53,6 @@ class NonInteractiveSchematicAtomNode extends Node {
         modelParticles.push( particle );
         particleAtom.addParticle( particle );
         const particleView = new ParticleView( particle, modelViewTransform, {
-          highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
           tandem: particleViewsTandem.createTandem( `particleView${index}` )
         } );
         particleLayer.addChild( particleView );

@@ -6,22 +6,14 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import BooleanProperty from '../../../axon/js/BooleanProperty.js';
-import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
-import BAAQueryParameters from './BAAQueryParameters.js';
 
-// TODO: Some sims make these preferences a class https://github.com/phetsims/build-an-atom/issues/255
-
-const BAAGlobalPreferences = {
-
-  highContrastParticlesProperty:
-    new BooleanProperty( BAAQueryParameters.highContrastParticles, {
-      tandem: Tandem.PREFERENCES.createTandem( 'highContrastParticlesProperty' ),
-      phetioDocumentation: 'determines whether the particles are presented with more contrast for better visibility',
-      phetioFeatured: true
-    } )
-};
+class BAAGlobalPreferences {
+  public constructor() {
+    // This is a placeholder for global preferences. Currently, there are no global preferences defined.
+    // If needed in the future, we can add properties and methods here to manage global preferences.
+  }
+}
 
 buildAnAtom.register( 'BAAGlobalPreferences', BAAGlobalPreferences );
 export default BAAGlobalPreferences;

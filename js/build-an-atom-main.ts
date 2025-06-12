@@ -6,14 +6,11 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
-import BAAGlobalPreferences from './common/BAAGlobalPreferences.js';
-import VisualPreferencesNode from './common/view/VisualPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
@@ -29,7 +26,6 @@ simLauncher.launch( () => {
   ];
 
   const options: SimOptions = {
-
     credits: {
       leadDesign: 'Kelly Lancaster',
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
@@ -39,16 +35,7 @@ simLauncher.launch( () => {
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
                         'Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    },
-
-    preferencesModel: new PreferencesModel( {
-      visualOptions: {
-        customPreferences: [ {
-          createContent: tandem => new VisualPreferencesNode( BAAGlobalPreferences.highContrastParticlesProperty,
-            tandem.createTandem( 'simPreferences' ) )
-        } ]
-      }
-    } )
+    }
   };
 
   // PhET-iO does not support the game screen (yet), see https://github.com/phetsims/build-an-atom/issues/156

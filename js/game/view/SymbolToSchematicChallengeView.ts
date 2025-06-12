@@ -15,7 +15,6 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import InteractiveSchematicAtom from '../../../../shred/js/view/InteractiveSchematicAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAGlobalPreferences from '../../common/BAAGlobalPreferences.js';
 import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
@@ -40,7 +39,6 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.challenge = challenge;
 
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.buildAnAtomModel, modelViewTransform, {
-      highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
       tandem: tandem.createTandem( 'interactiveSchematicAtom' )
     } );
     this.interactiveSchematicAtom.scale( 0.95 );
