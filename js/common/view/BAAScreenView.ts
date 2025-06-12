@@ -124,7 +124,7 @@ class BAAScreenView extends ScreenView {
 
     // add the nucleons
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
-    model.nucleons.forEach( nucleon => {
+    model.nucleons.forEach( ( nucleon: Particle ) => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
         highContrastProperty: BAAGlobalPreferences.highContrastParticlesProperty,
@@ -151,8 +151,9 @@ class BAAScreenView extends ScreenView {
           let particleView = null;
           for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
             for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
-              particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
-              if ( particleView instanceof ParticleView && particleView.particle === nucleon ) {
+              const nucleonChild = nucleonLayers[ layerIndex ].children[ childIndex ];
+              if ( nucleonChild instanceof ParticleView && nucleonChild.particle === nucleon ) {
+                particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
                 break;
               }
