@@ -12,6 +12,11 @@ import type LocalizedStringProperty from '../../chipper/js/browser/LocalizedStri
 import buildAnAtom from './buildAnAtom.js';
 
 type StringsType = {
+  'build-an-atom': {
+    'titleStringProperty': LocalizedStringProperty;
+  };
+  'positiveStringProperty': LocalizedStringProperty;
+  'negativeStringProperty': LocalizedStringProperty;
   'ionStringProperty': LocalizedStringProperty;
   'stableSlashUnstableStringProperty': LocalizedStringProperty;
   'symbolStringProperty': LocalizedStringProperty;
@@ -23,9 +28,6 @@ type StringsType = {
   'orbitsStringProperty': LocalizedStringProperty;
   'modelStringProperty': LocalizedStringProperty;
   'whatIsTheMassNumberStringProperty': LocalizedStringProperty;
-  'build-an-atom': {
-    'titleStringProperty': LocalizedStringProperty;
-  };
   'whatIsTheTotalChargeStringProperty': LocalizedStringProperty;
   'electronsColonStringProperty': LocalizedStringProperty;
   'electronsColonPatternStringProperty': LocalizedStringProperty;
