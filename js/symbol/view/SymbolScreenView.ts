@@ -29,7 +29,8 @@ class SymbolScreenView extends BAAScreenView {
     } );
 
     // Add the symbol node within an accordion box.
-    const symbolNode = new BAASymbolNode( model.particleAtom, tandem.createTandem( 'symbolNode' ), {
+    const symbolNode = new BAASymbolNode( model.particleAtom, {
+      tandem: tandem.createTandem( 'symbolNode' ),
       scale: 0.41 // scale empirically determined
     } );
     const symbolAccordionBox = new AccordionBox( symbolNode, {

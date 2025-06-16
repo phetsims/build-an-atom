@@ -231,8 +231,8 @@ class BAAScreenView extends ScreenView {
     // Add the periodic table display inside of an accordion box.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol(
       model.particleAtom,
-      tandem.createTandem( 'periodicTableAndSymbol' ),
       {
+        tandem: tandem.createTandem( 'periodicTableAndSymbol' ),
         pickable: false
       }
     );

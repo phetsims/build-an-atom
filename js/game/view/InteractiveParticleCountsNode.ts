@@ -7,12 +7,12 @@
  */
 
 import optionize from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import NumberEntryNode from './NumberEntryNode.js';
@@ -24,20 +24,22 @@ type SelfOptions = {
   font?: Font | string;
 };
 
-export type InteractiveParticleCountsNodeOptions = SelfOptions & NodeOptions;
+export type InteractiveParticleCountsNodeOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 class InteractiveParticleCountsNode extends Node {
 
   public readonly numberAtom: NumberAtom;
   private disposeInteractiveParticlCountsNode: () => void;
 
-  public constructor( tandem: Tandem, options?: InteractiveParticleCountsNodeOptions ) {
+  public constructor( providedOptions: InteractiveParticleCountsNodeOptions ) {
+
+    const options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
+      font: new PhetFont( 24 )
+    }, providedOptions );
 
     super( options );
 
-    options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
-      font: new PhetFont( 24 )
-    }, options );
+    const tandem = options.tandem;
 
     this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
 

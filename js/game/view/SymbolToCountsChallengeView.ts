@@ -25,7 +25,7 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
     super( symbolToCountsChallenge, layoutBounds, tandem );
 
-    this.interactiveParticleCountsNode = new InteractiveParticleCountsNode( tandem );
+    this.interactiveParticleCountsNode = new InteractiveParticleCountsNode( { tandem: tandem } );
 
     // Add interactive particle count.
     this.interactiveAnswerNode.addChild( this.interactiveParticleCountsNode );

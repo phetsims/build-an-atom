@@ -7,27 +7,30 @@
  * @author Luisa Vargas
  */
 
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 
 type SelfOptions = EmptySelfOptions;
 
-export type BAASymbolNodeOptions = SelfOptions & SymbolNodeOptions;
+export type BAASymbolNodeOptions = SelfOptions & WithRequired<SymbolNodeOptions, 'tandem'>;
 
 class BAASymbolNode extends SymbolNode {
 
-  public constructor( numberAtom: TNumberAtom, tandem: Tandem, options?: BAASymbolNodeOptions ) {
+  public constructor( numberAtom: TNumberAtom, providedOptions: BAASymbolNodeOptions ) {
 
-    super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, {
-      chargeProperty: numberAtom.chargeProperty,
-      tandem: tandem
-    } );
+    const options = optionize<BAASymbolNodeOptions, SelfOptions, SymbolNodeOptions>()( {
+      chargeProperty: numberAtom.chargeProperty
+    }, providedOptions );
+
+    super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, options );
+
+    const tandem = options.tandem;
 
     // Add the scale image - just an image with no functionality.
     const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
