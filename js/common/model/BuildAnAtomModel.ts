@@ -14,6 +14,7 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
@@ -22,7 +23,7 @@ import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -43,10 +44,10 @@ const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
 type SelfOptions = {
-  phetioState: boolean;
+  phetioState?: boolean;
 };
 
-export type BuildAnAtomModelOptions = SelfOptions;
+export type BuildAnAtomModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 class BuildAnAtomModel {
 
@@ -65,11 +66,13 @@ class BuildAnAtomModel {
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
   public static readonly MAX_ELECTRONS = NUM_ELECTRONS;
 
-  public constructor( tandem: Tandem, options?: BuildAnAtomModelOptions ) {
+  public constructor( options?: BuildAnAtomModelOptions ) {
 
     options = combineOptions<BuildAnAtomModelOptions>( {
       phetioState: true
     }, options );
+
+    const tandem = options.tandem;
 
     // Properties that control label visibility in the view.
     this.showElementNameProperty = new BooleanProperty( true, {

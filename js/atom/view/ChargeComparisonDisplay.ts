@@ -7,13 +7,13 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 
@@ -25,13 +25,18 @@ const SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 
 type SelfOptions = EmptySelfOptions;
 
-export type ChargeComparisonDisplayOptions = SelfOptions & NodeOptions;
+export type ChargeComparisonDisplayOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 class ChargeComparisonDisplay extends Node {
 
-  public constructor( particleAtom: ParticleAtom, tandem: Tandem, options?: ChargeComparisonDisplayOptions ) {
+  public constructor( particleAtom: ParticleAtom, providedOptions?: ChargeComparisonDisplayOptions ) {
 
-    super( { tandem: tandem } );
+    const options = optionize<ChargeComparisonDisplayOptions, SelfOptions, NodeOptions>()( {
+    }, providedOptions );
+
+    super( options );
+
+    const tandem = options.tandem;
 
     const MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
     let i;

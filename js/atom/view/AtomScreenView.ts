@@ -60,8 +60,10 @@ class AtomScreenView extends BAAScreenView {
         new ChargeMeter( model.particleAtom, tandem.createTandem( 'chargeMeter' ) ),
         new ChargeComparisonDisplay(
           model.particleAtom,
-          tandem.createTandem( 'chargeComparisonDisplay' ),
-          { pickable: false }
+          {
+            pickable: false,
+            tandem: tandem.createTandem( 'chargeComparisonDisplay' )
+          }
         )
       ],
       spacing: 5,
@@ -91,9 +93,9 @@ class AtomScreenView extends BAAScreenView {
     // Add the mass indicator inside of an accordion box.
     const massNumberDisplay = new MassNumberDisplay(
       model.particleAtom,
-      tandem.createTandem( 'massNumberDisplay' ),
       {
         pickable: false,
+        tandem: tandem.createTandem( 'massNumberDisplay' ),
         scale: 0.85 // empirically determined to make the control panels all fit on the screen
       }
     );
@@ -106,8 +108,6 @@ class AtomScreenView extends BAAScreenView {
           tandem: tandem.createTandem( 'massNumberAccordionBoxTitleText' )
         } ),
         expandedProperty: this.massNumberAccordionBoxExpandedProperty,
-
-        // phet-io
         tandem: tandem.createTandem( 'massNumberAccordionBox' ),
 
         // pdom

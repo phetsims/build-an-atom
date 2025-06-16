@@ -22,7 +22,7 @@ class SymbolScreen extends Screen<BuildAnAtomModel, SymbolScreenView> {
 
   public constructor( tandem: Tandem ) {
     super(
-      () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
+      () => new BuildAnAtomModel( { tandem: tandem.createTandem( 'model' ) } ),
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.symbolStringProperty,

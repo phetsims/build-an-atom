@@ -9,14 +9,14 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -26,13 +26,18 @@ const READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen
 
 type SelfOptions = EmptySelfOptions;
 
-export type MassNumberDisplayOptions = SelfOptions & NodeOptions;
+export type MassNumberDisplayOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 class MassNumberDisplay extends Node {
 
-  public constructor( numberAtom: TNumberAtom, tandem: Tandem, options?: MassNumberDisplayOptions ) {
+  public constructor( numberAtom: TNumberAtom, providedOptions?: MassNumberDisplayOptions ) {
 
-    super( { tandem: tandem } );
+    const options = optionize<MassNumberDisplayOptions, SelfOptions, NodeOptions>()( {
+    }, providedOptions );
+
+    super( options );
+
+    const tandem = options.tandem;
 
     // Add the background image, i.e. the scale.
     const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
