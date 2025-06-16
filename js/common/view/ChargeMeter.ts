@@ -11,7 +11,6 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -33,7 +32,7 @@ type SelfOptions = {
   showNumericalReadout?: boolean;
 };
 
-export type ChargeMeterOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+export type ChargeMeterOptions = SelfOptions & NodeOptions;
 
 class ChargeMeter extends Node {
 

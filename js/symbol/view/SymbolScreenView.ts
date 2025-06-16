@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
@@ -19,54 +18,49 @@ import BAASymbolNode from './BAASymbolNode.js';
 
 class SymbolScreenView extends BAAScreenView {
 
-  public readonly symbolAccordionBoxExpandedProperty: BooleanProperty;
+  private readonly symbolAccordionBox: AccordionBox;
 
   public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
     super( model, tandem );
 
-    this.symbolAccordionBoxExpandedProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'symbolAccordionBoxExpandedProperty' )
-    } );
-
     // Add the symbol node within an accordion box.
     const symbolNode = new BAASymbolNode( model.particleAtom, {
-      tandem: tandem.createTandem( 'symbolNode' ),
       scale: 0.41 // scale empirically determined
     } );
-    const symbolAccordionBox = new AccordionBox( symbolNode, {
+    const symbolAccordionBoxTandem = tandem.createTandem( 'symbolAccordionBox' );
+    this.symbolAccordionBox = new AccordionBox( symbolNode, {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomStrings.symbolStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: tandem.createTandem( 'symbolAccordionBoxTitleText' )
+        tandem: symbolAccordionBoxTandem.createTandem( 'titleText' )
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableAccordionBox.width,
       contentAlign: 'center',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      expandedProperty: this.symbolAccordionBoxExpandedProperty,
       expandCollapseButtonOptions: {
         touchAreaXDilation: 12,
         touchAreaYDilation: 12
       },
 
       // phet-io
-      tandem: tandem.createTandem( 'symbolAccordionBox' ),
+      tandem: symbolAccordionBoxTandem,
 
       // pdom
       labelContent: BuildAnAtomStrings.symbolStringProperty
     } );
-    this.controlPanelLayer.addChild( symbolAccordionBox );
+    this.controlPanelLayer.addChild( this.symbolAccordionBox );
 
     // do the layout
-    symbolAccordionBox.top = this.periodicTableAccordionBox.top + this.periodicTableAccordionBox.height + 10;
-    symbolAccordionBox.left = this.periodicTableAccordionBox.left;
+    this.symbolAccordionBox.top = this.periodicTableAccordionBox.top + this.periodicTableAccordionBox.height + 10;
+    this.symbolAccordionBox.left = this.periodicTableAccordionBox.left;
   }
 
   public override reset(): void {
     super.reset();
-    this.symbolAccordionBoxExpandedProperty.reset();
+    this.symbolAccordionBox.expandedProperty.reset();
   }
 }
 

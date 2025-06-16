@@ -8,7 +8,6 @@
  */
 
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
@@ -18,7 +17,7 @@ import ChargeMeter from '../../common/view/ChargeMeter.js';
 
 type SelfOptions = EmptySelfOptions;
 
-export type BAASymbolNodeOptions = SelfOptions & WithRequired<SymbolNodeOptions, 'tandem'>;
+export type BAASymbolNodeOptions = SelfOptions & SymbolNodeOptions;
 
 class BAASymbolNode extends SymbolNode {
 
@@ -30,16 +29,13 @@ class BAASymbolNode extends SymbolNode {
 
     super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, options );
 
-    const tandem = options.tandem;
-
     // Add the scale image - just an image with no functionality.
-    const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
+    const scaleImage = new Image( scale_png );
     scaleImage.scale( 0.33 ); // Scale empirically determined to match design layout.
     this.addChild( scaleImage );
 
     // Add the charge meter.
     const chargeMeter = new ChargeMeter( numberAtom, {
-      tandem: tandem.createTandem( 'chargeMeter' ),
       showNumericalReadout: false
     } );
     chargeMeter.scale( 1.6 );
