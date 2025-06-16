@@ -8,6 +8,8 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -33,27 +35,31 @@ class ParticleCountsNode extends Node {
 
     super( options );
 
+    // Since the original code used the deprecated StringUtils.format, we will use a derived property
+    // to support dynamic locale.
+    const derivedFormat = (
+      stringProperty: TReadOnlyProperty<string>,
+      value: number
+    ): TReadOnlyProperty<string> => {
+      return new DerivedProperty( [ stringProperty ], string => {
+        return StringUtils.format( string, value );
+      } );
+    };
+
     options = optionize<ParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
       font: new PhetFont( 24 )
     }, options );
-
-    const protonCountTitle = new Text( StringUtils.fillIn( BuildAnAtomStrings.protonsColonPatternStringProperty, {
-      number: numberAtom.protonCountProperty.get()
-    } ), {
+    const protonCountTitle = new Text( derivedFormat( BuildAnAtomStrings.protonsColonPatternStringProperty, numberAtom.protonCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( protonCountTitle );
-    const neutronCountTitle = new Text( StringUtils.fillIn( BuildAnAtomStrings.neutronsColonPatternStringProperty, {
-      number: numberAtom.neutronCountProperty.get()
-    } ), {
+    const neutronCountTitle = new Text( derivedFormat( BuildAnAtomStrings.neutronsColonPatternStringProperty, numberAtom.neutronCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
     this.addChild( neutronCountTitle );
-    const electronCountTitle = new Text( StringUtils.fillIn( BuildAnAtomStrings.electronsColonPatternStringProperty, {
-      number: numberAtom.electronCountProperty.get()
-    } ), {
+    const electronCountTitle = new Text( derivedFormat( BuildAnAtomStrings.electronsColonPatternStringProperty, numberAtom.electronCountProperty.get() ), {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
