@@ -78,8 +78,6 @@ class PeriodicTableAndSymbol extends Node {
     symbolRectangle.top = 0;
     periodicTable.top = symbolRectangle.bottom - ( periodicTable.height / 7 * 2.5 );
     periodicTable.left = 0;
-
-    this.mutate( options );
   }
 }
 

@@ -141,8 +141,6 @@ class ChargeComparisonDisplay extends Node {
     } );
 
     this.addChild( symbolLayer ); // added at the end so we have faster startup times
-
-    this.mutate( options );
   }
 }
 

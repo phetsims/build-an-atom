@@ -11,6 +11,7 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -20,7 +21,6 @@ import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
@@ -33,18 +33,19 @@ type SelfOptions = {
   showNumericalReadout?: boolean;
 };
 
-export type ChargeMeterOptions = SelfOptions & NodeOptions;
+export type ChargeMeterOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 class ChargeMeter extends Node {
 
-  public constructor( numberAtom: TNumberAtom, tandem: Tandem, providedOptions?: ChargeMeterOptions ) {
+  public constructor( numberAtom: TNumberAtom, providedOptions?: ChargeMeterOptions ) {
 
     const options = optionize<ChargeMeterOptions, SelfOptions, NodeOptions>()( {
-      showNumericalReadout: true,
-      tandem: tandem
+      showNumericalReadout: true
     }, providedOptions );
 
-    super();
+    super( options );
+
+    const tandem = options.tandem;
 
     // Add the background.
     const backgroundHeight = options.showNumericalReadout ? WIDTH * 0.9 : WIDTH * 0.55; // Multipliers arbitrary to get desired aspect ratios.
@@ -186,8 +187,6 @@ class ChargeMeter extends Node {
         }
       }
     } );
-
-    this.mutate( options );
   }
 }
 

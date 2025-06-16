@@ -38,7 +38,8 @@ class BAASymbolNode extends SymbolNode {
     this.addChild( scaleImage );
 
     // Add the charge meter.
-    const chargeMeter = new ChargeMeter( numberAtom, tandem.createTandem( 'chargeMeter' ), {
+    const chargeMeter = new ChargeMeter( numberAtom, {
+      tandem: tandem.createTandem( 'chargeMeter' ),
       showNumericalReadout: false
     } );
     chargeMeter.scale( 1.6 );
@@ -52,8 +53,6 @@ class BAASymbolNode extends SymbolNode {
     if ( this.chargeDisplay ) {
       chargeMeter.centerY = this.chargeDisplay.centerY;
     }
-
-    this.mutate( options );
   }
 }
 

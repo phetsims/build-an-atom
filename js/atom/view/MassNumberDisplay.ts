@@ -75,8 +75,6 @@ class MassNumberDisplay extends Node {
         numericalText.center = new Vector2( READOUT_SIZE.width / 2, READOUT_SIZE.height / 2 );
       }
     } );
-
-    this.mutate( options );
   }
 }
 
