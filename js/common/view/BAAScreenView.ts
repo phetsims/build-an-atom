@@ -189,6 +189,8 @@ class BAAScreenView extends ScreenView {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node();
 
+    const dragListenersTandem = tandem.createTandem( 'bucketDragListeners' );
+
     _.each( model.buckets, ( bucket: SphereBucket<Particle> ) => {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         tandem: Tandem.OPT_OUT,
@@ -210,7 +212,7 @@ class BAAScreenView extends ScreenView {
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
+        tandem: dragListenersTandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } ) );
       bucketFront.addInputListener( {
         click: ( event: SceneryEvent ) => {
