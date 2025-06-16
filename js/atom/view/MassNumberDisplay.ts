@@ -10,7 +10,6 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -26,7 +25,7 @@ const READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen
 
 type SelfOptions = EmptySelfOptions;
 
-export type MassNumberDisplayOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+export type MassNumberDisplayOptions = SelfOptions & NodeOptions;
 
 class MassNumberDisplay extends Node {
 
@@ -37,10 +36,8 @@ class MassNumberDisplay extends Node {
 
     super( options );
 
-    const tandem = options.tandem;
-
     // Add the background image, i.e. the scale.
-    const scaleImage = new Image( scale_png, { tandem: tandem.createTandem( 'scaleImage' ) } );
+    const scaleImage = new Image( scale_png );
     scaleImage.scale( WIDTH / scaleImage.width ); // Scale to the targeted width.
     this.addChild( scaleImage );
 
@@ -51,15 +48,13 @@ class MassNumberDisplay extends Node {
       lineWidth: 1,
       // Position is based on the background image, and may need tweaking if the image is changed.
       bottom: scaleImage.bottom - 6,
-      centerX: scaleImage.centerX,
-      tandem: tandem.createTandem( 'readoutBackground' )
+      centerX: scaleImage.centerX
     } );
     this.addChild( readoutBackground );
 
     // placeholder text value, will be changed later
     const numericalText = new Text( ' ', {
-      font: new PhetFont( { size: 24, weight: 'bold' } ),
-      tandem: tandem.createTandem( 'numericalText' )
+      font: new PhetFont( { size: 24, weight: 'bold' } )
     } );
     readoutBackground.addChild( numericalText );
 

@@ -9,7 +9,6 @@
  * @author Aadish Gupta
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -51,7 +50,6 @@ const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may n
 
 class BAAScreenView extends ScreenView {
 
-  public readonly periodicTableAccordionBoxExpandedProperty: BooleanProperty;
   public readonly periodicTableAccordionBox: AccordionBox;
   public readonly controlPanelLayer: Node;
   public readonly model: BuildAnAtomModel;
@@ -74,10 +72,6 @@ class BAAScreenView extends ScreenView {
 
     this.model = model;
     this.resetFunctions = [];
-
-    this.periodicTableAccordionBoxExpandedProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'periodicTableAccordionBoxExpandedProperty' )
-    } );
 
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -128,7 +122,8 @@ class BAAScreenView extends ScreenView {
     model.nucleons.forEach( ( nucleon: Particle ) => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
-        tandem: nucleonsGroupTandem.createNextTandem()
+        tandem: nucleonsGroupTandem.createNextTandem(),
+        phetioVisiblePropertyInstrumented: false
       } ) );
 
       // Add a listener that adjusts a nucleon's z-order layering.
@@ -171,7 +166,8 @@ class BAAScreenView extends ScreenView {
     model.electrons.forEach( electron => {
       electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
-        tandem: electronsGroupTandem.createNextTandem()
+        tandem: electronsGroupTandem.createNextTandem(),
+        phetioVisiblePropertyInstrumented: false
       } ) );
     } );
 
@@ -250,7 +246,7 @@ class BAAScreenView extends ScreenView {
       contentAlign: 'left',
       titleAlignX: 'left',
       buttonAlign: 'right',
-      expandedProperty: this.periodicTableAccordionBoxExpandedProperty,
+      expandedDefaultValue: true,
       expandCollapseButtonOptions: {
         touchAreaXDilation: 12,
         touchAreaYDilation: 12
@@ -386,7 +382,7 @@ class BAAScreenView extends ScreenView {
   }
 
   public reset(): void {
-    this.periodicTableAccordionBoxExpandedProperty.reset();
+    this.periodicTableAccordionBox.expandedProperty.reset();
   }
 }
 

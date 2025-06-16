@@ -6,7 +6,6 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -27,18 +26,11 @@ const ACCORDION_BOX_BUTTON_DILATION = 12;
 
 class AtomScreenView extends BAAScreenView {
 
-  private readonly netChargeAccordionBoxExpandedProperty: BooleanProperty;
-  private readonly massNumberAccordionBoxExpandedProperty: BooleanProperty;
+  public readonly netChargeAccordionBox: AccordionBox;
+  public readonly massNumberAccordionBox: AccordionBox;
 
   public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
     super( model, tandem );
-
-    this.netChargeAccordionBoxExpandedProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'netChargeAccordionBoxExpandedProperty' )
-    } );
-    this.massNumberAccordionBoxExpandedProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'massNumberAccordionBoxExpandedProperty' )
-    } );
 
     // options that are common to all of the accordion boxes in this view
     const commonAccordionBoxOptions: AccordionBoxOptions = {
@@ -55,6 +47,7 @@ class AtomScreenView extends BAAScreenView {
     };
 
     // Add the charge meter and charge comparison display inside of an accordion box.
+    const netChargeAccordionBoxTandem = tandem.createTandem( 'netChargeAccordionBox' );
     const netChargeAccordionBoxContents = new HBox( {
       children: [
         new ChargeMeter( model.particleAtom ),
@@ -62,7 +55,7 @@ class AtomScreenView extends BAAScreenView {
           model.particleAtom,
           {
             pickable: false,
-            tandem: tandem.createTandem( 'chargeComparisonDisplay' )
+            tandem: netChargeAccordionBoxTandem.createTandem( 'chargeComparisonDisplay' )
           }
         )
       ],
@@ -70,69 +63,67 @@ class AtomScreenView extends BAAScreenView {
       scale: 0.85, // empirically determined to keep the box height reasonable
       pickable: false
     } );
-    const netChargeAccordionBox = new AccordionBox(
+    this.netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomStrings.netChargeStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: tandem.createTandem( 'netChargeAccordionBoxTitleText' )
+          tandem: netChargeAccordionBoxTandem.createTandem( 'titleText' )
         } ),
-        expandedProperty: this.netChargeAccordionBoxExpandedProperty,
 
         // phet-io
-        tandem: tandem.createTandem( 'netChargeAccordionBox' ),
+        tandem: netChargeAccordionBoxTandem,
 
         // pdom
         labelContent: BuildAnAtomStrings.netChargeStringProperty
       }, commonAccordionBoxOptions )
     );
-    this.controlPanelLayer.addChild( netChargeAccordionBox );
+    this.controlPanelLayer.addChild( this.netChargeAccordionBox );
 
     // Add the mass indicator inside of an accordion box.
     const massNumberDisplay = new MassNumberDisplay(
       model.particleAtom,
       {
         pickable: false,
-        tandem: tandem.createTandem( 'massNumberDisplay' ),
         scale: 0.85 // empirically determined to make the control panels all fit on the screen
       }
     );
-    const massNumberAccordionBox = new AccordionBox(
+    const massNumberAccordionBoxTandem = tandem.createTandem( 'massNumberAccordionBox' );
+    this.massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomStrings.massNumberStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: tandem.createTandem( 'massNumberAccordionBoxTitleText' )
+          tandem: massNumberAccordionBoxTandem.createTandem( 'titleText' )
         } ),
-        expandedProperty: this.massNumberAccordionBoxExpandedProperty,
-        tandem: tandem.createTandem( 'massNumberAccordionBox' ),
+        tandem: massNumberAccordionBoxTandem,
 
         // pdom
         labelContent: BuildAnAtomStrings.massNumberStringProperty
       }, commonAccordionBoxOptions )
     );
-    this.controlPanelLayer.addChild( massNumberAccordionBox );
+    this.controlPanelLayer.addChild( this.massNumberAccordionBox );
 
     // Do the layout.
-    netChargeAccordionBox.right = this.periodicTableAccordionBox.right;
-    netChargeAccordionBox.top = this.periodicTableAccordionBox.bottom + INTER_BOX_SPACING;
-    massNumberAccordionBox.right = this.periodicTableAccordionBox.right;
-    massNumberAccordionBox.top = netChargeAccordionBox.top + netChargeAccordionBox.height + INTER_BOX_SPACING;
+    this.netChargeAccordionBox.right = this.periodicTableAccordionBox.right;
+    this.netChargeAccordionBox.top = this.periodicTableAccordionBox.bottom + INTER_BOX_SPACING;
+    this.massNumberAccordionBox.right = this.periodicTableAccordionBox.right;
+    this.massNumberAccordionBox.top = this.netChargeAccordionBox.top + this.netChargeAccordionBox.height + INTER_BOX_SPACING;
 
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
       ...this.pdomPlayAreaNode.pdomOrder!,
-      netChargeAccordionBox,
-      massNumberAccordionBox
+      this.netChargeAccordionBox,
+      this.massNumberAccordionBox
     ];
   }
 
   public override reset(): void {
     super.reset();
-    this.netChargeAccordionBoxExpandedProperty.reset();
-    this.massNumberAccordionBoxExpandedProperty.reset();
+    this.netChargeAccordionBox.expandedProperty.reset();
+    this.massNumberAccordionBox.expandedProperty.reset();
   }
 }
 
