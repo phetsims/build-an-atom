@@ -57,7 +57,7 @@ class AtomScreenView extends BAAScreenView {
     // Add the charge meter and charge comparison display inside of an accordion box.
     const netChargeAccordionBoxContents = new HBox( {
       children: [
-        new ChargeMeter( model.particleAtom, { tandem: tandem.createTandem( 'chargeMeter' ) } ),
+        new ChargeMeter( model.particleAtom ),
         new ChargeComparisonDisplay(
           model.particleAtom,
           {

@@ -36,13 +36,11 @@ class ChargeComparisonDisplay extends Node {
 
     super( options );
 
-    const tandem = options.tandem;
-
     const MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
     let i;
 
     // Parent node for all symbols.
-    const symbolLayer = new Node( { tandem: tandem.createTandem( 'symbolLayer' ) } );
+    const symbolLayer = new Node();
 
     const minusSymbolShape = new Shape();
     minusSymbolShape.moveTo( -SYMBOL_WIDTH / 2, -SYMBOL_LINE_WIDTH / 2 );
@@ -106,8 +104,7 @@ class ChargeComparisonDisplay extends Node {
     const matchBox = new Rectangle( 0, 0, INTER_SYMBOL_DISTANCE / 2, 2 * SYMBOL_WIDTH + 2 * VERTICAL_INSET, 4, 4, {
       lineWidth: 1,
       stroke: 'black',
-      visible: false,
-      tandem: tandem.createTandem( 'matchBox' )
+      visible: false
     } );
     symbolLayer.addChild( matchBox );
 
