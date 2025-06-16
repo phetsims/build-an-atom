@@ -68,8 +68,7 @@ class AtomScreenView extends BAAScreenView {
       ],
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
-      pickable: false,
-      tandem: tandem.createTandem( 'netChargeAccordionBoxContents' )
+      pickable: false
     } );
     const netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,

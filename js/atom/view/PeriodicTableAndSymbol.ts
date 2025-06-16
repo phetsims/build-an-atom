@@ -8,7 +8,6 @@
 
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
@@ -24,7 +23,7 @@ const SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
 type SelfOptions = EmptySelfOptions;
 
-export type PeriodicTableAndSymbolOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
 class PeriodicTableAndSymbol extends Node {
 
@@ -35,13 +34,10 @@ class PeriodicTableAndSymbol extends Node {
 
     super( options );
 
-    const tandem = options.tandem;
-
     // Create and add the periodic table.
     const periodicTable = new PeriodicTableNode( numberAtom, {
       interactiveMax: 0,
-      disabledCellColor: 'white',
-      tandem: tandem.createTandem( 'periodicTable' )
+      disabledCellColor: 'white'
     } );
     this.addChild( periodicTable );
 
@@ -54,8 +50,7 @@ class PeriodicTableAndSymbol extends Node {
       {
         fill: 'white',
         stroke: 'black',
-        lineWidth: 2,
-        tandem: tandem.createTandem( 'symbolRectangle' )
+        lineWidth: 2
       }
     );
     this.addChild( symbolRectangle );

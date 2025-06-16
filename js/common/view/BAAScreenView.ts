@@ -67,7 +67,9 @@ class BAAScreenView extends ScreenView {
       // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
       // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
-      tandem: tandem
+      tandem: tandem,
+      phetioVisiblePropertyInstrumented: false
+
     } );
 
     this.model = model;
@@ -89,20 +91,20 @@ class BAAScreenView extends ScreenView {
       showNeutralOrIonProperty: model.showNeutralOrIonProperty,
       showStableOrUnstableProperty: model.showStableOrUnstableProperty,
       electronShellDepictionProperty: model.electronShellDepictionProperty,
-      tandem: tandem.createTandem( 'atomNode' )
+      tandem: tandem.createTandem( 'atomNode' ),
+      phetioVisiblePropertyInstrumented: false
     } );
     this.addChild( atomNode );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, bucket => {
       this.addChild( new BucketHole( bucket, modelViewTransform, {
-        pickable: false,
-        tandem: tandem.createTandem( `${bucket.sphereBucketTandem.name}Hole` )
+        pickable: false
       } ) );
     } );
 
     // add the layer where the nucleons and electrons will go, this is added last so that it remains on top
-    const nucleonElectronLayer = new Node( { tandem: tandem.createTandem( 'nucleonElectronLayer' ) } );
+    const nucleonElectronLayer = new Node();
 
     // Add the layers where the nucleons will exist.
     const nucleonLayers: Node[] = [];
@@ -114,7 +116,7 @@ class BAAScreenView extends ScreenView {
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will exist.
-    const electronLayer = new Node( { layerSplit: true, tandem: tandem.createTandem( 'electronLayer' ) } );
+    const electronLayer = new Node( { layerSplit: true } );
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
@@ -185,17 +187,15 @@ class BAAScreenView extends ScreenView {
     model.electronShellDepictionProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    const bucketFrontLayer = new Node( { tandem: tandem.createTandem( 'bucketFrontLayer' ) } );
+    const bucketFrontLayer = new Node();
 
     _.each( model.buckets, ( bucket: SphereBucket<Particle> ) => {
-      const bucketTandem = tandem.createTandem( `${bucket.sphereBucketTandem.name}FrontNode` );
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: bucketTandem,
+        tandem: Tandem.OPT_OUT,
         labelNode: new Panel(
           new Text( bucket.captionText, {
             font: new PhetFont( 20 ),
-            fill: bucket.captionColor,
-            tandem: bucketTandem.createTandem( 'labelText' )
+            fill: bucket.captionColor
           } ), {
             fill: BAAColors.bucketTextBackgroundColorProperty,
             cornerRadius: 0,
@@ -232,7 +232,6 @@ class BAAScreenView extends ScreenView {
     const periodicTableAndSymbol = new PeriodicTableAndSymbol(
       model.particleAtom,
       {
-        tandem: tandem.createTandem( 'periodicTableAndSymbol' ),
         pickable: false
       }
     );
@@ -299,7 +298,7 @@ class BAAScreenView extends ScreenView {
     const labelVisibilityCheckboxGroup = new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
       spacing: 8,
-      tandem: tandem.createTandem( 'labelVisibilityCheckboxGroup' )
+      tandem: Tandem.OPT_OUT
     } );
     this.addChild( labelVisibilityCheckboxGroup );
 
@@ -369,7 +368,7 @@ class BAAScreenView extends ScreenView {
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes
-    this.controlPanelLayer = new Node( { tandem: tandem.createTandem( 'controlPanelLayer' ) } );
+    this.controlPanelLayer = new Node();
     this.addChild( this.controlPanelLayer );
 
     this.addChild( nucleonElectronLayer );
