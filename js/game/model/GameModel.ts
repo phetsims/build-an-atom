@@ -19,6 +19,7 @@ import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import { ChallengeType } from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import { NeutralOrIon } from '../view/ToElementChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
@@ -87,7 +88,7 @@ class GameModel implements TModel {
   public readonly challengeSetGroupTandem: Tandem; // Tandem for the group of challenges.
   public readonly numberAtomGroupTandem: Tandem; // Tandem for the group of NumberAtoms.
   public newBestTime: boolean; // Flag set to indicate new best time, cleared each time a level is started.
-  public allowedChallengeTypesByLevel: Array<Array<string>>; // Allowed challenge types for each level.
+  public allowedChallengeTypesByLevel: Array<Array<ChallengeType>>; // Allowed challenge types for each level.
   public stepListeners: Array<( dt: number ) => void>; // Set of external functions that the model will step.
   public predeterminedChallenges: Array<Array<BAAGameChallenge>>; // Challenges that will be used instead of randomly generated ones.
 
@@ -356,7 +357,7 @@ class GameModel implements TModel {
   }
 
   // Set the allowed challenge types to customize for phet-io
-  public setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel: Array<Array<string>> ): void {
+  public setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel: Array<Array<ChallengeType>> ): void {
     this.allowedChallengeTypesByLevel = allowedChallengeTypesByLevel;
   }
 
