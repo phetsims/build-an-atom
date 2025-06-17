@@ -118,13 +118,13 @@ class GameScreenView extends ScreenView {
 
           // Add the dialog node that indicates that the level has been completed.
           this.levelCompletedNode = new LevelCompletedNode(
-            gameModel.levelProperty.get() + 1,
+            gameModel.levelNumberProperty.get() + 1,
             gameModel.scoreProperty.get(),
             GameModel.MAX_POINTS_PER_GAME_LEVEL,
             GameModel.CHALLENGES_PER_LEVEL,
             gameModel.timerEnabledProperty.get(),
             gameModel.elapsedTimeProperty.get(),
-            gameModel.bestTimes[ gameModel.levelProperty.get() ].value,
+            gameModel.levels[ gameModel.levelNumberProperty.get() ].bestTimeProperty.value,
             gameModel.newBestTime,
             () => { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
               centerX: this.layoutBounds.width / 2,

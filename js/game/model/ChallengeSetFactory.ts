@@ -11,11 +11,14 @@ import dotRandom from '../../../../dot/js/dotRandom.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import { ChallengeType } from '../../common/BAAConstants.js';
 import AtomValuePool from './AtomValuePool.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
 import CountsToElementChallenge from './CountsToElementChallenge.js';
 import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
 import CountsToSymbolChallenge from './CountsToSymbolChallenge.js';
+import GameLevel from './GameLevel.js';
 import GameModel from './GameModel.js';
 import SchematicToChargeChallenge from './SchematicToChargeChallenge.js';
 import SchematicToElementChallenge from './SchematicToElementChallenge.js';
@@ -23,46 +26,43 @@ import SchematicToMassNumberChallenge from './SchematicToMassNumberChallenge.js'
 import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
 import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
-import ToElementChallenge from './ToElementChallenge.js';
 
 const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
 
-// TODO: Could this improve the challenge creation code? https://github.com/phetsims/build-an-atom/issues/257
-// const CHALLENGE_TO_CLASS_MAP = new Map<string, IntentionalAny>( [
-//   [ 'counts-to-element', CountsToElementChallenge ],
-//   [ 'counts-to-charge', CountsToChargeChallenge ],
-//   [ 'counts-to-mass', CountsToMassNumberChallenge ],
-//   [ 'counts-to-symbol-all', CountsToSymbolChallenge ],
-//   [ 'counts-to-symbol-charge', CountsToSymbolChallenge ],
-//   [ 'counts-to-symbol-mass', CountsToSymbolChallenge ],
-//   [ 'counts-to-symbol-proton-count', CountsToSymbolChallenge ],
-//   [ 'schematic-to-element', SchematicToElementChallenge ],
-//   [ 'schematic-to-charge', SchematicToChargeChallenge ],
-//   [ 'schematic-to-mass', SchematicToMassNumberChallenge ],
-//   [ 'schematic-to-symbol-all', SchematicToSymbolChallenge ],
-//   [ 'schematic-to-symbol-charge', SchematicToSymbolChallenge ],
-//   [ 'schematic-to-symbol-mass-number', SchematicToSymbolChallenge ],
-//   [ 'schematic-to-symbol-proton-count', SchematicToSymbolChallenge ],
-//   [ 'symbol-to-counts', SymbolToCountsChallenge ],
-//   [ 'symbol-to-schematic', SymbolToSchematicChallenge ]
+// const CHALLENGE_TANDEMS = new Map<string, string>( [
+//   [ 'counts-to-element', 'countsToElementChallenge' ],
+//   [ 'counts-to-charge', 'countsToChargeChallenge' ],
+//   [ 'counts-to-mass', 'countsToMassNumberChallenge' ],
+//   [ 'counts-to-symbol-all', 'countsToSymbolChallenge' ],
+//   [ 'counts-to-symbol-charge', 'countsToSymbolChallenge' ],
+//   [ 'counts-to-symbol-mass', 'countsToSymbolChallenge' ],
+//   [ 'counts-to-symbol-proton-count', 'countsToSymbolChallenge' ],
+//   [ 'schematic-to-element', 'schematicToElementChallenge' ],
+//   [ 'schematic-to-charge', 'schematicToChargeChallenge' ],
+//   [ 'schematic-to-mass', 'schematicToMassNumberChallenge' ],
+//   [ 'schematic-to-symbol-all', 'schematicToSymbolChallenge' ],
+//   [ 'schematic-to-symbol-charge', 'schematicToSymbolChallenge' ],
+//   [ 'schematic-to-symbol-mass-number', 'schematicToSymbolChallenge' ],
+//   [ 'schematic-to-symbol-proton-count', 'schematicToSymbolChallenge' ],
+//   [ 'symbol-to-counts', 'symbolToCountsChallenge' ],
+//   [ 'symbol-to-schematic', 'symbolToSchematicChallenge' ]
 // ] );
 
 export default class ChallengeSetFactory {
-  private static previousChallengeType: string | null = null;
-  private static availableChallengeTypes: string[] = [];
 
-  public static generate(
-    level: number,
-    numChallenges: number,
+  /**
+   * For a given Game Level, create a set of challenges.
+   */
+  public static createChallengeSet(
     model: GameModel,
-    allowedChallengeTypesByLevel: string[][],
+    validChallenges: ChallengeType[],
+    atomValuePool: AtomValuePool,
     tandem: Tandem
-  ): ToElementChallenge[] {
-    const challenges: ToElementChallenge[] = [];
-    const atomValuePool = new AtomValuePool( level );
+  ): BAAGameChallenge[] {
+    const challenges: BAAGameChallenge[] = [];
 
-    for ( let i = 0; i < numChallenges; i++ ) {
-      const challenge = this.generateChallenge( level, atomValuePool, model, allowedChallengeTypesByLevel, tandem );
+    for ( let i = 0; i < GameLevel.CHALLENGES_PER_GAME; i++ ) {
+      const challenge = this.chooseRandomAvailableChallenge( model, validChallenges, atomValuePool, tandem );
       if ( challenge ) {
         challenges.push( challenge );
       }
@@ -71,28 +71,16 @@ export default class ChallengeSetFactory {
     return challenges;
   }
 
-  private static generateChallenge(
-    level: number,
-    availableAtomValues: AtomValuePool,
+  private static chooseRandomAvailableChallenge(
     model: GameModel,
-    allowedChallengeTypesByLevel: string[][],
+    validChallenges: ChallengeType[],
+    availableAtomValues: AtomValuePool,
     tandem: Tandem
-  ): ToElementChallenge {
-    if ( this.availableChallengeTypes.length === 0 ) {
-      this.availableChallengeTypes = [ ...allowedChallengeTypesByLevel[ level ] ];
-    }
+  ): BAAGameChallenge {
 
-    let index = Math.floor( dotRandom.nextDouble() * this.availableChallengeTypes.length );
-    if (
-      this.previousChallengeType !== null &&
-      this.availableChallengeTypes[ index ] === this.previousChallengeType
-    ) {
-      index = ( index + 1 ) % this.availableChallengeTypes.length;
-    }
-
-    const challengeType = this.availableChallengeTypes[ index ];
-    this.previousChallengeType = challengeType;
-    this.availableChallengeTypes.splice( index, 1 );
+    // TODO: This probably is bad for checking repetition, will come back later https://github.com/phetsims/build-an-atom/issues/257
+    const index = Math.floor( dotRandom.nextDouble() * validChallenges.length );
+    const challengeType = validChallenges[ index ];
 
     let minProtonCount = 0;
     let maxProtonCount = Number.POSITIVE_INFINITY;
@@ -115,7 +103,14 @@ export default class ChallengeSetFactory {
     return this.createChallenge( model, challengeType, atomValue, tandem );
   }
 
-  public static createChallenge( model: GameModel, type: string, atomValue: NumberAtom, tandem: Tandem ): ToElementChallenge {
+  public static createChallenge(
+    model: GameModel,
+    type: string,
+    atomValue: NumberAtom,
+    tandem: Tandem
+  ): BAAGameChallenge {
+    // tandem = tandem.createTandem( CHALLENGE_TANDEMS.get( type )! );
+    tandem = Tandem.OPT_OUT;
     switch( type ) {
       case 'counts-to-element':
         return new CountsToElementChallenge( model, atomValue, type, tandem );
@@ -154,7 +149,7 @@ export default class ChallengeSetFactory {
     }
   }
 
-  private static isSchematicProbType( type: string ): boolean {
+  private static isSchematicProbType( type: ChallengeType ): boolean {
     return [
       'schematic-to-element',
       'schematic-to-charge',
@@ -167,7 +162,7 @@ export default class ChallengeSetFactory {
     ].includes( type );
   }
 
-  private static isChargeProbType( type: string ): boolean {
+  private static isChargeProbType( type: ChallengeType ): boolean {
     return [
       'schematic-to-charge',
       'counts-to-charge',

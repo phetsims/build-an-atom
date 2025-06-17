@@ -120,10 +120,10 @@ class StartGameLevelNode extends Node {
     const levelNumber = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
     return new LevelSelectionButton(
       new Image( icon ),
-      gameModel.scores[ levelNumber ],
+      gameModel.levels[ levelNumber ].bestScoreProperty,
       {
         listener: () => {
-          gameModel.startGameLevel( levelName, tandem.createTandem( gameLevelTandemName ) );
+          gameModel.startGameLevel( levelNumber, tandem.createTandem( gameLevelTandemName ) );
         },
         baseColor: BASE_COLOR,
         tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
