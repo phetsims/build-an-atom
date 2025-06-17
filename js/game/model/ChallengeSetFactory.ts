@@ -27,6 +27,26 @@ import ToElementChallenge from './ToElementChallenge.js';
 
 const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
 
+// TODO: Could this improve the challenge creation code? https://github.com/phetsims/build-an-atom/issues/257
+// const CHALLENGE_TO_CLASS_MAP = new Map<string, IntentionalAny>( [
+//   [ 'counts-to-element', CountsToElementChallenge ],
+//   [ 'counts-to-charge', CountsToChargeChallenge ],
+//   [ 'counts-to-mass', CountsToMassNumberChallenge ],
+//   [ 'counts-to-symbol-all', CountsToSymbolChallenge ],
+//   [ 'counts-to-symbol-charge', CountsToSymbolChallenge ],
+//   [ 'counts-to-symbol-mass', CountsToSymbolChallenge ],
+//   [ 'counts-to-symbol-proton-count', CountsToSymbolChallenge ],
+//   [ 'schematic-to-element', SchematicToElementChallenge ],
+//   [ 'schematic-to-charge', SchematicToChargeChallenge ],
+//   [ 'schematic-to-mass', SchematicToMassNumberChallenge ],
+//   [ 'schematic-to-symbol-all', SchematicToSymbolChallenge ],
+//   [ 'schematic-to-symbol-charge', SchematicToSymbolChallenge ],
+//   [ 'schematic-to-symbol-mass-number', SchematicToSymbolChallenge ],
+//   [ 'schematic-to-symbol-proton-count', SchematicToSymbolChallenge ],
+//   [ 'symbol-to-counts', SymbolToCountsChallenge ],
+//   [ 'symbol-to-schematic', SymbolToSchematicChallenge ]
+// ] );
+
 export default class ChallengeSetFactory {
   private static previousChallengeType: string | null = null;
   private static availableChallengeTypes: string[] = [];

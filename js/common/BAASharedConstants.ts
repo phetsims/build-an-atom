@@ -8,9 +8,33 @@
 
 import buildAnAtom from '../buildAnAtom.js';
 
+const VALID_CHALLENGES = [
+  'counts-to-element',
+  'counts-to-charge',
+  'counts-to-mass',
+  'counts-to-symbol-all',
+  'counts-to-symbol-charge',
+  'counts-to-symbol-mass',
+  'counts-to-symbol-proton-count',
+  'schematic-to-element',
+  'schematic-to-charge',
+  'schematic-to-mass',
+  'schematic-to-symbol-all',
+  'schematic-to-symbol-charge',
+  'schematic-to-symbol-mass-number',
+  'schematic-to-symbol-proton-count',
+  'symbol-to-counts',
+  'symbol-to-schematic'
+] as const;
+
+export type ChallengeType = typeof VALID_CHALLENGES[number];
+
 const BAASharedConstants = {
   RESET_BUTTON_RADIUS: 20,
-  MAX_CHALLENGE_ATTEMPTS: 2 // Note: Attempt is the same as a submission in BAAGameChallenge.
+  MAX_CHALLENGE_ATTEMPTS: 2, // Note: Attempt is the same as a submission in BAAGameChallenge.
+
+  VALID_CHALLENGES: VALID_CHALLENGES
+
 };
 
 buildAnAtom.register( 'BAASharedConstants', BAASharedConstants );
