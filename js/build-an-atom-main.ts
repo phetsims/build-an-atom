@@ -22,7 +22,8 @@ const tandem = Tandem.ROOT;
 simLauncher.launch( () => {
   const screens: ( AtomScreen | SymbolScreen | GameScreen )[] = [
     new AtomScreen( tandem.createTandem( 'atomScreen' ) ),
-    new SymbolScreen( tandem.createTandem( 'symbolScreen' ) )
+    new SymbolScreen( tandem.createTandem( 'symbolScreen' ) ),
+    new GameScreen( tandem.createTandem( 'gameScreen' ) )
   ];
 
   const options: SimOptions = {
@@ -38,9 +39,5 @@ simLauncher.launch( () => {
     }
   };
 
-  // PhET-iO does not support the game screen (yet), see https://github.com/phetsims/build-an-atom/issues/156
-  if ( !Tandem.PHET_IO_ENABLED ) {
-    screens.push( new GameScreen( tandem.createTandem( 'gameScreen' ) ) );
-  }
   new Sim( buildAnAtomTitleStringProperty, screens, options ).start();
 } );

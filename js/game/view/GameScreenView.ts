@@ -38,6 +38,9 @@ class GameScreenView extends ScreenView {
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       tandem: tandem
     } );
+
+    tandem = Tandem.OPT_OUT;
+
     // Add a root node where all of the game-related nodes will live.
     const rootNode = new Node();
     this.addChild( rootNode );

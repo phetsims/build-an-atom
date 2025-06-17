@@ -11,10 +11,10 @@ import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TEmitterListener } from '../../../../axon/js/TEmitter.js';
+import TModel from '../../../../joist/js/TModel.js';
 import merge from '../../../../phet-core/js/merge.js';
 import NumberAtom, { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -64,13 +64,16 @@ export type IonChallengeResult = {
   submittedCharge?: NeutralOrIon;
 };
 
-class GameModel extends PhetioObject {
+class GameModel implements TModel {
 
+  // The selected game level. null means 'no selection' and causes the view to return to the level-selection UI.
+  public readonly levelProperty: NumberProperty;
   public readonly stateProperty: Property<BAAGameState>;
   public readonly timerEnabledProperty: BooleanProperty;
-  public readonly levelProperty: NumberProperty;
   public readonly challengeSetProperty: Property<Array<BAAGameChallenge>>;
   public readonly challengeIndexProperty: NumberProperty;
+
+  // The score for the current game that is being played.
   public readonly scoreProperty: NumberProperty; // Score on current game level.
   public readonly elapsedTimeProperty: Property<number>; // Elapsed time in seconds.
   public readonly provideFeedbackProperty: BooleanProperty; // Whether to provide feedback during the game.
@@ -139,12 +142,6 @@ class GameModel extends PhetioObject {
 
   public constructor( tandem: Tandem ) {
 
-    super( {
-      // phetioType: GameModel.GameModelIO,
-      tandem: tandem,
-      phetioState: false
-    } );
-
     this.allowedChallengeTypesByLevel = [
       [ 'schematic-to-element', 'counts-to-element' ],
       [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
@@ -152,8 +149,7 @@ class GameModel extends PhetioObject {
       [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
     ];
 
-    this.stateProperty = new Property( BAAGameState.CHOOSING_LEVEL, {
-      // phetioValueType: BAAGameState.BAAGameStateIO,
+    this.stateProperty = new Property<BAAGameState>( BAAGameState.CHOOSING_LEVEL, {
       // tandem: tandem.createTandem( 'stateProperty' )
     } );
 
@@ -163,13 +159,14 @@ class GameModel extends PhetioObject {
 
     this.levelProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'levelProperty' ),
+      phetioDocumentation: 'The selected level in the game.',
       numberType: 'Integer',
+      phetioFeatured: true,
       phetioReadOnly: true
     } );
 
-    this.challengeSetProperty = new Property( [] as BAAGameChallenge[], {
+    this.challengeSetProperty = new Property<Array<BAAGameChallenge>>( [] as BAAGameChallenge[], {
       // tandem: tandem.createTandem( 'challengeSetProperty' )
-      // phetioValueType: ArrayIO( BAAGameChallenge.BAAGameChallengeIO )
     } );
 
     this.challengeIndexProperty = new NumberProperty( 0, {
@@ -180,7 +177,9 @@ class GameModel extends PhetioObject {
       tandem: tandem.createTandem( 'scoreProperty' )
     } ); // Score on current game level.
 
-    this.elapsedTimeProperty = new Property( 0 );
+    this.elapsedTimeProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'elapsedTimeProperty' )
+    } );
 
     this.provideFeedbackProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'provideFeedbackProperty' )
@@ -193,6 +192,7 @@ class GameModel extends PhetioObject {
       parameters: [ { name: 'results', phetioType: ObjectLiteralIO } ]
     } );
 
+    // TODO: This should probably live on each game level https://github.com/phetsims/build-an-atom/issues/156
     this.bestScores = []; // Properties that track progress on each game level.
     this.scores = []; // Properties that track score at each game level
     this.bestTimeVisible = []; // Properties that track whether to show best time at each game level

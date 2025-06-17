@@ -24,8 +24,7 @@ class GameScreen extends Screen<GameModel, GameScreenView> {
     super(
       () => new GameModel( tandem.createTandem( 'model' ) ),
 
-      // TODO: Instrument the game screen, see https://github.com/phetsims/build-an-atom/issues/156
-      model => new GameScreenView( model, Tandem.OPT_OUT ),
+      model => new GameScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.gameStringProperty,
         backgroundColorProperty: BAAColors.gameScreenBackgroundColorProperty,
