@@ -11,6 +11,7 @@ import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TEmitterListener } from '../../../../axon/js/TEmitter.js';
+import Range from '../../../../dot/js/Range.js';
 import TModel from '../../../../joist/js/TModel.js';
 import merge from '../../../../phet-core/js/merge.js';
 import NumberAtom, { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
@@ -93,7 +94,7 @@ class GameModel implements TModel {
   public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
   public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
 
-  // TODO: CHeck this for PhETIO, implement real PhET-iO - https://github.com/phetsims/build-an-atom/issues/156
+  // TODO: Check this for PhET-iO - https://github.com/phetsims/build-an-atom/issues/257
   // public static readonly GameModelIO = new IOType( 'GameModelIO', {
   //   valueType: GameModel,
   //   documentation: 'The model for the Game',
@@ -149,6 +150,8 @@ class GameModel implements TModel {
       [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
     ];
 
+    const numberOfLevels = this.allowedChallengeTypesByLevel.length;
+
     this.stateProperty = new Property<BAAGameState>( BAAGameState.CHOOSING_LEVEL, {
       // tandem: tandem.createTandem( 'stateProperty' )
     } );
@@ -159,6 +162,7 @@ class GameModel implements TModel {
 
     this.levelProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'levelProperty' ),
+      range: new Range( 0, numberOfLevels - 1 ),
       phetioDocumentation: 'The selected level in the game.',
       numberType: 'Integer',
       phetioFeatured: true,
@@ -170,15 +174,21 @@ class GameModel implements TModel {
     } );
 
     this.challengeIndexProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'challengeIndexProperty' )
+      tandem: tandem.createTandem( 'challengeIndexProperty' ),
+      range: new Range( 0, CHALLENGES_PER_LEVEL - 1 ),
+      phetioDocumentation: 'The index of the current challenge within the level.',
+      phetioReadOnly: true
     } );
 
     this.scoreProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'scoreProperty' )
-    } ); // Score on current game level.
+      tandem: tandem.createTandem( 'scoreProperty' ),
+      phetioDocumentation: 'Score on current game level.',
+      range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL )
+    } );
 
     this.elapsedTimeProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'elapsedTimeProperty' )
+      tandem: tandem.createTandem( 'elapsedTimeProperty' ),
+      range: new Range( 0, Number.POSITIVE_INFINITY )
     } );
 
     this.provideFeedbackProperty = new BooleanProperty( true, {
@@ -192,12 +202,12 @@ class GameModel implements TModel {
       parameters: [ { name: 'results', phetioType: ObjectLiteralIO } ]
     } );
 
-    // TODO: This should probably live on each game level https://github.com/phetsims/build-an-atom/issues/156
+    // TODO: This should probably live on each game level https://github.com/phetsims/build-an-atom/issues/257
     this.bestScores = []; // Properties that track progress on each game level.
     this.scores = []; // Properties that track score at each game level
     this.bestTimeVisible = []; // Properties that track whether to show best time at each game level
     this.bestTimes = []; // Best times at each level.
-    _.times( ShredConstants.LEVEL_NAMES.length, () => {
+    _.times( numberOfLevels, () => {
       this.bestScores.push( new Property( 0 ) );
       this.scores.push( new Property( 0 ) );
       this.bestTimes.push( new Property<number | null>( null ) );
