@@ -14,7 +14,7 @@ import Range from '../../../../dot/js/Range.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAASharedConstants from '../../common/BAASharedConstants.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
 import GameModel, { IonChallengeResult } from './GameModel.js';
@@ -85,7 +85,7 @@ class BAAGameChallenge extends BAAGameState {
     } );
     this.numSubmissionsProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'numSubmissionsProperty' ),
-      range: new Range( 0, BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ),
+      range: new Range( 0, BAAConstants.MAX_CHALLENGE_ATTEMPTS ),
       phetioReadOnly: true,
       phetioState: false
     } );
@@ -119,7 +119,7 @@ class BAAGameChallenge extends BAAGameState {
       else {
 
         // Handle incorrect answer.
-        if ( this.numSubmissionsProperty.get() < BAASharedConstants.MAX_CHALLENGE_ATTEMPTS ) {
+        if ( this.numSubmissionsProperty.get() < BAAConstants.MAX_CHALLENGE_ATTEMPTS ) {
 
           // Give the user another chance.
           this.challengeStateProperty.set( BAAChallengeState.PRESENTING_TRY_AGAIN );

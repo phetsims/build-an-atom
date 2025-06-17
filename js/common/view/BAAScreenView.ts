@@ -36,8 +36,8 @@ import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
+import BAAConstants from '../BAAConstants.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
-import BAASharedConstants from '../BAASharedConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 
 // constants
@@ -350,7 +350,7 @@ class BAAScreenView extends ScreenView {
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
       bottom: this.layoutBounds.maxY - CONTROLS_INSET,
-      radius: BAASharedConstants.RESET_BUTTON_RADIUS,
+      radius: BAAConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
     this.addChild( resetAllButton );

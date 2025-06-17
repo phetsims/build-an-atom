@@ -29,7 +29,7 @@ const VALID_CHALLENGES = [
 
 export type ChallengeType = typeof VALID_CHALLENGES[number];
 
-const BAASharedConstants = {
+const BAAConstants = {
   RESET_BUTTON_RADIUS: 20,
   MAX_CHALLENGE_ATTEMPTS: 2, // Note: Attempt is the same as a submission in BAAGameChallenge.
 
@@ -37,6 +37,6 @@ const BAASharedConstants = {
 
 };
 
-buildAnAtom.register( 'BAASharedConstants', BAASharedConstants );
+buildAnAtom.register( 'BAAConstants', BAAConstants );
 
-export default BAASharedConstants;
+export default BAAConstants;

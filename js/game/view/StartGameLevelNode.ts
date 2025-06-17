@@ -24,7 +24,7 @@ import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
 import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BAASharedConstants from '../../common/BAASharedConstants.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import GameModel from '../model/GameModel.js';
 
 // constants
@@ -98,7 +98,7 @@ class StartGameLevelNode extends Node {
       listener: () => {
         gameModel.reset();
       },
-      radius: BAASharedConstants.RESET_BUTTON_RADIUS,
+      radius: BAAConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' ),
       right: layoutBounds.width - CONTROLS_INSET,
       bottom: layoutBounds.height - CONTROLS_INSET
