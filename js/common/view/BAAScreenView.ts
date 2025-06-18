@@ -46,7 +46,7 @@ const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
 const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
 const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
-const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
+const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, and may need adjustment if that changes.
 
 class BAAScreenView extends ScreenView {
 
@@ -63,7 +63,7 @@ class BAAScreenView extends ScreenView {
 
       // A PhET wide decision was made to not update custom layout bounds even if they do not match the
       // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
-      // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
+      // any phet-io instrumentation. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false
@@ -132,6 +132,7 @@ class BAAScreenView extends ScreenView {
           nucleonLayers.length > zLayer,
           'zLayer for nucleon exceeds number of layers, max number may need increasing.'
         );
+
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( particleView => {
