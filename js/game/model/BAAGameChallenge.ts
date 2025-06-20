@@ -127,6 +127,12 @@ class BAAGameChallenge extends BAAGameState {
   public override displayCorrectAnswer(): void {
     this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
   }
+
+  public reset(): void {
+    this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
+    this.numSubmissionsProperty.set( 0 );
+    this.pointValue = 0;
+  }
 }
 
 buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
