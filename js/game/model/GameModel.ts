@@ -3,6 +3,12 @@
 /**
  * Primary model class for the Build an Atom Game tab.
  *
+ * TODO: https://github.com/phetsims/build-an-atom/issues/257
+ *  - Timer is not working correctly
+ *  - check() is not being called.
+ *  - The challenges are the ones keeping track of state!!
+ *
+ * @author Agustín Vallejo
  * @author John Blanco
  */
 
