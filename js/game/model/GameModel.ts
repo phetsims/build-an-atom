@@ -43,13 +43,6 @@ class GameModel implements TModel {
   public readonly levelNumberProperty: ReadOnlyProperty<number>;
 
   // State of the game. See GameState.ts for documentation of possible state transitions.
-  // private readonly _gameStateProperty: StringUnionProperty<GameState>;
-  // public readonly gameStateProperty: TReadOnlyProperty<GameState>;
-
-  // The score for the current game that is being played.
-  public readonly scoreProperty: Property<number>;
-
-  // State of the game. See GameState.ts for documentation of possible state transitions.
   private readonly _gameStateProperty: StringUnionProperty<GameState>;
   public readonly gameStateProperty: TReadOnlyProperty<GameState>;
 
@@ -65,9 +58,6 @@ class GameModel implements TModel {
   public readonly challengeSetProperty: Property<Array<BAAGameChallenge>>;
   public readonly challengeIndexProperty: NumberProperty;
 
-  // Elapsed time in seconds.
-  public readonly elapsedTimeProperty: Property<number>;
-
   // Whether to provide feedback during the game.
   public readonly provideFeedbackProperty: BooleanProperty;
 
@@ -80,8 +70,8 @@ class GameModel implements TModel {
   // Flag set to indicate new best time, cleared each time a level is started.
   public newBestTime: boolean;
 
-  // Set of external functions that the model will step.
-  public stepListeners: Array<( dt: number ) => void>;
+  // The score for the current game that is being played.
+  public readonly scoreProperty: Property<number>;
 
   public readonly timer: GameTimer;
   public readonly timerEnabledProperty: Property<boolean>;
@@ -135,14 +125,8 @@ class GameModel implements TModel {
       phetioValueType: NumberIO
     } );
 
-    this.challengeSetProperty = new Property<Array<BAAGameChallenge>>( this.levels[ 0 ].getChallenges(), {
+    this.challengeSetProperty = new Property<Array<BAAGameChallenge>>( [], {
       // tandem: tandem.createTandem( 'challengeSetProperty' )
-    } );
-
-    this.challengeSetProperty.lazyLink( () => {
-      if ( !isSettingPhetioStateProperty.value ) {
-        this._challengeNumberProperty.value = 1;
-      }
     } );
 
     this._challengeNumberProperty = new NumberProperty( 1, {
@@ -156,8 +140,11 @@ class GameModel implements TModel {
 
     // Consider that this derivation may go through intermediate states when PhET-iO state is restored,
     // depending on the order in which the dependencies are set.
-    this.challengeProperty = new DerivedProperty( [ this.challengeSetProperty, this.challengeNumberProperty ],
-      ( challenges, challengeNumber ) => ( challengeNumber >= 1 && challenges.length >= challengeNumber ) ? challenges[ challengeNumber - 1 ] : challenges[ 0 ], {
+    this.challengeProperty = new DerivedProperty(
+      [ this.challengeSetProperty, this.challengeNumberProperty ],
+      ( challenges, challengeNumber ) => {
+        return ( challenges.length >= challengeNumber ) ? challenges[ challengeNumber - 1 ] : challenges[ 0 ];
+      }, {
         // tandem: tandem.createTandem( 'challengeProperty' ),
         // phetioDocumentation: 'The challenge being played.',
         // phetioFeatured: true,
@@ -168,7 +155,7 @@ class GameModel implements TModel {
     // selected from the pool, and have coefficients from previous game play.
     this.challengeProperty.link( challenge => {
       if ( !isSettingPhetioStateProperty.value ) {
-        challenge.reset();
+        challenge && challenge.reset();
       }
     } );
 
@@ -216,16 +203,9 @@ class GameModel implements TModel {
       range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL )
     } );
 
-    this.elapsedTimeProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'elapsedTimeProperty' ),
-      range: new Range( 0, Number.POSITIVE_INFINITY )
-    } );
-
     this.provideFeedbackProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'provideFeedbackProperty' )
     } );
-
-    this.stepListeners = [];
 
     this.timerEnabledProperty.lazyLink( timerEnabled => {
       for ( let i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
@@ -239,80 +219,29 @@ class GameModel implements TModel {
     this.challengeSetGroupTandem = Tandem.OPT_OUT;
 
     this.numberAtomGroupTandem = Tandem.OPT_OUT;
-  }
 
-  public step( dt: number ): void {
-
-    // Increment the game timer if running.  Note that this assumes that dt is not clamped, because we want it to
-    // essentially continue running if the user switches tabs or hides the browser.
-    if ( this.timerEnabledProperty.get() &&
-         this.stateProperty.get() !== BAAGameState.CHOOSING_LEVEL &&
-         this.stateProperty.get() !== BAAGameState.LEVEL_COMPLETED ) {
-
-      this.elapsedTimeProperty.set( this.elapsedTimeProperty.get() + dt );
-    }
-
-    // Step the current challenge if it has any time-driven behavior.
-    this.stateProperty.get().step( dt );
-
-    // Step any external functions that need it.
-    this.stepListeners.forEach( stepListener => { stepListener( dt ); } );
-  }
-
-  public startGameLevel( levelNumber: number, tandem?: Tandem ): void {
-    this.levelProperty.set( this.levels[ levelNumber ] );
-    this.challengeIndexProperty.set( 0 );
-
-    // TODO: Commented out due to problems related to phet-io, see https://github.com/phetsims/build-an-atom/issues/185
-    // assert && assert( this.challengeSetProperty.get().length === 0, 'challenges should be cleared before starting a new game' );
-
-    const challengeSet = this.levels[ levelNumber ].getChallenges();
-    this.challengeSetProperty.set( challengeSet );
-    this.scoreProperty.set( 0 );
-    this.newBestTime = false;
-    this.levels[ this.levelNumberProperty.get() ].bestTimeVisibleProperty.value = false;
-    this.elapsedTimeProperty.reset();
-    if ( this.challengeSetProperty.get().length > 0 ) {
-      this.stateProperty.set( this.challengeSetProperty.get()[ 0 ] );
-    }
-    else {
-      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
-    }
-  }
-
-  public newGame(): void {
-    this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
-    this.scoreProperty.set( 0 );
-
-    // (phet-io) Dispose old challenges before setting the property again.
-    this.challengeSetProperty.get().forEach( challenge => {
-      ( !challenge.isDisposed ) && challenge.dispose();
+    this.levelProperty.lazyLink( level => {
+      if ( !isSettingPhetioStateProperty.value ) {
+        level ? this.startGame() : this.startOver();
+      }
     } );
-    this.challengeSetProperty.get().length = 0;
+
+    this.challengeSetProperty.lazyLink( () => {
+      if ( !isSettingPhetioStateProperty.value ) {
+        this._challengeNumberProperty.value = 1;
+        this._challengeNumberProperty.notifyListenersStatic();
+      }
+    } );
+
+    this._challengeNumberProperty.lazyLink( challengeNumber => {
+      const challenge = this.challengeSetProperty.value[ challengeNumber - 1 ];
+      if ( challenge ) {
+        this.stateProperty.value = challenge;
+      }
+    } );
+
   }
 
-  /**
-   * Does a full reset of the Game model.
-   */
-  public reset(): void {
-    this.resetToStart();
-    this.levels.forEach( level => level.reset() );
-    this.levelProperty.reset();
-    this._gameStateProperty.reset();
-    this._challengeNumberProperty.reset();
-    this.timerEnabledProperty.reset();
-  }
-
-  /**
-   * Resets only the things that should be reset when a game is started, or when in the 'levelSelection' game state.
-   */
-  private resetToStart(): void {
-    this.isNewBestTime = false;
-    this.attemptsProperty.reset();
-    this.pointsProperty.reset();
-    this.scoreProperty.reset();
-    this.timer.reset();
-  }
   /**
    * Convenience method for setting the game state.
    */
@@ -417,32 +346,6 @@ class GameModel implements TModel {
     this.setGameState( 'next' );
   }
 
-  public next2(): void {
-    const level = this.levelNumberProperty.get();
-    if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
-      // Next challenge.
-      this.challengeIndexProperty.set( this.challengeIndexProperty.get() + 1 );
-      this.stateProperty.set( this.challengeSetProperty.get()[ this.challengeIndexProperty.get() ] );
-    }
-    else {
-      // Game level completed - update score and state.
-      if ( this.scoreProperty.get() > this.levels[ level ].bestScoreProperty.value ) {
-        this.levels[ level ].bestScoreProperty.value = this.scoreProperty.get();
-      }
-      if ( this.timerEnabledProperty.get() && this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL &&
-           ( this.levels[ level ].bestTimeProperty.value === null || this.elapsedTimeProperty.get() < this.levels[ level ].bestTimeProperty.value ) ) {
-        this.newBestTime = this.levels[ level ].bestTimeProperty.value !== null; // Don't set this flag for the first 'best time', only when the time improves.
-        this.levels[ level ].bestTimeProperty.value = this.elapsedTimeProperty.get();
-      }
-
-      if ( this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabledProperty.get() ) {
-        this.levels[ level ].bestTimeVisibleProperty.value = true;
-      }
-
-      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
-    }
-  }
-
   /**
    * Called when the user presses the "Next" button.
    */
@@ -455,6 +358,7 @@ class GameModel implements TModel {
     }
     else {
       this.setGameState( 'levelCompleted' );
+      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
     }
   }
 
@@ -473,6 +377,31 @@ class GameModel implements TModel {
     this.resetToStart();
     this.levelProperty.value = null;
     this.setGameState( 'levelSelection' );
+    this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
+    this.challengeSetProperty.value = [];
+  }
+
+  /**
+   * Does a full reset of the Game model.
+   */
+  public reset(): void {
+    this.resetToStart();
+    this.levels.forEach( level => level.reset() );
+    this.levelProperty.reset();
+    this._gameStateProperty.reset();
+    this._challengeNumberProperty.reset();
+    this.timerEnabledProperty.reset();
+  }
+
+  /**
+   * Resets only the things that should be reset when a game is started, or when in the 'levelSelection' game state.
+   */
+  private resetToStart(): void {
+    this.isNewBestTime = false;
+    this.attemptsProperty.reset();
+    this.pointsProperty.reset();
+    this.scoreProperty.reset();
+    this.timer.reset();
   }
 
 }

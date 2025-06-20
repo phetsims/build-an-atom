@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -25,8 +24,11 @@ import StartGameLevelNode from './StartGameLevelNode.js';
 
 class GameScreenView extends ScreenView {
 
-  public rewardNode: BAARewardNode | null;
-  private levelCompletedNode: LevelCompletedNode | null;
+  private readonly levelSelectionNode: StartGameLevelNode;
+  private readonly levelNode: Node;
+
+  private levelCompletedNode: LevelCompletedNode | null; // created on demand
+  public rewardNode: BAARewardNode | null; // created on demand
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
@@ -42,13 +44,13 @@ class GameScreenView extends ScreenView {
     tandem = Tandem.OPT_OUT;
 
     // Add a root node where all of the game-related nodes will live.
-    const rootNode = new Node();
-    this.addChild( rootNode );
+    this.levelNode = new Node();
+    this.addChild( this.levelNode );
 
-    const startGameLevelNode = new StartGameLevelNode(
+    this.levelSelectionNode = new StartGameLevelNode(
       gameModel,
       this.layoutBounds,
-      tandem.createTandem( 'startGameLevelNode' )
+      tandem.createTandem( 'levelSelectionNode' )
     );
 
     const scoreboard = new FiniteStatusBar(
@@ -56,9 +58,9 @@ class GameScreenView extends ScreenView {
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
       {
-        challengeNumberProperty: new DerivedProperty( [ gameModel.challengeNumberProperty ], challengeIndex => challengeIndex + 1 ),
+        challengeNumberProperty: gameModel.challengeNumberProperty,
         numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
-        elapsedTimeProperty: gameModel.elapsedTimeProperty,
+        elapsedTimeProperty: gameModel.timer.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
         barFill: 'rgb( 49, 117, 202 )',
         textFill: 'white',
@@ -72,7 +74,7 @@ class GameScreenView extends ScreenView {
           baseColor: '#e5f3ff',
           xMargin: 6,
           yMargin: 5,
-          listener: () => { gameModel.newGame(); }
+          listener: () => { gameModel.startOver(); }
         },
         tandem: tandem.createTandem( 'scoreboard' )
       }
@@ -88,8 +90,8 @@ class GameScreenView extends ScreenView {
     gameModel.stateProperty.link( ( state: BAAGameState ) => {
 
       if ( state === BAAGameState.CHOOSING_LEVEL ) {
-        rootNode.removeAllChildren();
-        rootNode.addChild( startGameLevelNode );
+        this.levelNode.removeAllChildren();
+        this.levelNode.addChild( this.levelSelectionNode );
         if ( this.rewardNode !== null ) {
           this.rewardNode.dispose();
         }
@@ -100,12 +102,12 @@ class GameScreenView extends ScreenView {
         this.levelCompletedNode = null;
       }
       else if ( state === BAAGameState.LEVEL_COMPLETED ) {
-        rootNode.removeAllChildren();
+        this.levelNode.removeAllChildren();
         if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
           this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
-          rootNode.addChild( this.rewardNode );
+          this.levelNode.addChild( this.rewardNode );
 
           // Play the appropriate audio feedback
           gameAudioPlayer.gameOverPerfectScore();
@@ -123,7 +125,7 @@ class GameScreenView extends ScreenView {
             GameModel.MAX_POINTS_PER_GAME_LEVEL,
             GameModel.CHALLENGES_PER_LEVEL,
             gameModel.timerEnabledProperty.get(),
-            gameModel.elapsedTimeProperty.get(),
+            gameModel.timer.elapsedTimeProperty.get(),
             gameModel.levels[ gameModel.levelNumberProperty.get() ].bestTimeProperty.value,
             gameModel.newBestTime,
             () => { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
@@ -134,20 +136,20 @@ class GameScreenView extends ScreenView {
               tandem: tandem.createTandem( 'levelCompletedNode' )
             }
           );
-          rootNode.addChild( this.levelCompletedNode );
+          this.levelNode.addChild( this.levelCompletedNode );
         }
       }
       else if ( state.createView ) {
         // Since we're not in the start or game-over states, we must be
         // presenting a challenge.
-        rootNode.removeAllChildren();
+        this.levelNode.removeAllChildren();
         const challengeView = state.createView( this.layoutBounds, tandem.createTandem( `${state.tandem.name}View` ) );
         state.disposeEmitter.addListener( function disposeListener() {
           challengeView.dispose();
           state.disposeEmitter.removeListener( disposeListener );
         } );
-        rootNode.addChild( challengeView );
-        rootNode.addChild( scoreboard );
+        this.levelNode.addChild( challengeView );
+        this.levelNode.addChild( scoreboard );
       }
     } );
   }

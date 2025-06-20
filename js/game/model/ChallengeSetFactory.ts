@@ -18,7 +18,6 @@ import CountsToChargeChallenge from './CountsToChargeChallenge.js';
 import CountsToElementChallenge from './CountsToElementChallenge.js';
 import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
 import CountsToSymbolChallenge from './CountsToSymbolChallenge.js';
-import GameLevel from './GameLevel.js';
 import GameModel from './GameModel.js';
 import SchematicToChargeChallenge from './SchematicToChargeChallenge.js';
 import SchematicToElementChallenge from './SchematicToElementChallenge.js';
@@ -61,7 +60,7 @@ export default class ChallengeSetFactory {
   ): BAAGameChallenge[] {
     const challenges: BAAGameChallenge[] = [];
 
-    for ( let i = 0; i < GameLevel.CHALLENGES_PER_GAME; i++ ) {
+    for ( let i = 0; i < GameModel.CHALLENGES_PER_LEVEL; i++ ) {
       const challenge = this.chooseRandomAvailableChallenge( model, validChallenges, atomValuePool, tandem );
       if ( challenge ) {
         challenges.push( challenge );

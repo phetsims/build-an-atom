@@ -26,7 +26,7 @@ import GameModel from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
 
-const CHALLENGES_PER_LEVEL: ChallengeType[][] = [
+const ALLOWED_CHALLENGES_PER_LEVEL: ChallengeType[][] = [
   [ 'schematic-to-element', 'counts-to-element' ],
   [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
   [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
@@ -36,8 +36,6 @@ const CHALLENGES_PER_LEVEL: ChallengeType[][] = [
 type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 export default class GameLevel extends PhetioObject {
-
-  public static readonly CHALLENGES_PER_GAME = 5;
 
   public static readonly POINTS_FIRST_ATTEMPT = 2;  // points to award for correct guess on 1st attempt
   public static readonly POINTS_SECOND_ATTEMPT = 1; // points to award for correct guess on 2nd attempt
@@ -71,7 +69,7 @@ export default class GameLevel extends PhetioObject {
     this.index = index;
     this.levelName = ShredConstants.LEVEL_NAMES[ this.index ];
     this.atomValuePool = new AtomValuePool( this.index );
-    this.challenges = CHALLENGES_PER_LEVEL[ this.index ];
+    this.challenges = ALLOWED_CHALLENGES_PER_LEVEL[ this.index ];
     this.challengePool = ChallengeSetFactory.createChallengeSet( model, this.challenges, this.atomValuePool, tandem );
 
     this.bestScoreProperty = new NumberProperty( 0, {
@@ -120,7 +118,7 @@ export default class GameLevel extends PhetioObject {
    * A perfect score is obtained when the user balances every challenge correctly on the first attempt.
    */
   public getPerfectScore(): number {
-    return GameLevel.CHALLENGES_PER_GAME * GameLevel.POINTS_FIRST_ATTEMPT;
+    return GameModel.CHALLENGES_PER_LEVEL * GameLevel.POINTS_FIRST_ATTEMPT;
   }
 
   /**
