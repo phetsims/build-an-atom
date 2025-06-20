@@ -20,7 +20,6 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from '../view/ChallengeView.js';
-import { ChallengeResult } from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -46,7 +45,7 @@ class BAAGameState extends PhetioObject {
   /**
    * update score and state based on whether the user submitted a correct or incorrect answer
    */
-  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: ChallengeResult ): void {
+  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean ): void {
     throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
   }
 

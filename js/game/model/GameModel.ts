@@ -8,23 +8,18 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import TModel from '../../../../joist/js/TModel.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import { NeutralOrIon } from '../view/ToElementChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import BAAGameState from './BAAGameState.js';
 import GameLevel from './GameLevel.js';
@@ -33,32 +28,6 @@ import GameLevel from './GameLevel.js';
 const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
-
-type LevelResult = {
-  level: number;
-  maxPoints: number;
-  challenges: number;
-  timerEnabled: boolean;
-  elapsedTime: number;
-  bestTime: number;
-  newBestTime: boolean;
-};
-
-export type ChallengeResult = {
-  isCorrect: boolean; // Whether the answer was correct.
-  points: number; // Points awarded for the answer.
-  correctProtonCount: number; // The correct proton count.
-  correctNeutronCount: number; // The correct neutron count.
-  correctElectronCount: number; // The correct electron count.
-  submittedProtonCount: number; // The proton count submitted by the user.
-  submittedNeutronCount: number; // The neutron count submitted by the user.
-  submittedElectronCount: number; // The electron count submitted by the user.
-} & IonChallengeResult;
-
-export type IonChallengeResult = {
-  correctCharge?: NeutralOrIon;
-  submittedCharge?: NeutralOrIon;
-};
 
 class GameModel implements TModel {
 
@@ -90,12 +59,6 @@ class GameModel implements TModel {
 
   // Whether to provide feedback during the game.
   public readonly provideFeedbackProperty: BooleanProperty;
-
-  // Emitter for check answer events.
-  public readonly checkAnswerEmitter: Emitter<[ ChallengeResult ]>;
-
-  // Emitter for level completed events.
-  public readonly levelCompletedEmitter: Emitter<[ LevelResult ]>;
 
   // Tandem for the group of challenges.
   public readonly challengeSetGroupTandem: Tandem;
@@ -185,11 +148,6 @@ class GameModel implements TModel {
 
     this.stepListeners = [];
 
-    this.levelCompletedEmitter = new Emitter( {
-      tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      parameters: [ { name: 'results', phetioType: ObjectLiteralIO } ]
-    } );
-
     this.timerEnabledProperty.lazyLink( timerEnabled => {
       for ( let i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
         this.levels[ i ].bestTimeVisibleProperty.value = timerEnabled && this.levels[ i ].achievedPerfectScore();
@@ -198,11 +156,6 @@ class GameModel implements TModel {
 
     // Flag set to indicate new best time, cleared each time a level is started.
     this.newBestTime = false;
-
-    this.checkAnswerEmitter = new Emitter( {
-      tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      parameters: [ { name: 'result', phetioType: ObjectLiteralIO } ]
-    } );
 
     this.challengeSetGroupTandem = Tandem.OPT_OUT;
 
@@ -285,36 +238,8 @@ class GameModel implements TModel {
         this.levels[ level ].bestTimeVisibleProperty.value = true;
       }
 
-      // When the game is complete, send notification that can be used by phet-io
-      this.levelCompletedEmitter.emit( {
-        level: level,
-        maxPoints: MAX_POINTS_PER_GAME_LEVEL,
-        challenges: CHALLENGES_PER_LEVEL,
-        timerEnabled: this.timerEnabledProperty.get(),
-        elapsedTime: this.elapsedTimeProperty.get(),
-        bestTime: this.levels[ level ].bestTimeProperty.value,
-        newBestTime: this.newBestTime
-      } );
-
       this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
     }
-  }
-
-  public emitCheckAnswer( isCorrect: boolean, points: number, answerAtom: TNumberAtom, submittedAtom: TNumberAtom, extension?: IonChallengeResult ): void {
-    const arg: ChallengeResult = {
-      isCorrect: isCorrect,
-
-      correctProtonCount: answerAtom.protonCountProperty.get(),
-      correctNeutronCount: answerAtom.neutronCountProperty.get(),
-      correctElectronCount: answerAtom.electronCountProperty.get(),
-
-      submittedProtonCount: submittedAtom.protonCountProperty.get(),
-      submittedNeutronCount: submittedAtom.neutronCountProperty.get(),
-      submittedElectronCount: submittedAtom.electronCountProperty.get(),
-
-      points: points
-    };
-    this.checkAnswerEmitter.emit( merge( arg, extension ) );
   }
 
   /**

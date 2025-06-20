@@ -17,7 +17,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
-import GameModel, { IonChallengeResult } from './GameModel.js';
+import GameModel from './GameModel.js';
 
 class BAAGameChallenge extends BAAGameState {
 
@@ -67,13 +67,12 @@ class BAAGameChallenge extends BAAGameState {
     super.dispose();
   }
 
-  public override handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: IonChallengeResult ): void {
+  public override handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean ): void {
 
     this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
     const pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
     this.pointValue = isCorrect ? pointsIfCorrect : 0;
     this.model.scoreProperty.set( this.model.scoreProperty.get() + this.pointValue );
-    this.model.emitCheckAnswer( isCorrect, this.pointValue, this.answerAtom, submittedAtom, emitMessageOptions );
 
     if ( this.model.provideFeedbackProperty.get() ) {
       if ( isCorrect ) {
