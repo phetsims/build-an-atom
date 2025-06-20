@@ -127,8 +127,8 @@ class GameScreenView extends ScreenView {
             gameModel.timerEnabledProperty.get(),
             gameModel.timer.elapsedTimeProperty.get(),
             gameModel.levels[ gameModel.levelNumberProperty.get() ].bestTimeProperty.value,
-            gameModel.newBestTime,
-            () => { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
+            gameModel.isNewBestTime,
+            () => { gameModel.levelProperty.reset(); }, {
               centerX: this.layoutBounds.width / 2,
               centerY: this.layoutBounds.height / 2,
               levelVisible: false,

@@ -34,14 +34,25 @@ const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHA
 
 class GameModel implements TModel {
 
+  public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
+  public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
+
+  // The selected game level. null means 'no selection' and causes the view to return to the level-selection UI.
+  public readonly stateProperty: Property<BAAGameState>;
+
+  // All the levels in the game
   public readonly levels: GameLevel[];
 
   // The selected game level. null means 'no selection' and causes the view to return to the level-selection UI.
   public readonly levelProperty: Property<GameLevel | null>;
 
-  // Number of the game level that the user is playing. Uses 1-based numbering. Zero means no level is currently being played.
+  // The number of the selected level in the game. Zero means that no level is selected.
   public readonly levelNumberProperty: ReadOnlyProperty<number>;
 
+  // The set of challenges for the current level.
+  public readonly challengeSetProperty: Property<Array<BAAGameChallenge>>;
+
+  // TODO: This might go, it's very BCE centric and we use more stateProperty https://github.com/phetsims/build-an-atom/issues/257
   // State of the game. See GameState.ts for documentation of possible state transitions.
   private readonly _gameStateProperty: StringUnionProperty<GameState>;
   public readonly gameStateProperty: TReadOnlyProperty<GameState>;
@@ -53,37 +64,20 @@ class GameModel implements TModel {
   // Current challenge to be solved
   public readonly challengeProperty: TReadOnlyProperty<BAAGameChallenge>;
 
-  // The selected game level. null means 'no selection' and causes the view to return to the level-selection UI.
-  public readonly stateProperty: Property<BAAGameState>;
-  public readonly challengeSetProperty: Property<Array<BAAGameChallenge>>;
-  public readonly challengeIndexProperty: NumberProperty;
-
-  // Whether to provide feedback during the game.
-  public readonly provideFeedbackProperty: BooleanProperty;
-
-  // Tandem for the group of challenges.
-  public readonly challengeSetGroupTandem: Tandem;
-
-  // Tandem for the group of NumberAtoms.
-  public readonly numberAtomGroupTandem: Tandem;
-
-  // Flag set to indicate new best time, cleared each time a level is started.
-  public newBestTime: boolean;
-
   // The score for the current game that is being played.
   public readonly scoreProperty: Property<number>;
 
   public readonly timer: GameTimer;
   public readonly timerEnabledProperty: Property<boolean>;
 
+  // Whether to provide feedback during the game.
+  public readonly provideFeedbackProperty: BooleanProperty;
+
   // The number of attempts the user has made at solving the current challenge.
   private readonly attemptsProperty: Property<number>;
 
   // The number of points that were earned for the current challenge.
   public readonly pointsProperty: Property<number>;
-
-  public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
-  public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
 
   // Whether the time for this game a new best time.
   public isNewBestTime = false;
@@ -190,13 +184,6 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'timerEnabledProperty' )
     } );
 
-    this.challengeIndexProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'challengeIndexProperty' ),
-      range: new Range( 0, CHALLENGES_PER_LEVEL - 1 ),
-      phetioDocumentation: 'The index of the current challenge within the level.',
-      phetioReadOnly: true
-    } );
-
     this.scoreProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'scoreProperty' ),
       phetioDocumentation: 'Score on current game level.',
@@ -213,13 +200,6 @@ class GameModel implements TModel {
       }
     } );
 
-    // Flag set to indicate new best time, cleared each time a level is started.
-    this.newBestTime = false;
-
-    this.challengeSetGroupTandem = Tandem.OPT_OUT;
-
-    this.numberAtomGroupTandem = Tandem.OPT_OUT;
-
     this.levelProperty.lazyLink( level => {
       if ( !isSettingPhetioStateProperty.value ) {
         level ? this.startGame() : this.startOver();
@@ -228,6 +208,7 @@ class GameModel implements TModel {
 
     this.challengeSetProperty.lazyLink( () => {
       if ( !isSettingPhetioStateProperty.value ) {
+        // This is to trigger the change below in stateProperty but should be temporary
         this._challengeNumberProperty.value = 1;
         this._challengeNumberProperty.notifyListenersStatic();
       }
@@ -375,7 +356,7 @@ class GameModel implements TModel {
    */
   public startOver(): void {
     this.resetToStart();
-    this.levelProperty.value = null;
+    this.levelProperty.reset();
     this.setGameState( 'levelSelection' );
     this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
     this.challengeSetProperty.value = [];
