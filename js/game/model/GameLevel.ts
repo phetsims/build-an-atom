@@ -124,10 +124,17 @@ export default class GameLevel extends PhetioObject {
   }
 
   /**
-   * Is the specified score a perfect score?
+   * Is the best score a perfect score?
    */
   public achievedPerfectScore(): boolean {
-    return this.bestScoreProperty.value === this.getPerfectScore();
+    return this.isPerfectScore( this.bestScoreProperty.value );
+  }
+
+  /**
+   * Is the specified score a perfect score?
+   */
+  public isPerfectScore( points: number ): boolean {
+    return points === this.getPerfectScore();
   }
 
   /**

@@ -56,7 +56,7 @@ class GameScreenView extends ScreenView {
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
       {
-        challengeNumberProperty: new DerivedProperty( [ gameModel.challengeIndexProperty ], challengeIndex => challengeIndex + 1 ),
+        challengeNumberProperty: new DerivedProperty( [ gameModel.challengeNumberProperty ], challengeIndex => challengeIndex + 1 ),
         numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
         elapsedTimeProperty: gameModel.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,

@@ -163,7 +163,6 @@ class GameModel implements TModel {
         // phetioFeatured: true,
         // phetioValueType:
       } );
-    phet.log && this.challengeProperty.lazyLink( challenge => phet.log( `Playing ${challenge.tandem.name}, ${challenge.name}` ) );
 
     // When the challenge changes, reset it to ensure that coefficients are zero. It may have been previously
     // selected from the pool, and have coefficients from previous game play.
@@ -292,32 +291,6 @@ class GameModel implements TModel {
     this.challengeSetProperty.get().length = 0;
   }
 
-  public next(): void {
-    const level = this.levelNumberProperty.get();
-    if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
-      // Next challenge.
-      this.challengeIndexProperty.set( this.challengeIndexProperty.get() + 1 );
-      this.stateProperty.set( this.challengeSetProperty.get()[ this.challengeIndexProperty.get() ] );
-    }
-    else {
-      // Game level completed - update score and state.
-      if ( this.scoreProperty.get() > this.levels[ level ].bestScoreProperty.value ) {
-        this.levels[ level ].bestScoreProperty.value = this.scoreProperty.get();
-      }
-      if ( this.timerEnabledProperty.get() && this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL &&
-           ( this.levels[ level ].bestTimeProperty.value === null || this.elapsedTimeProperty.get() < this.levels[ level ].bestTimeProperty.value ) ) {
-        this.newBestTime = this.levels[ level ].bestTimeProperty.value !== null; // Don't set this flag for the first 'best time', only when the time improves.
-        this.levels[ level ].bestTimeProperty.value = this.elapsedTimeProperty.get();
-      }
-
-      if ( this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabledProperty.get() ) {
-        this.levels[ level ].bestTimeVisibleProperty.value = true;
-      }
-
-      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
-    }
-  }
-
   /**
    * Does a full reset of the Game model.
    */
@@ -345,6 +318,161 @@ class GameModel implements TModel {
    */
   private setGameState( value: GameState ): void {
     this._gameStateProperty.value = value;
+  }
+
+  /**
+   * Called before the first challenge has been played.
+   */
+  private startGame(): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    this.resetToStart();
+
+    // Create a set of challenges.
+    this.challengeSetProperty.value = level.getChallenges();
+
+    // Start the timer.
+    if ( this.timerEnabledProperty.value ) {
+      this.timer.start();
+    }
+
+    this.setGameState( 'check' );
+  }
+
+  /**
+   * Called after the last challenge has been played.
+   */
+  private endGame(): void {
+
+    this.timer.stop();
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    const points = this.scoreProperty.value;
+
+    // Check for new best score.
+    if ( points > level.bestScoreProperty.value ) {
+      level.bestScoreProperty.value = points;
+    }
+
+    // Check for new best time.
+    const previousBestTime = level.bestTimeProperty.value;
+    if ( level.isPerfectScore( points ) && ( previousBestTime === 0 || this.timer.elapsedTimeProperty.value < previousBestTime ) ) {
+      this.isNewBestTime = true;
+      level.bestTimeProperty.value = this.timer.elapsedTimeProperty.value;
+    }
+  }
+
+
+  /**
+   * Called when the user presses the "Check" button.
+   */
+  public check(): void {
+    this.attemptsProperty.value++;
+
+    if ( this.attemptsProperty.value < 2 ) {
+      // award points
+      if ( this.attemptsProperty.value === 1 ) {
+        this.pointsProperty.value = GameLevel.POINTS_FIRST_ATTEMPT;
+      }
+      else if ( this.attemptsProperty.value === 2 ) {
+        this.pointsProperty.value = GameLevel.POINTS_SECOND_ATTEMPT;
+      }
+      else {
+        this.pointsProperty.value = 0;
+      }
+      this.scoreProperty.value += this.pointsProperty.value;
+      this.setGameState( 'next' );
+
+      if ( this.isLastChallenge() ) {
+        this.endGame();
+      }
+    }
+    else {
+      if ( this.isLastChallenge() ) {
+        this.endGame();
+      }
+      this.setGameState( 'showAnswer' );
+    }
+  }
+
+  public isLastChallenge(): boolean {
+    return this.challengeNumberProperty.value === this.challengeSetProperty.value.length;
+  }
+
+  /**
+   * Called when the user presses the "Try Again" button.
+   */
+  public tryAgain(): void {
+    this.setGameState( 'check' );
+  }
+
+  /**
+   * Called when the user presses the "Show Answer" button.
+   */
+  public showAnswer(): void {
+    this.setGameState( 'next' );
+  }
+
+  public next2(): void {
+    const level = this.levelNumberProperty.get();
+    if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
+      // Next challenge.
+      this.challengeIndexProperty.set( this.challengeIndexProperty.get() + 1 );
+      this.stateProperty.set( this.challengeSetProperty.get()[ this.challengeIndexProperty.get() ] );
+    }
+    else {
+      // Game level completed - update score and state.
+      if ( this.scoreProperty.get() > this.levels[ level ].bestScoreProperty.value ) {
+        this.levels[ level ].bestScoreProperty.value = this.scoreProperty.get();
+      }
+      if ( this.timerEnabledProperty.get() && this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL &&
+           ( this.levels[ level ].bestTimeProperty.value === null || this.elapsedTimeProperty.get() < this.levels[ level ].bestTimeProperty.value ) ) {
+        this.newBestTime = this.levels[ level ].bestTimeProperty.value !== null; // Don't set this flag for the first 'best time', only when the time improves.
+        this.levels[ level ].bestTimeProperty.value = this.elapsedTimeProperty.get();
+      }
+
+      if ( this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabledProperty.get() ) {
+        this.levels[ level ].bestTimeVisibleProperty.value = true;
+      }
+
+      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
+    }
+  }
+
+  /**
+   * Called when the user presses the "Next" button.
+   */
+  public next(): void {
+    if ( !this.isLastChallenge() ) {
+      this.attemptsProperty.value = 0;
+      this.pointsProperty.value = 0;
+      this._challengeNumberProperty.value++;
+      this.setGameState( 'check' );
+    }
+    else {
+      this.setGameState( 'levelCompleted' );
+    }
+  }
+
+  /**
+   * Called when the user presses the "Skip" button, which is visible when running with ?showAnswers.
+   * This is equivalent to pressing the "Next" button.
+   */
+  public skip(): void {
+    this.next();
+  }
+
+  /**
+   * Called when the user presses the "Start Over" button, or when levelProperty is set to null.
+   */
+  public startOver(): void {
+    this.resetToStart();
+    this.levelProperty.value = null;
+    this.setGameState( 'levelSelection' );
   }
 
 }
