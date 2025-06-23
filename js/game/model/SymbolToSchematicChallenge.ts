@@ -9,11 +9,11 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 import SymbolToSchematicChallengeView from '../view/SymbolToSchematicChallengeView.js';
+import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
 
@@ -21,7 +21,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
 
   public readonly buildAnAtomModel: BuildAnAtomModel;
 
-  public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
+  public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with

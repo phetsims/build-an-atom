@@ -9,16 +9,16 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import CountsToElementChallengeView from '../view/CountsToElementChallengeView.js';
+import AnswerAtom from './AnswerAtom.js';
 import GameModel from './GameModel.js';
 import ToElementChallenge from './ToElementChallenge.js';
 
 class CountsToElementChallenge extends ToElementChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
+  public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
   }
 

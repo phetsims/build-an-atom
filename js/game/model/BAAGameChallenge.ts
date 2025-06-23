@@ -8,31 +8,41 @@
  * @author John Blanco
  */
 
-import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
-import Range from '../../../../dot/js/Range.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAConstants from '../../common/BAAConstants.js';
+import AnswerAtom from './AnswerAtom.js';
 import BAAChallengeState from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
 import GameModel from './GameModel.js';
 
 class BAAGameChallenge extends BAAGameState {
 
-  public readonly answerAtom: NumberAtom;
-  public readonly challengeStateProperty: StringProperty;
-  public readonly numSubmissionsProperty: NumberProperty;
   public readonly model: GameModel;
+
+  // Correct answer atom for this challenge, which the user is trying to guess.
+  public readonly answerAtom: AnswerAtom;
+
+  // The atom that the user submitted as their answer, or null if they haven't submitted an answer yet.
+  public submittedAtom: AnswerAtom | null = null;
+
+  // Derived property that indicates whether the submitted atom is correct.
+  public isCorrectAtomProperty: Property<boolean>;
+
+  // Property that tracks the state of the challenge, such as whether it is presenting the challenge,
+  public readonly challengeStateProperty: Property<string>;
   public readonly challengeType: string;
-  public pointValue: number;
 
   public configurableProtonCount = false;
   public configurableMassNumber = false;
   public configurableCharge = false;
 
-  public constructor( buildAnAtomGameModel: GameModel, answerAtom: NumberAtom, challengeType: string, tandem: Tandem ) {
+  // The number of points that this challenge is worth, which is used to calculate the score.
+  public pointValue = 0;
+
+  public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
 
     //TODO https://github.com/phetsims/build-an-atom/issues/240 Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     super( 'challenge', {
@@ -48,70 +58,27 @@ class BAAGameChallenge extends BAAGameState {
       phetioState: false,
       validValues: _.values( BAAChallengeState )
     } );
-    this.numSubmissionsProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'numSubmissionsProperty' ),
-      range: new Range( 0, BAAConstants.MAX_CHALLENGE_ATTEMPTS ),
+
+    this.answerAtom = answerAtom;
+    this.model = buildAnAtomGameModel;
+    this.challengeType = challengeType;
+
+    this.isCorrectAtomProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'isCorrectAtomProperty' ),
       phetioReadOnly: true,
       phetioState: false
     } );
-    this.answerAtom = answerAtom;
-    this.pointValue = 0;
-    this.model = buildAnAtomGameModel;
-    this.challengeType = challengeType;
   }
 
   public override dispose(): void {
     this.challengeStateProperty.dispose();
-    this.numSubmissionsProperty.dispose();
 
     super.dispose();
   }
 
-  public override handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean ): void {
-
-    this.numSubmissionsProperty.set( this.numSubmissionsProperty.get() + 1 );
-    const pointsIfCorrect = this.numSubmissionsProperty.get() === 1 ? 2 : 1;
-    this.pointValue = isCorrect ? pointsIfCorrect : 0;
-    this.model.scoreProperty.set( this.model.scoreProperty.get() + this.pointValue );
-
-    if ( this.model.provideFeedbackProperty.get() ) {
-      if ( isCorrect ) {
-
-        // Move to the next state.
-        this.challengeStateProperty.set( BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY );
-      }
-      else {
-
-        // Handle incorrect answer.
-        if ( this.numSubmissionsProperty.get() < BAAConstants.MAX_CHALLENGE_ATTEMPTS ) {
-
-          // Give the user another chance.
-          this.challengeStateProperty.set( BAAChallengeState.PRESENTING_TRY_AGAIN );
-        }
-        else {
-
-          // User has exhausted their attempts.
-          this.challengeStateProperty.set( BAAChallengeState.ATTEMPTS_EXHAUSTED );
-        }
-      }
-    }
-    else {
-
-      // don't provide any feedback - just go to the next challenge
-      this.next();
-    }
-  }
-
-  public override checkAnswer( submittedAtom: NumberAtom, submittedNeutralOrIon = '' ): void {
-
-    // Verify that the current state is as expected.
-    assert && assert(
-      this.challengeStateProperty.get() === BAAChallengeState.PRESENTING_CHALLENGE,
-      `Unexpected challenge state: ${this.challengeStateProperty.get()}`
-    );
-
-    const isCorrect = this.answerAtom.equals( submittedAtom );
-    this.handleEvaluatedAnswer( submittedAtom, isCorrect );
+  public override checkAnswer( submittedAtom: AnswerAtom ): void {
+    this.isCorrectAtomProperty.value = submittedAtom.equals( this.answerAtom );
+    this.model.check();
   }
 
   public override tryAgain(): void {
@@ -130,8 +97,6 @@ class BAAGameChallenge extends BAAGameState {
 
   public reset(): void {
     this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
-    this.numSubmissionsProperty.set( 0 );
-    this.pointValue = 0;
   }
 }
 

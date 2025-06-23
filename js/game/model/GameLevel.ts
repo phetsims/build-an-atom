@@ -5,7 +5,7 @@
  *
  * TODO: This is copied from BCE, and could be generalized and moved to a more general location. https://github.com/phetsims/build-an-atom/issues/257
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Agustín Vallejo
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

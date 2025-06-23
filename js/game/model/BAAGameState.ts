@@ -15,11 +15,11 @@
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from '../view/ChallengeView.js';
+import AnswerAtom from './AnswerAtom.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -46,17 +46,10 @@ class BAAGameState extends PhetioObject {
   //-----------------------------------------------------------------------------------------------------------------
 
   /**
-   * update score and state based on whether the user submitted a correct or incorrect answer
-   */
-  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean ): void {
-    throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
-  }
-
-  /**
    * Process the answer submitted by the user.  This is the most basic check, and more elaborate ways of verifying
    * can be implemented in sub-classes.
    */
-  public checkAnswer( submittedAtom: NumberAtom ): void {
+  public checkAnswer( submittedAtom: AnswerAtom ): void {
     throw new Error( 'checkAnswer should never be called in base class' );
   }
 

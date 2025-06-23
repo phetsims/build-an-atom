@@ -9,9 +9,9 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToSymbolChallenge from '../model/CountsToSymbolChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
@@ -55,12 +55,12 @@ class CountsToSymbolChallengeView extends ChallengeView {
   }
 
   public override checkAnswer(): void {
-    const userSubmittedAtom = new NumberAtom( {
+    const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.interactiveSymbolNode.protonCountProperty.value,
       neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
       electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
     } );
-    this.challenge.checkAnswer( userSubmittedAtom );
+    this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {

@@ -14,11 +14,11 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToChargeChallenge from '../model/SchematicToChargeChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
@@ -87,7 +87,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
   }
 
   public override checkAnswer(): void {
-    const userSubmittedAnswer = new NumberAtom( {
+    const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
       electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value

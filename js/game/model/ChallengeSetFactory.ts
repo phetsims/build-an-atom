@@ -8,10 +8,10 @@
  */
 
 import dotRandom from '../../../../dot/js/dotRandom.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
+import AnswerAtom from './AnswerAtom.js';
 import AtomValuePool from './AtomValuePool.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
@@ -99,13 +99,13 @@ export default class ChallengeSetFactory {
     const atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
 
-    return this.createChallenge( model, challengeType, atomValue, tandem );
+    return this.createChallenge( model, challengeType, atomValue as AnswerAtom, tandem );
   }
 
   public static createChallenge(
     model: GameModel,
     type: string,
-    atomValue: NumberAtom,
+    atomValue: AnswerAtom,
     tandem: Tandem
   ): BAAGameChallenge {
     // tandem = tandem.createTandem( CHALLENGE_TANDEMS.get( type )! );
