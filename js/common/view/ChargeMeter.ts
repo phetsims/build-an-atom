@@ -7,6 +7,7 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
@@ -19,7 +20,6 @@ import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
-import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
@@ -36,7 +36,7 @@ export type ChargeMeterOptions = SelfOptions & NodeOptions;
 
 class ChargeMeter extends Node {
 
-  public constructor( numberAtom: TNumberAtom, providedOptions?: ChargeMeterOptions ) {
+  public constructor( chargeProperty: TReadOnlyProperty<number>, providedOptions?: ChargeMeterOptions ) {
 
     const options = optionize<ChargeMeterOptions, SelfOptions, NodeOptions>()( {
       showNumericalReadout: true
@@ -145,7 +145,7 @@ class ChargeMeter extends Node {
     }
 
     // Add the listeners that will update the meter and numerical display when the charge changes.
-    numberAtom.chargeProperty.link( charge => {
+    chargeProperty.link( charge => {
       meterNeedle.rotation = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
 
       if ( numericalReadout !== undefined ) {

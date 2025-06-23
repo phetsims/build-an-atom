@@ -229,7 +229,7 @@ class BAAScreenView extends ScreenView {
     } );  // Width arbitrarily chosen.
     this.addChild( particleCountDisplay );
 
-    // Add the periodic table display inside of an accordion box.
+    // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol(
       model.particleAtom,
       {
