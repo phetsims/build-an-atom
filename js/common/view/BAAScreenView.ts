@@ -46,7 +46,7 @@ const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
 const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
 const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
-const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
+const NUM_NUCLEON_LAYERS = 6; // This is based on max number of particles, and may need adjustment if that changes.
 
 class BAAScreenView extends ScreenView {
 
@@ -61,9 +61,9 @@ class BAAScreenView extends ScreenView {
 
     super( {
 
-      // A PhET wide decision was made to not update custom layout bounds even if they do not match the
-      // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
-      // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
+      // A PhET-wide decision was made to not update custom layout bounds even if they do not match the default layout
+      // bounds in ScreenView. Do not change these bounds as changes could break or disturb any phet-io instrumentation.
+      // See https://github.com/phetsims/phet-io/issues/1939.
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false
@@ -97,10 +97,11 @@ class BAAScreenView extends ScreenView {
       } ) );
     } );
 
-    // add the layer where the nucleons and electrons will go, this is added last so that it remains on top
+    // Add the layer where the nucleons and electrons will go, this is added last so that it remains on top.
     const nucleonElectronLayer = new Node();
 
-    // Add the layers where the nucleons will exist.
+    // Add the layers where the nucleons will exist.  The lower the index number, the closer to the front.  Layer 0 is
+    // reserved for nucleons that are being dragged.
     const nucleonLayers: Node[] = [];
     _.times( NUM_NUCLEON_LAYERS, () => {
       const nucleonLayer = new Node();
@@ -117,7 +118,7 @@ class BAAScreenView extends ScreenView {
     const nucleonsGroupTandem = tandem.createTandem( 'nucleons' ).createGroupTandem( 'nucleon', 0 );
     const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
 
-    // add the nucleons
+    // Add the nucleons.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
     model.nucleons.forEach( ( nucleon: Particle ) => {
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
@@ -132,6 +133,7 @@ class BAAScreenView extends ScreenView {
           nucleonLayers.length > zLayer,
           'zLayer for nucleon exceeds number of layers, max number may need increasing.'
         );
+
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( particleView => {
@@ -156,7 +158,7 @@ class BAAScreenView extends ScreenView {
           }
 
           // Add the particle view to its new layer.
-          assert && assert( particleView !== null, 'Particle view not found during relayering' );
+          assert && assert( particleView !== null, 'Particle view not found during re-layering' );
           particleView && nucleonLayers[ zLayer ].addChild( particleView );
         }
       } );
@@ -175,7 +177,8 @@ class BAAScreenView extends ScreenView {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         if ( electronNode instanceof ParticleView ) {
-          electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' || !model.particleAtom.electrons.includes( electronNode.particle );
+          electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
+                                 !model.particleAtom.electrons.includes( electronNode.particle );
         }
       } );
     };
