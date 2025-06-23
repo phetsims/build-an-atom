@@ -35,6 +35,7 @@ type StringsType = {
   'neutralAtomStringProperty': LocalizedStringProperty;
   'neutralSlashIonStringProperty': LocalizedStringProperty;
   'neutronsStringProperty': LocalizedStringProperty;
+  'periodicTableStringProperty': LocalizedStringProperty;
   'protonsColonStringProperty': LocalizedStringProperty;
   'protonsColonPatternStringProperty': LocalizedStringProperty;
   'cloudStringProperty': LocalizedStringProperty;

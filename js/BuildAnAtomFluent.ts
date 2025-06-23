@@ -5,11 +5,8 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import TReadOnlyProperty from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
-import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
+import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -46,6 +43,7 @@ addToMapIfDefined( 'game', 'gameStringProperty' );
 addToMapIfDefined( 'neutralAtom', 'neutralAtomStringProperty' );
 addToMapIfDefined( 'neutralSlashIon', 'neutralSlashIonStringProperty' );
 addToMapIfDefined( 'neutrons', 'neutronsStringProperty' );
+addToMapIfDefined( 'periodicTable', 'periodicTableStringProperty' );
 addToMapIfDefined( 'protonsColon', 'protonsColonStringProperty' );
 addToMapIfDefined( 'cloud', 'cloudStringProperty' );
 addToMapIfDefined( 'neutronsColon', 'neutronsColonStringProperty' );
@@ -91,6 +89,7 @@ const BuildAnAtomFluent = {
   neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralAtom', _.get( BuildAnAtomStrings, 'neutralAtomStringProperty' ) ),
   neutralSlashIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralSlashIon', _.get( BuildAnAtomStrings, 'neutralSlashIonStringProperty' ) ),
   neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutrons', _.get( BuildAnAtomStrings, 'neutronsStringProperty' ) ),
+  periodicTableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'periodicTable', _.get( BuildAnAtomStrings, 'periodicTableStringProperty' ) ),
   protonsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'protonsColon', _.get( BuildAnAtomStrings, 'protonsColonStringProperty' ) ),
   protonsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'protonsColonPatternStringProperty' ) ,
   cloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'cloud', _.get( BuildAnAtomStrings, 'cloudStringProperty' ) ),
