@@ -47,21 +47,29 @@ const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
 //   [ 'symbol-to-schematic', 'symbolToSchematicChallenge' ]
 // ] );
 
+const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
+  [ 'schematic-to-element', 'counts-to-element' ],
+  [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
+  [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
+  [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+];
+
 export default class ChallengeSetFactory {
 
   /**
    * For a given Game Level, create a set of challenges.
    */
   public static createChallengeSet(
+    index: number,
     model: GameModel,
-    validChallenges: ChallengeType[],
-    atomValuePool: AtomValuePool,
     tandem: Tandem
   ): BAAGameChallenge[] {
+    const validChallengeNames = LEVEL_CHALLENGE_NAMES[ index ];
+    const atomValuePool = new AtomValuePool( index );
     const challenges: BAAGameChallenge[] = [];
 
     for ( let i = 0; i < GameModel.CHALLENGES_PER_LEVEL; i++ ) {
-      const challenge = this.chooseRandomAvailableChallenge( model, validChallenges, atomValuePool, tandem );
+      const challenge = this.chooseRandomAvailableChallenge( model, validChallengeNames, atomValuePool, tandem );
       if ( challenge ) {
         challenges.push( challenge );
       }

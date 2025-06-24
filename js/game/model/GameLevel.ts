@@ -9,50 +9,42 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Range from '../../../../dot/js/Range.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import { ChallengeType } from '../../common/BAAConstants.js';
-import AtomValuePool from './AtomValuePool.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import ChallengeSetFactory from './ChallengeSetFactory.js';
 import GameModel from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
 
-const ALLOWED_CHALLENGES_PER_LEVEL: ChallengeType[][] = [
-  [ 'schematic-to-element', 'counts-to-element' ],
-  [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-  [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-  [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
-];
-
 type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 export default class GameLevel extends PhetioObject {
 
-  public static readonly POINTS_FIRST_ATTEMPT = 2;  // points to award for correct guess on 1st attempt
-  public static readonly POINTS_SECOND_ATTEMPT = 1; // points to award for correct guess on 2nd attempt
+  // The collection of challenges for this level.
+  private readonly challenges: BAAGameChallenge[];
 
-  protected static readonly CHALLENGE_POOL_TANDEM_NAME = 'challengePool';
+  // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
+  public readonly challengeNumberProperty: Property<number>;
 
-  public readonly index: number;
-  public readonly levelName: string;
-  public readonly atomValuePool: AtomValuePool;
-  public readonly challenges: ChallengeType[];
-  private readonly challengePool: BAAGameChallenge[];
+  // Current challenge to be solved
+  public readonly challengeProperty: TReadOnlyProperty<BAAGameChallenge>;
 
   public readonly bestScoreProperty: Property<number>;
   public readonly bestTimeProperty: Property<number>;
   public readonly bestTimeVisibleProperty: Property<boolean>;
 
-  public constructor( model: GameModel, index: number, providedOptions: GameLevelOptions ) {
+  public constructor( public readonly index: number, public readonly model: GameModel, providedOptions: GameLevelOptions ) {
 
     const options = optionize<GameLevelOptions, SelfOptions, PhetioObjectOptions>()( {
 
@@ -63,14 +55,35 @@ export default class GameLevel extends PhetioObject {
     }, providedOptions );
 
     super( options );
-
     const tandem = options.tandem;
+    this.challenges = ChallengeSetFactory.createChallengeSet( index, model, tandem );
 
-    this.index = index;
-    this.levelName = ShredConstants.LEVEL_NAMES[ this.index ];
-    this.atomValuePool = new AtomValuePool( this.index );
-    this.challenges = ALLOWED_CHALLENGES_PER_LEVEL[ this.index ];
-    this.challengePool = ChallengeSetFactory.createChallengeSet( model, this.challenges, this.atomValuePool, tandem );
+    this.challengeNumberProperty = new NumberProperty( 1, {
+      numberType: 'Integer',
+      range: new Range( 1, this.challenges.length ),
+      tandem: tandem.createTandem( 'challengeNumberProperty' ),
+      phetioDocumentation: 'The challenge number shown in the status bar. Indicates how far the user has progressed through a level.',
+      phetioReadOnly: true
+    } );
+
+    // Consider that this derivation may go through intermediate states when PhET-iO state is restored,
+    // depending on the order in which the dependencies are set.
+    this.challengeProperty = new DerivedProperty(
+      [ this.challengeNumberProperty ],
+      challengeNumber => {
+        return ( challengeNumber <= this.challenges.length ) ?
+               this.challenges[ challengeNumber - 1 ] : this.challenges[ 0 ];
+      }, {} );
+
+    // When the challenge changes, reset it to ensure that coefficients are zero. It may have been previously
+    // selected from the pool, and have coefficients from previous game play.
+    this.challengeProperty.lazyLink( challenge => {
+      if ( !isSettingPhetioStateProperty.value ) {
+        challenge && challenge.reset();
+      }
+      // Update the model state to the new challenge.
+      model.stateProperty.set( challenge );
+    } );
 
     this.bestScoreProperty = new NumberProperty( 0, {
       numberType: 'Integer',
@@ -97,20 +110,47 @@ export default class GameLevel extends PhetioObject {
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
+    this.bestTimeVisibleProperty.reset();
+    this.challengeNumberProperty.reset();
+  }
+
+  public startLevel(): void {
+    this.model.stateProperty.set( this.challengeProperty.value );
+  }
+
+  /**
+   * Ends the level, updating the best score and time if the score is a perfect score.
+   * Returns true if there is a new best time, false otherwise.
+   * @param score
+   * @param time
+   */
+  public endLevel( score: number, time: number ): boolean {
+    this.bestScoreProperty.set( Math.max( this.bestScoreProperty.value, score ) );
+
+    let isNewBestTime = false;
+
+    // Register best times only if the score is a perfect score.
+    if ( this.isPerfectScore( score ) &&
+         ( this.bestTimeProperty.value === 0 || time < this.bestTimeProperty.value ) ) {
+      this.bestTimeProperty.set( time );
+      isNewBestTime = true;
+    }
+
+    return isNewBestTime;
   }
 
   /**
    * Gets a challenge from the pool.
    */
   public getChallenge( index: number ): BAAGameChallenge {
-    return this.challengePool[ index ];
+    return this.challenges[ index ];
   }
 
   /**
    * Gets all pool challenges
    */
   public getChallenges(): BAAGameChallenge[] {
-    return this.challengePool;
+    return this.challenges;
   }
 
   /**
@@ -118,7 +158,7 @@ export default class GameLevel extends PhetioObject {
    * A perfect score is obtained when the user balances every challenge correctly on the first attempt.
    */
   public getPerfectScore(): number {
-    return GameModel.CHALLENGES_PER_LEVEL * GameLevel.POINTS_FIRST_ATTEMPT;
+    return GameModel.CHALLENGES_PER_LEVEL * GameModel.POINTS_FIRST_ATTEMPT;
   }
 
   /**
@@ -133,6 +173,10 @@ export default class GameLevel extends PhetioObject {
    */
   public isPerfectScore( points: number ): boolean {
     return points === this.getPerfectScore();
+  }
+
+  public isLastChallenge(): boolean {
+    return this.challengeNumberProperty.value === this.challenges.length;
   }
 
   /**

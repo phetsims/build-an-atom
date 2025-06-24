@@ -58,7 +58,7 @@ class GameScreenView extends ScreenView {
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
       {
-        challengeNumberProperty: gameModel.challengeNumberProperty,
+        challengeNumberProperty: gameModel.levelNumberProperty,
         numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
         elapsedTimeProperty: gameModel.timer.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
@@ -116,28 +116,26 @@ class GameScreenView extends ScreenView {
           gameAudioPlayer.gameOverImperfectScore();
         }
 
-        if ( gameModel.provideFeedbackProperty.get() ) {
 
-          // Add the dialog node that indicates that the level has been completed.
-          this.levelCompletedNode = new LevelCompletedNode(
-            gameModel.levelNumberProperty.get() + 1,
-            gameModel.scoreProperty.get(),
-            GameModel.MAX_POINTS_PER_GAME_LEVEL,
-            GameModel.CHALLENGES_PER_LEVEL,
-            gameModel.timerEnabledProperty.get(),
-            gameModel.timer.elapsedTimeProperty.get(),
-            gameModel.levels[ gameModel.levelNumberProperty.get() ].bestTimeProperty.value,
-            gameModel.isNewBestTime,
-            () => { gameModel.levelProperty.reset(); }, {
-              centerX: this.layoutBounds.width / 2,
-              centerY: this.layoutBounds.height / 2,
-              levelVisible: false,
-              maxWidth: this.layoutBounds.width,
-              tandem: tandem.createTandem( 'levelCompletedNode' )
-            }
-          );
-          this.levelNode.addChild( this.levelCompletedNode );
-        }
+        // Add the dialog node that indicates that the level has been completed.
+        this.levelCompletedNode = new LevelCompletedNode(
+          gameModel.levelNumberProperty.get() + 1,
+          gameModel.scoreProperty.get(),
+          GameModel.MAX_POINTS_PER_GAME_LEVEL,
+          GameModel.CHALLENGES_PER_LEVEL,
+          gameModel.timerEnabledProperty.get(),
+          gameModel.timer.elapsedTimeProperty.get(),
+          gameModel.levels[ gameModel.levelNumberProperty.get() ].bestTimeProperty.value,
+          gameModel.isNewBestTime,
+          () => { gameModel.levelProperty.reset(); }, {
+            centerX: this.layoutBounds.width / 2,
+            centerY: this.layoutBounds.height / 2,
+            levelVisible: false,
+            maxWidth: this.layoutBounds.width,
+            tandem: tandem.createTandem( 'levelCompletedNode' )
+          }
+        );
+        this.levelNode.addChild( this.levelCompletedNode );
       }
       else if ( state.createView ) {
         // Since we're not in the start or game-over states, we must be

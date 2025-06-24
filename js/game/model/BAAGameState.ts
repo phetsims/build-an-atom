@@ -25,9 +25,6 @@ type SelfOptions = EmptySelfOptions;
 
 type BAAGameStateOptions = SelfOptions & PhetioObjectOptions;
 
-export const GameStateValues = [ 'levelSelection', 'check', 'tryAgain', 'showAnswer', 'next', 'levelCompleted' ] as const;
-export type GameState = ( typeof GameStateValues )[number];
-
 class BAAGameState extends PhetioObject {
 
   public name: string;
