@@ -16,7 +16,7 @@ const BAAQueryParameters = QueryStringMachine.getAll( {
 
   challengesPerLevel: {
     type: 'number',
-    defaultValue: 1
+    defaultValue: 2
   },
 
   /**

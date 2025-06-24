@@ -118,6 +118,7 @@ export default class GameLevel extends PhetioObject {
   }
 
   public startLevel(): void {
+    this.challengeNumberProperty.reset();
     this.model.stateProperty.set( this.challengeProperty.value );
   }
 
