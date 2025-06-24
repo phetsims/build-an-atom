@@ -103,7 +103,6 @@ export default class GameLevel extends PhetioObject {
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
-    this.challengeNumberProperty.reset();
     this.startOver();
   }
 

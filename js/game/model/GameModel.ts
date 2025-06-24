@@ -8,9 +8,6 @@
  *    Level - a single level in the game, which consists of multiple challenges
  *    Challenge - a single challenge in a level, which consists of a question and an answer
  *
- * TODO: https://github.com/phetsims/build-an-atom/issues/257
- *  - The challenges are the ones keeping track of state!!
- *
  * @author Agustín Vallejo
  * @author John Blanco
  */
