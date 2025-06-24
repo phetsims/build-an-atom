@@ -30,9 +30,9 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
       phetioState: false,
       tandem: tandem.createTandem( 'buildAnAtomModel' )
     } );
-    this.buildAnAtomModel.showElementNameProperty.set( false );
-    this.buildAnAtomModel.showNeutralOrIonProperty.set( false );
-    this.buildAnAtomModel.showStableOrUnstableProperty.set( false );
+    this.buildAnAtomModel.elementNameVisibleProperty.set( false );
+    this.buildAnAtomModel.neutralAtomOrIonVisibleProperty.set( false );
+    this.buildAnAtomModel.nuclearStabilityVisibleProperty.set( false );
   }
 
   public override dispose(): void {

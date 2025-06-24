@@ -81,9 +81,9 @@ class BAAScreenView extends ScreenView {
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
-      showElementNameProperty: model.showElementNameProperty,
-      showNeutralOrIonProperty: model.showNeutralOrIonProperty,
-      showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+      showElementNameProperty: model.elementNameVisibleProperty,
+      showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
+      showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
       electronShellDepictionProperty: model.electronShellDepictionProperty,
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false
@@ -270,7 +270,7 @@ class BAAScreenView extends ScreenView {
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: labelVisibilityControlsTandem.createTandem( 'elementText' )
       } ),
-      property: model.showElementNameProperty,
+      property: model.elementNameVisibleProperty,
       tandemName: 'showElementNameCheckbox'
     }, {
       createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, {
@@ -278,7 +278,7 @@ class BAAScreenView extends ScreenView {
         maxWidth: LABEL_CONTROL_MAX_WIDTH,
         tandem: labelVisibilityControlsTandem.createTandem( 'neutralOrIonText' )
       } ),
-      property: model.showNeutralOrIonProperty,
+      property: model.neutralAtomOrIonVisibleProperty,
       tandemName: 'showNeutralOrIonCheckbox'
     } ];
 
@@ -291,7 +291,7 @@ class BAAScreenView extends ScreenView {
           maxWidth: LABEL_CONTROL_MAX_WIDTH,
           tandem: labelVisibilityControlsTandem.createTandem( 'stableUnstableText' )
         } ),
-        property: model.showStableOrUnstableProperty,
+        property: model.nuclearStabilityVisibleProperty,
         tandemName: 'showStableOrUnstableCheckbox'
       } );
     }
