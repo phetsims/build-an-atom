@@ -6,7 +6,6 @@
  * @author Agustín Vallejo
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
@@ -40,7 +39,9 @@ export default class GameLevel extends PhetioObject {
 
   public readonly bestScoreProperty: Property<number>;
   public readonly bestTimeProperty: Property<number>;
-  public readonly bestTimeVisibleProperty: Property<boolean>;
+
+  // Whether the time for this game a new best time.
+  public isNewBestTime = false;
 
   public constructor( public readonly index: number, public readonly model: GameModel, providedOptions: GameLevelOptions ) {
 
@@ -97,18 +98,11 @@ export default class GameLevel extends PhetioObject {
       phetioFeatured: true,
       phetioReadOnly: true
     } );
-
-    this.bestTimeVisibleProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'bestTimeVisibleProperty' ),
-      phetioDocumentation: 'Whether the best time should be visible in the UI.',
-      phetioFeatured: true
-    } );
   }
 
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
-    this.bestTimeVisibleProperty.reset();
     this.challengeNumberProperty.reset();
     this.startOver();
   }
@@ -128,19 +122,18 @@ export default class GameLevel extends PhetioObject {
    * @param score
    * @param time
    */
-  public endLevel( score: number, time: number ): boolean {
+  public endLevel( score: number, time: number ): void {
     this.bestScoreProperty.set( Math.max( this.bestScoreProperty.value, score ) );
 
-    let isNewBestTime = false;
+    this.isNewBestTime = false;
 
     // Register best times only if the score is a perfect score.
     if ( this.isPerfectScore( score ) &&
          ( this.bestTimeProperty.value === 0 || time < this.bestTimeProperty.value ) ) {
       this.bestTimeProperty.set( time );
-      isNewBestTime = true;
+      this.isNewBestTime = true;
     }
 
-    return isNewBestTime;
   }
 
   /**

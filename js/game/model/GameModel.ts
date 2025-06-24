@@ -67,9 +67,6 @@ class GameModel implements TModel {
   public readonly timer: GameTimer;
   public readonly timerEnabledProperty: Property<boolean>;
 
-  // Whether the time for this game a new best time.
-  public isNewBestTime = false;
-
   public constructor( tandem: Tandem ) {
 
     this.stateProperty = new Property<BAAGameState>( BAAGameState.CHOOSING_LEVEL, {
@@ -126,12 +123,6 @@ class GameModel implements TModel {
       range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL )
     } );
 
-    this.timerEnabledProperty.lazyLink( timerEnabled => {
-      for ( let i = 0; i < this.levels.length; i++ ) {
-        this.levels[ i ].bestTimeVisibleProperty.value = timerEnabled && this.levels[ i ].achievedPerfectScore();
-      }
-    } );
-
     this.levelProperty.lazyLink( level => {
       if ( !isSettingPhetioStateProperty.value ) {
         level ? this.startLevel() : this.startOver();
@@ -169,7 +160,7 @@ class GameModel implements TModel {
 
     const score = this.scoreProperty.value;
     const time = this.timer.elapsedTimeProperty.value;
-    this.isNewBestTime = level.endLevel( score, time );
+    level.endLevel( score, time );
   }
 
 
@@ -258,7 +249,6 @@ class GameModel implements TModel {
    * Resets only the things that should be reset when a game is started, or when in the 'levelSelection' game state.
    */
   private resetToStart(): void {
-    this.isNewBestTime = false;
     this.attemptsProperty.reset();
     this.scoreProperty.reset();
     this.timer.reset();

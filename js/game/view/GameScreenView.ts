@@ -116,6 +116,7 @@ class GameScreenView extends ScreenView {
           gameAudioPlayer.gameOverImperfectScore();
         }
 
+        const level = gameModel.levels[ gameModel.levelNumberProperty.get() ];
 
         // Add the dialog node that indicates that the level has been completed.
         this.levelCompletedNode = new LevelCompletedNode(
@@ -125,8 +126,8 @@ class GameScreenView extends ScreenView {
           GameModel.CHALLENGES_PER_LEVEL,
           gameModel.timerEnabledProperty.get(),
           gameModel.timer.elapsedTimeProperty.get(),
-          gameModel.levels[ gameModel.levelNumberProperty.get() ].bestTimeProperty.value,
-          gameModel.isNewBestTime,
+          level.bestTimeProperty.value,
+          level.isNewBestTime,
           () => { gameModel.levelProperty.reset(); }, {
             centerX: this.layoutBounds.width / 2,
             centerY: this.layoutBounds.height / 2,
