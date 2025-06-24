@@ -10,6 +10,7 @@ import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
 import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -86,16 +87,16 @@ const BuildAnAtomFluent = {
   whatIsTheMassNumberStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'whatIsTheMassNumber', _.get( BuildAnAtomStrings, 'whatIsTheMassNumberStringProperty' ) ),
   whatIsTheTotalChargeStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'whatIsTheTotalCharge', _.get( BuildAnAtomStrings, 'whatIsTheTotalChargeStringProperty' ) ),
   electronsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'electronsColon', _.get( BuildAnAtomStrings, 'electronsColonStringProperty' ) ),
-  electronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'electronsColonPatternStringProperty' ) ,
+  electronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'electronsColonPatternStringProperty' ),
   gameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'game', _.get( BuildAnAtomStrings, 'gameStringProperty' ) ),
   neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralAtom', _.get( BuildAnAtomStrings, 'neutralAtomStringProperty' ) ),
   neutralSlashIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralSlashIon', _.get( BuildAnAtomStrings, 'neutralSlashIonStringProperty' ) ),
   neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutrons', _.get( BuildAnAtomStrings, 'neutronsStringProperty' ) ),
   protonsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'protonsColon', _.get( BuildAnAtomStrings, 'protonsColonStringProperty' ) ),
-  protonsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'protonsColonPatternStringProperty' ) ,
+  protonsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'protonsColonPatternStringProperty' ),
   cloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'cloud', _.get( BuildAnAtomStrings, 'cloudStringProperty' ) ),
   neutronsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutronsColon', _.get( BuildAnAtomStrings, 'neutronsColonStringProperty' ) ),
-  neutronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'neutronsColonPatternStringProperty' ) ,
+  neutronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'neutronsColonPatternStringProperty' ),
   electronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'electrons', _.get( BuildAnAtomStrings, 'electronsStringProperty' ) ),
   isItStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'isIt', _.get( BuildAnAtomStrings, 'isItStringProperty' ) ),
   protonsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'protons', _.get( BuildAnAtomStrings, 'protonsStringProperty' ) ),
