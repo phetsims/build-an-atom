@@ -3,8 +3,6 @@
 /**
  * GameLevel is the base class for a level in the Game screen.
  *
- * TODO: This is copied from BCE, and could be generalized and moved to a more general location. https://github.com/phetsims/build-an-atom/issues/257
- *
  * @author Agustín Vallejo
  */
 
@@ -112,6 +110,11 @@ export default class GameLevel extends PhetioObject {
     this.bestTimeProperty.reset();
     this.bestTimeVisibleProperty.reset();
     this.challengeNumberProperty.reset();
+    this.startOver();
+  }
+
+  public startOver(): void {
+    this.challenges.forEach( challenge => challenge.reset() );
   }
 
   public startLevel(): void {
@@ -137,20 +140,6 @@ export default class GameLevel extends PhetioObject {
     }
 
     return isNewBestTime;
-  }
-
-  /**
-   * Gets a challenge from the pool.
-   */
-  public getChallenge( index: number ): BAAGameChallenge {
-    return this.challenges[ index ];
-  }
-
-  /**
-   * Gets all pool challenges
-   */
-  public getChallenges(): BAAGameChallenge[] {
-    return this.challenges;
   }
 
   /**

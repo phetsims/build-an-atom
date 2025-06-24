@@ -223,6 +223,7 @@ class GameModel implements TModel {
     }
     else {
       this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
+      level.startOver();
     }
   }
 

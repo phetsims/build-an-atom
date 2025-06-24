@@ -96,7 +96,7 @@ class BAAGameChallenge extends BAAGameState {
   }
 
   public reset(): void {
-    this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
+    this.challengeStateProperty.reset();
   }
 }
 

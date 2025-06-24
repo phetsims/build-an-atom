@@ -190,6 +190,7 @@ class ChallengeView extends Node {
       hideButtonsAndFace();
       //TODO https://github.com/phetsims/build-an-atom/issues/240 Is the check for undefined really needed?
       if ( stateChangeHandlers[ challengeState ] !== undefined ) {
+        console.log( challengeState );
         stateChangeHandlers[ challengeState ]();
       }
     };
