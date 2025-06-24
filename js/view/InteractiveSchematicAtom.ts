@@ -32,9 +32,9 @@ type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
 export type TModel = {
   particleAtom: ParticleAtom;
-  showElementNameProperty: TReadOnlyProperty<boolean>;
-  showNeutralOrIonProperty: TReadOnlyProperty<boolean>;
-  showStableOrUnstableProperty: TReadOnlyProperty<boolean>;
+  elementNameVisibleProperty: TReadOnlyProperty<boolean>;
+  neutralAtomOrIonVisibleProperty: TReadOnlyProperty<boolean>;
+  nuclearStabilityVisibleProperty: TReadOnlyProperty<boolean>;
   electronShellDepictionProperty: TReadOnlyProperty<string>;
   buckets: Record<string, SphereBucket<Particle>>;
   nucleons: Particle[];
@@ -61,9 +61,9 @@ class InteractiveSchematicAtom extends Node {
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
-      showElementNameProperty: model.showElementNameProperty,
-      showNeutralOrIonProperty: model.showNeutralOrIonProperty,
-      showStableOrUnstableProperty: model.showStableOrUnstableProperty,
+      showElementNameProperty: model.elementNameVisibleProperty,
+      showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
+      showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
 
       // @ts-expect-error - once BuildAnAtomModel is converted to TypeScript, then this won't be a stringProperty anymore
       electronShellDepictionProperty: model.electronShellDepictionProperty,
