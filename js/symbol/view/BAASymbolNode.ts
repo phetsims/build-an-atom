@@ -9,7 +9,7 @@
 
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
-import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
+import { TNumberAtom, TReadOnlyNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -21,7 +21,7 @@ export type BAASymbolNodeOptions = SelfOptions & SymbolNodeOptions;
 
 class BAASymbolNode extends SymbolNode {
 
-  public constructor( numberAtom: TNumberAtom, providedOptions: BAASymbolNodeOptions ) {
+  public constructor( numberAtom: TNumberAtom | TReadOnlyNumberAtom, providedOptions: BAASymbolNodeOptions ) {
 
     const options = optionize<BAASymbolNodeOptions, SelfOptions, SymbolNodeOptions>()( {
       chargeProperty: numberAtom.chargeProperty
@@ -35,7 +35,7 @@ class BAASymbolNode extends SymbolNode {
     this.addChild( scaleImage );
 
     // Add the charge meter.
-    const chargeMeter = new ChargeMeter( numberAtom, {
+    const chargeMeter = new ChargeMeter( numberAtom.chargeProperty, {
       showNumericalReadout: false
     } );
     chargeMeter.scale( 1.6 );

@@ -11,9 +11,9 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import InteractiveSchematicAtom from '../../../../shred/js/view/InteractiveSchematicAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
 import ChallengeView from './ChallengeView.js';
@@ -23,7 +23,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override challenge: SymbolToSchematicChallenge;
   public interactiveSchematicAtom: InteractiveSchematicAtom;
-  private disposeSymbolToSchematicChallengeView: () => void;
+  private readonly disposeSymbolToSchematicChallengeView: () => void;
 
   public constructor( challenge: SymbolToSchematicChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 

@@ -7,6 +7,7 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -15,7 +16,6 @@ import Image from '../../../../scenery/js/nodes/Image.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -29,10 +29,9 @@ export type MassNumberDisplayOptions = SelfOptions & NodeOptions;
 
 class MassNumberDisplay extends Node {
 
-  public constructor( numberAtom: TNumberAtom, providedOptions?: MassNumberDisplayOptions ) {
+  public constructor( massNumberProperty: TReadOnlyProperty<number>, providedOptions?: MassNumberDisplayOptions ) {
 
-    const options = optionize<MassNumberDisplayOptions, SelfOptions, NodeOptions>()( {
-    }, providedOptions );
+    const options = optionize<MassNumberDisplayOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
 
     super( options );
 
@@ -59,7 +58,7 @@ class MassNumberDisplay extends Node {
     readoutBackground.addChild( numericalText );
 
     // Add the listeners that will update the numerical display when the charge changes.
-    numberAtom.massNumberProperty.link( massNumber => {
+    massNumberProperty.link( massNumber => {
       const newText = `${massNumber}`; // cast to a string explicitly just in case
       if ( newText !== numericalText.string ) {
         numericalText.string = newText;

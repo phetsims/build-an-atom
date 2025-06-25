@@ -51,9 +51,9 @@ export type BuildAnAtomModelOptions = SelfOptions & PickRequired<PhetioObjectOpt
 
 class BuildAnAtomModel {
 
-  public showElementNameProperty: BooleanProperty;
-  public showNeutralOrIonProperty: BooleanProperty;
-  public showStableOrUnstableProperty: BooleanProperty;
+  public elementNameVisibleProperty: BooleanProperty;
+  public neutralAtomOrIonVisibleProperty: BooleanProperty;
+  public nuclearStabilityVisibleProperty: BooleanProperty;
   public electronShellDepictionProperty: Property<ElectronShellDepiction>;
   public particleAtom: ParticleAtom;
   public buckets: Record<string, SphereBucket<Particle>>;
@@ -64,7 +64,6 @@ class BuildAnAtomModel {
   public nucleusOffset: Vector2; // offset for nucleus jump animation
   public nucleusJumpCount: number; // count for how many times the nucleus has jumped
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
-  public static readonly MAX_ELECTRONS = NUM_ELECTRONS;
 
   public constructor( options?: BuildAnAtomModelOptions ) {
 
@@ -75,18 +74,18 @@ class BuildAnAtomModel {
     const tandem = options.tandem;
 
     // Properties that control label visibility in the view.
-    this.showElementNameProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'showElementNameProperty' ),
+    this.elementNameVisibleProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'elementNameVisibleProperty' ),
       phetioState: options.phetioState,
       phetioFeatured: true
     } );
-    this.showNeutralOrIonProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'showNeutralOrIonProperty' ),
+    this.neutralAtomOrIonVisibleProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'neutralAtomOrIonVisibleProperty' ),
       phetioState: options.phetioState,
       phetioFeatured: true
     } );
-    this.showStableOrUnstableProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'showStableOrUnstableProperty' ),
+    this.nuclearStabilityVisibleProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'nuclearStabilityVisibleProperty' ),
       phetioState: options.phetioState,
       phetioFeatured: true
     } );
@@ -216,7 +215,9 @@ class BuildAnAtomModel {
     // Update the stability state and counter on changes.
     this.nucleusStableProperty = new DerivedProperty(
       [ this.particleAtom.protonCountProperty, this.particleAtom.neutronCountProperty ],
-      ( protonCount, neutronCount ) => protonCount + neutronCount > 0 ? AtomIdentifier.isStable( protonCount, neutronCount ) : true,
+      ( protonCount, neutronCount ) => protonCount + neutronCount > 0 ?
+                                       AtomIdentifier.isStable( protonCount, neutronCount ) :
+                                       true,
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
         phetioState: options.phetioState,
@@ -237,9 +238,9 @@ class BuildAnAtomModel {
     this.nucleusStableProperty.dispose();
 
     // next dispose the root (non-derived) properties
-    this.showElementNameProperty.dispose();
-    this.showNeutralOrIonProperty.dispose();
-    this.showStableOrUnstableProperty.dispose();
+    this.elementNameVisibleProperty.dispose();
+    this.neutralAtomOrIonVisibleProperty.dispose();
+    this.nuclearStabilityVisibleProperty.dispose();
     this.electronShellDepictionProperty.dispose();
 
     // etc...
@@ -262,7 +263,7 @@ class BuildAnAtomModel {
     } );
 
     // Animate the unstable nucleus by making it jump periodically.
-    if ( !this.nucleusStableProperty.get() && this.showStableOrUnstableProperty.get() ) {
+    if ( !this.nucleusStableProperty.get() && this.nuclearStabilityVisibleProperty.get() ) {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
@@ -297,9 +298,9 @@ class BuildAnAtomModel {
   }
 
   public reset(): void {
-    this.showElementNameProperty.reset();
-    this.showNeutralOrIonProperty.reset();
-    this.showStableOrUnstableProperty.reset();
+    this.elementNameVisibleProperty.reset();
+    this.neutralAtomOrIonVisibleProperty.reset();
+    this.nuclearStabilityVisibleProperty.reset();
     this.electronShellDepictionProperty.reset();
 
     // Move any particles that are in transit back to its bucket.

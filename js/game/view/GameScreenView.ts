@@ -136,6 +136,11 @@ class GameScreenView extends ScreenView {
         this.levelNode.removeAllChildren();
 
         const challenge = gameModel.challengeProperty.value!;
+
+        if ( !challenge ) {
+          debugger;
+        }
+
         assert && assert( challenge, 'There should be a challenge available for this state' );
 
         if ( challenge ) {
