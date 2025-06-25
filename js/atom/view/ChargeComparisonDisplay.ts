@@ -14,6 +14,7 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 
@@ -25,13 +26,14 @@ const SYMBOL_LINE_WIDTH = SYMBOL_WIDTH * 0.3;
 
 type SelfOptions = EmptySelfOptions;
 
-export type ChargeComparisonDisplayOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+export type ChargeComparisonDisplayOptions = SelfOptions & NodeOptions;
 
 class ChargeComparisonDisplay extends Node {
 
   public constructor( particleAtom: ParticleAtom, providedOptions?: ChargeComparisonDisplayOptions ) {
 
     const options = optionize<ChargeComparisonDisplayOptions, SelfOptions, NodeOptions>()( {
+      tandem: Tandem.OPT_OUT
     }, providedOptions );
 
     super( options );
