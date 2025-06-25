@@ -50,7 +50,6 @@ class ChallengeView extends Node {
 
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super();
-    console.log( 'creating challenge view' );
     this.challenge = challenge;
 
     // Audio player used for audio feedback.
@@ -206,7 +205,6 @@ class ChallengeView extends Node {
     this.tryAgainButton.dispose();
     this.displayCorrectAnswerButton.dispose();
     super.dispose();
-    console.log( 'disposing', this.challenge.name );
   }
 
   // Function to clear the user's answer, generally used when

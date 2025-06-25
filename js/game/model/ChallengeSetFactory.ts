@@ -7,7 +7,6 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import dotRandom from '../../../../dot/js/dotRandom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
@@ -27,25 +26,6 @@ import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
 import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
 
 const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
-
-// const CHALLENGE_TANDEMS = new Map<string, string>( [
-//   [ 'counts-to-element', 'countsToElementChallenge' ],
-//   [ 'counts-to-charge', 'countsToChargeChallenge' ],
-//   [ 'counts-to-mass', 'countsToMassNumberChallenge' ],
-//   [ 'counts-to-symbol-all', 'countsToSymbolChallenge' ],
-//   [ 'counts-to-symbol-charge', 'countsToSymbolChallenge' ],
-//   [ 'counts-to-symbol-mass', 'countsToSymbolChallenge' ],
-//   [ 'counts-to-symbol-proton-count', 'countsToSymbolChallenge' ],
-//   [ 'schematic-to-element', 'schematicToElementChallenge' ],
-//   [ 'schematic-to-charge', 'schematicToChargeChallenge' ],
-//   [ 'schematic-to-mass', 'schematicToMassNumberChallenge' ],
-//   [ 'schematic-to-symbol-all', 'schematicToSymbolChallenge' ],
-//   [ 'schematic-to-symbol-charge', 'schematicToSymbolChallenge' ],
-//   [ 'schematic-to-symbol-mass-number', 'schematicToSymbolChallenge' ],
-//   [ 'schematic-to-symbol-proton-count', 'schematicToSymbolChallenge' ],
-//   [ 'symbol-to-counts', 'symbolToCountsChallenge' ],
-//   [ 'symbol-to-schematic', 'symbolToSchematicChallenge' ]
-// ] );
 
 const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
   [ 'schematic-to-element', 'counts-to-element' ],
@@ -69,7 +49,12 @@ export default class ChallengeSetFactory {
     const challenges: BAAGameChallenge[] = [];
 
     for ( let i = 0; i < GameModel.CHALLENGES_PER_LEVEL; i++ ) {
-      const challenge = this.chooseRandomAvailableChallenge( model, validChallengeNames, atomValuePool, tandem );
+      const challenge = this.chooseRandomAvailableChallenge(
+        model,
+        validChallengeNames,
+        atomValuePool,
+        tandem
+      );
       if ( challenge ) {
         challenges.push( challenge );
       }
@@ -85,26 +70,28 @@ export default class ChallengeSetFactory {
     tandem: Tandem
   ): BAAGameChallenge {
 
+    const random = model.random;
+
     // TODO: This probably is bad for checking repetition, will come back later https://github.com/phetsims/build-an-atom/issues/257
-    const index = Math.floor( dotRandom.nextDouble() * validChallenges.length );
+    const index = Math.floor( random.nextDouble() * validChallenges.length );
     const challengeType = validChallenges[ index ];
 
     let minProtonCount = 0;
     let maxProtonCount = Number.POSITIVE_INFINITY;
     let requireCharged = false;
 
-    if ( this.isSchematicProbType( challengeType ) ) {
+    if ( this.isSchematicRelatedChallenge( challengeType ) ) {
       maxProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS;
     }
     else {
       minProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS + 1;
     }
 
-    if ( this.isChargeProbType( challengeType ) ) {
-      requireCharged = dotRandom.nextBoolean();
+    if ( this.isChargeRelatedChallenge( challengeType ) ) {
+      requireCharged = random.nextBoolean();
     }
 
-    const atomValue = availableAtomValues.getRandomAtomValue( minProtonCount, maxProtonCount, requireCharged );
+    const atomValue = availableAtomValues.getRandomAtomValue( random, minProtonCount, maxProtonCount, requireCharged );
     availableAtomValues.markAtomAsUsed( atomValue );
 
     return this.createChallenge( model, challengeType, atomValue as AnswerAtom, tandem );
@@ -116,6 +103,7 @@ export default class ChallengeSetFactory {
     atomValue: AnswerAtom,
     tandem: Tandem
   ): BAAGameChallenge {
+    // TODO: Tandem? https://github.com/phetsims/build-an-atom/issues/257
     // tandem = tandem.createTandem( CHALLENGE_TANDEMS.get( type )! );
     tandem = Tandem.OPT_OUT;
     switch( type ) {
@@ -156,7 +144,7 @@ export default class ChallengeSetFactory {
     }
   }
 
-  private static isSchematicProbType( type: ChallengeType ): boolean {
+  private static isSchematicRelatedChallenge( type: ChallengeType ): boolean {
     return [
       'schematic-to-element',
       'schematic-to-charge',
@@ -169,7 +157,7 @@ export default class ChallengeSetFactory {
     ].includes( type );
   }
 
-  private static isChargeProbType( type: ChallengeType ): boolean {
+  private static isChargeRelatedChallenge( type: ChallengeType ): boolean {
     return [
       'schematic-to-charge',
       'counts-to-charge',

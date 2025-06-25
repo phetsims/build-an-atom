@@ -17,6 +17,8 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
+import dotRandom from '../../../../dot/js/dotRandom.js';
+import Random from '../../../../dot/js/Random.js';
 import Range from '../../../../dot/js/Range.js';
 import TModel from '../../../../joist/js/TModel.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -83,18 +85,25 @@ class GameModel implements TModel {
   public readonly timer: GameTimer;
   public readonly timerEnabledProperty: Property<boolean>;
 
+  public readonly randomSeedProperty: Property<number>;
+  public readonly random: Random;
+
   public constructor( tandem: Tandem ) {
 
+    this.randomSeedProperty = new NumberProperty( dotRandom.nextDouble(), {
+      tandem: tandem.createTandem( 'randomSeedProperty' ),
+      phetioDocumentation: 'For internal use only, the seed used to generate random challenges.',
+      phetioReadOnly: true
+    } );
+
+    this.random = new Random( { seed: this.randomSeedProperty.value } );
+
+    // TODO: Until we have proper IOTypes, this shouldn't be instrumented! https://github.com/phetsims/build-an-atom/issues/257
     this.gameStateProperty = new Property<GameState>( 'levelSelection', {
       validValues: GameStateValues,
       tandem: tandem.createTandem( 'gameStateProperty' ),
       phetioDocumentation: 'The current game state, which is used to determine what the view should display.',
       phetioValueType: StringUnionIO( GameStateValues )
-    } );
-
-    // Logging the game state changes for debugging purposes.
-    this.gameStateProperty.link( state => {
-      console.log( state );
     } );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
@@ -166,6 +175,13 @@ class GameModel implements TModel {
         level && level.imposeLevel();
         this.gameStateProperty.notifyListenersStatic();
       }
+    } );
+
+    this.randomSeedProperty.link( seed => {
+      this.random.setSeed( seed );
+      this.levels.forEach( level => {
+        level.generateChallenges();
+      } );
     } );
   }
 

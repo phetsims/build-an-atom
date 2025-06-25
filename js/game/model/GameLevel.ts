@@ -6,6 +6,7 @@
  * @author Agustín Vallejo
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
@@ -28,7 +29,7 @@ type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'
 export default class GameLevel extends PhetioObject {
 
   // The collection of challenges for this level.
-  private readonly challenges: BAAGameChallenge[];
+  private challenges: BAAGameChallenge[];
 
   // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
   public readonly challengeNumberProperty: Property<number>;
@@ -40,9 +41,13 @@ export default class GameLevel extends PhetioObject {
   public readonly bestTimeProperty: Property<number>;
 
   // Whether the time for this game a new best time.
-  public isNewBestTime = false;
+  public isNewBestTimeProperty: Property<boolean>;
 
-  public constructor( public readonly index: number, public readonly model: GameModel, providedOptions: GameLevelOptions ) {
+  public constructor(
+    public readonly index: number,
+    public readonly model: GameModel,
+    providedOptions: GameLevelOptions
+  ) {
 
     const options = optionize<GameLevelOptions, SelfOptions, PhetioObjectOptions>()( {
 
@@ -54,7 +59,8 @@ export default class GameLevel extends PhetioObject {
 
     super( options );
     const tandem = options.tandem;
-    this.challenges = ChallengeSetFactory.createChallengeSet( index, model, tandem );
+    this.challenges = [];
+    this.generateChallenges();
 
     this.challengeNumberProperty = new NumberProperty( 1, {
       numberType: 'Integer',
@@ -96,6 +102,12 @@ export default class GameLevel extends PhetioObject {
       phetioReadOnly: true
     } );
 
+    this.isNewBestTimeProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'isNewBestTimeProperty' ),
+      phetioDocumentation: 'Whether the time for this game is a new best time.',
+      phetioReadOnly: true
+    } );
+
     // When the challenge number changes,update the model's challenge number property to display it in the status bar.
     this.challengeNumberProperty.link( number => {
       model.challengeNumberProperty.set( number );
@@ -116,10 +128,18 @@ export default class GameLevel extends PhetioObject {
    * When setting PhET-iO state, we can call this function to impose the level's challenge on the model.
    */
   public imposeLevel(): void {
+    this.challengeNumberProperty.notifyListenersStatic();
     this.model.challengeProperty.set( this.challengeProperty.value );
     this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
+  /**
+   * Generates a new set of challenges for this level.
+   * This is called when the level is first created, and can be called again for PhET-iO randomness purposes.
+   */
+  public generateChallenges(): void {
+    this.challenges = ChallengeSetFactory.createChallengeSet( this.index, this.model, this.tandem );
+  }
 
   public startLevel(): void {
     this.challengeNumberProperty.reset();
@@ -136,13 +156,13 @@ export default class GameLevel extends PhetioObject {
   public endLevel( score: number, time: number ): void {
     this.bestScoreProperty.set( Math.max( this.bestScoreProperty.value, score ) );
 
-    this.isNewBestTime = false;
+    this.isNewBestTimeProperty.value = false;
 
     // Register best times only if the score is a perfect score.
     if ( this.isPerfectScore( score ) &&
          ( this.bestTimeProperty.value === 0 || time < this.bestTimeProperty.value ) ) {
       this.bestTimeProperty.set( time );
-      this.isNewBestTime = true;
+      this.isNewBestTimeProperty.value = true;
     }
 
   }

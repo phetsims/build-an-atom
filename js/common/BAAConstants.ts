@@ -6,6 +6,7 @@
  * @author John Blanco
  */
 
+import Random from '../../../dot/js/Random.js';
 import buildAnAtom from '../buildAnAtom.js';
 
 const VALID_CHALLENGES = [
@@ -26,6 +27,10 @@ const VALID_CHALLENGES = [
   'symbol-to-counts',
   'symbol-to-schematic'
 ] as const;
+
+export const RANDOM = new Random( {
+  seed: 1 // Seed will be changed by the GameMode.
+} );
 
 export type ChallengeType = typeof VALID_CHALLENGES[number];
 

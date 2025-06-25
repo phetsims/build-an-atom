@@ -121,7 +121,7 @@ class GameScreenView extends ScreenView {
           gameModel.timerEnabledProperty.get(),
           gameModel.timer.elapsedTimeProperty.get(),
           level.bestTimeProperty.value,
-          level.isNewBestTime,
+          level.isNewBestTimeProperty.value,
           () => { gameModel.levelProperty.reset(); }, {
             centerX: this.layoutBounds.width / 2,
             centerY: this.layoutBounds.height / 2,
@@ -138,12 +138,14 @@ class GameScreenView extends ScreenView {
         const challenge = gameModel.challengeProperty.value!;
 
         if ( !challenge ) {
-          debugger;
+          console.log( 'No challenge found for game state: ', state );
+          return;
         }
+        else {
 
-        assert && assert( challenge, 'There should be a challenge available for this state' );
+          debugger;
+          console.log( challenge.challengeType );
 
-        if ( challenge ) {
           this.challengeView && this.challengeView.dispose();
           this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( `${challenge.name}View` ) );
           this.challengeView.handleStateChange( state );
