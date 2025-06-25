@@ -17,9 +17,9 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import BAAGameState from '../model/BAAGameState.js';
-import GameModel from '../model/GameModel.js';
+import GameModel, { GameState } from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
+import ChallengeView from './ChallengeView.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 
 class GameScreenView extends ScreenView {
@@ -29,6 +29,8 @@ class GameScreenView extends ScreenView {
 
   private levelCompletedNode: LevelCompletedNode | null; // created on demand
   public rewardNode: BAARewardNode | null; // created on demand
+
+  private challengeView: ChallengeView | null = null;
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
@@ -87,25 +89,17 @@ class GameScreenView extends ScreenView {
     this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
-    gameModel.stateProperty.link( ( state: BAAGameState ) => {
+    gameModel.gameStateProperty.link( ( state: GameState ) => {
 
-      if ( state === BAAGameState.CHOOSING_LEVEL ) {
-        this.levelNode.removeAllChildren();
-        this.levelNode.addChild( this.levelSelectionNode );
-        if ( this.rewardNode !== null ) {
-          this.rewardNode.dispose();
-        }
-        if ( this.levelCompletedNode !== null ) {
-          this.levelCompletedNode.dispose();
-        }
-        this.rewardNode = null;
-        this.levelCompletedNode = null;
+      if ( state === 'levelSelection' ) {
+        this.initLevelSelection();
       }
-      else if ( state === BAAGameState.LEVEL_COMPLETED ) {
+      else if ( state === 'levelCompleted' ) {
         this.levelNode.removeAllChildren();
         if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
+          this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists
           this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
           this.levelNode.addChild( this.rewardNode );
 
@@ -138,19 +132,34 @@ class GameScreenView extends ScreenView {
         );
         this.levelNode.addChild( this.levelCompletedNode );
       }
-      else if ( state.createView ) {
-        // Since we're not in the start or game-over states, we must be
-        // presenting a challenge.
+      else {
         this.levelNode.removeAllChildren();
-        const challengeView = state.createView( this.layoutBounds, tandem.createTandem( `${state.tandem.name}View` ) );
-        state.disposeEmitter.addListener( function disposeListener() {
-          challengeView.dispose();
-          state.disposeEmitter.removeListener( disposeListener );
-        } );
-        this.levelNode.addChild( challengeView );
+
+        const challenge = gameModel.challengeProperty.value!;
+        assert && assert( challenge, 'There should be a challenge available for this state' );
+
+        if ( challenge ) {
+          this.challengeView && this.challengeView.dispose();
+          this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( `${challenge.name}View` ) );
+          this.challengeView.handleStateChange( state );
+          this.levelNode.addChild( this.challengeView );
+        }
         this.levelNode.addChild( scoreboard );
       }
     } );
+  }
+
+  public initLevelSelection(): void {
+    this.levelNode.removeAllChildren();
+    this.levelNode.addChild( this.levelSelectionNode );
+    if ( this.rewardNode !== null ) {
+      this.rewardNode.dispose();
+    }
+    if ( this.levelCompletedNode !== null ) {
+      this.levelCompletedNode.dispose();
+    }
+    this.rewardNode = null;
+    this.levelCompletedNode = null;
   }
 
   public override step( elapsedTime: number ): void {

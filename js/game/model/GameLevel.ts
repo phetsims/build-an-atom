@@ -13,7 +13,6 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
@@ -77,11 +76,9 @@ export default class GameLevel extends PhetioObject {
     // When the challenge changes, reset it to ensure that coefficients are zero. It may have been previously
     // selected from the pool, and have coefficients from previous game play.
     this.challengeProperty.lazyLink( challenge => {
-      if ( !isSettingPhetioStateProperty.value ) {
-        challenge && challenge.reset();
-      }
       // Update the model state to the new challenge.
-      model.stateProperty.set( challenge );
+      model.challengeProperty.set( challenge );
+      model.gameStateProperty.set( 'presentingChallenge' );
     } );
 
     this.bestScoreProperty = new NumberProperty( 0, {
@@ -103,21 +100,31 @@ export default class GameLevel extends PhetioObject {
     this.challengeNumberProperty.link( number => {
       model.challengeNumberProperty.set( number );
     } );
+
+    this.challengeProperty.lazyLink( challenge => {
+      model.challengeProperty.set( challenge );
+      model.gameStateProperty.set( 'presentingChallenge' );
+    } );
   }
 
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
-    this.startOver();
   }
 
-  public startOver(): void {
-    this.challenges.forEach( challenge => challenge.reset() );
+  /**
+   * When setting PhET-iO state, we can call this function to impose the level's challenge on the model.
+   */
+  public imposeLevel(): void {
+    this.model.challengeProperty.set( this.challengeProperty.value );
+    this.model.gameStateProperty.set( 'presentingChallenge' );
   }
+
 
   public startLevel(): void {
     this.challengeNumberProperty.reset();
-    this.model.stateProperty.set( this.challengeProperty.value );
+    this.model.challengeProperty.set( this.challengeProperty.value );
+    this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
   /**

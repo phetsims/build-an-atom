@@ -23,17 +23,30 @@ import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioS
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import GameTimer from '../../../../vegas/js/GameTimer.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import BAAChallengeState from './BAAChallengeState.js';
-import BAAGameState from './BAAGameState.js';
+import BAAGameChallenge from './BAAGameChallenge.js';
 import GameLevel from './GameLevel.js';
 
 // constants
 const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
+
+export const GameStateValues = [
+  'levelSelection',
+  'presentingChallenge',
+  'check',
+  'solvedCorrectly',
+  'tryAgain',
+  'attemptsExhausted',
+  'showingAnswer',
+  'next',
+  'levelCompleted'
+] as const;
+export type GameState = ( typeof GameStateValues )[number];
 
 class GameModel implements TModel {
 
@@ -44,7 +57,7 @@ class GameModel implements TModel {
 
   // The current state of the game, which is used to determine what the view should display.
   // Usually it ranges between 'choosingLevel', 'levelCompleted' and individual challenges within a level.
-  public readonly stateProperty: Property<BAAGameState>;
+  public readonly gameStateProperty: Property<GameState>;
 
   // All the levels in the game
   public readonly levels: GameLevel[];
@@ -58,6 +71,9 @@ class GameModel implements TModel {
   // Current challenge number in the level, starting from 1. Used only for the finite status bar.
   public readonly challengeNumberProperty: Property<number>;
 
+  // The current challenge that is being played.
+  public readonly challengeProperty: Property<BAAGameChallenge | null>;
+
   // The number of attempts the user has made at solving the current challenge.
   private readonly attemptsProperty: Property<number>;
 
@@ -69,8 +85,16 @@ class GameModel implements TModel {
 
   public constructor( tandem: Tandem ) {
 
-    this.stateProperty = new Property<BAAGameState>( BAAGameState.CHOOSING_LEVEL, {
-      // tandem: tandem.createTandem( 'stateProperty' )
+    this.gameStateProperty = new Property<GameState>( 'levelSelection', {
+      validValues: GameStateValues,
+      tandem: tandem.createTandem( 'gameStateProperty' ),
+      phetioDocumentation: 'The current game state, which is used to determine what the view should display.',
+      phetioValueType: StringUnionIO( GameStateValues )
+    } );
+
+    // Logging the game state changes for debugging purposes.
+    this.gameStateProperty.link( state => {
+      console.log( state );
     } );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
@@ -80,6 +104,8 @@ class GameModel implements TModel {
       phetioDocumentation: 'The challenge number shown in the status bar. Indicates how far the user has progressed through a level.',
       phetioReadOnly: true
     } );
+
+    this.challengeProperty = new Property<BAAGameChallenge | null>( null );
 
     this.levels = [
       new GameLevel( 0, this, { tandem: tandem.createTandem( 'gameLevel0' ) } ),
@@ -134,6 +160,11 @@ class GameModel implements TModel {
     this.levelProperty.lazyLink( level => {
       if ( !isSettingPhetioStateProperty.value ) {
         level ? this.startLevel() : this.startOver();
+      }
+      else {
+        // TODO: This is a workaround due to not having IOTypes for Challenges yet! https://github.com/phetsims/build-an-atom/issues/257
+        level && level.imposeLevel();
+        this.gameStateProperty.notifyListenersStatic();
       }
     } );
   }
@@ -192,16 +223,16 @@ class GameModel implements TModel {
     this.scoreProperty.value += correctAnswer ? points : 0;
 
     if ( correctAnswer ) {
-      challenge.challengeStateProperty.set( BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY );
+      this.gameStateProperty.set( 'solvedCorrectly' );
       if ( level.isLastChallenge() ) {
         this.endLevel();
       }
     }
     else if ( attempts < 2 ) {
-      challenge.challengeStateProperty.set( BAAChallengeState.PRESENTING_TRY_AGAIN );
+      this.gameStateProperty.set( 'tryAgain' );
     }
     else {
-      challenge.challengeStateProperty.set( BAAChallengeState.ATTEMPTS_EXHAUSTED );
+      this.gameStateProperty.set( 'attemptsExhausted' );
       if ( level.isLastChallenge() ) {
         this.endLevel();
       }
@@ -221,8 +252,7 @@ class GameModel implements TModel {
       level.challengeNumberProperty.value++;
     }
     else {
-      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
-      level.startOver();
+      this.gameStateProperty.set( 'levelCompleted' );
     }
   }
 
@@ -240,7 +270,7 @@ class GameModel implements TModel {
   public startOver(): void {
     this.resetToStart();
     this.levelProperty.reset();
-    this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
+    this.gameStateProperty.set( 'levelSelection' );
   }
 
   /**
@@ -251,6 +281,7 @@ class GameModel implements TModel {
     this.levels.forEach( level => level.reset() );
     this.levelProperty.reset();
     this.timerEnabledProperty.reset();
+    this.gameStateProperty.reset();
   }
 
   /**

@@ -13,7 +13,6 @@ import Property from '../../../../axon/js/Property.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
-import BAAChallengeState, { BAAChallengeStateType } from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
 import GameModel from './GameModel.js';
 
@@ -31,7 +30,6 @@ class BAAGameChallenge extends BAAGameState {
   public isCorrectAtomProperty: Property<boolean>;
 
   // Property that tracks the state of the challenge, such as whether it is presenting the challenge,
-  public readonly challengeStateProperty: Property<BAAChallengeStateType>;
   public readonly challengeType: string;
 
   public configurableProtonCount = false;
@@ -50,13 +48,6 @@ class BAAGameChallenge extends BAAGameState {
       // phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
 
-    this.challengeStateProperty = new Property<BAAChallengeStateType>( BAAChallengeState.PRESENTING_CHALLENGE, {
-      tandem: tandem.createTandem( 'challengeStateProperty' ),
-      phetioReadOnly: true,
-      phetioState: false,
-      validValues: _.values( BAAChallengeState )
-    } );
-
     this.answerAtom = answerAtom;
     this.model = buildAnAtomGameModel;
     this.challengeType = challengeType;
@@ -68,19 +59,13 @@ class BAAGameChallenge extends BAAGameState {
     } );
   }
 
-  public override dispose(): void {
-    this.challengeStateProperty.dispose();
-
-    super.dispose();
-  }
-
   public override checkAnswer( submittedAtom: AnswerAtom ): void {
     this.isCorrectAtomProperty.value = submittedAtom.equals( this.answerAtom );
     this.model.check();
   }
 
   public override tryAgain(): void {
-    this.challengeStateProperty.set( BAAChallengeState.PRESENTING_CHALLENGE );
+    this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
   public override next(): void {
@@ -90,11 +75,7 @@ class BAAGameChallenge extends BAAGameState {
   }
 
   public override displayCorrectAnswer(): void {
-    this.challengeStateProperty.set( BAAChallengeState.DISPLAYING_CORRECT_ANSWER );
-  }
-
-  public reset(): void {
-    this.challengeStateProperty.reset();
+    this.model.gameStateProperty.set( 'showingAnswer' );
   }
 }
 
