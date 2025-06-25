@@ -10,11 +10,10 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
-import BAAChallengeState from './BAAChallengeState.js';
+import BAAChallengeState, { BAAChallengeStateType } from './BAAChallengeState.js';
 import BAAGameState from './BAAGameState.js';
 import GameModel from './GameModel.js';
 
@@ -32,7 +31,7 @@ class BAAGameChallenge extends BAAGameState {
   public isCorrectAtomProperty: Property<boolean>;
 
   // Property that tracks the state of the challenge, such as whether it is presenting the challenge,
-  public readonly challengeStateProperty: Property<string>;
+  public readonly challengeStateProperty: Property<BAAChallengeStateType>;
   public readonly challengeType: string;
 
   public configurableProtonCount = false;
@@ -51,8 +50,7 @@ class BAAGameChallenge extends BAAGameState {
       // phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
 
-    //TODO https://github.com/phetsims/build-an-atom/issues/240 why not an Enum?
-    this.challengeStateProperty = new StringProperty( BAAChallengeState.PRESENTING_CHALLENGE, {
+    this.challengeStateProperty = new Property<BAAChallengeStateType>( BAAChallengeState.PRESENTING_CHALLENGE, {
       tandem: tandem.createTandem( 'challengeStateProperty' ),
       phetioReadOnly: true,
       phetioState: false,

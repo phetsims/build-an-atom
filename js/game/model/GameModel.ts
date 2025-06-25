@@ -55,6 +55,9 @@ class GameModel implements TModel {
   // The number of the selected level in the game. Zero means that no level is selected.
   public readonly levelNumberProperty: ReadOnlyProperty<number>;
 
+  // Current challenge number in the level, starting from 1. Used only for the finite status bar.
+  public readonly challengeNumberProperty: Property<number>;
+
   // The number of attempts the user has made at solving the current challenge.
   private readonly attemptsProperty: Property<number>;
 
@@ -68,6 +71,14 @@ class GameModel implements TModel {
 
     this.stateProperty = new Property<BAAGameState>( BAAGameState.CHOOSING_LEVEL, {
       // tandem: tandem.createTandem( 'stateProperty' )
+    } );
+
+    this.challengeNumberProperty = new NumberProperty( 1, {
+      numberType: 'Integer',
+      range: new Range( 1, GameModel.CHALLENGES_PER_LEVEL ),
+      tandem: tandem.createTandem( 'challengeNumberProperty' ),
+      phetioDocumentation: 'The challenge number shown in the status bar. Indicates how far the user has progressed through a level.',
+      phetioReadOnly: true
     } );
 
     this.levels = [

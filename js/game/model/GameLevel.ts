@@ -98,6 +98,11 @@ export default class GameLevel extends PhetioObject {
       phetioFeatured: true,
       phetioReadOnly: true
     } );
+
+    // When the challenge number changes,update the model's challenge number property to display it in the status bar.
+    this.challengeNumberProperty.link( number => {
+      model.challengeNumberProperty.set( number );
+    } );
   }
 
   public reset(): void {

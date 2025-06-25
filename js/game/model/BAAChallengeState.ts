@@ -16,10 +16,12 @@ const BAAChallengeState = {
   DISPLAYING_CORRECT_ANSWER: 'displayingCorrectAnswer'
 };
 
+export default BAAChallengeState;
+
+// Type of the strings of the state
+export type BAAChallengeStateType = ( typeof BAAChallengeState )[keyof typeof BAAChallengeState];
 
 // verify that enum is immutable, without the runtime penalty in production code
 if ( assert ) { Object.freeze( BAAChallengeState ); }
 
 buildAnAtom.register( 'BAAChallengeState', BAAChallengeState );
-
-export default BAAChallengeState;
