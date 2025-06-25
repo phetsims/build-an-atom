@@ -68,8 +68,7 @@ class AtomScreenView extends BAAScreenView {
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomStrings.netChargeStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: netChargeAccordionBoxTandem.createTandem( 'titleText' )
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
 
         // phet-io
@@ -95,8 +94,7 @@ class AtomScreenView extends BAAScreenView {
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomStrings.massNumberStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: massNumberAccordionBoxTandem.createTandem( 'titleText' )
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
         tandem: massNumberAccordionBoxTandem,
 

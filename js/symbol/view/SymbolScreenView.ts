@@ -32,8 +32,7 @@ class SymbolScreenView extends BAAScreenView {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomStrings.symbolStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: symbolAccordionBoxTandem.createTandem( 'titleText' )
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableAccordionBox.width,

@@ -239,8 +239,7 @@ class BAAScreenView extends ScreenView {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomStrings.elementStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: periodicTableAccordionBoxTandem.createTandem( 'titleText' )
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -299,8 +298,7 @@ class BAAScreenView extends ScreenView {
       'orbits',
       new Text( BuildAnAtomStrings.orbitsStringProperty, {
           font: ELECTRON_VIEW_CONTROL_FONT,
-          maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
-          tandem: orbitsRadioButtonTandem.createTandem( 'orbitsText' )
+          maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
         }
       ),
       { radius: radioButtonRadius, tandem: orbitsRadioButtonTandem }
@@ -311,8 +309,7 @@ class BAAScreenView extends ScreenView {
       'cloud',
       new Text( BuildAnAtomStrings.cloudStringProperty, {
         font: ELECTRON_VIEW_CONTROL_FONT,
-        maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
-        tandem: cloudRadioButtonTandem.createTandem( 'cloudText' )
+        maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
       } ),
       { radius: radioButtonRadius, tandem: cloudRadioButtonTandem }
     );
@@ -322,8 +319,7 @@ class BAAScreenView extends ScreenView {
         size: 14,
         weight: 'bold'
       } ),
-      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20,
-      tandem: tandem.createTandem( 'electronViewButtonGroupLabelText' )
+      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20
     } ) );
     orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
     orbitsRadioButton.left = electronViewButtonGroup.left;
