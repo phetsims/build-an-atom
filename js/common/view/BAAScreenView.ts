@@ -12,13 +12,11 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
-import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import SceneryEvent from '../../../../scenery/js/input/SceneryEvent.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
@@ -188,16 +186,14 @@ class BAAScreenView extends ScreenView {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node();
 
-    const dragListenersTandem = tandem.createTandem( 'bucketDragListeners' );
-
-    _.each( model.buckets, ( bucket: SphereBucket<Particle> ) => {
+    for ( const [ bucketName, bucket ] of Object.entries( model.buckets ) ) {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: Tandem.OPT_OUT,
         labelNode: new Panel(
           new Text( bucket.captionText, {
             font: new PhetFont( 20 ),
             fill: bucket.captionColor
-          } ), {
+          } ),
+          {
             fill: BAAColors.bucketTextBackgroundColorProperty,
             cornerRadius: 0,
             stroke: null,
@@ -205,28 +201,29 @@ class BAAScreenView extends ScreenView {
             yMargin: 0
           }
         ),
+
         // pdom
         tagName: 'button',
         focusable: true
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: dragListenersTandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
+        tandem: tandem.createTandem( `${bucketName}DragListener` )
       } ) );
       bucketFront.addInputListener( {
-        click: ( event: SceneryEvent ) => {
+        click: () => {
           const activeParticle = bucket.extractClosestParticle( bucket.position );
           if ( activeParticle !== null ) {
             activeParticle.userControlledProperty.set( true );
           }
         }
       } );
-    } );
+    }
 
-    // Add the particle count indicator.
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( model.particleAtom, 13, 250, {
       tandem: tandem.createTandem( 'particleCountDisplay' )
-    } );  // Width arbitrarily chosen.
+    } );
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display.

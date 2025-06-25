@@ -105,8 +105,7 @@ class BuildAnAtomModel {
       phetioState: options.phetioState
     } );
 
-    const bucketsTandem = tandem.createTandem( 'buckets' );
-    // Create the buckets that will hold the sub-atomic particles.
+    // Create the buckets that will hold the subatomic particles.
     this.buckets = {
       protonBucket: new SphereBucket( {
         position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
@@ -115,7 +114,6 @@ class BuildAnAtomModel {
         baseColor: PhetColorScheme.RED_COLORBLIND,
         captionText: BuildAnAtomStrings.protonsStringProperty,
         captionColor: 'white',
-        tandem: bucketsTandem.createTandem( 'protonBucket' ),
         phetioState: options.phetioState
       } ),
       neutronBucket: new SphereBucket( {
@@ -125,7 +123,6 @@ class BuildAnAtomModel {
         baseColor: 'rgb( 100, 100, 100 )',
         captionText: BuildAnAtomStrings.neutronsStringProperty,
         captionColor: 'white',
-        tandem: bucketsTandem.createTandem( 'neutronBucket' ),
         phetioState: options.phetioState
       } ),
       electronBucket: new SphereBucket( {
@@ -136,7 +133,6 @@ class BuildAnAtomModel {
         baseColor: 'blue',
         captionText: BuildAnAtomStrings.electronsStringProperty,
         captionColor: 'white',
-        tandem: bucketsTandem.createTandem( 'electronBucket' ),
         phetioState: options.phetioState
       } )
     };
