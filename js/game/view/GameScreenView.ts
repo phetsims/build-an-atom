@@ -143,9 +143,6 @@ class GameScreenView extends ScreenView {
         }
         else {
 
-          debugger;
-          console.log( challenge.challengeType );
-
           this.challengeView && this.challengeView.dispose();
           this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( `${challenge.name}View` ) );
           this.challengeView.handleStateChange( state );
