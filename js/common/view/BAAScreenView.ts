@@ -263,45 +263,36 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( this.periodicTableAccordionBox );
 
-    const labelVisibilityControlsTandem = tandem.createTandem( 'labelVisibilityControls' );
+    const checkboxItemTextOptions = {
+      font: LABEL_CONTROL_FONT,
+      maxWidth: LABEL_CONTROL_MAX_WIDTH
+    };
     const checkboxItems = [ {
-      createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.elementStringProperty, {
-        font: LABEL_CONTROL_FONT,
-        maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlsTandem.createTandem( 'elementText' )
-      } ),
+      createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
       property: model.elementNameVisibleProperty,
-      tandemName: 'showElementNameCheckbox'
+      tandemName: 'elementNameCheckbox'
     }, {
-      createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, {
-        font: LABEL_CONTROL_FONT,
-        maxWidth: LABEL_CONTROL_MAX_WIDTH,
-        tandem: labelVisibilityControlsTandem.createTandem( 'neutralOrIonText' )
-      } ),
+      createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
       property: model.neutralAtomOrIonVisibleProperty,
-      tandemName: 'showNeutralOrIonCheckbox'
+      tandemName: 'neutralAtomOrIonCheckbox'
     } ];
 
     // In support of a research study, it is possible to exclude the stable/unstable checkbox, see
     // https://github.com/phetsims/special-ops/issues/189.
     if ( BAAQueryParameters.showStableUnstableCheckbox ) {
       checkboxItems.push( {
-        createNode: ( tandem: Tandem ) => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, {
-          font: LABEL_CONTROL_FONT,
-          maxWidth: LABEL_CONTROL_MAX_WIDTH,
-          tandem: labelVisibilityControlsTandem.createTandem( 'stableUnstableText' )
-        } ),
+        createNode: () => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
         property: model.nuclearStabilityVisibleProperty,
-        tandemName: 'showStableOrUnstableCheckbox'
+        tandemName: 'nuclearStabilityCheckbox'
       } );
     }
 
-    const labelVisibilityCheckboxGroup = new VerticalCheckboxGroup( checkboxItems, {
+    const checkboxGroup = new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
       spacing: 8,
-      tandem: Tandem.OPT_OUT
+      tandem: tandem.createTandem( 'checkboxGroup' )
     } );
-    this.addChild( labelVisibilityCheckboxGroup );
+    this.addChild( checkboxGroup );
 
     // Add the radio buttons that control the electron representation in the atom.
     const radioButtonRadius = 6;
@@ -363,8 +354,8 @@ class BAAScreenView extends ScreenView {
     particleCountDisplay.left = CONTROLS_INSET;
     this.periodicTableAccordionBox.top = CONTROLS_INSET;
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    labelVisibilityCheckboxGroup.left = this.periodicTableAccordionBox.left;
-    labelVisibilityCheckboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
+    checkboxGroup.left = this.periodicTableAccordionBox.left;
+    checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
     electronViewButtonGroup.left = atomNode.right + 30;
     electronViewButtonGroup.bottom = atomNode.bottom + 5;
 

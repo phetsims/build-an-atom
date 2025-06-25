@@ -64,7 +64,6 @@ class BuildAnAtomModel {
   public nucleusOffset: Vector2; // offset for nucleus jump animation
   public nucleusJumpCount: number; // count for how many times the nucleus has jumped
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
-  public static readonly MAX_ELECTRONS = NUM_ELECTRONS;
 
   public constructor( options?: BuildAnAtomModelOptions ) {
 
@@ -216,7 +215,9 @@ class BuildAnAtomModel {
     // Update the stability state and counter on changes.
     this.nucleusStableProperty = new DerivedProperty(
       [ this.particleAtom.protonCountProperty, this.particleAtom.neutronCountProperty ],
-      ( protonCount, neutronCount ) => protonCount + neutronCount > 0 ? AtomIdentifier.isStable( protonCount, neutronCount ) : true,
+      ( protonCount, neutronCount ) => protonCount + neutronCount > 0 ?
+                                       AtomIdentifier.isStable( protonCount, neutronCount ) :
+                                       true,
       {
         tandem: tandem.createTandem( 'nucleusStableProperty' ),
         phetioState: options.phetioState,
