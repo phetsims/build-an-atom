@@ -82,7 +82,7 @@ class BAAScreenView extends ScreenView {
       showElementNameProperty: model.elementNameVisibleProperty,
       showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
-      electronShellDepictionProperty: model.electronShellDepictionProperty,
+      electronShellDepictionProperty: model.electronModelProperty,
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false
     } );
@@ -175,13 +175,13 @@ class BAAScreenView extends ScreenView {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         if ( electronNode instanceof ParticleView ) {
-          electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
+          electronNode.visible = model.electronModelProperty.get() === 'orbits' ||
                                  !model.particleAtom.electrons.includes( electronNode.particle );
         }
       } );
     };
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
-    model.electronShellDepictionProperty.link( updateElectronVisibility );
+    model.electronModelProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node();
@@ -294,7 +294,7 @@ class BAAScreenView extends ScreenView {
     const radioButtonRadius = 6;
     const orbitsRadioButtonTandem = tandem.createTandem( 'orbitsRadioButton' );
     const orbitsRadioButton = new AquaRadioButton(
-      model.electronShellDepictionProperty,
+      model.electronModelProperty,
       'orbits',
       new Text( BuildAnAtomStrings.orbitsStringProperty, {
           font: ELECTRON_VIEW_CONTROL_FONT,
@@ -305,7 +305,7 @@ class BAAScreenView extends ScreenView {
     );
     const cloudRadioButtonTandem = tandem.createTandem( 'cloudRadioButton' );
     const cloudRadioButton = new AquaRadioButton(
-      model.electronShellDepictionProperty,
+      model.electronModelProperty,
       'cloud',
       new Text( BuildAnAtomStrings.cloudStringProperty, {
         font: ELECTRON_VIEW_CONTROL_FONT,

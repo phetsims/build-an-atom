@@ -51,19 +51,35 @@ export type BuildAnAtomModelOptions = SelfOptions & PickRequired<PhetioObjectOpt
 
 class BuildAnAtomModel {
 
+  // Properties that control the visibility of labels in the view.
   public elementNameVisibleProperty: BooleanProperty;
   public neutralAtomOrIonVisibleProperty: BooleanProperty;
   public nuclearStabilityVisibleProperty: BooleanProperty;
-  public electronShellDepictionProperty: Property<ElectronShellDepiction>;
+
+  // Property that controls the depiction of electron shells in the view, either particles or as a cloud.
+  public electronModelProperty: Property<ElectronShellDepiction>;
+
+  // The atom that the user will build, modify, and generally play with.
   public particleAtom: ParticleAtom;
+
+  // The buckets that hold the subatomic particles.
   public buckets: Record<string, SphereBucket<Particle>>;
+
+  // Arrays that hold the subatomic particles.
   public nucleons: Particle[];
   public electrons: Particle[];
+
+  // Property that indicates whether the nucleus is stable or not.
   public nucleusStableProperty: TReadOnlyProperty<boolean>;
-  public nucleusJumpCountdown: number; // countdown for nucleus jump animation
-  public nucleusOffset: Vector2; // offset for nucleus jump animation
-  public nucleusJumpCount: number; // count for how many times the nucleus has jumped
-  public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
+
+  // countdown for nucleus jump animation
+  public nucleusJumpCountdown: number;
+
+  // offset for nucleus jump animation
+  public nucleusOffset: Vector2;
+
+  // count for how many times the nucleus has jumped
+  public nucleusJumpCount: number;
 
   public constructor( options?: BuildAnAtomModelOptions ) {
 
@@ -92,8 +108,8 @@ class BuildAnAtomModel {
 
     // Property that controls electron depiction in the view.
     const electronShellValidValues: ElectronShellDepiction[] = [ 'orbits', 'cloud' ];
-    this.electronShellDepictionProperty = new Property<ElectronShellDepiction>( 'orbits', {
-      tandem: tandem.createTandem( 'electronShellDepictionProperty' ),
+    this.electronModelProperty = new Property<ElectronShellDepiction>( 'orbits', {
+      tandem: tandem.createTandem( 'electronModelProperty' ),
       phetioValueType: StringUnionIO( electronShellValidValues ),
       phetioState: options.phetioState,
       validValues: electronShellValidValues
@@ -237,7 +253,7 @@ class BuildAnAtomModel {
     this.elementNameVisibleProperty.dispose();
     this.neutralAtomOrIonVisibleProperty.dispose();
     this.nuclearStabilityVisibleProperty.dispose();
-    this.electronShellDepictionProperty.dispose();
+    this.electronModelProperty.dispose();
 
     // etc...
     this.particleAtom.dispose();
@@ -297,7 +313,7 @@ class BuildAnAtomModel {
     this.elementNameVisibleProperty.reset();
     this.neutralAtomOrIonVisibleProperty.reset();
     this.nuclearStabilityVisibleProperty.reset();
-    this.electronShellDepictionProperty.reset();
+    this.electronModelProperty.reset();
 
     // Move any particles that are in transit back to its bucket.
     this.nucleons.forEach( nucleon => {
@@ -378,6 +394,8 @@ class BuildAnAtomModel {
     // Finalize particle positions.
     this.particleAtom.moveAllParticlesToDestination();
   }
+
+  public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
 }
 
 buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );

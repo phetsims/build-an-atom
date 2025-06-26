@@ -54,7 +54,7 @@ class InteractiveSchematicAtom extends Node {
       showElementNameProperty: model.elementNameVisibleProperty,
       showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
-      electronShellDepictionProperty: model.electronShellDepictionProperty,
+      electronShellDepictionProperty: model.electronModelProperty,
       tandem: options.tandem.createTandem( 'atomNode' )
     } );
     this.addChild( atomNode );
@@ -134,12 +134,12 @@ class InteractiveSchematicAtom extends Node {
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
-        electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
+        electronNode.visible = model.electronModelProperty.get() === 'orbits' ||
                                !model.particleAtom.electrons.includes( ( electronNode as ParticleView ).particle );
       } );
     };
     model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
-    model.electronShellDepictionProperty.link( updateElectronVisibility );
+    model.electronModelProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketGroupTandem = options.tandem.createTandem( 'bucketFronts' ).createGroupTandem( 'bucketFront', 0 );
@@ -162,7 +162,7 @@ class InteractiveSchematicAtom extends Node {
       bucketFrontsAndDragHandlers.forEach( bucketItem => bucketItem.dispose() );
       atomNode.dispose();
       model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
-      model.electronShellDepictionProperty.unlink( updateElectronVisibility );
+      model.electronModelProperty.unlink( updateElectronVisibility );
       ownsHighContrastProperty && options.highContrastProperty.dispose();
     };
 
