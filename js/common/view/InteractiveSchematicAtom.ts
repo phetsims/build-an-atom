@@ -50,7 +50,7 @@ class InteractiveSchematicAtom extends Node {
     const particleViews: ParticleView[] = []; // remember all the particleViews when using in dispose
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
+    const atomNode = new AtomNode( model.atom, modelViewTransform, {
       showElementNameProperty: model.elementNameVisibleProperty,
       showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
@@ -135,10 +135,10 @@ class InteractiveSchematicAtom extends Node {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         electronNode.visible = model.electronModelProperty.get() === 'orbits' ||
-                               !model.particleAtom.electrons.includes( ( electronNode as ParticleView ).particle );
+                               !model.atom.electrons.includes( ( electronNode as ParticleView ).particle );
       } );
     };
-    model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
+    model.atom.electrons.lengthProperty.link( updateElectronVisibility );
     model.electronModelProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
@@ -161,7 +161,7 @@ class InteractiveSchematicAtom extends Node {
       particleViews.forEach( particleView => particleView.dispose() );
       bucketFrontsAndDragHandlers.forEach( bucketItem => bucketItem.dispose() );
       atomNode.dispose();
-      model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
+      model.atom.electrons.lengthProperty.unlink( updateElectronVisibility );
       model.electronModelProperty.unlink( updateElectronVisibility );
       ownsHighContrastProperty && options.highContrastProperty.dispose();
     };

@@ -66,9 +66,9 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const submittedAtom = new NumberAtom( {
-      protonCount: this.challenge.buildAnAtomModel.particleAtom.protonCountProperty.value,
-      neutronCount: this.challenge.buildAnAtomModel.particleAtom.neutronCountProperty.value,
-      electronCount: this.challenge.buildAnAtomModel.particleAtom.electronCountProperty.value
+      protonCount: this.challenge.buildAnAtomModel.atom.protonCountProperty.value,
+      neutronCount: this.challenge.buildAnAtomModel.atom.neutronCountProperty.value,
+      electronCount: this.challenge.buildAnAtomModel.atom.electronCountProperty.value
     } );
     this.challenge.checkAnswer( submittedAtom );
   }

@@ -50,8 +50,8 @@ class AtomScreenView extends BAAScreenView {
     const netChargeAccordionBoxTandem = tandem.createTandem( 'netChargeAccordionBox' );
     const netChargeAccordionBoxContents = new HBox( {
       children: [
-        new ChargeMeter( model.particleAtom.chargeProperty ),
-        new ChargeComparisonDisplay( model.particleAtom, { pickable: false } )
+        new ChargeMeter( model.atom.chargeProperty ),
+        new ChargeComparisonDisplay( model.atom, { pickable: false } )
       ],
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
@@ -76,7 +76,7 @@ class AtomScreenView extends BAAScreenView {
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(
-      model.particleAtom.massNumberProperty,
+      model.atom.massNumberProperty,
       {
         pickable: false,
         scale: 0.85 // empirically determined to make the control panels all fit on the screen

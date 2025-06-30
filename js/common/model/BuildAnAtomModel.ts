@@ -55,34 +55,34 @@ export type BuildAnAtomModelOptions = SelfOptions & PickRequired<PhetioObjectOpt
 class BuildAnAtomModel {
 
   // Properties that control the visibility of labels in the view.
-  public elementNameVisibleProperty: BooleanProperty;
-  public neutralAtomOrIonVisibleProperty: BooleanProperty;
-  public nuclearStabilityVisibleProperty: BooleanProperty;
+  public readonly elementNameVisibleProperty: BooleanProperty;
+  public readonly neutralAtomOrIonVisibleProperty: BooleanProperty;
+  public readonly nuclearStabilityVisibleProperty: BooleanProperty;
 
   // Property that controls the depiction of electron shells in the view, either particles or as a cloud.
-  public electronModelProperty: Property<ElectronShellDepiction>;
+  public readonly electronModelProperty: Property<ElectronShellDepiction>;
 
   // The atom that the user will build, modify, and generally play with.
-  public particleAtom: ParticleAtom;
+  public readonly atom: ParticleAtom;
 
   // The buckets that hold the subatomic particles.
-  public buckets: Record<string, SphereBucket<Particle>>;
+  public readonly buckets: Record<string, SphereBucket<Particle>>;
 
   // Arrays that hold the subatomic particles.
-  public nucleons: Particle[];
-  public electrons: Particle[];
+  public readonly nucleons: Particle[];
+  public readonly electrons: Particle[];
   
   // Property that controls the speed of particle animations in the view.
-  public particleAnimationSpeedProperty: TProperty<number>;
+  public readonly particleAnimationSpeedProperty: TProperty<number>;
 
   // Property that indicates whether the nucleus is stable or not.
-  public nucleusStableProperty: TReadOnlyProperty<boolean>;
+  public readonly nucleusStableProperty: TReadOnlyProperty<boolean>;
 
   // countdown for nucleus jump animation
   public nucleusJumpCountdown: number;
 
   // offset for nucleus jump animation
-  public nucleusOffset: Vector2;
+  public readonly nucleusOffset: Vector2;
 
   // count for how many times the nucleus has jumped
   public nucleusJumpCount: number;
@@ -122,8 +122,8 @@ class BuildAnAtomModel {
     } );
 
     // Create the atom that the user will build, modify, and generally play with.
-    this.particleAtom = new ParticleAtom( {
-      tandem: tandem.createTandem( 'particleAtom' ),
+    this.atom = new ParticleAtom( {
+      tandem: tandem.createTandem( 'atom' ),
       phetioState: options.phetioState
     } );
 
@@ -197,7 +197,7 @@ class BuildAnAtomModel {
       this.buckets.protonBucket.addParticleFirstOpen( proton, false );
       proton.isDraggingProperty.link( isDragging => {
         if ( !isDragging && !this.buckets.protonBucket.containsParticle( proton ) ) {
-          placeNucleon( proton, this.buckets.protonBucket, this.particleAtom );
+          placeNucleon( proton, this.buckets.protonBucket, this.atom );
         }
       } );
     } );
@@ -213,7 +213,7 @@ class BuildAnAtomModel {
       this.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
       neutron.isDraggingProperty.link( isDragging => {
         if ( !isDragging && !this.buckets.neutronBucket.containsParticle( neutron ) ) {
-          placeNucleon( neutron, this.buckets.neutronBucket, this.particleAtom );
+          placeNucleon( neutron, this.buckets.neutronBucket, this.atom );
         }
       } );
     } );
@@ -229,8 +229,8 @@ class BuildAnAtomModel {
       this.buckets.electronBucket.addParticleFirstOpen( electron, false );
       electron.isDraggingProperty.link( isDragging => {
         if ( !isDragging && !this.buckets.electronBucket.containsParticle( electron ) ) {
-          if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.particleAtom.outerElectronShellRadius * 1.1 ) {
-            this.particleAtom.addParticle( electron );
+          if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
+            this.atom.addParticle( electron );
           }
           else {
             this.buckets.electronBucket.addParticleNearestOpen( electron, true );
@@ -241,7 +241,7 @@ class BuildAnAtomModel {
 
     // Update the stability state and counter on changes.
     this.nucleusStableProperty = new DerivedProperty(
-      [ this.particleAtom.protonCountProperty, this.particleAtom.neutronCountProperty ],
+      [ this.atom.protonCountProperty, this.atom.neutronCountProperty ],
       ( protonCount, neutronCount ) => protonCount + neutronCount > 0 ?
                                        AtomIdentifier.isStable( protonCount, neutronCount ) :
                                        true,
@@ -271,7 +271,7 @@ class BuildAnAtomModel {
     this.electronModelProperty.dispose();
 
     // etc...
-    this.particleAtom.dispose();
+    this.atom.dispose();
     this.buckets.protonBucket.dispose();
     this.buckets.electronBucket.dispose();
     this.buckets.neutronBucket.dispose();
@@ -294,20 +294,20 @@ class BuildAnAtomModel {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-        if ( this.particleAtom.nucleusOffsetProperty ) {
+        if ( this.atom.nucleusOffsetProperty ) {
           this.nucleusJumpCount++;
           const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
           const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
-          this.particleAtom.nucleusOffsetProperty.set(
+          this.atom.nucleusOffsetProperty.set(
             new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance )
           );
         }
       }
     }
-    else if ( this.particleAtom.nucleusOffsetProperty.get() !== Vector2.ZERO ) {
+    else if ( this.atom.nucleusOffsetProperty.get() !== Vector2.ZERO ) {
 
       // animation is not running, make sure nucleus is in center of atom
-      this.particleAtom.nucleusOffsetProperty.set( Vector2.ZERO );
+      this.atom.nucleusOffsetProperty.set( Vector2.ZERO );
     }
   }
 
@@ -318,7 +318,7 @@ class BuildAnAtomModel {
       particlesToRemove[ i ] = particleCollection.get( i );
     }
     particlesToRemove.forEach( particle => {
-        this.particleAtom.removeParticle( particle );
+        this.atom.removeParticle( particle );
         bucket.addParticleFirstOpen( particle, true );
       }
     );
@@ -343,7 +343,7 @@ class BuildAnAtomModel {
     } );
 
     // Remove all particles from the particle atom.
-    this.particleAtom.clear();
+    this.atom.clear();
 
     // Remove all particles from the buckets.
     this.buckets.protonBucket.reset();
@@ -368,7 +368,7 @@ class BuildAnAtomModel {
   public setAtomConfiguration( numberAtom: NumberAtom ): void {
 
     // Define a function for transferring particles from buckets to atom.
-    const atomCenter = this.particleAtom.positionProperty.get();
+    const atomCenter = this.atom.positionProperty.get();
     const moveParticlesToAtom = (
       currentCountInAtom: number,
       targetCountInAtom: number,
@@ -388,26 +388,26 @@ class BuildAnAtomModel {
     };
 
     // Move the particles.
-    moveParticlesToAtom( this.particleAtom.protons.length,
+    moveParticlesToAtom( this.atom.protons.length,
       numberAtom.protonCountProperty.get(),
-      this.particleAtom.protons,
+      this.atom.protons,
       this.buckets.protonBucket
     );
     moveParticlesToAtom(
-      this.particleAtom.neutrons.length,
+      this.atom.neutrons.length,
       numberAtom.neutronCountProperty.get(),
-      this.particleAtom.neutrons,
+      this.atom.neutrons,
       this.buckets.neutronBucket
     );
     moveParticlesToAtom(
-      this.particleAtom.electrons.length,
+      this.atom.electrons.length,
       numberAtom.electronCountProperty.get(),
-      this.particleAtom.electrons,
+      this.atom.electrons,
       this.buckets.electronBucket
     );
 
     // Finalize particle positions.
-    this.particleAtom.moveAllParticlesToDestination();
+    this.atom.moveAllParticlesToDestination();
   }
 
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );

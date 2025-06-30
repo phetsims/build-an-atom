@@ -77,7 +77,7 @@ class BAAScreenView extends ScreenView {
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
+    const atomNode = new AtomNode( model.atom, modelViewTransform, {
       showElementNameProperty: model.elementNameVisibleProperty,
       showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
@@ -175,11 +175,11 @@ class BAAScreenView extends ScreenView {
       electronLayer.getChildren().forEach( electronNode => {
         if ( electronNode instanceof ParticleView ) {
           electronNode.visible = model.electronModelProperty.get() === 'orbits' ||
-                                 !model.particleAtom.electrons.includes( electronNode.particle );
+                                 !model.atom.electrons.includes( electronNode.particle );
         }
       } );
     };
-    model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
+    model.atom.electrons.lengthProperty.link( updateElectronVisibility );
     model.electronModelProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
@@ -220,14 +220,14 @@ class BAAScreenView extends ScreenView {
     }
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
-    const particleCountDisplay = new ParticleCountDisplay( model.particleAtom, 13, 250, {
+    const particleCountDisplay = new ParticleCountDisplay( model.atom, 13, 250, {
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol(
-      model.particleAtom,
+      model.atom,
       {
         pickable: false
       }
