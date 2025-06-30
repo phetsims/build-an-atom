@@ -9,9 +9,12 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TProperty from '../../../../axon/js/TProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
+import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -68,6 +71,9 @@ class BuildAnAtomModel {
   // Arrays that hold the subatomic particles.
   public nucleons: Particle[];
   public electrons: Particle[];
+  
+  // Property that controls the speed of particle animations in the view.
+  public particleAnimationSpeedProperty: TProperty<number>;
 
   // Property that indicates whether the nucleus is stable or not.
   public nucleusStableProperty: TReadOnlyProperty<boolean>;
@@ -153,6 +159,12 @@ class BuildAnAtomModel {
       } )
     };
 
+    this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
+      tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
+      range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
+      units: 'view-coordinates/s'
+    } );
+
     // Define a function that will decide where to put nucleons.
     const placeNucleon = (
       particle: Particle,
@@ -166,7 +178,7 @@ class BuildAnAtomModel {
         bucket.addParticleNearestOpen( particle, true );
       }
     };
-
+    
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
     this.electrons = [];
@@ -177,6 +189,7 @@ class BuildAnAtomModel {
     const electronTandem = tandem.createTandem( 'electrons' );
     _.times( NUM_PROTONS, index => {
       const proton = new Particle( 'proton', {
+        animationSpeedProperty: this.particleAnimationSpeedProperty,
         tandem: protonTandem.createTandem( `proton${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
@@ -192,6 +205,7 @@ class BuildAnAtomModel {
     // Add the neutrons.
     _.times( NUM_NEUTRONS, index => {
       const neutron = new Particle( 'neutron', {
+        animationSpeedProperty: this.particleAnimationSpeedProperty,
         tandem: neutronTandem.createTandem( `neutron${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
@@ -207,6 +221,7 @@ class BuildAnAtomModel {
     // Add the electrons.
     _.times( NUM_ELECTRONS, index => {
       const electron = new Particle( 'electron', {
+        animationSpeedProperty: this.particleAnimationSpeedProperty,
         tandem: electronTandem.createTandem( `electron${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
