@@ -35,7 +35,6 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAQueryParameters from '../BAAQueryParameters.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 
 // constants
@@ -263,25 +262,23 @@ class BAAScreenView extends ScreenView {
       font: LABEL_CONTROL_FONT,
       maxWidth: LABEL_CONTROL_MAX_WIDTH
     };
-    const checkboxItems = [ {
-      createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
-      property: model.elementNameVisibleProperty,
-      tandemName: 'elementNameCheckbox'
-    }, {
-      createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
-      property: model.neutralAtomOrIonVisibleProperty,
-      tandemName: 'neutralAtomOrIonCheckbox'
-    } ];
-
-    // In support of a research study, it is possible to exclude the stable/unstable checkbox, see
-    // https://github.com/phetsims/special-ops/issues/189.
-    if ( BAAQueryParameters.showStableUnstableCheckbox ) {
-      checkboxItems.push( {
+    const checkboxItems = [
+      {
+        createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
+        property: model.elementNameVisibleProperty,
+        tandemName: 'elementNameCheckbox'
+      },
+      {
+        createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
+        property: model.neutralAtomOrIonVisibleProperty,
+        tandemName: 'neutralAtomOrIonCheckbox'
+      },
+      {
         createNode: () => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
         property: model.nuclearStabilityVisibleProperty,
         tandemName: 'nuclearStabilityCheckbox'
-      } );
-    }
+      }
+    ];
 
     const checkboxGroup = new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
