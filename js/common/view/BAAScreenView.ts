@@ -213,7 +213,7 @@ class BAAScreenView extends ScreenView {
         click: () => {
           const activeParticle = bucket.extractClosestParticle( bucket.position );
           if ( activeParticle !== null ) {
-            activeParticle.userControlledProperty.set( true );
+            activeParticle.isDraggingProperty.set( true );
           }
         }
       } );

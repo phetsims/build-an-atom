@@ -195,8 +195,8 @@ class BuildAnAtomModel {
       } );
       this.nucleons.push( proton );
       this.buckets.protonBucket.addParticleFirstOpen( proton, false );
-      proton.userControlledProperty.link( userControlled => {
-        if ( !userControlled && !this.buckets.protonBucket.containsParticle( proton ) ) {
+      proton.isDraggingProperty.link( isDragging => {
+        if ( !isDragging && !this.buckets.protonBucket.containsParticle( proton ) ) {
           placeNucleon( proton, this.buckets.protonBucket, this.particleAtom );
         }
       } );
@@ -211,8 +211,8 @@ class BuildAnAtomModel {
       } );
       this.nucleons.push( neutron );
       this.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
-      neutron.userControlledProperty.link( userControlled => {
-        if ( !userControlled && !this.buckets.neutronBucket.containsParticle( neutron ) ) {
+      neutron.isDraggingProperty.link( isDragging => {
+        if ( !isDragging && !this.buckets.neutronBucket.containsParticle( neutron ) ) {
           placeNucleon( neutron, this.buckets.neutronBucket, this.particleAtom );
         }
       } );
@@ -227,8 +227,8 @@ class BuildAnAtomModel {
       } );
       this.electrons.push( electron );
       this.buckets.electronBucket.addParticleFirstOpen( electron, false );
-      electron.userControlledProperty.link( userControlled => {
-        if ( !userControlled && !this.buckets.electronBucket.containsParticle( electron ) ) {
+      electron.isDraggingProperty.link( isDragging => {
+        if ( !isDragging && !this.buckets.electronBucket.containsParticle( electron ) ) {
           if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.particleAtom.outerElectronShellRadius * 1.1 ) {
             this.particleAtom.addParticle( electron );
           }
@@ -378,7 +378,7 @@ class BuildAnAtomModel {
       while ( currentCountInAtom < targetCountInAtom ) {
         const particle = bucket.extractClosestParticle( atomCenter )!;
         particle.setPositionAndDestination( atomCenter );
-        particle.userControlledProperty.set( false ); // Necessary to make it look like user released particle.
+        particle.isDraggingProperty.set( false ); // Necessary to make it look like user released particle.
         currentCountInAtom++;
       }
       while ( currentCountInAtom > targetCountInAtom ) {
