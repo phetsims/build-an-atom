@@ -177,10 +177,11 @@ class BuildAnAtomModel {
     this.nucleons = [];
     this.electrons = [];
 
-    // Add the protons.
     const protonTandem = tandem.createTandem( 'protons' );
     const neutronTandem = tandem.createTandem( 'neutrons' );
     const electronTandem = tandem.createTandem( 'electrons' );
+
+    // Add the protons.
     _.times( NUM_PROTONS, index => {
       const proton = new Particle( 'proton', {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
