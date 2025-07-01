@@ -8,11 +8,9 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -20,14 +18,12 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -74,9 +70,6 @@ class BuildAnAtomModel {
   
   // Property that controls the speed of particle animations in the view.
   public readonly particleAnimationSpeedProperty: TProperty<number>;
-
-  // Property that indicates whether the nucleus is stable or not.
-  public readonly nucleusStableProperty: TReadOnlyProperty<boolean>;
 
   // countdown for nucleus jump animation
   public nucleusJumpCountdown: number;
@@ -240,19 +233,6 @@ class BuildAnAtomModel {
       } );
     } );
 
-    // Update the stability state and counter on changes.
-    this.nucleusStableProperty = new DerivedProperty(
-      [ this.atom.protonCountProperty, this.atom.neutronCountProperty ],
-      ( protonCount, neutronCount ) => protonCount + neutronCount > 0 ?
-                                       AtomIdentifier.isStable( protonCount, neutronCount ) :
-                                       true,
-      {
-        tandem: tandem.createTandem( 'nucleusStableProperty' ),
-        phetioState: options.phetioState,
-        phetioValueType: BooleanIO
-      }
-    );
-
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     this.nucleusOffset = Vector2.ZERO;
 
@@ -261,9 +241,6 @@ class BuildAnAtomModel {
   }
 
   public dispose(): void {
-
-    // DerivedProperties should be disposed first, see https://github.com/phetsims/axon/issues/167
-    this.nucleusStableProperty.dispose();
 
     // next dispose the root (non-derived) properties
     this.elementNameVisibleProperty.dispose();
@@ -291,7 +268,7 @@ class BuildAnAtomModel {
     } );
 
     // Animate the unstable nucleus by making it jump periodically.
-    if ( !this.nucleusStableProperty.get() && this.nuclearStabilityVisibleProperty.get() ) {
+    if ( !this.atom.nucleusStableProperty.get() && this.nuclearStabilityVisibleProperty.get() ) {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
