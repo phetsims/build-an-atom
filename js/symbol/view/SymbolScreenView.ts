@@ -27,7 +27,6 @@ class SymbolScreenView extends BAAScreenView {
     const symbolNode = new BAASymbolNode( model.atom, {
       scale: 0.41 // scale empirically determined
     } );
-    const symbolAccordionBoxTandem = tandem.createTandem( 'symbolAccordionBox' );
     this.symbolAccordionBox = new AccordionBox( symbolNode, {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomStrings.symbolStringProperty, {
@@ -45,7 +44,7 @@ class SymbolScreenView extends BAAScreenView {
       },
 
       // phet-io
-      tandem: symbolAccordionBoxTandem,
+      tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
       // pdom
       labelContent: BuildAnAtomStrings.symbolStringProperty
