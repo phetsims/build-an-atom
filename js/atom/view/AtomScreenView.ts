@@ -64,8 +64,7 @@ class AtomScreenView extends BAAScreenView {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
-
-        // phet-io
+        expandedDefaultValue: false,
         tandem: netChargeAccordionBoxTandem,
 
         // pdom
@@ -90,6 +89,7 @@ class AtomScreenView extends BAAScreenView {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
+        expandedDefaultValue: false,
         tandem: massNumberAccordionBoxTandem,
 
         // pdom
