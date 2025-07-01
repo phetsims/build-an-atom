@@ -26,7 +26,6 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
-import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -36,13 +35,12 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
 import BAAConstants from '../BAAConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
+import ElectronModelSelectorPanel from './ElectronModelSelectorPanel.js';
 
 // constants
 const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
-const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
-const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
 const NUM_NUCLEON_LAYERS = 6; // This is based on max number of particles, and may need adjustment if that changes.
 
 class BAAScreenView extends ScreenView {
@@ -50,7 +48,6 @@ class BAAScreenView extends ScreenView {
   public readonly periodicTableAccordionBox: AccordionBox;
   public readonly controlPanelLayer: Node;
   public readonly model: BuildAnAtomModel;
-  private readonly resetFunctions: ( () => void )[];
 
   public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
 
@@ -68,7 +65,6 @@ class BAAScreenView extends ScreenView {
     } );
 
     this.model = model;
-    this.resetFunctions = [];
 
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -287,44 +283,11 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( checkboxGroup );
 
-    // Add the radio buttons that control the electron representation in the atom.
-    const radioButtonRadius = 6;
-    const orbitsRadioButtonTandem = tandem.createTandem( 'orbitsRadioButton' );
-    const orbitsRadioButton = new AquaRadioButton(
-      model.electronModelProperty,
-      'orbits',
-      new Text( BuildAnAtomStrings.orbitsStringProperty, {
-          font: ELECTRON_VIEW_CONTROL_FONT,
-          maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-        }
-      ),
-      { radius: radioButtonRadius, tandem: orbitsRadioButtonTandem }
-    );
-    const cloudRadioButtonTandem = tandem.createTandem( 'cloudRadioButton' );
-    const cloudRadioButton = new AquaRadioButton(
-      model.electronModelProperty,
-      'cloud',
-      new Text( BuildAnAtomStrings.cloudStringProperty, {
-        font: ELECTRON_VIEW_CONTROL_FONT,
-        maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH
-      } ),
-      { radius: radioButtonRadius, tandem: cloudRadioButtonTandem }
-    );
-    const electronViewButtonGroup = new Node( { tandem: tandem.createTandem( 'electronViewButtonGroup' ) } );
-    electronViewButtonGroup.addChild( new Text( BuildAnAtomStrings.modelStringProperty, {
-      font: new PhetFont( {
-        size: 14,
-        weight: 'bold'
-      } ),
-      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20
-    } ) );
-    orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
-    orbitsRadioButton.left = electronViewButtonGroup.left;
-    electronViewButtonGroup.addChild( orbitsRadioButton );
-    cloudRadioButton.top = electronViewButtonGroup.bottom + 5;
-    cloudRadioButton.left = electronViewButtonGroup.left;
-    electronViewButtonGroup.addChild( cloudRadioButton );
-    this.addChild( electronViewButtonGroup );
+    // Add the selector panel that controls the electron representation in the atom.
+    const electronModelSelectorPanel = new ElectronModelSelectorPanel( model.electronModelProperty, {
+      tandem: tandem.createTandem( 'electronModelSelectorPanel' )
+    } );
+    this.addChild( electronModelSelectorPanel );
 
     // Add the reset button.
     const resetAllButton = new ResetAllButton( {
@@ -346,8 +309,8 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     checkboxGroup.left = this.periodicTableAccordionBox.left;
     checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
-    electronViewButtonGroup.left = atomNode.right + 30;
-    electronViewButtonGroup.bottom = atomNode.bottom + 5;
+    electronModelSelectorPanel.left = atomNode.right + 30;
+    electronModelSelectorPanel.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes
     this.controlPanelLayer = new Node();
@@ -360,7 +323,7 @@ class BAAScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
       atomNode,
-      electronViewButtonGroup,
+      electronModelSelectorPanel,
       this.periodicTableAccordionBox
     ];
   }

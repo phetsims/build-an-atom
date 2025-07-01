@@ -118,7 +118,8 @@ class BuildAnAtomModel {
       tandem: tandem.createTandem( 'electronModelProperty' ),
       phetioValueType: StringUnionIO( electronShellValidValues ),
       phetioState: options.phetioState,
-      validValues: electronShellValidValues
+      validValues: electronShellValidValues,
+      phetioFeatured: true
     } );
 
     // Create the atom that the user will build, modify, and generally play with.
