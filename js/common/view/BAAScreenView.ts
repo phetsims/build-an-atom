@@ -35,7 +35,7 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
 import BAAConstants from '../BAAConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
-import ElectronModelSelectorPanel from './ElectronModelSelectorPanel.js';
+import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
 const CONTROLS_INSET = 10;
@@ -290,10 +290,10 @@ class BAAScreenView extends ScreenView {
     this.addChild( checkboxGroup );
 
     // Add the selector panel that controls the electron representation in the atom.
-    const electronModelSelectorPanel = new ElectronModelSelectorPanel( model.electronModelProperty, {
-      tandem: tandem.createTandem( 'electronModelSelectorPanel' )
+    const electronModelControl = new ElectronModelControl( model.electronModelProperty, {
+      tandem: tandem.createTandem( 'electronModelControl' )
     } );
-    this.addChild( electronModelSelectorPanel );
+    this.addChild( electronModelControl );
 
     // Add the reset button.
     const resetAllButton = new ResetAllButton( {
@@ -315,8 +315,8 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     checkboxGroup.left = this.periodicTableAccordionBox.left;
     checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
-    electronModelSelectorPanel.left = atomNode.right + 30;
-    electronModelSelectorPanel.bottom = atomNode.bottom + 5;
+    electronModelControl.left = atomNode.right + 30;
+    electronModelControl.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes
     this.controlPanelLayer = new Node();
@@ -329,7 +329,7 @@ class BAAScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
       atomNode,
-      electronModelSelectorPanel,
+      electronModelControl,
       this.periodicTableAccordionBox
     ];
   }

@@ -1,8 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ElectronModelSelectorPanel is a panel with a title and a radio button group that allows the user to select the
- * electron model to use in the simulation.
+ * ElectronModelControl is a panel with a title and a radio button group that allows the user to select - i.e. control -
+ * the visual representation of electrons to use in the simulation, either 'orbits' or 'cloud'.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -21,7 +21,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 type SelfOptions = EmptySelfOptions;
-type ElectronModelSelectorPanelOptions = SelfOptions & WithRequired<PanelOptions, 'tandem'>;
+type ElectronModelControlOptions = SelfOptions & WithRequired<PanelOptions, 'tandem'>;
 
 // constants
 const ELECTRON_MODEL_SELECTOR_FONT = new PhetFont( 12 );
@@ -31,17 +31,17 @@ const TITLE_FONT = new PhetFont( {
 } );
 const SPACING = 5;
 
-class ElectronModelSelectorPanel extends Panel {
+class ElectronModelControl extends Panel {
 
   public constructor( electronModelProperty: Property<ElectronShellDepiction>,
-                      providedOptions: ElectronModelSelectorPanelOptions ) {
+                      providedOptions: ElectronModelControlOptions ) {
 
-    const options = optionize<ElectronModelSelectorPanelOptions, SelfOptions, PanelOptions>()( {
+    const options = optionize<ElectronModelControlOptions, SelfOptions, PanelOptions>()( {
       fill: Color.TRANSPARENT,
       stroke: null,
       xMargin: 0,
       yMargin: 0,
-      maxWidth: 100 // determined empirically
+      maxWidth: 80 // determined empirically
     }, providedOptions );
 
     const radioButtonGroup = new AquaRadioButtonGroup(
@@ -90,5 +90,5 @@ class ElectronModelSelectorPanel extends Panel {
   }
 }
 
-buildAnAtom.register( 'ElectronModelSelectorPanel', ElectronModelSelectorPanel );
-export default ElectronModelSelectorPanel;
+buildAnAtom.register( 'ElectronModelControl', ElectronModelControl );
+export default ElectronModelControl;
