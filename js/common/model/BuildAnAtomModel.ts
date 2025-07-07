@@ -9,12 +9,11 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
@@ -22,9 +21,8 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAScreenView from '../view/BAAScreenView.js';
@@ -42,21 +40,10 @@ const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
-type SelfOptions = {
-  phetioState?: boolean;
-};
-
+type SelfOptions = EmptySelfOptions;
 export type BuildAnAtomModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 class BuildAnAtomModel {
-
-  // Properties that control the visibility of labels in the view.
-  public readonly elementNameVisibleProperty: BooleanProperty;
-  public readonly neutralAtomOrIonVisibleProperty: BooleanProperty;
-  public readonly nuclearStabilityVisibleProperty: BooleanProperty;
-
-  // Property that controls the depiction of electron shells in the view, either particles or as a cloud.
-  public readonly electronModelProperty: Property<ElectronShellDepiction>;
 
   // The atom that the user will build, modify, and generally play with.
   public readonly atom: ParticleAtom;
@@ -71,6 +58,9 @@ class BuildAnAtomModel {
   // Property that controls the speed of particle animations in the view.
   public readonly particleAnimationSpeedProperty: TProperty<number>;
 
+  // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
+  public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
+
   // countdown for nucleus jump animation
   public nucleusJumpCountdown: number;
 
@@ -80,45 +70,11 @@ class BuildAnAtomModel {
   // count for how many times the nucleus has jumped
   public nucleusJumpCount: number;
 
-  public constructor( options?: BuildAnAtomModelOptions ) {
-
-    options = combineOptions<BuildAnAtomModelOptions>( {
-      phetioState: true
-    }, options );
-
-    const tandem = options.tandem;
-
-    // Properties that control label visibility in the view.
-    this.elementNameVisibleProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'elementNameVisibleProperty' ),
-      phetioState: options.phetioState,
-      phetioFeatured: true
-    } );
-    this.neutralAtomOrIonVisibleProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'neutralAtomOrIonVisibleProperty' ),
-      phetioState: options.phetioState,
-      phetioFeatured: true
-    } );
-    this.nuclearStabilityVisibleProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'nuclearStabilityVisibleProperty' ),
-      phetioState: options.phetioState,
-      phetioFeatured: true
-    } );
-
-    // Property that controls electron depiction in the view.
-    const electronShellValidValues: ElectronShellDepiction[] = [ 'orbits', 'cloud' ];
-    this.electronModelProperty = new Property<ElectronShellDepiction>( 'orbits', {
-      tandem: tandem.createTandem( 'electronModelProperty' ),
-      phetioValueType: StringUnionIO( electronShellValidValues ),
-      phetioState: options.phetioState,
-      validValues: electronShellValidValues,
-      phetioFeatured: true
-    } );
+  public constructor( tandem: Tandem ) {
 
     // Create the atom that the user will build, modify, and generally play with.
     this.atom = new ParticleAtom( {
-      tandem: tandem.createTandem( 'atom' ),
-      phetioState: options.phetioState
+      tandem: tandem.createTandem( 'atom' )
     } );
 
     // Create the buckets that will hold the subatomic particles.
@@ -129,8 +85,7 @@ class BuildAnAtomModel {
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: PhetColorScheme.RED_COLORBLIND,
         captionText: BuildAnAtomStrings.protonsStringProperty,
-        captionColor: 'white',
-        phetioState: options.phetioState
+        captionColor: 'white'
       } ),
       neutronBucket: new SphereBucket( {
         position: new Vector2( 0, BUCKET_Y_OFFSET ),
@@ -138,8 +93,7 @@ class BuildAnAtomModel {
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: 'rgb( 100, 100, 100 )',
         captionText: BuildAnAtomStrings.neutronsStringProperty,
-        captionColor: 'white',
-        phetioState: options.phetioState
+        captionColor: 'white'
       } ),
       electronBucket: new SphereBucket( {
         position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
@@ -148,10 +102,11 @@ class BuildAnAtomModel {
         usableWidthProportion: 0.8,
         baseColor: 'blue',
         captionText: BuildAnAtomStrings.electronsStringProperty,
-        captionColor: 'white',
-        phetioState: options.phetioState
+        captionColor: 'white'
       } )
     };
+
+    this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
       tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
@@ -242,14 +197,6 @@ class BuildAnAtomModel {
   }
 
   public dispose(): void {
-
-    // next dispose the root (non-derived) properties
-    this.elementNameVisibleProperty.dispose();
-    this.neutralAtomOrIonVisibleProperty.dispose();
-    this.nuclearStabilityVisibleProperty.dispose();
-    this.electronModelProperty.dispose();
-
-    // etc...
     this.atom.dispose();
     this.buckets.protonBucket.dispose();
     this.buckets.electronBucket.dispose();
@@ -269,7 +216,7 @@ class BuildAnAtomModel {
     } );
 
     // Animate the unstable nucleus by making it jump periodically.
-    if ( !this.atom.nucleusStableProperty.get() && this.nuclearStabilityVisibleProperty.get() ) {
+    if ( !this.atom.nucleusStableProperty.get() && this.animateNuclearInstabilityProperty.get() ) {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
@@ -304,10 +251,6 @@ class BuildAnAtomModel {
   }
 
   public reset(): void {
-    this.elementNameVisibleProperty.reset();
-    this.neutralAtomOrIonVisibleProperty.reset();
-    this.nuclearStabilityVisibleProperty.reset();
-    this.electronModelProperty.reset();
 
     // Move any particles that are in transit back to its bucket.
     this.nucleons.forEach( nucleon => {

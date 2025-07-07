@@ -35,6 +35,7 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
 import BAAConstants from '../BAAConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
+import AtomViewProperties from './AtomViewProperties.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
@@ -49,7 +50,8 @@ class BAAScreenView extends ScreenView {
   public readonly controlPanelLayer: Node;
   public readonly model: BuildAnAtomModel;
 
-  public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
+  // Properties that control how the atom is displayed.
+  private readonly viewProperties: AtomViewProperties;
 
   public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
 
@@ -65,6 +67,7 @@ class BAAScreenView extends ScreenView {
     } );
 
     this.model = model;
+    this.viewProperties = new AtomViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -74,10 +77,10 @@ class BAAScreenView extends ScreenView {
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.atom, modelViewTransform, {
-      showElementNameProperty: model.elementNameVisibleProperty,
-      showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
-      showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
-      electronShellDepictionProperty: model.electronModelProperty,
+      showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
+      showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
+      showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
+      electronShellDepictionProperty: this.viewProperties.electronModelProperty,
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false
     } );
@@ -176,13 +179,13 @@ class BAAScreenView extends ScreenView {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         if ( electronNode instanceof ParticleView ) {
-          electronNode.visible = model.electronModelProperty.get() === 'orbits' ||
+          electronNode.visible = this.viewProperties.electronModelProperty.get() === 'orbits' ||
                                  !model.atom.electrons.includes( electronNode.particle );
         }
       } );
     };
     model.atom.electrons.lengthProperty.link( updateElectronVisibility );
-    model.electronModelProperty.link( updateElectronVisibility );
+    this.viewProperties.electronModelProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node();
@@ -267,17 +270,17 @@ class BAAScreenView extends ScreenView {
     const checkboxItems = [
       {
         createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
-        property: model.elementNameVisibleProperty,
+        property: this.viewProperties.elementNameVisibleProperty,
         tandemName: 'elementNameCheckbox'
       },
       {
         createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
-        property: model.neutralAtomOrIonVisibleProperty,
+        property: this.viewProperties.neutralAtomOrIonVisibleProperty,
         tandemName: 'neutralAtomOrIonCheckbox'
       },
       {
         createNode: () => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
-        property: model.nuclearStabilityVisibleProperty,
+        property: this.viewProperties.nuclearStabilityVisibleProperty,
         tandemName: 'nuclearStabilityCheckbox'
       }
     ];
@@ -289,8 +292,14 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( checkboxGroup );
 
+    // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
+    // controls whether the related animation is enabled.
+    this.viewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
+      model.animateNuclearInstabilityProperty.value = nuclearStabilityVisible;
+    } );
+
     // Add the selector panel that controls the electron representation in the atom.
-    const electronModelControl = new ElectronModelControl( model.electronModelProperty, {
+    const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
       tandem: tandem.createTandem( 'electronModelControl' )
     } );
     this.addChild( electronModelControl );
@@ -336,7 +345,10 @@ class BAAScreenView extends ScreenView {
 
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
+    this.viewProperties.reset();
   }
+
+  public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
 }
 
 buildAnAtom.register( 'BAAScreenView', BAAScreenView );
