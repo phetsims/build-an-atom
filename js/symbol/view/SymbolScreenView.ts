@@ -24,16 +24,14 @@ class SymbolScreenView extends BAAScreenView {
     super( model, tandem );
 
     // Add the symbol node within an accordion box.
-    const symbolNode = new BAASymbolNode( model.particleAtom, {
+    const symbolNode = new BAASymbolNode( model.atom, {
       scale: 0.41 // scale empirically determined
     } );
-    const symbolAccordionBoxTandem = tandem.createTandem( 'symbolAccordionBox' );
     this.symbolAccordionBox = new AccordionBox( symbolNode, {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomStrings.symbolStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: symbolAccordionBoxTandem.createTandem( 'titleText' )
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       minWidth: this.periodicTableAccordionBox.width,
@@ -46,7 +44,7 @@ class SymbolScreenView extends BAAScreenView {
       },
 
       // phet-io
-      tandem: symbolAccordionBoxTandem,
+      tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
       // pdom
       labelContent: BuildAnAtomStrings.symbolStringProperty

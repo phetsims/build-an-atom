@@ -12,13 +12,11 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
-import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import SceneryEvent from '../../../../scenery/js/input/SceneryEvent.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
@@ -28,7 +26,6 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
-import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -37,15 +34,14 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../BAAColors.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAQueryParameters from '../BAAQueryParameters.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
+import AtomViewProperties from './AtomViewProperties.js';
+import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
 const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
-const ELECTRON_VIEW_CONTROL_FONT = new PhetFont( 12 );
-const ELECTRON_VIEW_CONTROL_MAX_WIDTH = 60;
 const NUM_NUCLEON_LAYERS = 6; // This is based on max number of particles, and may need adjustment if that changes.
 
 class BAAScreenView extends ScreenView {
@@ -53,9 +49,9 @@ class BAAScreenView extends ScreenView {
   public readonly periodicTableAccordionBox: AccordionBox;
   public readonly controlPanelLayer: Node;
   public readonly model: BuildAnAtomModel;
-  private readonly resetFunctions: ( () => void )[];
 
-  public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
+  // Properties that control how the atom is displayed.
+  private readonly viewProperties: AtomViewProperties;
 
   public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
 
@@ -71,7 +67,7 @@ class BAAScreenView extends ScreenView {
     } );
 
     this.model = model;
-    this.resetFunctions = [];
+    this.viewProperties = new AtomViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -80,11 +76,11 @@ class BAAScreenView extends ScreenView {
       1.0 );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
-      showElementNameProperty: model.elementNameVisibleProperty,
-      showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
-      showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
-      electronShellDepictionProperty: model.electronShellDepictionProperty,
+    const atomNode = new AtomNode( model.atom, modelViewTransform, {
+      showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
+      showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
+      showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
+      electronShellDepictionProperty: this.viewProperties.electronModelProperty,
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false
     } );
@@ -115,15 +111,21 @@ class BAAScreenView extends ScreenView {
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    const nucleonsGroupTandem = tandem.createTandem( 'nucleons' ).createGroupTandem( 'nucleon', 0 );
+    const protonsGroupTandem = tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 0 );
+    const neutronsGroupTandem = tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 0 );
     const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
 
     // Add the nucleons.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
     model.nucleons.forEach( ( nucleon: Particle ) => {
+
+      assert && assert( nucleon.type === 'proton' || nucleon.type === 'neutron', 'this is not a nucleon' );
+
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
-        tandem: nucleonsGroupTandem.createNextTandem(),
+        tandem: nucleon.type === 'proton' ?
+                protonsGroupTandem.createNextTandem() :
+                neutronsGroupTandem.createNextTandem(),
         phetioVisiblePropertyInstrumented: false
       } ) );
 
@@ -177,27 +179,25 @@ class BAAScreenView extends ScreenView {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         if ( electronNode instanceof ParticleView ) {
-          electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
-                                 !model.particleAtom.electrons.includes( electronNode.particle );
+          electronNode.visible = this.viewProperties.electronModelProperty.get() === 'orbits' ||
+                                 !model.atom.electrons.includes( electronNode.particle );
         }
       } );
     };
-    model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
-    model.electronShellDepictionProperty.link( updateElectronVisibility );
+    model.atom.electrons.lengthProperty.link( updateElectronVisibility );
+    this.viewProperties.electronModelProperty.link( updateElectronVisibility );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node();
 
-    const dragListenersTandem = tandem.createTandem( 'bucketDragListeners' );
-
-    _.each( model.buckets, ( bucket: SphereBucket<Particle> ) => {
+    for ( const [ bucketName, bucket ] of Object.entries( model.buckets ) ) {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        tandem: Tandem.OPT_OUT,
         labelNode: new Panel(
           new Text( bucket.captionText, {
             font: new PhetFont( 20 ),
             fill: bucket.captionColor
-          } ), {
+          } ),
+          {
             fill: BAAColors.bucketTextBackgroundColorProperty,
             cornerRadius: 0,
             stroke: null,
@@ -205,33 +205,34 @@ class BAAScreenView extends ScreenView {
             yMargin: 0
           }
         ),
+
         // pdom
         tagName: 'button',
         focusable: true
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: dragListenersTandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
+        tandem: tandem.createTandem( `${bucketName}DragListener` )
       } ) );
       bucketFront.addInputListener( {
-        click: ( event: SceneryEvent ) => {
+        click: () => {
           const activeParticle = bucket.extractClosestParticle( bucket.position );
           if ( activeParticle !== null ) {
-            activeParticle.userControlledProperty.set( true );
+            activeParticle.isDraggingProperty.set( true );
           }
         }
       } );
-    } );
+    }
 
-    // Add the particle count indicator.
-    const particleCountDisplay = new ParticleCountDisplay( model.particleAtom, 13, 250, {
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    const particleCountDisplay = new ParticleCountDisplay( model.atom, 13, 250, {
       tandem: tandem.createTandem( 'particleCountDisplay' )
-    } );  // Width arbitrarily chosen.
+    } );
     this.addChild( particleCountDisplay );
 
     // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol(
-      model.particleAtom,
+      model.atom,
       {
         pickable: false
       }
@@ -242,8 +243,7 @@ class BAAScreenView extends ScreenView {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomStrings.periodicTableStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-        tandem: periodicTableAccordionBoxTandem.createTandem( 'titleText' )
+        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
@@ -267,25 +267,23 @@ class BAAScreenView extends ScreenView {
       font: LABEL_CONTROL_FONT,
       maxWidth: LABEL_CONTROL_MAX_WIDTH
     };
-    const checkboxItems = [ {
-      createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
-      property: model.elementNameVisibleProperty,
-      tandemName: 'elementNameCheckbox'
-    }, {
-      createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
-      property: model.neutralAtomOrIonVisibleProperty,
-      tandemName: 'neutralAtomOrIonCheckbox'
-    } ];
-
-    // In support of a research study, it is possible to exclude the stable/unstable checkbox, see
-    // https://github.com/phetsims/special-ops/issues/189.
-    if ( BAAQueryParameters.showStableUnstableCheckbox ) {
-      checkboxItems.push( {
+    const checkboxItems = [
+      {
+        createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
+        property: this.viewProperties.elementNameVisibleProperty,
+        tandemName: 'elementNameCheckbox'
+      },
+      {
+        createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
+        property: this.viewProperties.neutralAtomOrIonVisibleProperty,
+        tandemName: 'neutralAtomOrIonCheckbox'
+      },
+      {
         createNode: () => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
-        property: model.nuclearStabilityVisibleProperty,
+        property: this.viewProperties.nuclearStabilityVisibleProperty,
         tandemName: 'nuclearStabilityCheckbox'
-      } );
-    }
+      }
+    ];
 
     const checkboxGroup = new VerticalCheckboxGroup( checkboxItems, {
       checkboxOptions: { boxWidth: 12 },
@@ -294,47 +292,17 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( checkboxGroup );
 
-    // Add the radio buttons that control the electron representation in the atom.
-    const radioButtonRadius = 6;
-    const orbitsRadioButtonTandem = tandem.createTandem( 'orbitsRadioButton' );
-    const orbitsRadioButton = new AquaRadioButton(
-      model.electronShellDepictionProperty,
-      'orbits',
-      new Text( BuildAnAtomStrings.orbitsStringProperty, {
-          font: ELECTRON_VIEW_CONTROL_FONT,
-          maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
-          tandem: orbitsRadioButtonTandem.createTandem( 'orbitsText' )
-        }
-      ),
-      { radius: radioButtonRadius, tandem: orbitsRadioButtonTandem }
-    );
-    const cloudRadioButtonTandem = tandem.createTandem( 'cloudRadioButton' );
-    const cloudRadioButton = new AquaRadioButton(
-      model.electronShellDepictionProperty,
-      'cloud',
-      new Text( BuildAnAtomStrings.cloudStringProperty, {
-        font: ELECTRON_VIEW_CONTROL_FONT,
-        maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH,
-        tandem: cloudRadioButtonTandem.createTandem( 'cloudText' )
-      } ),
-      { radius: radioButtonRadius, tandem: cloudRadioButtonTandem }
-    );
-    const electronViewButtonGroup = new Node( { tandem: tandem.createTandem( 'electronViewButtonGroup' ) } );
-    electronViewButtonGroup.addChild( new Text( BuildAnAtomStrings.modelStringProperty, {
-      font: new PhetFont( {
-        size: 14,
-        weight: 'bold'
-      } ),
-      maxWidth: ELECTRON_VIEW_CONTROL_MAX_WIDTH + 20,
-      tandem: tandem.createTandem( 'electronViewButtonGroupLabelText' )
-    } ) );
-    orbitsRadioButton.top = electronViewButtonGroup.bottom + 5;
-    orbitsRadioButton.left = electronViewButtonGroup.left;
-    electronViewButtonGroup.addChild( orbitsRadioButton );
-    cloudRadioButton.top = electronViewButtonGroup.bottom + 5;
-    cloudRadioButton.left = electronViewButtonGroup.left;
-    electronViewButtonGroup.addChild( cloudRadioButton );
-    this.addChild( electronViewButtonGroup );
+    // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
+    // controls whether the related animation is enabled.
+    this.viewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
+      model.animateNuclearInstabilityProperty.value = nuclearStabilityVisible;
+    } );
+
+    // Add the selector panel that controls the electron representation in the atom.
+    const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
+      tandem: tandem.createTandem( 'electronModelControl' )
+    } );
+    this.addChild( electronModelControl );
 
     // Add the reset button.
     const resetAllButton = new ResetAllButton( {
@@ -356,8 +324,8 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     checkboxGroup.left = this.periodicTableAccordionBox.left;
     checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
-    electronViewButtonGroup.left = atomNode.right + 30;
-    electronViewButtonGroup.bottom = atomNode.bottom + 5;
+    electronModelControl.left = atomNode.right + 30;
+    electronModelControl.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes
     this.controlPanelLayer = new Node();
@@ -370,14 +338,17 @@ class BAAScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
       atomNode,
-      electronViewButtonGroup,
+      electronModelControl,
       this.periodicTableAccordionBox
     ];
   }
 
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
+    this.viewProperties.reset();
   }
+
+  public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
 }
 
 buildAnAtom.register( 'BAAScreenView', BAAScreenView );

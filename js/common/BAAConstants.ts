@@ -6,6 +6,7 @@
  * @author John Blanco
  */
 
+import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import Random from '../../../dot/js/Random.js';
 import buildAnAtom from '../buildAnAtom.js';
 
@@ -37,10 +38,13 @@ export type ChallengeType = typeof VALID_CHALLENGES[number];
 const BAAConstants = {
   RESET_BUTTON_RADIUS: 20,
   MAX_CHALLENGE_ATTEMPTS: 2, // Note: Attempt is the same as a submission in BAAGameChallenge.
-
-  VALID_CHALLENGES: VALID_CHALLENGES
-
+  VALID_CHALLENGES: VALID_CHALLENGES,
+  ALWAYS_TRUE_PROPERTY: new BooleanProperty( true ),
+  ALWAYS_FALSE_PROPERTY: new BooleanProperty( false )
 };
+
+BAAConstants.ALWAYS_TRUE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );
+BAAConstants.ALWAYS_FALSE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );
 
 buildAnAtom.register( 'BAAConstants', BAAConstants );
 

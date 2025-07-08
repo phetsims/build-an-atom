@@ -24,15 +24,9 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
   public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
 
-    // This challenge is a bit unique in that it has a model of an atom with
-    // which the user can interact. We want to keep this model out of the state
-    this.buildAnAtomModel = new BuildAnAtomModel( {
-      phetioState: false,
-      tandem: tandem.createTandem( 'buildAnAtomModel' )
-    } );
-    this.buildAnAtomModel.elementNameVisibleProperty.set( false );
-    this.buildAnAtomModel.neutralAtomOrIonVisibleProperty.set( false );
-    this.buildAnAtomModel.nuclearStabilityVisibleProperty.set( false );
+    // This challenge is a bit unique in that it has a model of an atom with which the user can interact. We want to
+    // keep this model out of the state.
+    this.buildAnAtomModel = new BuildAnAtomModel( Tandem.OPT_OUT );
   }
 
   public override dispose(): void {

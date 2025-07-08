@@ -7,6 +7,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -18,6 +19,7 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../BAAConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 
 // constants
@@ -50,11 +52,11 @@ class InteractiveSchematicAtom extends Node {
     const particleViews: ParticleView[] = []; // remember all the particleViews when using in dispose
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.particleAtom, modelViewTransform, {
-      showElementNameProperty: model.elementNameVisibleProperty,
-      showNeutralOrIonProperty: model.neutralAtomOrIonVisibleProperty,
-      showStableOrUnstableProperty: model.nuclearStabilityVisibleProperty,
-      electronShellDepictionProperty: model.electronShellDepictionProperty,
+    const atomNode = new AtomNode( model.atom, modelViewTransform, {
+      showElementNameProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
+      showNeutralOrIonProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
+      showStableOrUnstableProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
+      electronShellDepictionProperty: new Property( 'orbits' ),
       tandem: options.tandem.createTandem( 'atomNode' )
     } );
     this.addChild( atomNode );
@@ -131,16 +133,6 @@ class InteractiveSchematicAtom extends Node {
       particleViews.push( particleView );
     } );
 
-    // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
-    const updateElectronVisibility = () => {
-      electronLayer.getChildren().forEach( electronNode => {
-        electronNode.visible = model.electronShellDepictionProperty.get() === 'orbits' ||
-                               !model.particleAtom.electrons.includes( ( electronNode as ParticleView ).particle );
-      } );
-    };
-    model.particleAtom.electrons.lengthProperty.link( updateElectronVisibility );
-    model.electronShellDepictionProperty.link( updateElectronVisibility );
-
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketGroupTandem = options.tandem.createTandem( 'bucketFronts' ).createGroupTandem( 'bucketFront', 0 );
     const bucketFrontsAndDragHandlers: { dispose: VoidFunction }[] = []; // keep track for disposal
@@ -161,8 +153,6 @@ class InteractiveSchematicAtom extends Node {
       particleViews.forEach( particleView => particleView.dispose() );
       bucketFrontsAndDragHandlers.forEach( bucketItem => bucketItem.dispose() );
       atomNode.dispose();
-      model.particleAtom.electrons.lengthProperty.unlink( updateElectronVisibility );
-      model.electronShellDepictionProperty.unlink( updateElectronVisibility );
       ownsHighContrastProperty && options.highContrastProperty.dispose();
     };
 

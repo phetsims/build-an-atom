@@ -46,18 +46,12 @@ class AtomScreenView extends BAAScreenView {
       }
     };
 
-    // Add the charge meter and charge comparison display inside of an accordion box.
+    // Add the charge meter and charge comparison display inside an accordion box.
     const netChargeAccordionBoxTandem = tandem.createTandem( 'netChargeAccordionBox' );
     const netChargeAccordionBoxContents = new HBox( {
       children: [
-        new ChargeMeter( model.particleAtom.chargeProperty ),
-        new ChargeComparisonDisplay(
-          model.particleAtom,
-          {
-            pickable: false,
-            tandem: netChargeAccordionBoxTandem.createTandem( 'chargeComparisonDisplay' )
-          }
-        )
+        new ChargeMeter( model.atom.chargeProperty ),
+        new ChargeComparisonDisplay( model.atom, { pickable: false } )
       ],
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
@@ -68,11 +62,9 @@ class AtomScreenView extends BAAScreenView {
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomStrings.netChargeStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: netChargeAccordionBoxTandem.createTandem( 'titleText' )
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
-
-        // phet-io
+        expandedDefaultValue: false,
         tandem: netChargeAccordionBoxTandem,
 
         // pdom
@@ -83,7 +75,7 @@ class AtomScreenView extends BAAScreenView {
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(
-      model.particleAtom.massNumberProperty,
+      model.atom.massNumberProperty,
       {
         pickable: false,
         scale: 0.85 // empirically determined to make the control panels all fit on the screen
@@ -95,9 +87,9 @@ class AtomScreenView extends BAAScreenView {
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomStrings.massNumberStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH,
-          tandem: massNumberAccordionBoxTandem.createTandem( 'titleText' )
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
+        expandedDefaultValue: false,
         tandem: massNumberAccordionBoxTandem,
 
         // pdom
