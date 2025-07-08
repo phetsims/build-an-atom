@@ -37,7 +37,7 @@ class BAAGameChallenge extends BAAGameState {
   public configurableCharge = false;
 
   // The number of points that this challenge is worth, which is used to calculate the score.
-  public pointValue = 0;
+  public pointValueProperty: Property<number>;
 
   public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
 
@@ -56,6 +56,11 @@ class BAAGameChallenge extends BAAGameState {
       tandem: tandem.createTandem( 'isCorrectAtomProperty' ),
       phetioReadOnly: true,
       phetioState: false
+    } );
+
+    this.pointValueProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'pointValueProperty' ),
+      phetioReadOnly: true
     } );
   }
 

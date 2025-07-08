@@ -235,7 +235,7 @@ class GameModel implements TModel {
     const points = attempts === 1 ?
                                 GameModel.POINTS_FIRST_ATTEMPT :
                                 GameModel.POINTS_SECOND_ATTEMPT;
-    challenge.pointValue = points;
+    challenge.pointValueProperty.value = points;
     this.scoreProperty.value += correctAnswer ? points : 0;
 
     if ( correctAnswer ) {

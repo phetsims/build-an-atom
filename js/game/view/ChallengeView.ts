@@ -160,7 +160,7 @@ class ChallengeView extends Node {
         case 'solvedCorrectly':
           setAnswerNodeInteractive( false );
           faceNode.smile();
-          pointDisplay.string = `+${challenge.pointValue}`;
+          pointDisplay.string = `+${challenge.pointValueProperty.value}`;
           faceNode.visible = true;
           this.nextButton.visible = true;
           this.gameAudioPlayer.correctAnswer();
