@@ -173,7 +173,12 @@ class GameModel implements TModel {
       else {
         // TODO: This is a workaround due to not having IOTypes for Challenges yet! https://github.com/phetsims/build-an-atom/issues/257
         level && level.imposeLevel();
-        this.gameStateProperty.notifyListenersStatic();
+      }
+    } );
+
+    isSettingPhetioStateProperty.link( isSettingPhetioState => {
+      if ( isSettingPhetioState ) {
+        this.levelProperty.notifyListenersStatic();
       }
     } );
 
