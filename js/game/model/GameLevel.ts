@@ -43,6 +43,8 @@ export default class GameLevel extends PhetioObject {
   // Whether the time for this game a new best time.
   public isNewBestTimeProperty: Property<boolean>;
 
+  public active = false; // Whether this level is currently active, used for PhET-iO state restoration.
+
   public constructor(
     public readonly index: number,
     public readonly model: GameModel,
@@ -79,14 +81,6 @@ export default class GameLevel extends PhetioObject {
                this.challenges[ challengeNumber - 1 ] : this.challenges[ 0 ];
       }, {} );
 
-    // When the challenge changes, reset it to ensure that coefficients are zero. It may have been previously
-    // selected from the pool, and have coefficients from previous game play.
-    this.challengeProperty.lazyLink( challenge => {
-      // Update the model state to the new challenge.
-      model.challengeProperty.set( challenge );
-      model.gameStateProperty.set( 'presentingChallenge' );
-    } );
-
     this.bestScoreProperty = new NumberProperty( 0, {
       numberType: 'Integer',
       tandem: options.tandem.createTandem( 'bestScoreProperty' ),
@@ -114,7 +108,10 @@ export default class GameLevel extends PhetioObject {
       model.gameStateProperty.notifyListenersStatic();
     } );
 
+    // When the challenge changes, reset it to ensure that coefficients are zero. It may have been previously
+    // selected from the pool, and have coefficients from previous game play.
     this.challengeProperty.lazyLink( challenge => {
+      // Update the model state to the new challenge.
       model.challengeProperty.set( challenge );
       model.gameStateProperty.set( 'presentingChallenge' );
     } );
@@ -132,6 +129,7 @@ export default class GameLevel extends PhetioObject {
     this.challengeNumberProperty.notifyListenersStatic();
     this.model.challengeProperty.set( this.challengeProperty.value );
     this.model.gameStateProperty.set( 'presentingChallenge' );
+    this.model.gameStateProperty.notifyListenersStatic(); // Notify in case the previous state was also 'presentingChallenge'.
   }
 
   /**
