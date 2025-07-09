@@ -88,6 +88,9 @@ class GameModel implements TModel {
   public readonly randomSeedProperty: Property<number>;
   public readonly random: Random;
 
+  // The number of points that this challenge is worth, which is used to calculate the score.
+  public pointValueProperty: Property<number>;
+
   public constructor( tandem: Tandem ) {
 
     this.randomSeedProperty = new NumberProperty( dotRandom.nextDouble(), {
@@ -104,6 +107,11 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'gameStateProperty' ),
       phetioDocumentation: 'The current game state, which is used to determine what the view should display.',
       phetioValueType: StringUnionIO( GameStateValues )
+    } );
+
+    this.pointValueProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'pointValueProperty' ),
+      phetioReadOnly: true
     } );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
@@ -240,7 +248,7 @@ class GameModel implements TModel {
     const points = attempts === 1 ?
                                 GameModel.POINTS_FIRST_ATTEMPT :
                                 GameModel.POINTS_SECOND_ATTEMPT;
-    challenge.pointValueProperty.value = points;
+    this.pointValueProperty.value = points;
     this.scoreProperty.value += correctAnswer ? points : 0;
 
     if ( correctAnswer ) {

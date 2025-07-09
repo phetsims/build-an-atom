@@ -9,7 +9,9 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
@@ -37,9 +39,9 @@ class BAAGameChallenge extends BAAGameState {
   public configurableCharge = false;
 
   // The number of points that this challenge is worth, which is used to calculate the score.
-  public pointValueProperty: Property<number>;
+  public pointValueProperty: TReadOnlyProperty<number>;
 
-  public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
+  public constructor( model: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
 
     //TODO https://github.com/phetsims/build-an-atom/issues/240 Consider either having all the subclasses define a name, or just getting rid of the name altogether.
     super( 'challenge', {
@@ -49,7 +51,7 @@ class BAAGameChallenge extends BAAGameState {
     } );
 
     this.answerAtom = answerAtom;
-    this.model = buildAnAtomGameModel;
+    this.model = model;
     this.challengeType = challengeType;
 
     this.isCorrectAtomProperty = new BooleanProperty( false, {
@@ -58,10 +60,7 @@ class BAAGameChallenge extends BAAGameState {
       phetioState: false
     } );
 
-    this.pointValueProperty = new Property( 0, {
-      tandem: tandem.createTandem( 'pointValueProperty' ),
-      phetioReadOnly: true
-    } );
+    this.pointValueProperty = new DerivedProperty( [ model.pointValueProperty ], ( pointValue: number ) => pointValue );
   }
 
   public override checkAnswer( submittedAtom: AnswerAtom ): void {

@@ -134,6 +134,7 @@ class GameScreenView extends ScreenView {
       }
       else {
         this.levelNode.removeAllChildren();
+        this.disposeNodes();
 
         const challenge = gameModel.challengeProperty.value!;
 
@@ -154,6 +155,16 @@ class GameScreenView extends ScreenView {
   public initLevelSelection(): void {
     this.levelNode.removeAllChildren();
     this.levelNode.addChild( this.levelSelectionNode );
+    this.disposeNodes();
+  }
+
+  public override step( elapsedTime: number ): void {
+    if ( this.rewardNode ) {
+      this.rewardNode.step( elapsedTime );
+    }
+  }
+
+  public disposeNodes(): void {
     if ( this.rewardNode !== null ) {
       this.rewardNode.dispose();
     }
@@ -162,12 +173,6 @@ class GameScreenView extends ScreenView {
     }
     this.rewardNode = null;
     this.levelCompletedNode = null;
-  }
-
-  public override step( elapsedTime: number ): void {
-    if ( this.rewardNode ) {
-      this.rewardNode.step( elapsedTime );
-    }
   }
 }
 
