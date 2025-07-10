@@ -302,6 +302,12 @@ class GameModel implements TModel {
     this.gameStateProperty.set( 'levelSelection' );
   }
 
+  public step( dt: number ): void {
+    if ( this.challengeProperty.value ) {
+      this.challengeProperty.value.step( dt );
+    }
+  }
+
   /**
    * Does a full reset of the Game model.
    */

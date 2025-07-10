@@ -31,7 +31,8 @@ const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
   [ 'schematic-to-element', 'counts-to-element' ],
   [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
   [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-  [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+  // [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+  [ 'symbol-to-schematic' ]
 ];
 
 export default class ChallengeSetFactory {

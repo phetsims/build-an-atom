@@ -93,32 +93,26 @@ class InteractiveSchematicAtom extends Node {
         assert && assert( nucleonLayers.length > zLayer,
           'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
 
+        const desiredLayer = nucleonLayers[ zLayer ];
+
         // Determine whether nucleon view is on the correct layer.
-        let onCorrectLayer = false;
-        nucleonLayers[ zLayer ].children.forEach( particleView => {
-          if ( ( particleView as ParticleView ).particle === nucleon ) {
-            onCorrectLayer = true;
-          }
-        } );
+        const onCorrectLayer = desiredLayer.children.includes( particleView );
 
         if ( !onCorrectLayer ) {
 
           // Remove particle view from its current layer.
-          let particleView: ParticleView | null = null;
-          for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
-            for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
-              const currentParticleView = nucleonLayers[ layerIndex ].children[ childIndex ] as ParticleView;
-              if ( currentParticleView.particle === nucleon ) {
-                particleView = currentParticleView;
-                nucleonLayers[ layerIndex ].removeChildAt( childIndex );
-                break;
-              }
+          let particleViewFoundAndRemoved = false;
+          for ( const layer of nucleonLayers ) {
+            if ( layer.children.includes( particleView ) ) {
+              layer.removeChild( particleView );
+              particleViewFoundAndRemoved = true;
+              break;
             }
           }
 
           // Add the particle view to its new layer.
-          assert && assert( particleView !== null, 'Particle view not found during relayering' );
-          nucleonLayers[ zLayer ].addChild( particleView! );
+          assert && assert( particleViewFoundAndRemoved, 'Particle view not found during relayering' );
+          desiredLayer.addChild( particleView );
         }
       } );
     } );
