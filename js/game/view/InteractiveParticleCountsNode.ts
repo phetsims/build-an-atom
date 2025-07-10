@@ -12,9 +12,9 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import AnswerAtom from '../model/AnswerAtom.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
 // constants
@@ -28,7 +28,7 @@ export type InteractiveParticleCountsNodeOptions = SelfOptions & WithRequired<No
 
 class InteractiveParticleCountsNode extends Node {
 
-  public readonly numberAtom: NumberAtom;
+  public readonly answerAtom: AnswerAtom;
   private disposeInteractiveParticlCountsNode: () => void;
 
   public constructor( providedOptions: InteractiveParticleCountsNodeOptions ) {
@@ -41,7 +41,7 @@ class InteractiveParticleCountsNode extends Node {
 
     const tandem = options.tandem;
 
-    this.numberAtom = new NumberAtom( { tandem: tandem.createTandem( 'numberAtom' ) } );
+    this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
 
     const protonCountPrompt = new Text( BuildAnAtomStrings.protonsColonStringProperty, {
       font: options.font,
@@ -49,7 +49,7 @@ class InteractiveParticleCountsNode extends Node {
     } );
     this.addChild( protonCountPrompt );
     const protonCountEntryNode = new NumberEntryNode(
-      this.numberAtom.protonCountProperty,
+      this.answerAtom.protonCountProperty,
       tandem.createTandem( 'protonCountEntryNode' ), {
         minValue: 0,
         maxValue: 99
@@ -61,7 +61,7 @@ class InteractiveParticleCountsNode extends Node {
       maxWidth: MAX_WIDTH
     } );
     this.addChild( neutronCountPrompt );
-    const neutronCountEntryNode = new NumberEntryNode( this.numberAtom.neutronCountProperty,
+    const neutronCountEntryNode = new NumberEntryNode( this.answerAtom.neutronCountProperty,
       tandem.createTandem( 'neutronCountEntryNode' ), {
         minValue: 0,
         maxValue: 99
@@ -74,7 +74,7 @@ class InteractiveParticleCountsNode extends Node {
     } );
     this.addChild( electronCountPrompt );
     const electronCountEntryNode = new NumberEntryNode(
-      this.numberAtom.electronCountProperty,
+      this.answerAtom.electronCountProperty,
       tandem.createTandem( 'electronCountEntryNode' ), {
         minValue: 0,
         maxValue: 99
@@ -102,7 +102,7 @@ class InteractiveParticleCountsNode extends Node {
       electronCountEntryNode.dispose();
       neutronCountEntryNode.dispose();
       protonCountEntryNode.dispose();
-      this.numberAtom.dispose();
+      this.answerAtom.dispose();
     };
   }
 

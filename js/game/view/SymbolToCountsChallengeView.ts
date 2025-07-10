@@ -51,13 +51,13 @@ class SymbolToCountsChallengeView extends ChallengeView {
   }
 
   public override checkAnswer(): void {
-    this.challenge.checkAnswer( this.interactiveParticleCountsNode.numberAtom );
+    this.challenge.checkAnswer( this.interactiveParticleCountsNode.answerAtom );
   }
 
   public override displayCorrectAnswer(): void {
-    this.interactiveParticleCountsNode.numberAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
-    this.interactiveParticleCountsNode.numberAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
-    this.interactiveParticleCountsNode.numberAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
+    this.interactiveParticleCountsNode.answerAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
+    this.interactiveParticleCountsNode.answerAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
+    this.interactiveParticleCountsNode.answerAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
   }
 
   public override dispose(): void {
