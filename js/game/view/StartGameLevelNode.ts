@@ -7,13 +7,17 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import InfoButton from '../../../../scenery-phet/js/buttons/InfoButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Dialog from '../../../../sun/js/Dialog.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
@@ -22,6 +26,7 @@ import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
 import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
 import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import GameLevel from '../model/GameLevel.js';
@@ -43,8 +48,44 @@ class StartGameLevelNode extends Node {
       centerX: layoutBounds.centerX
     } );
     this.addChild( title );
+
+    // Create and add the decays info dialog and button.
+    const levelDescriptionOptions = {
+      font: new PhetFont( 30 )
+    };
+    const gamesInfoDialog = new Dialog(
+      new VBox( {
+        spacing: 30,
+        children: [
+          new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
+          new VBox( {
+            spacing: 30,
+            align: 'left',
+            children: [
+              new RichText( BuildAnAtomFluent.level1DescriptionStringProperty, levelDescriptionOptions ),
+              new RichText( BuildAnAtomFluent.level2DescriptionStringProperty, levelDescriptionOptions ),
+              new RichText( BuildAnAtomFluent.level3DescriptionStringProperty, levelDescriptionOptions ),
+              new RichText( BuildAnAtomFluent.level4DescriptionStringProperty, levelDescriptionOptions )
+            ]
+          } )
+        ]
+      } ), {
+        tandem: tandem.createTandem( 'gamesInfoDialog' )
+      }
+    );
+    const gamesInfoButton = new InfoButton( {
+      listener: () => gamesInfoDialog.show(),
+      iconFill: 'rgb( 50, 145, 184 )',
+      scale: 0.4,
+      touchAreaDilation: 15,
+      tandem: tandem.createTandem( 'gamesInfoButton' )
+    } );
+    this.addChild( gamesInfoButton );
+
     title.boundsProperty.link( () => {
       title.centerX = layoutBounds.centerX;
+      gamesInfoButton.left = title.right + CONTROLS_INSET;
+      gamesInfoButton.centerY = title.centerY;
     } );
 
     // buttons for starting a game level

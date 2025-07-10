@@ -47,6 +47,11 @@ type StringsType = {
   'showStringProperty': LocalizedStringProperty;
   'chooseYourGameStringProperty': LocalizedStringProperty;
   'highContrastParticlesStringProperty': LocalizedStringProperty;
+  'gamesInfoTitleStringProperty': LocalizedStringProperty;
+  'level1DescriptionStringProperty': LocalizedStringProperty;
+  'level2DescriptionStringProperty': LocalizedStringProperty;
+  'level3DescriptionStringProperty': LocalizedStringProperty;
+  'level4DescriptionStringProperty': LocalizedStringProperty;
 };
 
 const BuildAnAtomStrings = getStringModule( 'BUILD_AN_ATOM' ) as StringsType;
