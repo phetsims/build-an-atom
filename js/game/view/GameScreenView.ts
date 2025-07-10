@@ -120,7 +120,7 @@ class GameScreenView extends ScreenView {
           GameModel.CHALLENGES_PER_LEVEL,
           gameModel.timerEnabledProperty.get(),
           gameModel.timer.elapsedTimeProperty.get(),
-          level.bestTimeProperty.value,
+          level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
           level.isNewBestTimeProperty.value,
           () => { gameModel.levelProperty.reset(); }, {
             centerX: this.layoutBounds.width / 2,
