@@ -39,13 +39,10 @@ export default class ChallengeSetFactory {
   /**
    * For a given Game Level, create a set of challenges.
    */
-  public static createChallengeSet(
-    index: number,
-    model: GameModel,
-    tandem: Tandem
-  ): BAAGameChallenge[] {
-    const validChallengeNames = LEVEL_CHALLENGE_NAMES[ index ];
-    const atomValuePool = new AtomValuePool( index );
+  public static createChallengeSet( level: number, model: GameModel, tandem: Tandem ): BAAGameChallenge[] {
+
+    const validChallengeNames = LEVEL_CHALLENGE_NAMES[ level ];
+    const atomValuePool = new AtomValuePool( level );
     const challenges: BAAGameChallenge[] = [];
 
     for ( let i = 0; i < GameModel.CHALLENGES_PER_LEVEL; i++ ) {
