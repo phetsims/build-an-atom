@@ -3,182 +3,168 @@
 /**
  * Primary model class for the Build an Atom Game tab.
  *
+ * In this sim we use the following terminology for games:
+ *    Game - the entire game, which consists of multiple levels
+ *    Level - a single level in the game, which consists of multiple challenges
+ *    Challenge - a single challenge in a level, which consists of a question and an answer
+ *
+ * @author Agustín Vallejo
  * @author John Blanco
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import Emitter from '../../../../axon/js/Emitter.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import { TEmitterListener } from '../../../../axon/js/TEmitter.js';
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
+import dotRandom from '../../../../dot/js/dotRandom.js';
+import Random from '../../../../dot/js/Random.js';
 import Range from '../../../../dot/js/Range.js';
 import TModel from '../../../../joist/js/TModel.js';
-import merge from '../../../../phet-core/js/merge.js';
-import NumberAtom, { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
-import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
+import NullableIO from '../../../../tandem/js/types/NullableIO.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
+import GameTimer from '../../../../vegas/js/GameTimer.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import { ChallengeType } from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import { NeutralOrIon } from '../view/ToElementChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
-import BAAGameState from './BAAGameState.js';
-import ChallengeSetFactory from './ChallengeSetFactory.js';
+import GameLevel from './GameLevel.js';
 
 // constants
 const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
 
-type LevelResult = {
-  level: number;
-  maxPoints: number;
-  challenges: number;
-  timerEnabled: boolean;
-  elapsedTime: number;
-  bestTime: number;
-  newBestTime: boolean;
-};
-
-type ChallengeSpec = {
-  challengeType: string; // The type of challenge, e.g. 'schematic-to-element', 'counts-to-mass', etc.
-  numberAtom: {
-    protonCount: number;
-    neutronCount: number;
-    electronCount: number;
-  };
-};
-
-export type ChallengeResult = {
-  isCorrect: boolean; // Whether the answer was correct.
-  points: number; // Points awarded for the answer.
-  correctProtonCount: number; // The correct proton count.
-  correctNeutronCount: number; // The correct neutron count.
-  correctElectronCount: number; // The correct electron count.
-  submittedProtonCount: number; // The proton count submitted by the user.
-  submittedNeutronCount: number; // The neutron count submitted by the user.
-  submittedElectronCount: number; // The electron count submitted by the user.
-} & IonChallengeResult;
-
-export type IonChallengeResult = {
-  correctCharge?: NeutralOrIon;
-  submittedCharge?: NeutralOrIon;
-};
+export const GameStateValues = [
+  'levelSelection',
+  'presentingChallenge',
+  'check',
+  'solvedCorrectly',
+  'tryAgain',
+  'attemptsExhausted',
+  'showingAnswer',
+  'next',
+  'levelCompleted'
+] as const;
+export type GameState = ( typeof GameStateValues )[number];
 
 class GameModel implements TModel {
 
-  // The selected game level. null means 'no selection' and causes the view to return to the level-selection UI.
-  public readonly levelProperty: NumberProperty;
-  public readonly stateProperty: Property<BAAGameState>;
-  public readonly timerEnabledProperty: BooleanProperty;
-  public readonly challengeSetProperty: Property<Array<BAAGameChallenge>>;
-  public readonly challengeIndexProperty: NumberProperty;
-
-  // The score for the current game that is being played.
-  public readonly scoreProperty: NumberProperty; // Score on current game level.
-  public readonly elapsedTimeProperty: Property<number>; // Elapsed time in seconds.
-  public readonly provideFeedbackProperty: BooleanProperty; // Whether to provide feedback during the game.
-  public readonly bestScores: Array<Property<number>>; // Properties that track progress on each game level.
-  public readonly scores: Array<Property<number>>; // Properties that track score at each game level
-  public readonly bestTimes: Array<Property<number | null>>; // Best times at each level.
-  public readonly bestTimeVisible: Array<Property<boolean>>; // Properties that track whether to show best time at each game level.
-  public readonly checkAnswerEmitter: Emitter<[ChallengeResult]>; // Emitter for check answer events.
-  public readonly levelCompletedEmitter: Emitter<[ LevelResult ]>; // Emitter for level completed events.
-  public readonly challengeSetGroupTandem: Tandem; // Tandem for the group of challenges.
-  public readonly numberAtomGroupTandem: Tandem; // Tandem for the group of NumberAtoms.
-  public newBestTime: boolean; // Flag set to indicate new best time, cleared each time a level is started.
-  public allowedChallengeTypesByLevel: Array<Array<ChallengeType>>; // Allowed challenge types for each level.
-  public stepListeners: Array<( dt: number ) => void>; // Set of external functions that the model will step.
-  public predeterminedChallenges: Array<Array<BAAGameChallenge>>; // Challenges that will be used instead of randomly generated ones.
-
-  public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
   public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
+  public static readonly MAX_POINTS_PER_GAME_LEVEL = MAX_POINTS_PER_GAME_LEVEL;
+  public static readonly POINTS_FIRST_ATTEMPT = 2;  // points to award for correct guess on 1st attempt
+  public static readonly POINTS_SECOND_ATTEMPT = 1; // points to award for correct guess on 2nd attempt
 
-  // TODO: Check this for PhET-iO - https://github.com/phetsims/build-an-atom/issues/257
-  // public static readonly GameModelIO = new IOType( 'GameModelIO', {
-  //   valueType: GameModel,
-  //   documentation: 'The model for the Game',
-  //   methods: {
-  //
-  //     startGameLevel: {
-  //       returnType: VoidIO,
-  //       parameterTypes: [ StringIO ],
-  //       implementation: function( levelType ) {
-  //         this.startGameLevel( levelType );
-  //       },
-  //       documentation: 'Start one of the following games: periodic-table-game, mass-and-charge-game, symbol-game, advanced-symbol-game',
-  //       invocableForReadOnlyElements: false
-  //     },
-  //
-  //     setChallenges: {
-  //       returnType: VoidIO,
-  //       parameterTypes: [ ArrayIO( ArrayIO( ObjectLiteralIO ) ) ],
-  //       implementation: function( challenges ) {
-  //         this.setChallenges( challenges );
-  //       },
-  //       documentation: 'Specify exact challenges',
-  //       invocableForReadOnlyElements: false
-  //     },
-  //
-  //     setAllowedChallengeTypesByLevel: {
-  //       returnType: VoidIO,
-  //       parameterTypes: [ ArrayIO( ArrayIO( StringIO ) ) ],
-  //
-  //       //TODO https://github.com/phetsims/build-an-atom/issues/240 change this to take index as 1st argument (for level index)
-  //       implementation: function( allowedChallengeTypesByLevel ) {
-  //         this.setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel );
-  //       },
-  //
-  //       documentation: 'Specify which challenge types may be presented to the user for each level.',
-  //       invocableForReadOnlyElements: false
-  //       // The default value is [
-  //       //    [ 'schematic-to-element', 'counts-to-element' ],
-  //       //    [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-  //       //    [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-  //       //    [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
-  //       //  ]
-  //     }
-  //   }
-  // } );
+  // The current state of the game, which is used to determine what the view should display.
+  // Usually it ranges between 'choosingLevel', 'levelCompleted' and individual challenges within a level.
+  public readonly gameStateProperty: Property<GameState>;
+
+  // All the levels in the game
+  public readonly levels: GameLevel[];
+
+  // The selected game level. null means 'no selection' and causes the view to return to the level-selection UI.
+  public readonly levelProperty: Property<GameLevel | null>;
+
+  // The number of the selected level in the game. Zero means that no level is selected.
+  public readonly levelNumberProperty: ReadOnlyProperty<number>;
+
+  // Current challenge number in the level, starting from 1. Used only for the finite status bar.
+  public readonly challengeNumberProperty: Property<number>;
+
+  // The current challenge that is being played.
+  public readonly challengeProperty: Property<BAAGameChallenge | null>;
+
+  // The number of attempts the user has made at solving the current challenge.
+  private readonly attemptsProperty: Property<number>;
+
+  // The score for the current level that is being played.
+  public readonly scoreProperty: Property<number>;
+
+  public readonly timer: GameTimer;
+  public readonly timerEnabledProperty: Property<boolean>;
+
+  public readonly randomSeedProperty: Property<number>;
+  public readonly random: Random;
+
+  // The number of points that this challenge is worth, which is used to calculate the score.
+  public pointValueProperty: Property<number>;
 
   public constructor( tandem: Tandem ) {
 
-    this.allowedChallengeTypesByLevel = [
-      [ 'schematic-to-element', 'counts-to-element' ],
-      [ 'counts-to-charge', 'counts-to-mass', 'schematic-to-charge', 'schematic-to-mass' ],
-      [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass' ],
-      [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
+    this.randomSeedProperty = new NumberProperty( dotRandom.nextDouble(), {
+      tandem: tandem.createTandem( 'randomSeedProperty' ),
+      phetioDocumentation: 'For internal use only, the seed used to generate random challenges.',
+      phetioReadOnly: true
+    } );
+
+    this.random = new Random( { seed: this.randomSeedProperty.value } );
+
+    // TODO: Until we have proper IOTypes, this shouldn't be instrumented! https://github.com/phetsims/build-an-atom/issues/257
+    this.gameStateProperty = new Property<GameState>( 'levelSelection', {
+      validValues: GameStateValues,
+      tandem: tandem.createTandem( 'gameStateProperty' ),
+      phetioDocumentation: 'The current game state, which is used to determine what the view should display.',
+      phetioValueType: StringUnionIO( GameStateValues )
+    } );
+
+    this.pointValueProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'pointValueProperty' ),
+      phetioReadOnly: true
+    } );
+
+    this.challengeNumberProperty = new NumberProperty( 1, {
+      numberType: 'Integer',
+      range: new Range( 1, GameModel.CHALLENGES_PER_LEVEL ),
+      phetioDocumentation: 'The challenge number shown in the status bar. Indicates how far the user has progressed through a level.',
+      phetioReadOnly: true
+    } );
+
+    this.challengeProperty = new Property<BAAGameChallenge | null>( null );
+
+    this.levels = [
+      new GameLevel( 0, this, { tandem: tandem.createTandem( 'gameLevel0' ) } ),
+      new GameLevel( 1, this, { tandem: tandem.createTandem( 'gameLevel1' ) } ),
+      new GameLevel( 2, this, { tandem: tandem.createTandem( 'gameLevel2' ) } ),
+      new GameLevel( 3, this, { tandem: tandem.createTandem( 'gameLevel3' ) } )
     ];
 
-    const numberOfLevels = this.allowedChallengeTypesByLevel.length;
-
-    this.stateProperty = new Property<BAAGameState>( BAAGameState.CHOOSING_LEVEL, {
-      // tandem: tandem.createTandem( 'stateProperty' )
+    this.levelProperty = new Property<GameLevel | null>( null, {
+      validValues: [ ...this.levels, null ],
+      tandem: tandem.createTandem( 'levelProperty' ),
+      phetioDocumentation: 'The selected level in the game. null means that no level is selected.',
+      phetioFeatured: true,
+      phetioValueType: NullableIO( GameLevel.GameLevelIO )
     } );
+
+    this.levelNumberProperty = new DerivedProperty( [ this.levelProperty ], level => level ? level.index : 0, {
+      tandem: tandem.createTandem( 'levelNumberProperty' ),
+      phetioDocumentation: 'Number of the selected level in the game. Zero means that no level is selected.',
+      phetioFeatured: true,
+      phetioValueType: NumberIO
+    } );
+
+    const timerTandem = tandem.createTandem( 'timer' );
+    this.timer = new GameTimer( timerTandem );
 
     this.timerEnabledProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'timerEnabledProperty' )
+      tandem: timerTandem.createTandem( 'enabledProperty' ),
+      phetioDocumentation: 'Whether the timer will run while playing a level.',
+      phetioFeatured: true
     } );
 
-    this.levelProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'levelProperty' ),
-      range: new Range( 0, numberOfLevels - 1 ),
-      phetioDocumentation: 'The selected level in the game.',
+    this.attemptsProperty = new NumberProperty( 0, {
       numberType: 'Integer',
+      range: new Range( 0, 3 ),
+      tandem: tandem.createTandem( 'attemptsProperty' ),
+      phetioDocumentation: 'The number of attempts to solve the current challenge.',
       phetioFeatured: true,
       phetioReadOnly: true
     } );
 
-    this.challengeSetProperty = new Property<Array<BAAGameChallenge>>( [] as BAAGameChallenge[], {
-      // tandem: tandem.createTandem( 'challengeSetProperty' )
-    } );
-
-    this.challengeIndexProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'challengeIndexProperty' ),
-      range: new Range( 0, CHALLENGES_PER_LEVEL - 1 ),
-      phetioDocumentation: 'The index of the current challenge within the level.',
-      phetioReadOnly: true
+    this.timerEnabledProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'timerEnabledProperty' )
     } );
 
     this.scoreProperty = new NumberProperty( 0, {
@@ -187,204 +173,153 @@ class GameModel implements TModel {
       range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL )
     } );
 
-    this.elapsedTimeProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'elapsedTimeProperty' ),
-      range: new Range( 0, Number.POSITIVE_INFINITY )
-    } );
-
-    this.provideFeedbackProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'provideFeedbackProperty' )
-    } );
-
-    this.stepListeners = [];
-
-    this.levelCompletedEmitter = new Emitter( {
-      tandem: tandem.createTandem( 'levelCompletedEmitter' ),
-      parameters: [ { name: 'results', phetioType: ObjectLiteralIO } ]
-    } );
-
-    // TODO: This should probably live on each game level https://github.com/phetsims/build-an-atom/issues/257
-    this.bestScores = []; // Properties that track progress on each game level.
-    this.scores = []; // Properties that track score at each game level
-    this.bestTimeVisible = []; // Properties that track whether to show best time at each game level
-    this.bestTimes = []; // Best times at each level.
-    _.times( numberOfLevels, () => {
-      this.bestScores.push( new Property( 0 ) );
-      this.scores.push( new Property( 0 ) );
-      this.bestTimes.push( new Property<number | null>( null ) );
-      this.bestTimeVisible.push( new Property( false ) );
-    } );
-
-    this.timerEnabledProperty.lazyLink( timerEnabled => {
-      for ( let i = 0; i < ShredConstants.LEVEL_NAMES.length; i++ ) {
-        this.bestTimeVisible[ i ].value = timerEnabled && this.scores[ i ].value === MAX_POINTS_PER_GAME_LEVEL;
+    this.levelProperty.lazyLink( level => {
+      if ( !isSettingPhetioStateProperty.value ) {
+        level ? this.startLevel() : this.startOver();
+      }
+      else {
+        // TODO: This is a workaround due to not having IOTypes for Challenges yet! https://github.com/phetsims/build-an-atom/issues/257
+        level && level.imposeLevel();
       }
     } );
 
-    // Flag set to indicate new best time, cleared each time a level is started.
-    this.newBestTime = false;
-
-    this.checkAnswerEmitter = new Emitter( {
-      tandem: tandem.createTandem( 'checkAnswerEmitter' ),
-      parameters: [ { name: 'result', phetioType: ObjectLiteralIO } ]
+    isSettingPhetioStateProperty.link( isSettingPhetioState => {
+      if ( isSettingPhetioState ) {
+        this.levelProperty.notifyListenersStatic();
+      }
     } );
 
-    this.challengeSetGroupTandem = Tandem.OPT_OUT;
-
-    this.numberAtomGroupTandem = Tandem.OPT_OUT;
-
-    // be used instead of randomly generated
-    this.predeterminedChallenges = [];
-  }
-
-  public step( dt: number ): void {
-
-    // Increment the game timer if running.  Note that this assumes that dt is not clamped, because we want it to
-    // essentially continue running if the user switches tabs or hides the browser.
-    if ( this.timerEnabledProperty.get() &&
-         this.stateProperty.get() !== BAAGameState.CHOOSING_LEVEL &&
-         this.stateProperty.get() !== BAAGameState.LEVEL_COMPLETED ) {
-
-      this.elapsedTimeProperty.set( this.elapsedTimeProperty.get() + dt );
-    }
-
-    // Step the current challenge if it has any time-driven behavior.
-    this.stateProperty.get().step( dt );
-
-    // Step any external functions that need it.
-    this.stepListeners.forEach( stepListener => { stepListener( dt ); } );
-  }
-
-  // TODO: Implement Tandem for the challenges, see https://github.com/phetsims/build-an-atom/issues/185
-  public startGameLevel( levelName: Level, tandem?: Tandem ): void {
-    this.levelProperty.set( ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName ) );
-    this.challengeIndexProperty.set( 0 );
-
-    // TODO: Commented out due to problems related to phet-io, see https://github.com/phetsims/build-an-atom/issues/185
-    // assert && assert( this.challengeSetProperty.get().length === 0, 'challenges should be cleared before starting a new game' );
-
-    // Use the predetermined challenges (if specified by phet-io) or generate a random challenge for the given level
-    const challengeSet = this.predeterminedChallenges[ this.levelProperty.get() ] || ChallengeSetFactory.generate(
-      this.levelProperty.get(),
-      CHALLENGES_PER_LEVEL,
-      this,
-      this.allowedChallengeTypesByLevel,
-      Tandem.OPT_OUT
-    );
-    this.challengeSetProperty.set( challengeSet );
-    this.scoreProperty.set( 0 );
-    this.newBestTime = false;
-    this.bestTimeVisible[ this.levelProperty.get() ].value = false;
-    this.elapsedTimeProperty.reset();
-    if ( this.challengeSetProperty.get().length > 0 ) {
-      this.stateProperty.set( this.challengeSetProperty.get()[ 0 ] );
-    }
-    else {
-      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
-    }
-  }
-
-  public newGame(): void {
-    this.stateProperty.set( BAAGameState.CHOOSING_LEVEL );
-    this.scoreProperty.set( 0 );
-
-    // (phet-io) Dispose old challenges before setting the property again.
-    this.challengeSetProperty.get().forEach( challenge => {
-      ( !challenge.isDisposed ) && challenge.dispose();
-    } );
-    this.challengeSetProperty.get().length = 0;
-  }
-
-  public next(): void {
-    const level = this.levelProperty.get();
-    if ( this.challengeSetProperty.get().length > this.challengeIndexProperty.get() + 1 ) {
-      // Next challenge.
-      this.challengeIndexProperty.set( this.challengeIndexProperty.get() + 1 );
-      this.stateProperty.set( this.challengeSetProperty.get()[ this.challengeIndexProperty.get() ] );
-    }
-    else {
-      // Game level completed - update score and state.
-      if ( this.scoreProperty.get() > this.bestScores[ level ].value ) {
-        this.bestScores[ level ].value = this.scoreProperty.get();
-      }
-      if ( this.timerEnabledProperty.get() && this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL &&
-           ( this.bestTimes[ level ].value === null || this.elapsedTimeProperty.get() < this.bestTimes[ level ].value ) ) {
-        this.newBestTime = this.bestTimes[ level ].value !== null; // Don't set this flag for the first 'best time', only when the time improves.
-        this.bestTimes[ level ].value = this.elapsedTimeProperty.get();
-      }
-
-      if ( this.scoreProperty.get() === MAX_POINTS_PER_GAME_LEVEL && this.timerEnabledProperty.get() ) {
-        this.bestTimeVisible[ level ].value = true;
-      }
-
-      this.scores[ level ].value = this.scoreProperty.get();
-
-      // When the game is complete, send notification that can be used by phet-io
-      this.levelCompletedEmitter.emit( {
-        level: level,
-        maxPoints: MAX_POINTS_PER_GAME_LEVEL,
-        challenges: CHALLENGES_PER_LEVEL,
-        timerEnabled: this.timerEnabledProperty.get(),
-        elapsedTime: this.elapsedTimeProperty.get(),
-        bestTime: this.bestTimes[ level ].value!,
-        newBestTime: this.newBestTime
+    this.randomSeedProperty.link( seed => {
+      this.random.setSeed( seed );
+      this.levels.forEach( level => {
+        level.generateChallenges();
       } );
+    } );
+  }
 
-      this.stateProperty.set( BAAGameState.LEVEL_COMPLETED );
+  /**
+   * Called before the first challenge has been played.
+   */
+  private startLevel(): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    level.startLevel();
+    this.challengeNumberProperty.value = level.challengeNumberProperty.value;
+
+    this.resetToStart();
+
+    // Start the timer.
+    if ( this.timerEnabledProperty.value ) {
+      this.timer.start();
     }
   }
 
-  public reset(): void {
-    this.stateProperty.reset();
-    this.timerEnabledProperty.reset();
+  /**
+   * Called after the last challenge has been played.
+   */
+  private endLevel(): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    this.timer.stop();
+
+    const score = this.scoreProperty.value;
+    const time = this.timer.elapsedTimeProperty.value;
+    level.endLevel( score, time );
+  }
+
+
+  /**
+   * Called when the user presses the "Check" button.
+   */
+  public check(): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    this.attemptsProperty.value++;
+    const attempts = this.attemptsProperty.value;
+    const challenge = level.challengeProperty.value;
+    const correctAnswer = challenge.isCorrectAtomProperty.value;
+
+    const points = attempts === 1 ?
+                                GameModel.POINTS_FIRST_ATTEMPT :
+                                GameModel.POINTS_SECOND_ATTEMPT;
+    this.pointValueProperty.value = points;
+    this.scoreProperty.value += correctAnswer ? points : 0;
+
+    if ( correctAnswer ) {
+      this.gameStateProperty.set( 'solvedCorrectly' );
+      if ( level.isLastChallenge() ) {
+        this.endLevel();
+      }
+    }
+    else if ( attempts < 2 ) {
+      this.gameStateProperty.set( 'tryAgain' );
+    }
+    else {
+      this.gameStateProperty.set( 'attemptsExhausted' );
+      if ( level.isLastChallenge() ) {
+        this.endLevel();
+      }
+    }
+  }
+
+  /**
+   * Called when the user presses the "Next" button.
+   */
+  public next(): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    if ( !level.isLastChallenge() ) {
+      this.attemptsProperty.value = 0;
+      level.challengeNumberProperty.value++;
+    }
+    else {
+      this.gameStateProperty.set( 'levelCompleted' );
+    }
+  }
+
+  /**
+   * Called when the user presses the "Skip" button, which is visible when running with ?showAnswers.
+   * This is equivalent to pressing the "Next" button.
+   */
+  public skip(): void {
+    this.next();
+  }
+
+  /**
+   * Called when the user presses the "Start Over" button, or when levelProperty is set to null.
+   */
+  public startOver(): void {
+    this.resetToStart();
     this.levelProperty.reset();
-    this.challengeSetProperty.reset();
-    this.challengeIndexProperty.reset();
+    this.gameStateProperty.set( 'levelSelection' );
+  }
+
+  /**
+   * Does a full reset of the Game model.
+   */
+  public reset(): void {
+    this.resetToStart();
+    this.levels.forEach( level => level.reset() );
+    this.levelProperty.reset();
+    this.timerEnabledProperty.reset();
+    this.gameStateProperty.reset();
+  }
+
+  /**
+   * Resets only the things that should be reset when a game is started, or when in the 'levelSelection' game state.
+   */
+  private resetToStart(): void {
+    this.attemptsProperty.reset();
     this.scoreProperty.reset();
-    this.elapsedTimeProperty.reset();
-    this.bestScores.forEach( bestScoreProperty => { bestScoreProperty.reset(); } );
-    this.scores.forEach( scoreProperty => { scoreProperty.reset(); } );
-    this.bestTimes.forEach( bestTimeProperty => { bestTimeProperty.reset(); } );
-    this.bestTimeVisible.forEach( bestTimeVisibleProperty => { bestTimeVisibleProperty.reset(); } );
-  }
-
-  public addStepListener( stepListener: TEmitterListener<[ number ]> ): void {
-    this.stepListeners.push( stepListener );
-  }
-
-  public removeStepListener( stepListener: TEmitterListener<[ number ]> ): void {
-    this.stepListeners = _.without( this.stepListeners, stepListener );
-  }
-
-  // Set the allowed challenge types to customize for phet-io
-  public setAllowedChallengeTypesByLevel( allowedChallengeTypesByLevel: Array<Array<ChallengeType>> ): void {
-    this.allowedChallengeTypesByLevel = allowedChallengeTypesByLevel;
-  }
-
-  public setChallenges( challengeSpecsForLevels: Array<Array<ChallengeSpec>> ): void {
-    this.predeterminedChallenges = challengeSpecsForLevels.map( levelSpec => levelSpec.map( challengeSpec => ChallengeSetFactory.createChallenge( this, challengeSpec.challengeType, new NumberAtom( {
-      protonCount: challengeSpec.numberAtom.protonCount,
-      neutronCount: challengeSpec.numberAtom.neutronCount,
-      electronCount: challengeSpec.numberAtom.electronCount,
-      tandem: Tandem.OPT_OUT
-    } ), Tandem.OPT_OUT ) ) );
-  }
-
-  public emitCheckAnswer( isCorrect: boolean, points: number, answerAtom: TNumberAtom, submittedAtom: TNumberAtom, extension?: IonChallengeResult ): void {
-    const arg: ChallengeResult = {
-      isCorrect: isCorrect,
-
-      correctProtonCount: answerAtom.protonCountProperty.get(),
-      correctNeutronCount: answerAtom.neutronCountProperty.get(),
-      correctElectronCount: answerAtom.electronCountProperty.get(),
-
-      submittedProtonCount: submittedAtom.protonCountProperty.get(),
-      submittedNeutronCount: submittedAtom.neutronCountProperty.get(),
-      submittedElectronCount: submittedAtom.electronCountProperty.get(),
-
-      points: points
-    };
-    this.checkAnswerEmitter.emit( merge( arg, extension ) );
+    this.timer.reset();
   }
 
 }

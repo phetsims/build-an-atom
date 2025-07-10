@@ -14,10 +14,10 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToMassNumberChallenge from '../model/SchematicToMassNumberChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
@@ -84,7 +84,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
   }
 
   public override checkAnswer(): void {
-    const userSubmittedAnswer = new NumberAtom( {
+    const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
       electronCount: this.challenge.answerAtom.electronCountProperty.get()

@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -18,15 +17,20 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import BAAGameState from '../model/BAAGameState.js';
-import GameModel from '../model/GameModel.js';
+import GameModel, { GameState } from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
+import ChallengeView from './ChallengeView.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 
 class GameScreenView extends ScreenView {
 
-  public rewardNode: BAARewardNode | null;
-  private levelCompletedNode: LevelCompletedNode | null;
+  private readonly levelSelectionNode: StartGameLevelNode;
+  private readonly levelNode: Node;
+
+  private levelCompletedNode: LevelCompletedNode | null; // created on demand
+  public rewardNode: BAARewardNode | null; // created on demand
+
+  private challengeView: ChallengeView | null = null;
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
@@ -42,13 +46,13 @@ class GameScreenView extends ScreenView {
     tandem = Tandem.OPT_OUT;
 
     // Add a root node where all of the game-related nodes will live.
-    const rootNode = new Node();
-    this.addChild( rootNode );
+    this.levelNode = new Node();
+    this.addChild( this.levelNode );
 
-    const startGameLevelNode = new StartGameLevelNode(
+    this.levelSelectionNode = new StartGameLevelNode(
       gameModel,
       this.layoutBounds,
-      tandem.createTandem( 'startGameLevelNode' )
+      tandem.createTandem( 'levelSelectionNode' )
     );
 
     const scoreboard = new FiniteStatusBar(
@@ -56,9 +60,9 @@ class GameScreenView extends ScreenView {
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
       {
-        challengeNumberProperty: new DerivedProperty( [ gameModel.challengeIndexProperty ], challengeIndex => challengeIndex + 1 ),
+        challengeNumberProperty: gameModel.challengeNumberProperty,
         numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
-        elapsedTimeProperty: gameModel.elapsedTimeProperty,
+        elapsedTimeProperty: gameModel.timer.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
         barFill: 'rgb( 49, 117, 202 )',
         textFill: 'white',
@@ -72,7 +76,7 @@ class GameScreenView extends ScreenView {
           baseColor: '#e5f3ff',
           xMargin: 6,
           yMargin: 5,
-          listener: () => { gameModel.newGame(); }
+          listener: () => { gameModel.startOver(); }
         },
         tandem: tandem.createTandem( 'scoreboard' )
       }
@@ -85,27 +89,19 @@ class GameScreenView extends ScreenView {
     this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
-    gameModel.stateProperty.link( ( state: BAAGameState ) => {
+    gameModel.gameStateProperty.link( ( state: GameState ) => {
 
-      if ( state === BAAGameState.CHOOSING_LEVEL ) {
-        rootNode.removeAllChildren();
-        rootNode.addChild( startGameLevelNode );
-        if ( this.rewardNode !== null ) {
-          this.rewardNode.dispose();
-        }
-        if ( this.levelCompletedNode !== null ) {
-          this.levelCompletedNode.dispose();
-        }
-        this.rewardNode = null;
-        this.levelCompletedNode = null;
+      if ( state === 'levelSelection' ) {
+        this.initLevelSelection();
       }
-      else if ( state === BAAGameState.LEVEL_COMPLETED ) {
-        rootNode.removeAllChildren();
+      else if ( state === 'levelCompleted' ) {
+        this.levelNode.removeAllChildren();
         if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
+          this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists
           this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
-          rootNode.addChild( this.rewardNode );
+          this.levelNode.addChild( this.rewardNode );
 
           // Play the appropriate audio feedback
           gameAudioPlayer.gameOverPerfectScore();
@@ -114,48 +110,69 @@ class GameScreenView extends ScreenView {
           gameAudioPlayer.gameOverImperfectScore();
         }
 
-        if ( gameModel.provideFeedbackProperty.get() ) {
+        const level = gameModel.levels[ gameModel.levelNumberProperty.get() ];
 
-          // Add the dialog node that indicates that the level has been completed.
-          this.levelCompletedNode = new LevelCompletedNode(
-            gameModel.levelProperty.get() + 1,
-            gameModel.scoreProperty.get(),
-            GameModel.MAX_POINTS_PER_GAME_LEVEL,
-            GameModel.CHALLENGES_PER_LEVEL,
-            gameModel.timerEnabledProperty.get(),
-            gameModel.elapsedTimeProperty.get(),
-            gameModel.bestTimes[ gameModel.levelProperty.get() ].value,
-            gameModel.newBestTime,
-            () => { gameModel.stateProperty.set( BAAGameState.CHOOSING_LEVEL ); }, {
-              centerX: this.layoutBounds.width / 2,
-              centerY: this.layoutBounds.height / 2,
-              levelVisible: false,
-              maxWidth: this.layoutBounds.width,
-              tandem: tandem.createTandem( 'levelCompletedNode' )
-            }
-          );
-          rootNode.addChild( this.levelCompletedNode );
-        }
+        // Add the dialog node that indicates that the level has been completed.
+        this.levelCompletedNode = new LevelCompletedNode(
+          gameModel.levelNumberProperty.get() + 1,
+          gameModel.scoreProperty.get(),
+          GameModel.MAX_POINTS_PER_GAME_LEVEL,
+          GameModel.CHALLENGES_PER_LEVEL,
+          gameModel.timerEnabledProperty.get(),
+          gameModel.timer.elapsedTimeProperty.get(),
+          level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
+          level.isNewBestTimeProperty.value,
+          () => { gameModel.levelProperty.reset(); }, {
+            centerX: this.layoutBounds.width / 2,
+            centerY: this.layoutBounds.height / 2,
+            levelVisible: false,
+            maxWidth: this.layoutBounds.width,
+            tandem: tandem.createTandem( 'levelCompletedNode' )
+          }
+        );
+        this.levelNode.addChild( this.levelCompletedNode );
       }
-      else if ( state.createView ) {
-        // Since we're not in the start or game-over states, we must be
-        // presenting a challenge.
-        rootNode.removeAllChildren();
-        const challengeView = state.createView( this.layoutBounds, tandem.createTandem( `${state.tandem.name}View` ) );
-        state.disposeEmitter.addListener( function disposeListener() {
-          challengeView.dispose();
-          state.disposeEmitter.removeListener( disposeListener );
-        } );
-        rootNode.addChild( challengeView );
-        rootNode.addChild( scoreboard );
+      else {
+        this.levelNode.removeAllChildren();
+        this.disposeNodes();
+
+        const challenge = gameModel.challengeProperty.value!;
+
+        if ( !challenge ) {
+          return;
+        }
+        else {
+          this.challengeView && this.challengeView.dispose();
+          this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( `${challenge.name}View` ) );
+          this.challengeView.handleStateChange( state );
+          this.levelNode.addChild( this.challengeView );
+        }
+        this.levelNode.addChild( scoreboard );
       }
     } );
+  }
+
+  public initLevelSelection(): void {
+    this.levelNode.removeAllChildren();
+    this.levelNode.addChild( this.levelSelectionNode );
+    this.disposeNodes();
   }
 
   public override step( elapsedTime: number ): void {
     if ( this.rewardNode ) {
       this.rewardNode.step( elapsedTime );
     }
+  }
+
+  public disposeNodes(): void {
+    if ( this.rewardNode !== null ) {
+      this.rewardNode.dispose();
+    }
+    if ( this.levelCompletedNode !== null ) {
+      this.levelCompletedNode.dispose();
+    }
+    this.rewardNode = null;
+    this.levelCompletedNode = null;
   }
 }
 

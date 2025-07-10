@@ -11,10 +11,10 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
+import AnswerAtom from '../model/AnswerAtom.js';
 import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
@@ -65,12 +65,12 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   }
 
   public override checkAnswer(): void {
-    const submittedAtom = new NumberAtom( {
+    const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.buildAnAtomModel.atom.protonCountProperty.value,
       neutronCount: this.challenge.buildAnAtomModel.atom.neutronCountProperty.value,
       electronCount: this.challenge.buildAnAtomModel.atom.electronCountProperty.value
     } );
-    this.challenge.checkAnswer( submittedAtom );
+    this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {

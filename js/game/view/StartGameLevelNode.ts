@@ -14,7 +14,6 @@ import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import ShredConstants, { Level } from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
@@ -25,6 +24,7 @@ import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import GameLevel from '../model/GameLevel.js';
 import GameModel from '../model/GameModel.js';
 
 // constants
@@ -51,28 +51,28 @@ class StartGameLevelNode extends Node {
     const periodicTableGameButton = this.createLevelSelectionButton(
       gameModel,
       periodicTableIcon_png,
-      'periodic-table-game',
+      gameModel.levels[ 0 ],
       'periodicTableGame',
       tandem
     );
     const massAndChargeGameButton = this.createLevelSelectionButton(
       gameModel,
       massChargeIcon_png,
-      'mass-and-charge-game',
+      gameModel.levels[ 1 ],
       'massAndChargeGame',
       tandem
     );
     const symbolGameButton = this.createLevelSelectionButton(
       gameModel,
       symbolQuestionIcon_png,
-      'symbol-game',
+      gameModel.levels[ 2 ],
       'symbolGame',
       tandem
     );
     const advancedSymbolGameButton = this.createLevelSelectionButton(
       gameModel,
       questionMarkIcon_png,
-      'advanced-symbol-game',
+      gameModel.levels[ 3 ],
       'advancedSymbolGame',
       tandem
     );
@@ -113,17 +113,17 @@ class StartGameLevelNode extends Node {
   private createLevelSelectionButton(
     gameModel: GameModel,
     icon: HTMLImageElement,
-    levelName: Level,
+    level: GameLevel,
     gameLevelTandemName: string,
     tandem: Tandem
   ): LevelSelectionButton {
-    const levelNumber = ShredConstants.MAP_LEVEL_NAME_TO_NUMBER( levelName );
+    const levelNumber = gameModel.levels.indexOf( level );
     return new LevelSelectionButton(
       new Image( icon ),
-      gameModel.scores[ levelNumber ],
+      gameModel.levels[ levelNumber ].bestScoreProperty,
       {
         listener: () => {
-          gameModel.startGameLevel( levelName, tandem.createTandem( gameLevelTandemName ) );
+          gameModel.levelProperty.value = level;
         },
         baseColor: BASE_COLOR,
         tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),

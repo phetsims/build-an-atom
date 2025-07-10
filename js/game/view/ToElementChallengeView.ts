@@ -20,6 +20,7 @@ import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ChallengeView from './ChallengeView.js';
 
@@ -141,12 +142,13 @@ class ToElementChallengeView extends ChallengeView {
 
 
   public override checkAnswer(): void {
-    const submittedAtom = new NumberAtom( {
+    const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.periodicTableAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
-      electronCount: this.challenge.answerAtom.electronCountProperty.get()
+      electronCount: this.challenge.answerAtom.electronCountProperty.get(),
+      neutralOrIon: this.neutralOrIonProperty.get()
     } );
-    this.challenge.checkAnswer( submittedAtom, this.neutralOrIonProperty.value );
+    this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
 

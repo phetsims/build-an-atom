@@ -10,7 +10,7 @@
  * @author John Blanco
  */
 
-import dotRandom from '../../../../dot/js/dotRandom.js';
+import Random from '../../../../dot/js/Random.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -229,7 +229,7 @@ export default class AtomValuePool {
     }
   }
 
-  public getRandomAtomValue( minProtonCount: number, maxProtonCount: number, requireCharged: boolean ): NumberAtom {
+  public getRandomAtomValue( random: Random, minProtonCount: number, maxProtonCount: number, requireCharged: boolean ): NumberAtom {
     const meetsCriteria = ( numberAtom: NumberAtom ): boolean => {
       return numberAtom.protonCountProperty.get() >= minProtonCount &&
              numberAtom.protonCountProperty.get() < maxProtonCount &&
@@ -259,7 +259,7 @@ export default class AtomValuePool {
     // Choose a random value from the list.
     let atomValue: NumberAtom;
     if ( allowableAtomValues.length > 0 ) {
-      atomValue = allowableAtomValues[ Math.floor( dotRandom.nextDouble() * allowableAtomValues.length ) ];
+      atomValue = allowableAtomValues[ Math.floor( random.nextDouble() * allowableAtomValues.length ) ];
     }
     else {
       throw new Error( 'Error: No atoms found that match the specified criteria' );

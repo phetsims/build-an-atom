@@ -19,8 +19,8 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAChallengeState from '../model/BAAChallengeState.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
+import { GameState } from '../model/GameModel.js';
 
 const checkStringProperty = VegasStrings.checkStringProperty;
 const nextStringProperty = VegasStrings.nextStringProperty;
@@ -45,7 +45,7 @@ class ChallengeView extends Node {
   public readonly nextButton: TextPushButton;
   public readonly tryAgainButton: TextPushButton;
   public readonly displayCorrectAnswerButton: TextPushButton;
-  private readonly disposeListeners: () => void;
+  public readonly handleStateChange: ( state: GameState ) => void;
 
 
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
@@ -148,55 +148,48 @@ class ChallengeView extends Node {
     // Update the visibility of the various buttons and other nodes based on
     // the challenge state.
     // Set up the handlers that update the visibility of the various buttons and other nodes based on the challenge state.
-    type StateChangeHandler = Record<string, () => void>;
-    const stateChangeHandlers: StateChangeHandler = {};
-    stateChangeHandlers[ BAAChallengeState.PRESENTING_CHALLENGE ] = () => {
-      this.clearAnswer();
-      setAnswerNodeInteractive( true );
-      this.checkAnswerButton.visible = true;
-    };
-    stateChangeHandlers[ BAAChallengeState.CHALLENGE_SOLVED_CORRECTLY ] = () => {
-      setAnswerNodeInteractive( false );
-      faceNode.smile();
-      pointDisplay.string = `+${challenge.pointValue}`;
-      faceNode.visible = true;
-      this.nextButton.visible = true;
-      this.gameAudioPlayer.correctAnswer();
-    };
-    stateChangeHandlers[ BAAChallengeState.PRESENTING_TRY_AGAIN ] = () => {
-      setAnswerNodeInteractive( false );
-      faceNode.frown();
-      pointDisplay.string = '';
-      faceNode.visible = true;
-      this.tryAgainButton.visible = true;
-      this.gameAudioPlayer.wrongAnswer();
-    };
-    stateChangeHandlers[ BAAChallengeState.ATTEMPTS_EXHAUSTED ] = () => {
-      setAnswerNodeInteractive( false );
-      this.displayCorrectAnswerButton.visible = true;
-      faceNode.frown();
-      pointDisplay.string = '';
-      faceNode.visible = true;
-      this.gameAudioPlayer.wrongAnswer();
-    };
-    stateChangeHandlers[ BAAChallengeState.DISPLAYING_CORRECT_ANSWER ] = () => {
-      setAnswerNodeInteractive( false );
-      this.nextButton.visible = true;
-      this.displayCorrectAnswer();
-    };
-
     // Update the appearance of the challenge as the state changes.
-    const handleStateChange = ( challengeState: string ) => {
+    this.handleStateChange = ( challengeState: GameState ) => {
       hideButtonsAndFace();
-      //TODO https://github.com/phetsims/build-an-atom/issues/240 Is the check for undefined really needed?
-      if ( stateChangeHandlers[ challengeState ] !== undefined ) {
-        stateChangeHandlers[ challengeState ]();
+      switch( challengeState ) {
+        case 'presentingChallenge':
+          this.clearAnswer();
+          setAnswerNodeInteractive( true );
+          this.checkAnswerButton.visible = true;
+          break;
+        case 'solvedCorrectly':
+          setAnswerNodeInteractive( false );
+          faceNode.smile();
+          pointDisplay.string = `+${challenge.pointValueProperty.value}`;
+          faceNode.visible = true;
+          this.nextButton.visible = true;
+          this.gameAudioPlayer.correctAnswer();
+          break;
+        case 'tryAgain':
+          setAnswerNodeInteractive( false );
+          faceNode.frown();
+          pointDisplay.string = '';
+          faceNode.visible = true;
+          this.tryAgainButton.visible = true;
+          this.gameAudioPlayer.wrongAnswer();
+          break;
+        case 'attemptsExhausted':
+          setAnswerNodeInteractive( false );
+          this.displayCorrectAnswerButton.visible = true;
+          faceNode.frown();
+          pointDisplay.string = '';
+          faceNode.visible = true;
+          this.gameAudioPlayer.wrongAnswer();
+          break;
+        case 'showingAnswer':
+          setAnswerNodeInteractive( false );
+          this.nextButton.visible = true;
+          this.displayCorrectAnswer();
+          break;
+        default:
+          // No action needed for other states.
+          break;
       }
-    };
-    challenge.challengeStateProperty.link( handleStateChange );
-
-    this.disposeListeners = () => {
-      challenge.challengeStateProperty.unlink( handleStateChange );
     };
 
     // Do an initial layout, but the subclasses can and should move the
@@ -207,7 +200,6 @@ class ChallengeView extends Node {
   }
 
   public override dispose(): void {
-    this.disposeListeners();
     this.checkAnswerButton.dispose();
     this.nextButton.dispose();
     this.tryAgainButton.dispose();

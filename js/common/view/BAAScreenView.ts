@@ -241,7 +241,7 @@ class BAAScreenView extends ScreenView {
     const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
     this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
       cornerRadius: 3,
-      titleNode: new Text( BuildAnAtomStrings.elementStringProperty, {
+      titleNode: new Text( BuildAnAtomStrings.periodicTableStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),

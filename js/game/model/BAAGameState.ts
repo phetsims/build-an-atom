@@ -15,12 +15,11 @@
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from '../view/ChallengeView.js';
-import { ChallengeResult } from './GameModel.js';
+import AnswerAtom from './AnswerAtom.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -34,33 +33,6 @@ class BAAGameState extends PhetioObject {
   public static readonly CHOOSING_LEVEL = new BAAGameState( 'choosingLevel' );
   public static readonly LEVEL_COMPLETED = new BAAGameState( 'levelCompleted' );
 
-  // public static readonly BAAGameStateIO = new IOType( 'BAAGameStateIO', {
-  //   valueType: BAAGameState,
-  //   documentation: 'A state for the game',
-  //   toStateObject: ( baaGameState: BAAGameState ) => {
-  //     if ( baaGameState instanceof BAAGameChallenge ) {
-  //       return BAAGameChallenge.BAAGameChallengeIO.toStateObject( baaGameState as never );
-  //     }
-  //     else {
-  //       return { name: baaGameState.name };
-  //     }
-  //   },
-  //   fromStateObject: stateObject => {
-  //     if ( stateObject.name === 'choosingLevel' ) {
-  //       return BAAGameState.CHOOSING_LEVEL;
-  //     }
-  //     else if ( stateObject.name === 'levelCompleted' ) {
-  //       return BAAGameState.LEVEL_COMPLETED;
-  //     }
-  //     else if ( stateObject.name === 'challenge' ) {
-  //       return BAAGameChallenge.BAAGameChallengeIO.fromStateObject( stateObject as never );
-  //     }
-  //     else {
-  //       throw new Error( `unknown game state: ${stateObject.name}` );
-  //     }
-  //   }
-  // } );
-
   public constructor( name: string, options?: BAAGameStateOptions ) {
     super( options );
     this.name = name;
@@ -71,17 +43,10 @@ class BAAGameState extends PhetioObject {
   //-----------------------------------------------------------------------------------------------------------------
 
   /**
-   * update score and state based on whether the user submitted a correct or incorrect answer
-   */
-  public handleEvaluatedAnswer( submittedAtom: NumberAtom, isCorrect: boolean, emitMessageOptions?: ChallengeResult ): void {
-    throw new Error( 'handleEvaluatedAnswer should never be called in base class' );
-  }
-
-  /**
    * Process the answer submitted by the user.  This is the most basic check, and more elaborate ways of verifying
    * can be implemented in sub-classes.
    */
-  public checkAnswer( submittedAtom: NumberAtom ): void {
+  public checkAnswer( submittedAtom: AnswerAtom ): void {
     throw new Error( 'checkAnswer should never be called in base class' );
   }
 
