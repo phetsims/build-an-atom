@@ -53,7 +53,7 @@ class CountsToChargeChallengeView extends ChallengeView {
       this.chargeAnswerProperty,
       tandem.createTandem( 'numberEntryNode' ), {
         showPlusForPositive: true,
-        signAfterValue: false,
+        signAfterValue: true,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99

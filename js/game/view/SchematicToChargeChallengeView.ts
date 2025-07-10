@@ -67,7 +67,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
         minValue: -99,
         maxValue: 99,
         showPlusForPositive: true,
-        signAfterValue: false,
+        signAfterValue: true,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR
       } );
     this.interactiveAnswerNode.addChild( chargeEntryNode );
