@@ -13,15 +13,12 @@ import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -40,9 +37,6 @@ const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
-type SelfOptions = EmptySelfOptions;
-export type BuildAnAtomModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
-
 class BuildAnAtomModel {
 
   // The atom that the user will build, modify, and generally play with.
@@ -54,7 +48,7 @@ class BuildAnAtomModel {
   // Arrays that hold the subatomic particles.
   public readonly nucleons: Particle[];
   public readonly electrons: Particle[];
-  
+
   // Property that controls the speed of particle animations in the view.
   public readonly particleAnimationSpeedProperty: TProperty<number>;
 
@@ -85,7 +79,8 @@ class BuildAnAtomModel {
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: PhetColorScheme.RED_COLORBLIND,
         captionText: BuildAnAtomStrings.protonsStringProperty,
-        captionColor: 'white'
+        captionColor: 'white',
+        tandem: tandem.createTandem( 'protonBucket' )
       } ),
       neutronBucket: new SphereBucket( {
         position: new Vector2( 0, BUCKET_Y_OFFSET ),
@@ -93,7 +88,8 @@ class BuildAnAtomModel {
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: 'rgb( 100, 100, 100 )',
         captionText: BuildAnAtomStrings.neutronsStringProperty,
-        captionColor: 'white'
+        captionColor: 'white',
+        tandem: tandem.createTandem( 'neutronBucket' )
       } ),
       electronBucket: new SphereBucket( {
         position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
@@ -102,12 +98,14 @@ class BuildAnAtomModel {
         usableWidthProportion: 0.8,
         baseColor: 'blue',
         captionText: BuildAnAtomStrings.electronsStringProperty,
-        captionColor: 'white'
+        captionColor: 'white',
+        tandem: tandem.createTandem( 'electronBucket' )
       } )
     };
 
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
+    // Create a property that controls the speed of particle animations in the view.  This is only used for phet-io.
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
       tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
       range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
@@ -115,11 +113,7 @@ class BuildAnAtomModel {
     } );
 
     // Define a function that will decide where to put nucleons.
-    const placeNucleon = (
-      particle: Particle,
-      bucket: SphereBucket<Particle>,
-      atom: ParticleAtom
-    ): void => {
+    const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
       }
@@ -127,7 +121,7 @@ class BuildAnAtomModel {
         bucket.addParticleNearestOpen( particle, true );
       }
     };
-    
+
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
     this.electrons = [];
@@ -136,34 +130,28 @@ class BuildAnAtomModel {
     const neutronTandem = tandem.createTandem( 'neutrons' );
     const electronTandem = tandem.createTandem( 'electrons' );
 
-    // Add the protons.
-    _.times( NUM_PROTONS, index => {
-      const proton = new Particle( 'proton', {
+    // Add the protons and neutrons, aka the nucleons.
+    _.times( NUM_PROTONS + NUM_NEUTRONS, index => {
+      const particleType = index < NUM_PROTONS ? 'proton' : 'neutron';
+      const bucket = particleType === 'proton' ? this.buckets.protonBucket : this.buckets.neutronBucket;
+      const tandem = particleType === 'proton' ? protonTandem : neutronTandem;
+      const nucleon = new Particle( particleType, {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
-        tandem: protonTandem.createTandem( `proton${index}` ),
+        tandem: tandem.createTandem( `${particleType}${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
       } );
-      this.nucleons.push( proton );
-      this.buckets.protonBucket.addParticleFirstOpen( proton, false );
-      proton.isDraggingProperty.link( isDragging => {
-        if ( !isDragging && !this.buckets.protonBucket.containsParticle( proton ) ) {
-          placeNucleon( proton, this.buckets.protonBucket, this.atom );
-        }
-      } );
-    } );
+      this.nucleons.push( nucleon );
+      bucket.addParticleFirstOpen( nucleon, false );
+      nucleon.isDraggingProperty.lazyLink( isDragging => {
+        if ( isDragging ) {
+          if ( nucleon.containerProperty.value ) {
 
-    // Add the neutrons.
-    _.times( NUM_NEUTRONS, index => {
-      const neutron = new Particle( 'neutron', {
-        animationSpeedProperty: this.particleAnimationSpeedProperty,
-        tandem: neutronTandem.createTandem( `neutron${index}` ),
-        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
-      } );
-      this.nucleons.push( neutron );
-      this.buckets.neutronBucket.addParticleFirstOpen( neutron, false );
-      neutron.isDraggingProperty.link( isDragging => {
-        if ( !isDragging && !this.buckets.neutronBucket.containsParticle( neutron ) ) {
-          placeNucleon( neutron, this.buckets.neutronBucket, this.atom );
+            // Remove the nucleon from its container, which will be either a bucket or the particle atom.
+            nucleon.containerProperty.value.removeParticle( nucleon );
+          }
+        }
+        else if ( !isDragging && !bucket.includes( nucleon ) ) {
+          placeNucleon( nucleon, bucket, this.atom );
         }
       } );
     } );
@@ -177,8 +165,15 @@ class BuildAnAtomModel {
       } );
       this.electrons.push( electron );
       this.buckets.electronBucket.addParticleFirstOpen( electron, false );
-      electron.isDraggingProperty.link( isDragging => {
-        if ( !isDragging && !this.buckets.electronBucket.containsParticle( electron ) ) {
+      electron.isDraggingProperty.lazyLink( isDragging => {
+        if ( isDragging ) {
+          if ( electron.containerProperty.value ) {
+
+            // Remove the electron from its container, which will be either a bucket or the particle atom.
+            electron.containerProperty.value.removeParticle( electron );
+          }
+        }
+        else if ( !isDragging && !this.buckets.electronBucket.includes( electron ) ) {
           if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
             this.atom.addParticle( electron );
           }
