@@ -117,7 +117,7 @@ class StartGameLevelNode extends Node {
     gameLevelTandemName: string,
     tandem: Tandem
   ): LevelSelectionButton {
-    const levelNumber = level.index;
+    const levelNumber = gameModel.levels.indexOf( level );
     return new LevelSelectionButton(
       new Image( icon ),
       gameModel.levels[ levelNumber ].bestScoreProperty,
