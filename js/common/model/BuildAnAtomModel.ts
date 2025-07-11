@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -154,6 +155,14 @@ class BuildAnAtomModel {
           placeNucleon( nucleon, bucket, this.atom );
         }
       } );
+
+      // Prevent interaction with this particle when it is animating to a destination.
+      Multilink.multilink(
+        [ nucleon.isDraggingProperty, nucleon.positionProperty, nucleon.destinationProperty ],
+        ( isDragging, position, destination ) => {
+          nucleon.inputEnabledProperty.set( isDragging || position.equals( destination ) );
+        }
+      );
     } );
 
     // Add the electrons.
@@ -182,6 +191,15 @@ class BuildAnAtomModel {
           }
         }
       } );
+
+      // Prevent interaction with this particle when it is animating to a destination.
+      Multilink.multilink(
+        [ electron.isDraggingProperty, electron.positionProperty, electron.destinationProperty ],
+        ( isDragging, position, destination ) => {
+          electron.inputEnabledProperty.set( isDragging || position.equals( destination ) );
+        }
+      );
+
     } );
 
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
