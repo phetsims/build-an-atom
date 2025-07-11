@@ -31,6 +31,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameLevel from './GameLevel.js';
+import SelectedChallenge from './SelectedChallenge.js';
 
 // constants
 const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
@@ -75,6 +76,9 @@ class GameModel implements TModel {
 
   // The current challenge that is being played.
   public readonly challengeProperty: Property<BAAGameChallenge | null>;
+
+  // The current challenge that is being played.
+  public readonly selectedChallengeProperty: SelectedChallenge;
 
   // The number of attempts the user has made at solving the current challenge.
   private readonly attemptsProperty: Property<number>;
@@ -122,6 +126,15 @@ class GameModel implements TModel {
     } );
 
     this.challengeProperty = new Property<BAAGameChallenge | null>( null );
+
+    this.selectedChallengeProperty = new SelectedChallenge( tandem.createTandem( 'selectedChallengeProperty' ) );
+
+    this.challengeProperty.link( challenge => {
+      if ( challenge ) {
+        this.selectedChallengeProperty.challengeTypeProperty.value = challenge.challengeType;
+        this.selectedChallengeProperty.correctAnswerAtom.set( challenge.answerAtom );
+      }
+    } );
 
     this.levels = [
       new GameLevel( 0, this, { tandem: tandem.createTandem( 'gameLevel0' ) } ),
@@ -246,8 +259,8 @@ class GameModel implements TModel {
     const correctAnswer = challenge.isCorrectAtomProperty.value;
 
     const points = attempts === 1 ?
-                                GameModel.POINTS_FIRST_ATTEMPT :
-                                GameModel.POINTS_SECOND_ATTEMPT;
+                   GameModel.POINTS_FIRST_ATTEMPT :
+                   GameModel.POINTS_SECOND_ATTEMPT;
     this.pointValueProperty.value = points;
     this.scoreProperty.value += correctAnswer ? points : 0;
 
