@@ -192,19 +192,15 @@ class BAAScreenView extends ScreenView {
 
     for ( const [ bucketName, bucket ] of Object.entries( model.buckets ) ) {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
-        labelNode: new Panel(
-          new Text( bucket.captionText, {
-            font: new PhetFont( 20 ),
-            fill: bucket.captionColor
-          } ),
-          {
-            fill: BAAColors.bucketTextBackgroundColorProperty,
-            cornerRadius: 0,
-            stroke: null,
-            xMargin: 0,
-            yMargin: 0
-          }
-        ),
+        labelNode: new Text( bucket.captionText, {
+          font: new PhetFont( 20 ),
+          fill: bucket.captionColor
+        } ),
+
+        // Adjust the gradient luminance a bit to improve contrast with the labels, see
+        // https://github.com/phetsims/build-an-atom/issues/248.
+        gradientLuminanceLeft: 0.2,
+        gradientLuminanceRight: -0.6,
 
         // pdom
         tagName: 'button',
