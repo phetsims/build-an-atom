@@ -26,13 +26,11 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
-import Panel from '../../../../sun/js/Panel.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BAAColors from '../BAAColors.js';
 import BAAConstants from '../BAAConstants.js';
 import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
