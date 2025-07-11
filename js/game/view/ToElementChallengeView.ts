@@ -45,7 +45,6 @@ class ToElementChallengeView extends ChallengeView {
 
     this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
 
-    //TODO https://github.com/phetsims/build-an-atom/issues/240 Why not an enum?
     this.neutralOrIonProperty = new Property<NeutralOrIon>( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' )
     } );
