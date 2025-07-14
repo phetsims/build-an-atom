@@ -29,15 +29,6 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
     this.buildAnAtomModel = new BuildAnAtomModel( Tandem.OPT_OUT );
   }
 
-  public override dispose(): void {
-
-    // Normally we must dispose objects in the reverse order they are created.  However, in this case, disposing
-    // the model before disposing the view causes failures when the view tries to remove its listeners from the model.
-    // Hence, we must dispose the view first (in the parent call), then dispose the model.
-    super.dispose();
-    this.buildAnAtomModel.dispose(); // We can dispose this after because it doesn't use anything the supertype depends on
-  }
-
   /**
    * Create the view needed to visually represent this challenge.
    */

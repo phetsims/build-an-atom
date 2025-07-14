@@ -12,13 +12,14 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import ChallengeView from '../view/ChallengeView.js';
 import AnswerAtom from './AnswerAtom.js';
-import BAAGameState from './BAAGameState.js';
 import GameModel from './GameModel.js';
 
-class BAAGameChallenge extends BAAGameState {
+abstract class BAAGameChallenge {
 
   public readonly model: GameModel;
 
@@ -43,16 +44,9 @@ class BAAGameChallenge extends BAAGameState {
 
   public constructor( model: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
 
-    //TODO https://github.com/phetsims/build-an-atom/issues/240 Consider either having all the subclasses define a name, or just getting rid of the name altogether.
-    super( 'challenge', {
-      tandem: tandem,
-      phetioState: false
-      // phetioType: BAAGameChallenge.BAAGameChallengeIO
-    } );
-
+    this.challengeType = challengeType;
     this.answerAtom = answerAtom;
     this.model = model;
-    this.challengeType = challengeType;
 
     this.isCorrectAtomProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'isCorrectAtomProperty' ),
@@ -63,23 +57,29 @@ class BAAGameChallenge extends BAAGameState {
     this.pointValueProperty = new DerivedProperty( [ model.pointValueProperty ], ( pointValue: number ) => pointValue );
   }
 
-  public override checkAnswer( submittedAtom: AnswerAtom ): void {
+  public checkAnswer( submittedAtom: AnswerAtom ): void {
     this.isCorrectAtomProperty.value = submittedAtom.equals( this.answerAtom );
     this.model.check();
   }
 
-  public override tryAgain(): void {
+  public tryAgain(): void {
     this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
-  public override next(): void {
+  public next(): void {
     // This event is basically handled by the model, which will remove this challenge and do whatever should happen
     // next.
     this.model.next();
   }
 
-  public override displayCorrectAnswer(): void {
+  public displayCorrectAnswer(): void {
     this.model.gameStateProperty.set( 'showingAnswer' );
+  }
+
+  public abstract createView( layoutBounds: Bounds2, tandem: Tandem ): ChallengeView;
+
+  public step( dt: number ): void {
+    // no-op, implemented by subclasses if needed
   }
 }
 

@@ -14,7 +14,7 @@ import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
 
-class ToElementChallenge extends BAAGameChallenge {
+abstract class ToElementChallenge extends BAAGameChallenge {
   public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
     super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
     answerAtom.neutralOrIon = answerAtom.protonCount - answerAtom.electronCount === 0 ? 'neutral' : 'ion';

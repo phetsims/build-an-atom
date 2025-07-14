@@ -143,7 +143,7 @@ class GameScreenView extends ScreenView {
         }
         else {
           this.challengeView && this.challengeView.dispose();
-          this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( `${challenge.name}View` ) );
+          this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( 'ChallengeView' ) );
           this.challengeView.handleStateChange( state );
           this.levelNode.addChild( this.challengeView );
         }
