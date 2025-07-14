@@ -41,7 +41,7 @@ class ToElementChallengeView extends ChallengeView {
 
   public constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
+    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
     tandem = Tandem.OPT_OUT;
 
     super( countsToElementChallenge, layoutBounds, tandem );
