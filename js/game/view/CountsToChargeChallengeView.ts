@@ -28,6 +28,9 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public constructor( countsToChargeChallenge: CountsToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
+    // Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
+    tandem = Tandem.OPT_OUT;
+
     super( countsToChargeChallenge, layoutBounds, tandem );
 
     this.chargeAnswerProperty = new NumberProperty( 0, {

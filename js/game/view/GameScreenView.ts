@@ -43,8 +43,6 @@ class GameScreenView extends ScreenView {
       tandem: tandem
     } );
 
-    tandem = Tandem.OPT_OUT;
-
     // Add a root node where all of the game-related nodes will live.
     this.levelNode = new Node();
     this.addChild( this.levelNode );

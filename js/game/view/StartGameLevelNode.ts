@@ -89,33 +89,34 @@ class StartGameLevelNode extends Node {
     } );
 
     // buttons for starting a game level
+    const levelButtonsTandem = tandem.createTandem( 'levelButtons' );
     const periodicTableGameButton = this.createLevelSelectionButton(
       gameModel,
       periodicTableIcon_png,
       gameModel.levels[ 0 ],
-      'periodicTableGame',
-      tandem
+      'Periodic table level',
+      levelButtonsTandem
     );
     const massAndChargeGameButton = this.createLevelSelectionButton(
       gameModel,
       massChargeIcon_png,
       gameModel.levels[ 1 ],
-      'massAndChargeGame',
-      tandem
+      'Mass and charge level',
+      levelButtonsTandem
     );
     const symbolGameButton = this.createLevelSelectionButton(
       gameModel,
       symbolQuestionIcon_png,
       gameModel.levels[ 2 ],
-      'symbolGame',
-      tandem
+      'Symbol level',
+      levelButtonsTandem
     );
     const advancedSymbolGameButton = this.createLevelSelectionButton(
       gameModel,
       questionMarkIcon_png,
       gameModel.levels[ 3 ],
-      'advancedSymbolGame',
-      tandem
+      'Advanced symbol level',
+      levelButtonsTandem
     );
     const buttonHBox = new HBox( {
       children: [ periodicTableGameButton, massAndChargeGameButton, symbolGameButton, advancedSymbolGameButton ],
@@ -155,7 +156,7 @@ class StartGameLevelNode extends Node {
     gameModel: GameModel,
     icon: HTMLImageElement,
     level: GameLevel,
-    gameLevelTandemName: string,
+    levelPhetioDescription: string,
     tandem: Tandem
   ): LevelSelectionButton {
     const levelNumber = level.index;
@@ -167,7 +168,8 @@ class StartGameLevelNode extends Node {
           gameModel.levelProperty.value = level;
         },
         baseColor: BASE_COLOR,
-        tandem: tandem.createTandem( `${gameLevelTandemName}Button` ),
+        tandem: tandem.createTandem( `level${levelNumber + 1}Button` ),
+        phetioDocumentation: levelPhetioDescription,
         createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
           numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
           perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
