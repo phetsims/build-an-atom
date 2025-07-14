@@ -202,7 +202,7 @@ class GameModel implements TModel {
       }
     } );
 
-    this.randomSeedProperty.link( seed => {
+    this.randomSeedProperty.lazyLink( seed => {
       this.random.setSeed( seed );
       this.levels.forEach( level => {
         level.generateChallenges();
@@ -228,22 +228,6 @@ class GameModel implements TModel {
       this.timer.start();
     }
   }
-
-  /**
-   * Called after the last challenge has been played.
-   */
-  private endLevel(): void {
-
-    const level = this.levelProperty.value!;
-    assert && assert( level );
-
-    this.timer.stop();
-
-    const score = this.scoreProperty.value;
-    const time = this.timer.elapsedTimeProperty.value;
-    level.endLevel( score, time );
-  }
-
 
   /**
    * Called when the user presses the "Check" button.
@@ -292,6 +276,8 @@ class GameModel implements TModel {
     if ( !level.isLastChallenge() ) {
       this.attemptsProperty.value = 0;
       level.challengeNumberProperty.value++;
+      this.challengeProperty.set( level.challengeProperty.value );
+      this.gameStateProperty.set( 'presentingChallenge' );
     }
     else {
       this.gameStateProperty.set( 'levelCompleted' );
@@ -307,12 +293,30 @@ class GameModel implements TModel {
   }
 
   /**
+   * Called after the last challenge has been played.
+   */
+  private endLevel(): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level );
+
+    this.timer.stop();
+
+    const score = this.scoreProperty.value;
+    const time = this.timer.elapsedTimeProperty.value;
+    level.endLevel( score, time );
+
+    this.randomSeedProperty.value++; // Increment the random seed to ensure that the next level has different challenges.
+  }
+
+  /**
    * Called when the user presses the "Start Over" button, or when levelProperty is set to null.
    */
   public startOver(): void {
     this.resetToStart();
     this.levelProperty.reset();
     this.gameStateProperty.set( 'levelSelection' );
+    this.randomSeedProperty.value++; // Increment the random seed to ensure that the next level has different challenges.
   }
 
   public step( dt: number ): void {

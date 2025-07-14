@@ -7,10 +7,10 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import TEmitter from '../../../../axon/js/TEmitter.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -29,13 +29,16 @@ type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'
 export default class GameLevel extends PhetioObject {
 
   // The collection of challenges for this level.
-  private challenges: BAAGameChallenge[];
+  public challenges: BAAGameChallenge[];
 
   // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
   public readonly challengeNumberProperty: Property<number>;
 
   // Current challenge to be solved
-  public readonly challengeProperty: TReadOnlyProperty<BAAGameChallenge>;
+  public readonly challengeProperty: Property<BAAGameChallenge>;
+
+  // Emitter for when the level is updated, used to notify the view and update the challenge
+  public readonly levelUpdatedEmitter: TEmitter;
 
   public readonly bestScoreProperty: Property<number>;
   public readonly bestTimeProperty: Property<number>;
@@ -60,6 +63,9 @@ export default class GameLevel extends PhetioObject {
     }, providedOptions );
 
     super( options );
+
+    this.levelUpdatedEmitter = new Emitter();
+
     const tandem = options.tandem;
     this.challenges = [];
     this.generateChallenges();
@@ -74,12 +80,7 @@ export default class GameLevel extends PhetioObject {
 
     // Consider that this derivation may go through intermediate states when PhET-iO state is restored,
     // depending on the order in which the dependencies are set.
-    this.challengeProperty = new DerivedProperty(
-      [ this.challengeNumberProperty ],
-      challengeNumber => {
-        return ( challengeNumber <= this.challenges.length ) ?
-               this.challenges[ challengeNumber - 1 ] : this.challenges[ 0 ];
-      }, {} );
+    this.challengeProperty = new Property( this.challenges[ 0 ] );
 
     this.bestScoreProperty = new NumberProperty( 0, {
       numberType: 'Integer',
@@ -104,16 +105,16 @@ export default class GameLevel extends PhetioObject {
 
     // When the challenge number changes,update the model's challenge number property to display it in the status bar.
     this.challengeNumberProperty.link( number => {
+      this.levelUpdatedEmitter.emit();
       model.challengeNumberProperty.set( number );
       model.gameStateProperty.notifyListenersStatic();
     } );
 
-    // When the challenge changes, reset it to ensure that coefficients are zero. It may have been previously
-    // selected from the pool, and have coefficients from previous game play.
-    this.challengeProperty.lazyLink( challenge => {
-      // Update the model state to the new challenge.
-      model.challengeProperty.set( challenge );
-      model.gameStateProperty.set( 'presentingChallenge' );
+    this.levelUpdatedEmitter.addListener( () => {
+      const challengeNumber = this.challengeNumberProperty.value;
+      if ( challengeNumber <= this.challenges.length ) {
+        this.challengeProperty.value = this.challenges[ this.challengeNumberProperty.value - 1 ];
+      }
     } );
   }
 
@@ -126,7 +127,7 @@ export default class GameLevel extends PhetioObject {
    * When setting PhET-iO state, we can call this function to impose the level's challenge on the model.
    */
   public imposeLevel(): void {
-    this.challengeNumberProperty.notifyListenersStatic();
+    this.levelUpdatedEmitter.emit();
     this.model.challengeProperty.set( this.challengeProperty.value );
     this.model.gameStateProperty.set( 'presentingChallenge' );
     this.model.gameStateProperty.notifyListenersStatic(); // Notify in case the previous state was also 'presentingChallenge'.
@@ -138,6 +139,7 @@ export default class GameLevel extends PhetioObject {
    */
   public generateChallenges(): void {
     this.challenges = ChallengeSetFactory.createChallengeSet( this.index, this.model, this.tandem );
+    this.levelUpdatedEmitter.emit();
   }
 
   public startLevel(): void {
@@ -148,9 +150,6 @@ export default class GameLevel extends PhetioObject {
 
   /**
    * Ends the level, updating the best score and time if the score is a perfect score.
-   * Returns true if there is a new best time, false otherwise.
-   * @param score
-   * @param time
    */
   public endLevel( score: number, time: number ): void {
     this.bestScoreProperty.set( Math.max( this.bestScoreProperty.value, score ) );
@@ -172,13 +171,6 @@ export default class GameLevel extends PhetioObject {
    */
   public getPerfectScore(): number {
     return GameModel.CHALLENGES_PER_LEVEL * GameModel.POINTS_FIRST_ATTEMPT;
-  }
-
-  /**
-   * Is the best score a perfect score?
-   */
-  public achievedPerfectScore(): boolean {
-    return this.isPerfectScore( this.bestScoreProperty.value );
   }
 
   /**
