@@ -17,7 +17,7 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import GameModel, { GameState } from '../model/GameModel.js';
+import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
 import ChallengeView from './ChallengeView.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
@@ -87,7 +87,9 @@ class GameScreenView extends ScreenView {
     this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
-    gameModel.gameStateProperty.link( ( state: GameState ) => {
+    gameModel.stateChangeEmitter.addListener( () => {
+
+      const state = gameModel.gameStateProperty.value;
 
       if ( state === 'levelSelection' ) {
         this.initLevelSelection();
@@ -108,7 +110,7 @@ class GameScreenView extends ScreenView {
           gameAudioPlayer.gameOverImperfectScore();
         }
 
-        const level = gameModel.levels[ gameModel.levelNumberProperty.get() ];
+        const level = gameModel.levelProperty.value!;
 
         // Add the dialog node that indicates that the level has been completed.
         this.levelCompletedNode = new LevelCompletedNode(
@@ -148,6 +150,8 @@ class GameScreenView extends ScreenView {
         this.levelNode.addChild( scoreboard );
       }
     } );
+
+    gameModel.stateChangeEmitter.emit(); // Initialize the view based on the current game state
   }
 
   public initLevelSelection(): void {

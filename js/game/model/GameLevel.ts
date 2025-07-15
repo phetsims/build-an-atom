@@ -106,9 +106,9 @@ export default class GameLevel extends PhetioObject {
 
     // When the challenge number changes,update the model's challenge number property to display it in the status bar.
     this.challengeNumberProperty.link( number => {
-      this.levelUpdatedEmitter.emit();
       model.challengeNumberProperty.set( number );
-      model.gameStateProperty.notifyListenersStatic();
+      this.levelUpdatedEmitter.emit();
+      model.stateChangeEmitter.emit();
     } );
 
     this.levelUpdatedEmitter.addListener( () => {
@@ -131,7 +131,7 @@ export default class GameLevel extends PhetioObject {
     this.levelUpdatedEmitter.emit();
     this.model.challengeProperty.set( this.challengeProperty.value );
     this.model.gameStateProperty.set( 'presentingChallenge' );
-    this.model.gameStateProperty.notifyListenersStatic(); // Notify in case the previous state was also 'presentingChallenge'.
+    this.model.stateChangeEmitter.emit();
   }
 
   /**

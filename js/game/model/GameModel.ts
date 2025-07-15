@@ -14,9 +14,11 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
+import TEmitter from '../../../../axon/js/TEmitter.js';
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Random from '../../../../dot/js/Random.js';
 import Range from '../../../../dot/js/Range.js';
@@ -59,6 +61,7 @@ class GameModel implements TModel {
   // The current state of the game, which is used to determine what the view should display.
   // Usually it ranges between 'choosingLevel', 'levelCompleted' and individual challenges within a level.
   public readonly gameStateProperty: Property<GameState>;
+  public readonly stateChangeEmitter: TEmitter;
 
   // All the levels in the game
   public readonly levels: GameLevel[];
@@ -111,6 +114,8 @@ class GameModel implements TModel {
       phetioValueType: StringUnionIO( GameStateValues ),
       phetioReadOnly: true
     } );
+
+    this.stateChangeEmitter = new Emitter();
 
     this.pointValueProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'pointValueProperty' ),
@@ -190,6 +195,7 @@ class GameModel implements TModel {
         // TODO: This is a workaround due to not having IOTypes for Challenges yet! https://github.com/phetsims/build-an-atom/issues/257
         level && level.imposeLevel();
       }
+      this.stateChangeEmitter.emit();
     } );
 
     isSettingPhetioStateProperty.link( isSettingPhetioState => {
@@ -203,6 +209,10 @@ class GameModel implements TModel {
       this.levels.forEach( level => {
         level.generateChallenges();
       } );
+    } );
+
+    this.gameStateProperty.link( () => {
+      this.stateChangeEmitter.emit();
     } );
   }
 
