@@ -125,7 +125,7 @@ class GameScreenView extends ScreenView {
             centerY: this.layoutBounds.height / 2,
             levelVisible: false,
             maxWidth: this.layoutBounds.width,
-            tandem: tandem.createTandem( 'levelCompletedNode' )
+            tandem: Tandem.OPT_OUT // tandem.createTandem( 'levelCompletedNode' ) // TODO: Address this after deciding on the dynamic nature of stuff https://github.com/phetsims/build-an-atom/issues/276
           }
         );
         this.levelNode.addChild( this.levelCompletedNode );
