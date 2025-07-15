@@ -242,7 +242,7 @@ class BAAScreenView extends ScreenView {
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
       titleAlignX: 'left',
-      buttonAlign: 'right',
+      buttonAlign: 'left',
       expandedDefaultValue: true,
       expandCollapseButtonOptions: {
         touchAreaXDilation: 12,

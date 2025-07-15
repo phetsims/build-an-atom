@@ -38,7 +38,7 @@ class AtomScreenView extends BAAScreenView {
       fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
       contentAlign: 'left',
       titleAlignX: 'left',
-      buttonAlign: 'right',
+      buttonAlign: 'left',
       minWidth: this.periodicTableAccordionBox.width,
       expandCollapseButtonOptions: {
         touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,

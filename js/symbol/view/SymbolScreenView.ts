@@ -37,7 +37,7 @@ class SymbolScreenView extends BAAScreenView {
       minWidth: this.periodicTableAccordionBox.width,
       contentAlign: 'center',
       titleAlignX: 'left',
-      buttonAlign: 'right',
+      buttonAlign: 'left',
       expandCollapseButtonOptions: {
         touchAreaXDilation: 12,
         touchAreaYDilation: 12
