@@ -29,6 +29,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import GameLevel from '../model/GameLevel.js';
 import GameModel from '../model/GameModel.js';
 
@@ -125,6 +126,9 @@ class StartGameLevelNode extends Node {
       centerX: layoutBounds.centerX
     } );
     this.addChild( buttonHBox );
+    buttonHBox.boundsProperty.link( () => {
+      buttonHBox.centerX = layoutBounds.centerX;
+    } );
 
     // timer control
     const timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
@@ -174,7 +178,8 @@ class StartGameLevelNode extends Node {
           numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
           perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
         } ),
-        soundPlayerIndex: levelNumber
+        soundPlayerIndex: levelNumber,
+        visible: BAAQueryParameters.gameLevels.includes( levelNumber + 1 )
       }
     );
   }

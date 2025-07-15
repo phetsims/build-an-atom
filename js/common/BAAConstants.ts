@@ -40,7 +40,8 @@ const BAAConstants = {
   MAX_CHALLENGE_ATTEMPTS: 2, // Note: Attempt is the same as a submission in BAAGameChallenge.
   VALID_CHALLENGES: VALID_CHALLENGES,
   ALWAYS_TRUE_PROPERTY: new BooleanProperty( true ),
-  ALWAYS_FALSE_PROPERTY: new BooleanProperty( false )
+  ALWAYS_FALSE_PROPERTY: new BooleanProperty( false ),
+  NUMBER_OF_GAME_LEVELS: 4
 };
 
 BAAConstants.ALWAYS_TRUE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );
