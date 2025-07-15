@@ -41,12 +41,10 @@ const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHA
 export const GameStateValues = [
   'levelSelection',
   'presentingChallenge',
-  'check',
   'solvedCorrectly',
   'tryAgain',
   'attemptsExhausted',
   'showingAnswer',
-  'next',
   'levelCompleted'
 ] as const;
 export type GameState = ( typeof GameStateValues )[number];
@@ -110,7 +108,8 @@ class GameModel implements TModel {
       validValues: GameStateValues,
       tandem: tandem.createTandem( 'gameStateProperty' ),
       phetioDocumentation: 'The current game state, which is used to determine what the view should display.',
-      phetioValueType: StringUnionIO( GameStateValues )
+      phetioValueType: StringUnionIO( GameStateValues ),
+      phetioReadOnly: true
     } );
 
     this.pointValueProperty = new NumberProperty( 0, {
@@ -137,10 +136,10 @@ class GameModel implements TModel {
     } );
 
     this.levels = [
-      new GameLevel( 0, this, { tandem: tandem.createTandem( 'gameLevel0' ) } ),
-      new GameLevel( 1, this, { tandem: tandem.createTandem( 'gameLevel1' ) } ),
-      new GameLevel( 2, this, { tandem: tandem.createTandem( 'gameLevel2' ) } ),
-      new GameLevel( 3, this, { tandem: tandem.createTandem( 'gameLevel3' ) } )
+      new GameLevel( 0, this, { tandem: tandem.createTandem( 'level1' ) } ),
+      new GameLevel( 1, this, { tandem: tandem.createTandem( 'level2' ) } ),
+      new GameLevel( 2, this, { tandem: tandem.createTandem( 'level3' ) } ),
+      new GameLevel( 3, this, { tandem: tandem.createTandem( 'level4' ) } )
     ];
 
     this.levelProperty = new Property<GameLevel | null>( null, {
@@ -169,21 +168,18 @@ class GameModel implements TModel {
 
     this.attemptsProperty = new NumberProperty( 0, {
       numberType: 'Integer',
-      range: new Range( 0, 3 ),
+      range: new Range( 0, 2 ),
       tandem: tandem.createTandem( 'attemptsProperty' ),
       phetioDocumentation: 'The number of attempts to solve the current challenge.',
       phetioFeatured: true,
       phetioReadOnly: true
     } );
 
-    this.timerEnabledProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'timerEnabledProperty' )
-    } );
-
     this.scoreProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'scoreProperty' ),
       phetioDocumentation: 'Score on current game level.',
-      range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL )
+      range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL ),
+      phetioReadOnly: true
     } );
 
     this.levelProperty.lazyLink( level => {
