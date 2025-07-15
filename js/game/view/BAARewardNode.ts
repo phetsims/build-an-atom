@@ -15,6 +15,7 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import RewardNode from '../../../../vegas/js/RewardNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAColors from '../../common/BAAColors.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 
 // constants
@@ -63,7 +64,7 @@ class BAARewardNode extends RewardNode {
                                    interactiveSymbolNode.width );
       nodes.push( interactiveSymbolNode );
     }
-    const faceNode = new FaceNode( FACE_DIAMETER );
+    const faceNode = new FaceNode( FACE_DIAMETER, { headStroke: BAAColors.facialStroke } );
     nodes.push( faceNode );
     return RewardNode.createRandomNodes( nodes, NUMBER_OF_NODES );
   }

@@ -52,6 +52,10 @@ const BAAColors = {
 
   bucketTextBackgroundColorProperty: new ProfileColorProperty( buildAnAtom, 'bucketTextBackgroundColor', {
     default: new Color( 0, 0, 0, 0.2 )
+  } ),
+
+  facialStroke: new ProfileColorProperty( buildAnAtom, 'facialStroke', {
+    default: new Color( '#666' )
   } )
 };
 

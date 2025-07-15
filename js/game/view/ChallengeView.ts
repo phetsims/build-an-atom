@@ -19,6 +19,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAColors from '../../common/BAAColors.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import { GameState } from '../model/GameModel.js';
 
@@ -65,7 +66,7 @@ class ChallengeView extends Node {
     this.addChild( this.interactiveAnswerNode );
 
     // face node, used to signal correct/incorrect answers
-    const faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75 } );
+    const faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75, headStroke: BAAColors.facialStroke } );
     const pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
     pointDisplay.centerX = 0;
     pointDisplay.top = faceNode.height / 2;
