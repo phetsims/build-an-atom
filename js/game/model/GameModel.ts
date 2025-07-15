@@ -125,6 +125,7 @@ class GameModel implements TModel {
     this.challengeNumberProperty = new NumberProperty( 1, {
       numberType: 'Integer',
       range: new Range( 1, GameModel.CHALLENGES_PER_LEVEL ),
+      tandem: tandem.createTandem( 'challengeNumberProperty' ),
       phetioDocumentation: 'The challenge number shown in the status bar. Indicates how far the user has progressed through a level.',
       phetioReadOnly: true
     } );
@@ -221,13 +222,18 @@ class GameModel implements TModel {
    */
   private startLevel(): void {
 
-    const level = this.levelProperty.value!;
-    assert && assert( level );
-
-    level.startLevel();
-    this.challengeNumberProperty.value = level.challengeNumberProperty.value;
-
+    // Reset the attempts and score.
     this.resetToStart();
+
+    // Set the challenge back to the first one.
+    this.challengeNumberProperty.reset();
+
+    const level = this.levelProperty.value!;
+    assert && assert( level, 'Cannot start the level if no level is selected' );
+
+    this.challengeProperty.set( level.challengeProperty.value );
+    this.gameStateProperty.set( 'presentingChallenge' );
+
 
     // Start the timer.
     if ( this.timerEnabledProperty.value ) {
@@ -281,7 +287,7 @@ class GameModel implements TModel {
 
     if ( !level.isLastChallenge() ) {
       this.attemptsProperty.value = 0;
-      level.challengeNumberProperty.value++;
+      this.challengeNumberProperty.value++;
       this.challengeProperty.set( level.challengeProperty.value );
       this.gameStateProperty.set( 'presentingChallenge' );
     }

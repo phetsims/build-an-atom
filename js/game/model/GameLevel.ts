@@ -7,11 +7,12 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TEmitter from '../../../../axon/js/TEmitter.js';
-import Range from '../../../../dot/js/Range.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -32,7 +33,7 @@ export default class GameLevel extends PhetioObject {
   public challenges: BAAGameChallenge[];
 
   // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
-  public readonly challengeNumberProperty: Property<number>;
+  public readonly challengeNumberProperty: TReadOnlyProperty<number>;
 
   // Current challenge to be solved
   public readonly challengeProperty: Property<BAAGameChallenge>;
@@ -66,17 +67,10 @@ export default class GameLevel extends PhetioObject {
 
     this.levelUpdatedEmitter = new Emitter();
 
-    const tandem = options.tandem;
     this.challenges = [];
     this.generateChallenges();
 
-    this.challengeNumberProperty = new NumberProperty( 1, {
-      numberType: 'Integer',
-      range: new Range( 1, this.challenges.length ),
-      tandem: tandem.createTandem( 'challengeNumberProperty' ),
-      phetioDocumentation: 'The challenge number shown in the status bar. Indicates how far the user has progressed through a level.',
-      phetioReadOnly: true
-    } );
+    this.challengeNumberProperty = new DerivedProperty( [ this.model.challengeNumberProperty ], ( challengeNumber: number ) => challengeNumber );
 
     // Consider that this derivation may go through intermediate states when PhET-iO state is restored,
     // depending on the order in which the dependencies are set.
@@ -106,7 +100,6 @@ export default class GameLevel extends PhetioObject {
 
     // When the challenge number changes,update the model's challenge number property to display it in the status bar.
     this.challengeNumberProperty.link( number => {
-      model.challengeNumberProperty.set( number );
       this.levelUpdatedEmitter.emit();
       model.stateChangeEmitter.emit();
     } );
@@ -141,12 +134,6 @@ export default class GameLevel extends PhetioObject {
   public generateChallenges(): void {
     this.challenges = ChallengeSetFactory.createChallengeSet( this.index, this.model, this.tandem );
     this.levelUpdatedEmitter.emit();
-  }
-
-  public startLevel(): void {
-    this.challengeNumberProperty.reset();
-    this.model.challengeProperty.set( this.challengeProperty.value );
-    this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
   /**
