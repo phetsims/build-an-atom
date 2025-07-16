@@ -23,7 +23,7 @@ export default class AnswerAtom extends NumberAtom {
 
   public neutralOrIon: NeutralOrIon;
 
-  public constructor( providedOptions: AnswerAtomOptions ) {
+  public constructor( providedOptions?: AnswerAtomOptions ) {
 
     const options = optionize<AnswerAtomOptions, SelfOptions, NumberAtomOptions>()( {
       phetioState: false,
