@@ -30,10 +30,22 @@ import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import GameTimer from '../../../../vegas/js/GameTimer.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import { ChallengeType } from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
+import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import CountsToChargeChallenge from './CountsToChargeChallenge.js';
+import CountsToElementChallenge from './CountsToElementChallenge.js';
+import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
+import CountsToSymbolChallenge from './CountsToSymbolChallenge.js';
 import GameLevel from './GameLevel.js';
+import SchematicToChargeChallenge from './SchematicToChargeChallenge.js';
+import SchematicToElementChallenge from './SchematicToElementChallenge.js';
+import SchematicToMassNumberChallenge from './SchematicToMassNumberChallenge.js';
+import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 import SelectedChallenge from './SelectedChallenge.js';
+import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
+import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
 
 // constants
 const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
@@ -81,6 +93,10 @@ class GameModel implements TModel {
   // The current challenge that is being played.
   public readonly selectedChallengeProperty: SelectedChallenge;
 
+  // A map of the challenge types to instances of those types.  We create one instance of each challenge type and then
+  // reuse them to avoid creating new instances every time a challenge is played, since this works better for phet-io.
+  private readonly challengeTypeToInstanceMap: Map<ChallengeType, BAAGameChallenge>;
+
   // The number of attempts the user has made at solving the current challenge.
   private readonly attemptsProperty: Property<number>;
 
@@ -106,7 +122,6 @@ class GameModel implements TModel {
 
     this.random = new Random( { seed: this.randomSeedProperty.value } );
 
-    // TODO: Until we have proper IOTypes, this shouldn't be instrumented! https://github.com/phetsims/build-an-atom/issues/257
     this.gameStateProperty = new Property<GameState>( 'levelSelection', {
       validValues: GameStateValues,
       tandem: tandem.createTandem( 'gameStateProperty' ),
@@ -121,6 +136,33 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'pointValueProperty' ),
       phetioReadOnly: true
     } );
+
+    const temporaryAnswerAtom = new AnswerAtom( {
+      protonCount: 1,
+      neutronCount: 0,
+      electronCount: 1,
+      tandem: tandem.createTandem( 'temporaryAnswerAtom' )
+    } );
+
+    // Create the challenge type to instance map, which will be used to grab the correct challenge type when needed.
+    this.challengeTypeToInstanceMap = new Map<ChallengeType, BAAGameChallenge>( [
+      [ 'counts-to-element', new CountsToElementChallenge( this, temporaryAnswerAtom, 'counts-to-element', tandem ) ],
+      [ 'counts-to-charge', new CountsToChargeChallenge( this, temporaryAnswerAtom, 'counts-to-charge', tandem ) ],
+      [ 'counts-to-mass', new CountsToMassNumberChallenge( this, temporaryAnswerAtom, 'counts-to-mass', tandem ) ],
+      [ 'counts-to-symbol-all', new CountsToSymbolChallenge( this, temporaryAnswerAtom, 'counts-to-symbol-all', tandem, true, true, true ) ],
+      [ 'counts-to-symbol-charge', new CountsToSymbolChallenge( this, temporaryAnswerAtom, 'counts-to-symbol-charge', tandem, false, false, true ) ],
+      [ 'counts-to-symbol-mass', new CountsToSymbolChallenge( this, temporaryAnswerAtom, 'counts-to-symbol-mass', tandem, false, true, false ) ],
+      [ 'counts-to-symbol-proton-count', new CountsToSymbolChallenge( this, temporaryAnswerAtom, 'counts-to-symbol-proton-count', tandem, true, false, false ) ],
+      [ 'schematic-to-element', new SchematicToElementChallenge( this, temporaryAnswerAtom, 'schematic-to-element', tandem ) ],
+      [ 'schematic-to-charge', new SchematicToChargeChallenge( this, temporaryAnswerAtom, 'schematic-to-charge', tandem ) ],
+      [ 'schematic-to-mass', new SchematicToMassNumberChallenge( this, temporaryAnswerAtom, 'schematic-to-mass', tandem ) ],
+      [ 'schematic-to-symbol-all', new SchematicToSymbolChallenge( this, temporaryAnswerAtom, 'schematic-to-symbol-all', tandem, true, true, true ) ],
+      [ 'schematic-to-symbol-charge', new SchematicToSymbolChallenge( this, temporaryAnswerAtom, 'schematic-to-symbol-charge', tandem, false, false, true ) ],
+      [ 'schematic-to-symbol-mass-number', new SchematicToSymbolChallenge( this, temporaryAnswerAtom, 'schematic-to-symbol-mass-number', tandem, false, true, false ) ],
+      [ 'schematic-to-symbol-proton-count', new SchematicToSymbolChallenge( this, temporaryAnswerAtom, 'schematic-to-symbol-proton-count', tandem, true, false, false ) ],
+      [ 'symbol-to-counts', new SymbolToCountsChallenge( this, temporaryAnswerAtom, 'symbol-to-counts', tandem ) ],
+      [ 'symbol-to-schematic', new SymbolToSchematicChallenge( this, temporaryAnswerAtom, 'symbol-to-schematic', tandem ) ]
+    ] );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
       numberType: 'Integer',
@@ -234,7 +276,6 @@ class GameModel implements TModel {
     this.challengeProperty.set( level.challengeProperty.value );
     this.gameStateProperty.set( 'presentingChallenge' );
 
-
     // Start the timer.
     if ( this.timerEnabledProperty.value ) {
       this.timer.start();
@@ -346,6 +387,27 @@ class GameModel implements TModel {
     this.levelProperty.reset();
     this.timerEnabledProperty.reset();
     this.gameStateProperty.reset();
+  }
+
+  /**
+   * Returns a list of all the challenges used in the game, regardless of the level.
+   */
+  public getAllChallenges(): BAAGameChallenge[] {
+    const challenges: BAAGameChallenge[] = [];
+    this.challengeTypeToInstanceMap.forEach( challenge => {
+      challenges.push( challenge );
+    } );
+    return challenges;
+  }
+
+  /**
+   * Returns the challenge instance for the specified challenge type.  This should only be called by the game levels
+   * as they set up their challenges.
+   */
+  public getChallengeByType( challengeType: ChallengeType ): BAAGameChallenge {
+    assert && assert( this.challengeTypeToInstanceMap.has( challengeType ),
+      `No challenge of type ${challengeType} exists in the game` );
+    return this.challengeTypeToInstanceMap.get( challengeType )!;
   }
 
   /**

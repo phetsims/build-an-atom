@@ -1,22 +1,19 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Helper type for managing the list of atom values that can be used for
- * creating game challenges.  The two main pieces of functionality added by
- * this class is that it removes items from the enclosed list automatically,
- * and it keeps track of what we removed in case it ends up being needed
- * again.
+ * Helper type for managing the list of atom values that can be used for creating game challenges.  The two main pieces
+ * of functionality added by this class is that it removes items from the enclosed list automatically, and it keeps
+ * track of what we removed in case it ends up being needed again.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Random from '../../../../dot/js/Random.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
-// Challenge pools for creating game challenges, extracted from the design doc.
-// These define the configuration for each of the challenges that can be used
-// in a challenge set for a given sub-game.
+// Challenge pools for creating game challenges, extracted from the design doc. These define the configuration for each
+// of the challenges that can be used in a challenge set for a given level.
 const CHALLENGE_POOLS: NumberAtom[][] = [
   [
     new NumberAtom( { protonCount: 1, neutronCount: 0, electronCount: 0 } ),

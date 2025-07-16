@@ -20,17 +20,20 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
-import ChallengeSetFactory from './ChallengeSetFactory.js';
+import ChallengeSetFactory, { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import GameModel from './GameModel.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class GameLevel extends PhetioObject {
+class GameLevel extends PhetioObject {
 
   // The collection of challenges for this level.
   public challenges: BAAGameChallenge[];
+
+  // The descriptors for the challenges in this level, used to obtain and configure the challenges.
+  public challengeDescriptors: ChallengeDescriptor[] = [];
 
   // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
   public readonly challengeNumberProperty: TReadOnlyProperty<number>;
@@ -69,12 +72,15 @@ export default class GameLevel extends PhetioObject {
 
     this.challenges = [];
     this.generateChallenges();
+    this.generateChallengeDescriptors();
+
+    // Initialize the challenge property with the first challenge in the set.
+    // TODO: See https://github.com/phetsims/build-an-atom/issues/257.  This does not set the answer value for the
+    //       challenge because that isn't supported yet.  That will need to be added later.
+    const initialChallenge = model.getChallengeByType( this.challengeDescriptors[ 0 ].type );
+    this.challengeProperty = new Property( initialChallenge );
 
     this.challengeNumberProperty = new DerivedProperty( [ this.model.challengeNumberProperty ], ( challengeNumber: number ) => challengeNumber );
-
-    // Consider that this derivation may go through intermediate states when PhET-iO state is restored,
-    // depending on the order in which the dependencies are set.
-    this.challengeProperty = new Property( this.challenges[ 0 ] );
 
     this.bestScoreProperty = new NumberProperty( 0, {
       numberType: 'Integer',
@@ -99,7 +105,7 @@ export default class GameLevel extends PhetioObject {
     } );
 
     // When the challenge number changes,update the model's challenge number property to display it in the status bar.
-    this.challengeNumberProperty.link( number => {
+    this.challengeNumberProperty.link( () => {
       this.levelUpdatedEmitter.emit();
       model.stateChangeEmitter.emit();
     } );
@@ -107,7 +113,11 @@ export default class GameLevel extends PhetioObject {
     this.levelUpdatedEmitter.addListener( () => {
       const challengeNumber = this.challengeNumberProperty.value;
       if ( challengeNumber <= this.challenges.length ) {
-        this.challengeProperty.value = this.challenges[ this.challengeNumberProperty.value - 1 ];
+        // TODO: See https://github.com/phetsims/build-an-atom/issues/257.  This does not set the answer value for the
+        //       challenge because that isn't supported yet.  That will need to be added later.
+        this.challengeProperty.value = model.getChallengeByType(
+          this.challengeDescriptors[ this.challengeNumberProperty.value - 1 ].type
+        );
       }
     } );
   }
@@ -119,6 +129,9 @@ export default class GameLevel extends PhetioObject {
 
   /**
    * When setting PhET-iO state, we can call this function to impose the level's challenge on the model.
+   * TODO: This looks really weird to me (jbphet) and we should review before phet-io is finalized.  See https://github.com/phetsims/build-an-atom/issues/257.
+   *       Why is this method setting all sorts of values in the model?  Why are there two different emitters that are
+   *       fired?  Why is a property in the model being set to the value in this level?  Lots of questions.
    */
   public imposeLevel(): void {
     this.levelUpdatedEmitter.emit();
@@ -133,6 +146,14 @@ export default class GameLevel extends PhetioObject {
    */
   public generateChallenges(): void {
     this.challenges = ChallengeSetFactory.createChallengeSet( this.index, this.model, this.tandem );
+    this.levelUpdatedEmitter.emit();
+  }
+
+  /**
+   * Generates a new set of challenge descriptors for this level. This is called whenever the level is restarted.
+   */
+  public generateChallengeDescriptors(): void {
+    this.challengeDescriptors = ChallengeSetFactory.createChallengeDescriptorSet( this.index, this.model, this.tandem );
     this.levelUpdatedEmitter.emit();
   }
 
@@ -184,3 +205,4 @@ export default class GameLevel extends PhetioObject {
 }
 
 buildAnAtom.register( 'GameLevel', GameLevel );
+export default GameLevel;

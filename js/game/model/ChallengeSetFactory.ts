@@ -7,6 +7,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
@@ -34,6 +35,11 @@ const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
   [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ]
 ];
 
+export type ChallengeDescriptor = {
+  type: ChallengeType;
+  atomValue: NumberAtom;
+};
+
 export default class ChallengeSetFactory {
 
   /**
@@ -58,6 +64,82 @@ export default class ChallengeSetFactory {
     }
 
     return challenges;
+  }
+
+  /**
+   * For a given Game Level, create a set of challenge descriptors that can be used to obtain and configure the
+   * challenges that will be presented to the user.
+   */
+  public static createChallengeDescriptorSet( level: number, model: GameModel, tandem: Tandem ): ChallengeDescriptor[] {
+
+    // Get a list of the challenge names that are valid for this level.
+    const validChallengeNames = LEVEL_CHALLENGE_NAMES[ level ];
+
+    // Create a pool of atom values that can be used to generate challengeDescriptors.  These will be marked as used as
+    // they are incorporated into challenge descriptors so that they are not reused in the same level.
+    const atomValuePool = new AtomValuePool( level );
+
+    const challengeDescriptors: ChallengeDescriptor[] = [];
+
+    _.times( GameModel.CHALLENGES_PER_LEVEL, () => {
+      const challengeDescriptor = this.getRandomAvailableChallengeDescriptor(
+        model,
+        validChallengeNames,
+        atomValuePool,
+        tandem
+      );
+      if ( challengeDescriptor ) {
+        challengeDescriptors.push( challengeDescriptor );
+      }
+    } );
+
+    // The process above should create the correct number of challengeDescriptors, but it's possible in some cases that it won't,
+    // like if the number of challengeDescriptors per level is very high.  This assertion checks that, and if it is hit during
+    // testing we should investigate and fix it.  If this case were hit in the published version, there would just be
+    // fewer challengeDescriptors than expected, which isn't great but not a disaster.
+    assert && assert(
+      challengeDescriptors.length === GameModel.CHALLENGES_PER_LEVEL,
+      `expected ${GameModel.CHALLENGES_PER_LEVEL} challenges, but got ${challengeDescriptors.length}`
+    );
+
+    return challengeDescriptors;
+  }
+
+  /**
+   * Chooses a random challenge from the valid challenges for the level, and returns a descriptor for it.
+   */
+  private static getRandomAvailableChallengeDescriptor(
+    model: GameModel,
+    validChallengeTypes: ChallengeType[],
+    availableAtomValues: AtomValuePool,
+    tandem: Tandem
+  ): ChallengeDescriptor {
+
+    const random = model.random;
+
+    // TODO: This probably is bad for checking repetition, will come back later https://github.com/phetsims/build-an-atom/issues/257
+    const index = Math.floor( random.nextDouble() * validChallengeTypes.length );
+    const challengeType = validChallengeTypes[ index ];
+
+    let minProtonCount = 0;
+    let maxProtonCount = Number.POSITIVE_INFINITY;
+    let requireCharged = false;
+
+    if ( this.isSchematicRelatedChallenge( challengeType ) ) {
+      maxProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS;
+    }
+    else {
+      minProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS + 1;
+    }
+
+    if ( this.isChargeRelatedChallenge( challengeType ) ) {
+      requireCharged = random.nextBoolean();
+    }
+
+    const atomValue = availableAtomValues.getRandomAtomValue( random, minProtonCount, maxProtonCount, requireCharged );
+    availableAtomValues.markAtomAsUsed( atomValue );
+
+    return { type: challengeType, atomValue: atomValue };
   }
 
   private static chooseRandomAvailableChallenge(
