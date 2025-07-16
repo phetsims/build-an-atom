@@ -64,7 +64,7 @@ class BAARewardNode extends RewardNode {
                                    interactiveSymbolNode.width );
       nodes.push( interactiveSymbolNode );
     }
-    const faceNode = new FaceNode( FACE_DIAMETER, { headStroke: BAAColors.facialStroke } );
+    const faceNode = new FaceNode( FACE_DIAMETER, { headStroke: BAAColors.facialStrokeColorProperty } );
     nodes.push( faceNode );
     return RewardNode.createRandomNodes( nodes, NUMBER_OF_NODES );
   }

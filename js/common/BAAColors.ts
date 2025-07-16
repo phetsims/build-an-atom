@@ -54,8 +54,12 @@ const BAAColors = {
     default: new Color( 0, 0, 0, 0.2 )
   } ),
 
-  facialStroke: new ProfileColorProperty( buildAnAtom, 'facialStroke', {
+  facialStrokeColorProperty: new ProfileColorProperty( buildAnAtom, 'facialStrokeColor', {
     default: new Color( '#666' )
+  } ),
+  
+  levelSelectorColorProperty: new ProfileColorProperty( buildAnAtom, 'levelSelectorColor', {
+    default: new Color( '#D4AAD4' )
   } )
 };
 

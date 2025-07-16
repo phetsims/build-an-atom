@@ -28,6 +28,7 @@ import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import GameLevel from '../model/GameLevel.js';
@@ -35,7 +36,6 @@ import GameModel from '../model/GameModel.js';
 
 // constants
 const CONTROLS_INSET = 10;
-const BASE_COLOR = '#D4AAD4';
 
 class StartGameLevelNode extends Node {
 
@@ -171,7 +171,7 @@ class StartGameLevelNode extends Node {
         listener: () => {
           gameModel.levelProperty.value = level;
         },
-        baseColor: BASE_COLOR,
+        baseColor: BAAColors.levelSelectorColorProperty,
         tandem: tandem.createTandem( `level${levelNumber + 1}Button` ),
         phetioDocumentation: levelPhetioDescription,
         createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
