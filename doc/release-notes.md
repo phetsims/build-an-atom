@@ -16,7 +16,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 ## 1.7  (in progress)
 
 ### New Features
-* UI sounds
+* Basic Sound
 * Dynamic Locale
 * PhET-iO for PhET Studio
 * Pan and zoom
