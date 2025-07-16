@@ -54,14 +54,14 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
     // Question
-    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
+    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
-      tandem: tandem.createTandem( 'questionPrompt' )
+      tandem: tandem.createTandem( 'questionPromptText' )
     } );
-    this.interactiveAnswerNode.addChild( questionPrompt );
+    this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
     const chargeEntryNode = new NumberEntryNode(
@@ -76,14 +76,14 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( chargeEntryNode );
 
     // Layout
-    questionPrompt.centerX = layoutBounds.width * 0.65;
-    questionPrompt.centerY = layoutBounds.height * 0.5;
-    chargeEntryNode.left = questionPrompt.right + 10;
-    chargeEntryNode.centerY = questionPrompt.centerY;
+    questionPromptText.centerX = layoutBounds.width * 0.65;
+    questionPromptText.centerY = layoutBounds.height * 0.5;
+    chargeEntryNode.left = questionPromptText.right + 10;
+    chargeEntryNode.centerY = questionPromptText.centerY;
 
     this.disposeSchematicToChargeChallengeView = function() {
       nonInteractiveSchematicNode.dispose();
-      questionPrompt.dispose();
+      questionPromptText.dispose();
       chargeEntryNode.dispose();
       this.chargeAnswerProperty.dispose();
     };

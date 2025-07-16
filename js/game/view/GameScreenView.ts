@@ -17,9 +17,21 @@ import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
+import AnswerAtom from '../model/AnswerAtom.js';
+import CountsToChargeChallenge from '../model/CountsToChargeChallenge.js';
+import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
+import CountsToMassNumberChallenge from '../model/CountsToMassNumberChallenge.js';
+import CountsToSymbolChallenge from '../model/CountsToSymbolChallenge.js';
 import GameModel from '../model/GameModel.js';
+import SchematicToChargeChallenge from '../model/SchematicToChargeChallenge.js';
+import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
+import SchematicToMassNumberChallenge from '../model/SchematicToMassNumberChallenge.js';
+import SchematicToSymbolChallenge from '../model/SchematicToSymbolChallenge.js';
+import SymbolToCountsChallenge from '../model/SymbolToCountsChallenge.js';
+import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
 import BAARewardNode from './BAARewardNode.js';
 import ChallengeView from './ChallengeView.js';
+import ChallengeViewSet from './ChallengeViewSet.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 
 class GameScreenView extends ScreenView {
@@ -42,6 +54,33 @@ class GameScreenView extends ScreenView {
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       tandem: tandem
     } );
+
+    // TODO: This is a temporary solution https://github.com/phetsims/build-an-atom/issues/280
+    const answerAtom = new AnswerAtom( {
+      protonCount: 1
+    } );
+    const challengesTandem = Tandem.OPT_OUT;
+    const allChallenges = [
+      new CountsToElementChallenge( gameModel, answerAtom, 'counts-to-element', challengesTandem ),
+      new CountsToChargeChallenge( gameModel, answerAtom, 'counts-to-charge', challengesTandem ),
+      new CountsToMassNumberChallenge( gameModel, answerAtom, 'counts-to-mass', challengesTandem ),
+      new CountsToSymbolChallenge( gameModel, answerAtom, 'counts-to-symbol-all', challengesTandem, true, true, true ),
+      new CountsToSymbolChallenge( gameModel, answerAtom, 'counts-to-symbol-charge', challengesTandem, false, false, true ),
+      new CountsToSymbolChallenge( gameModel, answerAtom, 'counts-to-symbol-mass', challengesTandem, false, true, false ),
+      new CountsToSymbolChallenge( gameModel, answerAtom, 'counts-to-symbol-proton-count', challengesTandem, true, false, false ),
+      new SchematicToElementChallenge( gameModel, answerAtom, 'schematic-to-element', challengesTandem ),
+      new SchematicToChargeChallenge( gameModel, answerAtom, 'schematic-to-charge', challengesTandem ),
+      new SchematicToMassNumberChallenge( gameModel, answerAtom, 'schematic-to-mass', challengesTandem ),
+      new SchematicToSymbolChallenge( gameModel, answerAtom, 'schematic-to-symbol-all', challengesTandem, true, true, true ),
+      new SchematicToSymbolChallenge( gameModel, answerAtom, 'schematic-to-symbol-charge', challengesTandem, false, false, true ),
+      new SchematicToSymbolChallenge( gameModel, answerAtom, 'schematic-to-symbol-mass-number', challengesTandem, false, true, false ),
+      new SchematicToSymbolChallenge( gameModel, answerAtom, 'schematic-to-symbol-proton-count', challengesTandem, true, false, false ),
+      new SymbolToCountsChallenge( gameModel, answerAtom, 'symbol-to-counts', challengesTandem ),
+      new SymbolToSchematicChallenge( gameModel, answerAtom, 'symbol-to-schematic', challengesTandem )
+    ];
+
+    const challengeViewTandem = tandem.createTandem( 'challengeViews' );
+    const challengeViewSet = new ChallengeViewSet( allChallenges, this.layoutBounds, challengeViewTandem );
 
     // Add a root node where all of the game-related nodes will live.
     this.levelNode = new Node();
@@ -142,10 +181,9 @@ class GameScreenView extends ScreenView {
           return;
         }
         else {
-          this.challengeView && this.challengeView.dispose();
-          this.challengeView = challenge.createView( this.layoutBounds, tandem.createTandem( 'ChallengeView' ) );
-          this.challengeView.handleStateChange( state );
-          this.levelNode.addChild( this.challengeView );
+          const challengeView = challengeViewSet.get( challenge )!;
+          challengeView.handleStateChange( state );
+          this.levelNode.addChild( challengeView );
         }
         this.levelNode.addChild( scoreboard );
       }

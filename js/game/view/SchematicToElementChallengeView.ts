@@ -24,9 +24,6 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
 
   public constructor( schematicToElementChallenge: SchematicToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( schematicToElementChallenge, layoutBounds, tandem );
 
     // Create the model-view transform used by the schematic atom.

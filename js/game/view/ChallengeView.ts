@@ -82,7 +82,9 @@ class ChallengeView extends Node {
       maxWidth: BUTTON_MAX_WIDTH,
       touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
       touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'checkAnswerButton' )
+      tandem: tandem.createTandem( 'checkAnswerButton' ),
+      phetioVisiblePropertyInstrumented: false,
+      phetioEnabledPropertyInstrumented: false
     } );
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
@@ -102,7 +104,9 @@ class ChallengeView extends Node {
       maxWidth: BUTTON_MAX_WIDTH,
       touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
       touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'nextButton' )
+      tandem: tandem.createTandem( 'nextButton' ),
+      phetioVisiblePropertyInstrumented: false,
+      phetioEnabledPropertyInstrumented: false
     } );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
@@ -114,7 +118,9 @@ class ChallengeView extends Node {
       maxWidth: BUTTON_MAX_WIDTH,
       touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
       touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'tryAgainButton' )
+      tandem: tandem.createTandem( 'tryAgainButton' ),
+      phetioVisiblePropertyInstrumented: false,
+      phetioEnabledPropertyInstrumented: false
     } );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
@@ -126,7 +132,9 @@ class ChallengeView extends Node {
       maxWidth: BUTTON_MAX_WIDTH,
       touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
       touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'displayCorrectAnswerButton' )
+      tandem: tandem.createTandem( 'displayCorrectAnswerButton' ),
+      phetioVisiblePropertyInstrumented: false,
+      phetioEnabledPropertyInstrumented: false
     } );
     this.addChild( this.displayCorrectAnswerButton );
     this.buttons.push( this.displayCorrectAnswerButton );

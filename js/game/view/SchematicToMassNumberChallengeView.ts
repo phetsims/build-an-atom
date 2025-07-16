@@ -54,14 +54,14 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( nonInteractiveSchematicAtomNode );
 
     // Question
-    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
+    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
-      tandem: tandem.createTandem( 'questionPrompt' )
+      tandem: tandem.createTandem( 'questionPromptText' )
     } );
-    this.interactiveAnswerNode.addChild( questionPrompt );
+    this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
     const massEntryNode = new NumberEntryNode(
@@ -73,14 +73,14 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( massEntryNode );
 
     // Layout
-    questionPrompt.centerX = layoutBounds.width * 0.65;
-    questionPrompt.centerY = layoutBounds.height * 0.5;
-    massEntryNode.left = questionPrompt.right + 10;
-    massEntryNode.centerY = questionPrompt.centerY;
+    questionPromptText.centerX = layoutBounds.width * 0.65;
+    questionPromptText.centerY = layoutBounds.height * 0.5;
+    massEntryNode.left = questionPromptText.right + 10;
+    massEntryNode.centerY = questionPromptText.centerY;
 
     this.disposeSchematicToMassNumberChallengeView = () => {
       nonInteractiveSchematicAtomNode.dispose();
-      questionPrompt.dispose();
+      questionPromptText.dispose();
       massEntryNode.dispose();
       this.massNumberAnswerProperty.dispose();
     };

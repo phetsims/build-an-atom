@@ -27,9 +27,6 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
   public constructor( countsToMassNumberChallenge: CountsToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( countsToMassNumberChallenge, layoutBounds, tandem );
 
     this.massNumberAnswerProperty = new NumberProperty( 0, {
@@ -41,14 +38,14 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
+    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
-      tandem: tandem.createTandem( 'questionPrompt' )
+      tandem: tandem.createTandem( 'questionPromptText' )
     } );
-    this.interactiveAnswerNode.addChild( questionPrompt );
+    this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
     const numberEntryNode = new NumberEntryNode(
@@ -62,14 +59,14 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
-    questionPrompt.centerX = layoutBounds.width * 0.65;
-    questionPrompt.centerY = layoutBounds.height * 0.5;
-    numberEntryNode.left = questionPrompt.right + 10;
-    numberEntryNode.centerY = questionPrompt.centerY;
+    questionPromptText.centerX = layoutBounds.width * 0.65;
+    questionPromptText.centerY = layoutBounds.height * 0.5;
+    numberEntryNode.left = questionPromptText.right + 10;
+    numberEntryNode.centerY = questionPromptText.centerY;
 
     this.disposeCountsToMassNumberChallengeView = function() {
       particleCountsNode.dispose();
-      questionPrompt.dispose();
+      questionPromptText.dispose();
       numberEntryNode.dispose();
       this.massNumberAnswerProperty.dispose();
     };

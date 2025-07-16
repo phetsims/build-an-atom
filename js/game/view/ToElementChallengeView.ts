@@ -18,6 +18,7 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -30,7 +31,8 @@ const INSET = 10;
 const CELL_DIMENSION = 25;
 const MAX_WIDTH = 100; // empirically determined for long strings
 
-export type NeutralOrIon = 'neutral' | 'ion' | 'noSelection';
+const neutralOrIonValues = [ 'neutral', 'ion', 'noSelection' ] as const;
+export type NeutralOrIon = typeof neutralOrIonValues[number];
 
 class ToElementChallengeView extends ChallengeView {
 
@@ -41,25 +43,23 @@ class ToElementChallengeView extends ChallengeView {
 
   public constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( countsToElementChallenge, layoutBounds, tandem );
 
-    this.periodicTableAtom = new NumberAtom( { tandem: tandem.createTandem( 'periodicTableAtom' ) } );
+    this.periodicTableAtom = new NumberAtom();
 
     this.neutralOrIonProperty = new Property<NeutralOrIon>( 'noSelection', {
-      tandem: tandem.createTandem( 'neutralOrIonProperty' )
+      tandem: tandem.createTandem( 'neutralOrIonProperty' ),
+      phetioValueType: StringUnionIO( neutralOrIonValues )
     } );
 
     // Periodic table
     this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, {
-      tandem: tandem.createTandem( 'periodicTable' ),
       interactiveMax: 118,
       cellDimension: CELL_DIMENSION,
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
       selectedCellColor: 'yellow',
-      scale: 1.02
+      scale: 1.02,
+      tandem: Tandem.OPT_OUT
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
@@ -75,19 +75,21 @@ class ToElementChallengeView extends ChallengeView {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH
     } );
+
+    const radioButtonTandems = tandem.createTandem( 'neutralOrIonRadioButtons' );
     const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( BuildAnAtomStrings.neutralAtomStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
-      tandem: tandem.createTandem( 'neutralAtomRadioButton' )
+      tandem: radioButtonTandems.createTandem( 'neutralAtomRadioButton' )
     } );
     const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( BuildAnAtomStrings.ionStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
-      tandem: tandem.createTandem( 'ionRadioButton' )
+      tandem: radioButtonTandems.createTandem( 'ionRadioButton' )
     } );
     const neutralAtomVersusIonQuestion = new Node();
     neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );

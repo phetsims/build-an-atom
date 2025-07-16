@@ -23,9 +23,6 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
   public constructor( symbolToCountsChallenge: SymbolToCountsChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( symbolToCountsChallenge, layoutBounds, tandem );
 
     this.interactiveParticleCountsNode = new InteractiveParticleCountsNode( { tandem: tandem } );

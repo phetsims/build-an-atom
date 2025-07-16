@@ -28,9 +28,6 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public constructor( countsToChargeChallenge: CountsToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( countsToChargeChallenge, layoutBounds, tandem );
 
     this.chargeAnswerProperty = new NumberProperty( 0, {
@@ -42,14 +39,14 @@ class CountsToChargeChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPrompt = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
+    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
       replaceNewlines: true,
       align: 'left',
       font: new PhetFont( 24 ),
       maxWidth: 200,
-      tandem: tandem.createTandem( 'questionPrompt' )
+      tandem: tandem.createTandem( 'questionPromptText' )
     } );
-    this.interactiveAnswerNode.addChild( questionPrompt );
+    this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
     const numberEntryNode = new NumberEntryNode(
@@ -66,14 +63,14 @@ class CountsToChargeChallengeView extends ChallengeView {
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
-    questionPrompt.centerX = layoutBounds.width * 0.65;
-    questionPrompt.centerY = layoutBounds.height * 0.5;
-    numberEntryNode.left = questionPrompt.right + 10;
-    numberEntryNode.centerY = questionPrompt.centerY;
+    questionPromptText.centerX = layoutBounds.width * 0.65;
+    questionPromptText.centerY = layoutBounds.height * 0.5;
+    numberEntryNode.left = questionPromptText.right + 10;
+    numberEntryNode.centerY = questionPromptText.centerY;
 
     this.disposeCountsToChargeChallengeView = function() {
       this.chargeAnswerProperty.dispose();
-      questionPrompt.dispose();
+      questionPromptText.dispose();
       numberEntryNode.dispose();
     };
   }
