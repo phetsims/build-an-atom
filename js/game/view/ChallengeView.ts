@@ -66,7 +66,7 @@ class ChallengeView extends Node {
     this.addChild( this.interactiveAnswerNode );
 
     // face node, used to signal correct/incorrect answers
-    const faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75, headStroke: BAAColors.facialStroke } );
+    const faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75, headStroke: BAAColors.facialStrokeColorProperty } );
     const pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
     pointDisplay.centerX = 0;
     pointDisplay.top = faceNode.height / 2;
