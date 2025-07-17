@@ -10,14 +10,13 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
 
 abstract class ToElementChallenge extends BAAGameChallenge {
-  public constructor( buildAnAtomGameModel: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
-    super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
-    answerAtom.neutralOrIon = answerAtom.protonCount - answerAtom.electronCount === 0 ? 'neutral' : 'ion';
+  protected constructor( buildAnAtomGameModel: GameModel, challengeType: string, tandem: Tandem ) {
+    super( buildAnAtomGameModel, challengeType, tandem );
+    this.answerAtom.neutralOrIon = this.answerAtom.protonCount - this.answerAtom.electronCount === 0 ? 'neutral' : 'ion';
   }
 }
 

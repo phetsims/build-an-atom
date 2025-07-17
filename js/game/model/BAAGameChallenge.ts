@@ -42,10 +42,10 @@ abstract class BAAGameChallenge {
   // The number of points that this challenge is worth, which is used to calculate the score.
   public pointValueProperty: TReadOnlyProperty<number>;
 
-  public constructor( model: GameModel, answerAtom: AnswerAtom, challengeType: string, tandem: Tandem ) {
+  public constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
 
     this.challengeType = challengeType;
-    this.answerAtom = answerAtom;
+    this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
     this.model = model;
 
     this.isCorrectAtomProperty = new BooleanProperty( false, {

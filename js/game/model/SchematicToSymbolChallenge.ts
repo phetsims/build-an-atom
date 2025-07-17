@@ -12,7 +12,6 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToSymbolChallengeView from '../view/SchematicToSymbolChallengeView.js';
-import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
 
@@ -20,14 +19,13 @@ class SchematicToSymbolChallenge extends BAAGameChallenge {
 
   public constructor(
     buildAnAtomGameModel: GameModel,
-    answerAtom: AnswerAtom,
     challengeType: string,
     tandem: Tandem,
     configurableProtonCount: boolean,
     configurableMassNumber: boolean,
     configurableCharge: boolean
   ) {
-    super( buildAnAtomGameModel, answerAtom, challengeType, tandem );
+    super( buildAnAtomGameModel, challengeType, tandem );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
     this.configurableCharge = configurableCharge;

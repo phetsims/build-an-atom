@@ -19,7 +19,7 @@ type SelfOptions = {
 
 type AnswerAtomOptions = SelfOptions & NumberAtomOptions;
 
-export default class AnswerAtom extends NumberAtom {
+class AnswerAtom extends NumberAtom {
 
   public neutralOrIon: NeutralOrIon;
 
@@ -62,3 +62,5 @@ export default class AnswerAtom extends NumberAtom {
 }
 
 buildAnAtom.register( 'AnswerAtom', AnswerAtom );
+
+export default AnswerAtom;
