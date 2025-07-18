@@ -257,7 +257,7 @@ class GameModel implements TModel {
     const level = this.levelProperty.value!;
     assert && assert( level, 'Cannot start the level if no level is selected' );
 
-    if ( challengeNumber <= level.challenges.length ) {
+    if ( challengeNumber <= level.challengeDescriptors.length ) {
       this.challengeProperty.value = this.getChallengeByDescriptor(
         level.challengeDescriptors[ challengeNumber - 1 ]
       );
@@ -319,6 +319,9 @@ class GameModel implements TModel {
     if ( !level.isLastChallenge() ) {
       this.attemptsProperty.value = 0;
       this.challengeNumberProperty.value++;
+      this.challengeProperty.value = this.getChallengeByDescriptor(
+        level.challengeDescriptors[ this.challengeNumberProperty.value - 1 ]
+      );
       this.gameStateProperty.set( 'presentingChallenge' );
     }
     else {
