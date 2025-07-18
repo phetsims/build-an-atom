@@ -35,7 +35,6 @@ class CountsToSymbolChallenge extends BAAGameChallenge {
    * Create the view needed to visually represent this challenge.
    */
   public override createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToSymbolChallengeView {
-    // TODO: Create individual tandem for this class once is split into 4 different challenges https://github.com/phetsims/build-an-atom/issues/280
     return new CountsToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'countsToSymbolChallengeView' ) );
   }
 }

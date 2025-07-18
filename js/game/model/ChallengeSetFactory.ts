@@ -7,7 +7,6 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
@@ -43,7 +42,7 @@ const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
 
 export type ChallengeDescriptor = {
   type: ChallengeType;
-  atomValue: NumberAtom;
+  atomValue: AnswerAtom;
 };
 
 export default class ChallengeSetFactory {
@@ -142,7 +141,7 @@ export default class ChallengeSetFactory {
       requireCharged = random.nextBoolean();
     }
 
-    const atomValue = availableAtomValues.getRandomAtomValue( random, minProtonCount, maxProtonCount, requireCharged );
+    const atomValue = availableAtomValues.getRandomAtomValue( random, minProtonCount, maxProtonCount, requireCharged ) as AnswerAtom;
     availableAtomValues.markAtomAsUsed( atomValue );
 
     return { type: challengeType, atomValue: atomValue };

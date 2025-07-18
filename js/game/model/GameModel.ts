@@ -33,6 +33,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
 import CountsToElementChallenge from './CountsToElementChallenge.js';
 import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
@@ -48,7 +49,6 @@ import SchematicToSymbolAllChallenge from './SchematicToSymbolAllChallenge.js';
 import SchematicToSymbolChargeChallenge from './SchematicToSymbolChargeChallenge.js';
 import SchematicToSymbolMassChallenge from './SchematicToSymbolMassChallenge.js';
 import SchematicToSymbolProtonCountChallenge from './SchematicToSymbolProtonCountChallenge.js';
-import SelectedChallenge from './SelectedChallenge.js';
 import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
 import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
 
@@ -94,9 +94,6 @@ class GameModel implements TModel {
 
   // The current challenge that is being played.
   public readonly challengeProperty: Property<BAAGameChallenge | null>;
-
-  // The current challenge that is being played.
-  public readonly selectedChallengeProperty: SelectedChallenge;
 
   // A map of the challenge types to instances of those types.  We create one instance of each challenge type and then
   // reuse them to avoid creating new instances every time a challenge is played, since this works better for phet-io.
@@ -172,15 +169,6 @@ class GameModel implements TModel {
     } );
 
     this.challengeProperty = new Property<BAAGameChallenge | null>( null );
-
-    this.selectedChallengeProperty = new SelectedChallenge( tandem.createTandem( 'selectedChallengeProperty' ) );
-
-    this.challengeProperty.link( challenge => {
-      if ( challenge ) {
-        this.selectedChallengeProperty.challengeTypeProperty.value = challenge.challengeType;
-        this.selectedChallengeProperty.correctAnswerAtom.set( challenge.answerAtom );
-      }
-    } );
 
     this.levels = [
       new GameLevel( 0, this, { tandem: tandem.createTandem( 'level1' ) } ),
@@ -264,13 +252,19 @@ class GameModel implements TModel {
 
     // Set the challenge back to the first one.
     this.challengeNumberProperty.reset();
+    const challengeNumber = this.challengeNumberProperty.value;
 
     const level = this.levelProperty.value!;
     assert && assert( level, 'Cannot start the level if no level is selected' );
 
-    level.levelUpdatedEmitter.emit();
+    if ( challengeNumber <= level.challenges.length ) {
+      this.challengeProperty.value = this.getChallengeByDescriptor(
+        level.challengeDescriptors[ challengeNumber - 1 ]
+      );
+    }
 
     this.gameStateProperty.set( 'presentingChallenge' );
+    this.stateChangeEmitter.emit();
 
     // Start the timer.
     if ( this.timerEnabledProperty.value ) {
@@ -399,10 +393,15 @@ class GameModel implements TModel {
    * Returns the challenge instance for the specified challenge type.  This should only be called by the game levels
    * as they set up their challenges.
    */
-  public getChallengeByType( challengeType: ChallengeType ): BAAGameChallenge {
+  public getChallengeByDescriptor( challengeDescriptor: ChallengeDescriptor ): BAAGameChallenge {
+    const challengeType: ChallengeType = challengeDescriptor.type;
+    const answerAtom = challengeDescriptor.atomValue;
     assert && assert( this.challengeTypeToInstanceMap.has( challengeType ),
       `No challenge of type ${challengeType} exists in the game` );
-    return this.challengeTypeToInstanceMap.get( challengeType )!;
+
+    const challenge = this.challengeTypeToInstanceMap.get( challengeType )!;
+    challenge.setCorrectAnswer( answerAtom );
+    return challenge;
   }
 
   /**

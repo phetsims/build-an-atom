@@ -7,12 +7,8 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import TEmitter from '../../../../axon/js/TEmitter.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -34,12 +30,6 @@ class GameLevel extends PhetioObject {
 
   // The descriptors for the challenges in this level, used to obtain and configure the challenges.
   public challengeDescriptors: ChallengeDescriptor[] = [];
-
-  // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
-  public readonly challengeNumberProperty: TReadOnlyProperty<number>;
-
-  // Emitter for when the level is updated, used to notify the view and update the challenge
-  public readonly levelUpdatedEmitter: TEmitter;
 
   public readonly bestScoreProperty: Property<number>;
   public readonly bestTimeProperty: Property<number>;
@@ -65,13 +55,9 @@ class GameLevel extends PhetioObject {
 
     super( options );
 
-    this.levelUpdatedEmitter = new Emitter();
-
     this.challenges = [];
     this.generateChallenges();
     this.generateChallengeDescriptors();
-
-    this.challengeNumberProperty = new DerivedProperty( [ this.model.challengeNumberProperty ], ( challengeNumber: number ) => challengeNumber );
 
     this.bestScoreProperty = new NumberProperty( 0, {
       numberType: 'Integer',
@@ -94,23 +80,6 @@ class GameLevel extends PhetioObject {
       phetioDocumentation: 'Whether the time for this game is a new best time.',
       phetioReadOnly: true
     } );
-
-    // When the challenge number changes,update the model's challenge number property to display it in the status bar.
-    this.challengeNumberProperty.link( () => {
-      this.levelUpdatedEmitter.emit();
-      model.stateChangeEmitter.emit();
-    } );
-
-    this.levelUpdatedEmitter.addListener( () => {
-      const challengeNumber = this.challengeNumberProperty.value;
-      if ( challengeNumber <= this.challenges.length ) {
-        // TODO: See https://github.com/phetsims/build-an-atom/issues/257.  This does not set the answer value for the
-        //       challenge because that isn't supported yet.  That will need to be added later.
-        this.model.challengeProperty.value = model.getChallengeByType(
-          this.challengeDescriptors[ this.challengeNumberProperty.value - 1 ].type
-        );
-      }
-    } );
   }
 
   public reset(): void {
@@ -124,7 +93,6 @@ class GameLevel extends PhetioObject {
    */
   public generateChallenges(): void {
     this.challenges = ChallengeSetFactory.createChallengeSet( this.index, this.model, this.tandem );
-    this.levelUpdatedEmitter.emit();
   }
 
   /**
@@ -132,7 +100,6 @@ class GameLevel extends PhetioObject {
    */
   public generateChallengeDescriptors(): void {
     this.challengeDescriptors = ChallengeSetFactory.createChallengeDescriptorSet( this.index, this.model, this.tandem );
-    this.levelUpdatedEmitter.emit();
   }
 
   /**
@@ -168,7 +135,7 @@ class GameLevel extends PhetioObject {
   }
 
   public isLastChallenge(): boolean {
-    return this.challengeNumberProperty.value === this.challenges.length;
+    return this.model.challengeNumberProperty.value === this.challenges.length;
   }
 
   /**

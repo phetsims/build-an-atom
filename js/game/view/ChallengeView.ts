@@ -48,6 +48,9 @@ class ChallengeView extends Node {
   public readonly displayCorrectAnswerButton: TextPushButton;
   public readonly handleStateChange: ( state: GameState ) => void;
 
+  // TODO: Shoot, we're going to have to implement this in the view subclases. https://github.com/phetsims/build-an-atom/issues/280
+  // Abstract method that subclasses must implement to set the correct answer for the challenge.
+  // public setCorrectAnswer: ( answerAtom: AnswerAtom ) => void;
 
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super();
