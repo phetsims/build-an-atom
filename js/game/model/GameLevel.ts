@@ -56,7 +56,6 @@ class GameLevel extends PhetioObject {
     super( options );
 
     this.challenges = [];
-    this.generateChallenges();
     this.generateChallengeDescriptors();
 
     this.bestScoreProperty = new NumberProperty( 0, {
@@ -85,14 +84,6 @@ class GameLevel extends PhetioObject {
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
-  }
-
-  /**
-   * Generates a new set of challenges for this level.
-   * This is called when the level is first created, and can be called again for PhET-iO randomness purposes.
-   */
-  public generateChallenges(): void {
-    this.challenges = ChallengeSetFactory.createChallengeSet( this.index, this.model, this.tandem );
   }
 
   /**

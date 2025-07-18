@@ -233,7 +233,7 @@ class GameModel implements TModel {
     this.randomSeedProperty.lazyLink( seed => {
       this.random.setSeed( seed );
       this.levels.forEach( level => {
-        level.generateChallenges();
+        level.generateChallengeDescriptors();
       } );
     } );
 
