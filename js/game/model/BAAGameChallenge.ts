@@ -45,6 +45,11 @@ abstract class BAAGameChallenge {
   public constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
 
     this.challengeType = challengeType;
+
+    // Converts challenge-type casing to tandemCasing
+    // e.g. 'counts-to-symbol-mass-challenge' -> 'CountsToSymbolMassChallenge'
+    const tandemName = challengeType.replace( /-([a-z])/g, ( match, letter ) => letter.toUpperCase() );
+    tandem = tandem.createTandem( tandemName );
     this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
     this.model = model;
 
