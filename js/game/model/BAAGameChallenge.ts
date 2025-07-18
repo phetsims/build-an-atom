@@ -50,7 +50,10 @@ abstract class BAAGameChallenge {
     // e.g. 'counts-to-symbol-mass-challenge' -> 'CountsToSymbolMassChallenge'
     const tandemName = challengeType.replace( /-([a-z])/g, ( match, letter ) => letter.toUpperCase() );
     tandem = tandem.createTandem( tandemName );
-    this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
+    this.answerAtom = new AnswerAtom( {
+      protonCount: 1,
+      tandem: tandem.createTandem( 'answerAtom' )
+    } );
     this.model = model;
 
     this.isCorrectAtomProperty = new BooleanProperty( false, {
@@ -69,6 +72,10 @@ abstract class BAAGameChallenge {
 
   public tryAgain(): void {
     this.model.gameStateProperty.set( 'presentingChallenge' );
+  }
+
+  public setCorrectAnswer( answerAtom: AnswerAtom ): void {
+    this.answerAtom.set( answerAtom );
   }
 
   public next(): void {
