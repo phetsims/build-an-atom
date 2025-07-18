@@ -38,9 +38,6 @@ class GameLevel extends PhetioObject {
   // The current challenge in this.challenges, using 1-based index, as shown in the Game status bar.
   public readonly challengeNumberProperty: TReadOnlyProperty<number>;
 
-  // Current challenge to be solved
-  public readonly challengeProperty: Property<BAAGameChallenge>;
-
   // Emitter for when the level is updated, used to notify the view and update the challenge
   public readonly levelUpdatedEmitter: TEmitter;
 
@@ -73,12 +70,6 @@ class GameLevel extends PhetioObject {
     this.challenges = [];
     this.generateChallenges();
     this.generateChallengeDescriptors();
-
-    // Initialize the challenge property with the first challenge in the set.
-    // TODO: See https://github.com/phetsims/build-an-atom/issues/257.  This does not set the answer value for the
-    //       challenge because that isn't supported yet.  That will need to be added later.
-    const initialChallenge = model.getChallengeByType( this.challengeDescriptors[ 0 ].type );
-    this.challengeProperty = new Property( initialChallenge );
 
     this.challengeNumberProperty = new DerivedProperty( [ this.model.challengeNumberProperty ], ( challengeNumber: number ) => challengeNumber );
 
@@ -115,7 +106,7 @@ class GameLevel extends PhetioObject {
       if ( challengeNumber <= this.challenges.length ) {
         // TODO: See https://github.com/phetsims/build-an-atom/issues/257.  This does not set the answer value for the
         //       challenge because that isn't supported yet.  That will need to be added later.
-        this.challengeProperty.value = model.getChallengeByType(
+        this.model.challengeProperty.value = model.getChallengeByType(
           this.challengeDescriptors[ this.challengeNumberProperty.value - 1 ].type
         );
       }
@@ -125,19 +116,6 @@ class GameLevel extends PhetioObject {
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
-  }
-
-  /**
-   * When setting PhET-iO state, we can call this function to impose the level's challenge on the model.
-   * TODO: This looks really weird to me (jbphet) and we should review before phet-io is finalized.  See https://github.com/phetsims/build-an-atom/issues/257.
-   *       Why is this method setting all sorts of values in the model?  Why are there two different emitters that are
-   *       fired?  Why is a property in the model being set to the value in this level?  Lots of questions.
-   */
-  public imposeLevel(): void {
-    this.levelUpdatedEmitter.emit();
-    this.model.challengeProperty.set( this.challengeProperty.value );
-    this.model.gameStateProperty.set( 'presentingChallenge' );
-    this.model.stateChangeEmitter.emit();
   }
 
   /**

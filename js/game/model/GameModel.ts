@@ -233,10 +233,6 @@ class GameModel implements TModel {
       if ( !isSettingPhetioStateProperty.value ) {
         level ? this.startLevel() : this.startOver();
       }
-      else {
-        // TODO: This is a workaround due to not having IOTypes for Challenges yet! https://github.com/phetsims/build-an-atom/issues/257
-        level && level.imposeLevel();
-      }
       this.stateChangeEmitter.emit();
     } );
 
@@ -272,7 +268,8 @@ class GameModel implements TModel {
     const level = this.levelProperty.value!;
     assert && assert( level, 'Cannot start the level if no level is selected' );
 
-    this.challengeProperty.set( level.challengeProperty.value );
+    level.levelUpdatedEmitter.emit();
+
     this.gameStateProperty.set( 'presentingChallenge' );
 
     // Start the timer.
@@ -291,7 +288,7 @@ class GameModel implements TModel {
 
     this.attemptsProperty.value++;
     const attempts = this.attemptsProperty.value;
-    const challenge = level.challengeProperty.value;
+    const challenge = this.challengeProperty.value!;
     const correctAnswer = challenge.isCorrectAtomProperty.value;
 
     const points = attempts === 1 ?
@@ -328,7 +325,6 @@ class GameModel implements TModel {
     if ( !level.isLastChallenge() ) {
       this.attemptsProperty.value = 0;
       this.challengeNumberProperty.value++;
-      this.challengeProperty.set( level.challengeProperty.value );
       this.gameStateProperty.set( 'presentingChallenge' );
     }
     else {
