@@ -17,12 +17,8 @@ import GameModel from './GameModel.js';
 
 class CountsToSymbolAllChallenge extends CountsToSymbolChallenge {
 
-  public constructor(
-    buildAnAtomGameModel: GameModel,
-    challengeType: string,
-    tandem: Tandem
-  ) {
-    super( buildAnAtomGameModel, challengeType, tandem, true, true, true );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'counts-to-symbol-all', tandem, true, true, true );
   }
 
   /**

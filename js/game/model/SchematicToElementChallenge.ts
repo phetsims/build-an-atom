@@ -17,8 +17,8 @@ import ToElementChallenge from './ToElementChallenge.js';
 
 class SchematicToElementChallenge extends ToElementChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, challengeType: string, tandem: Tandem ) {
-    super( buildAnAtomGameModel, challengeType, tandem );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'schematic-to-element', tandem );
   }
 
   /**

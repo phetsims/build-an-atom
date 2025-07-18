@@ -17,8 +17,8 @@ import ToElementChallenge from './ToElementChallenge.js';
 
 class CountsToElementChallenge extends ToElementChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, challengeType: string, tandem: Tandem ) {
-    super( buildAnAtomGameModel, challengeType, tandem );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'counts-to-element', tandem );
   }
 
   /**

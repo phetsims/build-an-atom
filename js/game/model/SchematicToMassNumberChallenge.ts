@@ -17,8 +17,8 @@ import GameModel from './GameModel.js';
 
 class SchematicToMassNumberChallenge extends BAAGameChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, challengeType: string, tandem: Tandem ) {
-    super( buildAnAtomGameModel, challengeType, tandem );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'schematic-to-mass', tandem );
   }
 
   /**

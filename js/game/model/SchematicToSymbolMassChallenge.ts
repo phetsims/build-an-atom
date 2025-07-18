@@ -16,12 +16,8 @@ import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 
 class SchematicToSymbolMassChallenge extends SchematicToSymbolChallenge {
 
-  public constructor(
-    buildAnAtomGameModel: GameModel,
-    challengeType: string,
-    tandem: Tandem
-  ) {
-    super( buildAnAtomGameModel, challengeType, tandem, false, true, false );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'schematic-to-symbol-mass-number', tandem, false, true, false );
   }
 
   /**

@@ -17,12 +17,18 @@ import BAAGameChallenge from './BAAGameChallenge.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
 import CountsToElementChallenge from './CountsToElementChallenge.js';
 import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
-import CountsToSymbolChallenge from './CountsToSymbolChallenge.js';
+import CountsToSymbolAllChallenge from './CountsToSymbolAllChallenge.js';
+import CountsToSymbolChargeChallenge from './CountsToSymbolChargeChallenge.js';
+import CountsToSymbolMassChallenge from './CountsToSymbolMassChallenge.js';
+import CountsToSymbolProtonCountChallenge from './CountsToSymbolProtonCountChallenge.js';
 import GameModel from './GameModel.js';
 import SchematicToChargeChallenge from './SchematicToChargeChallenge.js';
 import SchematicToElementChallenge from './SchematicToElementChallenge.js';
 import SchematicToMassNumberChallenge from './SchematicToMassNumberChallenge.js';
-import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
+import SchematicToSymbolAllChallenge from './SchematicToSymbolAllChallenge.js';
+import SchematicToSymbolChargeChallenge from './SchematicToSymbolChargeChallenge.js';
+import SchematicToSymbolMassChallenge from './SchematicToSymbolMassChallenge.js';
+import SchematicToSymbolProtonCountChallenge from './SchematicToSymbolProtonCountChallenge.js';
 import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
 import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
 
@@ -187,37 +193,37 @@ export default class ChallengeSetFactory {
     tandem = Tandem.OPT_OUT;
     switch( type ) {
       case 'counts-to-element':
-        return new CountsToElementChallenge( model, type, tandem );
+        return new CountsToElementChallenge( model, tandem );
       case 'counts-to-charge':
-        return new CountsToChargeChallenge( model, type, tandem );
+        return new CountsToChargeChallenge( model, tandem );
       case 'counts-to-mass':
-        return new CountsToMassNumberChallenge( model, type, tandem );
+        return new CountsToMassNumberChallenge( model, tandem );
       case 'counts-to-symbol-all':
-        return new CountsToSymbolChallenge( model, type, tandem, true, true, true );
+        return new CountsToSymbolAllChallenge( model, tandem );
       case 'counts-to-symbol-charge':
-        return new CountsToSymbolChallenge( model, type, tandem, false, false, true );
+        return new CountsToSymbolChargeChallenge( model, tandem );
       case 'counts-to-symbol-mass':
-        return new CountsToSymbolChallenge( model, type, tandem, false, true, false );
+        return new CountsToSymbolMassChallenge( model, tandem );
       case 'counts-to-symbol-proton-count':
-        return new CountsToSymbolChallenge( model, type, tandem, true, false, false );
+        return new CountsToSymbolProtonCountChallenge( model, tandem );
       case 'schematic-to-element':
-        return new SchematicToElementChallenge( model, type, tandem );
+        return new SchematicToElementChallenge( model, tandem );
       case 'schematic-to-charge':
-        return new SchematicToChargeChallenge( model, type, tandem );
+        return new SchematicToChargeChallenge( model, tandem );
       case 'schematic-to-mass':
-        return new SchematicToMassNumberChallenge( model, type, tandem );
+        return new SchematicToMassNumberChallenge( model, tandem );
       case 'schematic-to-symbol-all':
-        return new SchematicToSymbolChallenge( model, type, tandem, true, true, true );
+        return new SchematicToSymbolAllChallenge( model, tandem );
       case 'schematic-to-symbol-charge':
-        return new SchematicToSymbolChallenge( model, type, tandem, false, false, true );
+        return new SchematicToSymbolChargeChallenge( model, tandem );
       case 'schematic-to-symbol-mass-number':
-        return new SchematicToSymbolChallenge( model, type, tandem, false, true, false );
+        return new SchematicToSymbolMassChallenge( model, tandem );
       case 'schematic-to-symbol-proton-count':
-        return new SchematicToSymbolChallenge( model, type, tandem, true, false, false );
+        return new SchematicToSymbolProtonCountChallenge( model, tandem );
       case 'symbol-to-counts':
-        return new SymbolToCountsChallenge( model, type, tandem );
+        return new SymbolToCountsChallenge( model, tandem );
       case 'symbol-to-schematic':
-        return new SymbolToSchematicChallenge( model, type, tandem );
+        return new SymbolToSchematicChallenge( model, tandem );
       default:
         throw new Error( `Unknown challenge type: ${type}` );
     }

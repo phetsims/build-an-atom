@@ -16,12 +16,8 @@ import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 
 class SchematicToSymbolProtonCountChallenge extends SchematicToSymbolChallenge {
 
-  public constructor(
-    buildAnAtomGameModel: GameModel,
-    challengeType: string,
-    tandem: Tandem
-  ) {
-    super( buildAnAtomGameModel, challengeType, tandem, true, false, false );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'schematic-to-symbol-proton-count', tandem, true, false, false );
   }
 
   /**

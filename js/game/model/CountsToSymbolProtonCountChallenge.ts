@@ -16,12 +16,8 @@ import GameModel from './GameModel.js';
 
 class CountsToSymbolProtonCountChallenge extends CountsToSymbolChallenge {
 
-  public constructor(
-    buildAnAtomGameModel: GameModel,
-    challengeType: string,
-    tandem: Tandem
-  ) {
-    super( buildAnAtomGameModel, challengeType, tandem, true, false, false );
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, 'counts-to-symbol-proton-count', tandem, true, false, false );
   }
 
   /**

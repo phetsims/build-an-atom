@@ -145,22 +145,22 @@ class GameModel implements TModel {
     const challengesTandem = tandem.createTandem( 'challenges' );
     // Create the challenge type to instance map, which will be used to grab the correct challenge type when needed.
     this.challengeTypeToInstanceMap = new Map<ChallengeType, BAAGameChallenge>( [
-      [ 'counts-to-element', new CountsToElementChallenge( this, 'counts-to-element', challengesTandem ) ],
-      [ 'counts-to-charge', new CountsToChargeChallenge( this, 'counts-to-charge', challengesTandem ) ],
-      [ 'counts-to-mass', new CountsToMassNumberChallenge( this, 'counts-to-mass', challengesTandem ) ],
-      [ 'counts-to-symbol-all', new CountsToSymbolAllChallenge( this, 'counts-to-symbol-all', challengesTandem ) ],
-      [ 'counts-to-symbol-charge', new CountsToSymbolChargeChallenge( this, 'counts-to-symbol-charge', challengesTandem ) ],
-      [ 'counts-to-symbol-mass', new CountsToSymbolMassChallenge( this, 'counts-to-symbol-mass', challengesTandem ) ],
-      [ 'counts-to-symbol-proton-count', new CountsToSymbolProtonCountChallenge( this, 'counts-to-symbol-proton-count', challengesTandem ) ],
-      [ 'schematic-to-element', new SchematicToElementChallenge( this, 'schematic-to-element', challengesTandem ) ],
-      [ 'schematic-to-charge', new SchematicToChargeChallenge( this, 'schematic-to-charge', challengesTandem ) ],
-      [ 'schematic-to-mass', new SchematicToMassNumberChallenge( this, 'schematic-to-mass', challengesTandem ) ],
-      [ 'schematic-to-symbol-all', new SchematicToSymbolAllChallenge( this, 'schematic-to-symbol-all', challengesTandem ) ],
-      [ 'schematic-to-symbol-charge', new SchematicToSymbolChargeChallenge( this, 'schematic-to-symbol-charge', challengesTandem ) ],
-      [ 'schematic-to-symbol-mass-number', new SchematicToSymbolMassChallenge( this, 'schematic-to-symbol-mass-number', challengesTandem ) ],
-      [ 'schematic-to-symbol-proton-count', new SchematicToSymbolProtonCountChallenge( this, 'schematic-to-symbol-proton-count', challengesTandem ) ],
-      [ 'symbol-to-counts', new SymbolToCountsChallenge( this, 'symbol-to-counts', challengesTandem ) ],
-      [ 'symbol-to-schematic', new SymbolToSchematicChallenge( this, 'symbol-to-schematic', challengesTandem ) ]
+      [ 'counts-to-element', new CountsToElementChallenge( this, challengesTandem ) ],
+      [ 'counts-to-charge', new CountsToChargeChallenge( this, challengesTandem ) ],
+      [ 'counts-to-mass', new CountsToMassNumberChallenge( this, challengesTandem ) ],
+      [ 'counts-to-symbol-all', new CountsToSymbolAllChallenge( this, challengesTandem ) ],
+      [ 'counts-to-symbol-charge', new CountsToSymbolChargeChallenge( this, challengesTandem ) ],
+      [ 'counts-to-symbol-mass', new CountsToSymbolMassChallenge( this, challengesTandem ) ],
+      [ 'counts-to-symbol-proton-count', new CountsToSymbolProtonCountChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-element', new SchematicToElementChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-charge', new SchematicToChargeChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-mass', new SchematicToMassNumberChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-symbol-all', new SchematicToSymbolAllChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-symbol-charge', new SchematicToSymbolChargeChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-symbol-mass-number', new SchematicToSymbolMassChallenge( this, challengesTandem ) ],
+      [ 'schematic-to-symbol-proton-count', new SchematicToSymbolProtonCountChallenge( this, challengesTandem ) ],
+      [ 'symbol-to-counts', new SymbolToCountsChallenge( this, challengesTandem ) ],
+      [ 'symbol-to-schematic', new SymbolToSchematicChallenge( this, challengesTandem ) ]
     ] );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
