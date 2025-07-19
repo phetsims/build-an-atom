@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2025, University of Colorado Boulder
 
 /**
  * Class for game challenge where the user sees a Schematic Atom and
