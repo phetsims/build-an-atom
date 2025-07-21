@@ -69,6 +69,10 @@ class CountsToSymbolChallengeView extends ChallengeView {
     this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
   }
 
+  public override reset(): void {
+    this.interactiveSymbolNode.reset();
+  }
+
   public override dispose(): void {
     this.disposeCountsToSymbolChallengeView();
     super.dispose();

@@ -73,6 +73,10 @@ class SchematicToSymbolChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
+  public override reset(): void {
+    this.interactiveSymbolNode.reset();
+  }
+
   public override displayCorrectAnswer(): void {
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();

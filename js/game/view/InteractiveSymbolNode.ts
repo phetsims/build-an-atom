@@ -7,7 +7,9 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
@@ -17,7 +19,7 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -44,9 +46,11 @@ class InteractiveSymbolNode extends Node {
   public readonly massNumberProperty: NumberProperty;
   public readonly chargeProperty: NumberProperty;
 
+  private options: SelfOptions;
+
   private readonly disposeInteractiveSymbolNode: () => void;
 
-  public constructor( numberAtom: TNumberAtom, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
+  public constructor( numberAtom: NumberAtom, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
 
     const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( { // defaults
       interactiveProtonCount: false,
@@ -55,6 +59,8 @@ class InteractiveSymbolNode extends Node {
     }, providedOptions );
 
     super( options );
+
+    this.options = options;
 
     this.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' ),
@@ -68,6 +74,22 @@ class InteractiveSymbolNode extends Node {
       tandem: tandem.createTandem( 'chargeProperty' ),
       numberType: 'Integer'
     } );
+
+    if ( !options.interactiveProtonCount ) {
+      numberAtom.protonCountProperty.link( protonCount => {
+        this.protonCountProperty.value = protonCount;
+      } );
+    }
+    if ( !options.interactiveMassNumber ) {
+      numberAtom.massNumberProperty.link( massNumber => {
+        this.massNumberProperty.value = massNumber;
+      } );
+    }
+    if ( !options.interactiveCharge ) {
+      numberAtom.chargeProperty.link( charge => {
+        this.chargeProperty.value = charge;
+      } );
+    }
 
     // Add the bounding box, which is also the root node for everything else
     // that comprises this node.
@@ -104,6 +126,10 @@ class InteractiveSymbolNode extends Node {
       elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
     };
 
+    numberAtom.protonCountProperty.link( protonCount => {
+      updateElement( protonCount );
+    } );
+
     // So that the interactive and non-interactive numbers are vertically
     // aligned, we need to create a dummy number and look at its height.
     const interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
@@ -122,7 +148,7 @@ class InteractiveSymbolNode extends Node {
       this.protonCountProperty.link( updateElement );
     }
     else {
-      const protonCountDisplay = new Text( numberAtom.protonCountProperty.get(), {
+      const protonCountDisplay = new Text( new DerivedProperty( [ this.protonCountProperty ], protons => protons.toString() ), {
         font: NUMBER_FONT,
         fill: PhetColorScheme.RED_COLORBLIND,
         left: NUMBER_INSET,
@@ -144,7 +170,7 @@ class InteractiveSymbolNode extends Node {
         } ) );
     }
     else {
-      const massNumberDisplay = new Text( numberAtom.massNumberProperty.get(), {
+      const massNumberDisplay = new Text( new DerivedProperty( [ this.massNumberProperty ], massNumber => massNumber.toString() ), {
         font: NUMBER_FONT,
         fill: 'black',
         left: NUMBER_INSET,
@@ -167,15 +193,19 @@ class InteractiveSymbolNode extends Node {
         } ) );
     }
     else {
-      const charge = numberAtom.chargeProperty.value;
-      const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
-      const chargeDisplay = new Text( `${Math.abs( charge ).toString()}${chargeSign}`, {
+      const displayedTextProperty = new Property<string>( '' );
+      const chargeDisplay = new Text( displayedTextProperty, {
         font: NUMBER_FONT,
-        fill: ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() ),
-        right: SYMBOL_BOX_WIDTH - NUMBER_INSET,
         top: NUMBER_INSET
       } );
       boundingBox.addChild( chargeDisplay );
+
+      this.chargeProperty.link( charge => {
+        const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
+        displayedTextProperty.value = `${Math.abs( charge ).toString()}${chargeSign}`;
+        chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() );
+        chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
+      } );
     }
 
     this.disposeInteractiveSymbolNode = () => {
@@ -190,9 +220,9 @@ class InteractiveSymbolNode extends Node {
   }
 
   public reset(): void {
-    this.protonCountProperty.reset();
-    this.massNumberProperty.reset();
-    this.chargeProperty.reset();
+    this.options.interactiveProtonCount && this.protonCountProperty.reset();
+    this.options.interactiveMassNumber && this.massNumberProperty.reset();
+    this.options.interactiveCharge && this.chargeProperty.reset();
   }
 
   public override dispose(): void {
