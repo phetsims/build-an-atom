@@ -15,7 +15,6 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAGameChallenge from './BAAGameChallenge.js';
 import ChallengeSetFactory, { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import GameModel from './GameModel.js';
 
@@ -24,9 +23,6 @@ type SelfOptions = EmptySelfOptions;
 type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 class GameLevel extends PhetioObject {
-
-  // The collection of challenges for this level.
-  public challenges: BAAGameChallenge[];
 
   // The descriptors for the challenges in this level, used to obtain and configure the challenges.
   public challengeDescriptors: ChallengeDescriptor[] = [];
@@ -55,7 +51,6 @@ class GameLevel extends PhetioObject {
 
     super( options );
 
-    this.challenges = [];
     this.generateChallengeDescriptors();
 
     this.bestScoreProperty = new NumberProperty( 0, {
@@ -126,7 +121,7 @@ class GameLevel extends PhetioObject {
   }
 
   public isLastChallenge(): boolean {
-    return this.model.challengeNumberProperty.value === this.challenges.length;
+    return this.model.challengeNumberProperty.value === this.challengeDescriptors.length;
   }
 
   /**

@@ -78,6 +78,9 @@ class GameModel implements TModel {
   // The current state of the game, which is used to determine what the view should display.
   // Usually it ranges between 'choosingLevel', 'levelCompleted' and individual challenges within a level.
   public readonly gameStateProperty: Property<GameState>;
+
+  // TODO: Do we really need this?  We (AV and JB) are working on making the state changes more explicit, and when this
+  //       effort is complete, this may not be needed. See https://github.com/phetsims/build-an-atom/issues/280.
   public readonly stateChangeEmitter: TEmitter;
 
   // All the levels in the game
@@ -250,21 +253,12 @@ class GameModel implements TModel {
     // Reset the attempts and score.
     this.resetToStart();
 
-    // Set the challenge back to the first one.
-    this.challengeNumberProperty.reset();
-    const challengeNumber = this.challengeNumberProperty.value;
-
     const level = this.levelProperty.value!;
     assert && assert( level, 'Cannot start the level if no level is selected' );
 
-    if ( challengeNumber <= level.challengeDescriptors.length ) {
-      this.challengeProperty.value = this.getChallengeByDescriptor(
-        level.challengeDescriptors[ challengeNumber - 1 ]
-      );
-    }
-
-    this.gameStateProperty.set( 'presentingChallenge' );
-    this.stateChangeEmitter.emit();
+    // Set the challenge back to the first one.
+    this.challengeNumberProperty.reset();
+    this.setChallenge( this.challengeNumberProperty.value );
 
     // Start the timer.
     if ( this.timerEnabledProperty.value ) {
@@ -317,12 +311,9 @@ class GameModel implements TModel {
     assert && assert( level );
 
     if ( !level.isLastChallenge() ) {
-      this.attemptsProperty.value = 0;
+      // Increment the challenge number and set the next challenge.
       this.challengeNumberProperty.value++;
-      this.challengeProperty.value = this.getChallengeByDescriptor(
-        level.challengeDescriptors[ this.challengeNumberProperty.value - 1 ]
-      );
-      this.gameStateProperty.set( 'presentingChallenge' );
+      this.setChallenge( this.challengeNumberProperty.value );
     }
     else {
       this.gameStateProperty.set( 'levelCompleted' );
@@ -405,6 +396,32 @@ class GameModel implements TModel {
     const challenge = this.challengeTypeToInstanceMap.get( challengeType )!;
     challenge.setCorrectAnswer( answerAtom );
     return challenge;
+  }
+
+  private setChallenge( challengeNumber: number ): void {
+
+    const level = this.levelProperty.value!;
+    assert && assert( level, 'Can\'t set next challenge unless a level is selected.' );
+
+    // Reset the number of attempts made.
+    this.attemptsProperty.value = 0;
+
+    // Increment the challenge number and get the next challenge.
+    const nextChallengeDescriptor = level.challengeDescriptors[ challengeNumber - 1 ];
+    const nextChallenge = this.getChallengeByDescriptor( nextChallengeDescriptor );
+
+    // Configure the next challenge.
+    nextChallenge.setCorrectAnswer( nextChallengeDescriptor.atomValue );
+
+    // Set the challenge property to this challenge.
+    this.challengeProperty.value = this.getChallengeByDescriptor(
+      level.challengeDescriptors[ this.challengeNumberProperty.value - 1 ]
+    );
+
+    // Set the game state to presenting a challenge.
+    this.gameStateProperty.set( 'presentingChallenge' );
+
+    this.stateChangeEmitter.emit();
   }
 
   /**

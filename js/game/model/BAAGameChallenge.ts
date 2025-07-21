@@ -13,6 +13,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from '../view/ChallengeView.js';
@@ -23,12 +24,10 @@ abstract class BAAGameChallenge {
 
   public readonly model: GameModel;
 
-  // Correct answer atom for this challenge, which the user is trying to guess.
-  public readonly answerAtom: AnswerAtom;
+  // Correct answer atom for this challenge, which the user is trying to deduce.
+  public readonly answerAtom: NumberAtom;
 
-  // The atom that the user submitted as their answer, or null if they haven't submitted an answer yet.
-  public submittedAtom: AnswerAtom | null = null;
-
+  // TODO: The way this works can probably be simplified.  See https://github.com/phetsims/build-an-atom/issues/280.
   // Derived property that indicates whether the submitted atom is correct.
   public isCorrectAtomProperty: Property<boolean>;
 
@@ -42,7 +41,7 @@ abstract class BAAGameChallenge {
   // The number of points that this challenge is worth, which is used to calculate the score.
   public pointValueProperty: TReadOnlyProperty<number>;
 
-  public constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
+  protected constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
 
     this.challengeType = challengeType;
 
@@ -50,7 +49,7 @@ abstract class BAAGameChallenge {
     // e.g. 'counts-to-symbol-mass-challenge' -> 'CountsToSymbolMassChallenge'
     const tandemName = challengeType.replace( /-([a-z])/g, ( match, letter ) => letter.toUpperCase() );
     tandem = tandem.createTandem( tandemName );
-    this.answerAtom = new AnswerAtom( {
+    this.answerAtom = new NumberAtom( {
       protonCount: 1,
       tandem: tandem.createTandem( 'answerAtom' )
     } );
@@ -74,7 +73,7 @@ abstract class BAAGameChallenge {
     this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
-  public setCorrectAnswer( answerAtom: AnswerAtom ): void {
+  public setCorrectAnswer( answerAtom: NumberAtom ): void {
     this.answerAtom.set( answerAtom );
   }
 

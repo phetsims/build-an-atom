@@ -2,21 +2,19 @@
 
 /**
  * Node that takes a number atom and displays a set of counts for the various
- * subatomic particles.  This is generally used when presenting a 'challenge'
+ * subatomic particles. This is generally used when presenting a 'challenge'
  * for the game.
  *
  * @author John Blanco
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
-import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
@@ -31,38 +29,51 @@ export type ParticleCountsNodeOptions = SelfOptions & NodeOptions;
 
 class ParticleCountsNode extends Node {
 
-  public constructor( numberAtom: TNumberAtom, options?: ParticleCountsNodeOptions ) {
+  public constructor( numberAtom: NumberAtom, options?: ParticleCountsNodeOptions ) {
 
     super( options );
-
-    // Since the original code used the deprecated StringUtils.format, we will use a derived property
-    // to support dynamic locale.
-    const derivedFormat = (
-      stringProperty: TReadOnlyProperty<string>,
-      value: number
-    ): TReadOnlyProperty<string> => {
-      return new DerivedProperty( [ stringProperty ], string => {
-        return StringUtils.format( string, value );
-      } );
-    };
 
     options = optionize<ParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
       font: new PhetFont( 24 )
     }, options );
-    const protonCountTitle = new Text( derivedFormat( BuildAnAtomStrings.protonsColonPatternStringProperty, numberAtom.protonCountProperty.get() ), {
-      font: options.font,
-      maxWidth: MAX_WIDTH
-    } );
+
+    const protonCountTitle = new Text(
+      new PatternStringProperty(
+        BuildAnAtomStrings.protonsColonPatternStringProperty,
+        { value: numberAtom.protonCountProperty },
+        { formatNames: [ 'value' ] }
+      ),
+      {
+        font: options.font,
+        maxWidth: MAX_WIDTH
+      }
+    );
     this.addChild( protonCountTitle );
-    const neutronCountTitle = new Text( derivedFormat( BuildAnAtomStrings.neutronsColonPatternStringProperty, numberAtom.neutronCountProperty.get() ), {
-      font: options.font,
-      maxWidth: MAX_WIDTH
-    } );
+
+    const neutronCountTitle = new Text(
+      new PatternStringProperty(
+        BuildAnAtomStrings.neutronsColonPatternStringProperty,
+        { value: numberAtom.neutronCountProperty },
+        { formatNames: [ 'value' ] }
+      ),
+      {
+        font: options.font,
+        maxWidth: MAX_WIDTH
+      }
+    );
     this.addChild( neutronCountTitle );
-    const electronCountTitle = new Text( derivedFormat( BuildAnAtomStrings.electronsColonPatternStringProperty, numberAtom.electronCountProperty.get() ), {
-      font: options.font,
-      maxWidth: MAX_WIDTH
-    } );
+
+    const electronCountTitle = new Text(
+      new PatternStringProperty(
+        BuildAnAtomStrings.electronsColonPatternStringProperty,
+        { value: numberAtom.electronCountProperty },
+        { formatNames: [ 'value' ] }
+      ),
+      {
+        font: options.font,
+        maxWidth: MAX_WIDTH
+      }
+    );
     this.addChild( electronCountTitle );
 
     // Layout - Line labels up on left edge, numbers on right edge.

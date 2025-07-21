@@ -9,6 +9,7 @@
  * @author John Blanco
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -30,21 +31,43 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.5 ),
-      0.8 );
-
-    // Add the schematic representation of the atom.
-    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
-      schematicToElementChallenge.answerAtom,
-      modelViewTransform,
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+      0.8
     );
-    this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
-    nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
-    nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
+    let nonInteractiveSchematicNode: NonInteractiveSchematicAtomNode | null = null;
+    Multilink.multilink(
+      [
+        schematicToElementChallenge.answerAtom.protonCountProperty,
+        schematicToElementChallenge.answerAtom.neutronCountProperty,
+        schematicToElementChallenge.answerAtom.electronCountProperty
+      ],
+      () => {
+
+        // Dispose the previous schematic node if it exists.
+        if ( nonInteractiveSchematicNode ) {
+          this.challengePresentationNode.removeChild( nonInteractiveSchematicNode );
+
+          // TODO: Why does attempting to dispose the node cause an error? See https://github.com/phetsims/build-an-atom/issues/280.
+          // if ( !nonInteractiveSchematicNode.isDisposed ) {
+          //   nonInteractiveSchematicNode.dispose();
+          // }
+        }
+
+        // Add the schematic representation of the atom.
+        nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+          schematicToElementChallenge.answerAtom,
+          modelViewTransform,
+          tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+        );
+        this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
+
+        nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
+        nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
+      }
+    );
 
     this.disposeSchematicToElementChallengeView = () => {
-      nonInteractiveSchematicNode.dispose();
+      nonInteractiveSchematicNode && nonInteractiveSchematicNode.dispose();
     };
   }
 

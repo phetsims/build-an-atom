@@ -7,6 +7,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
@@ -25,7 +26,7 @@ const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
 
 export type ChallengeDescriptor = {
   type: ChallengeType;
-  atomValue: AnswerAtom;
+  atomValue: NumberAtom;
 };
 
 export default class ChallengeSetFactory {

@@ -35,22 +35,32 @@ class AnswerAtom extends NumberAtom {
     this.neutralOrIon = options.neutralOrIon;
   }
 
-  public override equals( other: AnswerAtom ): boolean {
-    if ( this.neutralOrIon !== 'noSelection' ) {
-      return super.equals( other ) && this.neutralOrIon === other.neutralOrIon;
+  public override equals( other: NumberAtom | AnswerAtom ): boolean {
+    const particleCountsAreEqual = super.equals( other );
+    let neutralOrIonIsEqual;
+    if ( other instanceof AnswerAtom ) {
+
+      // If both are AnswerAtoms, we can compare the neutralOrIon property directly.
+      neutralOrIonIsEqual = this.neutralOrIon === other.neutralOrIon;
     }
     else {
-      return super.equals( other );
-    }
-  }
+      if ( this.neutralOrIon === 'noSelection' ) {
 
-  /**
-   * Sets the properties of this AnswerAtom to match the provided AnswerAtom.
-   */
-  public set( atom: AnswerAtom ): void {
-    this.protonCountProperty.set( atom.protonCountProperty.value );
-    this.neutronCountProperty.set( atom.neutronCountProperty.value );
-    this.electronCountProperty.set( atom.electronCountProperty.value );
+        // If no selection, we can't call it unequal.
+        neutralOrIonIsEqual = true;
+      }
+      else if ( this.neutralOrIon === 'ion' ) {
+
+        // If this is an ion, the charge of the other atom must be non-zero.
+        neutralOrIonIsEqual = other.chargeProperty.value !== 0;
+      }
+      else {
+        assert && assert( this.neutralOrIon === 'neutral', `unexpected value for neutralOrIon: ${this.neutralOrIon}` );
+        neutralOrIonIsEqual = other.chargeProperty.value === 0;
+      }
+    }
+
+   return particleCountsAreEqual && neutralOrIonIsEqual;
   }
 
   public reset(): void {
