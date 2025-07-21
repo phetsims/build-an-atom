@@ -48,10 +48,6 @@ class ChallengeView extends Node {
   public readonly displayCorrectAnswerButton: TextPushButton;
   public readonly handleStateChange: ( state: GameState ) => void;
 
-  // TODO: Shoot, we're going to have to implement this in the view subclases. https://github.com/phetsims/build-an-atom/issues/280
-  // Abstract method that subclasses must implement to set the correct answer for the challenge.
-  // public setCorrectAnswer: ( answerAtom: AnswerAtom ) => void;
-
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super();
     this.challenge = challenge;
@@ -211,23 +207,19 @@ class ChallengeView extends Node {
     faceNode.centerY = layoutBounds.height / 2;
   }
 
-  public override dispose(): void {
-    this.checkAnswerButton.dispose();
-    this.nextButton.dispose();
-    this.tryAgainButton.dispose();
-    this.displayCorrectAnswerButton.dispose();
-    super.dispose();
-  }
-
-  // Function to clear the user's answer, generally used when
-  // giving the user another chance to answer.  Must be implemented
-  // in subclasses if any action is desired.
-
   /**
    * Function to clear the user's answer, generally used when giving the user another chance to answer.  Must be
    * implemented in subclasses if any action is desired.
    */
   public clearAnswer(): void {
+    // no-op, implemented in subclass
+  }
+
+  /**
+   * Reset the challenge view to its initial state.  This is called when the challenge is initially presented to the
+   * user.  Must be implemented in subclasses if any action is desired.
+   */
+  public reset(): void {
     // no-op, implemented in subclass
   }
 
@@ -253,6 +245,14 @@ class ChallengeView extends Node {
       button.centerX = x;
       button.centerY = y;
     } );
+  }
+
+  public override dispose(): void {
+    this.checkAnswerButton.dispose();
+    this.nextButton.dispose();
+    this.tryAgainButton.dispose();
+    this.displayCorrectAnswerButton.dispose();
+    super.dispose();
   }
 }
 

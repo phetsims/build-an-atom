@@ -85,6 +85,10 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
   }
 
+  public override reset(): void {
+    this.massNumberAnswerProperty.reset();
+  }
+
   public override dispose(): void {
     this.disposeCountsToMassNumberChallengeView();
     super.dispose();

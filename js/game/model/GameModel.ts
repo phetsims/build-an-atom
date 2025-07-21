@@ -98,12 +98,8 @@ class GameModel implements TModel {
   // The current challenge that is being played.
   public readonly challengeProperty: Property<BAAGameChallenge | null>;
 
-  // A map of the challenge types to instances of those types.  We create one instance of each challenge type and then
-  // reuse them to avoid creating new instances every time a challenge is played, since this works better for phet-io.
-  private readonly challengeTypeToInstanceMap: Map<ChallengeType, BAAGameChallenge>;
-
   // The number of attempts the user has made at solving the current challenge.
-  private readonly attemptsProperty: Property<number>;
+  public readonly attemptsProperty: Property<number>;
 
   // The score for the current level that is being played.
   public readonly scoreProperty: Property<number>;
@@ -116,6 +112,10 @@ class GameModel implements TModel {
 
   // The number of points that this challenge is worth, which is used to calculate the score.
   public pointValueProperty: Property<number>;
+
+  // A map of the challenge types to instances of those types.  We create one instance of each challenge type and then
+  // reuse them to avoid creating new instances every time a challenge is played, since this works better for phet-io.
+  private readonly challengeTypeToInstanceMap: Map<ChallengeType, BAAGameChallenge>;
 
   public constructor( tandem: Tandem ) {
 

@@ -146,8 +146,18 @@ class GameScreenView extends ScreenView {
           return;
         }
         else {
+
+          // Get the view for the current challenge.
           const challengeView = challengeViewSet.get( challenge )!;
+
+          // If this is the user's first attempt, reset the challenge view.
+          if ( gameModel.attemptsProperty.value === 0 ) {
+            challengeView.reset();
+          }
+
+          // Update the challenge view with the current state.
           challengeView.handleStateChange( state );
+
           this.levelNode.addChild( challengeView );
         }
         this.levelNode.addChild( scoreboard );
