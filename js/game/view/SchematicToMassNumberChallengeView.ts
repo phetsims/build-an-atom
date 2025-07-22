@@ -31,9 +31,6 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public constructor( schematicToMassNumberChallenge: SchematicToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( schematicToMassNumberChallenge, layoutBounds, tandem );
 
     this.massNumberAnswerProperty = new NumberProperty( 0, {
@@ -109,6 +106,10 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+  }
+
+  public override reset(): void {
+    this.massNumberAnswerProperty.reset();
   }
 
   public override dispose(): void {

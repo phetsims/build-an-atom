@@ -32,9 +32,6 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
   public constructor( schematicToChargeChallenge: SchematicToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
-    // TODO: Temporarily setting tandem to OPT OUT for PhET-iO instrumentation of the view https://github.com/phetsims/build-an-atom/issues/276
-    tandem = Tandem.OPT_OUT;
-
     super( schematicToChargeChallenge, layoutBounds, tandem );
 
     this.chargeAnswerProperty = new NumberProperty( 0, {
@@ -108,6 +105,10 @@ class SchematicToChargeChallengeView extends ChallengeView {
       electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
+  }
+
+  public override reset(): void {
+    this.chargeAnswerProperty.reset();
   }
 
   public override displayCorrectAnswer(): void {
