@@ -11,7 +11,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
@@ -39,7 +39,6 @@ class ToElementChallengeView extends ChallengeView {
   protected readonly periodicTableAtom: NumberAtom;
   protected readonly periodicTable: PeriodicTableNode;
   protected readonly neutralOrIonProperty: Property<NeutralOrIon>;
-  protected readonly disposeToElementChallengeView: () => void;
 
   public constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -66,7 +65,7 @@ class ToElementChallengeView extends ChallengeView {
     // Challenge title
     const challengeTitle = new Text( BuildAnAtomStrings.findTheElementStringProperty, {
       font: TITLE_FONT,
-      maxWidth: this.periodicTable.width
+      maxWidth: this.periodicTable.width * 0.9
     } );
     this.challengePresentationNode.addChild( challengeTitle );
 
@@ -91,57 +90,38 @@ class ToElementChallengeView extends ChallengeView {
       radius: 8,
       tandem: radioButtonTandems.createTandem( 'ionRadioButton' )
     } );
-    const neutralAtomVersusIonQuestion = new Node();
-    neutralAtomVersusIonQuestion.addChild( neutralVersusIonPrompt );
-    neutralAtomRadioButton.left = neutralVersusIonPrompt.right + 10;
-    neutralAtomRadioButton.centerY = neutralVersusIonPrompt.centerY;
-    neutralAtomVersusIonQuestion.addChild( neutralAtomRadioButton );
-    ionRadioButton.left = neutralAtomVersusIonQuestion.right + 10;
-    ionRadioButton.centerY = neutralVersusIonPrompt.centerY;
-    neutralAtomVersusIonQuestion.addChild( ionRadioButton );
+    const neutralAtomVersusIonQuestion = new HBox( {
+      children: [ neutralVersusIonPrompt, neutralAtomRadioButton, ionRadioButton ],
+      spacing: 10
+    } );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    const updateNeutralAtomVersusIonQuestionVisibility = ( protonCount: number ) => {
-      // Once the user has selected an element, make the ion question visible.
+    // If the proton count is 0, then the user cannot select "neutral" or "ion".
+    this.periodicTableAtom.protonCountProperty.link( protonCount => {
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
-    };
-
-    this.periodicTableAtom.protonCountProperty.link( updateNeutralAtomVersusIonQuestionVisibility );
+    } );
 
     // Don't enable the "check answer" button until the user has answered the
     // "neutral vs. ion" question.
-
-    const updateCheckAnswerButton = ( neutralOrIon: NeutralOrIon ) => {
+    this.neutralOrIonProperty.link( ( neutralOrIon: NeutralOrIon ) => {
       this.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
       this.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
-    };
-
-    this.neutralOrIonProperty.link( updateCheckAnswerButton );
-
-    this.disposeToElementChallengeView = function() {
-      this.neutralOrIonProperty.unlink( updateCheckAnswerButton );
-      this.periodicTableAtom.protonCountProperty.unlink( updateNeutralAtomVersusIonQuestionVisibility );
-      this.periodicTableAtom.dispose();
-      this.periodicTable.dispose();
-      neutralAtomRadioButton.dispose();
-      ionRadioButton.dispose();
-      this.neutralOrIonProperty.dispose();
-    };
+    } );
 
     //--------------------------- Layout -------------------------------------
 
     this.periodicTable.right = layoutBounds.width - INSET;
     this.periodicTable.centerY = layoutBounds.height * 0.55;
 
-    const maxTitleWidth = this.periodicTable.width * 0.9;
-    if ( challengeTitle.width > maxTitleWidth ) {
-      challengeTitle.scale( maxTitleWidth / challengeTitle.width );
-    }
-    challengeTitle.centerX = this.periodicTable.centerX;
-    challengeTitle.bottom = this.periodicTable.top - 30; // Offset empirically determined.
+    challengeTitle.boundsProperty.link( () => {
+      challengeTitle.centerX = this.periodicTable.centerX;
+      challengeTitle.bottom = this.periodicTable.top - 30; // Offset empirically determined.
+    } );
 
-    neutralAtomVersusIonQuestion.centerX = this.periodicTable.centerX;
-    neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
+    neutralAtomVersusIonQuestion.boundsProperty.link( () => {
+      neutralAtomVersusIonQuestion.centerX = this.periodicTable.centerX;
+      neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
+    } );
   }
 
 
@@ -174,12 +154,6 @@ class ToElementChallengeView extends ChallengeView {
     this.periodicTableAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
     this.periodicTableAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
     this.neutralOrIonProperty.value = this.challenge.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
-  }
-
-
-  public override dispose(): void {
-    this.disposeToElementChallengeView();
-    super.dispose();
   }
 }
 

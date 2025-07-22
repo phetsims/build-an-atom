@@ -9,6 +9,8 @@
 import optionize from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
@@ -29,7 +31,6 @@ export type InteractiveParticleCountsNodeOptions = SelfOptions & WithRequired<No
 class InteractiveParticleCountsNode extends Node {
 
   public readonly answerAtom: AnswerAtom;
-  private disposeInteractiveParticlCountsNode: () => void;
 
   public constructor( providedOptions: InteractiveParticleCountsNodeOptions ) {
 
@@ -43,73 +44,64 @@ class InteractiveParticleCountsNode extends Node {
 
     this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
 
+
     const protonCountPrompt = new Text( BuildAnAtomStrings.protonsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    this.addChild( protonCountPrompt );
     const protonCountEntryNode = new NumberEntryNode(
       this.answerAtom.protonCountProperty,
       tandem.createTandem( 'protonCountEntryNode' ), {
         minValue: 0,
         maxValue: 99
       } );
-    this.addChild( protonCountEntryNode );
+    const protonRowNode = new HBox( {
+      children: [ protonCountPrompt, protonCountEntryNode ],
+      spacing: 10,
+      tandem: tandem.createTandem( 'protonRowNode' )
+    } );
 
     const neutronCountPrompt = new Text( BuildAnAtomStrings.neutronsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    this.addChild( neutronCountPrompt );
     const neutronCountEntryNode = new NumberEntryNode( this.answerAtom.neutronCountProperty,
       tandem.createTandem( 'neutronCountEntryNode' ), {
         minValue: 0,
         maxValue: 99
       } );
-    this.addChild( neutronCountEntryNode );
+    const neutronRowNode = new HBox( {
+      children: [ neutronCountPrompt, neutronCountEntryNode ],
+      spacing: 10,
+      tandem: tandem.createTandem( 'neutronRowNode' )
+    } );
 
     const electronCountPrompt = new Text( BuildAnAtomStrings.electronsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    this.addChild( electronCountPrompt );
     const electronCountEntryNode = new NumberEntryNode(
       this.answerAtom.electronCountProperty,
       tandem.createTandem( 'electronCountEntryNode' ), {
         minValue: 0,
         maxValue: 99
       } );
-    this.addChild( electronCountEntryNode );
+    const electronRowNode = new HBox( {
+      children: [ electronCountPrompt, electronCountEntryNode ],
+      spacing: 10,
+      tandem: tandem.createTandem( 'electronRowNode' )
+    } );
 
-    // Layout
-    const maxParticleLabelWidth = Math.max( Math.max( protonCountPrompt.width, neutronCountPrompt.width ), electronCountPrompt.width );
+    const particleCountsNode = new VBox( {
+      children: [ protonRowNode, neutronRowNode, electronRowNode ],
+      spacing: 20,
+      tandem: tandem.createTandem( 'particleCountsNode' ),
+      align: 'right'
+    } );
+    this.addChild( particleCountsNode );
 
-    const interLineSpacing = protonCountEntryNode.height; // Multiplier empirically determined.
-    protonCountPrompt.left = 0;
-    neutronCountPrompt.left = 0;
-    electronCountPrompt.left = 0;
-    protonCountEntryNode.top = 0;
-    neutronCountEntryNode.top = protonCountEntryNode.centerY + interLineSpacing;
-    electronCountEntryNode.top = neutronCountEntryNode.centerY + interLineSpacing;
-    protonCountPrompt.centerY = protonCountEntryNode.centerY;
-    neutronCountPrompt.centerY = neutronCountEntryNode.centerY;
-    electronCountPrompt.centerY = electronCountEntryNode.centerY;
-    protonCountEntryNode.left = maxParticleLabelWidth + protonCountPrompt.height;
-    neutronCountEntryNode.left = protonCountEntryNode.left;
-    electronCountEntryNode.left = protonCountEntryNode.left;
-
-    this.disposeInteractiveParticlCountsNode = () => {
-      electronCountEntryNode.dispose();
-      neutronCountEntryNode.dispose();
-      protonCountEntryNode.dispose();
-      this.answerAtom.dispose();
-    };
   }
 
-  public override dispose(): void {
-    this.disposeInteractiveParticlCountsNode();
-    super.dispose();
-  }
 
   public reset(): void {
     this.answerAtom.protonCountProperty.reset();

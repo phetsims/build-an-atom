@@ -19,7 +19,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 // constants
-const MAX_WIDTH = 280;
+const MAX_WIDTH = 200;
 
 type SelfOptions = {
   font?: Font | string;

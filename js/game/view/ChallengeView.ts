@@ -32,7 +32,7 @@ const tryAgainStringProperty = VegasStrings.tryAgainStringProperty;
 const BUTTON_FONT = new PhetFont( 20 );
 const BUTTON_FILL = new Color( 0, 255, 153 );
 const POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
-const BUTTON_MAX_WIDTH = 350;
+const BUTTON_MAX_WIDTH = 250;
 const BUTTON_TOUCH_AREA_DILATION = 8;
 
 class ChallengeView extends Node {
@@ -242,8 +242,10 @@ class ChallengeView extends Node {
    */
   public setButtonCenter( x: number, y: number ): void {
     this.buttons.forEach( button => {
-      button.centerX = x;
-      button.centerY = y;
+      button.boundsProperty.link( () => {
+        button.centerX = x;
+        button.centerY = y;
+      } );
     } );
   }
 
