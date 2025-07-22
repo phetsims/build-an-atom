@@ -63,9 +63,10 @@ class NonInteractiveSchematicAtomNode extends Node {
 
         // Remove excess particles.
         _.times( existingCount - targetCount, () => {
-          // TODO: Once working nominally, add asserts to check that there are particles to remove. See https://github.com/phetsims/build-an-atom/issues/280.
           const particleViewToRemove = existingParticleViews.pop();
+          assert && assert( particleViewToRemove, 'There should be a particle view to remove, why isn\'t there?' );
           const particleToRemove = particleViewToRemove!.particle;
+          assert && assert( particleViewToRemove, 'There should be a particle to remove, why isn\'t there?' );
           particleAtom.removeParticle( particleToRemove );
           particleLayer.removeChild( particleViewToRemove! );
           particleViews = particleViews.filter( pv => pv !== particleViewToRemove );
