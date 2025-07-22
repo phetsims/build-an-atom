@@ -110,6 +110,12 @@ class InteractiveParticleCountsNode extends Node {
     this.disposeInteractiveParticlCountsNode();
     super.dispose();
   }
+
+  public reset(): void {
+    this.answerAtom.protonCountProperty.reset();
+    this.answerAtom.neutronCountProperty.reset();
+    this.answerAtom.electronCountProperty.reset();
+  }
 }
 
 buildAnAtom.register( 'InteractiveParticleCountsNode', InteractiveParticleCountsNode );

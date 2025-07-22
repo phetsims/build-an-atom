@@ -302,6 +302,9 @@ class BuildAnAtomModel {
 
   public setAtomConfiguration( numberAtom: NumberAtom ): void {
 
+    // First reset the atom because sometimes the assigned particles are already displayed
+    this.reset();
+
     // Define a function for transferring particles from buckets to atom.
     const atomCenter = this.atom.positionProperty.get();
     const moveParticlesToAtom = (

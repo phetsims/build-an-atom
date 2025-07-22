@@ -75,6 +75,10 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
+  public override reset(): void {
+    this.challenge.buildAnAtomModel.reset();
+  }
+
   public override displayCorrectAnswer(): void {
     this.challenge.buildAnAtomModel.setAtomConfiguration( this.challenge.answerAtom );
   }

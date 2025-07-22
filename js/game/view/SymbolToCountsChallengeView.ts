@@ -60,6 +60,10 @@ class SymbolToCountsChallengeView extends ChallengeView {
     this.interactiveParticleCountsNode.answerAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
   }
 
+  public override reset(): void {
+    this.interactiveParticleCountsNode.reset();
+  }
+
   public override dispose(): void {
     this.disposeSymbolToCountsChallengeView();
 
