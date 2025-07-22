@@ -71,6 +71,8 @@ abstract class BAAGameChallenge extends PhetioObject {
       phetioState: false
     } );
 
+    // TODO: See https://github.com/phetsims/build-an-atom/issues/280.  Hey AV, what the heck is this?  It looks like it
+    //       is just passing through the point value from the model.
     this.pointValueProperty = new DerivedProperty( [ model.pointValueProperty ], ( pointValue: number ) => pointValue );
   }
 

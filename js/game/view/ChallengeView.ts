@@ -65,7 +65,11 @@ class ChallengeView extends Node {
     this.addChild( this.interactiveAnswerNode );
 
     // face node, used to signal correct/incorrect answers
-    const faceNode = new FaceNode( layoutBounds.width * 0.4, { visible: false, opacity: 0.75, headStroke: BAAColors.facialStrokeColorProperty } );
+    const faceNode = new FaceNode( layoutBounds.width * 0.4, {
+      visible: false,
+      opacity: 0.75,
+      headStroke: BAAColors.facialStrokeColorProperty
+    } );
     const pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
     pointDisplay.centerX = 0;
     pointDisplay.top = faceNode.height / 2;
@@ -153,10 +157,8 @@ class ChallengeView extends Node {
       this.interactiveAnswerNode.pickable = interactive;
     };
 
-    // Update the visibility of the various buttons and other nodes based on
-    // the challenge state.
-    // Set up the handlers that update the visibility of the various buttons and other nodes based on the challenge state.
-    // Update the appearance of the challenge as the state changes.
+    // Set up the handler that updates the visibility of the various buttons and other nodes based on the challenge
+    // state.
     this.handleStateChange = ( challengeState: GameState ) => {
       hideButtonsAndFace();
       switch( challengeState ) {
@@ -168,7 +170,7 @@ class ChallengeView extends Node {
         case 'solvedCorrectly':
           setAnswerNodeInteractive( false );
           faceNode.smile();
-          pointDisplay.string = `+${challenge.pointValueProperty.value}`;
+          pointDisplay.string = `+${challenge.model.pointValueProperty.value}`;
           faceNode.visible = true;
           this.nextButton.visible = true;
           this.gameAudioPlayer.correctAnswer();
