@@ -35,7 +35,8 @@ class NonInteractiveSchematicAtomNode extends Node {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
       showStableOrUnstableProperty: new Property( false ),
-      tandem: Tandem.OPT_OUT
+      tandem: Tandem.OPT_OUT,
+      excludeInvisibleChildrenFromBounds: true
     } );
     this.addChild( atomNode );
 

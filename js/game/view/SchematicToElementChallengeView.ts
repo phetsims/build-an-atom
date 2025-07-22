@@ -49,7 +49,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     schematicAtomNode.addChild( particleCountDisplay );
 
     // TODO: Can I incorporate these into the construction of this instance? See https://github.com/phetsims/build-an-atom/issues/280.
-    schematicAtomNode.right = this.periodicTable.left;
+    schematicAtomNode.right = this.periodicTable.left - 50;
     schematicAtomNode.centerY = this.periodicTable.centerY - particleCountDisplay.height / 2;
   }
 }
