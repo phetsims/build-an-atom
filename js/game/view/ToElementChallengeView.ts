@@ -44,7 +44,9 @@ class ToElementChallengeView extends ChallengeView {
 
     super( countsToElementChallenge, layoutBounds, tandem );
 
-    this.periodicTableAtom = new NumberAtom();
+    this.periodicTableAtom = new NumberAtom( {
+      tandem: tandem.createTandem( 'periodicTableAtom' )
+    } );
 
     this.neutralOrIonProperty = new Property<NeutralOrIon>( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),

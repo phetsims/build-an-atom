@@ -142,8 +142,8 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
-    const challengesTandem = tandem.createTandem( 'challenges' );
     // Create the challenge type to instance map, which will be used to grab the correct challenge type when needed.
+    const challengesTandem = tandem.createTandem( 'challenges' );
     this.challengeTypeToInstanceMap = new Map<ChallengeType, BAAGameChallenge>( [
       [ 'counts-to-element', new CountsToElementChallenge( this, challengesTandem.createTandem( 'countsToElementChallenge' ) ) ],
       [ 'counts-to-charge', new CountsToChargeChallenge( this, challengesTandem.createTandem( 'CountsToChargeChallenge' ) ) ],
