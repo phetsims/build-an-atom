@@ -34,7 +34,8 @@ class NonInteractiveSchematicAtomNode extends Node {
     const atomNode = new AtomNode( particleAtom, modelViewTransform, {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
-      showStableOrUnstableProperty: new Property( false )
+      showStableOrUnstableProperty: new Property( false ),
+      tandem: Tandem.OPT_OUT
     } );
     this.addChild( atomNode );
 
@@ -52,9 +53,9 @@ class NonInteractiveSchematicAtomNode extends Node {
 
         // Add new particles.
         _.times( targetCount - existingCount, () => {
-          const particle = new Particle( particleType );
+          const particle = new Particle( particleType, { tandem: Tandem.OPT_OUT } );
           particleAtom.addParticle( particle );
-          const particleView = new ParticleView( particle, modelViewTransform );
+          const particleView = new ParticleView( particle, modelViewTransform, { tandem: Tandem.OPT_OUT } );
           particleLayer.addChild( particleView );
           particleViews.push( particleView );
         } );
