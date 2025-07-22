@@ -74,7 +74,6 @@ class NonInteractiveSchematicAtomNode extends Node {
       }
     };
 
-    console.log( `numberAtom.protonCountProperty.value = ${numberAtom.protonCountProperty.value}` );
     Multilink.multilink(
       [
         numberAtom.protonCountProperty,
