@@ -91,6 +91,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     questionPromptText.centerY = layoutBounds.height * 0.5;
     chargeEntryNode.left = questionPromptText.right + 10;
     chargeEntryNode.centerY = questionPromptText.centerY;
+    schematicAtomNode.centerY = chargeEntryNode.centerY;
 
     this.disposeSchematicToChargeChallengeView = function() {
       schematicAtomNode.dispose();

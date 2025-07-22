@@ -87,6 +87,8 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     questionPromptText.centerY = layoutBounds.height * 0.5;
     massEntryNode.left = questionPromptText.right + 10;
     massEntryNode.centerY = questionPromptText.centerY;
+    schematicAtomNode.centerY = massEntryNode.centerY;
+
 
     this.disposeSchematicToMassNumberChallengeView = () => {
       schematicAtomNode.dispose();
