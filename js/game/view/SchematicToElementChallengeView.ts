@@ -9,7 +9,6 @@
  * @author John Blanco
  */
 
-import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -20,8 +19,6 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 import ToElementChallengeView from './ToElementChallengeView.js';
 
 class SchematicToElementChallengeView extends ToElementChallengeView {
-
-  private readonly disposeSchematicToElementChallengeView: () => void;
 
   public constructor( schematicToElementChallenge: SchematicToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -34,46 +31,18 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
       0.8
     );
 
-    let nonInteractiveSchematicNode: NonInteractiveSchematicAtomNode | null = null;
-    Multilink.multilink(
-      [
-        schematicToElementChallenge.answerAtom.protonCountProperty,
-        schematicToElementChallenge.answerAtom.neutronCountProperty,
-        schematicToElementChallenge.answerAtom.electronCountProperty
-      ],
-      () => {
-
-        // Dispose the previous schematic node if it exists.
-        if ( nonInteractiveSchematicNode ) {
-          this.challengePresentationNode.removeChild( nonInteractiveSchematicNode );
-
-          // TODO: Why does attempting to dispose the node cause an error? See https://github.com/phetsims/build-an-atom/issues/280.
-          // if ( !nonInteractiveSchematicNode.isDisposed ) {
-          //   nonInteractiveSchematicNode.dispose();
-          // }
-        }
-
-        // Add the schematic representation of the atom.
-        nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
-          schematicToElementChallenge.answerAtom,
-          modelViewTransform,
-          tandem.createTandem( 'noninteractiveSchematicAtomNode' )
-        );
-        this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
-
-        nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
-        nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
-      }
+    // Add the schematic representation of the atom.
+    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+      schematicToElementChallenge.answerAtom,
+      modelViewTransform,
+      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
     );
 
-    this.disposeSchematicToElementChallengeView = () => {
-      nonInteractiveSchematicNode && nonInteractiveSchematicNode.dispose();
-    };
-  }
+    // TODO: Can I incorporate these into the construction of this instance? See https://github.com/phetsims/build-an-atom/issues/280.
+    nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
+    nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
 
-  public override dispose(): void {
-    this.disposeSchematicToElementChallengeView();
-    super.dispose();
+    this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
   }
 }
 

@@ -48,9 +48,11 @@ class SchematicToChargeChallengeView extends ChallengeView {
       0.8 );
 
     // Add the schematic representation of the atom.
-    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode( schematicToChargeChallenge.answerAtom,
+    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+      schematicToChargeChallenge.answerAtom,
       modelViewTransform,
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+    );
     this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
 
     // Question

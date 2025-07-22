@@ -1,11 +1,12 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * A non-interactive representation of an atom where the individual sub-atomic particles are visible.
+ * A non-interactive representation of an atom where the individual subatomic particles are visible.
  *
  * @author John Blanco
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -16,84 +17,88 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BAAScreenView from '../../common/view/BAAScreenView.js';
 
 class NonInteractiveSchematicAtomNode extends Node {
 
-  public disposeNonInteractiveSchematicAtomNode: () => void;
-
   public constructor( numberAtom: TNumberAtom, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
-    super( { pickable: false } );
 
-    // Add the electron shells.
-    const particleAtom = new ParticleAtom( { tandem: tandem.createTandem( 'particleAtom' ) } );
+    super( {
+      pickable: false,
+      tandem: tandem
+    } );
+
+    // Create the ParticleAtom, which is a local model that contains the particles.
+    const particleAtom = new ParticleAtom( { tandem: Tandem.OPT_OUT } );
+
+    // Add the atom node, which in this node basically just adds the electron shells.
     const atomNode = new AtomNode( particleAtom, modelViewTransform, {
       showElementNameProperty: new Property( false ),
       showNeutralOrIonProperty: new Property( false ),
-      showStableOrUnstableProperty: new Property( false ),
-      tandem: tandem.createTandem( 'atomNode' )
+      showStableOrUnstableProperty: new Property( false )
     } );
     this.addChild( atomNode );
 
-    // Layer where the particles go.
+    // Create the layers where the particle views will go.
     const particleLayer = new Node();
     this.addChild( particleLayer );
 
-    // Utility function to create and add particles.
-    const particleTandem = tandem.createTandem( 'particles' );
-    const particleViewsTandem = tandem.createTandem( 'particleView' );
-    const particleViews: ParticleView[] = [];
-    let modelParticles: Particle[] = []; // (phet-io) keep track for disposal
-    const createAndAddParticles = ( particleType: ParticleTypeString, number: number ) => {
-      _.times( number, index => {
-        const particle = new Particle( particleType, {
-          tandem: particleTandem.createTandem( `particle${index}` ),
-          maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
+    let particleViews: ParticleView[] = [];
+
+    const adjustParticleCount = ( particleType: ParticleTypeString, targetCount: number ) => {
+      const existingParticleViews = particleViews.filter( pv => pv.particle.type === particleType );
+      const existingCount = existingParticleViews.length;
+
+      if ( targetCount > existingCount ) {
+
+        // Add new particles.
+        _.times( targetCount - existingCount, () => {
+          const particle = new Particle( particleType );
+          particleAtom.addParticle( particle );
+          const particleView = new ParticleView( particle, modelViewTransform );
+          particleLayer.addChild( particleView );
+          particleViews.push( particleView );
         } );
-        modelParticles.push( particle );
-        particleAtom.addParticle( particle );
-        const particleView = new ParticleView( particle, modelViewTransform, {
-          tandem: particleViewsTandem.createTandem( `particleView${index}` )
+      }
+      else if ( targetCount < existingCount ) {
+
+        // Remove excess particles.
+        _.times( existingCount - targetCount, () => {
+          // TODO: Once working nominally, add asserts to check that there are particles to remove. See https://github.com/phetsims/build-an-atom/issues/280.
+          const particleViewToRemove = existingParticleViews.pop();
+          const particleToRemove = particleViewToRemove!.particle;
+          particleAtom.removeParticle( particleToRemove );
+          particleLayer.removeChild( particleViewToRemove! );
+          particleViews = particleViews.filter( pv => pv !== particleViewToRemove );
         } );
-        particleLayer.addChild( particleView );
-        particleViews.push( particleView );
-      } );
+      }
     };
 
-    // Create and add the individual particles.
-    createAndAddParticles( 'proton', numberAtom.protonCountProperty.get() );
-    createAndAddParticles( 'neutron', numberAtom.neutronCountProperty.get() );
-    createAndAddParticles( 'electron', numberAtom.electronCountProperty.get() );
-    particleAtom.moveAllParticlesToDestination();
+    console.log( `numberAtom.protonCountProperty.value = ${numberAtom.protonCountProperty.value}` );
+    Multilink.multilink(
+      [
+        numberAtom.protonCountProperty,
+        numberAtom.neutronCountProperty,
+        numberAtom.electronCountProperty
+      ],
+      ( protonCount, neutronCount, electronCount ) => {
+        adjustParticleCount( 'proton', protonCount );
+        adjustParticleCount( 'neutron', neutronCount );
+        adjustParticleCount( 'electron', electronCount );
+        particleAtom.moveAllParticlesToDestination();
 
-    // Layer the particle views so that the nucleus looks good, with the
-    // particles closer to the center being higher in the z-order.
-    let particleViewsInNucleus: ParticleView[] = _.filter( particleLayer.children, ( particleView: ParticleView ): boolean => particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) < particleAtom.innerElectronShellRadius ) as ParticleView[];
+        // Layer the particle views so that the nucleus looks good, with the particles closer to the center being higher
+        // in the z-order.
+        // TODO: Use zLayerProperty in ParticleView to handle this better. See https://github.com/phetsims/build-an-atom/issues/280.
+        if ( particleViews.length > 3 ) {
+          const sortedParticleViews = _.sortBy( particleViews, particleView => -particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) );
+          sortedParticleViews.forEach( particleView => {
+            particleView.moveToFront();
+          } );
+        }
+      }
+    );
 
-    if ( particleViewsInNucleus.length > 3 ) {
-      particleViewsInNucleus = _.sortBy( particleViewsInNucleus, particleView => -particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) );
-      particleViewsInNucleus.forEach( particleView => {
-        particleLayer.removeChild( particleView );
-        particleLayer.addChild( particleView );
-      } );
-    }
-
-    this.disposeNonInteractiveSchematicAtomNode = () => {
-      particleViews.forEach( particleView => {
-        particleView.dispose();
-      } );
-      atomNode.dispose();
-      particleAtom.dispose();
-      particleLayer.children.forEach( particleView => { particleView.dispose(); } );
-      particleLayer.dispose();
-      modelParticles.forEach( particle => { particle.dispose(); } );
-      modelParticles = [];
-    };
-  }
-
-  public override dispose(): void {
-    this.disposeNonInteractiveSchematicAtomNode();
-    super.dispose();
+    // Instances of this type are never disposed, so no dispose function is needed.
   }
 }
 
