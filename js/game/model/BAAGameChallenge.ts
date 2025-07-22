@@ -14,13 +14,16 @@ import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
+import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from '../view/ChallengeView.js';
 import AnswerAtom from './AnswerAtom.js';
 import GameModel from './GameModel.js';
 
-abstract class BAAGameChallenge {
+abstract class BAAGameChallenge extends PhetioObject {
 
   public readonly model: GameModel;
 
@@ -42,6 +45,13 @@ abstract class BAAGameChallenge {
   public pointValueProperty: TReadOnlyProperty<number>;
 
   protected constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
+
+    super( {
+      tandem: tandem,
+      isDisposable: false,
+      phetioState: false,
+      phetioType: BAAGameChallenge.BAAGameChallengeIO
+    } );
 
     this.challengeType = challengeType;
 
@@ -92,6 +102,16 @@ abstract class BAAGameChallenge {
   public step( dt: number ): void {
     // no-op, implemented by subclasses if needed
   }
+
+  /**
+   * GameLevelIO handles serialization of a game challenge. It implements reference-type serialization, as
+   * described in https://github.com/phetsims/phet-io/blob/main/doc/phet-io-instrumentation-technical-guide.md#serialization.
+   */
+  public static readonly BAAGameChallengeIO = new IOType<BAAGameChallenge, ReferenceIOState>( 'BAAGameChallengeIO', {
+    valueType: BAAGameChallenge,
+    supertype: ReferenceIO( IOType.ObjectIO ),
+    documentation: 'A challenge used in the game.'
+  } );
 }
 
 buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
