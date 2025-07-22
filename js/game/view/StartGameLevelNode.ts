@@ -45,7 +45,7 @@ class StartGameLevelNode extends Node {
 
     const title = new Text( BuildAnAtomStrings.chooseYourGameStringProperty, {
       font: new PhetFont( 30 ),
-      maxWidth: layoutBounds.width,
+      maxWidth: layoutBounds.width * 0.6,
       centerX: layoutBounds.centerX
     } );
     this.addChild( title );
