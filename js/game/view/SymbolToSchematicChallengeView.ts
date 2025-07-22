@@ -11,6 +11,7 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
@@ -48,6 +49,14 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
     // Add interactive schematic atom.
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
+
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    const particleCountDisplay = new ParticleCountDisplay( challenge.buildAnAtomModel.atom, 13, {
+      tandem: tandem.createTandem( 'particleCountDisplay' ),
+      bottom: this.interactiveSchematicAtom.top,
+      left: this.interactiveSchematicAtom.left
+    } );
+    this.interactiveSchematicAtom.addChild( particleCountDisplay );
 
     // Symbol
     const interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );

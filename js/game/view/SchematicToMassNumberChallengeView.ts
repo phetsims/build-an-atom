@@ -14,6 +14,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
+import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -47,11 +48,20 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       0.8 );
 
     // Add the schematic representation of the atom.
-    const nonInteractiveSchematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.answerAtom,
+    const schematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
 
-    this.challengePresentationNode.addChild( nonInteractiveSchematicAtomNode );
+    this.challengePresentationNode.addChild( schematicAtomNode );
+
+
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    const particleCountDisplay = new ParticleCountDisplay( schematicToMassNumberChallenge.answerAtom, 13, {
+      tandem: tandem.createTandem( 'particleCountDisplay' ),
+      bottom: schematicAtomNode.top - 10,
+      left: schematicAtomNode.left
+    } );
+    schematicAtomNode.addChild( particleCountDisplay );
 
     // Question
     const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, {
@@ -79,7 +89,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     massEntryNode.centerY = questionPromptText.centerY;
 
     this.disposeSchematicToMassNumberChallengeView = () => {
-      nonInteractiveSchematicAtomNode.dispose();
+      schematicAtomNode.dispose();
       questionPromptText.dispose();
       massEntryNode.dispose();
       this.massNumberAnswerProperty.dispose();

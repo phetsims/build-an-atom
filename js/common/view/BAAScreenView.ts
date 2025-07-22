@@ -84,6 +84,14 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( atomNode );
 
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    const particleCountDisplay = new ParticleCountDisplay( model.atom, 13, {
+      tandem: tandem.createTandem( 'particleCountDisplay' ),
+      top: CONTROLS_INSET,
+      left: CONTROLS_INSET
+    } );
+    this.addChild( particleCountDisplay );
+
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, bucket => {
       this.addChild( new BucketHole( bucket, modelViewTransform, {
@@ -218,12 +226,6 @@ class BAAScreenView extends ScreenView {
       } );
     }
 
-    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
-    const particleCountDisplay = new ParticleCountDisplay( model.atom, 13, {
-      tandem: tandem.createTandem( 'particleCountDisplay' )
-    } );
-    this.addChild( particleCountDisplay );
-
     // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol(
       model.atom,
@@ -312,8 +314,6 @@ class BAAScreenView extends ScreenView {
     this.addChild( resetAllButton );
 
     // Do the layout.
-    particleCountDisplay.top = CONTROLS_INSET;
-    particleCountDisplay.left = CONTROLS_INSET;
     this.periodicTableAccordionBox.top = CONTROLS_INSET;
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     checkboxGroup.left = this.periodicTableAccordionBox.left;

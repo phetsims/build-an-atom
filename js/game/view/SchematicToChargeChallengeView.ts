@@ -15,6 +15,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -48,12 +49,20 @@ class SchematicToChargeChallengeView extends ChallengeView {
       0.8 );
 
     // Add the schematic representation of the atom.
-    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+    const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       schematicToChargeChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )
     );
-    this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
+    this.challengePresentationNode.addChild( schematicAtomNode );
+
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    const particleCountDisplay = new ParticleCountDisplay( schematicToChargeChallenge.answerAtom, 13, {
+      tandem: tandem.createTandem( 'particleCountDisplay' ),
+      bottom: schematicAtomNode.top - 10,
+      left: schematicAtomNode.left
+    } );
+    schematicAtomNode.addChild( particleCountDisplay );
 
     // Question
     const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, {
@@ -84,7 +93,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     chargeEntryNode.centerY = questionPromptText.centerY;
 
     this.disposeSchematicToChargeChallengeView = function() {
-      nonInteractiveSchematicNode.dispose();
+      schematicAtomNode.dispose();
       questionPromptText.dispose();
       chargeEntryNode.dispose();
       this.chargeAnswerProperty.dispose();

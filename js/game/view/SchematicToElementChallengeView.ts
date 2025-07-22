@@ -12,6 +12,7 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
@@ -32,17 +33,24 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     );
 
     // Add the schematic representation of the atom.
-    const nonInteractiveSchematicNode = new NonInteractiveSchematicAtomNode(
+    const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       schematicToElementChallenge.answerAtom,
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )
     );
+    this.challengePresentationNode.addChild( schematicAtomNode );
+
+    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    const particleCountDisplay = new ParticleCountDisplay( schematicToElementChallenge.answerAtom, 13, {
+      tandem: tandem.createTandem( 'particleCountDisplay' ),
+      bottom: schematicAtomNode.top - 10,
+      left: schematicAtomNode.left
+    } );
+    schematicAtomNode.addChild( particleCountDisplay );
 
     // TODO: Can I incorporate these into the construction of this instance? See https://github.com/phetsims/build-an-atom/issues/280.
-    nonInteractiveSchematicNode.centerX = this.periodicTable.left / 2;
-    nonInteractiveSchematicNode.centerY = this.periodicTable.centerY;
-
-    this.challengePresentationNode.addChild( nonInteractiveSchematicNode );
+    schematicAtomNode.right = this.periodicTable.left;
+    schematicAtomNode.centerY = this.periodicTable.centerY - particleCountDisplay.height / 2;
   }
 }
 
