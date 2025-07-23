@@ -9,9 +9,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -41,9 +39,6 @@ abstract class BAAGameChallenge extends PhetioObject {
   public configurableMassNumber = false;
   public configurableCharge = false;
 
-  // The number of points that this challenge is worth, which is used to calculate the score.
-  public pointValueProperty: TReadOnlyProperty<number>;
-
   protected constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
 
     super( {
@@ -70,10 +65,6 @@ abstract class BAAGameChallenge extends PhetioObject {
       phetioReadOnly: true,
       phetioState: false
     } );
-
-    // TODO: See https://github.com/phetsims/build-an-atom/issues/280.  Hey AV, what the heck is this?  It looks like it
-    //       is just passing through the point value from the model.
-    this.pointValueProperty = new DerivedProperty( [ model.pointValueProperty ], ( pointValue: number ) => pointValue );
   }
 
   public checkAnswer( submittedAtom: AnswerAtom ): void {
