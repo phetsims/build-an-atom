@@ -39,6 +39,7 @@ class GameScreenView extends ScreenView {
       // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
       // any phet-io instrumentation. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
+
       tandem: tandem
     } );
 
@@ -98,7 +99,9 @@ class GameScreenView extends ScreenView {
       ( gameState, level, challenge ) => {
 
         if ( gameState === 'levelSelection' ) {
-          this.initLevelSelection();
+          this.levelNode.removeAllChildren();
+          this.levelNode.addChild( this.levelSelectionNode );
+          this.disposeNodes();
         }
         else if ( gameState === 'levelCompleted' ) {
           this.levelNode.removeAllChildren();
@@ -166,19 +169,13 @@ class GameScreenView extends ScreenView {
     );
   }
 
-  public initLevelSelection(): void {
-    this.levelNode.removeAllChildren();
-    this.levelNode.addChild( this.levelSelectionNode );
-    this.disposeNodes();
-  }
-
   public override step( elapsedTime: number ): void {
     if ( this.rewardNode ) {
       this.rewardNode.step( elapsedTime );
     }
   }
 
-  public disposeNodes(): void {
+  private disposeNodes(): void {
     if ( this.rewardNode !== null ) {
       this.rewardNode.dispose();
     }
