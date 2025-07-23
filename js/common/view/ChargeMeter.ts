@@ -14,6 +14,7 @@ import Shape from '../../../../kite/js/Shape.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import PlusNode from '../../../../scenery-phet/js/PlusNode.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
@@ -25,8 +26,7 @@ import BAAColors from '../BAAColors.js';
 // constants
 const WIDTH = 70; // In screen coords, which are roughly pixels.
 const _MAX_CHARGE = 10;
-const CHARGE_SYMBOL_WIDTH = 7; // In screen coords, which are roughly pixels.
-const SYMBOL_LINE_WIDTH = 2; // In screen coords, which are roughly pixels.
+const SYMBOL_LINE_WIDTH = 0.8; // In screen coords, which are roughly pixels.
 
 type SelfOptions = {
   showNumericalReadout?: boolean;
@@ -74,35 +74,22 @@ class ChargeMeter extends Node {
     this.addChild( meterWindow );
 
     // Add the plus symbol, which will be drawn (not done as a character).
-    const shadowOffset = 0.5; // In pixels.
-    const plusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 ).moveTo( 0, -CHARGE_SYMBOL_WIDTH / 2 ).lineTo( 0, CHARGE_SYMBOL_WIDTH / 2 );
-    const plusSymbol = new Node();
-    plusSymbol.addChild( new Path( plusShape, {
+    const plusSymbol = new PlusNode( {
+      size: new Dimension2( 10, 3 ),
       lineWidth: SYMBOL_LINE_WIDTH,
-      stroke: 'black',
-      centerX: shadowOffset,
-      centerY: shadowOffset
-    } ) );
-    plusSymbol.addChild( new Path( plusShape, {
-      lineWidth: SYMBOL_LINE_WIDTH,
-      stroke: 'rgb(255, 0, 0 )'
-    } ) );
+      fill: 'red',
+      stroke: 'black'
+    } );
     plusSymbol.center = new Vector2( meterWindow.width * 0.7, meterWindow.height * 0.5 );
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
-    const minusShape = new Shape().moveTo( -CHARGE_SYMBOL_WIDTH / 2, 0 ).lineTo( CHARGE_SYMBOL_WIDTH / 2, 0 );
-    const minusSymbol = new Node();
-    minusSymbol.addChild( new Path( minusShape, {
+    const minusSymbol = new Rectangle( {
+      rectSize: new Dimension2( 10, 3 ),
       lineWidth: SYMBOL_LINE_WIDTH,
-      stroke: 'black',
-      centerX: shadowOffset,
-      centerY: shadowOffset
-    } ) );
-    minusSymbol.addChild( new Path( minusShape, {
-      lineWidth: SYMBOL_LINE_WIDTH,
-      stroke: 'rgb(0, 0, 255 )'
-    } ) );
+      fill: 'blue',
+      stroke: 'black'
+    } );
     minusSymbol.center = new Vector2( meterWindow.width * 0.3, meterWindow.height * 0.5 );
     meterWindow.addChild( minusSymbol );
 
