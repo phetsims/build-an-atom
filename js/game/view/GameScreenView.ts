@@ -75,8 +75,6 @@ class GameScreenView extends ScreenView {
           yMargin: 5,
           listener: () => { gameModel.startOver(); }
         },
-        centerX: this.layoutBounds.centerX,
-        top: 0,
         tandem: tandem.createTandem( 'scoreboard' )
       }
     );
@@ -127,7 +125,7 @@ class GameScreenView extends ScreenView {
               centerY: this.layoutBounds.height / 2,
               levelVisible: false,
               maxWidth: this.layoutBounds.width,
-              tandem: Tandem.OPT_OUT // tandem.createTandem( 'levelCompletedNode' ) // TODO: Address this after deciding on the dynamic nature of stuff https://github.com/phetsims/build-an-atom/issues/276
+              tandem: Tandem.OPT_OUT
             }
           );
           this.addChild( this.levelCompletedNode );
