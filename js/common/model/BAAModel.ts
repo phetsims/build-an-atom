@@ -69,7 +69,8 @@ class BAAModel {
 
     // Create the atom that the user will build, modify, and generally play with.
     this.atom = new ParticleAtom( {
-      tandem: tandem.createTandem( 'atom' )
+      tandem: tandem.createTandem( 'atom' ),
+      phetioFeatured: true
     } );
 
     // Create the buckets that will hold the subatomic particles.

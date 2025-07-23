@@ -66,6 +66,7 @@ class AtomScreenView extends BAAScreenView {
         } ),
         expandedDefaultValue: false,
         tandem: netChargeAccordionBoxTandem,
+        phetioFeatured: true,
 
         // pdom
         labelContent: BuildAnAtomStrings.netChargeStringProperty
@@ -91,6 +92,7 @@ class AtomScreenView extends BAAScreenView {
         } ),
         expandedDefaultValue: false,
         tandem: massNumberAccordionBoxTandem,
+        phetioFeatured: true,
 
         // pdom
         labelContent: BuildAnAtomStrings.massNumberStringProperty
