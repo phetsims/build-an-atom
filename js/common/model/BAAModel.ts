@@ -38,7 +38,7 @@ const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
-class BuildAnAtomModel {
+class BAAModel {
 
   // The atom that the user will build, modify, and generally play with.
   public readonly atom: ParticleAtom;
@@ -351,6 +351,6 @@ class BuildAnAtomModel {
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
 }
 
-buildAnAtom.register( 'BuildAnAtomModel', BuildAnAtomModel );
+buildAnAtom.register( 'BAAModel', BAAModel );
 
-export default BuildAnAtomModel;
+export default BAAModel;

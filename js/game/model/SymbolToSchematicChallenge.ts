@@ -11,21 +11,21 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
+import BAAModel from '../../common/model/BAAModel.js';
 import SymbolToSchematicChallengeView from '../view/SymbolToSchematicChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
 
 class SymbolToSchematicChallenge extends BAAGameChallenge {
 
-  public readonly buildAnAtomModel: BuildAnAtomModel;
+  public readonly buildAnAtomModel: BAAModel;
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
     super( buildAnAtomGameModel, 'symbol-to-schematic', tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with which the user can interact. We want to
     // keep this model out of the state.
-    this.buildAnAtomModel = new BuildAnAtomModel( Tandem.OPT_OUT );
+    this.buildAnAtomModel = new BAAModel( Tandem.OPT_OUT );
   }
 
   /**

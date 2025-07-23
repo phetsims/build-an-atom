@@ -14,7 +14,7 @@ import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionB
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
+import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
@@ -29,7 +29,7 @@ class AtomScreenView extends BAAScreenView {
   public readonly netChargeAccordionBox: AccordionBox;
   public readonly massNumberAccordionBox: AccordionBox;
 
-  public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
+  public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );
 
     // options that are common to all of the accordion boxes in this view

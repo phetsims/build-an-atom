@@ -20,7 +20,7 @@ import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
-import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
+import BAAModel from '../model/BAAModel.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -33,7 +33,7 @@ type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 class InteractiveSchematicAtom extends Node {
   private readonly disposeInteractiveSchematicAtom: VoidFunction;
 
-  public constructor( model: BuildAnAtomModel,
+  public constructor( model: BAAModel,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions?: InteractiveSchematicAtomOptions ) {
 

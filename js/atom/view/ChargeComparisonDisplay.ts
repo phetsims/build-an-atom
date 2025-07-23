@@ -15,7 +15,7 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
-import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
+import BAAModel from '../../common/model/BAAModel.js';
 
 // constants
 const SYMBOL_WIDTH = 12;
@@ -37,7 +37,7 @@ class ChargeComparisonDisplay extends Node {
 
     super( options );
 
-    const MAX_CHARGE = BuildAnAtomModel.MAX_CHARGE;
+    const MAX_CHARGE = BAAModel.MAX_CHARGE;
     let i;
 
     // Parent node for all symbols.

@@ -32,7 +32,7 @@ import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BuildAnAtomModel from '../model/BuildAnAtomModel.js';
+import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
@@ -46,12 +46,12 @@ class BAAScreenView extends ScreenView {
 
   public readonly periodicTableAccordionBox: AccordionBox;
   public readonly controlPanelLayer: Node;
-  public readonly model: BuildAnAtomModel;
+  public readonly model: BAAModel;
 
   // Properties that control how the atom is displayed.
   private readonly viewProperties: AtomViewProperties;
 
-  public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
+  public constructor( model: BAAModel, tandem: Tandem ) {
 
     super( {
 

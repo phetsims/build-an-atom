@@ -12,7 +12,7 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
+import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BAASymbolNode from './BAASymbolNode.js';
 
@@ -20,7 +20,7 @@ class SymbolScreenView extends BAAScreenView {
 
   private readonly symbolAccordionBox: AccordionBox;
 
-  public constructor( model: BuildAnAtomModel, tandem: Tandem ) {
+  public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );
 
     // Add the symbol node within an accordion box.

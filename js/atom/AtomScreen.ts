@@ -14,15 +14,15 @@ import atomIcon_png from '../../images/atomIcon_png.js';
 import atomIconSmall_png from '../../images/atomIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
-import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
+import BAAModel from '../common/model/BAAModel.js';
 import AtomScreenView from './view/AtomScreenView.js';
 
-class AtomScreen extends Screen<BuildAnAtomModel, AtomScreenView> {
+class AtomScreen extends Screen<BAAModel, AtomScreenView> {
 
   public constructor( tandem: Tandem ) {
     super(
-      () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
-      ( model: BuildAnAtomModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
+      () => new BAAModel( tandem.createTandem( 'model' ) ),
+      ( model: BAAModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.atomStringProperty,
         homeScreenIcon: new ScreenIcon( new Image( atomIcon_png ), {

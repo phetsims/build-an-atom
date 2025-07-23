@@ -15,14 +15,14 @@ import elementIconSmall_png from '../../images/elementIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import BAAColors from '../common/BAAColors.js';
-import BuildAnAtomModel from '../common/model/BuildAnAtomModel.js';
+import BAAModel from '../common/model/BAAModel.js';
 import SymbolScreenView from './view/SymbolScreenView.js';
 
-class SymbolScreen extends Screen<BuildAnAtomModel, SymbolScreenView> {
+class SymbolScreen extends Screen<BAAModel, SymbolScreenView> {
 
   public constructor( tandem: Tandem ) {
     super(
-      () => new BuildAnAtomModel( tandem.createTandem( 'model' ) ),
+      () => new BAAModel( tandem.createTandem( 'model' ) ),
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.symbolStringProperty,
