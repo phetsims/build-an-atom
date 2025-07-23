@@ -108,27 +108,28 @@ class GameScreenView extends ScreenView {
             gameAudioPlayer.gameOverImperfectScore();
           }
 
-          assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
+          if ( level ) {
 
-          // Add the dialog node that indicates that the level has been completed.
-          this.levelCompletedNode = new LevelCompletedNode(
-            gameModel.levelNumberProperty.get() + 1,
-            gameModel.scoreProperty.get(),
-            GameModel.MAX_POINTS_PER_GAME_LEVEL,
-            GameModel.CHALLENGES_PER_LEVEL,
-            gameModel.timerEnabledProperty.get(),
-            gameModel.timer.elapsedTimeProperty.get(),
-            level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
-            level!.isNewBestTimeProperty.value,
-            () => { gameModel.levelProperty.reset(); }, {
-              centerX: this.layoutBounds.width / 2,
-              centerY: this.layoutBounds.height / 2,
-              levelVisible: false,
-              maxWidth: this.layoutBounds.width,
-              tandem: Tandem.OPT_OUT
-            }
-          );
-          this.addChild( this.levelCompletedNode );
+            // Add the dialog node that indicates that the level has been completed.
+            this.levelCompletedNode = new LevelCompletedNode(
+              gameModel.levelNumberProperty.get() + 1,
+              gameModel.scoreProperty.get(),
+              GameModel.MAX_POINTS_PER_GAME_LEVEL,
+              GameModel.CHALLENGES_PER_LEVEL,
+              gameModel.timerEnabledProperty.get(),
+              gameModel.timer.elapsedTimeProperty.get(),
+              level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
+              level.isNewBestTimeProperty.value,
+              () => { gameModel.levelProperty.reset(); }, {
+                centerX: this.layoutBounds.width / 2,
+                centerY: this.layoutBounds.height / 2,
+                levelVisible: false,
+                maxWidth: this.layoutBounds.width,
+                tandem: Tandem.OPT_OUT
+              }
+            );
+            this.addChild( this.levelCompletedNode );
+          }
         }
         else {
           this.removeAllChildren();
