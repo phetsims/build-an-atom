@@ -8,13 +8,13 @@
 
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAColors from '../../common/BAAColors.js';
 import BuildAnAtomModel from '../../common/model/BuildAnAtomModel.js';
 
 // constants
@@ -86,7 +86,7 @@ class ChargeComparisonDisplay extends Node {
     const plusSymbolPath = new Path( plusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
-      fill: PhetColorScheme.RED_COLORBLIND,
+      fill: BAAColors.protonColorProperty,
       left: INTER_SYMBOL_DISTANCE / 2,
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );

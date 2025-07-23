@@ -13,7 +13,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
-import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -21,6 +20,7 @@ import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAColors from '../BAAColors.js';
 
 // constants
 const WIDTH = 70; // In screen coords, which are roughly pixels.
@@ -153,7 +153,7 @@ class ChargeMeter extends Node {
         let textColor;
         if ( charge > 0 ) {
           sign = '+';
-          textColor = PhetColorScheme.RED_COLORBLIND;
+          textColor = BAAColors.protonColorProperty;
         }
         else if ( charge < 0 ) {
           textColor = 'blue';

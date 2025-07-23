@@ -13,7 +13,6 @@ import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
@@ -23,6 +22,7 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAColors from '../../common/BAAColors.js';
 import NumberEntryNode from './NumberEntryNode.js';
 
 // constants
@@ -111,7 +111,7 @@ class InteractiveSymbolNode extends Node {
     // Add the element caption.
     const elementCaption = new Text( '', {
       font: new PhetFont( 40 ),
-      fill: PhetColorScheme.RED_COLORBLIND,
+      fill: BAAColors.protonColorProperty,
       top: SYMBOL_BOX_HEIGHT + 20,
       centerX: SYMBOL_BOX_WIDTH / 2,
       maxWidth: SYMBOL_BOX_WIDTH
@@ -141,7 +141,7 @@ class InteractiveSymbolNode extends Node {
         tandem.createTandem( 'protonCountEntryNode' ), {
           minValue: 0,
           maxValue: 99,
-          getTextColor: () => PhetColorScheme.RED_COLORBLIND,
+          getTextColor: () => BAAColors.protonColorProperty,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
         } ) );
@@ -150,7 +150,7 @@ class InteractiveSymbolNode extends Node {
     else {
       const protonCountDisplay = new Text( new DerivedProperty( [ this.protonCountProperty ], protons => protons.toString() ), {
         font: NUMBER_FONT,
-        fill: PhetColorScheme.RED_COLORBLIND,
+        fill: BAAColors.protonColorProperty,
         left: NUMBER_INSET,
         bottom: SYMBOL_BOX_HEIGHT - NUMBER_INSET
       } );
@@ -187,7 +187,6 @@ class InteractiveSymbolNode extends Node {
           minValue: -99,
           maxValue: 99,
           showPlusForPositive: true,
-          getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset
         } ) );

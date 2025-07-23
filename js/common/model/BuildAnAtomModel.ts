@@ -15,7 +15,6 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
-import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
@@ -23,6 +22,7 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BAAColors from '../BAAColors.js';
 import BAAScreenView from '../view/BAAScreenView.js';
 
 // constants
@@ -78,7 +78,7 @@ class BuildAnAtomModel {
         position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
-        baseColor: PhetColorScheme.RED_COLORBLIND,
+        baseColor: BAAColors.protonColorProperty,
         captionText: BuildAnAtomStrings.protonsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'protonBucket' )
