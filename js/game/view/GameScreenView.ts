@@ -11,7 +11,6 @@ import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
@@ -26,8 +25,6 @@ import StartGameLevelNode from './StartGameLevelNode.js';
 class GameScreenView extends ScreenView {
 
   private readonly levelSelectionNode: StartGameLevelNode;
-  private readonly levelNode: Node;
-
   private levelCompletedNode: LevelCompletedNode | null; // created on demand
   public rewardNode: BAARewardNode | null; // created on demand
 
@@ -45,10 +42,6 @@ class GameScreenView extends ScreenView {
 
     const challengeViewTandem = tandem.createTandem( 'challengeViews' );
     const challengeViewSet = new ChallengeViewSet( gameModel.getAllChallenges(), this.layoutBounds, challengeViewTandem );
-
-    // Add a root node where all game-related nodes will live.
-    this.levelNode = new Node();
-    this.addChild( this.levelNode );
 
     this.levelSelectionNode = new StartGameLevelNode(
       gameModel,
@@ -99,18 +92,18 @@ class GameScreenView extends ScreenView {
       ( gameState, level, challenge ) => {
 
         if ( gameState === 'levelSelection' ) {
-          this.levelNode.removeAllChildren();
-          this.levelNode.addChild( this.levelSelectionNode );
+          this.removeAllChildren();
+          this.addChild( this.levelSelectionNode );
           this.disposeNodes();
         }
         else if ( gameState === 'levelCompleted' ) {
-          this.levelNode.removeAllChildren();
+          this.removeAllChildren();
           if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
             // Perfect score, add the reward node.
             this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists
             this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
-            this.levelNode.addChild( this.rewardNode );
+            this.addChild( this.rewardNode );
 
             // Play the appropriate audio feedback
             gameAudioPlayer.gameOverPerfectScore();
@@ -139,10 +132,10 @@ class GameScreenView extends ScreenView {
               tandem: Tandem.OPT_OUT // tandem.createTandem( 'levelCompletedNode' ) // TODO: Address this after deciding on the dynamic nature of stuff https://github.com/phetsims/build-an-atom/issues/276
             }
           );
-          this.levelNode.addChild( this.levelCompletedNode );
+          this.addChild( this.levelCompletedNode );
         }
         else {
-          this.levelNode.removeAllChildren();
+          this.removeAllChildren();
           this.disposeNodes();
 
           if ( !challenge ) {
@@ -161,9 +154,9 @@ class GameScreenView extends ScreenView {
             // Update the challenge view with the current gameState.
             challengeView.handleStateChange( gameState );
 
-            this.levelNode.addChild( challengeView );
+            this.addChild( challengeView );
           }
-          this.levelNode.addChild( scoreboard );
+          this.addChild( scoreboard );
         }
       }
     );
