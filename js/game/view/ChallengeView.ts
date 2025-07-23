@@ -1,16 +1,18 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Base class for challenge views.  This type adds the titles, buttons, and such
- * and controls the visibility based on the state of the challenge.
+ * Base class for challenge views.  This type adds the titles, buttons, and the feedback node, and controls the
+ * visibility based on the state of the challenge.
  *
  * @author John Blanco
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import stepTimer from '../../../../axon/js/stepTimer.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
@@ -64,17 +66,28 @@ class ChallengeView extends Node {
     this.interactiveAnswerNode = new Node();
     this.addChild( this.interactiveAnswerNode );
 
-    // face node, used to signal correct/incorrect answers
+    // Create the face node, used to signal correct/incorrect answers by smiling or frowning.
     const faceNode = new FaceNode( layoutBounds.width * 0.4, {
-      visible: false,
       opacity: 0.75,
       headStroke: BAAColors.facialStrokeColorProperty
     } );
-    const pointDisplay = new Text( '+0', POINT_TEXT_OPTIONS );
-    pointDisplay.centerX = 0;
-    pointDisplay.top = faceNode.height / 2;
-    faceNode.addChild( pointDisplay );
-    this.addChild( faceNode );
+
+    // Add the point display to the face node, which will be updated with the points earned for a correct answer.
+    const pointDisplayStringProperty = new DerivedStringProperty(
+      [
+        challenge.model.gameStateProperty,
+        challenge.model.pointValueProperty
+      ],
+      ( gameState, pointValue ) => gameState === 'solvedCorrectly' ? `+${pointValue}` : ''
+    );
+    const pointDisplay = new Text( pointDisplayStringProperty, POINT_TEXT_OPTIONS );
+
+    // Combine the face and points into a single node.
+    const feedbackNode = new VBox( {
+      children: [ faceNode, pointDisplay ],
+      spacing: 2
+    } );
+    this.addChild( feedbackNode );
 
     // buttons
     this.buttons = [];
@@ -147,7 +160,7 @@ class ChallengeView extends Node {
       this.buttons.forEach( button => {
         button.visible = false;
       } );
-      faceNode.visible = false;
+      feedbackNode.visible = false;
     };
     hideButtonsAndFace();
 
@@ -170,16 +183,14 @@ class ChallengeView extends Node {
         case 'solvedCorrectly':
           setAnswerNodeInteractive( false );
           faceNode.smile();
-          pointDisplay.string = `+${challenge.model.pointValueProperty.value}`;
-          faceNode.visible = true;
+          feedbackNode.visible = true;
           this.nextButton.visible = true;
           this.gameAudioPlayer.correctAnswer();
           break;
         case 'tryAgain':
           setAnswerNodeInteractive( false );
           faceNode.frown();
-          pointDisplay.string = '';
-          faceNode.visible = true;
+          feedbackNode.visible = true;
           this.tryAgainButton.visible = true;
           this.gameAudioPlayer.wrongAnswer();
           break;
@@ -187,8 +198,7 @@ class ChallengeView extends Node {
           setAnswerNodeInteractive( false );
           this.displayCorrectAnswerButton.visible = true;
           faceNode.frown();
-          pointDisplay.string = '';
-          faceNode.visible = true;
+          feedbackNode.visible = true;
           this.gameAudioPlayer.wrongAnswer();
           break;
         case 'showingAnswer':
@@ -202,11 +212,9 @@ class ChallengeView extends Node {
       }
     };
 
-    // Do an initial layout, but the subclasses can and should move the
-    // buttons as needed.
+    // Do an initial layout, but the subclasses can and should move the buttons as needed.
     this.setButtonCenter( layoutBounds.width * 0.5, layoutBounds.height * 0.92 );
-    faceNode.centerX = layoutBounds.width / 2;
-    faceNode.centerY = layoutBounds.height / 2;
+    feedbackNode.center = layoutBounds.center;
   }
 
   /**
