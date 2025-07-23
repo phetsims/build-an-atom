@@ -259,6 +259,7 @@ class BAAScreenView extends ScreenView {
       labelContent: BuildAnAtomStrings.elementStringProperty
     } );
     this.addChild( this.periodicTableAccordionBox );
+    this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
     const checkboxItemTextOptions = {
       font: LABEL_CONTROL_FONT,

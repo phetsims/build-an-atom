@@ -73,6 +73,7 @@ class AtomScreenView extends BAAScreenView {
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( this.netChargeAccordionBox );
+    this.netChargeAccordionBox.addLinkedElement( model.atom.chargeProperty );
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(
@@ -99,6 +100,7 @@ class AtomScreenView extends BAAScreenView {
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( this.massNumberAccordionBox );
+    this.massNumberAccordionBox.addLinkedElement( model.atom.massNumberProperty );
 
     // Do the layout.
     this.netChargeAccordionBox.right = this.periodicTableAccordionBox.right;
