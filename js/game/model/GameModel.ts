@@ -14,11 +14,9 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Emitter from '../../../../axon/js/Emitter.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
-import TEmitter from '../../../../axon/js/TEmitter.js';
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Random from '../../../../dot/js/Random.js';
 import Range from '../../../../dot/js/Range.js';
@@ -79,10 +77,6 @@ class GameModel implements TModel {
   // Usually it ranges between 'choosingLevel', 'levelCompleted' and individual challenges within a level.
   public readonly gameStateProperty: Property<GameState>;
 
-  // TODO: Do we really need this?  We (AV and JB) are working on making the state changes more explicit, and when this
-  //       effort is complete, this may not be needed. See https://github.com/phetsims/build-an-atom/issues/280.
-  public readonly stateChangeEmitter: TEmitter;
-
   // All the levels in the game
   public readonly levels: GameLevel[];
 
@@ -134,8 +128,6 @@ class GameModel implements TModel {
       phetioValueType: StringUnionIO( GameStateValues ),
       phetioReadOnly: true
     } );
-
-    this.stateChangeEmitter = new Emitter();
 
     this.pointValueProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'pointValueProperty' ),
@@ -229,7 +221,6 @@ class GameModel implements TModel {
       if ( !isSettingPhetioStateProperty.value ) {
         level ? this.startLevel() : this.startOver();
       }
-      this.stateChangeEmitter.emit();
     } );
 
     isSettingPhetioStateProperty.link( isSettingPhetioState => {
@@ -243,10 +234,6 @@ class GameModel implements TModel {
       this.levels.forEach( level => {
         level.generateChallengeDescriptors();
       } );
-    } );
-
-    this.gameStateProperty.link( () => {
-      this.stateChangeEmitter.emit();
     } );
   }
 
@@ -425,8 +412,6 @@ class GameModel implements TModel {
 
     // Set the game state to presenting a challenge.
     this.gameStateProperty.set( 'presentingChallenge' );
-
-    this.stateChangeEmitter.emit();
   }
 
   /**

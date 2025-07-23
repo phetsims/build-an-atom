@@ -6,6 +6,7 @@
  * @author John Blanco
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -19,7 +20,6 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
-import ChallengeView from './ChallengeView.js';
 import ChallengeViewSet from './ChallengeViewSet.js';
 import StartGameLevelNode from './StartGameLevelNode.js';
 
@@ -30,8 +30,6 @@ class GameScreenView extends ScreenView {
 
   private levelCompletedNode: LevelCompletedNode | null; // created on demand
   public rewardNode: BAARewardNode | null; // created on demand
-
-  private challengeView: ChallengeView | null = null;
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
@@ -91,80 +89,81 @@ class GameScreenView extends ScreenView {
     this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
-    gameModel.stateChangeEmitter.addListener( () => {
+    Multilink.multilink(
+      [
+        gameModel.gameStateProperty,
+        gameModel.levelProperty,
+        gameModel.challengeProperty
+      ],
+      ( gameState, level, challenge ) => {
 
-      const state = gameModel.gameStateProperty.value;
-
-      if ( state === 'levelSelection' ) {
-        this.initLevelSelection();
-      }
-      else if ( state === 'levelCompleted' ) {
-        this.levelNode.removeAllChildren();
-        if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
-
-          // Perfect score, add the reward node.
-          this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists
-          this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
-          this.levelNode.addChild( this.rewardNode );
-
-          // Play the appropriate audio feedback
-          gameAudioPlayer.gameOverPerfectScore();
+        if ( gameState === 'levelSelection' ) {
+          this.initLevelSelection();
         }
-        else if ( gameModel.scoreProperty.get() > 0 ) {
-          gameAudioPlayer.gameOverImperfectScore();
-        }
+        else if ( gameState === 'levelCompleted' ) {
+          this.levelNode.removeAllChildren();
+          if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
-        const level = gameModel.levelProperty.value!;
+            // Perfect score, add the reward node.
+            this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists
+            this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
+            this.levelNode.addChild( this.rewardNode );
 
-        // Add the dialog node that indicates that the level has been completed.
-        this.levelCompletedNode = new LevelCompletedNode(
-          gameModel.levelNumberProperty.get() + 1,
-          gameModel.scoreProperty.get(),
-          GameModel.MAX_POINTS_PER_GAME_LEVEL,
-          GameModel.CHALLENGES_PER_LEVEL,
-          gameModel.timerEnabledProperty.get(),
-          gameModel.timer.elapsedTimeProperty.get(),
-          level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
-          level.isNewBestTimeProperty.value,
-          () => { gameModel.levelProperty.reset(); }, {
-            centerX: this.layoutBounds.width / 2,
-            centerY: this.layoutBounds.height / 2,
-            levelVisible: false,
-            maxWidth: this.layoutBounds.width,
-            tandem: Tandem.OPT_OUT // tandem.createTandem( 'levelCompletedNode' ) // TODO: Address this after deciding on the dynamic nature of stuff https://github.com/phetsims/build-an-atom/issues/276
+            // Play the appropriate audio feedback
+            gameAudioPlayer.gameOverPerfectScore();
           }
-        );
-        this.levelNode.addChild( this.levelCompletedNode );
-      }
-      else {
-        this.levelNode.removeAllChildren();
-        this.disposeNodes();
+          else if ( gameModel.scoreProperty.get() > 0 ) {
+            gameAudioPlayer.gameOverImperfectScore();
+          }
 
-        const challenge = gameModel.challengeProperty.value!;
+          assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
 
-        if ( !challenge ) {
-          return;
+          // Add the dialog node that indicates that the level has been completed.
+          this.levelCompletedNode = new LevelCompletedNode(
+            gameModel.levelNumberProperty.get() + 1,
+            gameModel.scoreProperty.get(),
+            GameModel.MAX_POINTS_PER_GAME_LEVEL,
+            GameModel.CHALLENGES_PER_LEVEL,
+            gameModel.timerEnabledProperty.get(),
+            gameModel.timer.elapsedTimeProperty.get(),
+            level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
+            level!.isNewBestTimeProperty.value,
+            () => { gameModel.levelProperty.reset(); }, {
+              centerX: this.layoutBounds.width / 2,
+              centerY: this.layoutBounds.height / 2,
+              levelVisible: false,
+              maxWidth: this.layoutBounds.width,
+              tandem: Tandem.OPT_OUT // tandem.createTandem( 'levelCompletedNode' ) // TODO: Address this after deciding on the dynamic nature of stuff https://github.com/phetsims/build-an-atom/issues/276
+            }
+          );
+          this.levelNode.addChild( this.levelCompletedNode );
         }
         else {
+          this.levelNode.removeAllChildren();
+          this.disposeNodes();
 
-          // Get the view for the current challenge.
-          const challengeView = challengeViewSet.get( challenge )!;
-
-          // If this is the user's first attempt, reset the challenge view.
-          if ( gameModel.attemptsProperty.value === 0 ) {
-            challengeView.reset();
+          if ( !challenge ) {
+            return;
           }
+          else {
 
-          // Update the challenge view with the current state.
-          challengeView.handleStateChange( state );
+            // Get the view for the current challenge.
+            const challengeView = challengeViewSet.get( challenge )!;
 
-          this.levelNode.addChild( challengeView );
+            // If this is the user's first attempt, reset the challenge view.
+            if ( gameModel.attemptsProperty.value === 0 ) {
+              challengeView.reset();
+            }
+
+            // Update the challenge view with the current gameState.
+            challengeView.handleStateChange( gameState );
+
+            this.levelNode.addChild( challengeView );
+          }
+          this.levelNode.addChild( scoreboard );
         }
-        this.levelNode.addChild( scoreboard );
       }
-    } );
-
-    gameModel.stateChangeEmitter.emit(); // Initialize the view based on the current game state
+    );
   }
 
   public initLevelSelection(): void {
