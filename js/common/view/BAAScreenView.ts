@@ -196,6 +196,7 @@ class BAAScreenView extends ScreenView {
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node();
 
+    const bucketsTandem = tandem.createTandem( 'buckets' );
     for ( const [ bucketName, bucket ] of Object.entries( model.buckets ) ) {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         labelNode: new Text( bucket.captionText, {
@@ -214,7 +215,7 @@ class BAAScreenView extends ScreenView {
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: tandem.createTandem( `${bucketName}DragListener` )
+        tandem: bucketsTandem.createTandem( `${bucketName}DragListener` )
       } ) );
       bucketFront.addInputListener( {
         click: () => {
