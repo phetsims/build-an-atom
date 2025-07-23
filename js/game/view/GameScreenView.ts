@@ -43,6 +43,9 @@ class GameScreenView extends ScreenView {
     const challengeViewTandem = tandem.createTandem( 'challengeViews' );
     const challengeViewSet = new ChallengeViewSet( gameModel.getAllChallenges(), this.layoutBounds, challengeViewTandem );
 
+    this.rewardNode = null;
+    this.levelCompletedNode = null;
+
     this.levelSelectionNode = new StartGameLevelNode(
       gameModel,
       this.layoutBounds,
@@ -72,23 +75,18 @@ class GameScreenView extends ScreenView {
           yMargin: 5,
           listener: () => { gameModel.startOver(); }
         },
+        centerX: this.layoutBounds.centerX,
+        top: 0,
         tandem: tandem.createTandem( 'scoreboard' )
       }
     );
 
-    scoreboard.centerX = this.layoutBounds.centerX;
-    scoreboard.top = 0;
+    // Create the audio player for the game.
     const gameAudioPlayer = new GameAudioPlayer();
-    this.rewardNode = null;
-    this.levelCompletedNode = null;
 
     // Monitor the game state and update the view accordingly.
     Multilink.multilink(
-      [
-        gameModel.gameStateProperty,
-        gameModel.levelProperty,
-        gameModel.challengeProperty
-      ],
+      [ gameModel.gameStateProperty, gameModel.levelProperty, gameModel.challengeProperty ],
       ( gameState, level, challenge ) => {
 
         if ( gameState === 'levelSelection' ) {
@@ -101,7 +99,7 @@ class GameScreenView extends ScreenView {
           if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
             // Perfect score, add the reward node.
-            this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists
+            this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists.
             this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
             this.addChild( this.rewardNode );
 
@@ -168,6 +166,9 @@ class GameScreenView extends ScreenView {
     }
   }
 
+  /**
+   * Dispose of dynamically created nodes that are no longer needed.
+   */
   private disposeNodes(): void {
     if ( this.rewardNode !== null ) {
       this.rewardNode.dispose();
