@@ -86,8 +86,7 @@ class BAAScreenView extends ScreenView {
     this.addChild( atomNode );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
-    const particleCountDisplay = new ParticleCountDisplay( model.atom, 13, {
-      tandem: tandem.createTandem( 'particleCountDisplay' ),
+    const particleCountDisplay = new ParticleCountDisplay( model.atom, tandem, {
       top: CONTROLS_INSET,
       left: CONTROLS_INSET
     } );
