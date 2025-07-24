@@ -29,7 +29,7 @@ export default class AtomScreenIcon extends ScreenIcon {
 
     // Add the schematic representation of the atom.
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
-      new NumberAtom( { protonCount: 3, neutronCount: 3, electronCount: 2 } ),
+      new NumberAtom( { protonCount: 2, neutronCount: 2, electronCount: 2 } ),
       modelViewTransform,
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )
     );
