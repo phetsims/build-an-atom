@@ -7,14 +7,11 @@
  */
 
 import Screen from '../../../joist/js/Screen.js';
-import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import Image from '../../../scenery/js/nodes/Image.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import atomIcon_png from '../../images/atomIcon_png.js';
-import atomIconSmall_png from '../../images/atomIconSmall_png.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import BAAModel from '../common/model/BAAModel.js';
+import AtomScreenIcon from './view/AtomScreenIcon.js';
 import AtomScreenView from './view/AtomScreenView.js';
 
 class AtomScreen extends Screen<BAAModel, AtomScreenView> {
@@ -25,14 +22,7 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
       ( model: BAAModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.atomStringProperty,
-        homeScreenIcon: new ScreenIcon( new Image( atomIcon_png ), {
-          maxIconWidthProportion: 1,
-          maxIconHeightProportion: 1
-        } ),
-        navigationBarIcon: new ScreenIcon( new Image( atomIconSmall_png ), {
-          maxIconWidthProportion: 1,
-          maxIconHeightProportion: 1
-        } ),
+        homeScreenIcon: new AtomScreenIcon( tandem.createTandem( 'atomScreenIcon' ) ),
         tandem: tandem
       }
     );

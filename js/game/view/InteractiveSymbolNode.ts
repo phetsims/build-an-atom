@@ -36,6 +36,7 @@ type SelfOptions = {
   interactiveProtonCount?: boolean; // If true, the proton count is interactive.
   interactiveMassNumber?: boolean; // If true, the mass number is interactive.
   interactiveCharge?: boolean; // If true, the charge is interactive.
+  showAtomName?: boolean; // If true, the atom name is shown below the symbol.
 };
 
 export type InteractiveSymbolNodeOptions = SelfOptions & NodeOptions;
@@ -55,7 +56,8 @@ class InteractiveSymbolNode extends Node {
     const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( { // defaults
       interactiveProtonCount: false,
       interactiveMassNumber: false,
-      interactiveCharge: false
+      interactiveCharge: false,
+      showAtomName: true
     }, providedOptions );
 
     super( options );
@@ -114,9 +116,10 @@ class InteractiveSymbolNode extends Node {
       fill: BAAColors.protonColorProperty,
       top: SYMBOL_BOX_HEIGHT + 20,
       centerX: SYMBOL_BOX_WIDTH / 2,
-      maxWidth: SYMBOL_BOX_WIDTH
+      maxWidth: SYMBOL_BOX_WIDTH,
+      visible: options.showAtomName
     } );
-    boundingBox.addChild( elementCaption );
+    options.showAtomName && boundingBox.addChild( elementCaption );
 
     // Define a function to update the symbol text and element caption.
     const updateElement = ( protonCount: number ) => {
