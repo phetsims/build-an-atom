@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import Random from '../../../dot/js/Random.js';
+import Vector2 from '../../../dot/js/Vector2.js';
 import buildAnAtom from '../buildAnAtom.js';
 
 const VALID_CHALLENGES = [
@@ -41,7 +42,8 @@ const BAAConstants = {
   VALID_CHALLENGES: VALID_CHALLENGES,
   ALWAYS_TRUE_PROPERTY: new BooleanProperty( true ),
   ALWAYS_FALSE_PROPERTY: new BooleanProperty( false ),
-  NUMBER_OF_GAME_LEVELS: 4
+  NUMBER_OF_GAME_LEVELS: 4,
+  DEFAULT_TOUCH_DRAG_OFFSET: new Vector2( 0, -30 )
 };
 
 BAAConstants.ALWAYS_TRUE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );

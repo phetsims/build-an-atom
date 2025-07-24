@@ -34,6 +34,7 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
+import BAAParticleView from './BAAParticleView.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
@@ -127,12 +128,11 @@ class BAAScreenView extends ScreenView {
 
       assert && assert( nucleon.type === 'proton' || nucleon.type === 'neutron', 'this is not a nucleon' );
 
-      nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new ParticleView( nucleon, modelViewTransform, {
+      nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new BAAParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
         tandem: nucleon.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
-                neutronsGroupTandem.createNextTandem(),
-        phetioVisiblePropertyInstrumented: false
+                neutronsGroupTandem.createNextTandem()
       } ) );
 
       // Add a listener that adjusts a nucleon's z-order layering.
@@ -174,10 +174,9 @@ class BAAScreenView extends ScreenView {
 
     // Add the electron particle views.
     model.electrons.forEach( electron => {
-      electronLayer.addChild( new ParticleView( electron, modelViewTransform, {
+      electronLayer.addChild( new BAAParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
-        tandem: electronsGroupTandem.createNextTandem(),
-        phetioVisiblePropertyInstrumented: false
+        tandem: electronsGroupTandem.createNextTandem()
       } ) );
     } );
 
@@ -215,7 +214,14 @@ class BAAScreenView extends ScreenView {
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: bucketsTandem.createTandem( `${bucketName}DragListener` )
+        tandem: bucketsTandem.createTandem( `${bucketName}DragListener` ),
+
+        // Offset the particle position a little if this is a touch pointer so that the finger doesn't cover it.
+        offsetPosition: ( viewPoint, dragListener ) => {
+          return dragListener.pointer?.isTouchLike() ?
+                 BAAConstants.DEFAULT_TOUCH_DRAG_OFFSET :
+                 Vector2.ZERO;
+        }
       } ) );
       bucketFront.addInputListener( {
         click: () => {

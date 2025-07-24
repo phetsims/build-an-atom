@@ -21,6 +21,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
+import BAAParticleView from './BAAParticleView.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
@@ -81,7 +82,7 @@ class InteractiveSchematicAtom extends Node {
     const nucleonGroupTandem = options.tandem && options.tandem.createTandem( 'nucleons' ).createGroupTandem( 'nucleon', 0 );
     const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
     model.nucleons.forEach( nucleon => {
-      const particleView = new ParticleView( nucleon, modelViewTransform, {
+      const particleView = new BAAParticleView( nucleon, modelViewTransform, {
         highContrastProperty: options.highContrastProperty,
         tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
       } );
@@ -119,7 +120,7 @@ class InteractiveSchematicAtom extends Node {
 
     // Add the electron particle views.
     model.electrons.forEach( electron => {
-      const particleView = new ParticleView( electron, modelViewTransform, {
+      const particleView = new BAAParticleView( electron, modelViewTransform, {
         highContrastProperty: options.highContrastProperty,
         tandem: electronGroupTandem.createNextTandem()
       } );
