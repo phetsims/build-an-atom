@@ -31,7 +31,8 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
     this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
-      numberType: 'Integer'
+      numberType: 'Integer',
+      phetioReadOnly: true
     } );
 
     // Particle counts

@@ -32,7 +32,8 @@ class CountsToChargeChallengeView extends ChallengeView {
 
     this.chargeAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
-      numberType: 'Integer'
+      numberType: 'Integer',
+      phetioReadOnly: true
     } );
 
     // Particle counts

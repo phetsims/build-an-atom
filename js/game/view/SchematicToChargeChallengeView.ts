@@ -36,7 +36,8 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
     this.chargeAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeAnswerProperty' ),
-      numberType: 'Integer'
+      numberType: 'Integer',
+      phetioReadOnly: true
     } );
 
     // Create the model-view transform used by the schematic atom.
