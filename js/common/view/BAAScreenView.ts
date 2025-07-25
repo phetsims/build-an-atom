@@ -288,7 +288,10 @@ class BAAScreenView extends ScreenView {
       checkboxOptions: { boxWidth: 12 },
       spacing: 8,
       tandem: tandem.createTandem( 'checkboxGroup' ),
-      phetioFeatured: true
+      phetioFeatured: true,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     } );
     this.addChild( checkboxGroup );
 
@@ -301,7 +304,10 @@ class BAAScreenView extends ScreenView {
     // Add the selector panel that controls the electron representation in the atom.
     const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
       tandem: tandem.createTandem( 'electronModelControl' ),
-      phetioFeatured: true
+      phetioFeatured: true,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     } );
     this.addChild( electronModelControl );
 
