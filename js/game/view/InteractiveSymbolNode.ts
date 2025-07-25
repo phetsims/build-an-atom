@@ -66,15 +66,18 @@ class InteractiveSymbolNode extends Node {
 
     this.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: tandem.createTandem( 'protonCountProperty' ),
-      numberType: 'Integer'
+      numberType: 'Integer',
+      phetioReadOnly: true
     } );
     this.massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: tandem.createTandem( 'massNumberProperty' ),
-      numberType: 'Integer'
+      numberType: 'Integer',
+      phetioReadOnly: true
     } );
     this.chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
       tandem: tandem.createTandem( 'chargeProperty' ),
-      numberType: 'Integer'
+      numberType: 'Integer',
+      phetioReadOnly: true
     } );
 
     if ( !options.interactiveProtonCount ) {

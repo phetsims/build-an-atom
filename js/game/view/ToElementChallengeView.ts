@@ -45,12 +45,15 @@ class ToElementChallengeView extends ChallengeView {
     super( countsToElementChallenge, layoutBounds, tandem );
 
     this.periodicTableAtom = new NumberAtom( {
-      tandem: tandem.createTandem( 'periodicTableAtom' )
+      tandem: tandem.createTandem( 'periodicTableAtom' ),
+      phetioReadOnly: true
     } );
 
     this.neutralOrIonProperty = new Property<NeutralOrIon>( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),
-      phetioValueType: StringUnionIO( neutralOrIonValues )
+      validValues: neutralOrIonValues,
+      phetioValueType: StringUnionIO( neutralOrIonValues ),
+      phetioReadOnly: true
     } );
 
     // Periodic table
@@ -60,7 +63,7 @@ class ToElementChallengeView extends ChallengeView {
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
       selectedCellColor: 'yellow',
       scale: 1.02,
-      tandem: Tandem.OPT_OUT
+      tandem: tandem.createTandem( 'periodicTable' )
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
