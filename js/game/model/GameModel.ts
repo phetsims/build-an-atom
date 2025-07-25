@@ -66,6 +66,26 @@ export const GameStateValues = [
 ] as const;
 export type GameState = ( typeof GameStateValues )[number];
 
+// Map from challenge type strings to constructors.
+const CHALLENGE_TYPE_TO_CONSTRUCTOR_MAP = new Map<ChallengeType, new( model: GameModel, tandem: Tandem ) => BAAGameChallenge>( [
+  [ 'counts-to-element', CountsToElementChallenge ],
+  [ 'counts-to-charge', CountsToChargeChallenge ],
+  [ 'counts-to-mass', CountsToMassNumberChallenge ],
+  [ 'counts-to-symbol-all', CountsToSymbolAllChallenge ],
+  [ 'counts-to-symbol-charge', CountsToSymbolChargeChallenge ],
+  [ 'counts-to-symbol-mass', CountsToSymbolMassChallenge ],
+  [ 'counts-to-symbol-proton-count', CountsToSymbolProtonCountChallenge ],
+  [ 'schematic-to-element', SchematicToElementChallenge ],
+  [ 'schematic-to-charge', SchematicToChargeChallenge ],
+  [ 'schematic-to-mass', SchematicToMassNumberChallenge ],
+  [ 'schematic-to-symbol-all', SchematicToSymbolAllChallenge ],
+  [ 'schematic-to-symbol-charge', SchematicToSymbolChargeChallenge ],
+  [ 'schematic-to-symbol-mass-number', SchematicToSymbolMassChallenge ],
+  [ 'schematic-to-symbol-proton-count', SchematicToSymbolProtonCountChallenge ],
+  [ 'symbol-to-counts', SymbolToCountsChallenge ],
+  [ 'symbol-to-schematic', SymbolToSchematicChallenge ]
+] );
+
 class GameModel implements TModel {
 
   public static readonly CHALLENGES_PER_LEVEL = CHALLENGES_PER_LEVEL;
@@ -134,26 +154,16 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
-    // Create the challenge type to instance map, which will be used to grab the correct challenge type when needed.
+    // Create a Map of challenge types to a single instance of each type.
     const challengesTandem = tandem.createTandem( 'challenges' );
-    this.challengeTypeToInstanceMap = new Map<ChallengeType, BAAGameChallenge>( [
-      [ 'counts-to-element', new CountsToElementChallenge( this, challengesTandem.createTandem( 'countsToElementChallenge' ) ) ],
-      [ 'counts-to-charge', new CountsToChargeChallenge( this, challengesTandem.createTandem( 'countsToChargeChallenge' ) ) ],
-      [ 'counts-to-mass', new CountsToMassNumberChallenge( this, challengesTandem.createTandem( 'countsToMassNumberChallenge' ) ) ],
-      [ 'counts-to-symbol-all', new CountsToSymbolAllChallenge( this, challengesTandem.createTandem( 'countsToSymbolAllChallenge' ) ) ],
-      [ 'counts-to-symbol-charge', new CountsToSymbolChargeChallenge( this, challengesTandem.createTandem( 'countsToSymbolChargeChallenge' ) ) ],
-      [ 'counts-to-symbol-mass', new CountsToSymbolMassChallenge( this, challengesTandem.createTandem( 'countsToSymbolMassChallenge' ) ) ],
-      [ 'counts-to-symbol-proton-count', new CountsToSymbolProtonCountChallenge( this, challengesTandem.createTandem( 'countsToSymbolProtonCountChallenge' ) ) ],
-      [ 'schematic-to-element', new SchematicToElementChallenge( this, challengesTandem.createTandem( 'schematicToElementChallenge' ) ) ],
-      [ 'schematic-to-charge', new SchematicToChargeChallenge( this, challengesTandem.createTandem( 'schematicToChargeChallenge' ) ) ],
-      [ 'schematic-to-mass', new SchematicToMassNumberChallenge( this, challengesTandem.createTandem( 'schematicToMassNumberChallenge' ) ) ],
-      [ 'schematic-to-symbol-all', new SchematicToSymbolAllChallenge( this, challengesTandem.createTandem( 'schematicToSymbolAllChallenge' ) ) ],
-      [ 'schematic-to-symbol-charge', new SchematicToSymbolChargeChallenge( this, challengesTandem.createTandem( 'schematicToSymbolChargeChallenge' ) ) ],
-      [ 'schematic-to-symbol-mass-number', new SchematicToSymbolMassChallenge( this, challengesTandem.createTandem( 'schematicToSymbolMassChallenge' ) ) ],
-      [ 'schematic-to-symbol-proton-count', new SchematicToSymbolProtonCountChallenge( this, challengesTandem.createTandem( 'schematicToSymbolProtonCountChallenge' ) ) ],
-      [ 'symbol-to-counts', new SymbolToCountsChallenge( this, challengesTandem.createTandem( 'symbolToCountsChallenge' ) ) ],
-      [ 'symbol-to-schematic', new SymbolToSchematicChallenge( this, challengesTandem.createTandem( 'symbolToSchematicChallenge' ) ) ]
-    ] );
+    this.challengeTypeToInstanceMap = new Map<ChallengeType, BAAGameChallenge>();
+    CHALLENGE_TYPE_TO_CONSTRUCTOR_MAP.forEach( ( Ctor, challengeType ) => {
+      const tandemName = challengeType.replace( /-([a-z])/g, ( match, letter ) => letter.toUpperCase() ) + 'Challenge';
+      this.challengeTypeToInstanceMap.set(
+        challengeType,
+        new Ctor( this, challengesTandem.createTandem( tandemName ) )
+      );
+    } );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
       numberType: 'Integer',
