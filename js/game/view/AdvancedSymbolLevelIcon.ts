@@ -1,6 +1,6 @@
 // Copyright 2025, University of Colorado Boulder
 /**
- * Button icon for the Symbol Level on the Game Screen.
+ * Button icon for the Advanced Symbol Level on the Game Screen.
  *
  * @author Agustín Vallejo
  */

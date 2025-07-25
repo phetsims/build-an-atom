@@ -13,7 +13,6 @@ import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleBu
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
-import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -21,7 +20,6 @@ import Dialog from '../../../../sun/js/Dialog.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
-import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -32,6 +30,7 @@ import GameLevel from '../model/GameLevel.js';
 import GameModel from '../model/GameModel.js';
 import AdvancedSymbolLevelIcon from './AdvancedSymbolLevelIcon.js';
 import MassAndChargeLevelIcon from './MassAndChargeLevelIcon.js';
+import PeriodicTableLevelIcon from './PeriodicTableLevelIcon.js';
 import SymbolLevelIcon from './SymbolLevelIcon.js';
 
 // constants
@@ -93,7 +92,7 @@ class StartGameLevelNode extends Node {
     const levelButtonsTandem = tandem.createTandem( 'levelButtons' );
     const periodicTableLevelButton = this.createLevelSelectionButton(
       gameModel,
-      new Image( periodicTableIcon_png ),
+      new PeriodicTableLevelIcon(),
       gameModel.levels[ 0 ],
       'Periodic table level',
       levelButtonsTandem
