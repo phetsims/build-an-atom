@@ -177,7 +177,8 @@ class GameModel implements TModel {
       validValues: [ ...this.challengeTypeToInstanceMap.values(), null ],
       tandem: tandem.createTandem( 'challengeProperty' ),
       phetioDocumentation: 'The current challenge that is being played, null means that no challenge is active.',
-      phetioValueType: NullableIO( BAAGameChallenge.BAAGameChallengeIO )
+      phetioValueType: NullableIO( BAAGameChallenge.BAAGameChallengeIO ),
+      phetioReadOnly: true
     } );
 
     this.levels = [
