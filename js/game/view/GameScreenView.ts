@@ -52,7 +52,7 @@ class GameScreenView extends ScreenView {
       tandem.createTandem( 'levelSelectionNode' )
     );
 
-    const scoreboard = new FiniteStatusBar(
+    const statusBar = new FiniteStatusBar(
       this.layoutBounds,
       this.visibleBoundsProperty,
       gameModel.scoreProperty,
@@ -75,7 +75,7 @@ class GameScreenView extends ScreenView {
           yMargin: 5,
           listener: () => { gameModel.startOver(); }
         },
-        tandem: tandem.createTandem( 'scoreboard' )
+        tandem: tandem.createTandem( 'statusBar' )
       }
     );
 
@@ -153,7 +153,7 @@ class GameScreenView extends ScreenView {
 
             this.addChild( challengeView );
           }
-          this.addChild( scoreboard );
+          this.addChild( statusBar );
         }
       }
     );
