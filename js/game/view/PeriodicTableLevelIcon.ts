@@ -17,7 +17,9 @@ export default class PeriodicTableLevelIcon extends Node {
 
     const periodicTableNode = new PeriodicTableNode(
       new NumberAtom( { protonCount: 11 } ),
-      {}
+      {
+        selectedCellColor: 'yellow'
+      }
     );
 
     super( {
