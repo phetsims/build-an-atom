@@ -50,10 +50,6 @@ abstract class BAAGameChallenge extends PhetioObject {
 
     this.challengeType = challengeType;
 
-    // Converts challenge-type casing to tandemCasing
-    // e.g. 'counts-to-symbol-mass-challenge' -> 'CountsToSymbolMassChallenge'
-    const tandemName = challengeType.replace( /-([a-z])/g, ( match, letter ) => letter.toUpperCase() );
-    tandem = tandem.createTandem( tandemName );
     this.answerAtom = new NumberAtom( {
       protonCount: 1,
       tandem: tandem.createTandem( 'answerAtom' )

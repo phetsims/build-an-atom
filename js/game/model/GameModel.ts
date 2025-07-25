@@ -138,21 +138,21 @@ class GameModel implements TModel {
     const challengesTandem = tandem.createTandem( 'challenges' );
     this.challengeTypeToInstanceMap = new Map<ChallengeType, BAAGameChallenge>( [
       [ 'counts-to-element', new CountsToElementChallenge( this, challengesTandem.createTandem( 'countsToElementChallenge' ) ) ],
-      [ 'counts-to-charge', new CountsToChargeChallenge( this, challengesTandem.createTandem( 'CountsToChargeChallenge' ) ) ],
-      [ 'counts-to-mass', new CountsToMassNumberChallenge( this, challengesTandem.createTandem( 'CountsToMassNumberChallenge' ) ) ],
-      [ 'counts-to-symbol-all', new CountsToSymbolAllChallenge( this, challengesTandem.createTandem( 'CountsToSymbolAllChallenge' ) ) ],
-      [ 'counts-to-symbol-charge', new CountsToSymbolChargeChallenge( this, challengesTandem.createTandem( 'CountsToSymbolChargeChallenge' ) ) ],
-      [ 'counts-to-symbol-mass', new CountsToSymbolMassChallenge( this, challengesTandem.createTandem( 'CountsToSymbolMassChallenge' ) ) ],
-      [ 'counts-to-symbol-proton-count', new CountsToSymbolProtonCountChallenge( this, challengesTandem.createTandem( 'CountsToSymbolProtonCountChallenge' ) ) ],
-      [ 'schematic-to-element', new SchematicToElementChallenge( this, challengesTandem.createTandem( 'SchematicToElementChallenge' ) ) ],
-      [ 'schematic-to-charge', new SchematicToChargeChallenge( this, challengesTandem.createTandem( 'SchematicToChargeChallenge' ) ) ],
-      [ 'schematic-to-mass', new SchematicToMassNumberChallenge( this, challengesTandem.createTandem( 'SchematicToMassNumberChallenge' ) ) ],
-      [ 'schematic-to-symbol-all', new SchematicToSymbolAllChallenge( this, challengesTandem.createTandem( 'SchematicToSymbolAllChallenge' ) ) ],
-      [ 'schematic-to-symbol-charge', new SchematicToSymbolChargeChallenge( this, challengesTandem.createTandem( 'SchematicToSymbolChargeChallenge' ) ) ],
-      [ 'schematic-to-symbol-mass-number', new SchematicToSymbolMassChallenge( this, challengesTandem.createTandem( 'SchematicToSymbolMassChallenge' ) ) ],
-      [ 'schematic-to-symbol-proton-count', new SchematicToSymbolProtonCountChallenge( this, challengesTandem.createTandem( 'SchematicToSymbolProtonCountChallenge' ) ) ],
-      [ 'symbol-to-counts', new SymbolToCountsChallenge( this, challengesTandem.createTandem( 'SymbolToCountsChallenge' ) ) ],
-      [ 'symbol-to-schematic', new SymbolToSchematicChallenge( this, challengesTandem.createTandem( 'SymbolToSchematicChallenge' ) ) ]
+      [ 'counts-to-charge', new CountsToChargeChallenge( this, challengesTandem.createTandem( 'countsToChargeChallenge' ) ) ],
+      [ 'counts-to-mass', new CountsToMassNumberChallenge( this, challengesTandem.createTandem( 'countsToMassNumberChallenge' ) ) ],
+      [ 'counts-to-symbol-all', new CountsToSymbolAllChallenge( this, challengesTandem.createTandem( 'countsToSymbolAllChallenge' ) ) ],
+      [ 'counts-to-symbol-charge', new CountsToSymbolChargeChallenge( this, challengesTandem.createTandem( 'countsToSymbolChargeChallenge' ) ) ],
+      [ 'counts-to-symbol-mass', new CountsToSymbolMassChallenge( this, challengesTandem.createTandem( 'countsToSymbolMassChallenge' ) ) ],
+      [ 'counts-to-symbol-proton-count', new CountsToSymbolProtonCountChallenge( this, challengesTandem.createTandem( 'countsToSymbolProtonCountChallenge' ) ) ],
+      [ 'schematic-to-element', new SchematicToElementChallenge( this, challengesTandem.createTandem( 'schematicToElementChallenge' ) ) ],
+      [ 'schematic-to-charge', new SchematicToChargeChallenge( this, challengesTandem.createTandem( 'schematicToChargeChallenge' ) ) ],
+      [ 'schematic-to-mass', new SchematicToMassNumberChallenge( this, challengesTandem.createTandem( 'schematicToMassNumberChallenge' ) ) ],
+      [ 'schematic-to-symbol-all', new SchematicToSymbolAllChallenge( this, challengesTandem.createTandem( 'schematicToSymbolAllChallenge' ) ) ],
+      [ 'schematic-to-symbol-charge', new SchematicToSymbolChargeChallenge( this, challengesTandem.createTandem( 'schematicToSymbolChargeChallenge' ) ) ],
+      [ 'schematic-to-symbol-mass-number', new SchematicToSymbolMassChallenge( this, challengesTandem.createTandem( 'schematicToSymbolMassChallenge' ) ) ],
+      [ 'schematic-to-symbol-proton-count', new SchematicToSymbolProtonCountChallenge( this, challengesTandem.createTandem( 'schematicToSymbolProtonCountChallenge' ) ) ],
+      [ 'symbol-to-counts', new SymbolToCountsChallenge( this, challengesTandem.createTandem( 'symbolToCountsChallenge' ) ) ],
+      [ 'symbol-to-schematic', new SymbolToSchematicChallenge( this, challengesTandem.createTandem( 'symbolToSchematicChallenge' ) ) ]
     ] );
 
     this.challengeNumberProperty = new NumberProperty( 1, {
