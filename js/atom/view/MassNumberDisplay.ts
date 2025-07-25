@@ -10,7 +10,7 @@
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -23,7 +23,9 @@ import buildAnAtom from '../../buildAnAtom.js';
 const WIDTH = 122; // In screen coords, which are roughly pixels, empirically determined.
 const READOUT_SIZE = new Dimension2( WIDTH * 0.25, WIDTH * 0.165 ); // In screen coords, which are roughly pixels.
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  showMassReadout?: boolean; // Possible to hide the readout for drawing an icon
+};
 
 export type MassNumberDisplayOptions = SelfOptions & NodeOptions;
 
@@ -31,7 +33,9 @@ class MassNumberDisplay extends Node {
 
   public constructor( massNumberProperty: TReadOnlyProperty<number>, providedOptions?: MassNumberDisplayOptions ) {
 
-    const options = optionize<MassNumberDisplayOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
+    const options = optionize<MassNumberDisplayOptions, SelfOptions, NodeOptions>()( {
+      showMassReadout: true
+    }, providedOptions );
 
     super( options );
 
@@ -47,13 +51,15 @@ class MassNumberDisplay extends Node {
       lineWidth: 1,
       // Position is based on the background image, and may need tweaking if the image is changed.
       bottom: scaleImage.bottom - 6,
-      centerX: scaleImage.centerX
+      centerX: scaleImage.centerX,
+      visible: options.showMassReadout
     } );
     this.addChild( readoutBackground );
 
     // placeholder text value, will be changed later
     const numericalText = new Text( ' ', {
-      font: new PhetFont( { size: 24, weight: 'bold' } )
+      font: new PhetFont( { size: 24, weight: 'bold' } ),
+      visible: options.showMassReadout
     } );
     readoutBackground.addChild( numericalText );
 

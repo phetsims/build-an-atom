@@ -21,10 +21,7 @@ import Dialog from '../../../../sun/js/Dialog.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
-import massChargeIcon_png from '../../../images/massChargeIcon_png.js';
 import periodicTableIcon_png from '../../../images/periodicTableIcon_png.js';
-import questionMarkIcon_png from '../../../images/questionMarkIcon_png.js';
-import symbolQuestionIcon_png from '../../../images/symbolQuestionIcon_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -33,6 +30,9 @@ import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import GameLevel from '../model/GameLevel.js';
 import GameModel from '../model/GameModel.js';
+import AdvancedSymbolLevelIcon from './AdvancedSymbolLevelIcon.js';
+import MassAndChargeLevelIcon from './MassAndChargeLevelIcon.js';
+import SymbolLevelIcon from './SymbolLevelIcon.js';
 
 // constants
 const CONTROLS_INSET = 10;
@@ -91,36 +91,36 @@ class StartGameLevelNode extends Node {
 
     // buttons for starting a game level
     const levelButtonsTandem = tandem.createTandem( 'levelButtons' );
-    const periodicTableGameButton = this.createLevelSelectionButton(
+    const periodicTableLevelButton = this.createLevelSelectionButton(
       gameModel,
-      periodicTableIcon_png,
+      new Image( periodicTableIcon_png ),
       gameModel.levels[ 0 ],
       'Periodic table level',
       levelButtonsTandem
     );
-    const massAndChargeGameButton = this.createLevelSelectionButton(
+    const massAndChargeLevelButton = this.createLevelSelectionButton(
       gameModel,
-      massChargeIcon_png,
+      new MassAndChargeLevelIcon(),
       gameModel.levels[ 1 ],
       'Mass and charge level',
       levelButtonsTandem
     );
-    const symbolGameButton = this.createLevelSelectionButton(
+    const symbolLevelButton = this.createLevelSelectionButton(
       gameModel,
-      symbolQuestionIcon_png,
+      new SymbolLevelIcon(),
       gameModel.levels[ 2 ],
       'Symbol level',
       levelButtonsTandem
     );
-    const advancedSymbolGameButton = this.createLevelSelectionButton(
+    const advancedSymbolLevelButton = this.createLevelSelectionButton(
       gameModel,
-      questionMarkIcon_png,
+      new AdvancedSymbolLevelIcon(),
       gameModel.levels[ 3 ],
       'Advanced symbol level',
       levelButtonsTandem
     );
     const buttonHBox = new HBox( {
-      children: [ periodicTableGameButton, massAndChargeGameButton, symbolGameButton, advancedSymbolGameButton ],
+      children: [ periodicTableLevelButton, massAndChargeLevelButton, symbolLevelButton, advancedSymbolLevelButton ],
       spacing: 30,
       centerY: layoutBounds.centerY,
       centerX: layoutBounds.centerX
@@ -158,14 +158,14 @@ class StartGameLevelNode extends Node {
 // helper function to create level selection buttons, helps to avoid code duplication
   private createLevelSelectionButton(
     gameModel: GameModel,
-    icon: HTMLImageElement,
+    icon: Node,
     level: GameLevel,
     levelPhetioDescription: string,
     tandem: Tandem
   ): LevelSelectionButton {
     const levelNumber = level.index;
     return new LevelSelectionButton(
-      new Image( icon ),
+      icon,
       gameModel.levels[ levelNumber ].bestScoreProperty,
       {
         listener: () => {
