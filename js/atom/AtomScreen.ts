@@ -22,7 +22,7 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
       ( model: BAAModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomStrings.atomStringProperty,
-        homeScreenIcon: new AtomScreenIcon( tandem.createTandem( 'atomScreenIcon' ) ),
+        homeScreenIcon: new AtomScreenIcon( Tandem.OPT_OUT ),
         tandem: tandem
       }
     );
