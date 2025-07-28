@@ -73,6 +73,11 @@ class CountsToChargeChallengeView extends ChallengeView {
     };
   }
 
+  public override reset(): void {
+    super.reset();
+    this.chargeAnswerProperty.reset();
+  }
+
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),

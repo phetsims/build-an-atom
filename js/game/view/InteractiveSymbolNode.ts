@@ -108,7 +108,7 @@ class InteractiveSymbolNode extends Node {
 
     // Current string properties for the symbol text and element caption
     // const symbolStringProperty = new Property<string>( AtomIdentifier.getSymbol( 0 ) );
-    const currentElementStringProperty = new Property( AtomIdentifier.getName( 0 ) );
+    const currentElementStringProperty = new Property( AtomIdentifier.getName( 0 ), { reentrant: true } );
     const elementDynamicStringProperty = new DynamicProperty( currentElementStringProperty );
 
     // Add the symbol text.
@@ -153,7 +153,7 @@ class InteractiveSymbolNode extends Node {
 
     // Updating the element if the element string property changes.
     elementDynamicStringProperty.link( () => {
-      updateElement( numberAtom.protonCountProperty.value );
+      updateElement( this.protonCountProperty.value );
     } );
 
     // So that the interactive and non-interactive numbers are vertically
