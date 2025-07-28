@@ -38,7 +38,6 @@ import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
 import CountsToSymbolAllChallenge from './CountsToSymbolAllChallenge.js';
 import CountsToSymbolChargeChallenge from './CountsToSymbolChargeChallenge.js';
 import CountsToSymbolMassChallenge from './CountsToSymbolMassChallenge.js';
-import CountsToSymbolProtonCountChallenge from './CountsToSymbolProtonCountChallenge.js';
 import GameLevel from './GameLevel.js';
 import SchematicToChargeChallenge from './SchematicToChargeChallenge.js';
 import SchematicToElementChallenge from './SchematicToElementChallenge.js';
@@ -74,7 +73,6 @@ const CHALLENGE_TYPE_TO_CONSTRUCTOR_MAP = new Map<ChallengeType, new( model: Gam
   [ 'counts-to-symbol-all', CountsToSymbolAllChallenge ],
   [ 'counts-to-symbol-charge', CountsToSymbolChargeChallenge ],
   [ 'counts-to-symbol-mass', CountsToSymbolMassChallenge ],
-  [ 'counts-to-symbol-proton-count', CountsToSymbolProtonCountChallenge ],
   [ 'schematic-to-element', SchematicToElementChallenge ],
   [ 'schematic-to-charge', SchematicToChargeChallenge ],
   [ 'schematic-to-mass', SchematicToMassNumberChallenge ],
