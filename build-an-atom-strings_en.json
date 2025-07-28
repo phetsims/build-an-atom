@@ -39,10 +39,10 @@
     "value": "Model:"
   },
   "whatIsTheMassNumber": {
-    "value": "What is the<br>mass number?"
+    "value": "What is the<br>mass number?<br>"
   },
   "whatIsTheTotalCharge": {
-    "value": "What is the<br>total charge?"
+    "value": "What is the<br>total charge?<br>"
   },
   "electronsColon": {
     "value": "Electrons:"

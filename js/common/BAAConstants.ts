@@ -9,6 +9,8 @@
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import Random from '../../../dot/js/Random.js';
 import Vector2 from '../../../dot/js/Vector2.js';
+import PhetFont from '../../../scenery-phet/js/PhetFont.js';
+import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
 import buildAnAtom from '../buildAnAtom.js';
 
 const VALID_CHALLENGES = [
@@ -36,6 +38,14 @@ export const RANDOM = new Random( {
 
 export type ChallengeType = typeof VALID_CHALLENGES[number];
 
+const QUESTION_PROMPT_OPTIONS: RichTextOptions = {
+  replaceNewlines: true,
+  align: 'left',
+  font: new PhetFont( 24 ),
+  maxWidth: 140,
+  maxHeight: 100
+};
+
 const BAAConstants = {
   RESET_BUTTON_RADIUS: 20,
   MAX_CHALLENGE_ATTEMPTS: 2, // Note: Attempt is the same as a submission in BAAGameChallenge.
@@ -43,7 +53,8 @@ const BAAConstants = {
   ALWAYS_TRUE_PROPERTY: new BooleanProperty( true ),
   ALWAYS_FALSE_PROPERTY: new BooleanProperty( false ),
   NUMBER_OF_GAME_LEVELS: 4,
-  DEFAULT_TOUCH_DRAG_OFFSET: new Vector2( 0, -30 )
+  DEFAULT_TOUCH_DRAG_OFFSET: new Vector2( 0, -30 ),
+  QUESTION_PROMPT_OPTIONS: QUESTION_PROMPT_OPTIONS
 };
 
 BAAConstants.ALWAYS_TRUE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );
