@@ -8,6 +8,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -105,6 +106,11 @@ class InteractiveSymbolNode extends Node {
     } );
     this.addChild( boundingBox );
 
+    // Current string properties for the symbol text and element caption
+    // const symbolStringProperty = new Property<string>( AtomIdentifier.getSymbol( 0 ) );
+    const currentElementStringProperty = new Property( AtomIdentifier.getName( 0 ) );
+    const elementDynamicStringProperty = new DynamicProperty( currentElementStringProperty );
+
     // Add the symbol text.
     const symbolText = new Text( '', {
       font: new PhetFont( 150 ),
@@ -128,12 +134,26 @@ class InteractiveSymbolNode extends Node {
     const updateElement = ( protonCount: number ) => {
       symbolText.string = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
       symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
-      elementCaption.string = protonCount > 0 ? AtomIdentifier.getName( protonCount ).value : '';
+
+      if ( protonCount > 0 ) {
+        // Update the string property for the element caption.
+        const elementNameProperty = AtomIdentifier.getName( protonCount );
+        currentElementStringProperty.value = elementNameProperty;
+        elementCaption.string = elementNameProperty.value;
+      }
+      else {
+        elementCaption.string = '';
+      }
       elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
     };
 
     numberAtom.protonCountProperty.link( protonCount => {
       updateElement( protonCount );
+    } );
+
+    // Updating the element if the element string property changes.
+    elementDynamicStringProperty.link( () => {
+      updateElement( numberAtom.protonCountProperty.value );
     } );
 
     // So that the interactive and non-interactive numbers are vertically
