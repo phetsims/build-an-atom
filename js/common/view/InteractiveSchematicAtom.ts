@@ -129,10 +129,9 @@ class InteractiveSchematicAtom extends Node {
     } );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    const bucketGroupTandem = options.tandem.createTandem( 'bucketFronts' ).createGroupTandem( 'bucketFront', 0 );
     const bucketFrontsAndDragHandlers: { dispose: VoidFunction }[] = []; // keep track for disposal
     _.each( model.buckets, bucket => {
-      const bucketFront = new BucketFront( bucket, modelViewTransform, { tandem: bucketGroupTandem.createNextTandem() } );
+      const bucketFront = new BucketFront( bucket, modelViewTransform );
       this.addChild( bucketFront );
 
       const bucketDragListener = new BucketDragListener( bucket, bucketFront, modelViewTransform, {
