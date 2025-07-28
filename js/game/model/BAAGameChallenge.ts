@@ -8,8 +8,6 @@
  * @author John Blanco
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -27,10 +25,6 @@ abstract class BAAGameChallenge extends PhetioObject {
 
   // Correct answer atom for this challenge, which the user is trying to deduce.
   public readonly answerAtom: NumberAtom;
-
-  // TODO: The way this works can probably be simplified.  See https://github.com/phetsims/build-an-atom/issues/280.
-  // Derived property that indicates whether the submitted atom is correct.
-  public isCorrectAtomProperty: Property<boolean>;
 
   // Property that tracks the state of the challenge, such as whether it is presenting the challenge,
   public readonly challengeType: string;
@@ -55,17 +49,10 @@ abstract class BAAGameChallenge extends PhetioObject {
       tandem: tandem.createTandem( 'answerAtom' )
     } );
     this.model = model;
-
-    this.isCorrectAtomProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'isCorrectAtomProperty' ),
-      phetioReadOnly: true,
-      phetioState: false
-    } );
   }
 
   public checkAnswer( submittedAtom: AnswerAtom ): void {
-    this.isCorrectAtomProperty.value = submittedAtom.equals( this.answerAtom );
-    this.model.check();
+    this.model.check( submittedAtom );
   }
 
   public tryAgain(): void {

@@ -30,6 +30,7 @@ import GameTimer from '../../../../vegas/js/GameTimer.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
+import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
@@ -270,7 +271,7 @@ class GameModel implements TModel {
   /**
    * Called when the user presses the "Check" button.
    */
-  public check(): void {
+  public check( submittedAnswer: AnswerAtom ): void {
 
     const level = this.levelProperty.value!;
     assert && assert( level );
@@ -278,7 +279,7 @@ class GameModel implements TModel {
     this.attemptsProperty.value++;
     const attempts = this.attemptsProperty.value;
     const challenge = this.challengeProperty.value!;
-    const correctAnswer = challenge.isCorrectAtomProperty.value;
+    const correctAnswer = submittedAnswer.equals( challenge.answerAtom );
 
     const points = attempts === 1 ?
                    GameModel.POINTS_FIRST_ATTEMPT :
