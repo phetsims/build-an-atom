@@ -46,15 +46,19 @@ export default class ChallengeSetFactory {
 
     const challengeDescriptors: ChallengeDescriptor[] = [];
 
+    let previousChallengeType: null | ChallengeType = null;
+
     _.times( GameModel.CHALLENGES_PER_LEVEL, () => {
       const challengeDescriptor = this.getRandomAvailableChallengeDescriptor(
         model,
         validChallengeNames,
         atomValuePool,
+        previousChallengeType,
         tandem
       );
       if ( challengeDescriptor ) {
         challengeDescriptors.push( challengeDescriptor );
+        previousChallengeType = challengeDescriptor.type;
       }
     } );
 
@@ -77,14 +81,21 @@ export default class ChallengeSetFactory {
     model: GameModel,
     validChallengeTypes: ChallengeType[],
     availableAtomValues: AtomValuePool,
+    previousChallengeType: null | ChallengeType,
     tandem: Tandem
   ): ChallengeDescriptor {
 
     const random = model.random;
 
-    // TODO: This probably is bad for checking repetition, will come back later https://github.com/phetsims/build-an-atom/issues/257
-    const index = Math.floor( random.nextDouble() * validChallengeTypes.length );
-    const challengeType = validChallengeTypes[ index ];
+    let index = Math.floor( random.nextDouble() * validChallengeTypes.length );
+    let challengeType: ChallengeType = validChallengeTypes[ index ];
+    if (
+      previousChallengeType && challengeType === previousChallengeType
+    ) {
+      // To avoid repeating the same challenge type, we will skip to the next one.
+      index = ( index + 1 ) % validChallengeTypes.length;
+      challengeType = validChallengeTypes[ index ];
+    }
 
     let minProtonCount = 0;
     let maxProtonCount = Number.POSITIVE_INFINITY;
