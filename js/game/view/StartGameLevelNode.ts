@@ -134,7 +134,10 @@ class StartGameLevelNode extends Node {
       stroke: 'gray',
       tandem: tandem.createTandem( 'timerToggleButton' ),
       left: CONTROLS_INSET,
-      bottom: layoutBounds.height - CONTROLS_INSET
+      bottom: layoutBounds.height - CONTROLS_INSET,
+      offIconOptions: {
+        opacity: 0.85
+      }
     } );
     this.addChild( timerToggleButton );
 
