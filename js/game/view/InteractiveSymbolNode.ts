@@ -147,7 +147,7 @@ class InteractiveSymbolNode extends Node {
       elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
     };
 
-    numberAtom.protonCountProperty.link( protonCount => {
+    this.protonCountProperty.link( protonCount => {
       updateElement( protonCount );
     } );
 
