@@ -6,10 +6,8 @@
  * @author Jesse Greenberg (PhET Interactive Simulations)
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
@@ -25,9 +23,7 @@ import BAAParticleView from './BAAParticleView.js';
 
 // constants
 const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
-type SelfOptions = {
-  highContrastProperty?: TReadOnlyProperty<boolean>;
-};
+type SelfOptions = EmptySelfOptions;
 
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
@@ -38,13 +34,7 @@ class InteractiveSchematicAtom extends Node {
                       modelViewTransform: ModelViewTransform2,
                       providedOptions?: InteractiveSchematicAtomOptions ) {
 
-    const ownsHighContrastProperty = providedOptions && !providedOptions.highContrastProperty;
-
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
-
-      // {Property.<boolean>|null} - property that can be used to turn on high-contrast particles
-      highContrastProperty: new BooleanProperty( false ),
-
       tandem: Tandem.REQUIRED
     }, providedOptions );
 
@@ -83,7 +73,6 @@ class InteractiveSchematicAtom extends Node {
     const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
     model.nucleons.forEach( nucleon => {
       const particleView = new BAAParticleView( nucleon, modelViewTransform, {
-        highContrastProperty: options.highContrastProperty,
         tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
       } );
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( particleView );
@@ -121,7 +110,6 @@ class InteractiveSchematicAtom extends Node {
     // Add the electron particle views.
     model.electrons.forEach( electron => {
       const particleView = new BAAParticleView( electron, modelViewTransform, {
-        highContrastProperty: options.highContrastProperty,
         tandem: electronGroupTandem.createNextTandem()
       } );
       electronLayer.addChild( particleView );
@@ -147,7 +135,6 @@ class InteractiveSchematicAtom extends Node {
       particleViews.forEach( particleView => particleView.dispose() );
       bucketFrontsAndDragHandlers.forEach( bucketItem => bucketItem.dispose() );
       atomNode.dispose();
-      ownsHighContrastProperty && options.highContrastProperty.dispose();
     };
 
     this.mutate( options );

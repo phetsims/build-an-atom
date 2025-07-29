@@ -46,7 +46,6 @@ type StringsType = {
   'protonsStringProperty': LocalizedStringProperty;
   'showStringProperty': LocalizedStringProperty;
   'chooseYourGameStringProperty': LocalizedStringProperty;
-  'highContrastParticlesStringProperty': LocalizedStringProperty;
   'gamesInfoTitleStringProperty': LocalizedStringProperty;
   'level1DescriptionStringProperty': LocalizedStringProperty;
   'level2DescriptionStringProperty': LocalizedStringProperty;

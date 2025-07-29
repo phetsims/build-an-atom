@@ -5,12 +5,8 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import TReadOnlyProperty from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
-import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -56,7 +52,6 @@ addToMapIfDefined( 'isIt', 'isItStringProperty' );
 addToMapIfDefined( 'protons', 'protonsStringProperty' );
 addToMapIfDefined( 'show', 'showStringProperty' );
 addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
-addToMapIfDefined( 'highContrastParticles', 'highContrastParticlesStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'level1Description', 'level1DescriptionStringProperty' );
 addToMapIfDefined( 'level2Description', 'level2DescriptionStringProperty' );
@@ -109,7 +104,6 @@ const BuildAnAtomFluent = {
   protonsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'protons', _.get( BuildAnAtomStrings, 'protonsStringProperty' ) ),
   showStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'show', _.get( BuildAnAtomStrings, 'showStringProperty' ) ),
   chooseYourGameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'chooseYourGame', _.get( BuildAnAtomStrings, 'chooseYourGameStringProperty' ) ),
-  highContrastParticlesStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'highContrastParticles', _.get( BuildAnAtomStrings, 'highContrastParticlesStringProperty' ) ),
   gamesInfoTitleStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'gamesInfoTitle', _.get( BuildAnAtomStrings, 'gamesInfoTitleStringProperty' ) ),
   level1DescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'level1Description', _.get( BuildAnAtomStrings, 'level1DescriptionStringProperty' ) ),
   level2DescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'level2Description', _.get( BuildAnAtomStrings, 'level2DescriptionStringProperty' ) ),
