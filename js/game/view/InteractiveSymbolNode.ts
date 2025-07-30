@@ -24,7 +24,7 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
-import NumberEntryNode from './NumberEntryNode.js';
+import BAANumberSpinner from './BAANumberSpinner.js';
 
 // constants
 const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
@@ -162,9 +162,9 @@ class InteractiveSymbolNode extends Node {
 
     // Add the proton count display, either interactive or not.
     if ( options.interactiveProtonCount ) {
-      boundingBox.addChild( new NumberEntryNode(
+      boundingBox.addChild( new BAANumberSpinner(
         this.protonCountProperty,
-        tandem.createTandem( 'protonCountEntryNode' ), {
+        tandem.createTandem( 'protonCountNumberSpinner' ), {
           minValue: 0,
           maxValue: 99,
           getTextColor: () => BAAColors.protonColorProperty,
@@ -186,9 +186,9 @@ class InteractiveSymbolNode extends Node {
 
     // Add the mass number display, either interactive or not.
     if ( options.interactiveMassNumber ) {
-      boundingBox.addChild( new NumberEntryNode(
+      boundingBox.addChild( new BAANumberSpinner(
         this.massNumberProperty,
-        tandem.createTandem( 'massNumberEntryNode' ), {
+        tandem.createTandem( 'massNumberSpinner' ), {
           minValue: 0,
           maxValue: 99,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
@@ -207,14 +207,15 @@ class InteractiveSymbolNode extends Node {
 
     // Add the charge display, either interactive or not.
     if ( options.interactiveCharge ) {
-      boundingBox.addChild( new NumberEntryNode(
+      boundingBox.addChild( new BAANumberSpinner(
         this.chargeProperty,
-        tandem.createTandem( 'chargeEntryNode' ), {
+        tandem.createTandem( 'chargeNumberSpinner' ), {
           minValue: -99,
           maxValue: 99,
           showPlusForPositive: true,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
-          centerY: NUMBER_INSET + interactiveNumberCenterYOffset
+          centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
+          getTextColor: ShredConstants.CHARGE_TEXT_COLOR
         } ) );
     }
     else {

@@ -17,8 +17,8 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToMassNumberChallenge from '../model/CountsToMassNumberChallenge.js';
+import BAANumberSpinner from './BAANumberSpinner.js';
 import ChallengeView from './ChallengeView.js';
-import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
 class CountsToMassNumberChallengeView extends ChallengeView {
@@ -47,26 +47,26 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
-    const numberEntryNode = new NumberEntryNode(
+    const massNumberSpinner = new BAANumberSpinner(
       this.massNumberAnswerProperty,
-      tandem.createTandem( 'numberEntryNode' ), {
+      tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
         maxValue: 99
       } );
-    this.interactiveAnswerNode.addChild( numberEntryNode );
+    this.interactiveAnswerNode.addChild( massNumberSpinner );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
     questionPromptText.centerX = layoutBounds.width * 0.65;
     questionPromptText.centerY = layoutBounds.height * 0.5;
-    numberEntryNode.left = questionPromptText.right + 10;
-    numberEntryNode.centerY = questionPromptText.centerY;
+    massNumberSpinner.left = questionPromptText.right + 10;
+    massNumberSpinner.centerY = questionPromptText.centerY;
 
     this.disposeCountsToMassNumberChallengeView = function() {
       particleCountsNode.dispose();
       questionPromptText.dispose();
-      numberEntryNode.dispose();
+      massNumberSpinner.dispose();
       this.massNumberAnswerProperty.dispose();
     };
   }

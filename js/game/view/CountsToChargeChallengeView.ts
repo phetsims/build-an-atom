@@ -18,8 +18,8 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToChargeChallenge from '../model/CountsToChargeChallenge.js';
+import BAANumberSpinner from './BAANumberSpinner.js';
 import ChallengeView from './ChallengeView.js';
-import NumberEntryNode from './NumberEntryNode.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 
 class CountsToChargeChallengeView extends ChallengeView {
@@ -47,29 +47,29 @@ class CountsToChargeChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
-    const numberEntryNode = new NumberEntryNode(
+    const chargeNumberSpinner = new BAANumberSpinner(
       this.chargeAnswerProperty,
-      tandem.createTandem( 'numberEntryNode' ), {
+      tandem.createTandem( 'chargeNumberSpinner' ), {
         showPlusForPositive: true,
         signAfterValue: true,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99
       } );
-    this.interactiveAnswerNode.addChild( numberEntryNode );
+    this.interactiveAnswerNode.addChild( chargeNumberSpinner );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
     questionPromptText.centerX = layoutBounds.width * 0.65;
     questionPromptText.centerY = layoutBounds.height * 0.5;
-    numberEntryNode.left = questionPromptText.right + 10;
-    numberEntryNode.centerY = questionPromptText.centerY;
+    chargeNumberSpinner.left = questionPromptText.right + 10;
+    chargeNumberSpinner.centerY = questionPromptText.centerY;
 
     this.disposeCountsToChargeChallengeView = function() {
       this.chargeAnswerProperty.dispose();
       questionPromptText.dispose();
-      numberEntryNode.dispose();
+      chargeNumberSpinner.dispose();
     };
   }
 

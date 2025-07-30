@@ -10,6 +10,7 @@
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -21,9 +22,9 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToMassNumberChallenge from '../model/SchematicToMassNumberChallenge.js';
+import BAANumberSpinner from './BAANumberSpinner.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
-import NumberEntryNode from './NumberEntryNode.js';
 
 class SchematicToMassNumberChallengeView extends ChallengeView {
 
@@ -37,7 +38,8 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.massNumberAnswerProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
       numberType: 'Integer',
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      range: new Range( 0, 99 ) // Mass number is always a non-negative integer
     } );
 
     // Create the model-view transform used by the schematic atom.
@@ -69,26 +71,26 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
-    const massEntryNode = new NumberEntryNode(
+    const massNumberSpinner = new BAANumberSpinner(
       this.massNumberAnswerProperty,
-      tandem.createTandem( 'massEntryNode' ), {
+      tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
         maxValue: 99
       } );
-    this.interactiveAnswerNode.addChild( massEntryNode );
+    this.interactiveAnswerNode.addChild( massNumberSpinner );
 
     // Layout
     questionPromptText.centerX = layoutBounds.width * 0.65;
     questionPromptText.centerY = layoutBounds.height * 0.5;
-    massEntryNode.left = questionPromptText.right + 10;
-    massEntryNode.centerY = questionPromptText.centerY;
-    schematicAtomNode.centerY = massEntryNode.centerY;
+    massNumberSpinner.left = questionPromptText.right + 10;
+    massNumberSpinner.centerY = questionPromptText.centerY;
+    schematicAtomNode.centerY = massNumberSpinner.centerY;
 
 
     this.disposeSchematicToMassNumberChallengeView = () => {
       schematicAtomNode.dispose();
       questionPromptText.dispose();
-      massEntryNode.dispose();
+      massNumberSpinner.dispose();
       this.massNumberAnswerProperty.dispose();
     };
   }

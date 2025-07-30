@@ -22,9 +22,9 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToChargeChallenge from '../model/SchematicToChargeChallenge.js';
+import BAANumberSpinner from './BAANumberSpinner.js';
 import ChallengeView from './ChallengeView.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
-import NumberEntryNode from './NumberEntryNode.js';
 
 class SchematicToChargeChallengeView extends ChallengeView {
 
@@ -70,28 +70,28 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
-    const chargeEntryNode = new NumberEntryNode(
+    const chargeNumberSpinner = new BAANumberSpinner(
       this.chargeAnswerProperty,
-      tandem.createTandem( 'chargeEntryNode' ), {
+      tandem.createTandem( 'chargeNumberSpinner' ), {
         minValue: -99,
         maxValue: 99,
         showPlusForPositive: true,
         signAfterValue: true,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR
       } );
-    this.interactiveAnswerNode.addChild( chargeEntryNode );
+    this.interactiveAnswerNode.addChild( chargeNumberSpinner );
 
     // Layout
     questionPromptText.centerX = layoutBounds.width * 0.65;
     questionPromptText.centerY = layoutBounds.height * 0.5;
-    chargeEntryNode.left = questionPromptText.right + 10;
-    chargeEntryNode.centerY = questionPromptText.centerY;
-    schematicAtomNode.centerY = chargeEntryNode.centerY;
+    chargeNumberSpinner.left = questionPromptText.right + 10;
+    chargeNumberSpinner.centerY = questionPromptText.centerY;
+    schematicAtomNode.centerY = chargeNumberSpinner.centerY;
 
     this.disposeSchematicToChargeChallengeView = function() {
       schematicAtomNode.dispose();
       questionPromptText.dispose();
-      chargeEntryNode.dispose();
+      chargeNumberSpinner.dispose();
       this.chargeAnswerProperty.dispose();
     };
   }

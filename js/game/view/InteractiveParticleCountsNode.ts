@@ -17,7 +17,7 @@ import Font from '../../../../scenery/js/util/Font.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import AnswerAtom from '../model/AnswerAtom.js';
-import NumberEntryNode from './NumberEntryNode.js';
+import BAANumberSpinner from './BAANumberSpinner.js';
 
 // constants
 const MAX_WIDTH = 200;
@@ -49,14 +49,14 @@ class InteractiveParticleCountsNode extends Node {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    const protonCountEntryNode = new NumberEntryNode(
+    const protonCountNumberSpinner = new BAANumberSpinner(
       this.answerAtom.protonCountProperty,
-      tandem.createTandem( 'protonCountEntryNode' ), {
+      tandem.createTandem( 'protonCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99
       } );
     const protonRowNode = new HBox( {
-      children: [ protonCountPrompt, protonCountEntryNode ],
+      children: [ protonCountPrompt, protonCountNumberSpinner ],
       spacing: 10,
       tandem: tandem.createTandem( 'protonRowNode' )
     } );
@@ -65,13 +65,13 @@ class InteractiveParticleCountsNode extends Node {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    const neutronCountEntryNode = new NumberEntryNode( this.answerAtom.neutronCountProperty,
-      tandem.createTandem( 'neutronCountEntryNode' ), {
+    const neutronCountNumberSpinner = new BAANumberSpinner( this.answerAtom.neutronCountProperty,
+      tandem.createTandem( 'neutronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99
       } );
     const neutronRowNode = new HBox( {
-      children: [ neutronCountPrompt, neutronCountEntryNode ],
+      children: [ neutronCountPrompt, neutronCountNumberSpinner ],
       spacing: 10,
       tandem: tandem.createTandem( 'neutronRowNode' )
     } );
@@ -80,14 +80,14 @@ class InteractiveParticleCountsNode extends Node {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    const electronCountEntryNode = new NumberEntryNode(
+    const electronCountNumberSpinner = new BAANumberSpinner(
       this.answerAtom.electronCountProperty,
-      tandem.createTandem( 'electronCountEntryNode' ), {
+      tandem.createTandem( 'electronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99
       } );
     const electronRowNode = new HBox( {
-      children: [ electronCountPrompt, electronCountEntryNode ],
+      children: [ electronCountPrompt, electronCountNumberSpinner ],
       spacing: 10,
       tandem: tandem.createTandem( 'electronRowNode' )
     } );
