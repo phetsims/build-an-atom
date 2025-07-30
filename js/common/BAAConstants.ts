@@ -52,7 +52,7 @@ const BAAConstants = {
   ALWAYS_TRUE_PROPERTY: new BooleanProperty( true ),
   ALWAYS_FALSE_PROPERTY: new BooleanProperty( false ),
   NUMBER_OF_GAME_LEVELS: 4,
-  DEFAULT_TOUCH_DRAG_OFFSET: new Vector2( 0, -30 ),
+  PARTICLE_TOUCH_DRAG_OFFSET: new Vector2( 0, -20 ),
   QUESTION_PROMPT_OPTIONS: QUESTION_PROMPT_OPTIONS
 };
 
