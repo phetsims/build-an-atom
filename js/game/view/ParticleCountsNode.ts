@@ -16,7 +16,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 
 // constants
 const MAX_WIDTH = 200;
@@ -39,7 +39,7 @@ class ParticleCountsNode extends Node {
 
     const protonCountTitle = new Text(
       new PatternStringProperty(
-        BuildAnAtomStrings.protonsColonPatternStringProperty,
+        BuildAnAtomFluent.protonsColonPatternStringProperty,
         { value: numberAtom.protonCountProperty },
         { formatNames: [ 'value' ] }
       ),
@@ -52,7 +52,7 @@ class ParticleCountsNode extends Node {
 
     const neutronCountTitle = new Text(
       new PatternStringProperty(
-        BuildAnAtomStrings.neutronsColonPatternStringProperty,
+        BuildAnAtomFluent.neutronsColonPatternStringProperty,
         { value: numberAtom.neutronCountProperty },
         { formatNames: [ 'value' ] }
       ),
@@ -65,7 +65,7 @@ class ParticleCountsNode extends Node {
 
     const electronCountTitle = new Text(
       new PatternStringProperty(
-        BuildAnAtomStrings.electronsColonPatternStringProperty,
+        BuildAnAtomFluent.electronsColonPatternStringProperty,
         { value: numberAtom.electronCountProperty },
         { formatNames: [ 'value' ] }
       ),

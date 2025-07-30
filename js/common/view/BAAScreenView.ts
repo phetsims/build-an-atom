@@ -30,7 +30,7 @@ import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
@@ -245,7 +245,7 @@ class BAAScreenView extends ScreenView {
     const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
     this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
       cornerRadius: 3,
-      titleNode: new Text( BuildAnAtomStrings.periodicTableStringProperty, {
+      titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
         maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
       } ),
@@ -264,7 +264,7 @@ class BAAScreenView extends ScreenView {
       phetioFeatured: true,
 
       // pdom
-      labelContent: BuildAnAtomStrings.elementStringProperty
+      labelContent: BuildAnAtomFluent.elementStringProperty
     } );
     this.addChild( this.periodicTableAccordionBox );
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
@@ -275,17 +275,17 @@ class BAAScreenView extends ScreenView {
     };
     const checkboxItems = [
       {
-        createNode: () => new Text( BuildAnAtomStrings.elementStringProperty, checkboxItemTextOptions ),
+        createNode: () => new Text( BuildAnAtomFluent.elementStringProperty, checkboxItemTextOptions ),
         property: this.viewProperties.elementNameVisibleProperty,
         tandemName: 'elementNameCheckbox'
       },
       {
-        createNode: () => new Text( BuildAnAtomStrings.neutralSlashIonStringProperty, checkboxItemTextOptions ),
+        createNode: () => new Text( BuildAnAtomFluent.neutralSlashIonStringProperty, checkboxItemTextOptions ),
         property: this.viewProperties.neutralAtomOrIonVisibleProperty,
         tandemName: 'neutralAtomOrIonCheckbox'
       },
       {
-        createNode: () => new Text( BuildAnAtomStrings.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
+        createNode: () => new Text( BuildAnAtomFluent.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
         property: this.viewProperties.nuclearStabilityVisibleProperty,
         tandemName: 'nuclearStabilityCheckbox'
       }

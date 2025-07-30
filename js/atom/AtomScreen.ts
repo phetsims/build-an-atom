@@ -9,7 +9,7 @@
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
-import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../BuildAnAtomFluent.js';
 import BAAModel from '../common/model/BAAModel.js';
 import AtomScreenIcon from './view/AtomScreenIcon.js';
 import AtomScreenView from './view/AtomScreenView.js';
@@ -21,7 +21,7 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
       () => new BAAModel( tandem.createTandem( 'model' ) ),
       ( model: BAAModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: BuildAnAtomStrings.atomStringProperty,
+        name: BuildAnAtomFluent.atomStringProperty,
         homeScreenIcon: new AtomScreenIcon( Tandem.OPT_OUT ),
         tandem: tandem
       }

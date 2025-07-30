@@ -18,7 +18,7 @@ import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 
 type SelfOptions = EmptySelfOptions;
 type ElectronModelControlOptions = SelfOptions & WithRequired<PanelOptions, 'tandem'>;
@@ -49,14 +49,14 @@ class ElectronModelControl extends Panel {
       [
         {
           value: 'orbits',
-          createNode: () => new Text( BuildAnAtomStrings.orbitsStringProperty, {
+          createNode: () => new Text( BuildAnAtomFluent.orbitsStringProperty, {
             font: ELECTRON_MODEL_SELECTOR_FONT
           } ),
           tandemName: 'orbitsRadioButton'
         },
         {
           value: 'cloud',
-          createNode: () => new Text( BuildAnAtomStrings.cloudStringProperty, {
+          createNode: () => new Text( BuildAnAtomFluent.cloudStringProperty, {
             font: ELECTRON_MODEL_SELECTOR_FONT
           } ),
           tandemName: 'cloudRadioButton'
@@ -76,7 +76,7 @@ class ElectronModelControl extends Panel {
       }
     );
 
-    const titleText = new Text( BuildAnAtomStrings.modelStringProperty, {
+    const titleText = new Text( BuildAnAtomFluent.modelStringProperty, {
       font: TITLE_FONT
     } );
 

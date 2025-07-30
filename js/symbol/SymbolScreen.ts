@@ -9,7 +9,7 @@
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
-import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../BuildAnAtomFluent.js';
 import BAAColors from '../common/BAAColors.js';
 import BAAModel from '../common/model/BAAModel.js';
 import SymbolScreenIcon from './view/SymbolScreenIcon.js';
@@ -22,7 +22,7 @@ class SymbolScreen extends Screen<BAAModel, SymbolScreenView> {
       () => new BAAModel( tandem.createTandem( 'model' ) ),
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: BuildAnAtomStrings.symbolStringProperty,
+        name: BuildAnAtomFluent.symbolStringProperty,
         backgroundColorProperty: BAAColors.symbolsScreenBackgroundColorProperty,
         homeScreenIcon: new SymbolScreenIcon( Tandem.OPT_OUT ),
         tandem: tandem

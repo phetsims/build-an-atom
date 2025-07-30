@@ -22,7 +22,6 @@ import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -42,7 +41,7 @@ class StartGameLevelNode extends Node {
 
     super();
 
-    const title = new Text( BuildAnAtomStrings.chooseYourGameStringProperty, {
+    const title = new Text( BuildAnAtomFluent.chooseYourGameStringProperty, {
       font: new PhetFont( 30 ),
       maxWidth: layoutBounds.width * 0.6,
       centerX: layoutBounds.centerX

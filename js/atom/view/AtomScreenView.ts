@@ -13,7 +13,7 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
@@ -60,7 +60,7 @@ class AtomScreenView extends BAAScreenView {
     this.netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
-        titleNode: new Text( BuildAnAtomStrings.netChargeStringProperty, {
+        titleNode: new Text( BuildAnAtomFluent.netChargeStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
@@ -69,7 +69,7 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
 
         // pdom
-        labelContent: BuildAnAtomStrings.netChargeStringProperty
+        labelContent: BuildAnAtomFluent.netChargeStringProperty
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( this.netChargeAccordionBox );
@@ -87,7 +87,7 @@ class AtomScreenView extends BAAScreenView {
     this.massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
       combineOptions<AccordionBoxOptions>( {}, {
-        titleNode: new Text( BuildAnAtomStrings.massNumberStringProperty, {
+        titleNode: new Text( BuildAnAtomFluent.massNumberStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
@@ -96,7 +96,7 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
 
         // pdom
-        labelContent: BuildAnAtomStrings.massNumberStringProperty
+        labelContent: BuildAnAtomFluent.massNumberStringProperty
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( this.massNumberAccordionBox );

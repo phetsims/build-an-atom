@@ -13,7 +13,7 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToMassNumberChallenge from '../model/CountsToMassNumberChallenge.js';
@@ -40,7 +40,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheMassNumberStringProperty, combineOptions<RichTextOptions>( {
+    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheMassNumberStringProperty, combineOptions<RichTextOptions>( {
 
       tandem: tandem.createTandem( 'questionPromptText' )
     }, BAAConstants.QUESTION_PROMPT_OPTIONS ) );

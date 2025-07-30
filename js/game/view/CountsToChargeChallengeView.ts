@@ -14,7 +14,7 @@ import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToChargeChallenge from '../model/CountsToChargeChallenge.js';
@@ -41,7 +41,7 @@ class CountsToChargeChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, combineOptions<RichTextOptions>( {
+    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, combineOptions<RichTextOptions>( {
       tandem: tandem.createTandem( 'questionPromptText' )
     }, BAAConstants.QUESTION_PROMPT_OPTIONS ) );
     this.interactiveAnswerNode.addChild( questionPromptText );

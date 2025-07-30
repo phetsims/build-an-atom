@@ -21,7 +21,7 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
 import BAAScreenView from '../view/BAAScreenView.js';
 
@@ -80,7 +80,7 @@ class BAAModel {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: BAAColors.protonColorProperty,
-        captionText: BuildAnAtomStrings.protonsStringProperty,
+        captionText: BuildAnAtomFluent.protonsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'protonBucket' )
       } ),
@@ -89,7 +89,7 @@ class BAAModel {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
         baseColor: 'rgb( 100, 100, 100 )',
-        captionText: BuildAnAtomStrings.neutronsStringProperty,
+        captionText: BuildAnAtomFluent.neutronsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'neutronBucket' )
       } ),
@@ -99,7 +99,7 @@ class BAAModel {
         sphereRadius: ShredConstants.ELECTRON_RADIUS,
         usableWidthProportion: 0.8,
         baseColor: 'blue',
-        captionText: BuildAnAtomStrings.electronsStringProperty,
+        captionText: BuildAnAtomFluent.electronsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'electronBucket' )
       } )

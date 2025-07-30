@@ -18,7 +18,7 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToChargeChallenge from '../model/SchematicToChargeChallenge.js';
@@ -63,7 +63,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     schematicAtomNode.addChild( particleCountDisplay );
 
     // Question
-    const questionPromptText = new RichText( BuildAnAtomStrings.whatIsTheTotalChargeStringProperty, combineOptions<RichTextOptions>( {
+    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, combineOptions<RichTextOptions>( {
 
       tandem: tandem.createTandem( 'questionPromptText' )
     }, BAAConstants.QUESTION_PROMPT_OPTIONS ) );

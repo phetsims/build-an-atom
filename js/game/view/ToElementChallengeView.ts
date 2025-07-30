@@ -20,7 +20,7 @@ import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ChallengeView from './ChallengeView.js';
@@ -68,27 +68,27 @@ class ToElementChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
     // Challenge title
-    const challengeTitle = new Text( BuildAnAtomStrings.findTheElementStringProperty, {
+    const challengeTitle = new Text( BuildAnAtomFluent.findTheElementStringProperty, {
       font: TITLE_FONT,
       maxWidth: this.periodicTable.width * 0.9
     } );
     this.challengePresentationNode.addChild( challengeTitle );
 
     // Neutral atom versus ion question.
-    const neutralVersusIonPrompt = new Text( BuildAnAtomStrings.isItStringProperty, {
+    const neutralVersusIonPrompt = new Text( BuildAnAtomFluent.isItStringProperty, {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH
     } );
 
     const radioButtonTandems = tandem.createTandem( 'neutralOrIonRadioButtons' );
-    const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( BuildAnAtomStrings.neutralAtomStringProperty, {
+    const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( BuildAnAtomFluent.neutralAtomStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
       tandem: radioButtonTandems.createTandem( 'neutralAtomRadioButton' )
     } );
-    const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( BuildAnAtomStrings.ionStringProperty, {
+    const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( BuildAnAtomFluent.ionStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {

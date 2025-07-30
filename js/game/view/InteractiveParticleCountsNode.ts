@@ -15,7 +15,7 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
 
@@ -45,7 +45,7 @@ class InteractiveParticleCountsNode extends Node {
     this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
 
 
-    const protonCountPrompt = new Text( BuildAnAtomStrings.protonsColonStringProperty, {
+    const protonCountPrompt = new Text( BuildAnAtomFluent.protonsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
@@ -61,7 +61,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem: tandem.createTandem( 'protonRowNode' )
     } );
 
-    const neutronCountPrompt = new Text( BuildAnAtomStrings.neutronsColonStringProperty, {
+    const neutronCountPrompt = new Text( BuildAnAtomFluent.neutronsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
@@ -76,7 +76,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem: tandem.createTandem( 'neutronRowNode' )
     } );
 
-    const electronCountPrompt = new Text( BuildAnAtomStrings.electronsColonStringProperty, {
+    const electronCountPrompt = new Text( BuildAnAtomFluent.electronsColonStringProperty, {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );

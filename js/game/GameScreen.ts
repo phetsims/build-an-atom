@@ -9,7 +9,7 @@
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import buildAnAtom from '../buildAnAtom.js';
-import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../BuildAnAtomFluent.js';
 import BAAColors from '../common/BAAColors.js';
 import GameModel from './model/GameModel.js';
 import GameScreenIcon from './view/GameScreenIcon.js';
@@ -23,7 +23,7 @@ class GameScreen extends Screen<GameModel, GameScreenView> {
 
       model => new GameScreenView( model, tandem.createTandem( 'view' ) ),
       {
-        name: BuildAnAtomStrings.gameStringProperty,
+        name: BuildAnAtomFluent.gameStringProperty,
         backgroundColorProperty: BAAColors.gameScreenBackgroundColorProperty,
         homeScreenIcon: new GameScreenIcon( Tandem.OPT_OUT ),
         tandem: tandem
