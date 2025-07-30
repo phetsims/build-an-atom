@@ -195,7 +195,7 @@ class GameModel implements TModel {
       phetioValueType: NullableIO( GameLevel.GameLevelIO )
     } );
 
-    this.levelNumberProperty = new DerivedProperty( [ this.levelProperty ], level => level ? level.index : 0, {
+    this.levelNumberProperty = new DerivedProperty( [ this.levelProperty ], level => level ? level.index + 1 : 0, {
       tandem: tandem.createTandem( 'levelNumberProperty' ),
       phetioDocumentation: 'Number of the selected level in the game. Zero means that no level is selected.',
       phetioFeatured: true,

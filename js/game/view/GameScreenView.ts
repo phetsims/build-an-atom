@@ -16,6 +16,7 @@ import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
@@ -65,7 +66,9 @@ class GameScreenView extends ScreenView {
         textFill: 'white',
         xMargin: 20,
         dynamicAlignment: false,
-        levelVisible: false,
+        levelVisible: true,
+        levelNumberProperty: gameModel.levelNumberProperty,
+        levelLabelStringProperty: BuildAnAtomStrings.gameStringProperty,
         challengeNumberVisible: false,
         startOverButtonOptions: {
           font: new PhetFont( 20 ),
