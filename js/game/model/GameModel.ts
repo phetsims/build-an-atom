@@ -313,6 +313,7 @@ class GameModel implements TModel {
     assert && assert( level );
 
     if ( !level.isLastChallenge() ) {
+
       // Increment the challenge number and set the next challenge.
       this.challengeNumberProperty.value++;
       this.setChallenge( this.challengeNumberProperty.value );

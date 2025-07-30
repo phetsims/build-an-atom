@@ -10,13 +10,15 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import stepTimer from '../../../../axon/js/stepTimer.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
+import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/buttons/TextPushButton.js';
+import nullSoundPlayer from '../../../../tambo/js/nullSoundPlayer.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
@@ -36,6 +38,15 @@ const BUTTON_FILL = new Color( 0, 255, 153 );
 const POINT_TEXT_OPTIONS = { font: new PhetFont( { size: 20, weight: 'bold' } ) };
 const BUTTON_MAX_WIDTH = 250;
 const BUTTON_TOUCH_AREA_DILATION = 8;
+const COMMON_BUTTON_OPTIONS: TextPushButtonOptions = {
+  font: BUTTON_FONT,
+  baseColor: BUTTON_FILL,
+  maxWidth: BUTTON_MAX_WIDTH,
+  touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
+  touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
+  phetioVisiblePropertyInstrumented: false,
+  phetioEnabledPropertyInstrumented: false
+};
 
 class ChallengeView extends Node {
 
@@ -91,67 +102,33 @@ class ChallengeView extends Node {
 
     // buttons
     this.buttons = [];
-    this.checkAnswerButton = new TextPushButton( checkStringProperty, {
+    this.checkAnswerButton = new TextPushButton( checkStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { this.checkAnswer(); },
-      font: BUTTON_FONT,
-      baseColor: BUTTON_FILL,
-      maxWidth: BUTTON_MAX_WIDTH,
-      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
-      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
       tandem: tandem.createTandem( 'checkAnswerButton' ),
-      phetioVisiblePropertyInstrumented: false,
-      phetioEnabledPropertyInstrumented: false
-    } );
+      soundPlayer: nullSoundPlayer // Turn off default sound, since a feedback sound will be played instead.
+    }, COMMON_BUTTON_OPTIONS ) );
+
     this.addChild( this.checkAnswerButton );
     this.buttons.push( this.checkAnswerButton );
 
-    this.nextButton = new TextPushButton( nextStringProperty, {
-      listener: () => {
-
-        // Since the button disposes itself while triggering other events, we must run this in the next animation frame
-        // to avoid mismatched PhET-iO message indices, see https://github.com/phetsims/build-an-atom/issues/181
-        // N.B. That is to say, I don't really understand the problem nor why this solution works.
-        stepTimer.setTimeout( () => {
-          challenge.next();
-        }, 0 );
-      },
-      font: BUTTON_FONT,
-      baseColor: BUTTON_FILL,
-      maxWidth: BUTTON_MAX_WIDTH,
-      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
-      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'nextButton' ),
-      phetioVisiblePropertyInstrumented: false,
-      phetioEnabledPropertyInstrumented: false
-    } );
+    this.nextButton = new TextPushButton( nextStringProperty, combineOptions<TextPushButtonOptions>( {
+      listener: () => { challenge.next(); },
+      tandem: tandem.createTandem( 'nextButton' )
+    }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.nextButton );
     this.buttons.push( this.nextButton );
 
-    this.tryAgainButton = new TextPushButton( tryAgainStringProperty, {
+    this.tryAgainButton = new TextPushButton( tryAgainStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.tryAgain(); },
-      font: BUTTON_FONT,
-      baseColor: BUTTON_FILL,
-      maxWidth: BUTTON_MAX_WIDTH,
-      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
-      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'tryAgainButton' ),
-      phetioVisiblePropertyInstrumented: false,
-      phetioEnabledPropertyInstrumented: false
-    } );
+      tandem: tandem.createTandem( 'tryAgainButton' )
+    }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextPushButton( showAnswerStringProperty, {
+    this.displayCorrectAnswerButton = new TextPushButton( showAnswerStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.displayCorrectAnswer(); },
-      font: BUTTON_FONT,
-      baseColor: BUTTON_FILL,
-      maxWidth: BUTTON_MAX_WIDTH,
-      touchAreaXDilation: BUTTON_TOUCH_AREA_DILATION,
-      touchAreaYDilation: BUTTON_TOUCH_AREA_DILATION,
-      tandem: tandem.createTandem( 'displayCorrectAnswerButton' ),
-      phetioVisiblePropertyInstrumented: false,
-      phetioEnabledPropertyInstrumented: false
-    } );
+      tandem: tandem.createTandem( 'displayCorrectAnswerButton' )
+    }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.displayCorrectAnswerButton );
     this.buttons.push( this.displayCorrectAnswerButton );
 

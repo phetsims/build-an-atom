@@ -86,9 +86,7 @@ class GameScreenView extends ScreenView {
     const gameAudioPlayer = new GameAudioPlayer();
 
     // Monitor the game state and update the view accordingly.
-    Multilink.multilink(
-      [ gameModel.gameStateProperty, gameModel.levelProperty, gameModel.challengeProperty ],
-      ( gameState, level, challenge ) => {
+    gameModel.gameStateProperty.link( gameState => {
 
         if ( gameState === 'levelSelection' ) {
           this.removeAllChildren();
@@ -111,33 +109,37 @@ class GameScreenView extends ScreenView {
             gameAudioPlayer.gameOverImperfectScore();
           }
 
-          if ( level ) {
+          const level = gameModel.levelProperty.value;
+          assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
 
-            // Add the dialog node that indicates that the level has been completed.
-            this.levelCompletedNode = new LevelCompletedNode(
-              gameModel.levelNumberProperty.get() + 1,
-              gameModel.scoreProperty.get(),
-              GameModel.MAX_POINTS_PER_GAME_LEVEL,
-              GameModel.CHALLENGES_PER_LEVEL,
-              gameModel.timerEnabledProperty.get(),
-              gameModel.timer.elapsedTimeProperty.get(),
-              level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
-              level.isNewBestTimeProperty.value,
-              () => { gameModel.levelProperty.reset(); }, {
-                centerX: this.layoutBounds.width / 2,
-                centerY: this.layoutBounds.height / 2,
-                levelVisible: false,
-                maxWidth: this.layoutBounds.width,
-                tandem: Tandem.OPT_OUT
-              }
-            );
-            this.addChild( this.levelCompletedNode );
-          }
+          // Add the dialog node that indicates that the level has been completed.
+          this.levelCompletedNode = new LevelCompletedNode(
+            gameModel.levelNumberProperty.get() + 1,
+            gameModel.scoreProperty.get(),
+            GameModel.MAX_POINTS_PER_GAME_LEVEL,
+            GameModel.CHALLENGES_PER_LEVEL,
+            gameModel.timerEnabledProperty.get(),
+            gameModel.timer.elapsedTimeProperty.get(),
+            level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
+            level!.isNewBestTimeProperty.value,
+            () => { gameModel.levelProperty.reset(); }, {
+              centerX: this.layoutBounds.width / 2,
+              centerY: this.layoutBounds.height / 2,
+              levelVisible: false,
+              maxWidth: this.layoutBounds.width,
+              tandem: Tandem.OPT_OUT
+            }
+          );
+          this.addChild( this.levelCompletedNode );
         }
         else {
+
+          // This game state change is not to levelSelection or levelCompleted, so we can assume it is something in
+          // the middle of a challenge.
           this.removeAllChildren();
           this.disposeNodes();
 
+          const challenge = gameModel.challengeProperty.value;
           if ( !challenge ) {
             return;
           }
