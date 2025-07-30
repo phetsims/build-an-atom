@@ -14,20 +14,20 @@ import CountsToSymbolChallengeView from '../view/CountsToSymbolChallengeView.js'
 import CountsToSymbolChallenge from './CountsToSymbolChallenge.js';
 import GameModel from './GameModel.js';
 
-class CountsToSymbolMassChallenge extends CountsToSymbolChallenge {
+class CountsToSymbolMassNumberChallenge extends CountsToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, 'counts-to-symbol-mass', tandem, false, true, false );
+    super( buildAnAtomGameModel, 'counts-to-symbol-mass-number', tandem, false, true, false );
   }
 
   /**
    * Create the view needed to visually represent this challenge.
    */
   public override createView( layoutBounds: Bounds2, tandem: Tandem ): CountsToSymbolChallengeView {
-    return new CountsToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'countsToSymbolMassChallengeView' ) );
+    return new CountsToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'countsToSymbolMassNumberChallengeView' ) );
   }
 }
 
-buildAnAtom.register( 'CountsToSymbolMassChallenge', CountsToSymbolMassChallenge );
+buildAnAtom.register( 'CountsToSymbolMassNumberChallenge', CountsToSymbolMassNumberChallenge );
 
-export default CountsToSymbolMassChallenge;
+export default CountsToSymbolMassNumberChallenge;

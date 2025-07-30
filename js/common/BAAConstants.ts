@@ -19,7 +19,7 @@ const VALID_CHALLENGES = [
   'counts-to-mass',
   'counts-to-symbol-all',
   'counts-to-symbol-charge',
-  'counts-to-symbol-mass',
+  'counts-to-symbol-mass-number',
   'schematic-to-element',
   'schematic-to-charge',
   'schematic-to-mass',

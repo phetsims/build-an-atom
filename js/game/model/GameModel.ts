@@ -38,14 +38,14 @@ import CountsToElementChallenge from './CountsToElementChallenge.js';
 import CountsToMassNumberChallenge from './CountsToMassNumberChallenge.js';
 import CountsToSymbolAllChallenge from './CountsToSymbolAllChallenge.js';
 import CountsToSymbolChargeChallenge from './CountsToSymbolChargeChallenge.js';
-import CountsToSymbolMassChallenge from './CountsToSymbolMassChallenge.js';
+import CountsToSymbolMassNumberChallenge from './CountsToSymbolMassNumberChallenge.js';
 import GameLevel from './GameLevel.js';
 import SchematicToChargeChallenge from './SchematicToChargeChallenge.js';
 import SchematicToElementChallenge from './SchematicToElementChallenge.js';
 import SchematicToMassNumberChallenge from './SchematicToMassNumberChallenge.js';
 import SchematicToSymbolAllChallenge from './SchematicToSymbolAllChallenge.js';
 import SchematicToSymbolChargeChallenge from './SchematicToSymbolChargeChallenge.js';
-import SchematicToSymbolMassChallenge from './SchematicToSymbolMassChallenge.js';
+import SchematicToSymbolMassNumberChallenge from './SchematicToSymbolMassNumberChallenge.js';
 import SchematicToSymbolProtonCountChallenge from './SchematicToSymbolProtonCountChallenge.js';
 import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
 import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
@@ -73,13 +73,13 @@ const CHALLENGE_TYPE_TO_CONSTRUCTOR_MAP = new Map<ChallengeType, new( model: Gam
   [ 'counts-to-mass', CountsToMassNumberChallenge ],
   [ 'counts-to-symbol-all', CountsToSymbolAllChallenge ],
   [ 'counts-to-symbol-charge', CountsToSymbolChargeChallenge ],
-  [ 'counts-to-symbol-mass', CountsToSymbolMassChallenge ],
+  [ 'counts-to-symbol-mass-number', CountsToSymbolMassNumberChallenge ],
   [ 'schematic-to-element', SchematicToElementChallenge ],
   [ 'schematic-to-charge', SchematicToChargeChallenge ],
   [ 'schematic-to-mass', SchematicToMassNumberChallenge ],
   [ 'schematic-to-symbol-all', SchematicToSymbolAllChallenge ],
   [ 'schematic-to-symbol-charge', SchematicToSymbolChargeChallenge ],
-  [ 'schematic-to-symbol-mass-number', SchematicToSymbolMassChallenge ],
+  [ 'schematic-to-symbol-mass-number', SchematicToSymbolMassNumberChallenge ],
   [ 'schematic-to-symbol-proton-count', SchematicToSymbolProtonCountChallenge ],
   [ 'symbol-to-counts', SymbolToCountsChallenge ],
   [ 'symbol-to-schematic', SymbolToSchematicChallenge ]

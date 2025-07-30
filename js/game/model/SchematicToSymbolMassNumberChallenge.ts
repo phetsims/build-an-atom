@@ -14,7 +14,7 @@ import SchematicToSymbolChallengeView from '../view/SchematicToSymbolChallengeVi
 import GameModel from './GameModel.js';
 import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 
-class SchematicToSymbolMassChallenge extends SchematicToSymbolChallenge {
+class SchematicToSymbolMassNumberChallenge extends SchematicToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
     super( buildAnAtomGameModel, 'schematic-to-symbol-mass-number', tandem, false, true, false );
@@ -24,10 +24,10 @@ class SchematicToSymbolMassChallenge extends SchematicToSymbolChallenge {
    * Create the view needed to visually represent this challenge.
    */
   public override createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToSymbolChallengeView {
-    return new SchematicToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolMassChallengeView' ) );
+    return new SchematicToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolMassNumberChallengeView' ) );
   }
 }
 
-buildAnAtom.register( 'SchematicToSymbolMassChallenge', SchematicToSymbolMassChallenge );
+buildAnAtom.register( 'SchematicToSymbolMassNumberChallenge', SchematicToSymbolMassNumberChallenge );
 
-export default SchematicToSymbolMassChallenge;
+export default SchematicToSymbolMassNumberChallenge;
