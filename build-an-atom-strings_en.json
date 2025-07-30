@@ -53,6 +53,9 @@
   "game": {
     "value": "Game"
   },
+  "gameNumberPattern": {
+    "value": "Game: {0}"
+  },
   "neutralAtom": {
     "value": "Neutral Atom"
   },

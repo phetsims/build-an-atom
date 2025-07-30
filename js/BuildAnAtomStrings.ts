@@ -32,6 +32,7 @@ type StringsType = {
   'electronsColonStringProperty': LocalizedStringProperty;
   'electronsColonPatternStringProperty': LocalizedStringProperty;
   'gameStringProperty': LocalizedStringProperty;
+  'gameNumberPatternStringProperty': LocalizedStringProperty;
   'neutralAtomStringProperty': LocalizedStringProperty;
   'neutralSlashIonStringProperty': LocalizedStringProperty;
   'neutronsStringProperty': LocalizedStringProperty;

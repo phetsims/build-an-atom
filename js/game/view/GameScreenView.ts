@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -68,7 +67,7 @@ class GameScreenView extends ScreenView {
         dynamicAlignment: false,
         levelVisible: true,
         levelNumberProperty: gameModel.levelNumberProperty,
-        levelLabelStringProperty: BuildAnAtomStrings.gameStringProperty,
+        levelLabelStringProperty: BuildAnAtomStrings.gameNumberPatternStringProperty,
         challengeNumberVisible: false,
         startOverButtonOptions: {
           font: new PhetFont( 20 ),

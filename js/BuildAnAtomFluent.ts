@@ -94,6 +94,7 @@ const BuildAnAtomFluent = {
   electronsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'electronsColon', _.get( BuildAnAtomStrings, 'electronsColonStringProperty' ) ),
   electronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'electronsColonPatternStringProperty' ),
   gameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'game', _.get( BuildAnAtomStrings, 'gameStringProperty' ) ),
+  gameNumberPatternStringProperty: _.get( BuildAnAtomStrings, 'gameNumberPatternStringProperty' ),
   neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralAtom', _.get( BuildAnAtomStrings, 'neutralAtomStringProperty' ) ),
   neutralSlashIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralSlashIon', _.get( BuildAnAtomStrings, 'neutralSlashIonStringProperty' ) ),
   neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutrons', _.get( BuildAnAtomStrings, 'neutronsStringProperty' ) ),
