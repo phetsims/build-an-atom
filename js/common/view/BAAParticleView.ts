@@ -21,7 +21,7 @@ export default class BAAParticleView extends ParticleView {
                       providedOptions?: BAAParticleViewOptions ) {
 
     const options = optionize<BAAParticleViewOptions, EmptySelfOptions, ParticleViewOptions>()( {
-      touchOffset: BAAConstants.DEFAULT_TOUCH_DRAG_OFFSET,
+      touchOffset: BAAConstants.PARTICLE_TOUCH_DRAG_OFFSET,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 

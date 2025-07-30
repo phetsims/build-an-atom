@@ -215,11 +215,12 @@ class BAAScreenView extends ScreenView {
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
         tandem: bucketsTandem.createTandem( `${bucketName}DragListener` ),
+        applyOffset: false,
 
         // Offset the particle position a little if this is a touch pointer so that the finger doesn't cover it.
         offsetPosition: ( viewPoint, dragListener ) => {
           return dragListener.pointer?.isTouchLike() ?
-                 BAAConstants.DEFAULT_TOUCH_DRAG_OFFSET :
+                 BAAConstants.PARTICLE_TOUCH_DRAG_OFFSET :
                  Vector2.ZERO;
         }
       } ) );
