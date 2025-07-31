@@ -140,7 +140,8 @@ class BAAModel {
       const nucleon = new Particle( particleType, {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
         tandem: tandem.createTandem( `${particleType}${index}` ),
-        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
+        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
+        colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
       } );
       this.nucleons.push( nucleon );
       bucket.addParticleFirstOpen( nucleon, false );
@@ -171,7 +172,8 @@ class BAAModel {
       const electron = new Particle( 'electron', {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
         tandem: electronTandem.createTandem( `electron${index}` ),
-        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1
+        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
+        colorProperty: BAAColors.electronColorProperty
       } );
       this.electrons.push( electron );
       this.buckets.electronBucket.addParticleFirstOpen( electron, false );
