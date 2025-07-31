@@ -197,7 +197,6 @@ class BAAScreenView extends ScreenView {
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
     for ( const [ bucketName, bucket ] of Object.entries( model.buckets ) ) {
-      console.log( `Adding bucket: ${bucketName}` );
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         labelNode: new Text( bucket.captionText, {
           font: new PhetFont( 20 ),
