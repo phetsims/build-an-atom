@@ -88,7 +88,7 @@ class BAAModel {
         position: new Vector2( 0, BUCKET_Y_OFFSET ),
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.NUCLEON_RADIUS,
-        baseColor: 'rgb( 100, 100, 100 )',
+        baseColor: BAAColors.neutronColorProperty,
         captionText: BuildAnAtomFluent.neutronsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'neutronBucket' )
@@ -98,7 +98,7 @@ class BAAModel {
         size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
         sphereRadius: ShredConstants.ELECTRON_RADIUS,
         usableWidthProportion: 0.8,
-        baseColor: 'blue',
+        baseColor: BAAColors.electronColorProperty,
         captionText: BuildAnAtomFluent.electronsStringProperty,
         captionColor: 'white',
         tandem: tandem.createTandem( 'electronBucket' )
