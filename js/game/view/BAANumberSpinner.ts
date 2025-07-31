@@ -57,7 +57,12 @@ class BAANumberSpinner extends NumberSpinner {
       mouseAreaXDilation: 10,
       mouseAreaYDilation: 5,
       arrowsPosition: 'bothRight',
+
+      phetioVisiblePropertyInstrumented: false,
+      phetioEnabledPropertyInstrumented: false,
+
       numberDisplayOptions: {
+        tandem: Tandem.OPT_OUT,
         decimalPlaces: 0,
         align: 'center',
         xMargin: 10,
@@ -65,6 +70,10 @@ class BAANumberSpinner extends NumberSpinner {
         textOptions: {
           font: new PhetFont( 28 )
         }
+      },
+
+      arrowButtonOptions: {
+        phetioVisiblePropertyInstrumented: false
       }
     }, providedOptions );
 
