@@ -6,6 +6,8 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import TProperty from '../../../../axon/js/TProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -13,7 +15,6 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import { TNumberAtom, TReadOnlyNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -27,15 +28,15 @@ export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
 class PeriodicTableAndSymbol extends Node {
 
-  public constructor( numberAtom: TNumberAtom | TReadOnlyNumberAtom, providedOptions: PeriodicTableAndSymbolOptions ) {
+  public constructor( atomicNumberProperty: TReadOnlyProperty<number> | TProperty<number>,
+                      providedOptions: PeriodicTableAndSymbolOptions ) {
 
-    const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {
-    }, providedOptions );
+    const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
 
     super( options );
 
     // Create and add the periodic table.
-    const periodicTable = new PeriodicTableNode( numberAtom, {
+    const periodicTable = new PeriodicTableNode( atomicNumberProperty, {
       interactiveMax: 0,
       disabledCellColor: 'white'
     } );
@@ -56,7 +57,7 @@ class PeriodicTableAndSymbol extends Node {
     this.addChild( symbolRectangle );
 
     // Add the text that represents the chosen element.
-    numberAtom.protonCountProperty.link( protonCount => {
+    atomicNumberProperty.link( protonCount => {
       symbolRectangle.removeAllChildren();
       const symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
         font: new PhetFont( { size: 48, weight: 'bold' } )

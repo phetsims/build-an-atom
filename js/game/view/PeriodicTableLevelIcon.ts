@@ -5,9 +5,9 @@
  * @author Agustín Vallejo
  */
 
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Shape from '../../../../kite/js/Shape.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -16,7 +16,7 @@ export default class PeriodicTableLevelIcon extends Node {
   public constructor() {
 
     const periodicTableNode = new PeriodicTableNode(
-      new NumberAtom( { protonCount: 11 } ),
+      new NumberProperty( 11 ),
       {
         selectedCellColor: 'yellow'
       }

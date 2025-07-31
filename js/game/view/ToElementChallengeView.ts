@@ -8,13 +8,13 @@
  * @author John Blanco
  */
 
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
-import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -36,7 +36,7 @@ export type NeutralOrIon = typeof neutralOrIonValues[number];
 
 class ToElementChallengeView extends ChallengeView {
 
-  protected readonly periodicTableAtom: NumberAtom;
+  protected readonly atomicNumberProperty: NumberProperty;
   protected readonly periodicTable: PeriodicTableNode;
   protected readonly neutralOrIonProperty: Property<NeutralOrIon>;
 
@@ -44,8 +44,8 @@ class ToElementChallengeView extends ChallengeView {
 
     super( countsToElementChallenge, layoutBounds, tandem );
 
-    this.periodicTableAtom = new NumberAtom( {
-      tandem: tandem.createTandem( 'periodicTableAtom' ),
+    this.atomicNumberProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'atomicNumberProperty' ),
       phetioReadOnly: true
     } );
 
@@ -57,7 +57,7 @@ class ToElementChallengeView extends ChallengeView {
     } );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.periodicTableAtom, {
+    this.periodicTable = new PeriodicTableNode( this.atomicNumberProperty, {
       interactiveMax: 118,
       cellDimension: CELL_DIMENSION,
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
@@ -101,13 +101,12 @@ class ToElementChallengeView extends ChallengeView {
     } );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    // If the proton count is 0, then the user cannot select "neutral" or "ion".
-    this.periodicTableAtom.protonCountProperty.link( protonCount => {
+    // If the atomic number is 0, then the user cannot select "neutral" or "ion".
+    this.atomicNumberProperty.link( protonCount => {
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
     } );
 
-    // Don't enable the "check answer" button until the user has answered the
-    // "neutral vs. ion" question.
+    // Don't enable the "check answer" button until the user has answered the "neutral vs. ion" question.
     this.neutralOrIonProperty.link( ( neutralOrIon: NeutralOrIon ) => {
       this.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
       this.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
@@ -132,10 +131,10 @@ class ToElementChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.periodicTableAtom.protonCountProperty.get(),
-      neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
-      electronCount: this.challenge.answerAtom.electronCountProperty.get(),
-      neutralOrIon: this.neutralOrIonProperty.get()
+      protonCount: this.atomicNumberProperty.value,
+      neutronCount: this.challenge.answerAtom.neutronCountProperty.value,
+      electronCount: this.challenge.answerAtom.electronCountProperty.value,
+      neutralOrIon: this.neutralOrIonProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
@@ -145,19 +144,14 @@ class ToElementChallengeView extends ChallengeView {
 
     // This method can be called before the superconstructor has completed, so the existence of the items being cleared
     // must be checked.
-    if ( this.periodicTableAtom ) {
-      this.periodicTableAtom.protonCountProperty.reset();
-      this.periodicTableAtom.neutronCountProperty.reset();
-      this.periodicTableAtom.electronCountProperty.reset();
+    if ( this.atomicNumberProperty ) {
+      this.atomicNumberProperty.reset();
     }
     this.neutralOrIonProperty && this.neutralOrIonProperty.reset();
   }
 
-
   public override displayCorrectAnswer(): void {
-    this.periodicTableAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
-    this.periodicTableAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
-    this.periodicTableAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
+    this.atomicNumberProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.neutralOrIonProperty.value = this.challenge.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
   }
 }
