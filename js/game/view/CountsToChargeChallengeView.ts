@@ -87,7 +87,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override createAnswerNode(): Node {
     const chargeTextProperty = new DerivedStringProperty(
-      [ this.challenge.answerAtom.chargeProperty ],
+      [ this.challenge.answerAtom.netChargeProperty ],
       ( charge: number ) => {
         const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
         return `Charge: ${Math.abs( charge )}${sign}`;

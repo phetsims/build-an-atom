@@ -162,7 +162,7 @@ class ToElementChallengeView extends ChallengeView {
     const elementAndIonStringProperty = new DerivedStringProperty(
       [
         this.challenge.answerAtom.protonCountProperty,
-        this.challenge.answerAtom.chargeProperty
+        this.challenge.answerAtom.netChargeProperty
       ],
       ( protonCount: number, charge: number ) => {
         const elementSymbol = AtomIdentifier.getSymbol( protonCount );
