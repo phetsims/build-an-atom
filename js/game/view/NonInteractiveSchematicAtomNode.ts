@@ -90,7 +90,6 @@ class NonInteractiveSchematicAtomNode extends Node {
 
         // Layer the particle views so that the nucleus looks good, with the particles closer to the center being higher
         // in the z-order.
-        // TODO: Use zLayerProperty in ParticleView to handle this better. See https://github.com/phetsims/build-an-atom/issues/280.
         if ( particleViews.length > 3 ) {
           const sortedParticleViews = _.sortBy( particleViews, particleView => -particleView.particle.destinationProperty.get().distance( particleAtom.positionProperty.get() ) );
           sortedParticleViews.forEach( particleView => {
