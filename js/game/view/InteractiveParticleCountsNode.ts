@@ -6,6 +6,8 @@
  * @author John Blanco
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -24,6 +26,7 @@ const MAX_WIDTH = 200;
 
 type SelfOptions = {
   font?: Font | string;
+  showArrowButtonsProperty?: TReadOnlyProperty<boolean>; // Wether to show the arrow buttons for the number spinners.
 };
 
 export type InteractiveParticleCountsNodeOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
@@ -35,7 +38,8 @@ class InteractiveParticleCountsNode extends Node {
   public constructor( providedOptions: InteractiveParticleCountsNodeOptions ) {
 
     const options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
-      font: new PhetFont( 24 )
+      font: new PhetFont( 24 ),
+      showArrowButtonsProperty: new BooleanProperty( true )
     }, providedOptions );
 
     super( options );
@@ -53,7 +57,10 @@ class InteractiveParticleCountsNode extends Node {
       this.answerAtom.protonCountProperty,
       tandem.createTandem( 'protonCountNumberSpinner' ), {
         minValue: 0,
-        maxValue: 99
+        maxValue: 99,
+        arrowButtonOptions: {
+          visibleProperty: options.showArrowButtonsProperty
+        }
       } );
     const protonRowNode = new HBox( {
       children: [ protonCountPrompt, protonCountNumberSpinner ],
@@ -68,7 +75,10 @@ class InteractiveParticleCountsNode extends Node {
     const neutronCountNumberSpinner = new BAANumberSpinner( this.answerAtom.neutronCountProperty,
       tandem.createTandem( 'neutronCountNumberSpinner' ), {
         minValue: 0,
-        maxValue: 99
+        maxValue: 99,
+        arrowButtonOptions: {
+          visibleProperty: options.showArrowButtonsProperty
+        }
       } );
     const neutronRowNode = new HBox( {
       children: [ neutronCountPrompt, neutronCountNumberSpinner ],
@@ -84,7 +94,10 @@ class InteractiveParticleCountsNode extends Node {
       this.answerAtom.electronCountProperty,
       tandem.createTandem( 'electronCountNumberSpinner' ), {
         minValue: 0,
-        maxValue: 99
+        maxValue: 99,
+        arrowButtonOptions: {
+          visibleProperty: options.showArrowButtonsProperty
+        }
       } );
     const electronRowNode = new HBox( {
       children: [ electronCountPrompt, electronCountNumberSpinner ],
