@@ -21,7 +21,26 @@ const BAAQueryParameters = QueryStringMachine.getAll( {
   challengesPerLevel: {
     type: 'number',
     defaultValue: 5
+  },
+
+  protons: {
+    type: 'number',
+    defaultValue: 0,
+    isValidValue: ( value: number ) => value >= 0
+  },
+
+  neutrons: {
+    type: 'number',
+    defaultValue: 0,
+    isValidValue: ( value: number ) => value >= 0
+  },
+
+  electrons: {
+    type: 'number',
+    defaultValue: 0,
+    isValidValue: ( value: number ) => value >= 0
   }
+
 } );
 
 buildAnAtom.register( 'BAAQueryParameters', BAAQueryParameters );

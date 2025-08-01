@@ -332,7 +332,7 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
     checkboxGroup.left = this.periodicTableAccordionBox.left;
     checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
-    electronModelControl.left = atomNode.right + 30;
+    electronModelControl.left = atomNode.centerX + 130;
     electronModelControl.bottom = atomNode.bottom + 5;
 
     // Any other objects added by class calling it will be added in this node for layering purposes

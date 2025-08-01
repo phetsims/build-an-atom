@@ -19,7 +19,7 @@ class SymbolScreen extends Screen<BAAModel, SymbolScreenView> {
 
   public constructor( tandem: Tandem ) {
     super(
-      () => new BAAModel( tandem.createTandem( 'model' ) ),
+      () => new BAAModel( { tandem: tandem.createTandem( 'model' ) } ),
       model => new SymbolScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomFluent.symbolStringProperty,

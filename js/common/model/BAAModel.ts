@@ -14,15 +14,18 @@ import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
+import BAAQueryParameters from '../BAAQueryParameters.js';
 import BAAScreenView from '../view/BAAScreenView.js';
 
 // constants
@@ -37,6 +40,12 @@ const NUCLEUS_JUMP_PERIOD = 0.1; // in seconds
 const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
+
+type SelfOptions = {
+  configurableInitialAtom?: boolean; // If true, the initial atom configuration can be changed by query parameter.
+};
+
+export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 class BAAModel {
 
@@ -65,7 +74,13 @@ class BAAModel {
   // count for how many times the nucleus has jumped
   public nucleusJumpCount: number;
 
-  public constructor( tandem: Tandem ) {
+  public constructor( providedOptions: BAAModelOptions ) {
+
+    const options = combineOptions<BAAModelOptions>( {
+      configurableInitialAtom: true // If true, the initial atom configuration can be changed by query parameter.
+    }, providedOptions );
+
+    const tandem = options.tandem;
 
     // Create the atom that the user will build, modify, and generally play with.
     this.atom = new ParticleAtom( {
@@ -210,6 +225,20 @@ class BAAModel {
 
     // add a variable used when making the nucleus jump in order to indicate instability
     this.nucleusJumpCount = 0;
+
+    if ( options.configurableInitialAtom ) {
+
+      assert && assert( BAAQueryParameters.protons <= NUM_PROTONS, 'Proton count exceeds maximum allowed' );
+      assert && assert( BAAQueryParameters.neutrons <= NUM_NEUTRONS, 'Neutron count exceeds maximum allowed' );
+      assert && assert( BAAQueryParameters.electrons <= NUM_ELECTRONS, 'Electron count exceeds maximum allowed' );
+
+      this.setAtomConfiguration( new NumberAtom( {
+        protonCount: BAAQueryParameters.protons,
+        neutronCount: BAAQueryParameters.neutrons,
+        electronCount: BAAQueryParameters.electrons
+      } ) );
+    }
+
   }
 
   public dispose(): void {
