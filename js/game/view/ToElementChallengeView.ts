@@ -8,19 +8,23 @@
  * @author John Blanco
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
+import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ChallengeView from './ChallengeView.js';
@@ -139,7 +143,6 @@ class ToElementChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
-
   public override clearAnswer(): void {
 
     // This method can be called before the superconstructor has completed, so the existence of the items being cleared
@@ -154,6 +157,22 @@ class ToElementChallengeView extends ChallengeView {
     this.atomicNumberProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.neutralOrIonProperty.value = this.challenge.answerAtom.netChargeProperty.get() === 0 ? 'neutral' : 'ion';
   }
+
+  public override createAnswerNode(): Node {
+    const elementAndIonStringProperty = new DerivedStringProperty(
+      [
+        this.challenge.answerAtom.protonCountProperty,
+        this.challenge.answerAtom.chargeProperty
+      ],
+      ( protonCount: number, charge: number ) => {
+        const elementSymbol = AtomIdentifier.getSymbol( protonCount );
+        const ionString = charge === 0 ? 'Neutral Atom' : 'Ion';
+        return `${elementSymbol}, ${ionString}`;
+      }
+    );
+    return new Text( elementAndIonStringProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+  }
+
 }
 
 buildAnAtom.register( 'ToElementChallengeView', ToElementChallengeView );

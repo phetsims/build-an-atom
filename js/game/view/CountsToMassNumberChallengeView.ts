@@ -7,10 +7,13 @@
  * @author John Blanco
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -89,6 +92,14 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
   public override reset(): void {
     this.massNumberAnswerProperty.reset();
+  }
+
+  public override createAnswerNode(): Node {
+    const massNumberTextProperty = new DerivedStringProperty(
+      [ this.challenge.answerAtom.massNumberProperty ],
+      ( massNumber: number ) => `Mass Number: ${massNumber}`
+    );
+    return new Text( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 
   public override dispose(): void {

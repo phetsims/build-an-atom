@@ -9,11 +9,13 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/buttons/TextPushButton.js';
@@ -59,6 +61,10 @@ class ChallengeView extends Node {
   public readonly tryAgainButton: TextPushButton;
   public readonly displayCorrectAnswerButton: TextPushButton;
   public readonly handleStateChange: ( state: GameState ) => void;
+
+  // The node that will be used to display the correct answer prior to answering the challenge.  This is for internal
+  // use only, and is used to make it easier to move through the game while testing.
+  protected readonly showAnswerNode: Node | null = null;
 
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super();
@@ -190,8 +196,18 @@ class ChallengeView extends Node {
     };
 
     // Do an initial layout, but the subclasses can and should move the buttons as needed.
-    this.setButtonCenter( layoutBounds.width * 0.5, layoutBounds.height * 0.92 );
+    const defaultButtonCenter = new Vector2( layoutBounds.width * 0.5, layoutBounds.height * 0.92 );
+    this.setButtonCenter( defaultButtonCenter );
     feedbackNode.center = layoutBounds.center;
+
+    if ( phet.chipper.queryParameters.showAnswers ) {
+
+      // If the showAnswers query parameter is set, then we will display "cheat code" answer node.
+      this.showAnswerNode = this.createAnswerNode();
+      this.addChild( this.showAnswerNode );
+      this.showAnswerNode.centerX = layoutBounds.width * 0.75;
+      this.showAnswerNode.centerY = defaultButtonCenter.y;
+    }
   }
 
   /**
@@ -225,13 +241,24 @@ class ChallengeView extends Node {
   }
 
   /**
+   * Function to create the node that is used in conjunction with the 'showAnswers' query parameter.  This must be
+   * implemented in subclasses.
+   */
+  public createAnswerNode(): Node {
+
+    // TODO: Put the back in when implementation of this feature is complete.  See https://github.com/phetsims/build-an-atom/issues/246.
+    // assert && assert( false, 'createAnswerNode must be implemented in subclasses' );
+    return new Rectangle( 0, 0, 100, 50, { fill: Color.red, opacity: 0.5 } );
+  }
+
+
+  /**
    * Function to set the positions of all buttons.
    */
-  public setButtonCenter( x: number, y: number ): void {
+  private setButtonCenter( buttonCenter: Vector2 ): void {
     this.buttons.forEach( button => {
-      button.boundsProperty.link( () => {
-        button.centerX = x;
-        button.centerY = y;
+      button.localBoundsProperty.link( () => {
+        button.center = buttonCenter;
       } );
     } );
   }

@@ -11,6 +11,7 @@ import Random from '../../../dot/js/Random.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
+import Color from '../../../scenery/js/util/Color.js';
 import buildAnAtom from '../buildAnAtom.js';
 
 const VALID_CHALLENGES = [
@@ -30,12 +31,11 @@ const VALID_CHALLENGES = [
   'symbol-to-counts',
   'symbol-to-schematic'
 ] as const;
+export type ChallengeType = typeof VALID_CHALLENGES[number];
 
 export const RANDOM = new Random( {
   seed: 1 // Seed will be changed by the GameMode.
 } );
-
-export type ChallengeType = typeof VALID_CHALLENGES[number];
 
 const QUESTION_PROMPT_OPTIONS: RichTextOptions = {
   replaceNewlines: true,
@@ -53,7 +53,11 @@ const BAAConstants = {
   ALWAYS_FALSE_PROPERTY: new BooleanProperty( false ),
   NUMBER_OF_GAME_LEVELS: 4,
   PARTICLE_TOUCH_DRAG_OFFSET: new Vector2( 0, -20 ),
-  QUESTION_PROMPT_OPTIONS: QUESTION_PROMPT_OPTIONS
+  QUESTION_PROMPT_OPTIONS: QUESTION_PROMPT_OPTIONS,
+  SHOW_ANSWER_TEXT_OPTIONS: {
+    fill: Color.RED,
+    font: new PhetFont( 20 )
+  }
 };
 
 BAAConstants.ALWAYS_TRUE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );
