@@ -54,7 +54,10 @@ class CountsToChargeChallengeView extends ChallengeView {
         signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
-        minValue: -99
+        minValue: -99,
+        arrowButtonOptions: {
+          visibleProperty: this.challenge.interactiveAnswerProperty
+        }
       } );
     this.interactiveAnswerNode.addChild( chargeNumberSpinner );
 

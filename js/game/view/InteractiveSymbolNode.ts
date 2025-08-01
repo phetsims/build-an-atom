@@ -7,10 +7,12 @@
  * @author John Blanco
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
@@ -38,6 +40,7 @@ type SelfOptions = {
   interactiveMassNumber?: boolean; // If true, the mass number is interactive.
   interactiveCharge?: boolean; // If true, the charge is interactive.
   showAtomName?: boolean; // If true, the atom name is shown below the symbol.
+  showArrowButtonsProperty?: TReadOnlyProperty<boolean>; // Wether to show the arrow buttons for the number spinners.
 };
 
 export type InteractiveSymbolNodeOptions = SelfOptions & NodeOptions;
@@ -58,7 +61,8 @@ class InteractiveSymbolNode extends Node {
       interactiveProtonCount: false,
       interactiveMassNumber: false,
       interactiveCharge: false,
-      showAtomName: true
+      showAtomName: true,
+      showArrowButtonsProperty: new BooleanProperty( false )
     }, providedOptions );
 
     super( options );
@@ -169,7 +173,10 @@ class InteractiveSymbolNode extends Node {
           maxValue: 99,
           getTextColor: () => BAAColors.protonColorProperty,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
-          centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset
+          centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
+          arrowButtonOptions: {
+            visibleProperty: options.showArrowButtonsProperty
+          }
         } ) );
       this.protonCountProperty.link( updateElement );
     }
@@ -192,7 +199,10 @@ class InteractiveSymbolNode extends Node {
           minValue: 0,
           maxValue: 99,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
-          centerY: NUMBER_INSET + interactiveNumberCenterYOffset
+          centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
+          arrowButtonOptions: {
+            visibleProperty: options.showArrowButtonsProperty
+          }
         } ) );
     }
     else {
@@ -215,7 +225,10 @@ class InteractiveSymbolNode extends Node {
           showPlusForPositive: true,
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
-          getTextColor: ShredConstants.CHARGE_TEXT_COLOR
+          getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
+          arrowButtonOptions: {
+            visibleProperty: options.showArrowButtonsProperty
+          }
         } ) );
     }
     else {

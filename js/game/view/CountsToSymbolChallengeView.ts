@@ -31,7 +31,8 @@ class CountsToSymbolChallengeView extends ChallengeView {
       tandem.createTandem( 'interactiveSymbolNode' ), {
         interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
         interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
-        interactiveCharge: toSymbolChallenge.configurableCharge
+        interactiveCharge: toSymbolChallenge.configurableCharge,
+        showArrowButtonsProperty: toSymbolChallenge.interactiveAnswerProperty
       }
     );
 

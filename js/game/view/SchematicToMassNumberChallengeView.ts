@@ -76,7 +76,10 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       this.massNumberAnswerProperty,
       tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
-        maxValue: 99
+        maxValue: 99,
+        arrowButtonOptions: {
+          visibleProperty: this.challenge.interactiveAnswerProperty
+        }
       } );
     this.interactiveAnswerNode.addChild( massNumberSpinner );
 

@@ -78,7 +78,10 @@ class SchematicToChargeChallengeView extends ChallengeView {
         maxValue: 99,
         showPlusForPositive: true,
         signAfterValue: true,
-        getTextColor: ShredConstants.CHARGE_TEXT_COLOR
+        getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
+        arrowButtonOptions: {
+          visibleProperty: this.challenge.interactiveAnswerProperty
+        }
       } );
     this.interactiveAnswerNode.addChild( chargeNumberSpinner );
 

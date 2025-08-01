@@ -8,6 +8,8 @@
  * @author John Blanco
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -33,6 +35,9 @@ abstract class BAAGameChallenge extends PhetioObject {
   public configurableMassNumber = false;
   public configurableCharge = false;
 
+  // This flag is used to hide the arrow buttons on Spinners whenever we're checking or showing the correct answer.
+  public interactiveAnswerProperty: Property<boolean>;
+
   protected constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
 
     super( {
@@ -49,6 +54,11 @@ abstract class BAAGameChallenge extends PhetioObject {
       tandem: tandem.createTandem( 'answerAtom' )
     } );
     this.model = model;
+
+    this.interactiveAnswerProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'interactiveAnswerProperty' ),
+      phetioDocumentation: 'Whether to enable the interactive elemnts. False when showing the correct answer.'
+    } );
   }
 
   public checkAnswer( submittedAtom: AnswerAtom ): void {
