@@ -36,7 +36,7 @@ export type ChargeMeterOptions = SelfOptions & NodeOptions;
 
 class ChargeMeter extends Node {
 
-  public constructor( chargeProperty: TReadOnlyProperty<number>, providedOptions?: ChargeMeterOptions ) {
+  public constructor( netChargeProperty: TReadOnlyProperty<number>, providedOptions?: ChargeMeterOptions ) {
 
     const options = optionize<ChargeMeterOptions, SelfOptions, NodeOptions>()( {
       showNumericalReadout: true
@@ -132,7 +132,7 @@ class ChargeMeter extends Node {
     }
 
     // Add the listeners that will update the meter and numerical display when the charge changes.
-    chargeProperty.link( charge => {
+    netChargeProperty.link( charge => {
       meterNeedle.rotation = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
 
       if ( numericalReadout !== undefined ) {

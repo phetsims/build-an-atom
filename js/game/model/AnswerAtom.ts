@@ -52,11 +52,11 @@ class AnswerAtom extends NumberAtom {
       else if ( this.neutralOrIon === 'ion' ) {
 
         // If this is an ion, the charge of the other atom must be non-zero.
-        neutralOrIonIsEqual = other.chargeProperty.value !== 0;
+        neutralOrIonIsEqual = other.netChargeProperty.value !== 0;
       }
       else {
         assert && assert( this.neutralOrIon === 'neutral', `unexpected value for neutralOrIon: ${this.neutralOrIon}` );
-        neutralOrIonIsEqual = other.chargeProperty.value === 0;
+        neutralOrIonIsEqual = other.netChargeProperty.value === 0;
       }
     }
 

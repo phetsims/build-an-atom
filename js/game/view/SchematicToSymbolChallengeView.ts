@@ -77,7 +77,7 @@ class SchematicToSymbolChallengeView extends ChallengeView {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.interactiveSymbolNode.protonCountProperty.value,
       neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
-      electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
+      electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.netChargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
@@ -89,7 +89,7 @@ class SchematicToSymbolChallengeView extends ChallengeView {
   public override displayCorrectAnswer(): void {
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
-    this.interactiveSymbolNode.chargeProperty.value = this.challenge.answerAtom.chargeProperty.get();
+    this.interactiveSymbolNode.netChargeProperty.value = this.challenge.answerAtom.netChargeProperty.get();
   }
 
   public override dispose(): void {

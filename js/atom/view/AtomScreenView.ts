@@ -50,7 +50,7 @@ class AtomScreenView extends BAAScreenView {
     const netChargeAccordionBoxTandem = tandem.createTandem( 'netChargeAccordionBox' );
     const netChargeAccordionBoxContents = new HBox( {
       children: [
-        new ChargeMeter( model.atom.chargeProperty ),
+        new ChargeMeter( model.atom.netChargeProperty ),
         new ChargeComparisonDisplay( model.atom, { pickable: false } )
       ],
       spacing: 5,
@@ -73,7 +73,7 @@ class AtomScreenView extends BAAScreenView {
       }, commonAccordionBoxOptions )
     );
     this.controlPanelLayer.addChild( this.netChargeAccordionBox );
-    this.netChargeAccordionBox.addLinkedElement( model.atom.chargeProperty );
+    this.netChargeAccordionBox.addLinkedElement( model.atom.netChargeProperty );
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(

@@ -230,7 +230,7 @@ export default class AtomValuePool {
     const meetsCriteria = ( numberAtom: NumberAtom ): boolean => {
       return numberAtom.protonCountProperty.get() >= minProtonCount &&
              numberAtom.protonCountProperty.get() < maxProtonCount &&
-             ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
+             ( !requireCharged || numberAtom.netChargeProperty.get() !== 0 );
 
     };
 

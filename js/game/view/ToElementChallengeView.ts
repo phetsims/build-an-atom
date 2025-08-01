@@ -152,7 +152,7 @@ class ToElementChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.atomicNumberProperty.value = this.challenge.answerAtom.protonCountProperty.get();
-    this.neutralOrIonProperty.value = this.challenge.answerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
+    this.neutralOrIonProperty.value = this.challenge.answerAtom.netChargeProperty.get() === 0 ? 'neutral' : 'ion';
   }
 }
 

@@ -88,7 +88,7 @@ class CountsToChargeChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeAnswerProperty.value = this.challenge.answerAtom.chargeProperty.get();
+    this.chargeAnswerProperty.value = this.challenge.answerAtom.netChargeProperty.get();
   }
 
   public override dispose(): void {
