@@ -1,8 +1,8 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Challenge where the user is presented with a set of counts for protons,
- * neutrons, and electrons, and must determine the overall charge.
+ * Challenge where the user is presented with a set of counts for protons, neutrons, and electrons, and must determine
+ * the overall charge.
  *
  * @author John Blanco
  */
@@ -88,9 +88,9 @@ class CountsToChargeChallengeView extends ChallengeView {
   public override createAnswerNode(): Node {
     const chargeTextProperty = new DerivedStringProperty(
       [ this.challenge.answerAtom.netChargeProperty ],
-      ( charge: number ) => {
-        const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
-        return `Charge: ${Math.abs( charge )}${sign}`;
+      ( netCharge: number ) => {
+        const sign = netCharge > 0 ? MathSymbols.UNARY_PLUS : netCharge < 0 ? MathSymbols.UNARY_MINUS : '';
+        return `Net Charge: ${Math.abs( netCharge )}${sign}`;
       }
     );
     return new Text( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

@@ -124,9 +124,9 @@ class SchematicToChargeChallengeView extends ChallengeView {
   public override createAnswerNode(): Node {
     const chargeTextProperty = new DerivedStringProperty(
       [ this.challenge.answerAtom.netChargeProperty ],
-      ( charge: number ) => {
-        const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
-        return `Charge: ${Math.abs( charge )}${sign}`;
+      ( netCharge: number ) => {
+        const sign = netCharge > 0 ? MathSymbols.UNARY_PLUS : netCharge < 0 ? MathSymbols.UNARY_MINUS : '';
+        return `Net Charge: ${Math.abs( netCharge )}${sign}`;
       }
     );
     return new Text( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
