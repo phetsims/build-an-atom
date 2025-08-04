@@ -72,7 +72,7 @@ const BAAConstants = {
   QUESTION_PROMPT_OPTIONS: QUESTION_PROMPT_OPTIONS,
   SHOW_ANSWER_TEXT_OPTIONS: {
     fill: Color.RED,
-    font: new PhetFont( 20 )
+    font: new PhetFont( 16 )
   },
   ACCORDION_BOX_OPTIONS: ACCORDION_BOX_OPTIONS
 };

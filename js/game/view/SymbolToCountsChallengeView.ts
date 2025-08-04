@@ -8,9 +8,13 @@
  * @author John Blanco
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import SymbolToCountsChallenge from '../model/SymbolToCountsChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveParticleCountsNode from './InteractiveParticleCountsNode.js';
@@ -59,6 +63,21 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
   public override reset(): void {
     this.interactiveParticleCountsNode.reset();
+  }
+
+  public override createAnswerNode(): Node {
+
+    const answerTextProperty = new DerivedStringProperty(
+      [
+        this.challenge.answerAtom.protonCountProperty,
+        this.challenge.answerAtom.neutronCountProperty,
+        this.challenge.answerAtom.electronCountProperty
+      ],
+      ( protonCount: number, neutronCount, electronCount ) => {
+        return `Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
+      }
+    );
+    return new Text( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
 

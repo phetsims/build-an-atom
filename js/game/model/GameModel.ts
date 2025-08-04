@@ -180,12 +180,6 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
-    this.challengeProperty.lazyLink( challenge => {
-      if ( challenge ) {
-        console.log( `challenge.challengeType = ${challenge.challengeType}` );
-      }
-    } );
-
     this.levels = [
       new GameLevel( 0, this, { tandem: tandem.createTandem( 'level1' ) } ),
       new GameLevel( 1, this, { tandem: tandem.createTandem( 'level2' ) } ),

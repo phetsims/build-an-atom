@@ -15,7 +15,6 @@ import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/buttons/TextPushButton.js';
@@ -251,12 +250,9 @@ class ChallengeView extends Node {
    * implemented in subclasses.
    */
   public createAnswerNode(): Node {
-
-    // TODO: Put the back in when implementation of this feature is complete.  See https://github.com/phetsims/build-an-atom/issues/246.
-    // assert && assert( false, 'createAnswerNode must be implemented in subclasses' );
-    return new Rectangle( 0, 0, 100, 50, { fill: Color.red, opacity: 0.5 } );
+    assert && assert( false, 'createAnswerNode must be implemented in subclasses' );
+    return new Node();
   }
-
 
   /**
    * Function to set the positions of all buttons.
