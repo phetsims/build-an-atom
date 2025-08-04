@@ -8,12 +8,16 @@
  * @author John Blanco
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
@@ -87,6 +91,21 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.challenge.buildAnAtomModel.setAtomConfiguration( this.challenge.answerAtom );
+  }
+
+  public override createAnswerNode(): Node {
+
+    const answerTextProperty = new DerivedStringProperty(
+      [
+        this.challenge.answerAtom.protonCountProperty,
+        this.challenge.answerAtom.neutronCountProperty,
+        this.challenge.answerAtom.electronCountProperty
+      ],
+      ( protonCount: number, neutronCount, electronCount ) => {
+        return `Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
+      }
+    );
+    return new Text( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 
   public override dispose(): void {
