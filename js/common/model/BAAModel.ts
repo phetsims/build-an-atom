@@ -238,16 +238,6 @@ class BAAModel {
         electronCount: BAAQueryParameters.electrons
       } ) );
     }
-
-  }
-
-  public dispose(): void {
-    this.atom.dispose();
-    this.buckets.protonBucket.dispose();
-    this.buckets.electronBucket.dispose();
-    this.buckets.neutronBucket.dispose();
-    this.electrons.forEach( electron => { electron.dispose();} );
-    this.nucleons.forEach( nucleon => { nucleon.dispose();} );
   }
 
   public step( dt: number ): void {

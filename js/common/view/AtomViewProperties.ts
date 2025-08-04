@@ -51,13 +51,6 @@ class AtomViewProperties {
     this.nuclearStabilityVisibleProperty.reset();
     this.electronModelProperty.reset();
   }
-
-  public dispose(): void {
-    this.elementNameVisibleProperty.dispose();
-    this.neutralAtomOrIonVisibleProperty.dispose();
-    this.nuclearStabilityVisibleProperty.dispose();
-    this.electronModelProperty.dispose();
-  }
 }
 
 buildAnAtom.register( 'AtomViewProperties', AtomViewProperties );

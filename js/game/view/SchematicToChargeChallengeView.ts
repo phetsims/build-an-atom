@@ -33,7 +33,6 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 class SchematicToChargeChallengeView extends ChallengeView {
 
   public readonly chargeAnswerProperty: NumberProperty;
-  private readonly disposeSchematicToChargeChallengeView: () => void;
 
   public constructor( schematicToChargeChallenge: SchematicToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -95,13 +94,6 @@ class SchematicToChargeChallengeView extends ChallengeView {
     chargeNumberSpinner.left = questionPromptText.right + 10;
     chargeNumberSpinner.centerY = questionPromptText.centerY;
     schematicAtomNode.centerY = chargeNumberSpinner.centerY;
-
-    this.disposeSchematicToChargeChallengeView = function() {
-      schematicAtomNode.dispose();
-      questionPromptText.dispose();
-      chargeNumberSpinner.dispose();
-      this.chargeAnswerProperty.dispose();
-    };
   }
 
   public override checkAnswer(): void {
@@ -130,11 +122,6 @@ class SchematicToChargeChallengeView extends ChallengeView {
       }
     );
     return new Text( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
-  }
-
-  public override dispose(): void {
-    this.disposeSchematicToChargeChallengeView();
-    super.dispose();
   }
 }
 

@@ -29,7 +29,6 @@ import ParticleCountsNode from './ParticleCountsNode.js';
 class CountsToChargeChallengeView extends ChallengeView {
 
   private readonly chargeAnswerProperty: NumberProperty;
-  private readonly disposeCountsToChargeChallengeView: () => void;
 
   public constructor( countsToChargeChallenge: CountsToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -72,12 +71,6 @@ class CountsToChargeChallengeView extends ChallengeView {
     questionPromptText.centerY = layoutBounds.height * 0.5;
     chargeNumberSpinner.left = questionPromptText.right + 10;
     chargeNumberSpinner.centerY = questionPromptText.centerY;
-
-    this.disposeCountsToChargeChallengeView = function() {
-      this.chargeAnswerProperty.dispose();
-      questionPromptText.dispose();
-      chargeNumberSpinner.dispose();
-    };
   }
 
   public override reset(): void {
@@ -107,11 +100,6 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.chargeAnswerProperty.value = this.challenge.answerAtom.netChargeProperty.get();
-  }
-
-  public override dispose(): void {
-    this.disposeCountsToChargeChallengeView();
-    super.dispose();
   }
 }
 

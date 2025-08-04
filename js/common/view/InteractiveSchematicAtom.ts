@@ -14,7 +14,6 @@ import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
-import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
@@ -28,7 +27,6 @@ type SelfOptions = EmptySelfOptions;
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
 
 class InteractiveSchematicAtom extends Node {
-  private readonly disposeInteractiveSchematicAtom: VoidFunction;
 
   public constructor( model: BAAModel,
                       modelViewTransform: ModelViewTransform2,
@@ -39,8 +37,6 @@ class InteractiveSchematicAtom extends Node {
     }, providedOptions );
 
     super();
-
-    const particleViews: ParticleView[] = []; // remember all the particleViews when using in dispose
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.atom, modelViewTransform, {
@@ -76,7 +72,6 @@ class InteractiveSchematicAtom extends Node {
         tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
       } );
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( particleView );
-      particleViews.push( particleView );
 
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( ( zLayer: number ) => {
@@ -113,11 +108,9 @@ class InteractiveSchematicAtom extends Node {
         tandem: electronGroupTandem.createNextTandem()
       } );
       electronLayer.addChild( particleView );
-      particleViews.push( particleView );
     } );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    const bucketFrontsAndDragHandlers: { dispose: VoidFunction }[] = []; // keep track for disposal
     _.each( model.buckets, bucket => {
       const bucketFront = new BucketFront( bucket, modelViewTransform );
       this.addChild( bucketFront );
@@ -126,23 +119,9 @@ class InteractiveSchematicAtom extends Node {
         tandem: options.tandem && options.tandem.createTandem( `${bucket.sphereBucketTandem.name}DragListener` )
       } );
       bucketFront.addInputListener( bucketDragListener );
-
-      // add to separate list for later disposal
-      bucketFrontsAndDragHandlers.push( bucketFront );
-      bucketFrontsAndDragHandlers.push( bucketDragListener );
     } );
-    this.disposeInteractiveSchematicAtom = () => {
-      particleViews.forEach( particleView => particleView.dispose() );
-      bucketFrontsAndDragHandlers.forEach( bucketItem => bucketItem.dispose() );
-      atomNode.dispose();
-    };
 
     this.mutate( options );
-  }
-
-  public override dispose(): void {
-    this.disposeInteractiveSchematicAtom();
-    super.dispose();
   }
 }
 

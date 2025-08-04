@@ -112,6 +112,7 @@ class GameScreenView extends ScreenView {
           assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
 
           // Add the dialog node that indicates that the level has been completed.
+          this.levelCompletedNode && this.levelCompletedNode.dispose(); // Dispose of the previous level completed node if it exists.
           this.levelCompletedNode = new LevelCompletedNode(
             gameModel.levelNumberProperty.get() + 1,
             gameModel.scoreProperty.get(),

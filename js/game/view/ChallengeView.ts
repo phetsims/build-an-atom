@@ -268,14 +268,6 @@ class ChallengeView extends Node {
       } );
     } );
   }
-
-  public override dispose(): void {
-    this.checkAnswerButton.dispose();
-    this.nextButton.dispose();
-    this.tryAgainButton.dispose();
-    this.displayCorrectAnswerButton.dispose();
-    super.dispose();
-  }
 }
 
 buildAnAtom.register( 'ChallengeView', ChallengeView );

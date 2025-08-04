@@ -24,7 +24,6 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override challenge: SymbolToSchematicChallenge;
   public interactiveSchematicAtom: InteractiveSchematicAtom;
-  private readonly disposeSymbolToSchematicChallengeView: () => void;
 
   public constructor( challenge: SymbolToSchematicChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -65,11 +64,6 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.745;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.51;
-
-    this.disposeSymbolToSchematicChallengeView = () => {
-      interactiveSymbolNode.dispose();
-      this.interactiveSchematicAtom.dispose();
-    };
   }
 
   public override checkAnswer(): void {
@@ -87,11 +81,6 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.challenge.buildAnAtomModel.setAtomConfiguration( this.challenge.answerAtom );
-  }
-
-  public override dispose(): void {
-    this.disposeSymbolToSchematicChallengeView();
-    super.dispose();
   }
 }
 

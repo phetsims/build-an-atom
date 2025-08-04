@@ -27,7 +27,6 @@ import ParticleCountsNode from './ParticleCountsNode.js';
 class CountsToMassNumberChallengeView extends ChallengeView {
 
   public readonly massNumberAnswerProperty: NumberProperty;
-  private readonly disposeCountsToMassNumberChallengeView: () => void;
 
   public constructor( countsToMassNumberChallenge: CountsToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -68,13 +67,6 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     questionPromptText.centerY = layoutBounds.height * 0.5;
     massNumberSpinner.left = questionPromptText.right + 10;
     massNumberSpinner.centerY = questionPromptText.centerY;
-
-    this.disposeCountsToMassNumberChallengeView = function() {
-      particleCountsNode.dispose();
-      questionPromptText.dispose();
-      massNumberSpinner.dispose();
-      this.massNumberAnswerProperty.dispose();
-    };
   }
 
   public override checkAnswer(): void {
@@ -100,11 +92,6 @@ class CountsToMassNumberChallengeView extends ChallengeView {
       ( massNumber: number ) => `Mass Number: ${massNumber}`
     );
     return new Text( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
-  }
-
-  public override dispose(): void {
-    this.disposeCountsToMassNumberChallengeView();
-    super.dispose();
   }
 }
 

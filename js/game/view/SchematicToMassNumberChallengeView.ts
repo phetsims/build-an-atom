@@ -32,7 +32,6 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public readonly massNumberAnswerProperty: NumberProperty;
-  private readonly disposeSchematicToMassNumberChallengeView: () => void;
 
   public constructor( schematicToMassNumberChallenge: SchematicToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -92,14 +91,6 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     massNumberSpinner.left = questionPromptText.right + 10;
     massNumberSpinner.centerY = questionPromptText.centerY;
     schematicAtomNode.centerY = massNumberSpinner.centerY;
-
-
-    this.disposeSchematicToMassNumberChallengeView = () => {
-      schematicAtomNode.dispose();
-      questionPromptText.dispose();
-      massNumberSpinner.dispose();
-      this.massNumberAnswerProperty.dispose();
-    };
   }
 
   public override checkAnswer(): void {
@@ -125,11 +116,6 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       ( massNumber: number ) => `Mass Number: ${massNumber}`
     );
     return new Text( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
-  }
-
-  public override dispose(): void {
-    this.disposeSchematicToMassNumberChallengeView();
-    super.dispose();
   }
 }
 

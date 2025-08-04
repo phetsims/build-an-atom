@@ -19,7 +19,6 @@ import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 class SymbolToCountsChallengeView extends ChallengeView {
 
   public readonly interactiveParticleCountsNode: InteractiveParticleCountsNode;
-  private readonly disposeSymbolToCountsChallengeView: () => void;
 
   public constructor( symbolToCountsChallenge: SymbolToCountsChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -46,11 +45,6 @@ class SymbolToCountsChallengeView extends ChallengeView {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
     this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.49;
-
-    this.disposeSymbolToCountsChallengeView = function() {
-      interactiveSymbolNode.dispose();
-      this.interactiveParticleCountsNode.dispose();
-    };
   }
 
   public override checkAnswer(): void {
@@ -65,12 +59,6 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
   public override reset(): void {
     this.interactiveParticleCountsNode.reset();
-  }
-
-  public override dispose(): void {
-    this.disposeSymbolToCountsChallengeView();
-
-    super.dispose();
   }
 }
 

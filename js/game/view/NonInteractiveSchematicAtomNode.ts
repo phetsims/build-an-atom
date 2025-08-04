@@ -98,8 +98,6 @@ class NonInteractiveSchematicAtomNode extends Node {
         }
       }
     );
-
-    // Instances of this type are never disposed, so no dispose function is needed.
   }
 }
 

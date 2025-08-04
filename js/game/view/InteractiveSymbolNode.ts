@@ -53,8 +53,6 @@ class InteractiveSymbolNode extends Node {
 
   private options: SelfOptions;
 
-  private readonly disposeInteractiveSymbolNode: () => void;
-
   public constructor( numberAtom: NumberAtom, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
 
     const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( { // defaults
@@ -246,28 +244,12 @@ class InteractiveSymbolNode extends Node {
         chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       } );
     }
-
-    this.disposeInteractiveSymbolNode = () => {
-      if ( this.protonCountProperty.hasListener( updateElement ) ) {
-        this.protonCountProperty.unlink( updateElement );
-      }
-      boundingBox.children.forEach( child => { child.dispose(); } );
-      this.protonCountProperty.dispose();
-      this.massNumberProperty.dispose();
-      this.netChargeProperty.dispose();
-    };
   }
 
   public reset(): void {
     this.options.interactiveProtonCount && this.protonCountProperty.reset();
     this.options.interactiveMassNumber && this.massNumberProperty.reset();
     this.options.interactiveCharge && this.netChargeProperty.reset();
-  }
-
-  public override dispose(): void {
-    this.disposeInteractiveSymbolNode();
-
-    super.dispose();
   }
 }
 
