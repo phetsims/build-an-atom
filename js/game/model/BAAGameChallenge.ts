@@ -57,7 +57,8 @@ abstract class BAAGameChallenge extends PhetioObject {
 
     this.interactiveAnswerProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'interactiveAnswerProperty' ),
-      phetioDocumentation: 'Whether to enable the interactive elemnts. False when showing the correct answer.'
+      phetioDocumentation: 'For internal use only.',
+      phetioReadOnly: true
     } );
   }
 
