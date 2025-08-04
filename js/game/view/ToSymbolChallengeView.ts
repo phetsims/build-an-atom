@@ -35,11 +35,12 @@ class ToSymbolChallengeView extends ChallengeView {
     // Create and add the interactive symbol, which is where the user will enter their answer.
     this.interactiveSymbolNode = new InteractiveSymbolNode(
       toSymbolChallenge.answerAtom,
-      tandem.createTandem( 'interactiveSymbolNode' ), {
+      {
         interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
         interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
         interactiveCharge: toSymbolChallenge.configurableCharge,
-        showArrowButtonsProperty: toSymbolChallenge.interactiveAnswerProperty
+        showArrowButtonsProperty: toSymbolChallenge.interactiveAnswerProperty,
+        tandem: tandem.createTandem( 'interactiveSymbolNode' )
       }
     );
     this.interactiveSymbolNode.scale( 0.75 );
@@ -111,11 +112,12 @@ class ToSymbolChallengeView extends ChallengeView {
     else {
 
       // The challenge has two or more configurable properties, so return a symbol node that represents the answer.
-      answerNode = new InteractiveSymbolNode( this.challenge.answerAtom, Tandem.OPT_OUT, {
+      answerNode = new InteractiveSymbolNode( this.challenge.answerAtom, {
         interactiveProtonCount: false,
         interactiveCharge: false,
         interactiveMassNumber: false,
-        scale: 0.22 // empirically determined to fit below the interactive symbol node
+        scale: 0.22, // empirically determined to fit below the interactive symbol node
+        tandem: Tandem.OPT_OUT
       } );
     }
     return answerNode;

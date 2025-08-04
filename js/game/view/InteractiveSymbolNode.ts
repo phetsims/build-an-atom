@@ -15,6 +15,7 @@ import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -23,7 +24,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -40,10 +40,10 @@ type SelfOptions = {
   interactiveMassNumber?: boolean; // If true, the mass number is interactive.
   interactiveCharge?: boolean; // If true, the charge is interactive.
   showAtomName?: boolean; // If true, the atom name is shown below the symbol.
-  showArrowButtonsProperty?: TReadOnlyProperty<boolean>; // Wether to show the arrow buttons for the number spinners.
+  showArrowButtonsProperty?: TReadOnlyProperty<boolean>; // Whether to show the arrow buttons for the number spinners.
 };
 
-export type InteractiveSymbolNodeOptions = SelfOptions & NodeOptions;
+export type InteractiveSymbolNodeOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 class InteractiveSymbolNode extends Node {
 
@@ -53,9 +53,9 @@ class InteractiveSymbolNode extends Node {
 
   private options: SelfOptions;
 
-  public constructor( numberAtom: NumberAtom, tandem: Tandem, providedOptions?: InteractiveSymbolNodeOptions ) {
+  public constructor( numberAtom: NumberAtom, providedOptions?: InteractiveSymbolNodeOptions ) {
 
-    const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( { // defaults
+    const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, NodeOptions>()( {
       interactiveProtonCount: false,
       interactiveMassNumber: false,
       interactiveCharge: false,
@@ -68,17 +68,17 @@ class InteractiveSymbolNode extends Node {
     this.options = options;
 
     this.protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
-      tandem: tandem.createTandem( 'protonCountProperty' ),
+      tandem: options.tandem.createTandem( 'protonCountProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
     this.massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
-      tandem: tandem.createTandem( 'massNumberProperty' ),
+      tandem: options.tandem.createTandem( 'massNumberProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
     this.netChargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.netChargeProperty.get(), {
-      tandem: tandem.createTandem( 'netChargeProperty' ),
+      tandem: options.tandem.createTandem( 'netChargeProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
@@ -166,7 +166,7 @@ class InteractiveSymbolNode extends Node {
     if ( options.interactiveProtonCount ) {
       boundingBox.addChild( new BAANumberSpinner(
         this.protonCountProperty,
-        tandem.createTandem( 'protonCountNumberSpinner' ), {
+        options.tandem.createTandem( 'protonCountNumberSpinner' ), {
           minValue: 0,
           maxValue: 99,
           getTextColor: () => BAAColors.protonColorProperty,
@@ -193,7 +193,7 @@ class InteractiveSymbolNode extends Node {
     if ( options.interactiveMassNumber ) {
       boundingBox.addChild( new BAANumberSpinner(
         this.massNumberProperty,
-        tandem.createTandem( 'massNumberSpinner' ), {
+        options.tandem.createTandem( 'massNumberSpinner' ), {
           minValue: 0,
           maxValue: 99,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
@@ -217,7 +217,7 @@ class InteractiveSymbolNode extends Node {
     if ( options.interactiveCharge ) {
       boundingBox.addChild( new BAANumberSpinner(
         this.netChargeProperty,
-        tandem.createTandem( 'chargeNumberSpinner' ), {
+        options.tandem.createTandem( 'chargeNumberSpinner' ), {
           minValue: -99,
           maxValue: 99,
           showPlusForPositive: true,

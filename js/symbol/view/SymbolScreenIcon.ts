@@ -30,13 +30,13 @@ export default class SymbolScreenIcon extends ScreenIcon {
     // Add the schematic representation of the atom.
     const symbolNode = new InteractiveSymbolNode(
       new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ),
-      tandem.createTandem( 'symbolNode' ),
       {
         interactiveProtonCount: false,
         interactiveCharge: false,
         interactiveMassNumber: false,
         showAtomName: false,
-        excludeInvisibleChildrenFromBounds: true
+        excludeInvisibleChildrenFromBounds: true,
+        tandem: tandem.createTandem( 'symbolNode' )
       }
     );
 

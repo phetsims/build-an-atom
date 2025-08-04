@@ -27,11 +27,14 @@ const MAX_CHILD_NODE_WIDTH = MIN_CHILD_NODE_WIDTH * 2;
 
 class BAARewardNode extends RewardNode {
 
-  private disposeBAARewardNode: () => void;
+  private readonly disposeBAARewardNode: () => void;
 
   public constructor( tandem: Tandem ) {
-    const nodes = BAARewardNode.createNodes( tandem );
-    super( { nodes: nodes } );
+    const nodes = BAARewardNode.createNodes();
+    super( {
+      nodes: nodes,
+      tandem: tandem
+    } );
 
     this.disposeBAARewardNode = () => {
       nodes.forEach( node => {
@@ -54,10 +57,12 @@ class BAARewardNode extends RewardNode {
     } );
   }
 
-  private static createNodes( tandem: Tandem ): Node[] {
+  private static createNodes(): Node[] {
     const nodes = [];
     for ( let i = 0; i < NUMBER_OF_SYMBOL_NODES; i++ ) {
-      const interactiveSymbolNode = new InteractiveSymbolNode( BAARewardNode.createRandomStableAtom(), Tandem.OPT_OUT );
+      const interactiveSymbolNode = new InteractiveSymbolNode( BAARewardNode.createRandomStableAtom(), {
+        tandem: Tandem.OPT_OUT
+      } );
       interactiveSymbolNode.scale( ( MIN_CHILD_NODE_WIDTH +
                                      dotRandom.nextDouble() *
                                      ( MAX_CHILD_NODE_WIDTH - MIN_CHILD_NODE_WIDTH ) ) /

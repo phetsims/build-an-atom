@@ -58,12 +58,14 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     } );
     this.interactiveSchematicAtom.addChild( particleCountDisplay );
 
-    // Symbol
-    const interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, tandem.createTandem( 'interactiveSymbolNode' ) );
+    // symbol
+    const interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, {
+      tandem: tandem.createTandem( 'interactiveSymbolNode' )
+    } );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );
 
-    // Layout
+    // layout
     interactiveSymbolNode.centerX = layoutBounds.width * 0.27;
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.745;

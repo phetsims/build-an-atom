@@ -205,9 +205,8 @@ class ChallengeView extends Node {
     this.setButtonCenter( defaultButtonCenter );
     feedbackNode.center = layoutBounds.center;
 
+    // If the showAnswers query parameter is set, then we will display "cheat code" answer node.
     if ( phet.chipper.queryParameters.showAnswers ) {
-
-      // If the showAnswers query parameter is set, then we will display "cheat code" answer node.
       this.showAnswerNode = this.createAnswerNode();
       this.addChild( this.showAnswerNode );
       this.showAnswerNode.centerX = layoutBounds.width * 0.75;
