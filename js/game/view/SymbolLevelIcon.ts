@@ -1,4 +1,5 @@
 // Copyright 2025, University of Colorado Boulder
+
 /**
  * Button icon for the Symbol Level on the Game Screen.
  *

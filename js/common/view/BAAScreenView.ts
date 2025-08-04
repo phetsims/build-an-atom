@@ -12,11 +12,13 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
@@ -25,7 +27,7 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
-import AccordionBox from '../../../../sun/js/AccordionBox.js';
+import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
@@ -45,9 +47,8 @@ const NUM_NUCLEON_LAYERS = 6; // This is based on max number of particles, and m
 
 class BAAScreenView extends ScreenView {
 
-  public readonly periodicTableAccordionBox: AccordionBox;
-  public readonly controlPanelLayer: Node;
-  public readonly model: BAAModel;
+  protected readonly periodicTableAccordionBox: AccordionBox;
+  protected readonly accordionBoxes: VBox;
 
   // Properties that control how the atom is displayed.
   private readonly viewProperties: AtomViewProperties;
@@ -65,7 +66,6 @@ class BAAScreenView extends ScreenView {
 
     } );
 
-    this.model = model;
     this.viewProperties = new AtomViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     // Create the model-view transform.
@@ -86,7 +86,7 @@ class BAAScreenView extends ScreenView {
     } );
     this.addChild( atomNode );
 
-    // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
+    // Add the particle count indicator.
     const particleCountDisplay = new ParticleCountDisplay( model.atom, {
       top: CONTROLS_INSET,
       left: CONTROLS_INSET,
@@ -236,33 +236,32 @@ class BAAScreenView extends ScreenView {
     }
 
     // Add the periodic table display.
-    const periodicTableAndSymbol = new PeriodicTableAndSymbol( model.atom.protonCountProperty, { pickable: false } );
-    periodicTableAndSymbol.scale( 0.55 ); // Scale empirically determined to match layout in design doc.
-    const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
-    this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol, {
-      cornerRadius: 3,
-      titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
-        font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
-        maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
-      } ),
-      fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
-      contentAlign: 'left',
-      titleAlignX: 'left',
-      buttonAlign: 'left',
-      expandedDefaultValue: true,
-      expandCollapseButtonOptions: {
-        touchAreaXDilation: 12,
-        touchAreaYDilation: 12
-      },
-
-      // phet-io
-      tandem: periodicTableAccordionBoxTandem,
-      phetioFeatured: true,
-
-      // pdom
-      labelContent: BuildAnAtomFluent.elementStringProperty
+    const periodicTableAndSymbol = new PeriodicTableAndSymbol( model.atom.protonCountProperty, {
+      pickable: false,
+      scale: 0.55 // Scale empirically determined to match layout in design doc.
     } );
-    this.addChild( this.periodicTableAccordionBox );
+    const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
+    this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol,
+      combineOptions<AccordionBoxOptions>( {}, {
+        titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
+          font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
+          maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
+        } ),
+        expandedDefaultValue: true,
+
+        // phet-io
+        tandem: periodicTableAccordionBoxTandem,
+        phetioFeatured: true,
+
+        // pdom
+        labelContent: BuildAnAtomFluent.elementStringProperty
+      }, BAAConstants.ACCORDION_BOX_OPTIONS ) );
+
+    this.accordionBoxes = new VBox( {
+      children: [ this.periodicTableAccordionBox ],
+      spacing: 7
+    } );
+    this.addChild( this.accordionBoxes );
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
     const checkboxItemTextOptions = {
@@ -317,7 +316,7 @@ class BAAScreenView extends ScreenView {
     // Add the reset button.
     const resetAllButton = new ResetAllButton( {
       listener: () => {
-        this.model.reset();
+        model.reset();
         this.reset();
       },
       right: this.layoutBounds.maxX - CONTROLS_INSET,
@@ -328,16 +327,12 @@ class BAAScreenView extends ScreenView {
     this.addChild( resetAllButton );
 
     // Do the layout.
-    this.periodicTableAccordionBox.top = CONTROLS_INSET;
-    this.periodicTableAccordionBox.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    checkboxGroup.left = this.periodicTableAccordionBox.left;
+    this.accordionBoxes.top = CONTROLS_INSET;
+    this.accordionBoxes.right = this.layoutBounds.maxX - CONTROLS_INSET;
+    checkboxGroup.left = this.accordionBoxes.left;
     checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
     electronModelControl.left = atomNode.centerX + 130;
     electronModelControl.bottom = atomNode.bottom + 5;
-
-    // Any other objects added by class calling it will be added in this node for layering purposes
-    this.controlPanelLayer = new Node();
-    this.addChild( this.controlPanelLayer );
 
     this.addChild( nucleonElectronLayer );
     this.addChild( bucketFrontLayer );

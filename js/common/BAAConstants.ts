@@ -12,6 +12,8 @@ import Vector2 from '../../../dot/js/Vector2.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
 import Color from '../../../scenery/js/util/Color.js';
+import ShredConstants from '../../../shred/js/ShredConstants.js';
+import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../buildAnAtom.js';
 
 const VALID_CHALLENGES = [
@@ -45,6 +47,20 @@ const QUESTION_PROMPT_OPTIONS: RichTextOptions = {
   maxHeight: 100
 };
 
+const ACCORDION_BOX_BUTTON_DILATION = 12;
+
+const ACCORDION_BOX_OPTIONS: AccordionBoxOptions = {
+  cornerRadius: 3,
+  fill: ShredConstants.DISPLAY_PANEL_BACKGROUND_COLOR,
+  contentAlign: 'left',
+  titleAlignX: 'left',
+  buttonAlign: 'left',
+  expandCollapseButtonOptions: {
+    touchAreaXDilation: ACCORDION_BOX_BUTTON_DILATION,
+    touchAreaYDilation: ACCORDION_BOX_BUTTON_DILATION
+  }
+};
+
 const BAAConstants = {
   RESET_BUTTON_RADIUS: 20,
   MAX_CHALLENGE_ATTEMPTS: 2, // Note: Attempt is the same as a submission in BAAGameChallenge.
@@ -57,7 +73,8 @@ const BAAConstants = {
   SHOW_ANSWER_TEXT_OPTIONS: {
     fill: Color.RED,
     font: new PhetFont( 20 )
-  }
+  },
+  ACCORDION_BOX_OPTIONS: ACCORDION_BOX_OPTIONS
 };
 
 BAAConstants.ALWAYS_TRUE_PROPERTY.lazyLink( () => assert && assert( false, 'this value should not be changed' ) );

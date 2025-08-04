@@ -49,7 +49,7 @@ class SymbolScreenView extends BAAScreenView {
       // pdom
       labelContent: BuildAnAtomFluent.symbolStringProperty
     } );
-    this.controlPanelLayer.addChild( this.symbolAccordionBox );
+    this.accordionBoxes.addChild( this.symbolAccordionBox );
 
     // do the layout
     this.symbolAccordionBox.top = this.periodicTableAccordionBox.top + this.periodicTableAccordionBox.height + 10;

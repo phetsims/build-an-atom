@@ -1,4 +1,5 @@
 // Copyright 2025, University of Colorado Boulder
+
 /**
  * Screen icon for the Game screen.
  *
