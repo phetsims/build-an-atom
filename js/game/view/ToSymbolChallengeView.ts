@@ -121,11 +121,6 @@ class ToSymbolChallengeView extends ChallengeView {
     return answerNode;
   }
 
-  public override dispose(): void {
-    this.interactiveSymbolNode.dispose();
-    super.dispose();
-  }
-
 }
 
 buildAnAtom.register( 'ToSymbolChallengeView', ToSymbolChallengeView );

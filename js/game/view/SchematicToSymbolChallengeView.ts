@@ -20,8 +20,6 @@ import ToSymbolChallengeView from './ToSymbolChallengeView.js';
 
 class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
 
-  private readonly disposeSchematicToSymbolChallengeView: () => void;
-
   public constructor( schematicToSymbolChallenge: SchematicToSymbolChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( schematicToSymbolChallenge, layoutBounds, tandem );
@@ -47,15 +45,6 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     // Layout - bounds of AtomNode are dependent on its stability indicator text, so place relative to left.
     schematicAtomNode.left = layoutBounds.width * 0.15;
     schematicAtomNode.centerY = layoutBounds.height * 0.50;
-
-    this.disposeSchematicToSymbolChallengeView = function() {
-      schematicAtomNode.dispose();
-    };
-  }
-
-  public override dispose(): void {
-    this.disposeSchematicToSymbolChallengeView();
-    super.dispose();
   }
 }
 
