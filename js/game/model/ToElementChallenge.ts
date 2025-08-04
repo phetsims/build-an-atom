@@ -13,8 +13,8 @@ import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
 
 abstract class ToElementChallenge extends BAAGameChallenge {
-  protected constructor( buildAnAtomGameModel: GameModel, challengeType: string, tandem: Tandem ) {
-    super( buildAnAtomGameModel, challengeType, tandem );
+  protected constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+    super( buildAnAtomGameModel, tandem );
   }
 }
 

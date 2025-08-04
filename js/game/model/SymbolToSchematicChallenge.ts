@@ -21,7 +21,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
   public readonly buildAnAtomModel: BAAModel;
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, 'symbol-to-schematic', tandem );
+    super( buildAnAtomGameModel, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with which the user can interact. We want to
     // keep this model out of the state.

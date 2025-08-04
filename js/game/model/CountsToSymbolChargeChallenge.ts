@@ -20,7 +20,7 @@ class CountsToSymbolChargeChallenge extends CountsToSymbolChallenge {
     buildAnAtomGameModel: GameModel,
     tandem: Tandem
   ) {
-    super( buildAnAtomGameModel, 'counts-to-symbol-charge', tandem, false, false, true );
+    super( buildAnAtomGameModel, tandem, false, false, true );
   }
 
   /**

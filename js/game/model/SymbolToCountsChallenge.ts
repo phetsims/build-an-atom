@@ -18,7 +18,7 @@ import GameModel from './GameModel.js';
 class SymbolToCountsChallenge extends BAAGameChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, 'symbol-to-counts', tandem );
+    super( buildAnAtomGameModel, tandem );
   }
 
   /**

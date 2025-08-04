@@ -35,7 +35,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   // This flag is used to hide the arrow buttons on Spinners whenever we're checking or showing the correct answer.
   public interactiveAnswerProperty: Property<boolean>;
 
-  protected constructor( model: GameModel, challengeType: string, tandem: Tandem ) {
+  protected constructor( model: GameModel, tandem: Tandem ) {
 
     super( {
       tandem: tandem,

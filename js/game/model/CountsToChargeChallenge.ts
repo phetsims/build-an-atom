@@ -17,7 +17,7 @@ import GameModel from './GameModel.js';
 class CountsToChargeChallenge extends BAAGameChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, 'counts-to-charge', tandem );
+    super( buildAnAtomGameModel, tandem );
   }
 
   /**

@@ -18,7 +18,7 @@ import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 class SchematicToSymbolAllChallenge extends SchematicToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, 'schematic-to-symbol-all', tandem, true, true, true );
+    super( buildAnAtomGameModel, tandem, true, true, true );
   }
 
   /**

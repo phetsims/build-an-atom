@@ -19,13 +19,12 @@ class SchematicToSymbolChallenge extends BAAGameChallenge {
 
   public constructor(
     buildAnAtomGameModel: GameModel,
-    challengeType: string,
     tandem: Tandem,
     configurableProtonCount: boolean,
     configurableMassNumber: boolean,
     configurableCharge: boolean
   ) {
-    super( buildAnAtomGameModel, challengeType, tandem );
+    super( buildAnAtomGameModel, tandem );
     this.configurableProtonCount = configurableProtonCount;
     this.configurableMassNumber = configurableMassNumber;
     this.configurableCharge = configurableCharge;

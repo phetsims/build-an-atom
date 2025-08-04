@@ -17,7 +17,7 @@ import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 class SchematicToSymbolMassNumberChallenge extends SchematicToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, 'schematic-to-symbol-mass-number', tandem, false, true, false );
+    super( buildAnAtomGameModel, tandem, false, true, false );
   }
 
   /**
