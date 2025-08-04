@@ -12,12 +12,11 @@ import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.j
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
-import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import Dialog from '../../../../sun/js/Dialog.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import GameInfoDialog from '../../../../vegas/js/GameInfoDialog.js';
 import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -49,27 +48,19 @@ class StartGameLevelNode extends Node {
     this.addChild( title );
 
     // Create and add the decays info dialog and button.
-    const levelDescriptionOptions = {
-      font: new PhetFont( 30 )
-    };
-    const gamesInfoDialog = new Dialog(
-      new VBox( {
-        spacing: 30,
-        children: [
-          new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
-          new VBox( {
-            spacing: 30,
-            align: 'left',
-            children: [
-              new RichText( BuildAnAtomFluent.level1DescriptionStringProperty, levelDescriptionOptions ),
-              new RichText( BuildAnAtomFluent.level2DescriptionStringProperty, levelDescriptionOptions ),
-              new RichText( BuildAnAtomFluent.level3DescriptionStringProperty, levelDescriptionOptions ),
-              new RichText( BuildAnAtomFluent.level4DescriptionStringProperty, levelDescriptionOptions )
-            ]
-          } )
-        ]
-      } ), {
-        tandem: tandem.createTandem( 'gamesInfoDialog' )
+    const gamesInfoDialog = new GameInfoDialog( [
+        BuildAnAtomFluent.level1DescriptionStringProperty,
+        BuildAnAtomFluent.level2DescriptionStringProperty,
+        BuildAnAtomFluent.level3DescriptionStringProperty,
+        BuildAnAtomFluent.level4DescriptionStringProperty
+      ], {
+        gameLevels: BAAQueryParameters.gameLevels,
+        title: new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
+        tandem: tandem.createTandem( 'gamesInfoDialog' ),
+        ySpacing: 20,
+        descriptionTextOptions: {
+          font: new PhetFont( 30 )
+        }
       }
     );
     const gamesInfoButton = new InfoButton( {
