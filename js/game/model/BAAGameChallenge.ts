@@ -28,9 +28,6 @@ abstract class BAAGameChallenge extends PhetioObject {
   // Correct answer atom for this challenge, which the user is trying to deduce.
   public readonly answerAtom: NumberAtom;
 
-  // Property that tracks the state of the challenge, such as whether it is presenting the challenge,
-  public readonly challengeType: string;
-
   public configurableProtonCount = false;
   public configurableMassNumber = false;
   public configurableCharge = false;
@@ -46,8 +43,6 @@ abstract class BAAGameChallenge extends PhetioObject {
       phetioState: false,
       phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
-
-    this.challengeType = challengeType;
 
     this.answerAtom = new NumberAtom( {
       protonCount: 1,

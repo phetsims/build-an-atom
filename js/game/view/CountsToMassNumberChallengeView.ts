@@ -26,7 +26,7 @@ import ParticleCountsNode from './ParticleCountsNode.js';
 
 class CountsToMassNumberChallengeView extends ChallengeView {
 
-  public readonly massNumberAnswerProperty: NumberProperty;
+  private readonly massNumberAnswerProperty: NumberProperty;
 
   public constructor( countsToMassNumberChallenge: CountsToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 

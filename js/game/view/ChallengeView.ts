@@ -51,15 +51,28 @@ const COMMON_BUTTON_OPTIONS: TextPushButtonOptions = {
 class ChallengeView extends Node {
 
   public readonly challenge: BAAGameChallenge;
+
+  // Node that contains the information needed to solve the challenge, such as the schematic atom or particle counts.
   public readonly challengePresentationNode: Node;
+
+  // Node that contains the interactive controls for answering the challenge, such as a spinner or text field.
   public readonly interactiveAnswerNode: Node;
-  public readonly gameAudioPlayer: GameAudioPlayer;
-  public readonly buttons: TextPushButton[];
+
+  // Button that allows the user to check their answer.
   public readonly checkAnswerButton: TextPushButton;
-  public readonly nextButton: TextPushButton;
-  public readonly tryAgainButton: TextPushButton;
-  public readonly displayCorrectAnswerButton: TextPushButton;
+
+  // Function that is called when the game state changes, allowing the view to update its display.
   public readonly handleStateChange: ( state: GameState ) => void;
+
+  // Audio player used for audio feedback.
+  // This is used to play sounds when the user answers correctly or incorrectly.
+  private readonly gameAudioPlayer: GameAudioPlayer;
+
+  // The buttons that are used to interact with the challenge.
+  private readonly buttons: TextPushButton[];
+  private readonly nextButton: TextPushButton;
+  private readonly tryAgainButton: TextPushButton;
+  private readonly displayCorrectAnswerButton: TextPushButton;
 
   // The node that will be used to display the correct answer prior to answering the challenge.  This is for internal
   // use only, and is used to make it easier to move through the game while testing.

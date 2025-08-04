@@ -4,6 +4,7 @@
  * A model of a set of subatomic particles - protons, neutrons, and electrons - that can be assembled into atoms.
  *
  * @author John Blanco
+ * @author Agustín Vallejo
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
@@ -60,19 +61,19 @@ class BAAModel {
   public readonly electrons: Particle[];
 
   // Property that controls the speed of particle animations in the view.
-  public readonly particleAnimationSpeedProperty: TProperty<number>;
+  private readonly particleAnimationSpeedProperty: TProperty<number>;
 
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
 
   // countdown for nucleus jump animation
-  public nucleusJumpCountdown: number;
+  private nucleusJumpCountdown: number;
 
   // offset for nucleus jump animation
-  public readonly nucleusOffset: Vector2;
+  private readonly nucleusOffset: Vector2;
 
   // count for how many times the nucleus has jumped
-  public nucleusJumpCount: number;
+  private nucleusJumpCount: number;
 
   public constructor( providedOptions: BAAModelOptions ) {
 
@@ -126,7 +127,7 @@ class BAAModel {
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
       tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
       range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
-      units: 'view-coordinates/s'
+      units: 'view-coordinates/s' // TODO: Shouldn't this be 'pixels/s'? https://github.com/phetsims/build-an-atom/issues/303
     } );
 
     // Define a function that will decide where to put nucleons.

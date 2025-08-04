@@ -31,7 +31,7 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 
 class SchematicToMassNumberChallengeView extends ChallengeView {
 
-  public readonly massNumberAnswerProperty: NumberProperty;
+  private readonly massNumberAnswerProperty: NumberProperty;
 
   public constructor( schematicToMassNumberChallenge: SchematicToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 

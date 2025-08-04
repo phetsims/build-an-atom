@@ -9,11 +9,9 @@
  */
 
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
-import optionize from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import Font from '../../../../scenery/js/util/Font.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -21,30 +19,31 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 // constants
 const MAX_WIDTH = 200;
 
-type SelfOptions = {
-  font?: Font | string;
-};
+class ParticleCountsNode extends VBox {
 
-export type ParticleCountsNodeOptions = SelfOptions & NodeOptions;
+  public constructor( numberAtom: NumberAtom ) {
 
-class ParticleCountsNode extends Node {
+    super( {
+      spacing: 30,
+      align: 'left'
+    } );
 
-  public constructor( numberAtom: NumberAtom, options?: ParticleCountsNodeOptions ) {
+    const font = new PhetFont( 24 );
 
-    super( options );
-
-    options = optionize<ParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
-      font: new PhetFont( 24 )
-    }, options );
+    // Using formatNames because this string uses the old pattern ('Protons: {0}')
+    // and we don't want to lose translations by moving to the new pattern.
+    const patternOptions = {
+      formatNames: [ 'value' ]
+    };
 
     const protonCountTitle = new Text(
       new PatternStringProperty(
         BuildAnAtomFluent.protonsColonPatternStringProperty,
         { value: numberAtom.protonCountProperty },
-        { formatNames: [ 'value' ] }
+        patternOptions
       ),
       {
-        font: options.font,
+        font: font,
         maxWidth: MAX_WIDTH
       }
     );
@@ -54,10 +53,10 @@ class ParticleCountsNode extends Node {
       new PatternStringProperty(
         BuildAnAtomFluent.neutronsColonPatternStringProperty,
         { value: numberAtom.neutronCountProperty },
-        { formatNames: [ 'value' ] }
+        patternOptions
       ),
       {
-        font: options.font,
+        font: font,
         maxWidth: MAX_WIDTH
       }
     );
@@ -67,23 +66,14 @@ class ParticleCountsNode extends Node {
       new PatternStringProperty(
         BuildAnAtomFluent.electronsColonPatternStringProperty,
         { value: numberAtom.electronCountProperty },
-        { formatNames: [ 'value' ] }
+        patternOptions
       ),
       {
-        font: options.font,
+        font: font,
         maxWidth: MAX_WIDTH
       }
     );
     this.addChild( electronCountTitle );
-
-    // Layout - Line labels up on left edge, numbers on right edge.
-    const interLineSpacing = protonCountTitle.height * 0.9; // Multiplier empirically determined.
-    protonCountTitle.left = 0;
-    protonCountTitle.top = 0;
-    neutronCountTitle.left = 0;
-    neutronCountTitle.top = protonCountTitle.bottom + interLineSpacing;
-    electronCountTitle.left = 0;
-    electronCountTitle.top = neutronCountTitle.bottom + interLineSpacing;
   }
 }
 

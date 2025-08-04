@@ -23,8 +23,8 @@ import MassNumberDisplay from './MassNumberDisplay.js';
 
 class AtomScreenView extends BAAScreenView {
 
-  public readonly netChargeAccordionBox: AccordionBox;
-  public readonly massNumberAccordionBox: AccordionBox;
+  private readonly netChargeAccordionBox: AccordionBox;
+  private readonly massNumberAccordionBox: AccordionBox;
 
   public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );

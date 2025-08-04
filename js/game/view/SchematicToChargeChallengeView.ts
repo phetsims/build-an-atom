@@ -32,7 +32,7 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 
 class SchematicToChargeChallengeView extends ChallengeView {
 
-  public readonly chargeAnswerProperty: NumberProperty;
+  private readonly chargeAnswerProperty: NumberProperty;
 
   public constructor( schematicToChargeChallenge: SchematicToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 

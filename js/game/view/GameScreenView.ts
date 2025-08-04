@@ -26,7 +26,7 @@ class GameScreenView extends ScreenView {
 
   private readonly levelSelectionNode: StartGameLevelNode;
   private levelCompletedNode: LevelCompletedNode | null; // created on demand
-  public rewardNode: BAARewardNode | null; // created on demand
+  private rewardNode: BAARewardNode | null; // created on demand
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 

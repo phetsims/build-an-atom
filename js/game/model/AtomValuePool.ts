@@ -209,7 +209,7 @@ const CHALLENGE_POOLS: NumberAtom[][] = [
   ]
 ];
 
-export default class AtomValuePool {
+class AtomValuePool {
   private remainingAtomValues: NumberAtom[];
   private usedAtomValues: NumberAtom[];
 
@@ -266,3 +266,4 @@ export default class AtomValuePool {
 }
 
 buildAnAtom.register( 'AtomValuePool', AtomValuePool );
+export default AtomValuePool;
