@@ -67,8 +67,14 @@ class ChallengeView extends Node {
   protected readonly showAnswerNode: Node | null = null;
 
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
-    super();
+    super( {
+      tandem: tandem
+    } );
     this.challenge = challenge;
+
+    this.addLinkedElement( challenge, {
+      tandemName: 'challenge'
+    } );
 
     // Audio player used for audio feedback.
     this.gameAudioPlayer = new GameAudioPlayer();
