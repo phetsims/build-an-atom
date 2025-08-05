@@ -20,11 +20,11 @@ import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
 import ChallengeViewSet from './ChallengeViewSet.js';
-import StartGameLevelNode from './StartGameLevelNode.js';
+import LevelSelectionNode from './LevelSelectionNode.js';
 
 class GameScreenView extends ScreenView {
 
-  private readonly levelSelectionNode: StartGameLevelNode;
+  private readonly levelSelectionNode: LevelSelectionNode;
   private levelCompletedNode: LevelCompletedNode | null; // created on demand
   private rewardNode: BAARewardNode | null; // created on demand
 
@@ -46,7 +46,7 @@ class GameScreenView extends ScreenView {
     this.rewardNode = null;
     this.levelCompletedNode = null;
 
-    this.levelSelectionNode = new StartGameLevelNode(
+    this.levelSelectionNode = new LevelSelectionNode(
       gameModel,
       this.layoutBounds,
       tandem.createTandem( 'levelSelectionNode' )

@@ -32,7 +32,7 @@ import SymbolLevelIcon from './SymbolLevelIcon.js';
 // constants
 const CONTROLS_INSET = 10;
 
-class StartGameLevelNode extends Node {
+class LevelSelectionNode extends Node {
 
   public constructor( gameModel: GameModel, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -153,6 +153,6 @@ class StartGameLevelNode extends Node {
   }
 }
 
-buildAnAtom.register( 'StartGameLevelNode', StartGameLevelNode );
+buildAnAtom.register( 'LevelSelectionNode', LevelSelectionNode );
 
-export default StartGameLevelNode;
+export default LevelSelectionNode;
