@@ -262,7 +262,7 @@ class BAAScreenView extends ScreenView {
       spacing: 7
     } );
     this.addChild( this.accordionBoxes );
-    this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
+    this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameProperty );
 
     const checkboxItemTextOptions = {
       font: LABEL_CONTROL_FONT,
