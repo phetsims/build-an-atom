@@ -30,14 +30,14 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 
 class SchematicToChargeChallengeView extends ChallengeView {
 
-  private readonly chargeAnswerProperty: NumberProperty;
+  private readonly chargeProperty: NumberProperty;
 
   public constructor( schematicToChargeChallenge: SchematicToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( schematicToChargeChallenge, layoutBounds, tandem );
 
-    this.chargeAnswerProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'chargeAnswerProperty' ),
+    this.chargeProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'chargeProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
@@ -70,7 +70,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
     // Node for entering the answer
     const chargeNumberSpinner = new BAANumberSpinner(
-      this.chargeAnswerProperty,
+      this.chargeProperty,
       tandem.createTandem( 'chargeNumberSpinner' ), {
         minValue: -99,
         maxValue: 99,
@@ -95,17 +95,17 @@ class SchematicToChargeChallengeView extends ChallengeView {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
-      electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
+      electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override reset(): void {
-    this.chargeAnswerProperty.reset();
+    this.chargeProperty.reset();
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeAnswerProperty.value = this.challenge.answerAtom.netChargeProperty.get();
+    this.chargeProperty.value = this.challenge.answerAtom.netChargeProperty.get();
   }
 
   public override createAnswerNode(): Node {

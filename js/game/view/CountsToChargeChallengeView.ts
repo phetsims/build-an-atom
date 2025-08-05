@@ -27,14 +27,14 @@ import ParticleCountsNode from './ParticleCountsNode.js';
 
 class CountsToChargeChallengeView extends ChallengeView {
 
-  private readonly chargeAnswerProperty: NumberProperty;
+  private readonly chargeProperty: NumberProperty;
 
   public constructor( countsToChargeChallenge: CountsToChargeChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( countsToChargeChallenge, layoutBounds, tandem );
 
-    this.chargeAnswerProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'chargeAnswerProperty' ),
+    this.chargeProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'chargeProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
@@ -48,7 +48,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
     // Node for entering the answer
     const chargeNumberSpinner = new BAANumberSpinner(
-      this.chargeAnswerProperty,
+      this.chargeProperty,
       tandem.createTandem( 'chargeNumberSpinner' ), {
         showPlusForPositive: true,
         signAfterValue: false,
@@ -72,7 +72,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override reset(): void {
     super.reset();
-    this.chargeAnswerProperty.reset();
+    this.chargeProperty.reset();
   }
 
   public override createAnswerNode(): Node {
@@ -90,13 +90,13 @@ class CountsToChargeChallengeView extends ChallengeView {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
       neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
-      electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeAnswerProperty.value
+      electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeAnswerProperty.value = this.challenge.answerAtom.netChargeProperty.get();
+    this.chargeProperty.value = this.challenge.answerAtom.netChargeProperty.get();
   }
 }
 

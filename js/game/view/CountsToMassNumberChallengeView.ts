@@ -25,14 +25,14 @@ import ParticleCountsNode from './ParticleCountsNode.js';
 
 class CountsToMassNumberChallengeView extends ChallengeView {
 
-  private readonly massNumberAnswerProperty: NumberProperty;
+  private readonly massNumberProperty: NumberProperty;
 
   public constructor( countsToMassNumberChallenge: CountsToMassNumberChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( countsToMassNumberChallenge, layoutBounds, tandem );
 
-    this.massNumberAnswerProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'massNumberAnswerProperty' ),
+    this.massNumberProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'massNumberProperty' ),
       numberType: 'Integer',
       phetioReadOnly: true
     } );
@@ -46,7 +46,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
     // Node for entering the answer
     const massNumberSpinner = new BAANumberSpinner(
-      this.massNumberAnswerProperty,
+      this.massNumberProperty,
       tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
@@ -68,18 +68,18 @@ class CountsToMassNumberChallengeView extends ChallengeView {
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.challenge.answerAtom.protonCountProperty.get(),
-      neutronCount: this.massNumberAnswerProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
+      neutronCount: this.massNumberProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
       electronCount: this.challenge.answerAtom.electronCountProperty.get()
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.massNumberAnswerProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+    this.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
   }
 
   public override reset(): void {
-    this.massNumberAnswerProperty.reset();
+    this.massNumberProperty.reset();
   }
 
   public override createAnswerNode(): Node {
