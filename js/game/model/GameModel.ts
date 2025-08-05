@@ -192,6 +192,7 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'levelProperty' ),
       phetioDocumentation: 'The selected level in the game. null means that no level is selected.',
       phetioFeatured: true,
+      phetioReadOnly: true,
       phetioValueType: NullableIO( GameLevel.GameLevelIO )
     } );
 
