@@ -8,7 +8,9 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -16,6 +18,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
@@ -28,6 +31,11 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override challenge: SymbolToSchematicChallenge;
   public interactiveSchematicAtom: InteractiveSchematicAtom;
+
+  private userProtonCountProperty: TReadOnlyProperty<number>;
+  private userNeutronCountProperty: TReadOnlyProperty<number>;
+  private userElectronCountProperty: TReadOnlyProperty<number>;
+
 
   public constructor( challenge: SymbolToSchematicChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -64,6 +72,32 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     } );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );
+
+    // Derived properties to know the amount of protons, neutrons, and electrons
+    // For PhET-iO we need to create these properties even if they are not used in the code elsewhere.
+    // This was requested in https://github.com/phetsims/build-an-atom/issues/294
+    const particleCountTandem = tandem.createTandem( 'particleCounts' );
+    this.userProtonCountProperty = new DerivedProperty(
+      [ challenge.buildAnAtomModel.atom.protonCountProperty ], protons => protons,
+      {
+        tandem: particleCountTandem.createTandem( 'protonCountProperty' ),
+        phetioDocumentation: 'The number of protons entered by the user.',
+        phetioValueType: NumberIO
+      } );
+    this.userNeutronCountProperty = new DerivedProperty(
+      [ challenge.buildAnAtomModel.atom.neutronCountProperty ], neutrons => neutrons,
+      {
+        tandem: particleCountTandem.createTandem( 'neutronCountProperty' ),
+        phetioDocumentation: 'The number of neutrons entered by the user.',
+        phetioValueType: NumberIO
+      } );
+    this.userElectronCountProperty = new DerivedProperty(
+      [ challenge.buildAnAtomModel.atom.electronCountProperty ], electrons => electrons,
+      {
+        tandem: particleCountTandem.createTandem( 'electronCountProperty' ),
+        phetioDocumentation: 'The number of electrons entered by the user.',
+        phetioValueType: NumberIO
+      } );
 
     // layout
     interactiveSymbolNode.centerX = layoutBounds.width * 0.27;
