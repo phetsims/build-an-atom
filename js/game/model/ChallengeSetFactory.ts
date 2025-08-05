@@ -10,9 +10,9 @@
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import { ChallengeType } from '../../common/BAAConstants.js';
 import AnswerAtom from './AnswerAtom.js';
 import AtomValuePool from './AtomValuePool.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
 const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
