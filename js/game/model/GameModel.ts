@@ -124,7 +124,7 @@ class GameModel implements TModel {
   public readonly random: Random;
 
   // The number of points that this challenge is worth, which is used to calculate the score.
-  public pointValueProperty: Property<number>;
+  public pointsProperty: Property<number>;
 
   // A map of the challenge types to instances of those types.  We create one instance of each challenge type and then
   // reuse them to avoid creating new instances every time a challenge is played, since this works better for phet-io.
@@ -148,8 +148,8 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
-    this.pointValueProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'pointValueProperty' ),
+    this.pointsProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'pointsProperty' ),
       phetioReadOnly: true
     } );
 
@@ -284,7 +284,7 @@ class GameModel implements TModel {
     const points = attempts === 1 ?
                    GameModel.POINTS_FIRST_ATTEMPT :
                    GameModel.POINTS_SECOND_ATTEMPT;
-    this.pointValueProperty.value = points;
+    this.pointsProperty.value = points;
     this.scoreProperty.value += correctAnswer ? points : 0;
 
     if ( correctAnswer ) {

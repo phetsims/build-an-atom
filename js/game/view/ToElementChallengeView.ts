@@ -113,8 +113,8 @@ class ToElementChallengeView extends ChallengeView {
 
     // Don't enable the "check answer" button until the user has answered the "neutral vs. ion" question.
     this.neutralOrIonProperty.link( ( neutralOrIon: NeutralOrIon ) => {
-      this.checkAnswerButton.enabled = neutralOrIon !== 'noSelection';
-      this.checkAnswerButton.pickable = neutralOrIon !== 'noSelection';
+      this.checkButton.enabled = neutralOrIon !== 'noSelection';
+      this.checkButton.pickable = neutralOrIon !== 'noSelection';
     } );
 
     //--------------------------- Layout -------------------------------------

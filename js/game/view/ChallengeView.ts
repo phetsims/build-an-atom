@@ -59,7 +59,7 @@ class ChallengeView extends Node {
   public readonly interactiveAnswerNode: Node;
 
   // Button that allows the user to check their answer.
-  public readonly checkAnswerButton: TextPushButton;
+  public readonly checkButton: TextPushButton;
 
   // Function that is called when the game state changes, allowing the view to update its display.
   public readonly handleStateChange: ( state: GameState ) => void;
@@ -72,7 +72,7 @@ class ChallengeView extends Node {
   private readonly buttons: TextPushButton[];
   private readonly nextButton: TextPushButton;
   private readonly tryAgainButton: TextPushButton;
-  private readonly displayCorrectAnswerButton: TextPushButton;
+  private readonly showAnswerButton: TextPushButton;
 
   // The node that will be used to display the correct answer prior to answering the challenge.  This is for internal
   // use only, and is used to make it easier to move through the game while testing.
@@ -111,7 +111,7 @@ class ChallengeView extends Node {
     const pointDisplayStringProperty = new DerivedStringProperty(
       [
         challenge.model.gameStateProperty,
-        challenge.model.pointValueProperty
+        challenge.model.pointsProperty
       ],
       ( gameState, pointValue ) => gameState === 'solvedCorrectly' ? `+${pointValue}` : ''
     );
@@ -126,14 +126,14 @@ class ChallengeView extends Node {
 
     // buttons
     this.buttons = [];
-    this.checkAnswerButton = new TextPushButton( checkStringProperty, combineOptions<TextPushButtonOptions>( {
+    this.checkButton = new TextPushButton( checkStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { this.checkAnswer(); },
-      tandem: tandem.createTandem( 'checkAnswerButton' ),
+      tandem: tandem.createTandem( 'checkButton' ),
       soundPlayer: nullSoundPlayer // Turn off default sound, since a feedback sound will be played instead.
     }, COMMON_BUTTON_OPTIONS ) );
 
-    this.addChild( this.checkAnswerButton );
-    this.buttons.push( this.checkAnswerButton );
+    this.addChild( this.checkButton );
+    this.buttons.push( this.checkButton );
 
     this.nextButton = new TextPushButton( nextStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.next(); },
@@ -149,12 +149,12 @@ class ChallengeView extends Node {
     this.addChild( this.tryAgainButton );
     this.buttons.push( this.tryAgainButton );
 
-    this.displayCorrectAnswerButton = new TextPushButton( showAnswerStringProperty, combineOptions<TextPushButtonOptions>( {
+    this.showAnswerButton = new TextPushButton( showAnswerStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.displayCorrectAnswer(); },
-      tandem: tandem.createTandem( 'displayCorrectAnswerButton' )
+      tandem: tandem.createTandem( 'showAnswerButton' )
     }, COMMON_BUTTON_OPTIONS ) );
-    this.addChild( this.displayCorrectAnswerButton );
-    this.buttons.push( this.displayCorrectAnswerButton );
+    this.addChild( this.showAnswerButton );
+    this.buttons.push( this.showAnswerButton );
 
     // Utility function to hide all buttons and the feedback face.
     const hideButtonsAndFace = () => {
@@ -180,7 +180,7 @@ class ChallengeView extends Node {
         case 'presentingChallenge':
           this.clearAnswer();
           setAnswerNodeInteractive( true );
-          this.checkAnswerButton.visible = true;
+          this.checkButton.visible = true;
           break;
         case 'solvedCorrectly':
           setAnswerNodeInteractive( false );
@@ -198,7 +198,7 @@ class ChallengeView extends Node {
           break;
         case 'attemptsExhausted':
           setAnswerNodeInteractive( false );
-          this.displayCorrectAnswerButton.visible = true;
+          this.showAnswerButton.visible = true;
           faceNode.frown();
           feedbackNode.visible = true;
           this.gameAudioPlayer.wrongAnswer();
