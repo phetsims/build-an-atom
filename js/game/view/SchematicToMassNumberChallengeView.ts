@@ -1,9 +1,8 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Visual representation of a challenge where the user is presented with a
- * schematic representation of an atom (which looks much like the atoms
- * constructed on the 1st tab), and must determine that atom's mass number.
+ * Visual representation of a challenge where the user is presented with a schematic representation of an atom (which
+ * looks much like the atoms constructed on the 1st tab), and must determine that atom's mass number.
  *
  * @author John Blanco
  */

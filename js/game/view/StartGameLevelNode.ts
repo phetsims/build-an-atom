@@ -1,7 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * a Scenery Node that allows the user to select which game level to play
+ * A Scenery Node that allows the user to select which game level to play.
  *
  * @author John Blanco
  */

@@ -1,9 +1,8 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Base type for views of challenges where the user is asked to identify the
- * element on the periodic table and then choose whether it is an ion or a
- * neutral atom.
+ * Base type for views of challenges where the user is asked to identify the element on the periodic table and then
+ * choose whether it is an ion or a neutral atom.
  *
  * @author John Blanco
  */

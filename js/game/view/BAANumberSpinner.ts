@@ -1,8 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * Node that allows a user to enter a numerical value using up/down arrow
- * buttons.
+ * Node that allows a user to enter a numerical value using up/down arrow buttons.
  *
  * @author John Blanco
  */

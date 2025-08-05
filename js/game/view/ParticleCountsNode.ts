@@ -1,9 +1,8 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Node that takes a number atom and displays a set of counts for the various
- * subatomic particles. This is generally used when presenting a 'challenge'
- * for the game.
+ * Node that takes a NumberAtom and displays a set of counts for the various subatomic particles. This is generally used
+ * when presenting a 'challenge' for the game.
  *
  * @author John Blanco
  */

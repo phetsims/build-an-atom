@@ -1,7 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Main view for the second tab of the Build an Atom simulation.
+ * Main view for the game screen of the Build an Atom simulation.
  *
  * @author John Blanco
  */

@@ -1,7 +1,7 @@
 // Copyright 2017-2025, University of Colorado Boulder
 
 /**
- * The 'Build an Atom' screen in the 'Build an Atom' simulation. Conforms to the contract specified in joist/Screen.
+ * The 'Game' screen in the 'Build an Atom' simulation. Conforms to the contract specified in joist/Screen.
  *
  * @author John Blanco
  */
