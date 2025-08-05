@@ -11,20 +11,18 @@ import InfoButton from '../../../../scenery-phet/js/buttons/InfoButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GameInfoDialog from '../../../../vegas/js/GameInfoDialog.js';
-import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
+import LevelSelectionButtonGroup, { LevelSelectionButtonGroupItem } from '../../../../vegas/js/LevelSelectionButtonGroup.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
-import GameLevel from '../model/GameLevel.js';
 import GameModel from '../model/GameModel.js';
 import AdvancedSymbolLevelIcon from './AdvancedSymbolLevelIcon.js';
 import MassAndChargeLevelIcon from './MassAndChargeLevelIcon.js';
@@ -47,13 +45,15 @@ class StartGameLevelNode extends Node {
     } );
     this.addChild( title );
 
-    // Create and add the decays info dialog and button.
-    const gamesInfoDialog = new GameInfoDialog( [
+    // Create and add the game info dialog and button.
+    const gamesInfoDialog = new GameInfoDialog(
+      [
         BuildAnAtomFluent.level1DescriptionStringProperty,
         BuildAnAtomFluent.level2DescriptionStringProperty,
         BuildAnAtomFluent.level3DescriptionStringProperty,
         BuildAnAtomFluent.level4DescriptionStringProperty
-      ], {
+      ],
+      {
         gameLevels: BAAQueryParameters.gameLevels,
         title: new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
         tandem: tandem.createTandem( 'gamesInfoDialog' ),
@@ -72,52 +72,52 @@ class StartGameLevelNode extends Node {
     } );
     this.addChild( gamesInfoButton );
 
-    title.boundsProperty.link( () => {
-      title.centerX = layoutBounds.centerX;
-      gamesInfoButton.left = title.right + CONTROLS_INSET;
-      gamesInfoButton.centerY = title.centerY;
+    // icons used for the level selection buttons, indexed by level number
+    const gameButtonIcons = [
+      new PeriodicTableLevelIcon(),
+      new MassAndChargeLevelIcon(),
+      new SymbolLevelIcon(),
+      new AdvancedSymbolLevelIcon()
+    ];
+
+    const buttonItems: LevelSelectionButtonGroupItem[] = [];
+    gameModel.levels.forEach( ( level, index ) => {
+      buttonItems.push( {
+        icon: gameButtonIcons[ index ],
+        scoreProperty: level.bestScoreProperty,
+        options: {
+          createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
+            numberOfStars: level.challengeDescriptors.length,
+            perfectScore: level.getPerfectScore()
+          } ),
+          listener: () => {
+            gameModel.levelProperty.value = level;
+          },
+          soundPlayerIndex: index
+        }
+      } );
     } );
 
-    // buttons for starting a game level
-    const levelButtonsTandem = tandem.createTandem( 'levelButtons' );
-    const periodicTableLevelButton = this.createLevelSelectionButton(
-      gameModel,
-      new PeriodicTableLevelIcon(),
-      gameModel.levels[ 0 ],
-      'Periodic table level',
-      levelButtonsTandem
-    );
-    const massAndChargeLevelButton = this.createLevelSelectionButton(
-      gameModel,
-      new MassAndChargeLevelIcon(),
-      gameModel.levels[ 1 ],
-      'Mass and charge level',
-      levelButtonsTandem
-    );
-    const symbolLevelButton = this.createLevelSelectionButton(
-      gameModel,
-      new SymbolLevelIcon(),
-      gameModel.levels[ 2 ],
-      'Symbol level',
-      levelButtonsTandem
-    );
-    const advancedSymbolLevelButton = this.createLevelSelectionButton(
-      gameModel,
-      new AdvancedSymbolLevelIcon(),
-      gameModel.levels[ 3 ],
-      'Advanced symbol level',
-      levelButtonsTandem
-    );
-    const buttonHBox = new HBox( {
-      children: [ periodicTableLevelButton, massAndChargeLevelButton, symbolLevelButton, advancedSymbolLevelButton ],
-      spacing: 30,
-      centerY: layoutBounds.centerY,
-      centerX: layoutBounds.centerX
+    const buttonGroup = new LevelSelectionButtonGroup( buttonItems, {
+      levelSelectionButtonOptions: {
+        baseColor: BAAColors.levelSelectorColorProperty
+      },
+      flowBoxOptions: {
+        spacing: 30,
+        center: layoutBounds.center
+      },
+      groupButtonHeight: 150,
+      groupButtonWidth: 150,
+      gameLevels: BAAQueryParameters.gameLevels,
+      tandem: tandem.createTandem( 'buttonGroup' ),
+      phetioVisiblePropertyInstrumented: false
     } );
-    this.addChild( buttonHBox );
-    buttonHBox.boundsProperty.link( () => {
-      buttonHBox.centerX = layoutBounds.centerX;
+
+    buttonGroup.localBoundsProperty.link( () => {
+      buttonGroup.center = layoutBounds.center;
     } );
+
+    this.addChild( buttonGroup );
 
     // timer control
     const timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
@@ -143,37 +143,13 @@ class StartGameLevelNode extends Node {
     } );
     this.addChild( resetAllButton );
 
-    // additional layout
-    title.centerY = ( layoutBounds.minY + buttonHBox.top ) / 2;
-  }
-
-// helper function to create level selection buttons, helps to avoid code duplication
-  private createLevelSelectionButton(
-    gameModel: GameModel,
-    icon: Node,
-    level: GameLevel,
-    levelPhetioDescription: string,
-    tandem: Tandem
-  ): LevelSelectionButton {
-    const levelNumber = level.index;
-    return new LevelSelectionButton(
-      icon,
-      gameModel.levels[ levelNumber ].bestScoreProperty,
-      {
-        listener: () => {
-          gameModel.levelProperty.value = level;
-        },
-        baseColor: BAAColors.levelSelectorColorProperty,
-        tandem: tandem.createTandem( `level${levelNumber + 1}Button` ),
-        phetioDocumentation: levelPhetioDescription,
-        createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
-          numberOfStars: GameModel.CHALLENGES_PER_LEVEL,
-          perfectScore: GameModel.MAX_POINTS_PER_GAME_LEVEL
-        } ),
-        soundPlayerIndex: levelNumber,
-        visible: BAAQueryParameters.gameLevels.includes( levelNumber + 1 )
-      }
-    );
+    // Update the position of the title and games info button based on the title bounds, which can change.
+    title.localBoundsProperty.link( () => {
+      title.centerX = layoutBounds.centerX;
+      title.centerY = ( layoutBounds.minY + buttonGroup.top ) / 2;
+      gamesInfoButton.left = title.right + CONTROLS_INSET;
+      gamesInfoButton.centerY = title.centerY;
+    } );
   }
 }
 
