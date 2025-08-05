@@ -10,10 +10,9 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -44,9 +43,7 @@ class CountsToChargeChallengeView extends ChallengeView {
     const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
-    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, combineOptions<RichTextOptions>( {
-      tandem: tandem.createTandem( 'questionPromptText' )
-    }, BAAConstants.QUESTION_PROMPT_OPTIONS ) );
+    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer

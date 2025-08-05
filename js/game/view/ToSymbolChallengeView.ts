@@ -41,7 +41,7 @@ class ToSymbolChallengeView extends ChallengeView {
         interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
         interactiveCharge: toSymbolChallenge.configurableCharge,
         showArrowButtonsProperty: toSymbolChallenge.interactiveAnswerProperty,
-        tandem: tandem.createTandem( 'interactiveSymbolNode' )
+        tandem: Tandem.OPT_OUT
       }
     );
     this.interactiveSymbolNode.scale( 0.75 );

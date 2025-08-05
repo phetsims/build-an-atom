@@ -13,10 +13,9 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -53,7 +52,8 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     // Add the schematic representation of the atom.
     const schematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.answerAtom,
       modelViewTransform,
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' ) );
+      Tandem.OPT_OUT
+    );
 
     this.challengePresentationNode.addChild( schematicAtomNode );
 
@@ -67,10 +67,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     schematicAtomNode.addChild( particleCountDisplay );
 
     // Question
-    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheMassNumberStringProperty, combineOptions<RichTextOptions>( {
-
-      tandem: tandem.createTandem( 'questionPromptText' )
-    }, BAAConstants.QUESTION_PROMPT_OPTIONS ) );
+    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheMassNumberStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer

@@ -60,7 +60,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
     // symbol
     const interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, {
-      tandem: tandem.createTandem( 'interactiveSymbolNode' )
+      tandem: Tandem.OPT_OUT
     } );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );

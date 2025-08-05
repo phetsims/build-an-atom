@@ -39,7 +39,7 @@ class SymbolToCountsChallengeView extends ChallengeView {
     // Symbol
     const interactiveSymbolNode = new InteractiveSymbolNode(
       symbolToCountsChallenge.answerAtom,
-      { tandem: tandem.createTandem( 'interactiveSymbolNode' ) }
+      { tandem: Tandem.OPT_OUT }
     );
     interactiveSymbolNode.scale( 0.75 );
     this.challengePresentationNode.addChild( interactiveSymbolNode );

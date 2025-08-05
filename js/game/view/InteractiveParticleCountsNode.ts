@@ -82,8 +82,7 @@ class InteractiveParticleCountsNode extends Node {
       } );
     const neutronRowNode = new HBox( {
       children: [ neutronCountPrompt, neutronCountNumberSpinner ],
-      spacing: 10,
-      tandem: tandem.createTandem( 'neutronRowNode' )
+      spacing: 10
     } );
 
     const electronCountPrompt = new Text( BuildAnAtomFluent.electronsColonStringProperty, {
@@ -101,14 +100,12 @@ class InteractiveParticleCountsNode extends Node {
       } );
     const electronRowNode = new HBox( {
       children: [ electronCountPrompt, electronCountNumberSpinner ],
-      spacing: 10,
-      tandem: tandem.createTandem( 'electronRowNode' )
+      spacing: 10
     } );
 
     const particleCountsNode = new VBox( {
       children: [ protonRowNode, neutronRowNode, electronRowNode ],
       spacing: 20,
-      tandem: tandem.createTandem( 'particleCountsNode' ),
       align: 'right'
     } );
     this.addChild( particleCountsNode );

@@ -45,7 +45,7 @@ export default class GameScreenIcon extends ScreenIcon {
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       new NumberAtom( { protonCount: 2, neutronCount: 2, electronCount: 2 } ),
       modelViewTransform,
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+      Tandem.OPT_OUT
     );
     schematicAtomNode.setScaleMagnitude( SCALE / ATOM_SCALE );
 

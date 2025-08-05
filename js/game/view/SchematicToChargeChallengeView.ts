@@ -12,11 +12,10 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
@@ -54,7 +53,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       schematicToChargeChallenge.answerAtom,
       modelViewTransform,
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+      Tandem.OPT_OUT
     );
     this.challengePresentationNode.addChild( schematicAtomNode );
 
@@ -67,10 +66,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     schematicAtomNode.addChild( particleCountDisplay );
 
     // Question
-    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, combineOptions<RichTextOptions>( {
-
-      tandem: tandem.createTandem( 'questionPromptText' )
-    }, BAAConstants.QUESTION_PROMPT_OPTIONS ) );
+    const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
     this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer

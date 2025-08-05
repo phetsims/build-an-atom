@@ -36,7 +36,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       schematicToElementChallenge.answerAtom,
       modelViewTransform,
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+      Tandem.OPT_OUT
     );
     this.challengePresentationNode.addChild( schematicAtomNode );
 

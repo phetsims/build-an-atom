@@ -90,14 +90,16 @@ class ToElementChallengeView extends ChallengeView {
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
-      tandem: radioButtonTandems.createTandem( 'neutralAtomRadioButton' )
+      tandem: radioButtonTandems.createTandem( 'neutralAtomRadioButton' ),
+      phetioVisiblePropertyInstrumented: false
     } );
     const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( BuildAnAtomFluent.ionStringProperty, {
       font: new PhetFont( 18 ),
       maxWidth: MAX_WIDTH
     } ), {
       radius: 8,
-      tandem: radioButtonTandems.createTandem( 'ionRadioButton' )
+      tandem: radioButtonTandems.createTandem( 'ionRadioButton' ),
+      phetioVisiblePropertyInstrumented: false
     } );
     const neutralAtomVersusIonQuestion = new HBox( {
       children: [ neutralVersusIonPrompt, neutralAtomRadioButton, ionRadioButton ],

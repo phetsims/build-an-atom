@@ -80,7 +80,8 @@ class ChallengeView extends Node {
 
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( {
-      tandem: tandem
+      tandem: tandem,
+      phetioVisiblePropertyInstrumented: false
     } );
     this.challenge = challenge;
 

@@ -33,7 +33,8 @@ class InteractiveSchematicAtom extends Node {
                       providedOptions?: InteractiveSchematicAtomOptions ) {
 
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 
     super();
@@ -44,7 +45,7 @@ class InteractiveSchematicAtom extends Node {
       showNeutralOrIonProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
       showStableOrUnstableProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
       electronShellDepictionProperty: new Property( 'orbits' ),
-      tandem: options.tandem.createTandem( 'atomNode' )
+      tandem: Tandem.OPT_OUT
     } );
     this.addChild( atomNode );
 
