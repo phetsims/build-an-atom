@@ -6,10 +6,12 @@
  * @author John Blanco
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
@@ -81,6 +83,33 @@ class GameScreenView extends ScreenView {
       }
     );
 
+    const updateChallengeView = () => {
+
+      this.removeAllChildren();
+      this.disposeNodes();
+
+      const challenge = gameModel.challengeProperty.value;
+      if ( !challenge ) {
+        return;
+      }
+      else {
+
+        // Get the view for the current challenge.
+        const challengeView = challengeViewSet.get( challenge )!;
+
+        // If this is the user's first attempt, reset the challenge view.
+        if ( gameModel.attemptsProperty.value === 0 ) {
+          challengeView.reset();
+        }
+
+        // Update the challenge view with the current gameState.
+        challengeView.handleStateChange( gameModel.gameStateProperty.value );
+
+        this.addChild( challengeView );
+      }
+      this.addChild( statusBar );
+    };
+
     // Create the audio player for the game.
     const gameAudioPlayer = new GameAudioPlayer();
 
@@ -136,29 +165,19 @@ class GameScreenView extends ScreenView {
 
           // This game state change is not to levelSelection or levelCompleted, so we can assume it is something in
           // the middle of a challenge.
-          this.removeAllChildren();
-          this.disposeNodes();
+          updateChallengeView();
+        }
+      }
+    );
 
-          const challenge = gameModel.challengeProperty.value;
-          if ( !challenge ) {
-            return;
-          }
-          else {
-
-            // Get the view for the current challenge.
-            const challengeView = challengeViewSet.get( challenge )!;
-
-            // If this is the user's first attempt, reset the challenge view.
-            if ( gameModel.attemptsProperty.value === 0 ) {
-              challengeView.reset();
-            }
-
-            // Update the challenge view with the current gameState.
-            challengeView.handleStateChange( gameState );
-
-            this.addChild( challengeView );
-          }
-          this.addChild( statusBar );
+    // During normal operation of the game, the game state enforces a certain order of events that always leads to the
+    // challenges being updates when they need to be.  However, during phet-io state setting, the level or challenge
+    // can change without the game state changing.  This code handles that case.
+    Multilink.multilink(
+      [ gameModel.levelProperty, gameModel.challengeProperty ],
+      ( level, challenge ) => {
+        if ( isSettingPhetioStateProperty.value && level && challenge ) {
+          updateChallengeView();
         }
       }
     );
