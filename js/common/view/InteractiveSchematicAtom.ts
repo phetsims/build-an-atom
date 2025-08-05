@@ -66,11 +66,15 @@ class InteractiveSchematicAtom extends Node {
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    const nucleonGroupTandem = options.tandem && options.tandem.createTandem( 'nucleons' ).createGroupTandem( 'nucleon', 0 );
+    const protonGroupTandem = options.tandem && options.tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 0 );
+    const neutronGroupTandem = options.tandem && options.tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 0 );
     const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
     model.nucleons.forEach( nucleon => {
+
+      const tandemGroup = nucleon.typeProperty.value === 'proton' ? protonGroupTandem : neutronGroupTandem;
+
       const particleView = new BAAParticleView( nucleon, modelViewTransform, {
-        tandem: nucleonGroupTandem && nucleonGroupTandem.createNextTandem()
+        tandem: tandemGroup.createNextTandem()
       } );
       nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( particleView );
 
