@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * Type that generates a list of challenges for use in a sub-game.
+ * ChallengeSetFactory is used to generates a list of challenges for use in a game.
  *
  * @author John Blanco
  * @author Sam Reid (PhET Interactive Simulations)

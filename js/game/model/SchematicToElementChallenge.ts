@@ -1,9 +1,8 @@
 // Copyright 2017-2025, University of Colorado Boulder
 
 /**
- * Challenge where the user is presented with a schematic representation of an
- * atom (which looks much like the atoms constructed on the 1st tab), and must
- * find the represented element on a periodic table.
+ * Challenge where the user is presented with a schematic representation of an atom (which looks much like the atoms
+ * constructed on the 1st tab), and must find the represented element on a periodic table.
  *
  * @author John Blanco
  */

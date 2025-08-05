@@ -1,9 +1,8 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Base class (or base type) for the challenges used in the Build an Atom game.
- * The general approach is that an atom is presented in some way to the user,
- * and the user must submit a correct guess about the atom's configuration.
+ * Base class for the challenges used in the Build an Atom game. The general approach is that an atom is presented in
+ * some way to the user, and the user must submit a correct guess about the atom's configuration.
  *
  * @author John Blanco
  */

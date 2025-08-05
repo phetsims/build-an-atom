@@ -1,8 +1,8 @@
 // Copyright 2017-2025, University of Colorado Boulder
 
 /**
- * Type for game challenges where the user is presented with a set of particle
- * counts for an atom and must determine the total charge.
+ * Type for game challenges where the user is presented with a set of particle counts for an atom and must determine the
+ * total charge.
  *
  * @author John Blanco
  */

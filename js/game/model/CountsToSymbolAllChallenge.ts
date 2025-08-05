@@ -1,11 +1,11 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * Class for the Counts to Symbol challenge where the user
- * has to fill in all the particle counts for an atom symbol:
- * Proton Count, Atomic Mass and Net Charge.
+ * Class for the Counts to Symbol challenge where the user has to fill in the attributes of an atom symbol in the style
+ * that often appears in the periodic table, including: atomic number (proton count), mass number, and net charge.
  *
  * @author Agustín Vallejo
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';

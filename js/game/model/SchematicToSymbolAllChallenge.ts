@@ -1,9 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * Class for game challenge where the user sees a Schematic Atom and
- * has to fill in the corresponding Atom Symbol with all its components:
- * Proton Count, Atomic Mass and Net Charge.
+ * Class for game challenge where the user sees a Schematic Atom and has to fill in the corresponding Atom Symbol with
+ * all its components, i.e. atomic number, mass number, and net charge.
  *
  * @author Agustín Vallejo
  */

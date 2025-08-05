@@ -1,8 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * SelectedChallenge is the model for the selected challenge in the game.
- * Contains information about the challenge type, the correct answer atom, and the submitted answer atom.
+ * SelectedChallenge is the model for the selected challenge in the game. Contains information about the challenge type,
+ * the correct answer atom, and the submitted answer atom.
  *
  * @author Agustín Vallejo
  */

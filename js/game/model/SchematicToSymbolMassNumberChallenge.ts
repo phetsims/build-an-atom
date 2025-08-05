@@ -1,8 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * Class for game challenge where the user sees a Schematic Atom and
- * has to fill in the Atomic Mass value in the Atom Symbol.
+ * Class for game challenge where the user sees a Schematic Atom and has to fill in the Atomic Mass value in the Atom
+ * Symbol.
  *
  * @author Agustín Vallejo
  */
