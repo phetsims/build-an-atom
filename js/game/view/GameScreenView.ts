@@ -98,7 +98,7 @@ class GameScreenView extends ScreenView {
 
             // Perfect score, add the reward node.
             this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists.
-            this.rewardNode = new BAARewardNode( tandem.createTandem( 'rewardNode' ) );
+            this.rewardNode = new BAARewardNode();
             this.addChild( this.rewardNode );
 
             // Play the appropriate audio feedback

@@ -29,11 +29,13 @@ class BAARewardNode extends RewardNode {
 
   private readonly disposeBAARewardNode: () => void;
 
-  public constructor( tandem: Tandem ) {
+  public constructor() {
     const nodes = BAARewardNode.createNodes();
     super( {
       nodes: nodes,
-      tandem: tandem
+
+      // As of this writing (Aug 2025), the reward node is not stateful for phet-io.
+      tandem: Tandem.OPT_OUT
     } );
 
     this.disposeBAARewardNode = () => {
