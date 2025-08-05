@@ -11,7 +11,7 @@ import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
-import Particle, { ParticleTypeString } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
@@ -46,7 +46,7 @@ class NonInteractiveSchematicAtomNode extends Node {
 
     let particleViews: ParticleView[] = [];
 
-    const adjustParticleCount = ( particleType: ParticleTypeString, targetCount: number ) => {
+    const adjustParticleCount = ( particleType: ParticleType, targetCount: number ) => {
       const existingParticleViews = particleViews.filter( pv => pv.particle.type === particleType );
       const existingCount = existingParticleViews.length;
 
