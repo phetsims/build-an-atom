@@ -16,6 +16,7 @@ import GameModel from './GameModel.js';
 
 class CountsToMassNumberChallenge extends BAAGameChallenge {
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
     super( buildAnAtomGameModel, tandem );
   }

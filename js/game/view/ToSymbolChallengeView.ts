@@ -27,6 +27,7 @@ class ToSymbolChallengeView extends ChallengeView {
 
   private readonly interactiveSymbolNode: InteractiveSymbolNode;
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
   public constructor( toSymbolChallenge: CountsToSymbolChallenge | SchematicToSymbolChallenge,
                       layoutBounds: Bounds2,
                       tandem: Tandem ) {

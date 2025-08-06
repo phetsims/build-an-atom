@@ -43,6 +43,7 @@ class ToElementChallengeView extends ChallengeView {
   protected readonly periodicTable: PeriodicTableNode;
   protected readonly neutralOrIonProperty: Property<NeutralOrIon>;
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
   public constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
     super( countsToElementChallenge, layoutBounds, tandem );

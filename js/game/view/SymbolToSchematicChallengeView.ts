@@ -31,6 +31,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   public override challenge: SymbolToSchematicChallenge;
   public interactiveSchematicAtom: InteractiveSchematicAtom;
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 WebStorm flags these as unused, so move "PhET-iO only" doc here.
   private userProtonCountProperty: TReadOnlyProperty<number>;
   private userNeutronCountProperty: TReadOnlyProperty<number>;
   private userElectronCountProperty: TReadOnlyProperty<number>;
