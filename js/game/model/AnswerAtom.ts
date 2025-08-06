@@ -35,6 +35,7 @@ class AnswerAtom extends NumberAtom {
     this.neutralOrIon = options.neutralOrIon;
   }
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Document, since this is a bit complicated.
   public override equals( other: NumberAtom | AnswerAtom ): boolean {
     const particleCountsAreEqual = super.equals( other );
     let neutralOrIonIsEqual;
