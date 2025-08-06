@@ -127,7 +127,7 @@ class BAAModel {
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
       tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
       range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
-      units: 'view-coordinates/s' // TODO: Shouldn't this be 'pixels/s'? https://github.com/phetsims/build-an-atom/issues/303
+      units: 'view-coordinates/s'
     } );
 
     // Define a function that will decide where to put nucleons.
