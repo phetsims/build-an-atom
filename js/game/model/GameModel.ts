@@ -28,6 +28,7 @@ import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import GameTimer from '../../../../vegas/js/GameTimer.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
@@ -51,10 +52,9 @@ import SymbolToCountsChallenge from './SymbolToCountsChallenge.js';
 import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
 
 // constants
-const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
+const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
-const NUMBER_OF_LEVELS = 4;
 
 export const GameStateValues = [
   'levelSelection',
@@ -183,7 +183,7 @@ class GameModel implements TModel {
     } );
 
     // Create the levels.
-    this.levels = _.times( NUMBER_OF_LEVELS, index => {
+    this.levels = _.times( BAAConstants.NUMBER_OF_GAME_LEVELS, index => {
       return new GameLevel( index + 1, this, { tandem: tandem.createTandem( `level${index + 1}` ) } );
     } );
 
