@@ -64,8 +64,7 @@ class InteractiveParticleCountsNode extends Node {
       } );
     const protonRowNode = new HBox( {
       children: [ protonCountPrompt, protonCountNumberSpinner ],
-      spacing: 10,
-      tandem: tandem.createTandem( 'protonRowNode' )
+      spacing: 10
     } );
 
     const neutronCountPrompt = new Text( BuildAnAtomFluent.neutronsColonStringProperty, {
