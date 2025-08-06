@@ -54,6 +54,7 @@ import SymbolToSchematicChallenge from './SymbolToSchematicChallenge.js';
 const CHALLENGES_PER_LEVEL = BAAQueryParameters.challengesPerLevel;
 const POSSIBLE_POINTS_PER_CHALLENGE = 2;
 const MAX_POINTS_PER_GAME_LEVEL = CHALLENGES_PER_LEVEL * POSSIBLE_POINTS_PER_CHALLENGE;
+const NUMBER_OF_LEVELS = 4;
 
 export const GameStateValues = [
   'levelSelection',
@@ -181,12 +182,10 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
-    this.levels = [
-      new GameLevel( 0, this, { tandem: tandem.createTandem( 'level1' ) } ),
-      new GameLevel( 1, this, { tandem: tandem.createTandem( 'level2' ) } ),
-      new GameLevel( 2, this, { tandem: tandem.createTandem( 'level3' ) } ),
-      new GameLevel( 3, this, { tandem: tandem.createTandem( 'level4' ) } )
-    ];
+    // Create the levels.
+    this.levels = _.times( NUMBER_OF_LEVELS, index => {
+      return new GameLevel( index + 1, this, { tandem: tandem.createTandem( `level${index + 1}` ) } );
+    } );
 
     this.levelProperty = new Property<GameLevel | null>( null, {
       validValues: [ ...this.levels, null ],
@@ -196,7 +195,7 @@ class GameModel implements TModel {
       phetioValueType: NullableIO( GameLevel.GameLevelIO )
     } );
 
-    this.levelNumberProperty = new DerivedProperty( [ this.levelProperty ], level => level ? level.index + 1 : 0, {
+    this.levelNumberProperty = new DerivedProperty( [ this.levelProperty ], level => level ? level.levelNumber : 0, {
       tandem: tandem.createTandem( 'levelNumberProperty' ),
       phetioDocumentation: 'Number of the selected level in the game. Zero means that no level is selected.',
       phetioFeatured: true,

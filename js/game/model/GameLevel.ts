@@ -35,13 +35,16 @@ class GameLevel extends PhetioObject {
 
   public active = false; // Whether this level is currently active, used for PhET-iO state restoration.
 
-  public constructor(
+  // 0-based index used for this level when accessing various data structures.
+  public readonly levelIndex: number;
 
-    //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Document index. There's always confusion about whether levels use 0-based or 1-based indexing.
-    public readonly index: number,
+  public constructor(
+    public readonly levelNumber: number, // level numbering is 1-based
     public readonly model: GameModel,
     providedOptions: GameLevelOptions
   ) {
+
+    assert && assert( levelNumber > 0, 'The levelNumber parameter should be greater than zero.' );
 
     const options = optionize<GameLevelOptions, SelfOptions, PhetioObjectOptions>()( {
 
@@ -52,6 +55,8 @@ class GameLevel extends PhetioObject {
     }, providedOptions );
 
     super( options );
+
+    this.levelIndex = levelNumber - 1;
 
     this.generateChallengeDescriptors();
 
@@ -87,7 +92,7 @@ class GameLevel extends PhetioObject {
    * Generates a new set of challenge descriptors for this level. This is called whenever the level is restarted.
    */
   public generateChallengeDescriptors(): void {
-    this.challengeDescriptors = ChallengeSetFactory.createChallengeDescriptorSet( this.index, this.model, this.tandem );
+    this.challengeDescriptors = ChallengeSetFactory.createChallengeDescriptorSet( this.levelIndex, this.model, this.tandem );
   }
 
   /**

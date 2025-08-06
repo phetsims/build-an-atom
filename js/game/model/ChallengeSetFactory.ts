@@ -36,14 +36,14 @@ export default class ChallengeSetFactory {
    * For a given Game Level, create a set of challenge descriptors that can be used to obtain and configure the
    * challenges that will be presented to the user.
    */
-  public static createChallengeDescriptorSet( level: number, model: GameModel, tandem: Tandem ): ChallengeDescriptor[] {
+  public static createChallengeDescriptorSet( levelIndex: number, model: GameModel, tandem: Tandem ): ChallengeDescriptor[] {
 
     // Get a list of the challenge names that are valid for this level.
-    const validChallengeNames = LEVEL_CHALLENGE_NAMES[ level ];
+    const validChallengeNames = LEVEL_CHALLENGE_NAMES[ levelIndex ];
 
     // Create a pool of atom values that can be used to generate challengeDescriptors.  These will be marked as used as
     // they are incorporated into challenge descriptors so that they are not reused in the same level.
-    const atomValuePool = new AtomValuePool( level );
+    const atomValuePool = new AtomValuePool( levelIndex );
 
     const challengeDescriptors: ChallengeDescriptor[] = [];
 
