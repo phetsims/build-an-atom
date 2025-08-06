@@ -193,7 +193,6 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'levelProperty' ),
       phetioDocumentation: 'The selected level in the game. null means that no level is selected.',
       phetioFeatured: true,
-      phetioReadOnly: true,
       phetioValueType: NullableIO( GameLevel.GameLevelIO )
     } );
 
@@ -230,8 +229,11 @@ class GameModel implements TModel {
     } );
 
     this.levelProperty.lazyLink( level => {
-      if ( !isSettingPhetioStateProperty.value ) {
-        level ? this.startLevel() : this.startOver();
+      if ( level ) {
+        this.startLevel();
+      }
+      else {
+        this.startOver();
       }
     } );
 
@@ -322,6 +324,7 @@ class GameModel implements TModel {
     }
     else {
       this.gameStateProperty.set( 'levelCompleted' );
+      this.challengeProperty.set( null ); // Clear the challenge, since the level is completed.
     }
   }
 
@@ -357,6 +360,7 @@ class GameModel implements TModel {
     this.resetToStart();
     this.levelProperty.reset();
     this.gameStateProperty.set( 'levelSelection' );
+    this.challengeProperty.set( null ); // Clear the challenge, since none is active.
     this.randomSeedProperty.value++; // Increment the random seed to ensure that the next level has different challenges.
   }
 

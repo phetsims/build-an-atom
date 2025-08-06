@@ -6,7 +6,6 @@
  * @author John Blanco
  */
 
-import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -19,16 +18,21 @@ import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
+import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import GameModel from '../model/GameModel.js';
 import BAARewardNode from './BAARewardNode.js';
+import ChallengeView from './ChallengeView.js';
 import ChallengeViewSet from './ChallengeViewSet.js';
 import LevelSelectionNode from './LevelSelectionNode.js';
 
 class GameScreenView extends ScreenView {
 
   private readonly levelSelectionNode: LevelSelectionNode;
-  private levelCompletedNode: LevelCompletedNode | null; // created on demand
-  private rewardNode: BAARewardNode | null; // created on demand
+  private levelCompletedNode: LevelCompletedNode | null = null; // created on demand
+  private rewardNode: BAARewardNode | null = null; // created on demand
+  private readonly challengeViewSet: ChallengeViewSet;
+  private activeChallengeView: ChallengeView | null = null;
+  private gameModel: GameModel;
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
@@ -42,18 +46,21 @@ class GameScreenView extends ScreenView {
       tandem: tandem
     } );
 
-    const challengeViewTandem = tandem.createTandem( 'challengeViews' );
-    const challengeViewSet = new ChallengeViewSet( gameModel.getAllChallenges(), this.layoutBounds, challengeViewTandem );
-
-    this.rewardNode = null;
-    this.levelCompletedNode = null;
+    this.gameModel = gameModel;
 
     this.levelSelectionNode = new LevelSelectionNode(
       gameModel,
       this.layoutBounds,
       tandem.createTandem( 'levelSelectionNode' )
     );
+    this.addChild( this.levelSelectionNode );
 
+    const challengeViewTandem = tandem.createTandem( 'challengeViews' );
+
+    // Set up the set of all challenge views based on the challenges available in the game model.
+    this.challengeViewSet = new ChallengeViewSet( gameModel.getAllChallenges(), this.layoutBounds, challengeViewTandem );
+
+    // Create and add the status bar to the game screen.
     const statusBar = new FiniteStatusBar(
       this.layoutBounds,
       this.visibleBoundsProperty,
@@ -82,107 +89,77 @@ class GameScreenView extends ScreenView {
         tandem: tandem.createTandem( 'statusBar' )
       }
     );
-
-    const updateChallengeView = () => {
-
-      this.removeAllChildren();
-      this.disposeNodes();
-
-      const challenge = gameModel.challengeProperty.value;
-      if ( !challenge ) {
-        return;
-      }
-      else {
-
-        // Get the view for the current challenge.
-        const challengeView = challengeViewSet.get( challenge )!;
-
-        // If this is the user's first attempt, reset the challenge view.
-        if ( gameModel.attemptsProperty.value === 0 ) {
-          challengeView.reset();
-        }
-
-        // Update the challenge view with the current gameState.
-        challengeView.handleStateChange( gameModel.gameStateProperty.value );
-
-        this.addChild( challengeView );
-      }
-      this.addChild( statusBar );
-    };
+    this.addChild( statusBar );
 
     // Create the audio player for the game.
     const gameAudioPlayer = new GameAudioPlayer();
 
+    // Show the challenge view associated with the current challenge, or remove it if there is no challenge.
+    gameModel.challengeProperty.link( challenge => {
+      this.showChallengeView( challenge );
+    } );
+
     // Monitor the game state and update the view accordingly.
     gameModel.gameStateProperty.link( gameState => {
 
-        if ( gameState === 'levelSelection' ) {
-          this.removeAllChildren();
-          this.addChild( this.levelSelectionNode );
-          this.disposeNodes();
+      // Update the visibility of some of the nodes based on the game state.
+      this.levelSelectionNode.visible = gameState === 'levelSelection';
+      statusBar.visible = gameState !== 'levelSelection' && gameState !== 'levelCompleted';
+
+      if ( gameState === 'levelSelection' ) {
+        this.removeLevelCompletedNodes();
+      }
+      else if ( gameState === 'levelCompleted' ) {
+        if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
+
+          // Perfect score, add the reward node.
+          this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists.
+          this.rewardNode = new BAARewardNode();
+          this.addChild( this.rewardNode );
+
+          // Play the appropriate audio feedback.
+          gameAudioPlayer.gameOverPerfectScore();
         }
-        else if ( gameState === 'levelCompleted' ) {
-          this.removeAllChildren();
-          if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
-
-            // Perfect score, add the reward node.
-            this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists.
-            this.rewardNode = new BAARewardNode();
-            this.addChild( this.rewardNode );
-
-            // Play the appropriate audio feedback
-            gameAudioPlayer.gameOverPerfectScore();
-          }
-          else if ( gameModel.scoreProperty.get() > 0 ) {
-            gameAudioPlayer.gameOverImperfectScore();
-          }
-
-          const level = gameModel.levelProperty.value;
-          assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
-
-          // Add the dialog node that indicates that the level has been completed.
-          this.levelCompletedNode && this.levelCompletedNode.dispose(); // Dispose of the previous level completed node if it exists.
-          this.levelCompletedNode = new LevelCompletedNode(
-
-            //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Is + 1 correct here? Isn't levelNumberProperty already 1-based?
-            gameModel.levelNumberProperty.get() + 1,
-            gameModel.scoreProperty.get(),
-            GameModel.MAX_POINTS_PER_GAME_LEVEL,
-            GameModel.CHALLENGES_PER_LEVEL,
-            gameModel.timerEnabledProperty.get(),
-            gameModel.timer.elapsedTimeProperty.get(),
-            level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
-            level!.isNewBestTimeProperty.value,
-            () => { gameModel.levelProperty.reset(); }, {
-              centerX: this.layoutBounds.width / 2,
-              centerY: this.layoutBounds.height / 2,
-              levelVisible: false,
-              maxWidth: this.layoutBounds.width,
-              tandem: Tandem.OPT_OUT
-            }
-          );
-          this.addChild( this.levelCompletedNode );
+        else if ( gameModel.scoreProperty.get() > 0 ) {
+          gameAudioPlayer.gameOverImperfectScore();
         }
-        else {
 
-          // This game state change is not to levelSelection or levelCompleted, so we can assume it is something in
-          // the middle of a challenge.
-          updateChallengeView();
+        const level = gameModel.levelProperty.value;
+        assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
+
+        // Add the dialog node that indicates that the level has been completed.
+        this.levelCompletedNode && this.levelCompletedNode.dispose(); // Dispose of the previous level completed node if it exists.
+        this.levelCompletedNode = new LevelCompletedNode(
+          //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Is + 1 correct here? Isn't levelNumberProperty already 1-based?
+          gameModel.levelNumberProperty.get() + 1,
+          gameModel.scoreProperty.get(),
+          GameModel.MAX_POINTS_PER_GAME_LEVEL,
+          GameModel.CHALLENGES_PER_LEVEL,
+          gameModel.timerEnabledProperty.get(),
+          gameModel.timer.elapsedTimeProperty.get(),
+          level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
+          level!.isNewBestTimeProperty.value,
+          () => { gameModel.levelProperty.reset(); }, {
+            centerX: this.layoutBounds.width / 2,
+            centerY: this.layoutBounds.height / 2,
+            levelVisible: false,
+            maxWidth: this.layoutBounds.width,
+            tandem: Tandem.OPT_OUT
+          }
+        );
+        this.addChild( this.levelCompletedNode );
+      }
+      else {
+
+        // The game is in the middle of presenting a challenge to the user, so pass the state change to the challenge
+        // view.  This will perform updates like showing the feedback nodes, updating button states, etc.
+        assert && assert( this.activeChallengeView || isSettingPhetioStateProperty.value,
+          `activeChallengeView should be defined in this game state: ${gameState}` );
+        if ( this.activeChallengeView ) {
+          this.activeChallengeView.handleStateChange( gameState );
         }
       }
-    );
-
-    // During normal operation of the game, the game state enforces a certain order of events that always leads to the
-    // challenges being updates when they need to be.  However, during phet-io state setting, the level or challenge
-    // can change without the game state changing.  This code handles that case.
-    Multilink.multilink(
-      [ gameModel.levelProperty, gameModel.challengeProperty ],
-      ( level, challenge ) => {
-        if ( isSettingPhetioStateProperty.value && level && challenge ) {
-          updateChallengeView();
-        }
-      }
-    );
+    } );
   }
 
   public override step( elapsedTime: number ): void {
@@ -192,17 +169,47 @@ class GameScreenView extends ScreenView {
   }
 
   /**
-   * Dispose of dynamically created nodes that are no longer needed.
+   * Show the challenge view for the given challenge, or make sure that it is already showing.  If the challenge is
+   * null, any existing challenge view will be removed from the screen.
    */
-  private disposeNodes(): void {
-    if ( this.rewardNode !== null ) {
+  private showChallengeView( challenge: BAAGameChallenge | null ): void {
+    const challengeView = challenge ? this.challengeViewSet.get( challenge )! : null;
+
+    if ( !challengeView ) {
+      if ( this.activeChallengeView ) {
+        this.removeChild( this.activeChallengeView );
+      }
+    }
+    else if ( challengeView !== this.activeChallengeView ) {
+
+      // Remove the old challenge view if it exists.
+      this.activeChallengeView && this.removeChild( this.activeChallengeView );
+
+      // Show the new challenge view.
+      this.addChild( challengeView );
+    }
+
+    if ( isSettingPhetioStateProperty.value && challengeView ) {
+      challengeView.handleStateChange( this.gameModel.gameStateProperty.value );
+    }
+
+    this.activeChallengeView = challengeView;
+  }
+
+  /**
+   * Remove dynamically created nodes that are no longer needed.
+   */
+  private removeLevelCompletedNodes(): void {
+    if ( this.rewardNode ) {
+      this.removeChild( this.rewardNode );
       this.rewardNode.dispose();
+      this.rewardNode = null;
     }
-    if ( this.levelCompletedNode !== null ) {
+    if ( this.levelCompletedNode ) {
+      this.removeChild( this.levelCompletedNode );
       this.levelCompletedNode.dispose();
+      this.levelCompletedNode = null;
     }
-    this.rewardNode = null;
-    this.levelCompletedNode = null;
   }
 }
 
