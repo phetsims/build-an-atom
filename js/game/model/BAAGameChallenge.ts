@@ -85,7 +85,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   }
 
   /**
-   * GameLevelIO handles serialization of a game challenge. It implements reference-type serialization, as
+   * BAAGameChallengeIO handles serialization of a game challenge. It implements reference-type serialization, as
    * described in https://github.com/phetsims/phet-io/blob/main/doc/phet-io-instrumentation-technical-guide.md#serialization.
    */
   public static readonly BAAGameChallengeIO = new IOType<BAAGameChallenge, ReferenceIOState>( 'BAAGameChallengeIO', {
