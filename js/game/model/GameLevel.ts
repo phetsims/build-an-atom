@@ -36,6 +36,8 @@ class GameLevel extends PhetioObject {
   public active = false; // Whether this level is currently active, used for PhET-iO state restoration.
 
   public constructor(
+
+    //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Document index. There's always confusion about whether levels use 0-based or 1-based indexing.
     public readonly index: number,
     public readonly model: GameModel,
     providedOptions: GameLevelOptions
