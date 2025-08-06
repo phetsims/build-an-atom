@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ChallengeSetFactory is used to generates a list of challenges for use in a game.
+ * ChallengeSetFactory is used to generate a list of challenges for use in a game.
  *
  * @author John Blanco
  * @author Sam Reid (PhET Interactive Simulations)
