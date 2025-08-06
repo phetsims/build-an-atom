@@ -143,6 +143,8 @@ class GameScreenView extends ScreenView {
           // Add the dialog node that indicates that the level has been completed.
           this.levelCompletedNode && this.levelCompletedNode.dispose(); // Dispose of the previous level completed node if it exists.
           this.levelCompletedNode = new LevelCompletedNode(
+
+            //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Is + 1 correct here? Isn't levelNumberProperty already 1-based?
             gameModel.levelNumberProperty.get() + 1,
             gameModel.scoreProperty.get(),
             GameModel.MAX_POINTS_PER_GAME_LEVEL,
