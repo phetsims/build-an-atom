@@ -21,7 +21,7 @@ class CountsToSymbolChallengeView extends ToSymbolChallengeView {
     super( countsToSymbolChallenge, layoutBounds, tandem );
 
     // Create the particle counts node, which the user will need to interpret to set the symbol values correctly.
-    const particleCountsNode = new ParticleCountsNode( countsToSymbolChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToSymbolChallenge.correctAnswerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
     // layout

@@ -50,7 +50,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       0.8 );
 
     // Add the schematic representation of the atom.
-    const schematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.answerAtom,
+    const schematicAtomNode = new NonInteractiveSchematicAtomNode( schematicToMassNumberChallenge.correctAnswerAtom,
       modelViewTransform,
       Tandem.OPT_OUT
     );
@@ -59,7 +59,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
-    const particleCountDisplay = new ParticleCountDisplay( schematicToMassNumberChallenge.answerAtom, {
+    const particleCountDisplay = new ParticleCountDisplay( schematicToMassNumberChallenge.correctAnswerAtom, {
       bottom: schematicAtomNode.top - 10,
       left: schematicAtomNode.left,
       tandem: tandem.createTandem( 'particleCountDisplay' )
@@ -92,15 +92,15 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.challenge.answerAtom.protonCountProperty.get(),
-      neutronCount: this.massNumberProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
-      electronCount: this.challenge.answerAtom.electronCountProperty.get()
+      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.get(),
+      neutronCount: this.massNumberProperty.value - this.challenge.correctAnswerAtom.protonCountProperty.get(),
+      electronCount: this.challenge.correctAnswerAtom.electronCountProperty.get()
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.get();
   }
 
   public override reset(): void {
@@ -109,7 +109,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public override createAnswerNode(): Node {
     const massNumberTextProperty = new DerivedStringProperty(
-      [ this.challenge.answerAtom.massNumberProperty ],
+      [ this.challenge.correctAnswerAtom.massNumberProperty ],
       ( massNumber: number ) => `Mass Number: ${massNumber}`
     );
     return new Text( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

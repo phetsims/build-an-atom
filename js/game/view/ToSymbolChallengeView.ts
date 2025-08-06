@@ -36,7 +36,7 @@ class ToSymbolChallengeView extends ChallengeView {
 
     // Create and add the interactive symbol, which is where the user will enter their answer.
     this.interactiveSymbolNode = new InteractiveSymbolNode(
-      toSymbolChallenge.answerAtom,
+      toSymbolChallenge.correctAnswerAtom,
       {
         interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
         interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
@@ -63,9 +63,9 @@ class ToSymbolChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.interactiveSymbolNode.protonCountProperty.value = this.challenge.answerAtom.protonCountProperty.get();
-    this.interactiveSymbolNode.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
-    this.interactiveSymbolNode.netChargeProperty.value = this.challenge.answerAtom.netChargeProperty.get();
+    this.interactiveSymbolNode.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.get();
+    this.interactiveSymbolNode.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.get();
+    this.interactiveSymbolNode.netChargeProperty.value = this.challenge.correctAnswerAtom.netChargeProperty.get();
   }
 
   public override reset(): void {
@@ -81,7 +81,7 @@ class ToSymbolChallengeView extends ChallengeView {
 
       // Add the text node for the atomic number, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
-        [ this.challenge.answerAtom.protonCountProperty ],
+        [ this.challenge.correctAnswerAtom.protonCountProperty ],
         ( atomicNumber: number ) => `Atomic Number: ${atomicNumber}`
       );
       answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
@@ -92,7 +92,7 @@ class ToSymbolChallengeView extends ChallengeView {
 
       // Add the text node for the net charge, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
-        [ this.challenge.answerAtom.netChargeProperty ],
+        [ this.challenge.correctAnswerAtom.netChargeProperty ],
         ( netCharge: number ) => {
           const sign = netCharge > 0 ? MathSymbols.UNARY_PLUS : netCharge < 0 ? MathSymbols.UNARY_MINUS : '';
           return `Net Charge: ${Math.abs( netCharge )}${sign}`;
@@ -106,7 +106,7 @@ class ToSymbolChallengeView extends ChallengeView {
 
       // Add the text node for the mass number, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
-        [ this.challenge.answerAtom.massNumberProperty ],
+        [ this.challenge.correctAnswerAtom.massNumberProperty ],
         ( massNumber: number ) => `Mass Number: ${Math.abs( massNumber )}`
       );
       answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
@@ -114,7 +114,7 @@ class ToSymbolChallengeView extends ChallengeView {
     else {
 
       // The challenge has two or more configurable properties, so return a symbol node that represents the answer.
-      answerNode = new InteractiveSymbolNode( this.challenge.answerAtom, {
+      answerNode = new InteractiveSymbolNode( this.challenge.correctAnswerAtom, {
         interactiveProtonCount: false,
         interactiveCharge: false,
         interactiveMassNumber: false,

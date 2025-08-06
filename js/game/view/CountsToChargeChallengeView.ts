@@ -41,7 +41,7 @@ class CountsToChargeChallengeView extends ChallengeView {
     } );
 
     // Particle counts
-    const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToChargeChallenge.correctAnswerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
     const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
@@ -78,7 +78,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override createAnswerNode(): Node {
     const chargeTextProperty = new DerivedStringProperty(
-      [ this.challenge.answerAtom.netChargeProperty ],
+      [ this.challenge.correctAnswerAtom.netChargeProperty ],
       ( netCharge: number ) => {
         const sign = netCharge > 0 ? MathSymbols.UNARY_PLUS : netCharge < 0 ? MathSymbols.UNARY_MINUS : '';
         return `Net Charge: ${Math.abs( netCharge )}${sign}`;
@@ -89,15 +89,15 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.challenge.answerAtom.protonCountProperty.get(),
-      neutronCount: this.challenge.answerAtom.neutronCountProperty.get(),
-      electronCount: this.challenge.answerAtom.protonCountProperty.get() - this.chargeProperty.value
+      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.get(),
+      neutronCount: this.challenge.correctAnswerAtom.neutronCountProperty.get(),
+      electronCount: this.challenge.correctAnswerAtom.protonCountProperty.get() - this.chargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeProperty.value = this.challenge.answerAtom.netChargeProperty.get();
+    this.chargeProperty.value = this.challenge.correctAnswerAtom.netChargeProperty.get();
   }
 }
 

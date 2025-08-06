@@ -32,14 +32,14 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
 
     // Add the schematic representation of the atom.
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
-      schematicToElementChallenge.answerAtom,
+      schematicToElementChallenge.correctAnswerAtom,
       modelViewTransform,
       Tandem.OPT_OUT
     );
     this.challengePresentationNode.addChild( schematicAtomNode );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
-    const particleCountDisplay = new ParticleCountDisplay( schematicToElementChallenge.answerAtom, {
+    const particleCountDisplay = new ParticleCountDisplay( schematicToElementChallenge.correctAnswerAtom, {
       bottom: schematicAtomNode.top - 10,
       left: schematicAtomNode.left,
       tandem: tandem.createTandem( 'particleCountDisplay' )

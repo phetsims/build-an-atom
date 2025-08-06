@@ -21,7 +21,7 @@ class CountsToElementChallengeView extends ToElementChallengeView {
     super( countsToElementChallenge, layoutBounds, tandem );
 
     // Particle counts
-    const particleCountsNode = new ParticleCountsNode( countsToElementChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToElementChallenge.correctAnswerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
     // Layout

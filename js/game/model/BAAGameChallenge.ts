@@ -25,7 +25,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   public readonly model: GameModel;
 
   // Correct answer atom for this challenge, which the user is trying to deduce.
-  public readonly answerAtom: NumberAtom;
+  public readonly correctAnswerAtom: NumberAtom;
 
   public configurableProtonCount = false;
   public configurableMassNumber = false;
@@ -43,9 +43,9 @@ abstract class BAAGameChallenge extends PhetioObject {
       phetioType: BAAGameChallenge.BAAGameChallengeIO
     } );
 
-    this.answerAtom = new NumberAtom( {
+    this.correctAnswerAtom = new NumberAtom( {
       protonCount: 1,
-      tandem: tandem.createTandem( 'answerAtom' )
+      tandem: tandem.createTandem( 'correctAnswerAtom' )
     } );
     this.model = model;
 
@@ -64,8 +64,8 @@ abstract class BAAGameChallenge extends PhetioObject {
     this.model.gameStateProperty.set( 'presentingChallenge' );
   }
 
-  public setCorrectAnswer( answerAtom: NumberAtom ): void {
-    this.answerAtom.set( answerAtom );
+  public setCorrectAnswer( correctAnswerAtom: NumberAtom ): void {
+    this.correctAnswerAtom.set( correctAnswerAtom );
   }
 
   public next(): void {

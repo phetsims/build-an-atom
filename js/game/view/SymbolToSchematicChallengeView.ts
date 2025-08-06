@@ -67,7 +67,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.interactiveSchematicAtom.addChild( particleCountDisplay );
 
     // symbol
-    const interactiveSymbolNode = new InteractiveSymbolNode( challenge.answerAtom, {
+    const interactiveSymbolNode = new InteractiveSymbolNode( challenge.correctAnswerAtom, {
       tandem: Tandem.OPT_OUT
     } );
     interactiveSymbolNode.scale( 0.75 );
@@ -120,16 +120,16 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.challenge.buildAnAtomModel.setAtomConfiguration( this.challenge.answerAtom );
+    this.challenge.buildAnAtomModel.setAtomConfiguration( this.challenge.correctAnswerAtom );
   }
 
   public override createAnswerNode(): Node {
 
     const answerTextProperty = new DerivedStringProperty(
       [
-        this.challenge.answerAtom.protonCountProperty,
-        this.challenge.answerAtom.neutronCountProperty,
-        this.challenge.answerAtom.electronCountProperty
+        this.challenge.correctAnswerAtom.protonCountProperty,
+        this.challenge.correctAnswerAtom.neutronCountProperty,
+        this.challenge.correctAnswerAtom.electronCountProperty
       ],
       ( protonCount: number, neutronCount, electronCount ) => {
         return `Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
