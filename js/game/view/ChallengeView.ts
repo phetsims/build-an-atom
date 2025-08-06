@@ -78,6 +78,7 @@ class ChallengeView extends Node {
   // use only, and is used to make it easier to move through the game while testing.
   protected readonly showAnswerNode: Node | null = null;
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
   public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( {
       tandem: tandem,
@@ -258,6 +259,7 @@ class ChallengeView extends Node {
     // no-op, implemented in subclass
   }
 
+  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Make this method and the class abstract.
   /**
    * Function to create the node that is used in conjunction with the 'showAnswers' query parameter.  This must be
    * implemented in subclasses.
