@@ -150,7 +150,8 @@ class GameModel implements TModel {
 
     this.pointsProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'pointsProperty' ),
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      range: new Range( 0, POSSIBLE_POINTS_PER_CHALLENGE )
     } );
 
     // Create a Map of challenge types to a single instance of each type.

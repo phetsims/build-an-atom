@@ -67,16 +67,19 @@ class InteractiveSymbolNode extends Panel {
 
     const protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: options.tandem.createTandem( 'protonCountProperty' ),
+      phetioDocumentation: 'Atomic number entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
     const massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: options.tandem.createTandem( 'massNumberProperty' ),
+      phetioDocumentation: 'Mass value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
     const netChargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.netChargeProperty.get(), {
       tandem: options.tandem.createTandem( 'netChargeProperty' ),
+      phetioDocumentation: 'Charge value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );

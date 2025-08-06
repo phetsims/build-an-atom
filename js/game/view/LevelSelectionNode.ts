@@ -80,6 +80,13 @@ class LevelSelectionNode extends Node {
       new AdvancedSymbolLevelIcon()
     ];
 
+    const gameButtonsPhetIoDocumentation = [
+      'Periodic table game',
+      'Mass and charge game',
+      'Symbol game',
+      'Mixed review game'
+    ];
+
     const buttonItems: LevelSelectionButtonGroupItem[] = [];
     gameModel.levels.forEach( ( level, index ) => {
       buttonItems.push( {
@@ -93,7 +100,8 @@ class LevelSelectionNode extends Node {
           listener: () => {
             gameModel.levelProperty.value = level;
           },
-          soundPlayerIndex: index
+          soundPlayerIndex: index,
+          phetioDocumentation: gameButtonsPhetIoDocumentation[ index ]
         }
       } );
     } );

@@ -49,11 +49,13 @@ class ToElementChallengeView extends ChallengeView {
 
     this.atomicNumberProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'atomicNumberProperty' ),
+      phetioDocumentation: 'Indicates the element selected by the user.',
       phetioReadOnly: true
     } );
 
     this.neutralOrIonProperty = new Property<NeutralOrIon>( 'noSelection', {
       tandem: tandem.createTandem( 'neutralOrIonProperty' ),
+      phetioDocumentation: 'Indicates whether the user selected Neutral Atom or Ion.',
       validValues: neutralOrIonValues,
       phetioValueType: StringUnionIO( neutralOrIonValues ),
       phetioReadOnly: true

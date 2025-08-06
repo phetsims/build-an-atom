@@ -37,6 +37,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
     this.massNumberProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'massNumberProperty' ),
+      phetioDocumentation: 'Mass value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true,
       range: new Range( 0, 99 ) // Mass number is always a non-negative integer

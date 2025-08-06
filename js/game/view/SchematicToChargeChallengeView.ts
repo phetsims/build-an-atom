@@ -38,6 +38,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
     this.chargeProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'chargeProperty' ),
+      phetioDocumentation: 'Charge value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
