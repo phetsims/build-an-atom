@@ -20,7 +20,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 * Dynamic Locale
 * PhET-iO for PhET Studio
 * Pan and zoom
-* Conversion to typescript
+* Conversion to TypeScript
 
 
 ### Bug Fixes
