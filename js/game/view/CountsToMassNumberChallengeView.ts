@@ -39,7 +39,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     } );
 
     // Particle counts
-    const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.answerAtom );
+    const particleCountsNode = new ParticleCountsNode( countsToMassNumberChallenge.correctAnswerAtom );
     this.challengePresentationNode.addChild( particleCountsNode );
 
     const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheMassNumberStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
@@ -68,15 +68,15 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.challenge.answerAtom.protonCountProperty.get(),
-      neutronCount: this.massNumberProperty.value - this.challenge.answerAtom.protonCountProperty.get(),
-      electronCount: this.challenge.answerAtom.electronCountProperty.get()
+      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.get(),
+      neutronCount: this.massNumberProperty.value - this.challenge.correctAnswerAtom.protonCountProperty.get(),
+      electronCount: this.challenge.correctAnswerAtom.electronCountProperty.get()
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.massNumberProperty.value = this.challenge.answerAtom.massNumberProperty.get();
+    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.get();
   }
 
   public override reset(): void {
@@ -85,7 +85,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
   public override createAnswerNode(): Node {
     const massNumberTextProperty = new DerivedStringProperty(
-      [ this.challenge.answerAtom.massNumberProperty ],
+      [ this.challenge.correctAnswerAtom.massNumberProperty ],
       ( massNumber: number ) => `Mass Number: ${massNumber}`
     );
     return new Text( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

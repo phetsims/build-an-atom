@@ -281,7 +281,7 @@ class GameModel implements TModel {
     this.attemptsProperty.value++;
     const attempts = this.attemptsProperty.value;
     const challenge = this.challengeProperty.value!;
-    const correctAnswer = submittedAnswer.equals( challenge.answerAtom );
+    const correctAnswer = submittedAnswer.equals( challenge.correctAnswerAtom );
 
     const points = attempts === 1 ?
                    GameModel.POINTS_FIRST_ATTEMPT :
@@ -394,12 +394,12 @@ class GameModel implements TModel {
    */
   public getChallengeByDescriptor( challengeDescriptor: ChallengeDescriptor ): BAAGameChallenge {
     const challengeType: ChallengeType = challengeDescriptor.type;
-    const answerAtom = challengeDescriptor.atomValue;
+    const correctAnswerAtom = challengeDescriptor.atomValue;
     assert && assert( this.challengeTypeToInstanceMap.has( challengeType ),
       `No challenge of type ${challengeType} exists in the game` );
 
     const challenge = this.challengeTypeToInstanceMap.get( challengeType )!;
-    challenge.setCorrectAnswer( answerAtom );
+    challenge.setCorrectAnswer( correctAnswerAtom );
     return challenge;
   }
 

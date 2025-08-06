@@ -33,7 +33,7 @@ export type InteractiveParticleCountsNodeOptions = SelfOptions & WithRequired<No
 
 class InteractiveParticleCountsNode extends Node {
 
-  public readonly answerAtom: AnswerAtom;
+  public readonly submittedAnswerAtom: AnswerAtom;
 
   public constructor( providedOptions: InteractiveParticleCountsNodeOptions ) {
 
@@ -46,7 +46,7 @@ class InteractiveParticleCountsNode extends Node {
 
     const tandem = options.tandem;
 
-    this.answerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'answerAtom' ) } );
+    this.submittedAnswerAtom = new AnswerAtom( { tandem: tandem.createTandem( 'submittedAnswerAtom' ) } );
 
 
     const protonCountPrompt = new Text( BuildAnAtomFluent.protonsColonStringProperty, {
@@ -54,7 +54,7 @@ class InteractiveParticleCountsNode extends Node {
       maxWidth: MAX_WIDTH
     } );
     const protonCountNumberSpinner = new BAANumberSpinner(
-      this.answerAtom.protonCountProperty,
+      this.submittedAnswerAtom.protonCountProperty,
       tandem.createTandem( 'protonCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
@@ -71,7 +71,7 @@ class InteractiveParticleCountsNode extends Node {
       font: options.font,
       maxWidth: MAX_WIDTH
     } );
-    const neutronCountNumberSpinner = new BAANumberSpinner( this.answerAtom.neutronCountProperty,
+    const neutronCountNumberSpinner = new BAANumberSpinner( this.submittedAnswerAtom.neutronCountProperty,
       tandem.createTandem( 'neutronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
@@ -89,7 +89,7 @@ class InteractiveParticleCountsNode extends Node {
       maxWidth: MAX_WIDTH
     } );
     const electronCountNumberSpinner = new BAANumberSpinner(
-      this.answerAtom.electronCountProperty,
+      this.submittedAnswerAtom.electronCountProperty,
       tandem.createTandem( 'electronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
@@ -113,9 +113,9 @@ class InteractiveParticleCountsNode extends Node {
 
 
   public reset(): void {
-    this.answerAtom.protonCountProperty.reset();
-    this.answerAtom.neutronCountProperty.reset();
-    this.answerAtom.electronCountProperty.reset();
+    this.submittedAnswerAtom.protonCountProperty.reset();
+    this.submittedAnswerAtom.neutronCountProperty.reset();
+    this.submittedAnswerAtom.electronCountProperty.reset();
   }
 }
 

@@ -140,8 +140,8 @@ class ToElementChallengeView extends ChallengeView {
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.atomicNumberProperty.value,
-      neutronCount: this.challenge.answerAtom.neutronCountProperty.value,
-      electronCount: this.challenge.answerAtom.electronCountProperty.value,
+      neutronCount: this.challenge.correctAnswerAtom.neutronCountProperty.value,
+      electronCount: this.challenge.correctAnswerAtom.electronCountProperty.value,
       neutralOrIon: this.neutralOrIonProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
@@ -158,15 +158,15 @@ class ToElementChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.atomicNumberProperty.value = this.challenge.answerAtom.protonCountProperty.get();
-    this.neutralOrIonProperty.value = this.challenge.answerAtom.netChargeProperty.get() === 0 ? 'neutral' : 'ion';
+    this.atomicNumberProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.get();
+    this.neutralOrIonProperty.value = this.challenge.correctAnswerAtom.netChargeProperty.get() === 0 ? 'neutral' : 'ion';
   }
 
   public override createAnswerNode(): Node {
     const elementAndIonStringProperty = new DerivedStringProperty(
       [
-        this.challenge.answerAtom.protonCountProperty,
-        this.challenge.answerAtom.netChargeProperty
+        this.challenge.correctAnswerAtom.protonCountProperty,
+        this.challenge.correctAnswerAtom.netChargeProperty
       ],
       ( protonCount: number, charge: number ) => {
         const elementSymbol = AtomIdentifier.getSymbol( protonCount );

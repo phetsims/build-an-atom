@@ -37,7 +37,7 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
     // Symbol
     const interactiveSymbolNode = new InteractiveSymbolNode(
-      symbolToCountsChallenge.answerAtom,
+      symbolToCountsChallenge.correctAnswerAtom,
       { tandem: Tandem.OPT_OUT }
     );
     interactiveSymbolNode.scale( 0.75 );
@@ -51,13 +51,13 @@ class SymbolToCountsChallengeView extends ChallengeView {
   }
 
   public override checkAnswer(): void {
-    this.challenge.checkAnswer( this.interactiveParticleCountsNode.answerAtom );
+    this.challenge.checkAnswer( this.interactiveParticleCountsNode.submittedAnswerAtom );
   }
 
   public override displayCorrectAnswer(): void {
-    this.interactiveParticleCountsNode.answerAtom.protonCountProperty.set( this.challenge.answerAtom.protonCountProperty.get() );
-    this.interactiveParticleCountsNode.answerAtom.neutronCountProperty.set( this.challenge.answerAtom.neutronCountProperty.get() );
-    this.interactiveParticleCountsNode.answerAtom.electronCountProperty.set( this.challenge.answerAtom.electronCountProperty.get() );
+    this.interactiveParticleCountsNode.submittedAnswerAtom.protonCountProperty.set( this.challenge.correctAnswerAtom.protonCountProperty.get() );
+    this.interactiveParticleCountsNode.submittedAnswerAtom.neutronCountProperty.set( this.challenge.correctAnswerAtom.neutronCountProperty.get() );
+    this.interactiveParticleCountsNode.submittedAnswerAtom.electronCountProperty.set( this.challenge.correctAnswerAtom.electronCountProperty.get() );
   }
 
   public override reset(): void {
@@ -68,9 +68,9 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
     const answerTextProperty = new DerivedStringProperty(
       [
-        this.challenge.answerAtom.protonCountProperty,
-        this.challenge.answerAtom.neutronCountProperty,
-        this.challenge.answerAtom.electronCountProperty
+        this.challenge.correctAnswerAtom.protonCountProperty,
+        this.challenge.correctAnswerAtom.neutronCountProperty,
+        this.challenge.correctAnswerAtom.electronCountProperty
       ],
       ( protonCount: number, neutronCount, electronCount ) => {
         return `Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
