@@ -17,6 +17,7 @@ import GameModel from './GameModel.js';
 
 const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
 
+//REVIEW https://github.com/phetsims/build-an-atom/issues/315 Document. Is this indexed using levelNumber-1 to find what challenge types that level includes?
 const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
   [ 'schematic-to-element', 'counts-to-element' ],
   [ 'schematic-to-charge', 'schematic-to-mass-number', 'counts-to-charge', 'counts-to-mass-number' ],
