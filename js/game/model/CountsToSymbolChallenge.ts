@@ -11,10 +11,10 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import CountsToSymbolChallengeView from '../view/CountsToSymbolChallengeView.js';
-import BAAGameChallenge from './BAAGameChallenge.js';
 import GameModel from './GameModel.js';
+import ToSymbolChallenge from './ToSymbolChallenge.js';
 
-class CountsToSymbolChallenge extends BAAGameChallenge {
+class CountsToSymbolChallenge extends ToSymbolChallenge {
 
   public constructor(
     buildAnAtomGameModel: GameModel,

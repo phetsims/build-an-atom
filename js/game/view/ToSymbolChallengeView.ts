@@ -17,20 +17,18 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
-import CountsToSymbolChallenge from '../model/CountsToSymbolChallenge.js';
-import SchematicToSymbolChallenge from '../model/SchematicToSymbolChallenge.js';
+import ToSymbolChallenge from '../model/ToSymbolChallenge.js';
 import ChallengeView from './ChallengeView.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 
 // constants
-class ToSymbolChallengeView extends ChallengeView {
+class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
 
   private readonly interactiveSymbolNode: InteractiveSymbolNode;
 
-  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
-  public constructor( toSymbolChallenge: CountsToSymbolChallenge | SchematicToSymbolChallenge,
-                      layoutBounds: Bounds2,
-                      tandem: Tandem ) {
+  protected constructor( toSymbolChallenge: ToSymbolChallenge,
+                         layoutBounds: Bounds2,
+                         tandem: Tandem ) {
 
     super( toSymbolChallenge, layoutBounds, tandem );
 

@@ -48,9 +48,9 @@ const COMMON_BUTTON_OPTIONS: TextPushButtonOptions = {
   phetioEnabledPropertyInstrumented: false
 };
 
-class ChallengeView extends Node {
+class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChallenge> extends Node {
 
-  public readonly challenge: BAAGameChallenge;
+  public readonly challenge: TChallenge;
 
   // Node that contains the information needed to solve the challenge, such as the schematic atom or particle counts.
   public readonly challengePresentationNode: Node;
@@ -79,7 +79,7 @@ class ChallengeView extends Node {
   protected readonly showAnswerNode: Node | null = null;
 
   //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
-  public constructor( challenge: BAAGameChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
+  public constructor( challenge: TChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( {
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false

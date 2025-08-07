@@ -27,10 +27,6 @@ abstract class BAAGameChallenge extends PhetioObject {
   // Correct answer atom for this challenge, which the user is trying to deduce.
   public readonly correctAnswerAtom: NumberAtom;
 
-  public configurableProtonCount = false;
-  public configurableMassNumber = false;
-  public configurableCharge = false;
-
   // This flag is used to hide the arrow buttons on Spinners whenever we're checking or showing the correct answer.
   public isAnswerInteractiveProperty: Property<boolean>;
 
