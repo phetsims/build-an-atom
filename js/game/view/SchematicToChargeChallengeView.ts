@@ -79,7 +79,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
         signAfterValue: true,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         arrowButtonOptions: {
-          visibleProperty: this.challenge.interactiveAnswerProperty
+          visibleProperty: this.challenge.isAnswerInteractiveProperty
         }
       } );
     this.interactiveAnswerNode.addChild( chargeNumberSpinner );

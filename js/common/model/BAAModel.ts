@@ -43,7 +43,7 @@ const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
 
 type SelfOptions = {
-  configurableInitialAtom?: boolean; // If true, the initial atom configuration can be changed by query parameter.
+  isInitialAtomConfigurable?: boolean; // If true, the initial atom configuration can be changed by query parameter.
 };
 
 export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
@@ -78,7 +78,7 @@ class BAAModel {
   public constructor( providedOptions: BAAModelOptions ) {
 
     const options = combineOptions<BAAModelOptions>( {
-      configurableInitialAtom: true // If true, the initial atom configuration can be changed by query parameter.
+      isInitialAtomConfigurable: true // If true, the initial atom configuration can be changed by query parameter.
     }, providedOptions );
 
     const tandem = options.tandem;
@@ -227,7 +227,7 @@ class BAAModel {
     // add a variable used when making the nucleus jump in order to indicate instability
     this.nucleusJumpCount = 0;
 
-    if ( options.configurableInitialAtom ) {
+    if ( options.isInitialAtomConfigurable ) {
 
       assert && assert( BAAQueryParameters.protons <= NUM_PROTONS, 'Proton count exceeds maximum allowed' );
       assert && assert( BAAQueryParameters.neutrons <= NUM_NEUTRONS, 'Neutron count exceeds maximum allowed' );

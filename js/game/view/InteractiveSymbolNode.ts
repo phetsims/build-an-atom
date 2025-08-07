@@ -36,9 +36,9 @@ const NUMBER_INSET = 15; // In screen coords, which are roughly pixels.
 const NUMBER_ENTRY_NODE_SIDE_INSET = 10; // In screen coords, which are roughly pixels.
 
 type SelfOptions = {
-  interactiveProtonCount?: boolean; // If true, the proton count is interactive.
-  interactiveMassNumber?: boolean; // If true, the mass number is interactive.
-  interactiveCharge?: boolean; // If true, the charge is interactive.
+  isProtonCountInteractive?: boolean; // If true, the proton count is interactive.
+  isMassNumberInteractive?: boolean; // If true, the mass number is interactive.
+  isChargeInteractive?: boolean; // If true, the charge is interactive.
   showAtomName?: boolean; // If true, the atom name is shown below the symbol.
   showArrowButtonsProperty?: TReadOnlyProperty<boolean>; // Whether to show the arrow buttons for the number spinners.
 };
@@ -56,45 +56,45 @@ class InteractiveSymbolNode extends Panel {
   public constructor( numberAtom: NumberAtom, providedOptions?: InteractiveSymbolNodeOptions ) {
 
     const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, PanelOptions>()( {
-      interactiveProtonCount: false,
-      interactiveMassNumber: false,
-      interactiveCharge: false,
+      isProtonCountInteractive: false,
+      isMassNumberInteractive: false,
+      isChargeInteractive: false,
       showAtomName: true,
       showArrowButtonsProperty: new BooleanProperty( false ),
       fill: null,
       stroke: null
     }, providedOptions );
 
-    const protonCountProperty = new NumberProperty( options.interactiveProtonCount ? 0 : numberAtom.protonCountProperty.get(), {
+    const protonCountProperty = new NumberProperty( options.isProtonCountInteractive ? 0 : numberAtom.protonCountProperty.get(), {
       tandem: options.tandem.createTandem( 'protonCountProperty' ),
       phetioDocumentation: 'Atomic number entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
-    const massNumberProperty = new NumberProperty( options.interactiveMassNumber ? 0 : numberAtom.massNumberProperty.get(), {
+    const massNumberProperty = new NumberProperty( options.isMassNumberInteractive ? 0 : numberAtom.massNumberProperty.get(), {
       tandem: options.tandem.createTandem( 'massNumberProperty' ),
       phetioDocumentation: 'Mass value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
-    const chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
+    const chargeProperty = new NumberProperty( options.isChargeInteractive ? 0 : numberAtom.chargeProperty.get(), {
       tandem: options.tandem.createTandem( 'chargeProperty' ),
       phetioDocumentation: 'Charge value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
 
-    if ( !options.interactiveProtonCount ) {
+    if ( !options.isProtonCountInteractive ) {
       numberAtom.protonCountProperty.link( protonCount => {
         protonCountProperty.value = protonCount;
       } );
     }
-    if ( !options.interactiveMassNumber ) {
+    if ( !options.isMassNumberInteractive ) {
       numberAtom.massNumberProperty.link( massNumber => {
         massNumberProperty.value = massNumber;
       } );
     }
-    if ( !options.interactiveCharge ) {
+    if ( !options.isChargeInteractive ) {
       numberAtom.chargeProperty.link( charge => {
         chargeProperty.value = charge;
       } );
@@ -157,7 +157,7 @@ class InteractiveSymbolNode extends Panel {
     const interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
 
     // Add the proton count display, either interactive or not.
-    if ( options.interactiveProtonCount ) {
+    if ( options.isProtonCountInteractive ) {
       background.addChild( new BAANumberSpinner(
         protonCountProperty,
         options.tandem.createTandem( 'protonCountNumberSpinner' ), {
@@ -184,7 +184,7 @@ class InteractiveSymbolNode extends Panel {
     }
 
     // Add the mass number display, either interactive or not.
-    if ( options.interactiveMassNumber ) {
+    if ( options.isMassNumberInteractive ) {
       background.addChild( new BAANumberSpinner(
         massNumberProperty,
         options.tandem.createTandem( 'massNumberSpinner' ), {
@@ -208,7 +208,7 @@ class InteractiveSymbolNode extends Panel {
     }
 
     // Add the charge display, either interactive or not.
-    if ( options.interactiveCharge ) {
+    if ( options.isChargeInteractive ) {
       background.addChild( new BAANumberSpinner(
         chargeProperty,
         options.tandem.createTandem( 'chargeNumberSpinner' ), {
@@ -255,9 +255,9 @@ class InteractiveSymbolNode extends Panel {
   }
 
   public reset(): void {
-    this.options.interactiveProtonCount && this.protonCountProperty.reset();
-    this.options.interactiveMassNumber && this.massNumberProperty.reset();
-    this.options.interactiveCharge && this.chargeProperty.reset();
+    this.options.isProtonCountInteractive && this.protonCountProperty.reset();
+    this.options.isMassNumberInteractive && this.massNumberProperty.reset();
+    this.options.isChargeInteractive && this.chargeProperty.reset();
   }
 }
 

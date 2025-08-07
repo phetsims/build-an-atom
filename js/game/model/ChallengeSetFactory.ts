@@ -102,7 +102,7 @@ export default class ChallengeSetFactory {
 
     let minProtonCount = 0;
     let maxProtonCount = Number.POSITIVE_INFINITY;
-    let requireCharged = false;
+    let isChargedRequired = false;
 
     if ( this.isSchematicRelatedChallenge( challengeType ) ) {
       maxProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS;
@@ -112,10 +112,10 @@ export default class ChallengeSetFactory {
     }
 
     if ( this.isChargeRelatedChallenge( challengeType ) ) {
-      requireCharged = random.nextBoolean();
+      isChargedRequired = random.nextBoolean();
     }
 
-    const atomValue = availableAtomValues.getRandomAtomValue( random, minProtonCount, maxProtonCount, requireCharged ) as AnswerAtom;
+    const atomValue = availableAtomValues.getRandomAtomValue( random, minProtonCount, maxProtonCount, isChargedRequired ) as AnswerAtom;
     availableAtomValues.markAtomAsUsed( atomValue );
 
     return { type: challengeType, atomValue: atomValue };

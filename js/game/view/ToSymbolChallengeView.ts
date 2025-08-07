@@ -38,10 +38,10 @@ class ToSymbolChallengeView extends ChallengeView {
     this.interactiveSymbolNode = new InteractiveSymbolNode(
       toSymbolChallenge.correctAnswerAtom,
       {
-        interactiveProtonCount: toSymbolChallenge.configurableProtonCount,
-        interactiveMassNumber: toSymbolChallenge.configurableMassNumber,
-        interactiveCharge: toSymbolChallenge.configurableCharge,
-        showArrowButtonsProperty: toSymbolChallenge.interactiveAnswerProperty,
+        isProtonCountInteractive: toSymbolChallenge.configurableProtonCount,
+        isMassNumberInteractive: toSymbolChallenge.configurableMassNumber,
+        isChargeInteractive: toSymbolChallenge.configurableCharge,
+        showArrowButtonsProperty: toSymbolChallenge.isAnswerInteractiveProperty,
         tandem: tandem.createTandem( 'interactiveSymbolNode' )
       }
     );
@@ -115,9 +115,9 @@ class ToSymbolChallengeView extends ChallengeView {
 
       // The challenge has two or more configurable properties, so return a symbol node that represents the answer.
       answerNode = new InteractiveSymbolNode( this.challenge.correctAnswerAtom, {
-        interactiveProtonCount: false,
-        interactiveCharge: false,
-        interactiveMassNumber: false,
+        isProtonCountInteractive: false,
+        isChargeInteractive: false,
+        isMassNumberInteractive: false,
         scale: 0.22, // empirically determined to fit below the interactive symbol node
         stroke: Color.RED,
         lineWidth: 2,

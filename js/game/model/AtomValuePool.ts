@@ -29,11 +29,11 @@ class AtomValuePool {
     }
   }
 
-  public getRandomAtomValue( random: Random, minProtonCount: number, maxProtonCount: number, requireCharged: boolean ): NumberAtom {
+  public getRandomAtomValue( random: Random, minProtonCount: number, maxProtonCount: number, isChargedRequired: boolean ): NumberAtom {
     const meetsCriteria = ( numberAtom: NumberAtom ): boolean => {
       return numberAtom.protonCountProperty.get() >= minProtonCount &&
              numberAtom.protonCountProperty.get() < maxProtonCount &&
-             ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
+             ( !isChargedRequired || numberAtom.chargeProperty.get() !== 0 );
 
     };
 

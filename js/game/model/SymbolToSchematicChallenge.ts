@@ -25,7 +25,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
     // This challenge is a bit unique in that it has a model of an atom with which the user can interact. We want to
     // keep this model out of the state.
     this.buildAnAtomModel = new BAAModel( {
-      configurableInitialAtom: false,
+      isInitialAtomConfigurable: false,
       tandem: Tandem.OPT_OUT
     } );
   }

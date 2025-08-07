@@ -57,7 +57,7 @@ class CountsToChargeChallengeView extends ChallengeView {
         maxValue: 99,
         minValue: -99,
         arrowButtonOptions: {
-          visibleProperty: this.challenge.interactiveAnswerProperty
+          visibleProperty: this.challenge.isAnswerInteractiveProperty
         }
       } );
     this.interactiveAnswerNode.addChild( chargeNumberSpinner );

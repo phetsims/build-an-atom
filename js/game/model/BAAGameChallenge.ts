@@ -32,7 +32,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   public configurableCharge = false;
 
   // This flag is used to hide the arrow buttons on Spinners whenever we're checking or showing the correct answer.
-  public interactiveAnswerProperty: Property<boolean>;
+  public isAnswerInteractiveProperty: Property<boolean>;
 
   protected constructor( model: GameModel, tandem: Tandem ) {
 
@@ -49,8 +49,8 @@ abstract class BAAGameChallenge extends PhetioObject {
     } );
     this.model = model;
 
-    this.interactiveAnswerProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'interactiveAnswerProperty' ),
+    this.isAnswerInteractiveProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'isAnswerInteractiveProperty' ),
       phetioDocumentation: 'For internal use only.',
       phetioReadOnly: true
     } );

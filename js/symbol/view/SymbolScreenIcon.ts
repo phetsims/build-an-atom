@@ -31,9 +31,9 @@ export default class SymbolScreenIcon extends ScreenIcon {
     const symbolNode = new InteractiveSymbolNode(
       new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 2 } ),
       {
-        interactiveProtonCount: false,
-        interactiveCharge: false,
-        interactiveMassNumber: false,
+        isProtonCountInteractive: false,
+        isChargeInteractive: false,
+        isMassNumberInteractive: false,
         showAtomName: false,
         excludeInvisibleChildrenFromBounds: true,
         tandem: tandem.createTandem( 'symbolNode' )

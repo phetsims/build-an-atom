@@ -168,9 +168,9 @@ class ChallengeView extends Node {
 
     // Utility function to enable/disable interaction with answer portion of
     // the displayed challenge.
-    const setAnswerNodeInteractive = ( interactive: boolean ) => {
-      challenge.interactiveAnswerProperty.set( interactive ); // This one is used to hide arrow buttons on spinners.
-      this.interactiveAnswerNode.pickable = interactive; // This one disables periodic table, buckets and others
+    const setAnswerNodeInteractive = ( isInteractive: boolean ) => {
+      challenge.isAnswerInteractiveProperty.set( isInteractive ); // This one is used to hide arrow buttons on spinners.
+      this.interactiveAnswerNode.pickable = isInteractive; // This one disables periodic table, buckets and others
     };
 
     // Set up the handler that updates the visibility of the various buttons and other nodes based on the challenge
