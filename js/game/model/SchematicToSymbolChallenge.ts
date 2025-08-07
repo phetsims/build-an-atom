@@ -12,21 +12,12 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToSymbolChallengeView from '../view/SchematicToSymbolChallengeView.js';
 import GameModel from './GameModel.js';
-import ToSymbolChallenge from './ToSymbolChallenge.js';
+import ToSymbolChallenge, { ToSymbolChallengeOptions } from './ToSymbolChallenge.js';
 
 class SchematicToSymbolChallenge extends ToSymbolChallenge {
 
-  public constructor(
-    buildAnAtomGameModel: GameModel,
-    tandem: Tandem,
-    configurableProtonCount: boolean,
-    configurableMassNumber: boolean,
-    configurableCharge: boolean
-  ) {
-    super( buildAnAtomGameModel, tandem );
-    this.isProtonCountConfigurable = configurableProtonCount;
-    this.isMassNumberConfigurable = configurableMassNumber;
-    this.isChargeConfigurable = configurableCharge;
+  public constructor( buildAnAtomGameModel: GameModel, options: ToSymbolChallengeOptions ) {
+    super( buildAnAtomGameModel, options );
   }
 
   /**

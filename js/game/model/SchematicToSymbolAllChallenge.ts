@@ -17,7 +17,12 @@ import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 class SchematicToSymbolAllChallenge extends SchematicToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, tandem, true, true, true );
+    super( buildAnAtomGameModel, {
+      isProtonCountConfigurable: true,
+      isMassNumberConfigurable: true,
+      isChargeConfigurable: true,
+      tandem: tandem
+    } );
   }
 
   /**

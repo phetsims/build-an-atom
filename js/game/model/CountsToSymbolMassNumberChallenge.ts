@@ -16,7 +16,12 @@ import GameModel from './GameModel.js';
 class CountsToSymbolMassNumberChallenge extends CountsToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, tandem, false, true, false );
+    super( buildAnAtomGameModel, {
+      isProtonCountConfigurable: false,
+      isMassNumberConfigurable: true,
+      isChargeConfigurable: false,
+      tandem: tandem
+    } );
   }
 
   /**
