@@ -48,7 +48,7 @@ const COMMON_BUTTON_OPTIONS: TextPushButtonOptions = {
   phetioEnabledPropertyInstrumented: false
 };
 
-class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChallenge> extends Node {
+abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChallenge> extends Node {
 
   public readonly challenge: TChallenge;
 
@@ -258,15 +258,11 @@ class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChallenge> exte
     // no-op, implemented in subclass
   }
 
-  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Make this method and the class abstract.
   /**
    * Function to create the node that is used in conjunction with the 'showAnswers' query parameter.  This must be
    * implemented in subclasses.
    */
-  public createAnswerNode(): Node {
-    assert && assert( false, 'createAnswerNode must be implemented in subclasses' );
-    return new Node();
-  }
+  public abstract createAnswerNode(): Node;
 
   /**
    * Function to set the positions of all buttons.
