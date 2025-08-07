@@ -15,9 +15,9 @@ import AtomValuePool from './AtomValuePool.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
-const MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS = 3;
+const MAX_PROTON_NUMBER_FOR_SCHEMATIC_CHALLENGES = 3;
 
-//REVIEW https://github.com/phetsims/build-an-atom/issues/315 Document. Is this indexed using levelNumber-1 to find what challenge types that level includes?
+// The challenge types that are valid for each level.  This uses zero-based indexing, so the first level is at index 0.
 const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
   [ 'schematic-to-element', 'counts-to-element' ],
   [ 'schematic-to-charge', 'schematic-to-mass-number', 'counts-to-charge', 'counts-to-mass-number' ],
@@ -105,10 +105,10 @@ export default class ChallengeSetFactory {
     let isChargedRequired = false;
 
     if ( this.isSchematicRelatedChallenge( challengeType ) ) {
-      maxProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS;
+      maxProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_CHALLENGES;
     }
     else {
-      minProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_PROBS + 1;
+      minProtonCount = MAX_PROTON_NUMBER_FOR_SCHEMATIC_CHALLENGES + 1;
     }
 
     if ( this.isChargeRelatedChallenge( challengeType ) ) {
