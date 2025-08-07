@@ -78,8 +78,7 @@ class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChallenge> exte
   // use only, and is used to make it easier to move through the game while testing.
   protected readonly showAnswerNode: Node | null = null;
 
-  //REVIEW https://github.com/phetsims/build-an-atom/issues/315 Constructor should be protected.
-  public constructor( challenge: TChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
+  protected constructor( challenge: TChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( {
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false
