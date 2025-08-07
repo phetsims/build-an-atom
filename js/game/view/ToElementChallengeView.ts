@@ -159,14 +159,14 @@ class ToElementChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.atomicNumberProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.get();
-    this.neutralOrIonProperty.value = this.challenge.correctAnswerAtom.netChargeProperty.get() === 0 ? 'neutral' : 'ion';
+    this.neutralOrIonProperty.value = this.challenge.correctAnswerAtom.chargeProperty.get() === 0 ? 'neutral' : 'ion';
   }
 
   public override createAnswerNode(): Node {
     const elementAndIonStringProperty = new DerivedStringProperty(
       [
         this.challenge.correctAnswerAtom.protonCountProperty,
-        this.challenge.correctAnswerAtom.netChargeProperty
+        this.challenge.correctAnswerAtom.chargeProperty
       ],
       ( protonCount: number, charge: number ) => {
         const elementSymbol = AtomIdentifier.getSymbol( protonCount );

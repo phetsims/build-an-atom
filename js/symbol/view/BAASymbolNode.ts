@@ -24,7 +24,7 @@ class BAASymbolNode extends SymbolNode {
   public constructor( numberAtom: TNumberAtom | TReadOnlyNumberAtom, providedOptions: BAASymbolNodeOptions ) {
 
     const options = optionize<BAASymbolNodeOptions, SelfOptions, SymbolNodeOptions>()( {
-      netChargeProperty: numberAtom.netChargeProperty
+      chargeProperty: numberAtom.chargeProperty
     }, providedOptions );
 
     super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, options );
@@ -35,7 +35,7 @@ class BAASymbolNode extends SymbolNode {
     this.addChild( scaleImage );
 
     // Add the charge meter.
-    const chargeMeter = new ChargeMeter( numberAtom.netChargeProperty, {
+    const chargeMeter = new ChargeMeter( numberAtom.chargeProperty, {
       showNumericalReadout: false
     } );
     chargeMeter.scale( 1.6 );
@@ -46,8 +46,8 @@ class BAASymbolNode extends SymbolNode {
     scaleImage.centerY = this.massNumberDisplay.centerY;
     this.boundingBox.left = scaleImage.right + 10;
     chargeMeter.left = this.boundingBox.right + 10;
-    if ( this.netChargeDisplay ) {
-      chargeMeter.centerY = this.netChargeDisplay.centerY;
+    if ( this.chargeDisplay ) {
+      chargeMeter.centerY = this.chargeDisplay.centerY;
     }
   }
 }

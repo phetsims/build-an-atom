@@ -57,7 +57,7 @@ class ToSymbolChallengeView extends ChallengeView {
     const userSubmittedAnswer = new AnswerAtom( {
       protonCount: this.interactiveSymbolNode.protonCountProperty.value,
       neutronCount: this.interactiveSymbolNode.massNumberProperty.value - this.interactiveSymbolNode.protonCountProperty.value,
-      electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.netChargeProperty.value
+      electronCount: this.interactiveSymbolNode.protonCountProperty.value - this.interactiveSymbolNode.chargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
@@ -65,7 +65,7 @@ class ToSymbolChallengeView extends ChallengeView {
   public override displayCorrectAnswer(): void {
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.get();
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.get();
-    this.interactiveSymbolNode.netChargeProperty.value = this.challenge.correctAnswerAtom.netChargeProperty.get();
+    this.interactiveSymbolNode.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.get();
   }
 
   public override reset(): void {
@@ -92,10 +92,10 @@ class ToSymbolChallengeView extends ChallengeView {
 
       // Add the text node for the net charge, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
-        [ this.challenge.correctAnswerAtom.netChargeProperty ],
-        ( netCharge: number ) => {
-          const sign = netCharge > 0 ? MathSymbols.UNARY_PLUS : netCharge < 0 ? MathSymbols.UNARY_MINUS : '';
-          return `Net Charge: ${Math.abs( netCharge )}${sign}`;
+        [ this.challenge.correctAnswerAtom.chargeProperty ],
+        ( charge: number ) => {
+          const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
+          return `Net Charge: ${Math.abs( charge )}${sign}`;
         }
       );
       answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

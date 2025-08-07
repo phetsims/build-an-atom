@@ -33,7 +33,7 @@ class AtomValuePool {
     const meetsCriteria = ( numberAtom: NumberAtom ): boolean => {
       return numberAtom.protonCountProperty.get() >= minProtonCount &&
              numberAtom.protonCountProperty.get() < maxProtonCount &&
-             ( !requireCharged || numberAtom.netChargeProperty.get() !== 0 );
+             ( !requireCharged || numberAtom.chargeProperty.get() !== 0 );
 
     };
 

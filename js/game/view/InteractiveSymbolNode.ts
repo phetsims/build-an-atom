@@ -49,7 +49,7 @@ class InteractiveSymbolNode extends Panel {
 
   public readonly protonCountProperty: NumberProperty;
   public readonly massNumberProperty: NumberProperty;
-  public readonly netChargeProperty: NumberProperty;
+  public readonly chargeProperty: NumberProperty;
 
   private options: SelfOptions;
 
@@ -77,8 +77,8 @@ class InteractiveSymbolNode extends Panel {
       numberType: 'Integer',
       phetioReadOnly: true
     } );
-    const netChargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.netChargeProperty.get(), {
-      tandem: options.tandem.createTandem( 'netChargeProperty' ),
+    const chargeProperty = new NumberProperty( options.interactiveCharge ? 0 : numberAtom.chargeProperty.get(), {
+      tandem: options.tandem.createTandem( 'chargeProperty' ),
       phetioDocumentation: 'Charge value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
@@ -95,8 +95,8 @@ class InteractiveSymbolNode extends Panel {
       } );
     }
     if ( !options.interactiveCharge ) {
-      numberAtom.netChargeProperty.link( charge => {
-        netChargeProperty.value = charge;
+      numberAtom.chargeProperty.link( charge => {
+        chargeProperty.value = charge;
       } );
     }
 
@@ -210,7 +210,7 @@ class InteractiveSymbolNode extends Panel {
     // Add the charge display, either interactive or not.
     if ( options.interactiveCharge ) {
       background.addChild( new BAANumberSpinner(
-        netChargeProperty,
+        chargeProperty,
         options.tandem.createTandem( 'chargeNumberSpinner' ), {
           minValue: -99,
           maxValue: 99,
@@ -232,10 +232,10 @@ class InteractiveSymbolNode extends Panel {
       } );
       background.addChild( chargeDisplay );
 
-      netChargeProperty.link( charge => {
+      chargeProperty.link( charge => {
         const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
         displayedTextProperty.value = `${Math.abs( charge ).toString()}${chargeSign}`;
-        chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.netChargeProperty.get() );
+        chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() );
         chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       } );
     }
@@ -246,7 +246,7 @@ class InteractiveSymbolNode extends Panel {
     this.options = options;
     this.protonCountProperty = protonCountProperty;
     this.massNumberProperty = massNumberProperty;
-    this.netChargeProperty = netChargeProperty;
+    this.chargeProperty = chargeProperty;
 
     // Updating the element if the element string property changes.
     elementDynamicStringProperty.link( () => {
@@ -257,7 +257,7 @@ class InteractiveSymbolNode extends Panel {
   public reset(): void {
     this.options.interactiveProtonCount && this.protonCountProperty.reset();
     this.options.interactiveMassNumber && this.massNumberProperty.reset();
-    this.options.interactiveCharge && this.netChargeProperty.reset();
+    this.options.interactiveCharge && this.chargeProperty.reset();
   }
 }
 

@@ -78,10 +78,10 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override createAnswerNode(): Node {
     const chargeTextProperty = new DerivedStringProperty(
-      [ this.challenge.correctAnswerAtom.netChargeProperty ],
-      ( netCharge: number ) => {
-        const sign = netCharge > 0 ? MathSymbols.UNARY_PLUS : netCharge < 0 ? MathSymbols.UNARY_MINUS : '';
-        return `Net Charge: ${Math.abs( netCharge )}${sign}`;
+      [ this.challenge.correctAnswerAtom.chargeProperty ],
+      ( charge: number ) => {
+        const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
+        return `Net Charge: ${Math.abs( charge )}${sign}`;
       }
     );
     return new Text( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
@@ -97,7 +97,7 @@ class CountsToChargeChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeProperty.value = this.challenge.correctAnswerAtom.netChargeProperty.get();
+    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.get();
   }
 }
 
