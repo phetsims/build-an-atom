@@ -14,9 +14,9 @@ import GameModel from './GameModel.js';
 
 abstract class ToSymbolChallenge extends BAAGameChallenge {
 
-  public configurableProtonCount = false;
-  public configurableMassNumber = false;
-  public configurableCharge = false;
+  public isProtonCountConfigurable = false;
+  public isMassNumberConfigurable = false;
+  public isChargeConfigurable = false;
 
   protected constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
     super( buildAnAtomGameModel, tandem );

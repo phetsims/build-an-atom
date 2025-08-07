@@ -24,9 +24,9 @@ class SchematicToSymbolChallenge extends ToSymbolChallenge {
     configurableCharge: boolean
   ) {
     super( buildAnAtomGameModel, tandem );
-    this.configurableProtonCount = configurableProtonCount;
-    this.configurableMassNumber = configurableMassNumber;
-    this.configurableCharge = configurableCharge;
+    this.isProtonCountConfigurable = configurableProtonCount;
+    this.isMassNumberConfigurable = configurableMassNumber;
+    this.isChargeConfigurable = configurableCharge;
   }
 
   /**

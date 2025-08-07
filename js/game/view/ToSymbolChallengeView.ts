@@ -36,9 +36,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
     this.interactiveSymbolNode = new InteractiveSymbolNode(
       toSymbolChallenge.correctAnswerAtom,
       {
-        isProtonCountInteractive: toSymbolChallenge.configurableProtonCount,
-        isMassNumberInteractive: toSymbolChallenge.configurableMassNumber,
-        isChargeInteractive: toSymbolChallenge.configurableCharge,
+        isProtonCountInteractive: toSymbolChallenge.isProtonCountConfigurable,
+        isMassNumberInteractive: toSymbolChallenge.isMassNumberConfigurable,
+        isChargeInteractive: toSymbolChallenge.isChargeConfigurable,
         showArrowButtonsProperty: toSymbolChallenge.isAnswerInteractiveProperty,
         tandem: tandem.createTandem( 'interactiveSymbolNode' )
       }
@@ -73,9 +73,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
   public override createAnswerNode(): Node {
 
     let answerNode: Node;
-    if ( this.challenge.configurableProtonCount &&
-         !this.challenge.configurableCharge &&
-         !this.challenge.configurableMassNumber ) {
+    if ( this.challenge.isProtonCountConfigurable &&
+         !this.challenge.isChargeConfigurable &&
+         !this.challenge.isMassNumberConfigurable ) {
 
       // Add the text node for the atomic number, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
@@ -84,9 +84,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       );
       answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
-    else if ( this.challenge.configurableCharge &&
-              !this.challenge.configurableProtonCount &&
-              !this.challenge.configurableMassNumber ) {
+    else if ( this.challenge.isChargeConfigurable &&
+              !this.challenge.isProtonCountConfigurable &&
+              !this.challenge.isMassNumberConfigurable ) {
 
       // Add the text node for the net charge, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
@@ -98,9 +98,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       );
       answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
-    else if ( this.challenge.configurableMassNumber &&
-              !this.challenge.configurableProtonCount &&
-              !this.challenge.configurableCharge ) {
+    else if ( this.challenge.isMassNumberConfigurable &&
+              !this.challenge.isProtonCountConfigurable &&
+              !this.challenge.isChargeConfigurable ) {
 
       // Add the text node for the mass number, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
