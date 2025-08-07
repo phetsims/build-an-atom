@@ -184,6 +184,9 @@ class GameScreenView extends ScreenView {
       // Remove the old challenge view if it exists.
       this.activeChallengeView && this.removeChild( this.activeChallengeView );
 
+      // Clear this challenge view of anything that the user may have submitted in the previous challenges.
+      challengeView.reset();
+
       // Show the new challenge view.
       this.addChild( challengeView );
     }
