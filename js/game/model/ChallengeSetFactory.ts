@@ -54,8 +54,7 @@ export default class ChallengeSetFactory {
         model,
         validChallengeNames,
         atomValuePool,
-        previousChallengeType,
-        tandem
+        previousChallengeType
       );
       if ( challengeDescriptor ) {
         challengeDescriptors.push( challengeDescriptor );
@@ -82,10 +81,7 @@ export default class ChallengeSetFactory {
     model: GameModel,
     validChallengeTypes: ChallengeType[],
     availableAtomValues: AtomValuePool,
-    previousChallengeType: null | ChallengeType,
-
-    //REVIEW https://github.com/phetsims/build-an-atom/issues/315 tandem arg is not used. Should it be?
-    tandem: Tandem
+    previousChallengeType: null | ChallengeType
   ): ChallengeDescriptor {
 
     const random = model.random;
