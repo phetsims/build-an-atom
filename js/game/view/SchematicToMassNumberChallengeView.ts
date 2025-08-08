@@ -39,6 +39,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       phetioDocumentation: 'Mass value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true,
+      phetioFeatured: true,
       range: new Range( 0, 99 ) // Mass number is always a non-negative integer
     } );
 

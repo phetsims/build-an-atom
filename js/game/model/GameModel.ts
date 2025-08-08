@@ -147,14 +147,16 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'gameStateProperty' ),
       phetioDocumentation: 'The current game state, which is used to determine what the view should display.',
       phetioValueType: StringUnionIO( GameStateValues ),
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      phetioFeatured: true
     } );
 
     this.pointsProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'pointsProperty' ),
       phetioDocumentation: 'Points that have been earned for the current challenge.',
       phetioReadOnly: true,
-      range: new Range( 0, POSSIBLE_POINTS_PER_CHALLENGE )
+      range: new Range( 0, POSSIBLE_POINTS_PER_CHALLENGE ),
+      phetioFeatured: true
     } );
 
     // Create a Map of challenge types to a single instance of each type.
@@ -181,7 +183,8 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'challengeProperty' ),
       phetioDocumentation: 'The current challenge that is being played, null means that no challenge is active.',
       phetioValueType: NullableIO( BAAGameChallenge.BAAGameChallengeIO ),
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      phetioFeatured: true
     } );
 
     // Create the levels.
@@ -226,7 +229,8 @@ class GameModel implements TModel {
       tandem: tandem.createTandem( 'scoreProperty' ),
       phetioDocumentation: 'Score on current game level.',
       range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL ),
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      phetioFeatured: true
     } );
 
     this.levelProperty.lazyLink( level => {

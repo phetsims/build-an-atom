@@ -36,7 +36,8 @@ class CountsToChargeChallengeView extends ChallengeView {
       tandem: tandem.createTandem( 'chargeProperty' ),
       phetioDocumentation: 'Charge value entered by the user.',
       numberType: 'Integer',
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      phetioFeatured: true
     } );
 
     // Particle counts

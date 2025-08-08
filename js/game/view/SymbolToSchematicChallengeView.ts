@@ -82,21 +82,24 @@ class SymbolToSchematicChallengeView extends ChallengeView {
       {
         tandem: particleCountTandem.createTandem( 'protonCountProperty' ),
         phetioDocumentation: 'The number of protons entered by the user.',
-        phetioValueType: NumberIO
+        phetioValueType: NumberIO,
+        phetioFeatured: true
       } );
     this.userNeutronCountProperty = new DerivedProperty(
       [ challenge.buildAnAtomModel.atom.neutronCountProperty ], neutrons => neutrons,
       {
         tandem: particleCountTandem.createTandem( 'neutronCountProperty' ),
         phetioDocumentation: 'The number of neutrons entered by the user.',
-        phetioValueType: NumberIO
+        phetioValueType: NumberIO,
+        phetioFeatured: true
       } );
     this.userElectronCountProperty = new DerivedProperty(
       [ challenge.buildAnAtomModel.atom.electronCountProperty ], electrons => electrons,
       {
         tandem: particleCountTandem.createTandem( 'electronCountProperty' ),
         phetioDocumentation: 'The number of electrons entered by the user.',
-        phetioValueType: NumberIO
+        phetioValueType: NumberIO,
+        phetioFeatured: true
       } );
 
     // layout

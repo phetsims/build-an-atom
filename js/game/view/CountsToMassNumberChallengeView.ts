@@ -10,6 +10,7 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Range from '../../../../dot/js/Range.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -34,7 +35,9 @@ class CountsToMassNumberChallengeView extends ChallengeView {
       tandem: tandem.createTandem( 'massNumberProperty' ),
       phetioDocumentation: 'Mass value entered by the user.',
       numberType: 'Integer',
-      phetioReadOnly: true
+      phetioReadOnly: true,
+      phetioFeatured: true,
+      range: new Range( 0, 99 ) // Mass number is always a non-negative integer
     } );
 
     // Particle counts
