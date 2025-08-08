@@ -415,13 +415,6 @@ class GameModel implements TModel {
     // Reset the number of attempts made.
     this.attemptsProperty.value = 0;
 
-    // Increment the challenge number and get the next challenge.
-    const nextChallengeDescriptor = level.challengeDescriptors[ challengeNumber - 1 ];
-    const nextChallenge = this.getChallengeByDescriptor( nextChallengeDescriptor );
-
-    // Configure the next challenge.
-    nextChallenge.setCorrectAnswer( nextChallengeDescriptor.atomValue );
-
     // Set the challenge property to this challenge.
     this.challengeProperty.value = this.getChallengeByDescriptor(
       level.challengeDescriptors[ this.challengeNumberProperty.value - 1 ]
