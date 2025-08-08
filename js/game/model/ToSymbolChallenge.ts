@@ -12,6 +12,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
 type SelfOptions = {
@@ -33,7 +34,7 @@ abstract class ToSymbolChallenge extends BAAGameChallenge {
   public readonly isMassNumberConfigurable;
   public readonly isChargeConfigurable;
 
-  protected constructor( buildAnAtomGameModel: GameModel, providedOptions: ToSymbolChallengeOptions ) {
+  protected constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, providedOptions: ToSymbolChallengeOptions ) {
 
     const options = optionize<ToSymbolChallengeOptions, SelfOptions, PhetioObjectOptions>()( {
       isProtonCountConfigurable: false,
@@ -41,7 +42,7 @@ abstract class ToSymbolChallenge extends BAAGameChallenge {
       isChargeConfigurable: false
     }, providedOptions );
 
-    super( buildAnAtomGameModel, options.tandem );
+    super( buildAnAtomGameModel, challengeType, options.tandem );
 
     this.isProtonCountConfigurable = options.isProtonCountConfigurable;
     this.isMassNumberConfigurable = options.isMassNumberConfigurable;

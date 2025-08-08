@@ -10,11 +10,12 @@
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
 abstract class ToElementChallenge extends BAAGameChallenge {
-  protected constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, tandem );
+  protected constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
+    super( buildAnAtomGameModel, challengeType, tandem );
   }
 }
 

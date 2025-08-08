@@ -13,14 +13,15 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import SymbolToSchematicChallengeView from '../view/SymbolToSchematicChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
 class SymbolToSchematicChallenge extends BAAGameChallenge {
 
   public readonly buildAnAtomModel: BAAModel;
 
-  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, tandem );
+  public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
+    super( buildAnAtomGameModel, challengeType, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with which the user can interact. We want to
     // keep this model out of the state.

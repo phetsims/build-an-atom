@@ -18,6 +18,7 @@ import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/Refer
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeView from '../view/ChallengeView.js';
 import AnswerAtom from './AnswerAtom.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
 abstract class BAAGameChallenge extends PhetioObject {
@@ -30,7 +31,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   // This flag is used to hide the arrow buttons on Spinners whenever we're checking or showing the correct answer.
   public isAnswerInteractiveProperty: Property<boolean>;
 
-  protected constructor( model: GameModel, tandem: Tandem ) {
+  protected constructor( model: GameModel, public readonly challengeType: ChallengeType, tandem: Tandem ) {
 
     super( {
       tandem: tandem,

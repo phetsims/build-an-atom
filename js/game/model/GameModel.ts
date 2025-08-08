@@ -68,7 +68,7 @@ export const GameStateValues = [
 export type GameState = ( typeof GameStateValues )[number];
 
 // Map from challenge type strings to constructors.
-const CHALLENGE_TYPE_TO_CONSTRUCTOR_MAP = new Map<ChallengeType, new( model: GameModel, tandem: Tandem ) => BAAGameChallenge>( [
+const CHALLENGE_TYPE_TO_CONSTRUCTOR_MAP = new Map<ChallengeType, new( model: GameModel, challengeType: ChallengeType, tandem: Tandem ) => BAAGameChallenge>( [
   [ 'counts-to-element', CountsToElementChallenge ],
   [ 'counts-to-charge', CountsToChargeChallenge ],
   [ 'counts-to-mass-number', CountsToMassNumberChallenge ],
@@ -163,7 +163,7 @@ class GameModel implements TModel {
       const tandemName = challengeType.replace( /-([a-z])/g, ( match, letter ) => letter.toUpperCase() ) + 'Challenge';
       this.challengeTypeToInstanceMap.set(
         challengeType,
-        new Ctor( this, challengesTandem.createTandem( tandemName ) )
+        new Ctor( this, challengeType, challengesTandem.createTandem( tandemName ) )
       );
     } );
 

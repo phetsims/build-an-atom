@@ -11,13 +11,14 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToSymbolChallengeView from '../view/SchematicToSymbolChallengeView.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
 
 class SchematicToSymbolAllChallenge extends SchematicToSymbolChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, {
+  public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
+    super( buildAnAtomGameModel, challengeType, {
       isProtonCountConfigurable: true,
       isMassNumberConfigurable: true,
       isChargeConfigurable: true,

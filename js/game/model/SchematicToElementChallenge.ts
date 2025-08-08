@@ -11,13 +11,14 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import SchematicToElementChallengeView from '../view/SchematicToElementChallengeView.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 import ToElementChallenge from './ToElementChallenge.js';
 
 class SchematicToElementChallenge extends ToElementChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, tandem );
+  public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
+    super( buildAnAtomGameModel, challengeType, tandem );
   }
 
   /**

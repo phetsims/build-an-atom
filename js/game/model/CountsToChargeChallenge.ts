@@ -12,12 +12,13 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import CountsToChargeChallengeView from '../view/CountsToChargeChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 
 class CountsToChargeChallenge extends BAAGameChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
-    super( buildAnAtomGameModel, tandem );
+  public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
+    super( buildAnAtomGameModel, challengeType, tandem );
   }
 
   /**

@@ -11,13 +11,14 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import CountsToSymbolChallengeView from '../view/CountsToSymbolChallengeView.js';
+import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 import ToSymbolChallenge, { ToSymbolChallengeOptions } from './ToSymbolChallenge.js';
 
 class CountsToSymbolChallenge extends ToSymbolChallenge {
 
-  public constructor( buildAnAtomGameModel: GameModel, options: ToSymbolChallengeOptions ) {
-    super( buildAnAtomGameModel, options );
+  public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, options: ToSymbolChallengeOptions ) {
+    super( buildAnAtomGameModel, challengeType, options );
   }
 
   /**
