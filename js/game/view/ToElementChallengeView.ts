@@ -14,6 +14,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
@@ -170,10 +171,10 @@ class ToElementChallengeView extends ChallengeView {
       ( protonCount: number, charge: number ) => {
         const elementSymbol = AtomIdentifier.getSymbol( protonCount );
         const ionString = charge === 0 ? 'Neutral Atom' : 'Ion';
-        return `${elementSymbol}, ${ionString}`;
+        return `${this.challenge.challengeType}<br> ${elementSymbol}, ${ionString}`;
       }
     );
-    return new Text( elementAndIonStringProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+    return new RichText( elementAndIonStringProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 
 }

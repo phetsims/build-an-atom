@@ -13,7 +13,6 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -81,10 +80,10 @@ class CountsToChargeChallengeView extends ChallengeView {
       [ this.challenge.correctAnswerAtom.chargeProperty ],
       ( charge: number ) => {
         const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
-        return `Net Charge: ${Math.abs( charge )}${sign}`;
+        return `${this.challenge.challengeType}<br> Net Charge: ${Math.abs( charge )}${sign}`;
       }
     );
-    return new Text( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+    return new RichText( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 
   public override checkAnswer(): void {

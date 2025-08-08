@@ -12,7 +12,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -86,9 +85,9 @@ class CountsToMassNumberChallengeView extends ChallengeView {
   public override createAnswerNode(): Node {
     const massNumberTextProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.massNumberProperty ],
-      ( massNumber: number ) => `Mass Number: ${massNumber}`
+      ( massNumber: number ) => `${this.challenge.challengeType}<br> Mass Number: ${massNumber}`
     );
-    return new Text( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+    return new RichText( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
 

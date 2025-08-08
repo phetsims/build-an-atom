@@ -11,7 +11,7 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Text from '../../../../scenery/js/nodes/Text.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -80,9 +80,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       // Add the text node for the atomic number, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
         [ this.challenge.correctAnswerAtom.protonCountProperty ],
-        ( atomicNumber: number ) => `Atomic Number: ${atomicNumber}`
+        ( atomicNumber: number ) => `${this.challenge.challengeType}<br> Atomic Number: ${atomicNumber}`
       );
-      answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else if ( this.challenge.isChargeConfigurable &&
               !this.challenge.isProtonCountConfigurable &&
@@ -93,10 +93,10 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
         [ this.challenge.correctAnswerAtom.chargeProperty ],
         ( charge: number ) => {
           const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
-          return `Net Charge: ${Math.abs( charge )}${sign}`;
+          return `${this.challenge.challengeType}<br> Net Charge: ${Math.abs( charge )}${sign}`;
         }
       );
-      answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else if ( this.challenge.isMassNumberConfigurable &&
               !this.challenge.isProtonCountConfigurable &&
@@ -105,9 +105,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       // Add the text node for the mass number, since that is the only configurable property.
       const atomicNumberTextProperty = new DerivedStringProperty(
         [ this.challenge.correctAnswerAtom.massNumberProperty ],
-        ( massNumber: number ) => `Mass Number: ${Math.abs( massNumber )}`
+        ( massNumber: number ) => `${this.challenge.challengeType}<br> Mass Number: ${Math.abs( massNumber )}`
       );
-      answerNode = new Text( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else {
 

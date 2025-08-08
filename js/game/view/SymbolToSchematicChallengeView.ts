@@ -14,7 +14,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Text from '../../../../scenery/js/nodes/Text.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
@@ -132,10 +132,10 @@ class SymbolToSchematicChallengeView extends ChallengeView {
         this.challenge.correctAnswerAtom.electronCountProperty
       ],
       ( protonCount: number, neutronCount, electronCount ) => {
-        return `Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
+        return `${this.challenge.challengeType}<br> Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
       }
     );
-    return new Text( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+    return new RichText( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
 

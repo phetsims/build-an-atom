@@ -10,7 +10,7 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Text from '../../../../scenery/js/nodes/Text.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
@@ -73,10 +73,10 @@ class SymbolToCountsChallengeView extends ChallengeView {
         this.challenge.correctAnswerAtom.electronCountProperty
       ],
       ( protonCount: number, neutronCount, electronCount ) => {
-        return `Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
+        return `${this.challenge.challengeType}<br> Protons: ${protonCount}, Neutrons: ${neutronCount}, Electrons: ${electronCount}`;
       }
     );
-    return new Text( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+    return new RichText( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
 
