@@ -61,9 +61,9 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
   }
 
   public override displayCorrectAnswer(): void {
-    this.interactiveSymbolNode.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.get();
-    this.interactiveSymbolNode.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.get();
-    this.interactiveSymbolNode.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.get();
+    this.interactiveSymbolNode.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
+    this.interactiveSymbolNode.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
+    this.interactiveSymbolNode.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
   }
 
   public override reset(): void {

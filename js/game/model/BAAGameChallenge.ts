@@ -58,7 +58,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   }
 
   public tryAgain(): void {
-    this.model.gameStateProperty.set( 'presentingChallenge' );
+    this.model.gameStateProperty.value = 'presentingChallenge';
   }
 
   public setCorrectAnswer( correctAnswerAtom: NumberAtom ): void {
@@ -72,7 +72,7 @@ abstract class BAAGameChallenge extends PhetioObject {
   }
 
   public displayCorrectAnswer(): void {
-    this.model.gameStateProperty.set( 'showingAnswer' );
+    this.model.gameStateProperty.value = 'showingAnswer';
   }
 
   public abstract createView( layoutBounds: Bounds2, tandem: Tandem ): ChallengeView;

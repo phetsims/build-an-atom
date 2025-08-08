@@ -129,7 +129,7 @@ class BAAScreenView extends ScreenView {
 
       assert && assert( nucleon.type === 'proton' || nucleon.type === 'neutron', 'this is not a nucleon' );
 
-      nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( new BAAParticleView( nucleon, modelViewTransform, {
+      nucleonLayers[ nucleon.zLayerProperty.value ].addChild( new BAAParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
         tandem: nucleon.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
@@ -185,7 +185,7 @@ class BAAScreenView extends ScreenView {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         if ( electronNode instanceof ParticleView ) {
-          electronNode.visible = this.viewProperties.electronModelProperty.get() === 'orbits' ||
+          electronNode.visible = this.viewProperties.electronModelProperty.value === 'orbits' ||
                                  !model.atom.electrons.includes( electronNode.particle );
         }
       } );
@@ -229,7 +229,7 @@ class BAAScreenView extends ScreenView {
         click: () => {
           const activeParticle = bucket.extractClosestParticle( bucket.position );
           if ( activeParticle !== null ) {
-            activeParticle.isDraggingProperty.set( true );
+            activeParticle.isDraggingProperty.value = true;
           }
         }
       } );

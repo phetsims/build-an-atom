@@ -65,19 +65,19 @@ class InteractiveSymbolNode extends Panel {
       stroke: null
     }, providedOptions );
 
-    const protonCountProperty = new NumberProperty( options.isProtonCountInteractive ? 0 : numberAtom.protonCountProperty.get(), {
+    const protonCountProperty = new NumberProperty( options.isProtonCountInteractive ? 0 : numberAtom.protonCountProperty.value, {
       tandem: options.tandem.createTandem( 'protonCountProperty' ),
       phetioDocumentation: 'Atomic number entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
-    const massNumberProperty = new NumberProperty( options.isMassNumberInteractive ? 0 : numberAtom.massNumberProperty.get(), {
+    const massNumberProperty = new NumberProperty( options.isMassNumberInteractive ? 0 : numberAtom.massNumberProperty.value, {
       tandem: options.tandem.createTandem( 'massNumberProperty' ),
       phetioDocumentation: 'Mass value entered by the user.',
       numberType: 'Integer',
       phetioReadOnly: true
     } );
-    const chargeProperty = new NumberProperty( options.isChargeInteractive ? 0 : numberAtom.chargeProperty.get(), {
+    const chargeProperty = new NumberProperty( options.isChargeInteractive ? 0 : numberAtom.chargeProperty.value, {
       tandem: options.tandem.createTandem( 'chargeProperty' ),
       phetioDocumentation: 'Charge value entered by the user.',
       numberType: 'Integer',
@@ -180,7 +180,7 @@ class InteractiveSymbolNode extends Panel {
         bottom: SYMBOL_BOX_HEIGHT - NUMBER_INSET
       } );
       background.addChild( protonCountDisplay );
-      updateElement( numberAtom.protonCountProperty.get() );
+      updateElement( numberAtom.protonCountProperty.value );
     }
 
     // Add the mass number display, either interactive or not.
@@ -235,7 +235,7 @@ class InteractiveSymbolNode extends Panel {
       chargeProperty.link( charge => {
         const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
         displayedTextProperty.value = `${Math.abs( charge ).toString()}${chargeSign}`;
-        chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.get() );
+        chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.value );
         chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       } );
     }

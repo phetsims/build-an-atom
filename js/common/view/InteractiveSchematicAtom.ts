@@ -76,7 +76,7 @@ class InteractiveSchematicAtom extends Node {
       const particleView = new BAAParticleView( nucleon, modelViewTransform, {
         tandem: tandemGroup.createNextTandem()
       } );
-      nucleonLayers[ nucleon.zLayerProperty.get() ].addChild( particleView );
+      nucleonLayers[ nucleon.zLayerProperty.value ].addChild( particleView );
 
       // Add a listener that adjusts a nucleon's z-order layering.
       nucleon.zLayerProperty.link( ( zLayer: number ) => {

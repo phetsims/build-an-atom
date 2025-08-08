@@ -31,9 +31,9 @@ class AtomValuePool {
 
   public getRandomAtomValue( random: Random, minProtonCount: number, maxProtonCount: number, isChargedRequired: boolean ): NumberAtom {
     const meetsCriteria = ( numberAtom: NumberAtom ): boolean => {
-      return numberAtom.protonCountProperty.get() >= minProtonCount &&
-             numberAtom.protonCountProperty.get() < maxProtonCount &&
-             ( !isChargedRequired || numberAtom.chargeProperty.get() !== 0 );
+      return numberAtom.protonCountProperty.value >= minProtonCount &&
+             numberAtom.protonCountProperty.value < maxProtonCount &&
+             ( !isChargedRequired || numberAtom.chargeProperty.value !== 0 );
 
     };
 

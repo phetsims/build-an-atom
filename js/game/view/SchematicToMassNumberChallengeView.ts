@@ -91,15 +91,15 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.get(),
-      neutronCount: this.massNumberProperty.value - this.challenge.correctAnswerAtom.protonCountProperty.get(),
-      electronCount: this.challenge.correctAnswerAtom.electronCountProperty.get()
+      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.value,
+      neutronCount: this.massNumberProperty.value - this.challenge.correctAnswerAtom.protonCountProperty.value,
+      electronCount: this.challenge.correctAnswerAtom.electronCountProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.get();
+    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
   }
 
   public override reset(): void {

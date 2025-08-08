@@ -88,15 +88,15 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.get(),
-      neutronCount: this.challenge.correctAnswerAtom.neutronCountProperty.get(),
-      electronCount: this.challenge.correctAnswerAtom.protonCountProperty.get() - this.chargeProperty.value
+      protonCount: this.challenge.correctAnswerAtom.protonCountProperty.value,
+      neutronCount: this.challenge.correctAnswerAtom.neutronCountProperty.value,
+      electronCount: this.challenge.correctAnswerAtom.protonCountProperty.value - this.chargeProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.get();
+    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
   }
 }
 

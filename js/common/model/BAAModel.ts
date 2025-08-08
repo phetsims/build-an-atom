@@ -132,7 +132,7 @@ class BAAModel {
 
     // Define a function that will decide where to put nucleons.
     const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
-      if ( particle.positionProperty.get().distance( atom.positionProperty.get() ) < NUCLEON_CAPTURE_RADIUS ) {
+      if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
       }
       else {
@@ -178,7 +178,7 @@ class BAAModel {
       Multilink.multilink(
         [ nucleon.isDraggingProperty, nucleon.positionProperty, nucleon.destinationProperty ],
         ( isDragging, position, destination ) => {
-          nucleon.inputEnabledProperty.set( isDragging || position.equals( destination ) );
+          nucleon.inputEnabledProperty.value = isDragging || position.equals( destination );
         }
       );
     } );
@@ -202,7 +202,7 @@ class BAAModel {
           }
         }
         else if ( !isDragging && !this.buckets.electronBucket.includes( electron ) ) {
-          if ( electron.positionProperty.get().distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
+          if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
             this.atom.addParticle( electron );
           }
           else {
@@ -215,7 +215,7 @@ class BAAModel {
       Multilink.multilink(
         [ electron.isDraggingProperty, electron.positionProperty, electron.destinationProperty ],
         ( isDragging, position, destination ) => {
-          electron.inputEnabledProperty.set( isDragging || position.equals( destination ) );
+          electron.inputEnabledProperty.value = isDragging || position.equals( destination );
         }
       );
 
@@ -252,7 +252,7 @@ class BAAModel {
     } );
 
     // Animate the unstable nucleus by making it jump periodically.
-    if ( !this.atom.nucleusStableProperty.get() && this.animateNuclearInstabilityProperty.get() ) {
+    if ( !this.atom.nucleusStableProperty.value && this.animateNuclearInstabilityProperty.value ) {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
@@ -260,16 +260,15 @@ class BAAModel {
           this.nucleusJumpCount++;
           const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
           const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
-          this.atom.nucleusOffsetProperty.set(
-            new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance )
-          );
+          this.atom.nucleusOffsetProperty.value =
+            new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
         }
       }
     }
-    else if ( this.atom.nucleusOffsetProperty.get() !== Vector2.ZERO ) {
+    else if ( this.atom.nucleusOffsetProperty.value !== Vector2.ZERO ) {
 
       // animation is not running, make sure nucleus is in center of atom
-      this.atom.nucleusOffsetProperty.set( Vector2.ZERO );
+      this.atom.nucleusOffsetProperty.value = Vector2.ZERO;
     }
   }
 
@@ -290,12 +289,12 @@ class BAAModel {
 
     // Move any particles that are in transit back to its bucket.
     this.nucleons.forEach( nucleon => {
-      if ( !nucleon.positionProperty.get().equals( nucleon.destinationProperty.get() ) ) {
+      if ( !nucleon.positionProperty.value.equals( nucleon.destinationProperty.value ) ) {
         nucleon.moveImmediatelyToDestination();
       }
     } );
     this.electrons.forEach( electron => {
-      if ( !electron.positionProperty.get().equals( electron.destinationProperty.get() ) ) {
+      if ( !electron.positionProperty.value.equals( electron.destinationProperty.value ) ) {
         electron.moveImmediatelyToDestination();
       }
     } );
@@ -329,7 +328,7 @@ class BAAModel {
     this.reset();
 
     // Define a function for transferring particles from buckets to atom.
-    const atomCenter = this.atom.positionProperty.get();
+    const atomCenter = this.atom.positionProperty.value;
     const moveParticlesToAtom = (
       currentCountInAtom: number,
       targetCountInAtom: number,
@@ -339,7 +338,7 @@ class BAAModel {
       while ( currentCountInAtom < targetCountInAtom ) {
         const particle = bucket.extractClosestParticle( atomCenter )!;
         particle.setPositionAndDestination( atomCenter );
-        particle.isDraggingProperty.set( false ); // Necessary to make it look like user released particle.
+        particle.isDraggingProperty.value = false; // Necessary to make it look like user released particle.
         currentCountInAtom++;
       }
       while ( currentCountInAtom > targetCountInAtom ) {
@@ -350,19 +349,19 @@ class BAAModel {
 
     // Move the particles.
     moveParticlesToAtom( this.atom.protons.length,
-      numberAtom.protonCountProperty.get(),
+      numberAtom.protonCountProperty.value,
       this.atom.protons,
       this.buckets.protonBucket
     );
     moveParticlesToAtom(
       this.atom.neutrons.length,
-      numberAtom.neutronCountProperty.get(),
+      numberAtom.neutronCountProperty.value,
       this.atom.neutrons,
       this.buckets.neutronBucket
     );
     moveParticlesToAtom(
       this.atom.electrons.length,
-      numberAtom.electronCountProperty.get(),
+      numberAtom.electronCountProperty.value,
       this.atom.electrons,
       this.buckets.electronBucket
     );

@@ -114,16 +114,16 @@ class ChargeComparisonDisplay extends Node {
 
       // toggle plus visibility
       for ( let numProtons = 0; numProtons < MAX_CHARGE; numProtons++ ) {
-        plusses[ numProtons ].visible = numProtons < atom.protonCountProperty.get();
+        plusses[ numProtons ].visible = numProtons < atom.protonCountProperty.value;
       }
 
       // toggle minus visibility
       for ( let numElectrons = 0; numElectrons < MAX_CHARGE; numElectrons++ ) {
-        minuses[ numElectrons ].visible = numElectrons < atom.electronCountProperty.get();
+        minuses[ numElectrons ].visible = numElectrons < atom.electronCountProperty.value;
       }
 
       // matching box
-      const numMatchedSymbols = Math.min( atom.protonCountProperty.get(), atom.electronCountProperty.get() );
+      const numMatchedSymbols = Math.min( atom.protonCountProperty.value, atom.electronCountProperty.value );
       matchBox.visible = numMatchedSymbols > 0;
       matchBox.rectWidth = INTER_SYMBOL_DISTANCE / 2 + ( numMatchedSymbols * SYMBOL_WIDTH ) + ( ( numMatchedSymbols - 0.5 ) * INTER_SYMBOL_DISTANCE );
     };

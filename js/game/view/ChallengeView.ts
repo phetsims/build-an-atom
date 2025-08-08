@@ -168,7 +168,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     // Utility function to enable/disable interaction with answer portion of
     // the displayed challenge.
     const setAnswerNodeInteractive = ( isInteractive: boolean ) => {
-      challenge.isAnswerInteractiveProperty.set( isInteractive ); // This one is used to hide arrow buttons on spinners.
+      challenge.isAnswerInteractiveProperty.value = isInteractive; // This one is used to hide arrow buttons on spinners.
       this.interactiveAnswerNode.pickable = isInteractive; // This one disables periodic table, buckets and others
     };
 

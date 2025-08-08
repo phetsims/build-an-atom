@@ -110,7 +110,7 @@ class GameScreenView extends ScreenView {
         this.removeLevelCompletedNodes();
       }
       else if ( gameState === 'levelCompleted' ) {
-        if ( gameModel.scoreProperty.get() === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
+        if ( gameModel.scoreProperty.value === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
           this.rewardNode && this.rewardNode.dispose(); // Dispose of the previous reward node if it exists.
@@ -120,7 +120,7 @@ class GameScreenView extends ScreenView {
           // Play the appropriate audio feedback.
           gameAudioPlayer.gameOverPerfectScore();
         }
-        else if ( gameModel.scoreProperty.get() > 0 ) {
+        else if ( gameModel.scoreProperty.value > 0 ) {
           gameAudioPlayer.gameOverImperfectScore();
         }
 
@@ -130,12 +130,12 @@ class GameScreenView extends ScreenView {
         // Add the dialog node that indicates that the level has been completed.
         this.levelCompletedNode && this.levelCompletedNode.dispose(); // Dispose of the previous level completed node if it exists.
         this.levelCompletedNode = new LevelCompletedNode(
-          gameModel.levelNumberProperty.get(),
-          gameModel.scoreProperty.get(),
+          gameModel.levelNumberProperty.value,
+          gameModel.scoreProperty.value,
           GameModel.MAX_POINTS_PER_GAME_LEVEL,
           GameModel.CHALLENGES_PER_LEVEL,
-          gameModel.timerEnabledProperty.get(),
-          gameModel.timer.elapsedTimeProperty.get(),
+          gameModel.timerEnabledProperty.value,
+          gameModel.timer.elapsedTimeProperty.value,
           level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
           level!.isNewBestTimeProperty.value,
           () => { gameModel.levelProperty.reset(); }, {

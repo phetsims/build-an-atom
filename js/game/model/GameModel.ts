@@ -293,16 +293,16 @@ class GameModel implements TModel {
     this.scoreProperty.value += correctAnswer ? points : 0;
 
     if ( correctAnswer ) {
-      this.gameStateProperty.set( 'solvedCorrectly' );
+      this.gameStateProperty.value = 'solvedCorrectly';
       if ( level.isLastChallenge() ) {
         this.endLevel();
       }
     }
     else if ( attempts < 2 ) {
-      this.gameStateProperty.set( 'tryAgain' );
+      this.gameStateProperty.value = 'tryAgain';
     }
     else {
-      this.gameStateProperty.set( 'attemptsExhausted' );
+      this.gameStateProperty.value = 'attemptsExhausted';
       if ( level.isLastChallenge() ) {
         this.endLevel();
       }
@@ -324,8 +324,8 @@ class GameModel implements TModel {
       this.setChallenge( this.challengeNumberProperty.value );
     }
     else {
-      this.gameStateProperty.set( 'levelCompleted' );
-      this.challengeProperty.set( null ); // Clear the challenge, since the level is completed.
+      this.gameStateProperty.value = 'levelCompleted';
+      this.challengeProperty.value = null; // Clear the challenge, since the level is completed.
     }
   }
 
@@ -360,8 +360,8 @@ class GameModel implements TModel {
   public startOver(): void {
     this.resetToStart();
     this.levelProperty.reset();
-    this.gameStateProperty.set( 'levelSelection' );
-    this.challengeProperty.set( null ); // Clear the challenge, since none is active.
+    this.gameStateProperty.value = 'levelSelection';
+    this.challengeProperty.value = null; // Clear the challenge, since none is active.
     this.randomSeedProperty.value++; // Increment the random seed to ensure that the next level has different challenges.
   }
 
@@ -422,7 +422,7 @@ class GameModel implements TModel {
     );
 
     // Set the game state to presenting a challenge.
-    this.gameStateProperty.set( 'presentingChallenge' );
+    this.gameStateProperty.value = 'presentingChallenge';
   }
 
   /**

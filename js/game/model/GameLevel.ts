@@ -99,14 +99,14 @@ class GameLevel extends PhetioObject {
    * Ends the level, updating the best score and time if the score is a perfect score.
    */
   public endLevel( score: number, time: number ): void {
-    this.bestScoreProperty.set( Math.max( this.bestScoreProperty.value, score ) );
+    this.bestScoreProperty.value = Math.max( this.bestScoreProperty.value, score );
 
     this.isNewBestTimeProperty.value = false;
 
     // Register best times only if the score is a perfect score.
     if ( this.isPerfectScore( score ) &&
          ( this.bestTimeProperty.value === 0 || time < this.bestTimeProperty.value ) ) {
-      this.bestTimeProperty.set( time );
+      this.bestTimeProperty.value = time;
       this.isNewBestTimeProperty.value = true;
     }
 
