@@ -8,7 +8,9 @@
 
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import MassNumberDisplay from '../../atom/view/MassNumberDisplay.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
@@ -44,8 +46,13 @@ export default class MassAndChargeLevelIcon extends Node {
     chargeMeter.centerY = containerNode.centerY - chargeMeter.height * 0.75;
     massNumberDisplay.centerY = containerNode.centerY + massNumberDisplay.height / 2;
 
+    const levelNumberText = new RichText( '2', { font: new PhetFont( { size: 55, weight: 'bold' } ) } );
+
+    levelNumberText.centerX = containerNode.centerX;
+    levelNumberText.top = containerNode.bottom + 30;
+
     super( {
-        children: [ containerNode ]
+        children: [ containerNode, levelNumberText ]
       }
     );
   }

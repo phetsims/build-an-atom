@@ -10,6 +10,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
@@ -64,8 +65,15 @@ export default class SymbolLevelIcon extends Node {
     } );
     boundingBox.addChild( chargeNumberDisplay );
 
+    boundingBox.setScaleMagnitude( 0.5 );
+
+    const levelNumberText = new RichText( '3', { font: new PhetFont( { size: 70, weight: 'bold' } ) } );
+
+    levelNumberText.centerX = boundingBox.centerX;
+    levelNumberText.top = boundingBox.bottom + 10;
+
     super( {
-        children: [ boundingBox ]
+        children: [ boundingBox, levelNumberText ]
       }
     );
   }
