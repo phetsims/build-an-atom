@@ -139,6 +139,7 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
+    // TODO: Is it okay to use Random here? https://github.com/phetsims/build-an-atom/issues/303
     this.random = new Random( { seed: this.randomSeedProperty.value } );
 
     this.gameStateProperty = new Property<GameState>( 'levelSelection', {
