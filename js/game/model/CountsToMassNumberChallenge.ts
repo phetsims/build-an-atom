@@ -16,7 +16,7 @@ import GameModel from './GameModel.js';
 
 class CountsToMassNumberChallenge extends BAAGameChallenge {
 
-  protected constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
+  public constructor( buildAnAtomGameModel: GameModel, tandem: Tandem ) {
     super( buildAnAtomGameModel, tandem );
   }
 
