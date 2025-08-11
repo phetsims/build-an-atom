@@ -154,7 +154,9 @@ class LevelSelectionNode extends Node {
     // Update the position of the title and games info button based on the title bounds, which can change.
     title.localBoundsProperty.link( () => {
       title.centerX = layoutBounds.centerX;
-      title.centerY = ( layoutBounds.minY + buttonGroup.top ) / 2;
+      if ( buttonGroup.bounds.isFinite() ) {
+        title.centerY = ( layoutBounds.minY + buttonGroup.top ) / 2;
+      }
       gamesInfoButton.left = title.right + CONTROLS_INSET;
       gamesInfoButton.centerY = title.centerY;
     } );
