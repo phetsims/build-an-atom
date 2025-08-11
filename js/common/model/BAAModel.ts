@@ -66,14 +66,11 @@ class BAAModel {
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
 
-  // countdown for nucleus jump animation
-  private nucleusJumpCountdown: number;
-
-  // offset for nucleus jump animation
-  private readonly nucleusOffset: Vector2;
+  // countdown for nucleus jump animation, in seconds
+  private nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
 
   // count for how many times the nucleus has jumped
-  private nucleusJumpCount: number;
+  private nucleusJumpCount = 0;
 
   public constructor( providedOptions: BAAModelOptions ) {
 
@@ -221,12 +218,6 @@ class BAAModel {
 
     } );
 
-    this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-    this.nucleusOffset = Vector2.ZERO;
-
-    // add a variable used when making the nucleus jump in order to indicate instability
-    this.nucleusJumpCount = 0;
-
     if ( options.isInitialAtomConfigurable ) {
 
       assert && assert( BAAQueryParameters.protons <= NUM_PROTONS, 'Proton count exceeds maximum allowed' );
@@ -256,13 +247,11 @@ class BAAModel {
       this.nucleusJumpCountdown -= dt;
       if ( this.nucleusJumpCountdown <= 0 ) {
         this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
-        if ( this.atom.nucleusOffsetProperty ) {
-          this.nucleusJumpCount++;
-          const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
-          const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
-          this.atom.nucleusOffsetProperty.value =
-            new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
-        }
+        this.nucleusJumpCount++;
+        const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
+        const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
+        this.atom.nucleusOffsetProperty.value =
+          new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
       }
     }
     else if ( this.atom.nucleusOffsetProperty.value !== Vector2.ZERO ) {
@@ -273,11 +262,9 @@ class BAAModel {
   }
 
   private _moveParticlesFromAtomToBucket( particleCollection: ObservableArray<Particle>, bucket: SphereBucket<Particle> ): void {
-    const particlesToRemove = [];
+
     // Copy the observable particle collection into a regular array.
-    for ( let i = 0; i < particleCollection.length; i++ ) {
-      particlesToRemove[ i ] = particleCollection.get( i );
-    }
+    const particlesToRemove = particleCollection.getArrayCopy();
     particlesToRemove.forEach( particle => {
         this.atom.removeParticle( particle );
         bucket.addParticleFirstOpen( particle, true );
@@ -307,8 +294,7 @@ class BAAModel {
     this.buckets.neutronBucket.reset();
     this.buckets.electronBucket.reset();
 
-    // Add all the particles back to their buckets so that they are
-    // stacked in their original configurations.
+    // Add all the particles back to their buckets so that they are stacked in their original configurations.
     this.nucleons.forEach( nucleon => {
       if ( nucleon.type === 'proton' ) {
         this.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
