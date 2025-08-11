@@ -2,7 +2,7 @@
 
 /**
  * InteractiveSymbolNode is a Scenery Node that represents an element symbol where each of the numbers on the symbol,
- * i.e. atomic number, mass number, and charge, can potentially be interactive.
+ * i.e. proton count (aka atomic number), mass number, and charge, can potentially be interactive.
  *
  * @author John Blanco
  */

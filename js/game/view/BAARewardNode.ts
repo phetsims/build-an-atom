@@ -51,11 +51,11 @@ class BAARewardNode extends RewardNode {
   }
 
   private static createRandomStableAtom(): NumberAtom {
-    const atomicNumber = 1 + dotRandom.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
+    const protonCount = 1 + dotRandom.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
     return new NumberAtom( {
-      protonCount: atomicNumber,
-      neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( atomicNumber ),
-      electronCount: atomicNumber
+      protonCount: protonCount,
+      neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( protonCount ),
+      electronCount: protonCount
     } );
   }
 

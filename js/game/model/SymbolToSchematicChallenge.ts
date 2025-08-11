@@ -1,7 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Type for game challenges where the user is presented with a chemical symbol including atomic number, mass number, and
+ * Type for game challenges where the user is presented with a chemical symbol including proton count, mass number, and
  * charge, and needs to construct the equivalent atom from buckets of protons, neutrons, and electrons.
  *
  * @author John Blanco

@@ -17,7 +17,7 @@ import GameModel from './GameModel.js';
 
 type SelfOptions = {
 
-  // Whether the proton count, aka the atomic number, is configurable by the user in the interactive chemical symbol.
+  // Whether the proton count (aka the atomic number) is configurable by the user in the interactive chemical symbol.
   isProtonCountConfigurable?: boolean;
 
   // Whether the mass number, is configurable by the user in the interactive chemical symbol.

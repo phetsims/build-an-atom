@@ -32,9 +32,9 @@ class BAANumberSpinner extends NumberSpinner {
 
     const options = optionize<BAANumberSpinnerOptions, SelfOptions, NumberSpinnerOptions>()( {
 
-      // {boolean} - A flag that controls whether the plus sign is shown for positive numbers.  This is generally on
-      // when depicting charge, off for other things like mass number or atomic number.  Off (false) means that no sign
-      // is depicted.
+      // {boolean} - A flag that controls whether the plus sign is shown for positive numbers.  This is generally `true`
+      // when depicting charge, `false` for other things like mass number or atomic number.  Off (false) means that no
+      // sign is depicted.
       showPlusForPositive: false,
 
       // {boolean} - Controls whether the sign (i.e. +/-) is shown before or after the numeric value.  For charge, the

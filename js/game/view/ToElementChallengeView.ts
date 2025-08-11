@@ -40,7 +40,7 @@ export type NeutralOrIon = typeof neutralOrIonValues[number];
 
 class ToElementChallengeView extends ChallengeView {
 
-  protected readonly atomicNumberProperty: NumberProperty;
+  protected readonly protonCountProperty: NumberProperty;
   protected readonly periodicTable: PeriodicTableNode;
   protected readonly neutralOrIonProperty: Property<NeutralOrIon>;
 
@@ -48,8 +48,8 @@ class ToElementChallengeView extends ChallengeView {
 
     super( countsToElementChallenge, layoutBounds, tandem );
 
-    this.atomicNumberProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'atomicNumberProperty' ),
+    this.protonCountProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'protonCountProperty' ),
       phetioDocumentation: 'Indicates the element selected by the user.',
       phetioReadOnly: true,
       phetioFeatured: true
@@ -65,7 +65,7 @@ class ToElementChallengeView extends ChallengeView {
     } );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.atomicNumberProperty, {
+    this.periodicTable = new PeriodicTableNode( this.protonCountProperty, {
       interactiveMax: 118,
       cellDimension: CELL_DIMENSION,
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
@@ -111,8 +111,8 @@ class ToElementChallengeView extends ChallengeView {
     } );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
 
-    // If the atomic number is 0, then the user cannot select "neutral" or "ion".
-    this.atomicNumberProperty.link( protonCount => {
+    // If the proton count is 0, then the user cannot select "neutral" or "ion".
+    this.protonCountProperty.link( protonCount => {
       neutralAtomVersusIonQuestion.visible = protonCount > 0;
     } );
 
@@ -141,7 +141,7 @@ class ToElementChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.atomicNumberProperty.value,
+      protonCount: this.protonCountProperty.value,
       neutronCount: this.challenge.correctAnswerAtom.neutronCountProperty.value,
       electronCount: this.challenge.correctAnswerAtom.electronCountProperty.value,
       neutralOrIon: this.neutralOrIonProperty.value
@@ -153,14 +153,14 @@ class ToElementChallengeView extends ChallengeView {
 
     // This method can be called before the superconstructor has completed, so the existence of the items being cleared
     // must be checked.
-    if ( this.atomicNumberProperty ) {
-      this.atomicNumberProperty.reset();
+    if ( this.protonCountProperty ) {
+      this.protonCountProperty.reset();
     }
     this.neutralOrIonProperty && this.neutralOrIonProperty.reset();
   }
 
   public override displayCorrectAnswer(): void {
-    this.atomicNumberProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
+    this.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
     this.neutralOrIonProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value === 0 ? 'neutral' : 'ion';
   }
 

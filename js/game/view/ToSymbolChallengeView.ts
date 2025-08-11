@@ -77,37 +77,37 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
          !this.challenge.isChargeConfigurable &&
          !this.challenge.isMassNumberConfigurable ) {
 
-      // Add the text node for the atomic number, since that is the only configurable property.
-      const atomicNumberTextProperty = new DerivedStringProperty(
+      // Add the text node for the proton count, since that is the only configurable property.
+      const protonCountTextProperty = new DerivedStringProperty(
         [ this.challenge.correctAnswerAtom.protonCountProperty ],
-        ( atomicNumber: number ) => `${this.challenge.challengeType}<br> Atomic Number: ${atomicNumber}`
+        ( protonCount: number ) => `${this.challenge.challengeType}<br> Atomic Number: ${protonCount}`
       );
-      answerNode = new RichText( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( protonCountTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else if ( this.challenge.isChargeConfigurable &&
               !this.challenge.isProtonCountConfigurable &&
               !this.challenge.isMassNumberConfigurable ) {
 
       // Add the text node for the net charge, since that is the only configurable property.
-      const atomicNumberTextProperty = new DerivedStringProperty(
+      const protonCountTextProperty = new DerivedStringProperty(
         [ this.challenge.correctAnswerAtom.chargeProperty ],
         ( charge: number ) => {
           const sign = charge > 0 ? MathSymbols.UNARY_PLUS : charge < 0 ? MathSymbols.UNARY_MINUS : '';
           return `${this.challenge.challengeType}<br> Net Charge: ${Math.abs( charge )}${sign}`;
         }
       );
-      answerNode = new RichText( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( protonCountTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else if ( this.challenge.isMassNumberConfigurable &&
               !this.challenge.isProtonCountConfigurable &&
               !this.challenge.isChargeConfigurable ) {
 
       // Add the text node for the mass number, since that is the only configurable property.
-      const atomicNumberTextProperty = new DerivedStringProperty(
+      const massNumberTextProperty = new DerivedStringProperty(
         [ this.challenge.correctAnswerAtom.massNumberProperty ],
         ( massNumber: number ) => `${this.challenge.challengeType}<br> Mass Number: ${Math.abs( massNumber )}`
       );
-      answerNode = new RichText( atomicNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else {
 

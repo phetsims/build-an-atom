@@ -1,8 +1,9 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * View for game challenges where the user is presented with a chemical symbol including atomic number, mass number, and
- * charge, and needs to determine the number of protons, neutrons, and electrons that comprise the atom.
+ * View for game challenges where the user is presented with a chemical symbol including proton count (aka atomic
+ * number), mass number, and charge, and needs to determine the number of protons, neutrons, and electrons that comprise
+ * the atom.
  *
  * @author John Blanco
  */

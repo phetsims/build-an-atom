@@ -2,7 +2,8 @@
 
 /**
  * Class for the Counts to Symbol challenge where the user has to fill in the attributes of an atom symbol in the style
- * that often appears in the periodic table, including: atomic number (proton count), mass number, and net charge.
+ * that often appears in the periodic table, including: proton count (aka the atomic number), mass number, and net
+ * charge.
  *
  * @author Agustín Vallejo
  * @author John Blanco (PhET Interactive Simulations)

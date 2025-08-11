@@ -28,7 +28,7 @@ export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
 class PeriodicTableAndSymbol extends Node {
 
-  public constructor( atomicNumberProperty: TReadOnlyProperty<number> | TProperty<number>,
+  public constructor( protonCountProperty: TReadOnlyProperty<number> | TProperty<number>,
                       providedOptions: PeriodicTableAndSymbolOptions ) {
 
     const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
@@ -36,7 +36,7 @@ class PeriodicTableAndSymbol extends Node {
     super( options );
 
     // Create and add the periodic table.
-    const periodicTable = new PeriodicTableNode( atomicNumberProperty, {
+    const periodicTable = new PeriodicTableNode( protonCountProperty, {
       interactiveMax: 0,
       disabledCellColor: 'white'
     } );
@@ -57,7 +57,7 @@ class PeriodicTableAndSymbol extends Node {
     this.addChild( symbolRectangle );
 
     // Add the text that represents the chosen element.
-    atomicNumberProperty.link( protonCount => {
+    protonCountProperty.link( protonCount => {
       symbolRectangle.removeAllChildren();
       const symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
         font: new PhetFont( { size: 48, weight: 'bold' } )
