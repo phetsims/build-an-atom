@@ -2,6 +2,7 @@
 
 /**
  * Subclass of ParticleView that provides some standard options for the build-an-atom simulation.
+ *
  * @author John Blanco (PhET Interactive Simulations)
  */
 
