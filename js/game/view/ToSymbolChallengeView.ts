@@ -12,7 +12,6 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
@@ -117,8 +116,6 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
         isChargeInteractive: false,
         isMassNumberInteractive: false,
         scale: 0.22, // empirically determined to fit below the interactive symbol node
-        stroke: Color.RED,
-        lineWidth: 2,
         tandem: Tandem.OPT_OUT
       } );
     }

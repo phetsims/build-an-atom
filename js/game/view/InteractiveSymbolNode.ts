@@ -9,21 +9,24 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import AlignBox from '../../../../scenery/js/layout/nodes/AlignBox.js';
+import VBox, { VBoxOptions } from '../../../../scenery/js/layout/nodes/VBox.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -43,9 +46,9 @@ type SelfOptions = {
   showArrowButtonsProperty?: TReadOnlyProperty<boolean>; // Whether to show the arrow buttons for the number spinners.
 };
 
-export type InteractiveSymbolNodeOptions = SelfOptions & WithRequired<PanelOptions, 'tandem'>;
+export type InteractiveSymbolNodeOptions = SelfOptions & WithRequired<VBoxOptions, 'tandem'>;
 
-class InteractiveSymbolNode extends Panel {
+class InteractiveSymbolNode extends VBox {
 
   public readonly protonCountProperty: NumberProperty;
   public readonly massNumberProperty: NumberProperty;
@@ -55,15 +58,16 @@ class InteractiveSymbolNode extends Panel {
 
   public constructor( numberAtom: NumberAtom, providedOptions?: InteractiveSymbolNodeOptions ) {
 
-    const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, PanelOptions>()( {
+    const options = optionize<InteractiveSymbolNodeOptions, SelfOptions, VBoxOptions>()( {
       isProtonCountInteractive: false,
       isMassNumberInteractive: false,
       isChargeInteractive: false,
       showAtomName: true,
       showArrowButtonsProperty: new BooleanProperty( false ),
-      fill: null,
-      stroke: null
+      spacing: 10
     }, providedOptions );
+
+    const contentNodes: Node[] = [];
 
     const protonCountProperty = new NumberProperty( options.isProtonCountInteractive ? 0 : numberAtom.protonCountProperty.value, {
       tandem: options.tandem.createTandem( 'protonCountProperty' ),
@@ -103,65 +107,61 @@ class InteractiveSymbolNode extends Panel {
       } );
     }
 
-    // Add the background rectangle, which is also the root node for the other nodes.  This is needed to support the
-    // unusual layout of the symbol, numbers, and caption.
-    const background = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
+    // Add the symbolBox rectangle, which will contain the symbol, proton count, mass number, and charge.
+    const symbolBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
       stroke: 'black',
       lineWidth: 2,
       fill: 'white'
     } );
+    contentNodes.push( symbolBox );
 
-    // Current string properties for the symbol text and element caption
-    const currentElementStringProperty = new Property( AtomIdentifier.getName( 0 ), { reentrant: true } );
-    const elementDynamicStringProperty = new DynamicProperty( currentElementStringProperty );
+    // Add the chemical symbol, e.g. "He" or "Na".
+    const chemicalSymbolStringProperty = new DerivedStringProperty(
+      [ protonCountProperty ],
+      protonCount => protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : ''
+    );
 
-    // Add the symbol text.
-    const symbolText = new Text( '', {
+    const symbolText = new Text( chemicalSymbolStringProperty, {
       font: new PhetFont( 150 ),
       fill: 'black',
       center: new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 )
     } );
-    background.addChild( symbolText );
 
-    // Add the element caption.
-    const elementCaption = new Text( '', {
-      font: new PhetFont( 40 ),
-      fill: BAAColors.protonColorProperty,
-      top: SYMBOL_BOX_HEIGHT + 20,
-      centerX: SYMBOL_BOX_WIDTH / 2,
-      maxWidth: SYMBOL_BOX_WIDTH,
-      visible: options.showAtomName
+    const symbolTextAlignBox = new AlignBox( symbolText, {
+      alignBounds: symbolBox.localBounds,
+      align: 'center'
     } );
-    options.showAtomName && background.addChild( elementCaption );
+    symbolBox.addChild( symbolTextAlignBox );
 
-    // Define a function to update the symbol text and element caption.
-    const updateElement = ( protonCount: number ) => {
-      symbolText.string = protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : '';
-      symbolText.center = new Vector2( SYMBOL_BOX_WIDTH / 2, SYMBOL_BOX_HEIGHT / 2 );
+    // Add the element caption if the option is enabled.
+    if ( options.showAtomName ) {
 
-      if ( protonCount > 0 ) {
-        // Update the string property for the element caption.
-        const elementNameProperty = AtomIdentifier.getName( protonCount );
-        currentElementStringProperty.value = elementNameProperty;
-        elementCaption.string = elementNameProperty.value;
-      }
-      else {
-        elementCaption.string = '';
-      }
-      elementCaption.centerX = SYMBOL_BOX_WIDTH / 2;
-    };
+      // Create a DynamicProperty for the current element string, which will be updated based on the proton count but
+      // may also be updated if the locale changes.
+      const currentElementStringProperty = new Property( AtomIdentifier.getName( 0 ), { reentrant: true } );
+      const elementDynamicStringProperty = new DynamicProperty<string, number, TReadOnlyProperty<string>>( currentElementStringProperty );
 
-    protonCountProperty.link( protonCount => {
-      updateElement( protonCount );
-    } );
+      // Update the element name based on the proton count.
+      protonCountProperty.link( protonCount => {
+        currentElementStringProperty.value = AtomIdentifier.getName( protonCount );
+      } );
 
-    // So that the interactive and non-interactive numbers are vertically aligned, we need to create a dummy number and
-    // look at its height.
+      const elementCaption = new Text( elementDynamicStringProperty, {
+        font: new PhetFont( 40 ),
+        fill: BAAColors.protonColorProperty,
+        top: SYMBOL_BOX_HEIGHT + 20,
+        centerX: SYMBOL_BOX_WIDTH / 2,
+        maxWidth: SYMBOL_BOX_WIDTH,
+        visible: options.showAtomName
+      } );
+      contentNodes.push( elementCaption );
+    }
+
     const interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
 
     // Add the proton count display, either interactive or not.
     if ( options.isProtonCountInteractive ) {
-      background.addChild( new BAANumberSpinner(
+      symbolBox.addChild( new BAANumberSpinner(
         protonCountProperty,
         options.tandem.createTandem( 'protonCountNumberSpinner' ), {
           minValue: 0,
@@ -172,8 +172,8 @@ class InteractiveSymbolNode extends Panel {
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
-        } ) );
-      protonCountProperty.link( updateElement );
+        }
+      ) );
     }
     else {
       const protonCountDisplay = new Text( new DerivedProperty( [ protonCountProperty ], protons => protons.toString() ), {
@@ -182,13 +182,12 @@ class InteractiveSymbolNode extends Panel {
         left: NUMBER_INSET,
         bottom: SYMBOL_BOX_HEIGHT - NUMBER_INSET
       } );
-      background.addChild( protonCountDisplay );
-      updateElement( numberAtom.protonCountProperty.value );
+      symbolBox.addChild( protonCountDisplay );
     }
 
     // Add the mass number display, either interactive or not.
     if ( options.isMassNumberInteractive ) {
-      background.addChild( new BAANumberSpinner(
+      symbolBox.addChild( new BAANumberSpinner(
         massNumberProperty,
         options.tandem.createTandem( 'massNumberSpinner' ), {
           minValue: 0,
@@ -198,7 +197,8 @@ class InteractiveSymbolNode extends Panel {
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
-        } ) );
+        }
+      ) );
     }
     else {
       const massNumberDisplay = new Text( new DerivedProperty( [ massNumberProperty ], massNumber => massNumber.toString() ), {
@@ -207,12 +207,12 @@ class InteractiveSymbolNode extends Panel {
         left: NUMBER_INSET,
         top: NUMBER_INSET
       } );
-      background.addChild( massNumberDisplay );
+      symbolBox.addChild( massNumberDisplay );
     }
 
     // Add the charge display, either interactive or not.
     if ( options.isChargeInteractive ) {
-      background.addChild( new BAANumberSpinner(
+      symbolBox.addChild( new BAANumberSpinner(
         chargeProperty,
         options.tandem.createTandem( 'chargeNumberSpinner' ), {
           minValue: -99,
@@ -233,7 +233,7 @@ class InteractiveSymbolNode extends Panel {
         font: NUMBER_FONT,
         top: NUMBER_INSET
       } );
-      background.addChild( chargeDisplay );
+      symbolBox.addChild( chargeDisplay );
 
       chargeProperty.link( charge => {
         const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
@@ -243,18 +243,14 @@ class InteractiveSymbolNode extends Panel {
       } );
     }
 
-
-    super( background, options );
+    super( combineOptions<InteractiveSymbolNodeOptions>( {
+      children: contentNodes
+    }, options ) );
 
     this.options = options;
     this.protonCountProperty = protonCountProperty;
     this.massNumberProperty = massNumberProperty;
     this.chargeProperty = chargeProperty;
-
-    // Updating the element if the element string property changes.
-    elementDynamicStringProperty.link( () => {
-      updateElement( this.protonCountProperty.value );
-    } );
   }
 
   public reset(): void {
