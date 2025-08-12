@@ -28,6 +28,7 @@ export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
 class PeriodicTableAndSymbol extends Node {
 
+  // TODO: Is the TReadOnlyProperty<number> part redundant? see https://github.com/phetsims/build-an-atom/issues/329
   public constructor( protonCountProperty: TReadOnlyProperty<number> | TProperty<number>,
                       providedOptions: PeriodicTableAndSymbolOptions ) {
 
