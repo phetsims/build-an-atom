@@ -19,7 +19,7 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import Particle from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -149,42 +149,44 @@ class BAAModel {
     const neutronTandem = tandem.createTandem( 'neutrons' );
     const electronTandem = tandem.createTandem( 'electrons' );
 
-    // Add the protons and neutrons, aka the nucleons.
-    _.times( NUM_PROTONS + NUM_NEUTRONS, index => {
-      const particleType = index < NUM_PROTONS ? 'proton' : 'neutron';
+    const addNucleons = ( particleType: ParticleType, numberToAdd: number ): void => {
       const bucket = particleType === 'proton' ? this.protonBucket : this.neutronBucket;
-      const tandem = particleType === 'proton' ? protonTandem : neutronTandem;
-      const nucleon = new Particle( particleType, {
-        animationSpeedProperty: this.particleAnimationSpeedProperty,
+      const parentTandem = particleType === 'proton' ? protonTandem : neutronTandem;
+      _.times( numberToAdd, index => {
+        const nucleon = new Particle( particleType, {
+          animationSpeedProperty: this.particleAnimationSpeedProperty,
+          tandem: parentTandem.createTandem( `${particleType}${index}` ),
+          maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
+          colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
+        } );
+        this.nucleons.push( nucleon );
+        bucket.addParticleFirstOpen( nucleon, false );
+        nucleon.isDraggingProperty.lazyLink( isDragging => {
+          if ( isDragging ) {
+            if ( nucleon.containerProperty.value ) {
 
-        // TODO: This is where the indices become misaligned, see https://github.com/phetsims/build-an-atom/issues/330
-        tandem: tandem.createTandem( `${particleType}${index}` ),
-        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
-        colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
-      } );
-      this.nucleons.push( nucleon );
-      bucket.addParticleFirstOpen( nucleon, false );
-      nucleon.isDraggingProperty.lazyLink( isDragging => {
-        if ( isDragging ) {
-          if ( nucleon.containerProperty.value ) {
-
-            // Remove the nucleon from its container, which will be either a bucket or the particle atom.
-            nucleon.containerProperty.value.removeParticle( nucleon );
+              // Remove the nucleon from its container, which will be either a bucket or the particle atom.
+              nucleon.containerProperty.value.removeParticle( nucleon );
+            }
           }
-        }
-        else if ( !isDragging && !bucket.includes( nucleon ) ) {
-          placeNucleon( nucleon, bucket, this.atom );
-        }
-      } );
+          else if ( !isDragging && !bucket.includes( nucleon ) ) {
+            placeNucleon( nucleon, bucket, this.atom );
+          }
+        } );
 
-      // Prevent interaction with this particle when it is animating to a destination.
-      Multilink.multilink(
-        [ nucleon.isDraggingProperty, nucleon.positionProperty, nucleon.destinationProperty ],
-        ( isDragging, position, destination ) => {
-          nucleon.inputEnabledProperty.value = isDragging || position.equals( destination );
-        }
-      );
-    } );
+        // Prevent interaction with this particle when it is animating to a destination.
+        Multilink.multilink(
+          [ nucleon.isDraggingProperty, nucleon.positionProperty, nucleon.destinationProperty ],
+          ( isDragging, position, destination ) => {
+            nucleon.inputEnabledProperty.value = isDragging || position.equals( destination );
+          }
+        );
+      } );
+    };
+
+    // Add the protons and neutrons, aka the nucleons.
+    addNucleons( 'proton', NUM_PROTONS );
+    addNucleons( 'neutron', NUM_PROTONS );
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, index => {
@@ -221,7 +223,6 @@ class BAAModel {
           electron.inputEnabledProperty.value = isDragging || position.equals( destination );
         }
       );
-
     } );
 
     if ( options.isInitialAtomConfigurable ) {
