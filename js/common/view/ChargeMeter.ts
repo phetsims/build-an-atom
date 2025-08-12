@@ -84,6 +84,7 @@ class ChargeMeter extends Node {
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
+    // TODO: Can we use MinusNode for symmetry? See https://github.com/phetsims/build-an-atom/issues/329
     const minusSymbol = new Rectangle( {
       rectSize: new Dimension2( 10, 3 ),
       lineWidth: SYMBOL_LINE_WIDTH,

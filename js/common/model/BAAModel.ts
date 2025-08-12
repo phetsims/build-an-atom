@@ -66,9 +66,11 @@ class BAAModel {
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
 
+  // TODO: Does this get reset properly? See https://github.com/phetsims/build-an-atom/issues/329
   // countdown for nucleus jump animation, in seconds
   private nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
 
+  // TODO: Does this get reset properly? See https://github.com/phetsims/build-an-atom/issues/329
   // count for how many times the nucleus has jumped
   private nucleusJumpCount = 0;
 
@@ -86,6 +88,7 @@ class BAAModel {
       phetioFeatured: true
     } );
 
+    // TODO: Substructure for buckets good? See https://github.com/phetsims/build-an-atom/issues/329
     // Create the buckets that will hold the subatomic particles.
     this.buckets = {
       protonBucket: new SphereBucket( {
@@ -124,6 +127,8 @@ class BAAModel {
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
       tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
       range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
+
+      // TODO: is this validated against a list of valid units? See https://github.com/phetsims/build-an-atom/issues/329
       units: 'view-coordinates/s'
     } );
 
@@ -199,6 +204,8 @@ class BAAModel {
           }
         }
         else if ( !isDragging && !this.buckets.electronBucket.includes( electron ) ) {
+
+          // TODO: Is this kind of like the place behavior above? See https://github.com/phetsims/build-an-atom/issues/329
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
             this.atom.addParticle( electron );
           }
@@ -209,6 +216,7 @@ class BAAModel {
       } );
 
       // Prevent interaction with this particle when it is animating to a destination.
+      // TODO: Is there some other animating flag? See https://github.com/phetsims/build-an-atom/issues/329
       Multilink.multilink(
         [ electron.isDraggingProperty, electron.positionProperty, electron.destinationProperty ],
         ( isDragging, position, destination ) => {
@@ -254,6 +262,8 @@ class BAAModel {
           new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
       }
     }
+
+    // TODO: this equality check seems incorrect? https://github.com/phetsims/build-an-atom/issues/329
     else if ( this.atom.nucleusOffsetProperty.value !== Vector2.ZERO ) {
 
       // animation is not running, make sure nucleus is in center of atom
@@ -315,6 +325,8 @@ class BAAModel {
 
     // Define a function for transferring particles from buckets to atom.
     const atomCenter = this.atom.positionProperty.value;
+
+    // TODO: Should this be adjacent to _moveParticlesFromAtomToBucket? https://github.com/phetsims/build-an-atom/issues/329
     const moveParticlesToAtom = (
       currentCountInAtom: number,
       targetCountInAtom: number,

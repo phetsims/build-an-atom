@@ -19,6 +19,7 @@ export default class SymbolScreenIcon extends ScreenIcon {
 
   public constructor( tandem: Tandem ) {
 
+    // TODO: Similar to another icon file. Redundant iconNode https://github.com/phetsims/build-an-atom/issues/329
     const iconNode = new Node();
 
     const backgroundNode = new Rectangle( 0, 0, MINIMUM_HOME_SCREEN_ICON_SIZE.width, MINIMUM_HOME_SCREEN_ICON_SIZE.height, {

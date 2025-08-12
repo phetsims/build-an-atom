@@ -19,7 +19,7 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
   public constructor( tandem: Tandem ) {
     super(
       () => new BAAModel( { tandem: tandem.createTandem( 'model' ) } ),
-      ( model: BAAModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
+      model => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomFluent.atomStringProperty,
 

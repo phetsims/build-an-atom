@@ -116,6 +116,7 @@ class BAAScreenView extends ScreenView {
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will exist.
+    // TODO: What is the reason for layerSplit in this case? https://github.com/phetsims/build-an-atom/issues/329
     const electronLayer = new Node( { layerSplit: true } );
     nucleonElectronLayer.addChild( electronLayer );
 
@@ -126,6 +127,8 @@ class BAAScreenView extends ScreenView {
 
     // Add the nucleons.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
+
+    // TODO: Infer type? https://github.com/phetsims/build-an-atom/issues/329
     model.nucleons.forEach( ( nucleon: Particle ) => {
 
       assert && assert( nucleon.type === 'proton' || nucleon.type === 'neutron', 'this is not a nucleon' );
@@ -147,6 +150,8 @@ class BAAScreenView extends ScreenView {
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( particleView => {
+
+          // TODO: If nucleonLayers are only supposed to contain ParticleView, convert to affirm()? https://github.com/phetsims/build-an-atom/issues/329
           if ( particleView instanceof ParticleView && particleView.particle === nucleon ) {
             onCorrectLayer = true;
           }
@@ -159,6 +164,8 @@ class BAAScreenView extends ScreenView {
           for ( let layerIndex = 0; layerIndex < nucleonLayers.length && particleView === null; layerIndex++ ) {
             for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
               const nucleonChild = nucleonLayers[ layerIndex ].children[ childIndex ];
+
+              // TODO: If nucleonLayers are only supposed to contain ParticleView, convert to affirm()? https://github.com/phetsims/build-an-atom/issues/329
               if ( nucleonChild instanceof ParticleView && nucleonChild.particle === nucleon ) {
                 particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
@@ -168,6 +175,7 @@ class BAAScreenView extends ScreenView {
           }
 
           // Add the particle view to its new layer.
+          // TODO: Prefer affirm to simplify https://github.com/phetsims/build-an-atom/issues/329
           assert && assert( particleView !== null, 'Particle view not found during re-layering' );
           particleView && nucleonLayers[ zLayer ].addChild( particleView );
         }
@@ -185,6 +193,7 @@ class BAAScreenView extends ScreenView {
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
+        // TODO: If nucleonLayers are only supposed to contain ParticleView, convert to affirm()? https://github.com/phetsims/build-an-atom/issues/329
         if ( electronNode instanceof ParticleView ) {
           electronNode.visible = this.viewProperties.electronModelProperty.value === 'orbits' ||
                                  !model.atom.electrons.includes( electronNode.particle );
@@ -210,6 +219,7 @@ class BAAScreenView extends ScreenView {
         gradientLuminanceLeft: 0.2,
         gradientLuminanceRight: -0.6,
 
+        // TODO: Does this release have alt-input? It was confusing to see tagName and focusable while not being able to test alt-input. See https://github.com/phetsims/build-an-atom/issues/329
         // pdom
         tagName: 'button',
         focusable: true
@@ -300,6 +310,7 @@ class BAAScreenView extends ScreenView {
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
     // controls whether the related animation is enabled.
+    // TODO: Is it confusing to have a view property that mirrors a model property? Why not just use the model property? https://github.com/phetsims/build-an-atom/issues/329
     this.viewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
       model.animateNuclearInstabilityProperty.value = nuclearStabilityVisible;
     } );

@@ -32,12 +32,16 @@ export default class AtomScreenIcon extends ScreenIcon {
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 3 } ),
       modelViewTransform,
+
+      // TODO: Pass Tandem.OPT_OUT or make tandem optional here, see https://github.com/phetsims/build-an-atom/issues/329
       tandem.createTandem( 'noninteractiveSchematicAtomNode' )
     );
 
     iconNode.addChild( schematicAtomNode );
 
     super(
+
+      // TODO: Eliminate extra Node, see https://github.com/phetsims/build-an-atom/issues/329
       iconNode,
       {
         tandem: tandem

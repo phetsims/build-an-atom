@@ -4,6 +4,8 @@
  * Node that depicts an interactive atom where the user can add subatomic particles from a set of buckets.
  *
  * @author Jesse Greenberg (PhET Interactive Simulations)
+ * @author John Blanco (PhET Interactive Simulations)
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Property from '../../../../axon/js/Property.js';
@@ -59,9 +61,12 @@ class InteractiveSchematicAtom extends Node {
       nucleonLayers.push( nucleonLayer );
       this.addChild( nucleonLayer );
     } );
+
+    // TODO: Duplicated code in 4x locations. Search the project for "so that layer 0 is in front." Can/should any be consolidated? See https://github.com/phetsims/build-an-atom/issues/329
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will be maintained.
+    // TODO: document reason for layerSplit. https://github.com/phetsims/build-an-atom/issues/329
     const electronLayer = new Node( { layerSplit: true } );
     this.addChild( electronLayer );
 
@@ -71,6 +76,7 @@ class InteractiveSchematicAtom extends Node {
     const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
     model.nucleons.forEach( nucleon => {
 
+      // TODO: this method is getting complex https://github.com/phetsims/build-an-atom/issues/329
       const tandemGroup = nucleon.typeProperty.value === 'proton' ? protonGroupTandem : neutronGroupTandem;
 
       const particleView = new BAAParticleView( nucleon, modelViewTransform, {
