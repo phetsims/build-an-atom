@@ -36,7 +36,7 @@ const NUM_ELECTRONS = 10;
 const NUCLEON_CAPTURE_RADIUS = 100;
 const BUCKET_WIDTH = 120;
 const BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
-const BUCKET_DIMENSION = new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT );
+const BUCKET_SIZE = new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT );
 const BUCKET_Y_OFFSET = -205;
 const NUCLEUS_JUMP_PERIOD = 0.1; // in seconds
 const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
@@ -94,7 +94,7 @@ class BAAModel {
     const bucketsTandem = tandem.createTandem( 'buckets' );
     this.protonBucket = new SphereBucket( {
       position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
-      size: BUCKET_DIMENSION,
+      size: BUCKET_SIZE,
       sphereRadius: ShredConstants.NUCLEON_RADIUS,
       baseColor: BAAColors.protonColorProperty,
       captionText: BuildAnAtomFluent.protonsStringProperty,
@@ -103,7 +103,7 @@ class BAAModel {
     } );
     this.neutronBucket = new SphereBucket( {
       position: new Vector2( 0, BUCKET_Y_OFFSET ),
-      size: BUCKET_DIMENSION,
+      size: BUCKET_SIZE,
       sphereRadius: ShredConstants.NUCLEON_RADIUS,
       baseColor: BAAColors.neutronColorProperty,
       captionText: BuildAnAtomFluent.neutronsStringProperty,
@@ -112,7 +112,7 @@ class BAAModel {
     } );
     this.electronBucket = new SphereBucket( {
       position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
-      size: BUCKET_DIMENSION,
+      size: BUCKET_SIZE,
       sphereRadius: ShredConstants.ELECTRON_RADIUS,
       usableWidthProportion: 0.8,
       baseColor: BAAColors.electronColorProperty,
@@ -155,7 +155,7 @@ class BAAModel {
       _.times( numberToAdd, index => {
         const nucleon = new Particle( particleType, {
           animationSpeedProperty: this.particleAnimationSpeedProperty,
-          tandem: parentTandem.createTandem( `${particleType}${index}` ),
+          tandem: parentTandem.createTandem( `${particleType}${index + 1}` ),
           maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
           colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
         } );
@@ -192,7 +192,7 @@ class BAAModel {
     _.times( NUM_ELECTRONS, index => {
       const electron = new Particle( 'electron', {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
-        tandem: electronTandem.createTandem( `electron${index}` ),
+        tandem: electronTandem.createTandem( `electron${index + 1}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
         colorProperty: BAAColors.electronColorProperty
       } );

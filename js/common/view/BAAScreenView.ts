@@ -73,7 +73,8 @@ class BAAScreenView extends ScreenView {
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( this.layoutBounds.width * 0.3, this.layoutBounds.height * 0.45 ),
-      1.0 );
+      1.0
+    );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.atom, modelViewTransform, {
@@ -120,9 +121,9 @@ class BAAScreenView extends ScreenView {
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    const protonsGroupTandem = tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 1 );
-    const neutronsGroupTandem = tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 1 );
-    const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 1 );
+    const protonsGroupTandem = tandem.createTandem( 'protonNodes' ).createGroupTandem( 'protonNode', 1 );
+    const neutronsGroupTandem = tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
+    const electronsGroupTandem = tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
     // Add the nucleons.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
