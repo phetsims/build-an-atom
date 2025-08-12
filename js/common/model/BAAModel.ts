@@ -36,6 +36,7 @@ const NUM_ELECTRONS = 10;
 const NUCLEON_CAPTURE_RADIUS = 100;
 const BUCKET_WIDTH = 120;
 const BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
+const BUCKET_DIMENSION = new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT );
 const BUCKET_Y_OFFSET = -205;
 const NUCLEUS_JUMP_PERIOD = 0.1; // in seconds
 const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
@@ -54,7 +55,10 @@ class BAAModel {
   public readonly atom: ParticleAtom;
 
   // The buckets that hold the subatomic particles.
-  public readonly buckets: Record<string, SphereBucket<Particle>>;
+  public readonly protonBucket: SphereBucket<Particle>;
+  public readonly neutronBucket: SphereBucket<Particle>;
+  public readonly electronBucket: SphereBucket<Particle>;
+  public readonly buckets: SphereBucket<Particle>[];
 
   // Arrays that hold the subatomic particles.
   public readonly nucleons: Particle[];
@@ -86,38 +90,38 @@ class BAAModel {
       phetioFeatured: true
     } );
 
-    // TODO: Substructure for buckets good? See https://github.com/phetsims/build-an-atom/issues/329
     // Create the buckets that will hold the subatomic particles.
-    this.buckets = {
-      protonBucket: new SphereBucket( {
-        position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
-        size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-        sphereRadius: ShredConstants.NUCLEON_RADIUS,
-        baseColor: BAAColors.protonColorProperty,
-        captionText: BuildAnAtomFluent.protonsStringProperty,
-        captionColor: 'white',
-        tandem: tandem.createTandem( 'protonBucket' )
-      } ),
-      neutronBucket: new SphereBucket( {
-        position: new Vector2( 0, BUCKET_Y_OFFSET ),
-        size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-        sphereRadius: ShredConstants.NUCLEON_RADIUS,
-        baseColor: BAAColors.neutronColorProperty,
-        captionText: BuildAnAtomFluent.neutronsStringProperty,
-        captionColor: 'white',
-        tandem: tandem.createTandem( 'neutronBucket' )
-      } ),
-      electronBucket: new SphereBucket( {
-        position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
-        size: new Dimension2( BUCKET_WIDTH, BUCKET_HEIGHT ),
-        sphereRadius: ShredConstants.ELECTRON_RADIUS,
-        usableWidthProportion: 0.8,
-        baseColor: BAAColors.electronColorProperty,
-        captionText: BuildAnAtomFluent.electronsStringProperty,
-        captionColor: 'white',
-        tandem: tandem.createTandem( 'electronBucket' )
-      } )
-    };
+    const bucketsTandem = tandem.createTandem( 'buckets' );
+    this.protonBucket = new SphereBucket( {
+      position: new Vector2( -BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
+      size: BUCKET_DIMENSION,
+      sphereRadius: ShredConstants.NUCLEON_RADIUS,
+      baseColor: BAAColors.protonColorProperty,
+      captionText: BuildAnAtomFluent.protonsStringProperty,
+      captionColor: 'white',
+      tandem: bucketsTandem.createTandem( 'protonBucket' )
+    } );
+    this.neutronBucket = new SphereBucket( {
+      position: new Vector2( 0, BUCKET_Y_OFFSET ),
+      size: BUCKET_DIMENSION,
+      sphereRadius: ShredConstants.NUCLEON_RADIUS,
+      baseColor: BAAColors.neutronColorProperty,
+      captionText: BuildAnAtomFluent.neutronsStringProperty,
+      captionColor: 'white',
+      tandem: bucketsTandem.createTandem( 'neutronBucket' )
+    } );
+    this.electronBucket = new SphereBucket( {
+      position: new Vector2( BUCKET_WIDTH * 1.1, BUCKET_Y_OFFSET ),
+      size: BUCKET_DIMENSION,
+      sphereRadius: ShredConstants.ELECTRON_RADIUS,
+      usableWidthProportion: 0.8,
+      baseColor: BAAColors.electronColorProperty,
+      captionText: BuildAnAtomFluent.electronsStringProperty,
+      captionColor: 'white',
+      tandem: bucketsTandem.createTandem( 'electronBucket' )
+    } );
+
+    this.buckets = [ this.protonBucket, this.neutronBucket, this.electronBucket ];
 
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
@@ -148,7 +152,7 @@ class BAAModel {
     // Add the protons and neutrons, aka the nucleons.
     _.times( NUM_PROTONS + NUM_NEUTRONS, index => {
       const particleType = index < NUM_PROTONS ? 'proton' : 'neutron';
-      const bucket = particleType === 'proton' ? this.buckets.protonBucket : this.buckets.neutronBucket;
+      const bucket = particleType === 'proton' ? this.protonBucket : this.neutronBucket;
       const tandem = particleType === 'proton' ? protonTandem : neutronTandem;
       const nucleon = new Particle( particleType, {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
@@ -191,7 +195,7 @@ class BAAModel {
         colorProperty: BAAColors.electronColorProperty
       } );
       this.electrons.push( electron );
-      this.buckets.electronBucket.addParticleFirstOpen( electron, false );
+      this.electronBucket.addParticleFirstOpen( electron, false );
       electron.isDraggingProperty.lazyLink( isDragging => {
         if ( isDragging ) {
           if ( electron.containerProperty.value ) {
@@ -200,12 +204,12 @@ class BAAModel {
             electron.containerProperty.value.removeParticle( electron );
           }
         }
-        else if ( !isDragging && !this.buckets.electronBucket.includes( electron ) ) {
+        else if ( !isDragging && !this.electronBucket.includes( electron ) ) {
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
             this.atom.addParticle( electron );
           }
           else {
-            this.buckets.electronBucket.addParticleNearestOpen( electron, true );
+            this.electronBucket.addParticleNearestOpen( electron, true );
           }
         }
       } );
@@ -263,17 +267,6 @@ class BAAModel {
     }
   }
 
-  private _moveParticlesFromAtomToBucket( particleCollection: ObservableArray<Particle>, bucket: SphereBucket<Particle> ): void {
-
-    // Copy the observable particle collection into a regular array.
-    const particlesToRemove = particleCollection.getArrayCopy();
-    particlesToRemove.forEach( particle => {
-        this.atom.removeParticle( particle );
-        bucket.addParticleFirstOpen( particle, true );
-      }
-    );
-  }
-
   public reset(): void {
 
     // Move any particles that are in transit back to its bucket.
@@ -292,25 +285,35 @@ class BAAModel {
     this.atom.clear();
 
     // Remove all particles from the buckets.
-    this.buckets.protonBucket.reset();
-    this.buckets.neutronBucket.reset();
-    this.buckets.electronBucket.reset();
+    this.protonBucket.reset();
+    this.neutronBucket.reset();
+    this.electronBucket.reset();
 
     // Add all the particles back to their buckets so that they are stacked in their original configurations.
     this.nucleons.forEach( nucleon => {
       if ( nucleon.type === 'proton' ) {
-        this.buckets.protonBucket.addParticleFirstOpen( nucleon, false );
+        this.protonBucket.addParticleFirstOpen( nucleon, false );
       }
       else {
-        this.buckets.neutronBucket.addParticleFirstOpen( nucleon, false );
+        this.neutronBucket.addParticleFirstOpen( nucleon, false );
       }
     } );
     this.electrons.forEach( electron => {
-      this.buckets.electronBucket.addParticleFirstOpen( electron, false );
+      this.electronBucket.addParticleFirstOpen( electron, false );
     } );
 
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     this.nucleusJumpCount = 0;
+  }
+
+  private moveParticlesFromAtomToBucket( particleCollection: ObservableArray<Particle>, bucket: SphereBucket<Particle> ): void {
+    // Copy the observable particle collection into a regular array.
+    const particlesToRemove = particleCollection.getArrayCopy();
+    particlesToRemove.forEach( particle => {
+        this.atom.removeParticle( particle );
+        bucket.addParticleFirstOpen( particle, true );
+      }
+    );
   }
 
   public setAtomConfiguration( numberAtom: NumberAtom ): void {
@@ -321,7 +324,7 @@ class BAAModel {
     // Define a function for transferring particles from buckets to atom.
     const atomCenter = this.atom.positionProperty.value;
 
-    // TODO: Should this be adjacent to _moveParticlesFromAtomToBucket? https://github.com/phetsims/build-an-atom/issues/329
+    // TODO: Should this be adjacent to moveParticlesFromAtomToBucket? https://github.com/phetsims/build-an-atom/issues/329
     const moveParticlesToAtom = (
       currentCountInAtom: number,
       targetCountInAtom: number,
@@ -335,7 +338,7 @@ class BAAModel {
         currentCountInAtom++;
       }
       while ( currentCountInAtom > targetCountInAtom ) {
-        this._moveParticlesFromAtomToBucket( particlesInAtom, bucket );
+        this.moveParticlesFromAtomToBucket( particlesInAtom, bucket );
         currentCountInAtom--;
       }
     };
@@ -344,19 +347,19 @@ class BAAModel {
     moveParticlesToAtom( this.atom.protons.length,
       numberAtom.protonCountProperty.value,
       this.atom.protons,
-      this.buckets.protonBucket
+      this.protonBucket
     );
     moveParticlesToAtom(
       this.atom.neutrons.length,
       numberAtom.neutronCountProperty.value,
       this.atom.neutrons,
-      this.buckets.neutronBucket
+      this.neutronBucket
     );
     moveParticlesToAtom(
       this.atom.electrons.length,
       numberAtom.electronCountProperty.value,
       this.atom.electrons,
-      this.buckets.electronBucket
+      this.electronBucket
     );
 
     // Finalize particle positions.
