@@ -116,15 +116,13 @@ class BAAScreenView extends ScreenView {
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will exist.
-    // TODO: What is the reason for layerSplit in this case? https://github.com/phetsims/build-an-atom/issues/329
-    const electronLayer = new Node( { layerSplit: true } );
+    const electronLayer = new Node();
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    // TODO: Start at 1? See https://github.com/phetsims/build-an-atom/issues/330
-    const protonsGroupTandem = tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 0 );
-    const neutronsGroupTandem = tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 0 );
-    const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
+    const protonsGroupTandem = tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 1 );
+    const neutronsGroupTandem = tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 1 );
+    const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 1 );
 
     // Add the nucleons.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );

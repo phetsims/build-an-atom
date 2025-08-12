@@ -66,8 +66,7 @@ class InteractiveSchematicAtom extends Node {
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will be maintained.
-    // TODO: document reason for layerSplit. https://github.com/phetsims/build-an-atom/issues/329
-    const electronLayer = new Node( { layerSplit: true } );
+    const electronLayer = new Node();
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
