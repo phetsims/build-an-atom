@@ -22,6 +22,8 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
       ( model: BAAModel ) => new AtomScreenView( model, tandem.createTandem( 'view' ) ),
       {
         name: BuildAnAtomFluent.atomStringProperty,
+
+        // TODO: Can the Tandem parameter be eliminated? See https://github.com/phetsims/build-an-atom/issues/329
         homeScreenIcon: new AtomScreenIcon( Tandem.OPT_OUT ),
         tandem: tandem
       }

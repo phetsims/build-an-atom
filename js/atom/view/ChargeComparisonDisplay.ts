@@ -86,7 +86,7 @@ class ChargeComparisonDisplay extends Node {
     const plusSymbolPath = new Path( plusSymbolShape, {
       stroke: 'black',
       lineWidth: 1,
-      fill: BAAColors.protonColorProperty,
+      fill: BAAColors.protonColorProperty, // TODO Looks like this color changed from RED_COLORBLIND, is that intentional? see https://github.com/phetsims/build-an-atom/issues/329
       left: INTER_SYMBOL_DISTANCE / 2,
       centerY: VERTICAL_INSET + SYMBOL_WIDTH / 2
     } );
