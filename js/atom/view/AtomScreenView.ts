@@ -30,7 +30,6 @@ class AtomScreenView extends BAAScreenView {
     super( model, tandem );
 
     // Add the charge meter and charge comparison display inside an accordion box.
-    const netChargeAccordionBoxTandem = tandem.createTandem( 'netChargeAccordionBox' );
     const netChargeAccordionBoxContents = new HBox( {
       children: [
         new ChargeMeter( model.atom.chargeProperty ),
@@ -48,7 +47,7 @@ class AtomScreenView extends BAAScreenView {
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
         expandedDefaultValue: false,
-        tandem: netChargeAccordionBoxTandem,
+        tandem: tandem.createTandem( 'netChargeAccordionBox' ),
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
