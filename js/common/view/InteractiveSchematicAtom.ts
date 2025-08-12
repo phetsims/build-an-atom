@@ -62,7 +62,6 @@ class InteractiveSchematicAtom extends Node {
       this.addChild( nucleonLayer );
     } );
 
-    // TODO: Duplicated code in 4x locations. Search the project for "so that layer 0 is in front." Can/should any be consolidated? See https://github.com/phetsims/build-an-atom/issues/329
     nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
 
     // Add the layer where the electrons will be maintained.
