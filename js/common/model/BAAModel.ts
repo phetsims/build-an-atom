@@ -66,11 +66,9 @@ class BAAModel {
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
 
-  // TODO: Does this get reset properly? See https://github.com/phetsims/build-an-atom/issues/329
   // countdown for nucleus jump animation, in seconds
   private nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
 
-  // TODO: Does this get reset properly? See https://github.com/phetsims/build-an-atom/issues/329
   // count for how many times the nucleus has jumped
   private nucleusJumpCount = 0;
 
@@ -125,7 +123,6 @@ class BAAModel {
 
     // Create a property that controls the speed of particle animations in the view.  This is only used for phet-io.
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
-      tandem: tandem.createTandem( 'particleAnimationSpeedProperty' ),
       range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
       units: 'view-coordinates/s'
     } );
@@ -311,6 +308,9 @@ class BAAModel {
     this.electrons.forEach( electron => {
       this.buckets.electronBucket.addParticleFirstOpen( electron, false );
     } );
+
+    this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
+    this.nucleusJumpCount = 0;
   }
 
   public setAtomConfiguration( numberAtom: NumberAtom ): void {

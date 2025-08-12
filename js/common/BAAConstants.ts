@@ -7,7 +7,6 @@
  */
 
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
-import Random from '../../../dot/js/Random.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
@@ -15,11 +14,6 @@ import Color from '../../../scenery/js/util/Color.js';
 import ShredConstants from '../../../shred/js/ShredConstants.js';
 import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../buildAnAtom.js';
-
-// TODO: Why is everything else in BAAConstants, but RANDOM is not? Can/should it be moved in? https://github.com/phetsims/build-an-atom/issues/329
-export const RANDOM = new Random( {
-  seed: 1 // Seed will be changed by the GameMode.
-} );
 
 class BAAConstants {
 
@@ -37,9 +31,7 @@ class BAAConstants {
     maxWidth: 140,
     maxHeight: 100
   };
-
-  // TODO: Why are some values here typed and others not? Should we add a type here? https://github.com/phetsims/build-an-atom/issues/329
-  public static readonly SHOW_ANSWER_TEXT_OPTIONS = {
+  public static readonly SHOW_ANSWER_TEXT_OPTIONS: RichTextOptions = {
     fill: Color.RED,
     font: new PhetFont( 16 )
   };

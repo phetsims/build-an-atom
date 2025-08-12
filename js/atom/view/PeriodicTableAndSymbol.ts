@@ -6,7 +6,6 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import TProperty from '../../../../axon/js/TProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -28,8 +27,7 @@ export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
 class PeriodicTableAndSymbol extends Node {
 
-  // TODO: Is the TReadOnlyProperty<number> part redundant? see https://github.com/phetsims/build-an-atom/issues/329
-  public constructor( protonCountProperty: TReadOnlyProperty<number> | TProperty<number>,
+  public constructor( protonCountProperty: TReadOnlyProperty<number>,
                       providedOptions: PeriodicTableAndSymbolOptions ) {
 
     const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
