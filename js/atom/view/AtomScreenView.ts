@@ -66,7 +66,6 @@ class AtomScreenView extends BAAScreenView {
         scale: 0.85 // empirically determined to make the control panels all fit on the screen
       }
     );
-    const massNumberAccordionBoxTandem = tandem.createTandem( 'massNumberAccordionBox' );
     this.massNumberAccordionBox = new AccordionBox(
       massNumberDisplay,
       combineOptions<AccordionBoxOptions>( {}, {
@@ -75,7 +74,7 @@ class AtomScreenView extends BAAScreenView {
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
         expandedDefaultValue: false,
-        tandem: massNumberAccordionBoxTandem,
+        tandem: tandem.createTandem( 'massNumberAccordionBox' ),
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
