@@ -23,15 +23,15 @@ import MassNumberDisplay from './MassNumberDisplay.js';
 
 class AtomScreenView extends BAAScreenView {
 
-  private readonly chargeAccordionBox: AccordionBox;
+  private readonly netChargeAccordionBox: AccordionBox;
   private readonly massNumberAccordionBox: AccordionBox;
 
   public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );
 
     // Add the charge meter and charge comparison display inside an accordion box.
-    const chargeAccordionBoxTandem = tandem.createTandem( 'chargeAccordionBox' );
-    const chargeAccordionBoxContents = new HBox( {
+    const netChargeAccordionBoxTandem = tandem.createTandem( 'netChargeAccordionBox' );
+    const netChargeAccordionBoxContents = new HBox( {
       children: [
         new ChargeMeter( model.atom.chargeProperty ),
         new ChargeComparisonDisplay( model.atom, { pickable: false } )
@@ -40,15 +40,15 @@ class AtomScreenView extends BAAScreenView {
       scale: 0.85, // empirically determined to keep the box height reasonable
       pickable: false
     } );
-    this.chargeAccordionBox = new AccordionBox(
-      chargeAccordionBoxContents,
+    this.netChargeAccordionBox = new AccordionBox(
+      netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.netChargeStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
         } ),
         expandedDefaultValue: false,
-        tandem: chargeAccordionBoxTandem,
+        tandem: netChargeAccordionBoxTandem,
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
@@ -56,8 +56,8 @@ class AtomScreenView extends BAAScreenView {
         labelContent: BuildAnAtomFluent.netChargeStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
-    this.accordionBoxes.addChild( this.chargeAccordionBox );
-    this.chargeAccordionBox.addLinkedElement( model.atom.chargeProperty );
+    this.accordionBoxes.addChild( this.netChargeAccordionBox );
+    this.netChargeAccordionBox.addLinkedElement( model.atom.chargeProperty );
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(
@@ -90,14 +90,14 @@ class AtomScreenView extends BAAScreenView {
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
       ...this.pdomPlayAreaNode.pdomOrder!,
-      this.chargeAccordionBox,
+      this.netChargeAccordionBox,
       this.massNumberAccordionBox
     ];
   }
 
   public override reset(): void {
     super.reset();
-    this.chargeAccordionBox.expandedProperty.reset();
+    this.netChargeAccordionBox.expandedProperty.reset();
     this.massNumberAccordionBox.expandedProperty.reset();
   }
 }
