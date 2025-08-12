@@ -13,6 +13,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
@@ -40,15 +41,15 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToElementChallenge.correctAnswerAtom, {
-      bottom: schematicAtomNode.top - 10,
-      left: schematicAtomNode.left,
+      bottom: schematicAtomNode.top,
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
-    schematicAtomNode.addChild( particleCountDisplay );
+    this.challengePresentationNode.addChild( particleCountDisplay );
 
     // Setting the position at the end, because the particle count display changes the bounds
     schematicAtomNode.right = this.periodicTable.left - 50;
-    schematicAtomNode.centerY = this.periodicTable.centerY - particleCountDisplay.height / 2;
+    schematicAtomNode.centerY = this.periodicTable.centerY - particleCountDisplay.height / 2 + BAAConstants.ATOM_VERTICAL_OFFSET;
+    particleCountDisplay.left = schematicAtomNode.left;
   }
 }
 

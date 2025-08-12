@@ -61,6 +61,10 @@ class BAAConstants {
 
   // TODO: Would the call sites be clearer as `new BooleanProperty( false )?` See https://github.com/phetsims/build-an-atom/issues/329
   public static readonly ALWAYS_FALSE_PROPERTY = new BooleanProperty( false, { validValues: [ false ] } );
+
+
+  // Vertical offset used in SchematicTo* challenges for the atom node
+  public static readonly ATOM_VERTICAL_OFFSET = 20;
 }
 
 buildAnAtom.register( 'BAAConstants', BAAConstants );

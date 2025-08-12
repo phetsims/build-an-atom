@@ -60,11 +60,11 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToMassNumberChallenge.correctAnswerAtom, {
-      bottom: schematicAtomNode.top - 10,
+      bottom: schematicAtomNode.top,
       left: schematicAtomNode.left,
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
-    schematicAtomNode.addChild( particleCountDisplay );
+    this.challengePresentationNode.addChild( particleCountDisplay );
 
     // Question
     const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheMassNumberStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
@@ -87,7 +87,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     questionPromptText.centerY = layoutBounds.height * 0.5;
     massNumberSpinner.left = questionPromptText.right + 10;
     massNumberSpinner.centerY = questionPromptText.centerY;
-    schematicAtomNode.centerY = massNumberSpinner.centerY;
+    schematicAtomNode.centerY = massNumberSpinner.centerY + BAAConstants.ATOM_VERTICAL_OFFSET;
   }
 
   public override checkAnswer(): void {

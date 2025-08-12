@@ -14,6 +14,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import SchematicToSymbolChallenge from '../model/SchematicToSymbolChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToSymbolChallengeView from './ToSymbolChallengeView.js';
@@ -40,15 +41,15 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToSymbolChallenge.correctAnswerAtom, {
-      bottom: schematicAtomNode.top - 10,
+      bottom: schematicAtomNode.top,
       left: schematicAtomNode.left,
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
-    schematicAtomNode.addChild( particleCountDisplay );
+    this.challengePresentationNode.addChild( particleCountDisplay );
 
     // Layout - bounds of AtomNode are dependent on its stability indicator text, so place relative to left.
     schematicAtomNode.left = layoutBounds.width * 0.15;
-    schematicAtomNode.centerY = layoutBounds.height * 0.50;
+    schematicAtomNode.centerY = layoutBounds.height * 0.50 + BAAConstants.ATOM_VERTICAL_OFFSET;
   }
 }
 
