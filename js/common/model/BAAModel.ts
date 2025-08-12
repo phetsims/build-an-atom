@@ -155,6 +155,8 @@ class BAAModel {
       const tandem = particleType === 'proton' ? protonTandem : neutronTandem;
       const nucleon = new Particle( particleType, {
         animationSpeedProperty: this.particleAnimationSpeedProperty,
+
+        // TODO: This is where the indices become misaligned, see https://github.com/phetsims/build-an-atom/issues/330
         tandem: tandem.createTandem( `${particleType}${index}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
         colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty

@@ -121,6 +121,7 @@ class BAAScreenView extends ScreenView {
     nucleonElectronLayer.addChild( electronLayer );
 
     // Add the nucleon particle views.
+    // TODO: Start at 1? See https://github.com/phetsims/build-an-atom/issues/330
     const protonsGroupTandem = tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 0 );
     const neutronsGroupTandem = tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 0 );
     const electronsGroupTandem = tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
@@ -246,7 +247,6 @@ class BAAScreenView extends ScreenView {
       pickable: false,
       scale: 0.55 // Scale empirically determined to match layout in design doc.
     } );
-    const periodicTableAccordionBoxTandem = tandem.createTandem( 'periodicTableAccordionBox' );
     this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol,
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
@@ -256,7 +256,7 @@ class BAAScreenView extends ScreenView {
         expandedDefaultValue: true,
 
         // phet-io
-        tandem: periodicTableAccordionBoxTandem,
+        tandem: tandem.createTandem( 'periodicTableAccordionBox' ),
         phetioFeatured: true,
 
         // pdom
