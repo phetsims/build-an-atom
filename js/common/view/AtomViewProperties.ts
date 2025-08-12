@@ -8,7 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import { ElectronShellDepiction, electronShellDepictionValues } from '../../../../shred/js/view/AtomNode.js';
+import { ElectronShellDepiction, ElectronShellDepictionValues } from '../../../../shred/js/view/AtomNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -39,8 +39,8 @@ class AtomViewProperties {
     } );
     this.electronModelProperty = new Property<ElectronShellDepiction>( 'orbits', {
       tandem: tandem.createTandem( 'electronModelProperty' ),
-      phetioValueType: StringUnionIO( electronShellDepictionValues ),
-      validValues: electronShellDepictionValues,
+      phetioValueType: StringUnionIO( ElectronShellDepictionValues ),
+      validValues: ElectronShellDepictionValues,
       phetioFeatured: true
     } );
   }

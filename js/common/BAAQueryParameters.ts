@@ -13,8 +13,6 @@ import BAAConstants from './BAAConstants.js';
 
 const BAAQueryParameters = QueryStringMachine.getAll( {
 
-  // TODO: A public query parameter appears to have been removed, was that by design? see https://github.com/phetsims/build-an-atom/issues/329
-
   // shows the game reward regardless of score
   reward: { type: 'flag' },
 

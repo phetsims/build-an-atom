@@ -21,6 +21,7 @@ import dotRandom from '../../../../dot/js/dotRandom.js';
 import Random from '../../../../dot/js/Random.js';
 import Range from '../../../../dot/js/Range.js';
 import TModel from '../../../../joist/js/TModel.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -139,7 +140,6 @@ class GameModel implements TModel {
       phetioReadOnly: true
     } );
 
-    // TODO: Is it okay to use Random here? https://github.com/phetsims/build-an-atom/issues/303
     this.random = new Random( { seed: this.randomSeedProperty.value } );
 
     this.gameStateProperty = new Property<GameState>( 'levelSelection', {
@@ -346,8 +346,8 @@ class GameModel implements TModel {
    */
   private endLevel(): void {
 
-    const level = this.levelProperty.value!;
-    assert && assert( level );
+    const level = this.levelProperty.value;
+    affirm( level );
 
     this.timer.stop();
 

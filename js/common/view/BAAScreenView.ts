@@ -12,6 +12,7 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
@@ -128,8 +129,7 @@ class BAAScreenView extends ScreenView {
     // Add the nucleons.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
 
-    // TODO: Infer type? https://github.com/phetsims/build-an-atom/issues/329
-    model.nucleons.forEach( ( nucleon: Particle ) => {
+    model.nucleons.forEach( nucleon => {
 
       assert && assert( nucleon.type === 'proton' || nucleon.type === 'neutron', 'this is not a nucleon' );
 
@@ -150,9 +150,8 @@ class BAAScreenView extends ScreenView {
         // Determine whether nucleon view is on the correct layer.
         let onCorrectLayer = false;
         nucleonLayers[ zLayer ].children.forEach( particleView => {
-
-          // TODO: If nucleonLayers are only supposed to contain ParticleView, convert to affirm()? https://github.com/phetsims/build-an-atom/issues/329
-          if ( particleView instanceof ParticleView && particleView.particle === nucleon ) {
+          affirm( particleView instanceof ParticleView, 'Nucleon layers should only contain ParticleView instance' );
+          if ( particleView.particle === nucleon ) {
             onCorrectLayer = true;
           }
         } );
@@ -165,8 +164,8 @@ class BAAScreenView extends ScreenView {
             for ( let childIndex = 0; childIndex < nucleonLayers[ layerIndex ].children.length; childIndex++ ) {
               const nucleonChild = nucleonLayers[ layerIndex ].children[ childIndex ];
 
-              // TODO: If nucleonLayers are only supposed to contain ParticleView, convert to affirm()? https://github.com/phetsims/build-an-atom/issues/329
-              if ( nucleonChild instanceof ParticleView && nucleonChild.particle === nucleon ) {
+              affirm( nucleonChild instanceof ParticleView, 'nucleonLayers should only contain ParticleView instances' );
+              if ( nucleonChild.particle === nucleon ) {
                 particleView = nucleonLayers[ layerIndex ].children[ childIndex ];
                 nucleonLayers[ layerIndex ].removeChildAt( childIndex );
                 break;
@@ -175,9 +174,8 @@ class BAAScreenView extends ScreenView {
           }
 
           // Add the particle view to its new layer.
-          // TODO: Prefer affirm to simplify https://github.com/phetsims/build-an-atom/issues/329
-          assert && assert( particleView !== null, 'Particle view not found during re-layering' );
-          particleView && nucleonLayers[ zLayer ].addChild( particleView );
+          affirm( particleView !== null, 'Particle view not found during re-layering' );
+          nucleonLayers[ zLayer ].addChild( particleView );
         }
       } );
     } );
@@ -193,11 +191,9 @@ class BAAScreenView extends ScreenView {
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
-        // TODO: If nucleonLayers are only supposed to contain ParticleView, convert to affirm()? https://github.com/phetsims/build-an-atom/issues/329
-        if ( electronNode instanceof ParticleView ) {
-          electronNode.visible = this.viewProperties.electronModelProperty.value === 'orbits' ||
-                                 !model.atom.electrons.includes( electronNode.particle );
-        }
+        affirm( electronNode instanceof ParticleView, 'electronLayer should only contain ParticleView instances' );
+        electronNode.visible = this.viewProperties.electronModelProperty.value === 'orbits' ||
+                               !model.atom.electrons.includes( electronNode.particle );
       } );
     };
     model.atom.electrons.lengthProperty.link( updateElectronVisibility );
@@ -219,7 +215,7 @@ class BAAScreenView extends ScreenView {
         gradientLuminanceLeft: 0.2,
         gradientLuminanceRight: -0.6,
 
-        // TODO: Does this release have alt-input? It was confusing to see tagName and focusable while not being able to test alt-input. See https://github.com/phetsims/build-an-atom/issues/329
+        // TODO: Is focusable tru by default? See https://github.com/phetsims/build-an-atom/issues/329
         // pdom
         tagName: 'button',
         focusable: true

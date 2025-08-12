@@ -76,7 +76,6 @@ class InteractiveSchematicAtom extends Node {
     const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
     model.nucleons.forEach( nucleon => {
 
-      // TODO: this method is getting complex https://github.com/phetsims/build-an-atom/issues/329
       const tandemGroup = nucleon.typeProperty.value === 'proton' ? protonGroupTandem : neutronGroupTandem;
 
       const particleView = new BAAParticleView( nucleon, modelViewTransform, {
