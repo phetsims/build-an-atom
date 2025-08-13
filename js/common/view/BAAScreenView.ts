@@ -214,10 +214,8 @@ class BAAScreenView extends ScreenView {
         gradientLuminanceLeft: 0.2,
         gradientLuminanceRight: -0.6,
 
-        // TODO: Is focusable tru by default? See https://github.com/phetsims/build-an-atom/issues/329
         // pdom
-        tagName: 'button',
-        focusable: true
+        tagName: 'button'
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
