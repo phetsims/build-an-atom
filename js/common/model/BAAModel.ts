@@ -9,10 +9,8 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
-import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -62,9 +60,6 @@ class BAAModel {
   // Arrays that hold the subatomic particles.
   public readonly nucleons: Particle[];
   public readonly electrons: Particle[];
-
-  // Property that controls the speed of particle animations in the view.
-  private readonly particleAnimationSpeedProperty: TProperty<number>;
 
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
@@ -124,13 +119,6 @@ class BAAModel {
 
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
-    // Create a property that controls the speed of particle animations in the view.  This is only used for phet-io.
-    // TODO: AV: It says it's used for phet-io but not instrumented. https://github.com/phetsims/build-an-atom/issues/329
-    this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
-      range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
-      units: 'view-coordinates/s'
-    } );
-
     // Define a function that will decide where to put nucleons.
     const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
@@ -154,7 +142,6 @@ class BAAModel {
       const parentTandem = particleType === 'proton' ? protonTandem : neutronTandem;
       _.times( numberToAdd, index => {
         const nucleon = new Particle( particleType, {
-          animationSpeedProperty: this.particleAnimationSpeedProperty,
           tandem: parentTandem.createTandem( `${particleType}${index + 1}` ),
           maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
           colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
@@ -191,7 +178,6 @@ class BAAModel {
     // Add the electrons.
     _.times( NUM_ELECTRONS, index => {
       const electron = new Particle( 'electron', {
-        animationSpeedProperty: this.particleAnimationSpeedProperty,
         tandem: electronTandem.createTandem( `electron${index + 1}` ),
         maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
         colorProperty: BAAColors.electronColorProperty

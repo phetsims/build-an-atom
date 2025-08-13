@@ -304,7 +304,6 @@ class BAAScreenView extends ScreenView {
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
     // controls whether the related animation is enabled.
-    // TODO: Is it confusing to have a view property that mirrors a model property? Why not just use the model property? https://github.com/phetsims/build-an-atom/issues/329
     this.viewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
       model.animateNuclearInstabilityProperty.value = nuclearStabilityVisible;
     } );
