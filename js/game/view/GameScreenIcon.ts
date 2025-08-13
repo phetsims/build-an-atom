@@ -10,7 +10,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenIcon, { MINIMUM_HOME_SCREEN_ICON_SIZE } from '../../../../joist/js/ScreenIcon.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -21,9 +20,7 @@ import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.j
 
 export default class GameScreenIcon extends ScreenIcon {
 
-  public constructor( tandem: Tandem ) {
-
-    const iconNode = new Node();
+  public constructor() {
 
     const backgroundNode = new Rectangle( 0, 0, MINIMUM_HOME_SCREEN_ICON_SIZE.width, MINIMUM_HOME_SCREEN_ICON_SIZE.height, {
       fill: BAAColors.gameScreenBackgroundColorProperty,
@@ -59,7 +56,7 @@ export default class GameScreenIcon extends ScreenIcon {
         isMassNumberInteractive: false,
         showAtomName: false,
         excludeInvisibleChildrenFromBounds: true,
-        tandem: tandem.createTandem( 'symbolNode' )
+        tandem: Tandem.OPT_OUT
       }
     );
 
@@ -70,8 +67,6 @@ export default class GameScreenIcon extends ScreenIcon {
     } );
     faceNode.smile();
 
-    iconNode.addChild( backgroundNode );
-
     symbolNode.setScaleMagnitude( SCALE );
     symbolNode.centerX = backgroundNode.width * 0.80;
     faceNode.centerX = backgroundNode.width * 0.5;
@@ -80,14 +75,13 @@ export default class GameScreenIcon extends ScreenIcon {
     symbolNode.centerY = schematicAtomNode.centerY = backgroundNode.height * 0.7;
     faceNode.centerY = backgroundNode.height * 0.25;
 
-    iconNode.addChild( symbolNode );
-    iconNode.addChild( schematicAtomNode );
-    iconNode.addChild( faceNode );
+    backgroundNode.addChild( symbolNode );
+    backgroundNode.addChild( schematicAtomNode );
+    backgroundNode.addChild( faceNode );
 
     super(
-      iconNode,
+      backgroundNode,
       {
-        tandem: tandem,
         maxIconWidthProportion: 1,
         maxIconHeightProportion: 1
       }

@@ -9,7 +9,6 @@
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenIcon from '../../../../joist/js/ScreenIcon.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -17,9 +16,7 @@ import NonInteractiveSchematicAtomNode from '../../game/view/NonInteractiveSchem
 
 export default class AtomScreenIcon extends ScreenIcon {
 
-  public constructor( tandem: Tandem ) {
-
-    const iconNode = new Node();
+  public constructor() {
 
     // Create the model-view transform used by the schematic atom.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -32,20 +29,11 @@ export default class AtomScreenIcon extends ScreenIcon {
     const schematicAtomNode = new NonInteractiveSchematicAtomNode(
       new NumberAtom( { protonCount: 3, neutronCount: 4, electronCount: 3 } ),
       modelViewTransform,
-
-      // TODO: Pass Tandem.OPT_OUT or make tandem optional here, see https://github.com/phetsims/build-an-atom/issues/329
-      tandem.createTandem( 'noninteractiveSchematicAtomNode' )
+      Tandem.OPT_OUT
     );
 
-    iconNode.addChild( schematicAtomNode );
-
     super(
-
-      // TODO: Eliminate extra Node, see https://github.com/phetsims/build-an-atom/issues/329
-      iconNode,
-      {
-        tandem: tandem
-      }
+      schematicAtomNode
     );
   }
 }

@@ -25,7 +25,7 @@ class GameScreen extends Screen<GameModel, GameScreenView> {
       {
         name: BuildAnAtomFluent.gameStringProperty,
         backgroundColorProperty: BAAColors.gameScreenBackgroundColorProperty,
-        homeScreenIcon: new GameScreenIcon( Tandem.OPT_OUT ),
+        homeScreenIcon: new GameScreenIcon(),
         tandem: tandem
       }
     );

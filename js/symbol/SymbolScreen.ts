@@ -24,7 +24,7 @@ class SymbolScreen extends Screen<BAAModel, SymbolScreenView> {
       {
         name: BuildAnAtomFluent.symbolStringProperty,
         backgroundColorProperty: BAAColors.symbolsScreenBackgroundColorProperty,
-        homeScreenIcon: new SymbolScreenIcon( Tandem.OPT_OUT ),
+        homeScreenIcon: new SymbolScreenIcon(),
         tandem: tandem
       }
     );
