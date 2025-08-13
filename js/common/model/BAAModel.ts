@@ -125,6 +125,7 @@ class BAAModel {
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
     // Create a property that controls the speed of particle animations in the view.  This is only used for phet-io.
+    // TODO: AV: It says it's used for phet-io but not instrumented. https://github.com/phetsims/build-an-atom/issues/329
     this.particleAnimationSpeedProperty = new NumberProperty( ShredConstants.DEFAULT_PARTICLE_SPEED, {
       range: new Range( ShredConstants.DEFAULT_PARTICLE_SPEED / 10, ShredConstants.DEFAULT_PARTICLE_SPEED * 10 ),
       units: 'view-coordinates/s'
