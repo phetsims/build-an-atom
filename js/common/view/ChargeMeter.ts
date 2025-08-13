@@ -13,6 +13,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
+import MinusNode from '../../../../scenery-phet/js/MinusNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import PlusNode from '../../../../scenery-phet/js/PlusNode.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -84,9 +85,8 @@ class ChargeMeter extends Node {
     meterWindow.addChild( plusSymbol );
 
     // Add the minus symbol, which will be drawn (not done as a character).
-    // TODO: Can we use MinusNode for symmetry? See https://github.com/phetsims/build-an-atom/issues/329
-    const minusSymbol = new Rectangle( {
-      rectSize: new Dimension2( 10, 3 ),
+    const minusSymbol = new MinusNode( {
+      size: new Dimension2( 10, 3 ),
       lineWidth: SYMBOL_LINE_WIDTH,
       fill: 'blue',
       stroke: 'black'
