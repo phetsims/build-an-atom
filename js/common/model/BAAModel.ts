@@ -8,7 +8,6 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import { ObservableArray } from '../../../../axon/js/createObservableArray.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TProperty from '../../../../axon/js/TProperty.js';
@@ -307,64 +306,52 @@ class BAAModel {
     this.nucleusJumpCount = 0;
   }
 
-  private moveParticlesFromAtomToBucket( particleCollection: ObservableArray<Particle>, bucket: SphereBucket<Particle> ): void {
-    // Copy the observable particle collection into a regular array.
-    const particlesToRemove = particleCollection.getArrayCopy();
-    particlesToRemove.forEach( particle => {
-        this.atom.removeParticle( particle );
-        bucket.addParticleFirstOpen( particle, true );
-      }
-    );
-  }
-
+  /**
+   * Set the atom to the provided configuration.  This will move particles between the buckets and the atom as needed.
+   */
   public setAtomConfiguration( numberAtom: NumberAtom ): void {
 
-    // First reset the atom because sometimes the assigned particles are already displayed
-    this.reset();
-
-    // Define a function for transferring particles from buckets to atom.
-    const atomCenter = this.atom.positionProperty.value;
-
-    // TODO: Should this be adjacent to moveParticlesFromAtomToBucket? https://github.com/phetsims/build-an-atom/issues/329
-    const moveParticlesToAtom = (
-      currentCountInAtom: number,
-      targetCountInAtom: number,
-      particlesInAtom: ObservableArray<Particle>,
-      bucket: SphereBucket<Particle>
-    ) => {
-      while ( currentCountInAtom < targetCountInAtom ) {
-        const particle = bucket.extractClosestParticle( atomCenter )!;
-        particle.setPositionAndDestination( atomCenter );
-        particle.isDraggingProperty.value = false; // Necessary to make it look like user released particle.
-        currentCountInAtom++;
-      }
-      while ( currentCountInAtom > targetCountInAtom ) {
-        this.moveParticlesFromAtomToBucket( particlesInAtom, bucket );
-        currentCountInAtom--;
-      }
-    };
-
     // Move the particles.
-    moveParticlesToAtom( this.atom.protons.length,
-      numberAtom.protonCountProperty.value,
-      this.atom.protons,
-      this.protonBucket
-    );
-    moveParticlesToAtom(
-      this.atom.neutrons.length,
-      numberAtom.neutronCountProperty.value,
-      this.atom.neutrons,
-      this.neutronBucket
-    );
-    moveParticlesToAtom(
-      this.atom.electrons.length,
-      numberAtom.electronCountProperty.value,
-      this.atom.electrons,
-      this.electronBucket
-    );
+    this.adjustParticleCountInAtom( 'proton', numberAtom.protonCountProperty.value );
+    this.adjustParticleCountInAtom( 'neutron', numberAtom.neutronCountProperty.value );
+    this.adjustParticleCountInAtom( 'electron', numberAtom.electronCountProperty.value );
 
     // Finalize particle positions.
-    this.atom.moveAllParticlesToDestination();
+    this.nucleons.forEach( nucleon => { nucleon.moveImmediatelyToDestination(); } );
+    this.electrons.forEach( electron => { electron.moveImmediatelyToDestination(); } );
+  }
+
+  /**
+   * Move particles of the specified type between the buckets and atoms to reach the specified target count in the atom.
+   */
+  private adjustParticleCountInAtom( particleType: ParticleType, targetCount: number ): void {
+
+    // Make sure this is one of the particle types we handle.
+    assert && assert( particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
+      `Unhandled particle type: ${particleType}` );
+
+    // Get the bucket and the current count of this particle type in the atom based on the particle type.
+    const bucket = particleType === 'proton' ? this.protonBucket :
+                   particleType === 'neutron' ? this.neutronBucket :
+                   this.electronBucket;
+    let currentCountInAtom = particleType === 'proton' ? this.atom.protons.length :
+                             particleType === 'neutron' ? this.atom.neutrons.length :
+                             this.atom.electrons.length;
+
+    const atomCenter = this.atom.positionProperty.value;
+
+    while ( currentCountInAtom < targetCount ) {
+      const particle = bucket.extractClosestParticle( atomCenter )!;
+      particle.setPositionAndDestination( atomCenter );
+      particle.isDraggingProperty.value = false; // Necessary to make it look like user released particle.
+      currentCountInAtom++;
+    }
+    while ( currentCountInAtom > targetCount ) {
+      const particle = this.atom.extractParticle( particleType );
+      assert && assert( particle, `No ${particleType} particle to move from atom to bucket` );
+      bucket.addParticleFirstOpen( particle, true );
+      currentCountInAtom--;
+    }
   }
 
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
