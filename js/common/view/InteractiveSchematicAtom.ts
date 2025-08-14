@@ -23,7 +23,6 @@ import BAAModel from '../model/BAAModel.js';
 import BAAParticleView from './BAAParticleView.js';
 
 // constants
-const NUM_NUCLEON_LAYERS = 5; // This is based on max number of particles, may need adjustment if that changes.
 type SelfOptions = EmptySelfOptions;
 
 type InteractiveSchematicAtomOptions = SelfOptions & NodeOptions;
@@ -56,7 +55,7 @@ class InteractiveSchematicAtom extends Node {
 
     // Add the layers where the nucleons will be maintained.
     const nucleonLayers: Node[] = [];
-    _.times( NUM_NUCLEON_LAYERS, () => {
+    _.times( BAAModel.NUMBER_OF_NUCLEON_LAYERS, () => {
       const nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
       this.addChild( nucleonLayer );

@@ -1,9 +1,9 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * Model of an atom that represents the atom as a set of particle counts as well as the charge.
- * This is used in the game to check between a correct answer and a submitted answer by the user,
- * as well to support the neutral or ion selection.
+ * Model of an atom that represents the atom as a set of particle counts as well as the charge. This is used in the
+ * game to check between a correct answer and a submitted answer by the user, as well to support the neutral or ion
+ * selection.
  *
  * @author Agustín Vallejo
  */
@@ -11,7 +11,9 @@
 import optionize from '../../../../phet-core/js/optionize.js';
 import NumberAtom, { NumberAtomOptions } from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import { NeutralOrIon } from '../view/ToElementChallengeView.js';
+
+export const neutralOrIonValues = [ 'neutral', 'ion', 'noSelection' ] as const;
+export type NeutralOrIon = typeof neutralOrIonValues[number];
 
 type SelfOptions = {
   neutralOrIon?: NeutralOrIon;

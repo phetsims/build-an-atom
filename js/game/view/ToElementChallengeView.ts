@@ -25,7 +25,7 @@ import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
-import AnswerAtom from '../model/AnswerAtom.js';
+import AnswerAtom, { NeutralOrIon, neutralOrIonValues } from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ChallengeView from './ChallengeView.js';
 
@@ -34,9 +34,6 @@ const TITLE_FONT = new PhetFont( 30 );
 const INSET = 10;
 const CELL_DIMENSION = 25;
 const MAX_WIDTH = 100; // empirically determined for long strings
-
-const neutralOrIonValues = [ 'neutral', 'ion', 'noSelection' ] as const;
-export type NeutralOrIon = typeof neutralOrIonValues[number];
 
 class ToElementChallengeView extends ChallengeView {
 

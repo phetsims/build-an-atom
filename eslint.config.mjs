@@ -13,7 +13,12 @@ export default [
   ...simEslintConfig,
   {
     rules: {
-      'phet/no-view-imported-from-model': 'off' // TODO: Why? https://github.com/phetsims/build-an-atom/issues/241
+
+      // This sim was initially written before the no-view-imported-from-model rule was in effect, and the game is
+      // architected such that the individual game challenge classes in the model contain the information about which
+      // class should be used to represent that challenge in the view. Thus, the challenge models import view
+      // information.  That's why this rule is disabled.
+      'phet/no-view-imported-from-model': 'off'
     }
   }
 ];

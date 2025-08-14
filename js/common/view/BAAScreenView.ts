@@ -43,7 +43,6 @@ import ElectronModelControl from './ElectronModelControl.js';
 const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
-const NUM_NUCLEON_LAYERS = 6; // This is based on max number of particles, and may need adjustment if that changes.
 
 class BAAScreenView extends ScreenView {
 
@@ -109,7 +108,7 @@ class BAAScreenView extends ScreenView {
     // Add the layers where the nucleons will exist.  The lower the index number, the closer to the front.  Layer 0 is
     // reserved for nucleons that are being dragged.
     const nucleonLayers: Node[] = [];
-    _.times( NUM_NUCLEON_LAYERS, () => {
+    _.times( BAAModel.NUMBER_OF_NUCLEON_LAYERS, () => {
       const nucleonLayer = new Node();
       nucleonLayers.push( nucleonLayer );
       nucleonElectronLayer.addChild( nucleonLayer );
@@ -353,8 +352,6 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.expandedProperty.reset();
     this.viewProperties.reset();
   }
-
-  public static readonly NUM_NUCLEON_LAYERS = NUM_NUCLEON_LAYERS;
 }
 
 buildAnAtom.register( 'BAAScreenView', BAAScreenView );

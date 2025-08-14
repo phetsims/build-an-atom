@@ -24,7 +24,6 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
-import BAAScreenView from '../view/BAAScreenView.js';
 
 // constants
 const NUM_PROTONS = 10;
@@ -39,6 +38,7 @@ const NUCLEUS_JUMP_PERIOD = 0.1; // in seconds
 const MAX_NUCLEUS_JUMP = ShredConstants.NUCLEON_RADIUS * 0.5;
 const JUMP_ANGLES = [ Math.PI * 0.1, Math.PI * 1.6, Math.PI * 0.7, Math.PI * 1.1, Math.PI * 0.3 ];
 const JUMP_DISTANCES = [ MAX_NUCLEUS_JUMP * 0.4, MAX_NUCLEUS_JUMP * 0.8, MAX_NUCLEUS_JUMP * 0.2, MAX_NUCLEUS_JUMP * 0.9 ];
+const NUMBER_OF_NUCLEON_LAYERS = 6; // Number of layers for nucleons in the atom, used for z-ordering in view.
 
 type SelfOptions = {
   isInitialAtomConfigurable?: boolean; // If true, the initial atom configuration can be changed by query parameter.
@@ -143,7 +143,7 @@ class BAAModel {
       _.times( numberToAdd, index => {
         const nucleon = new Particle( particleType, {
           tandem: parentTandem.createTandem( `${particleType}${index + 1}` ),
-          maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
+          maxZLayer: NUMBER_OF_NUCLEON_LAYERS - 1,
           colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
         } );
         this.nucleons.push( nucleon );
@@ -179,7 +179,7 @@ class BAAModel {
     _.times( NUM_ELECTRONS, index => {
       const electron = new Particle( 'electron', {
         tandem: electronTandem.createTandem( `electron${index + 1}` ),
-        maxZLayer: BAAScreenView.NUM_NUCLEON_LAYERS - 1,
+        maxZLayer: NUMBER_OF_NUCLEON_LAYERS - 1,
         colorProperty: BAAColors.electronColorProperty
       } );
       this.electrons.push( electron );
@@ -342,6 +342,7 @@ class BAAModel {
   }
 
   public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
+  public static readonly NUMBER_OF_NUCLEON_LAYERS = NUMBER_OF_NUCLEON_LAYERS;
 }
 
 buildAnAtom.register( 'BAAModel', BAAModel );
