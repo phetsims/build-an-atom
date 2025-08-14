@@ -7,10 +7,8 @@
  * @author John Blanco
  */
 
-import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import SymbolToCountsChallengeView from '../view/SymbolToCountsChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
@@ -19,13 +17,6 @@ class SymbolToCountsChallenge extends BAAGameChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
     super( buildAnAtomGameModel, challengeType, tandem );
-  }
-
-  /**
-   * Create the view needed to visually represent this challenge.
-   */
-  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToCountsChallengeView {
-    return new SymbolToCountsChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToCountsChallengeView' ) );
   }
 }
 

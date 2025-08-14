@@ -7,10 +7,7 @@
  * @author John Blanco
  */
 
-import Bounds2 from '../../../../dot/js/Bounds2.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import SchematicToSymbolChallengeView from '../view/SchematicToSymbolChallengeView.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 import ToSymbolChallenge, { ToSymbolChallengeOptions } from './ToSymbolChallenge.js';
@@ -19,13 +16,6 @@ class SchematicToSymbolChallenge extends ToSymbolChallenge {
 
   public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, options: ToSymbolChallengeOptions ) {
     super( buildAnAtomGameModel, challengeType, options );
-  }
-
-  /**
-   * Create the view needed to visually represent this challenge.
-   */
-  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SchematicToSymbolChallengeView {
-    return new SchematicToSymbolChallengeView( this, layoutBounds, tandem.createTandem( 'schematicToSymbolChallengeView' ) );
   }
 }
 

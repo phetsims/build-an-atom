@@ -7,11 +7,9 @@
  * @author John Blanco
  */
 
-import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAModel from '../../common/model/BAAModel.js';
-import SymbolToSchematicChallengeView from '../view/SymbolToSchematicChallengeView.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
@@ -29,13 +27,6 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
       isInitialAtomConfigurable: false,
       tandem: Tandem.OPT_OUT
     } );
-  }
-
-  /**
-   * Create the view needed to visually represent this challenge.
-   */
-  public override createView( layoutBounds: Bounds2, tandem: Tandem ): SymbolToSchematicChallengeView {
-    return new SymbolToSchematicChallengeView( this, layoutBounds, tandem.createTandem( 'symbolToSchematicChallengeView' ) );
   }
 
   /**

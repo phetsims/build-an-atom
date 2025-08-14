@@ -9,14 +9,12 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import Bounds2 from '../../../../dot/js/Bounds2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import ChallengeView from '../view/ChallengeView.js';
 import AnswerAtom from './AnswerAtom.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
@@ -74,8 +72,6 @@ abstract class BAAGameChallenge extends PhetioObject {
   public displayCorrectAnswer(): void {
     this.model.gameStateProperty.value = 'showingAnswer';
   }
-
-  public abstract createView( layoutBounds: Bounds2, tandem: Tandem ): ChallengeView;
 
   public step( dt: number ): void {
     // no-op, implemented by subclasses if needed
