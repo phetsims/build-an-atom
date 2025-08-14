@@ -6,6 +6,8 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import GatedVisibleProperty from '../../../../axon/js/GatedVisibleProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -51,7 +53,10 @@ class GameScreenView extends ScreenView {
     this.levelSelectionNode = new LevelSelectionNode(
       gameModel,
       this.layoutBounds,
-      tandem.createTandem( 'levelSelectionNode' )
+      {
+        visibleProperty: DerivedProperty.valueEqualsConstant( gameModel.gameStateProperty, 'levelSelection' ),
+        tandem: tandem.createTandem( 'levelSelectionNode' )
+      }
     );
     this.addChild( this.levelSelectionNode );
 
@@ -59,6 +64,18 @@ class GameScreenView extends ScreenView {
 
     // Set up the set of all challenge views based on the challenges available in the game model.
     this.challengeViewSet = new ChallengeViewSet( gameModel.getAllChallenges(), this.layoutBounds, challengeViewTandem );
+
+    const statusBarTandem = tandem.createTandem( 'statusBar' );
+
+    // Create a property that will be used to control the visibility of the status bar.  This is a gated property so
+    // that it can be also controlled via PhET-iO.
+    const statusBarVisibleProperty = new GatedVisibleProperty(
+      new DerivedProperty(
+        [ gameModel.gameStateProperty ],
+        gameState => !( gameState === 'levelSelection' || gameState === 'levelCompleted' )
+      ),
+      statusBarTandem
+    );
 
     // Create and add the status bar to the game screen.
     const statusBar = new FiniteStatusBar(
@@ -78,6 +95,7 @@ class GameScreenView extends ScreenView {
         levelNumberProperty: gameModel.levelNumberProperty,
         levelLabelStringProperty: BuildAnAtomFluent.gameNumberPatternStringProperty,
         challengeNumberVisible: false,
+        visibleProperty: statusBarVisibleProperty,
         startOverButtonOptions: {
           font: new PhetFont( 20 ),
           textFill: 'black',
@@ -86,7 +104,7 @@ class GameScreenView extends ScreenView {
           yMargin: 5,
           listener: () => { gameModel.startOver(); }
         },
-        tandem: tandem.createTandem( 'statusBar' )
+        tandem: statusBarTandem
       }
     );
     this.addChild( statusBar );
@@ -101,10 +119,6 @@ class GameScreenView extends ScreenView {
 
     // Monitor the game state and update the view accordingly.
     gameModel.gameStateProperty.link( gameState => {
-
-      // Update the visibility of some of the nodes based on the game state.
-      this.levelSelectionNode.visible = gameState === 'levelSelection';
-      statusBar.visible = gameState !== 'levelSelection' && gameState !== 'levelCompleted';
 
       if ( gameState === 'levelSelection' ) {
         this.removeLevelCompletedNodes();

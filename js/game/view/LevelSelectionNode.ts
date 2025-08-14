@@ -7,14 +7,15 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import InfoButton from '../../../../scenery-phet/js/buttons/InfoButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import GameInfoDialog from '../../../../vegas/js/GameInfoDialog.js';
 import LevelSelectionButtonGroup, { LevelSelectionButtonGroupItem } from '../../../../vegas/js/LevelSelectionButtonGroup.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
@@ -29,14 +30,17 @@ import MassAndChargeLevelIcon from './MassAndChargeLevelIcon.js';
 import PeriodicTableLevelIcon from './PeriodicTableLevelIcon.js';
 import SymbolLevelIcon from './SymbolLevelIcon.js';
 
+type SelfOptions = EmptySelfOptions;
+type LevelSelectionNodeOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+
 // constants
 const CONTROLS_INSET = 10;
 
 class LevelSelectionNode extends Node {
 
-  public constructor( gameModel: GameModel, layoutBounds: Bounds2, tandem: Tandem ) {
+  public constructor( gameModel: GameModel, layoutBounds: Bounds2, options: LevelSelectionNodeOptions ) {
 
-    super();
+    super( options );
 
     const title = new Text( BuildAnAtomFluent.chooseYourGameStringProperty, {
       font: new PhetFont( 30 ),
@@ -56,7 +60,7 @@ class LevelSelectionNode extends Node {
       {
         gameLevels: BAAQueryParameters.gameLevels,
         title: new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
-        tandem: tandem.createTandem( 'gamesInfoDialog' ),
+        tandem: options.tandem.createTandem( 'gamesInfoDialog' ),
         ySpacing: 20,
         descriptionTextOptions: {
           font: new PhetFont( 30 )
@@ -68,7 +72,7 @@ class LevelSelectionNode extends Node {
       iconFill: 'rgb( 50, 145, 184 )',
       scale: 0.4,
       touchAreaDilation: 15,
-      tandem: tandem.createTandem( 'gamesInfoButton' )
+      tandem: options.tandem.createTandem( 'gamesInfoButton' )
     } );
     this.addChild( gamesInfoButton );
 
@@ -117,7 +121,7 @@ class LevelSelectionNode extends Node {
       groupButtonHeight: 150,
       groupButtonWidth: 150,
       gameLevels: BAAQueryParameters.gameLevels,
-      tandem: tandem.createTandem( 'buttonGroup' ),
+      tandem: options.tandem.createTandem( 'buttonGroup' ),
       phetioVisiblePropertyInstrumented: false
     } );
 
@@ -130,7 +134,7 @@ class LevelSelectionNode extends Node {
     // timer control
     const timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
       stroke: 'gray',
-      tandem: tandem.createTandem( 'timerToggleButton' ),
+      tandem: options.tandem.createTandem( 'timerToggleButton' ),
       left: CONTROLS_INSET,
       bottom: layoutBounds.height - CONTROLS_INSET,
       offIconOptions: {
@@ -145,7 +149,7 @@ class LevelSelectionNode extends Node {
         gameModel.reset();
       },
       radius: BAAConstants.RESET_BUTTON_RADIUS,
-      tandem: tandem.createTandem( 'resetAllButton' ),
+      tandem: options.tandem.createTandem( 'resetAllButton' ),
       right: layoutBounds.width - CONTROLS_INSET,
       bottom: layoutBounds.height - CONTROLS_INSET
     } );
