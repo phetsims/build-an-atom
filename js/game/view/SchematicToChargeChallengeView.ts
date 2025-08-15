@@ -76,7 +76,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
         minValue: -99,
         maxValue: 99,
         showPlusForPositive: true,
-        signAfterValue: true,
+        signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         arrowButtonOptions: {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
