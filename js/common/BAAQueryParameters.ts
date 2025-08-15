@@ -25,18 +25,21 @@ const BAAQueryParameters = QueryStringMachine.getAll( {
 
   protons: {
     type: 'number',
+    private: true,
     defaultValue: 0,
     isValidValue: ( value: number ) => value >= 0
   },
 
   neutrons: {
     type: 'number',
+    private: true,
     defaultValue: 0,
     isValidValue: ( value: number ) => value >= 0
   },
 
   electrons: {
     type: 'number',
+    private: true,
     defaultValue: 0,
     isValidValue: ( value: number ) => value >= 0
   }
