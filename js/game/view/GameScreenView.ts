@@ -186,7 +186,7 @@ class GameScreenView extends ScreenView {
    * null, any existing challenge view will be removed from the screen.
    */
   private showChallengeView( challenge: BAAGameChallenge | null ): void {
-    const challengeView = challenge ? this.challengeViewSet.get( challenge )! : null;
+    const challengeView = challenge ? this.challengeViewSet.get( challenge ) : null;
 
     if ( !challengeView ) {
       if ( this.activeChallengeView ) {
