@@ -59,6 +59,10 @@ class BAANumberSpinner extends NumberSpinner {
 
       phetioVisiblePropertyInstrumented: false,
       phetioEnabledPropertyInstrumented: false,
+      phetioFeatured: false,
+      linkedElementOptions: {
+        phetioFeatured: false
+      },
 
       numberDisplayOptions: {
         tandem: Tandem.OPT_OUT,
