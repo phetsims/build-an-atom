@@ -24,14 +24,14 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 
 
 ### Bug Fixes
-* Describe a bug fix.
+* 
 * 
 
 ### Other Changes
-* 
-* 
-* ⚠️ Use this icon for a change that is breaking, removes a feature, etc. 
-*
+* Updated names of checkboxes and accordion boxes
+* Updated colors
+* Removed ?highContrastParticles query parameter
+* Info button added to Game Screen
 -->
 
 ## 1.0 ({{PUBLICATION_DATE}})
