@@ -32,6 +32,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 * Updated colors
 * Removed ?highContrastParticles query parameter
 * Info button added to Game Screen
+  
 -->
 
 ## 1.0 ({{PUBLICATION_DATE}})
