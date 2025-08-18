@@ -13,7 +13,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 -->
 
 
-## 1.7  (in progress)
+## 1.8  (in progress)
 
 ### New Features
 * Basic Sound
