@@ -29,10 +29,10 @@ simLauncher.launch( () => {
   const options: SimOptions = {
     credits: {
       leadDesign: 'Kelly Lancaster',
-      softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
+      softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid, Agust\u00edn Vallejo',
       team: 'Jack Barbera, Suzanne Brahmia, Julia Chamberlain, Yuen-ying Carpenter, ' +
             'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson, ' +
-            'Ariel Paul, Kathy Perkins, Sharon Siman-Tov',
+            'Ariel Paul, Kathy Perkins, Amy Rouinfar, Nancy Salpepi, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
                         'Elise Morgan, Ben Roberts',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
