@@ -173,7 +173,7 @@ class BAAModel {
 
     // Add the protons and neutrons, aka the nucleons.
     addNucleons( 'proton', NUM_PROTONS );
-    addNucleons( 'neutron', NUM_PROTONS );
+    addNucleons( 'neutron', NUM_NEUTRONS );
 
     // Add the electrons.
     _.times( NUM_ELECTRONS, index => {
