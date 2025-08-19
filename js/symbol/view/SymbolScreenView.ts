@@ -51,6 +51,16 @@ class SymbolScreenView extends BAAScreenView {
     } );
     this.accordionBoxes.addChild( this.symbolAccordionBox );
 
+    this.symbolAccordionBox.addLinkedElement( model.atom.protonCountProperty, {
+      tandemName: 'protonCountProperty'
+    } );
+    this.symbolAccordionBox.addLinkedElement( model.atom.massNumberProperty, {
+      tandemName: 'massNumberProperty'
+    } );
+    this.symbolAccordionBox.addLinkedElement( model.atom.chargeProperty, {
+      tandemName: 'chargeProperty'
+    } );
+
     // do the layout
     this.symbolAccordionBox.top = this.periodicTableAccordionBox.top + this.periodicTableAccordionBox.height + 10;
     this.symbolAccordionBox.left = this.periodicTableAccordionBox.left;
