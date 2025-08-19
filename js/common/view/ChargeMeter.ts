@@ -13,6 +13,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import MinusNode from '../../../../scenery-phet/js/MinusNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import PlusNode from '../../../../scenery-phet/js/PlusNode.js';
@@ -145,6 +146,8 @@ class ChargeMeter extends Node {
         }
         else if ( charge < 0 ) {
           textColor = 'blue';
+          sign = MathSymbols.MINUS;
+          charge = Math.abs( charge ); // Use the absolute value to use the proper sign.
         }
         else {
           textColor = 'black';
