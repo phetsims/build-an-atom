@@ -201,7 +201,7 @@ class BAAScreenView extends ScreenView {
     const bucketFrontLayer = new Node();
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
-    for ( const [ bucketName, bucket ] of Object.entries( model.buckets ) ) {
+    for ( const bucket of model.buckets ) {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         labelNode: new Text( bucket.captionText, {
           font: new PhetFont( 20 ),
@@ -218,7 +218,7 @@ class BAAScreenView extends ScreenView {
       } );
       bucketFrontLayer.addChild( bucketFront );
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: bucketsTandem.createTandem( `${bucketName}DragListener` ),
+        tandem: bucketsTandem.createTandem( `${bucket.tandem.name}DragListener` ),
         applyOffset: false,
 
         // Offset the particle position a little if this is a touch pointer so that the finger doesn't cover it.
