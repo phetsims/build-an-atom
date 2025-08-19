@@ -82,10 +82,8 @@ class BAANumberSpinner extends NumberSpinner {
 
     // Creating the formatter here in order to use the options
     options.numberDisplayOptions.numberFormatter = ( value: number ) => {
-      const minusSign = options.signAfterValue ? MathSymbols.MINUS : MathSymbols.UNARY_MINUS;
-      const plusSign = options.signAfterValue ? MathSymbols.PLUS : MathSymbols.UNARY_PLUS;
-      const sign = value < 0 ? minusSign :
-                   value > 0 && options.showPlusForPositive ? plusSign :
+      const sign = value < 0 ? MathSymbols.MINUS :
+                   value > 0 && options.showPlusForPositive ? MathSymbols.PLUS :
                    '';
       const absoluteValueString = Math.abs( value ).toString();
       return options.signAfterValue ? `${absoluteValueString}${sign}` : `${sign}${absoluteValueString}`;
