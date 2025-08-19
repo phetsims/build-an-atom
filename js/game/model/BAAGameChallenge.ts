@@ -35,7 +35,8 @@ abstract class BAAGameChallenge extends PhetioObject {
       tandem: tandem,
       isDisposable: false,
       phetioState: false,
-      phetioType: BAAGameChallenge.BAAGameChallengeIO
+      phetioType: BAAGameChallenge.BAAGameChallengeIO,
+      phetioFeatured: true
     } );
 
     this.correctAnswerAtom = new NumberAtom( {
