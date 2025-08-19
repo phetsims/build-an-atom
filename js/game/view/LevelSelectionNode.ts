@@ -51,12 +51,7 @@ class LevelSelectionNode extends Node {
 
     // Create and add the game info dialog and button.
     const gamesInfoDialog = new GameInfoDialog(
-      [
-        BuildAnAtomFluent.level1DescriptionStringProperty,
-        BuildAnAtomFluent.level2DescriptionStringProperty,
-        BuildAnAtomFluent.level3DescriptionStringProperty,
-        BuildAnAtomFluent.level4DescriptionStringProperty
-      ],
+      gameModel.levels.map( level => level.levelDescriptionStringProperty ),
       {
         gameLevels: BAAQueryParameters.gameLevels,
         title: new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),

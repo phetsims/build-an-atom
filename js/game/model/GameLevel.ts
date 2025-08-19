@@ -8,8 +8,10 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
@@ -18,7 +20,9 @@ import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeSetFactory, { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import GameModel from './GameModel.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  levelDescriptionPatternProperty: TReadOnlyProperty<string>; // Description of the level, used in the info dialog.
+};
 
 type GameLevelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
@@ -37,6 +41,9 @@ class GameLevel extends PhetioObject {
 
   // 0-based index used for this level when accessing various data structures.
   public readonly levelIndex: number;
+
+  // The level description string, used in the info dialog.
+  public readonly levelDescriptionStringProperty: TReadOnlyProperty<string>;
 
   public constructor(
     public readonly levelNumber: number, // level numbering is 1-based
@@ -57,6 +64,13 @@ class GameLevel extends PhetioObject {
     super( options );
 
     this.levelIndex = levelNumber - 1;
+
+    const levelDescriptionTandem = options.tandem.createTandem( 'levelDescriptionStringProperty' );
+    this.levelDescriptionStringProperty = new PatternStringProperty( options.levelDescriptionPatternProperty, {
+      levelNumber: levelNumber
+    }, {
+      tandem: levelDescriptionTandem
+    } );
 
     this.generateChallengeDescriptors();
 

@@ -48,10 +48,10 @@ type StringsType = {
   'showStringProperty': LocalizedStringProperty;
   'chooseYourGameStringProperty': LocalizedStringProperty;
   'gamesInfoTitleStringProperty': LocalizedStringProperty;
-  'level1DescriptionStringProperty': LocalizedStringProperty;
-  'level2DescriptionStringProperty': LocalizedStringProperty;
-  'level3DescriptionStringProperty': LocalizedStringProperty;
-  'level4DescriptionStringProperty': LocalizedStringProperty;
+  'level1DescriptionPatternStringProperty': LocalizedStringProperty;
+  'level2DescriptionPatternStringProperty': LocalizedStringProperty;
+  'level3DescriptionPatternStringProperty': LocalizedStringProperty;
+  'level4DescriptionPatternStringProperty': LocalizedStringProperty;
 };
 
 const BuildAnAtomStrings = getStringModule( 'BUILD_AN_ATOM' ) as StringsType;

@@ -29,6 +29,7 @@ import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import GameTimer from '../../../../vegas/js/GameTimer.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import AnswerAtom from './AnswerAtom.js';
@@ -187,9 +188,20 @@ class GameModel implements TModel {
       phetioFeatured: true
     } );
 
+    // Level description patterns
+    const levelDescriptionPatterns = [
+      BuildAnAtomFluent.level1DescriptionPatternStringProperty,
+      BuildAnAtomFluent.level2DescriptionPatternStringProperty,
+      BuildAnAtomFluent.level3DescriptionPatternStringProperty,
+      BuildAnAtomFluent.level4DescriptionPatternStringProperty
+    ];
+
     // Create the levels.
     this.levels = _.times( BAAConstants.NUMBER_OF_GAME_LEVELS, index => {
-      return new GameLevel( index + 1, this, { tandem: tandem.createTandem( `level${index + 1}` ) } );
+      return new GameLevel( index + 1, this, {
+        tandem: tandem.createTandem( `level${index + 1}` ),
+        levelDescriptionPatternProperty: levelDescriptionPatterns[ index ]
+      } );
     } );
 
     this.levelProperty = new Property<GameLevel | null>( null, {

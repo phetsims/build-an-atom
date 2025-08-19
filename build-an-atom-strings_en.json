@@ -101,16 +101,16 @@
   "gamesInfoTitle": {
     "value": "Games"
   },
-  "level1Description": {
-    "value": "<b>Game 1:</b> Identify elements based on subatomic particles <br>"
+  "level1DescriptionPattern": {
+    "value": "<b>Game {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
   },
-  "level2Description": {
-    "value": "<b>Game 2:</b> Calculate mass or charge <br>"
+  "level2DescriptionPattern": {
+    "value": "<b>Game {{levelNumber}}:</b> Calculate mass or charge <br>"
   },
-  "level3Description": {
-    "value": "<b>Game 3:</b> Fill in missing atomic symbol information <br>"
+  "level3DescriptionPattern": {
+    "value": "<b>Game {{levelNumber}}:</b> Fill in missing atomic symbol information <br>"
   },
-  "level4Description": {
-    "value": "<b>Game 4:</b> Mixed review"
+  "level4DescriptionPattern": {
+    "value": "<b>Game {{levelNumber}}:</b> Mixed review"
   }
 }
