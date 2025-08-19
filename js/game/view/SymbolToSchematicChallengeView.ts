@@ -51,7 +51,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
     this.challenge = challenge;
 
-    this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.buildAnAtomModel, modelViewTransform, {
+    this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
       scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined
     } );
@@ -60,7 +60,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
-    const particleCountDisplay = new ParticleCountDisplay( challenge.buildAnAtomModel.atom, {
+    const particleCountDisplay = new ParticleCountDisplay( challenge.submittedAnswerModel.atom, {
       bottom: this.interactiveSchematicAtom.top,
       left: this.interactiveSchematicAtom.left,
       tandem: tandem.createTandem( 'particleCountDisplay' )
@@ -79,7 +79,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // This was requested in https://github.com/phetsims/build-an-atom/issues/294
     const particleCountTandem = tandem.createTandem( 'particleCounts' );
     this.userProtonCountProperty = new DerivedProperty(
-      [ challenge.buildAnAtomModel.atom.protonCountProperty ], protons => protons,
+      [ challenge.submittedAnswerModel.atom.protonCountProperty ], protons => protons,
       {
         tandem: particleCountTandem.createTandem( 'protonCountProperty' ),
         phetioDocumentation: 'The number of protons entered by the user.',
@@ -87,7 +87,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
         phetioFeatured: true
       } );
     this.userNeutronCountProperty = new DerivedProperty(
-      [ challenge.buildAnAtomModel.atom.neutronCountProperty ], neutrons => neutrons,
+      [ challenge.submittedAnswerModel.atom.neutronCountProperty ], neutrons => neutrons,
       {
         tandem: particleCountTandem.createTandem( 'neutronCountProperty' ),
         phetioDocumentation: 'The number of neutrons entered by the user.',
@@ -95,7 +95,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
         phetioFeatured: true
       } );
     this.userElectronCountProperty = new DerivedProperty(
-      [ challenge.buildAnAtomModel.atom.electronCountProperty ], electrons => electrons,
+      [ challenge.submittedAnswerModel.atom.electronCountProperty ], electrons => electrons,
       {
         tandem: particleCountTandem.createTandem( 'electronCountProperty' ),
         phetioDocumentation: 'The number of electrons entered by the user.',
@@ -112,19 +112,19 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
-      protonCount: this.challenge.buildAnAtomModel.atom.protonCountProperty.value,
-      neutronCount: this.challenge.buildAnAtomModel.atom.neutronCountProperty.value,
-      electronCount: this.challenge.buildAnAtomModel.atom.electronCountProperty.value
+      protonCount: this.challenge.submittedAnswerModel.atom.protonCountProperty.value,
+      neutronCount: this.challenge.submittedAnswerModel.atom.neutronCountProperty.value,
+      electronCount: this.challenge.submittedAnswerModel.atom.electronCountProperty.value
     } );
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
   public override reset(): void {
-    this.challenge.buildAnAtomModel.reset();
+    this.challenge.submittedAnswerModel.reset();
   }
 
   public override displayCorrectAnswer(): void {
-    this.challenge.buildAnAtomModel.setAtomConfiguration( this.challenge.correctAnswerAtom );
+    this.challenge.submittedAnswerModel.setAtomConfiguration( this.challenge.correctAnswerAtom );
   }
 
   public override createAnswerNode(): Node {

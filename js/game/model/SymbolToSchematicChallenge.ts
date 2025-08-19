@@ -16,16 +16,16 @@ import GameModel from './GameModel.js';
 
 class SymbolToSchematicChallenge extends BAAGameChallenge {
 
-  public readonly buildAnAtomModel: BAAModel;
+  public readonly submittedAnswerModel: BAAModel;
 
   public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
     super( buildAnAtomGameModel, challengeType, tandem );
 
     // This challenge is a bit unique in that it has a model of an atom with which the user can interact. We want to
     // keep this model out of the state.
-    this.buildAnAtomModel = new BAAModel( {
+    this.submittedAnswerModel = new BAAModel( {
       isInitialAtomConfigurable: false,
-      tandem: Tandem.OPT_OUT
+      tandem: tandem.createTandem( 'submittedAnswerModel' )
     } );
   }
 
@@ -33,7 +33,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
    * step the atom model when the challenge is stepped
    */
   public override step( dt: number ): void {
-    this.buildAnAtomModel.step( dt );
+    this.submittedAnswerModel.step( dt );
   }
 }
 
