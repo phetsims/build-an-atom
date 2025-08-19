@@ -49,28 +49,6 @@ class LevelSelectionNode extends Node {
     } );
     this.addChild( title );
 
-    // Create and add the game info dialog and button.
-    const gamesInfoDialog = new GameInfoDialog(
-      gameModel.levels.map( level => level.levelDescriptionStringProperty ),
-      {
-        gameLevels: BAAQueryParameters.gameLevels,
-        title: new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
-        tandem: options.tandem.createTandem( 'gamesInfoDialog' ),
-        ySpacing: 20,
-        descriptionTextOptions: {
-          font: new PhetFont( 30 )
-        }
-      }
-    );
-    const gamesInfoButton = new InfoButton( {
-      listener: () => gamesInfoDialog.show(),
-      iconFill: 'rgb( 50, 145, 184 )',
-      scale: 0.4,
-      touchAreaDilation: 15,
-      tandem: options.tandem.createTandem( 'gamesInfoButton' )
-    } );
-    this.addChild( gamesInfoButton );
-
     // icons used for the level selection buttons, indexed by level number
     const gameButtonIcons = [
       new PeriodicTableLevelIcon(),
@@ -125,6 +103,29 @@ class LevelSelectionNode extends Node {
     } );
 
     this.addChild( buttonGroup );
+
+    // Create and add the game info dialog and button.
+    const gamesInfoDialog = new GameInfoDialog(
+      gameModel.levels.map( level => level.levelDescriptionStringProperty ),
+      {
+        gameLevels: BAAQueryParameters.gameLevels,
+        title: new RichText( BuildAnAtomFluent.gamesInfoTitleStringProperty, { font: new PhetFont( 35 ) } ),
+        tandem: options.tandem.createTandem( 'gamesInfoDialog' ),
+        ySpacing: 20,
+        descriptionTextOptions: {
+          font: new PhetFont( 30 )
+        },
+        descriptionVisibleProperties: buttonGroup.buttons.map( item => item.visibleProperty )
+      }
+    );
+    const gamesInfoButton = new InfoButton( {
+      listener: () => gamesInfoDialog.show(),
+      iconFill: 'rgb( 50, 145, 184 )',
+      scale: 0.4,
+      touchAreaDilation: 15,
+      tandem: options.tandem.createTandem( 'gamesInfoButton' )
+    } );
+    this.addChild( gamesInfoButton );
 
     // timer control
     const timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
