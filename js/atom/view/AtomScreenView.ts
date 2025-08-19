@@ -37,7 +37,8 @@ class AtomScreenView extends BAAScreenView {
       ],
       spacing: 5,
       scale: 0.85, // empirically determined to keep the box height reasonable
-      pickable: false
+      pickable: false,
+      justify: 'left'
     } );
     this.netChargeAccordionBox = new AccordionBox(
       netChargeAccordionBoxContents,
