@@ -68,7 +68,6 @@ class InteractiveSchematicAtom extends Node {
     this.addChild( electronLayer );
 
     // Add the nucleon particle views.
-    // TODO Should these count starting at 1? See https://github.com/phetsims/build-an-atom/issues/330
     const protonGroupTandem = options.tandem && options.tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 0 );
     const neutronGroupTandem = options.tandem && options.tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 0 );
     const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
