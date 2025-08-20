@@ -19,6 +19,7 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -255,6 +256,11 @@ class BAAModel {
   }
 
   public reset(): void {
+
+    if ( isSettingPhetioStateProperty.value ) {
+      // If we are setting the phet-io state, we don't want to reset the model.
+      return;
+    }
 
     // Move any particles that are in transit back to its bucket.
     this.nucleons.forEach( nucleon => {
