@@ -11,6 +11,7 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -45,7 +46,6 @@ class CountsToChargeChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( particleCountsNode );
 
     const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheTotalChargeStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
-    this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
     const chargeNumberSpinner = new BAANumberSpinner(
@@ -60,15 +60,16 @@ class CountsToChargeChallengeView extends ChallengeView {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }
       } );
-    this.interactiveAnswerNode.addChild( chargeNumberSpinner );
+    this.interactiveAnswerNode.addChild( new HBox( {
+      children: [ questionPromptText, chargeNumberSpinner ],
+      centerX: layoutBounds.width * 0.65,
+      centerY: layoutBounds.height * 0.5,
+      spacing: 10
+    } ) );
 
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
-    questionPromptText.centerX = layoutBounds.width * 0.65;
-    questionPromptText.centerY = layoutBounds.height * 0.5;
-    chargeNumberSpinner.left = questionPromptText.right + 10;
-    chargeNumberSpinner.centerY = questionPromptText.centerY;
   }
 
   public override reset(): void {

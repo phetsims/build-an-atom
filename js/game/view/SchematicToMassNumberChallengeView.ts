@@ -13,6 +13,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
@@ -68,7 +69,6 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
     // Question
     const questionPromptText = new RichText( BuildAnAtomFluent.whatIsTheMassNumberStringProperty, BAAConstants.QUESTION_PROMPT_OPTIONS );
-    this.interactiveAnswerNode.addChild( questionPromptText );
 
     // Node for entering the answer
     const massNumberSpinner = new BAANumberSpinner(
@@ -80,14 +80,15 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }
       } );
-    this.interactiveAnswerNode.addChild( massNumberSpinner );
+    this.interactiveAnswerNode.addChild( new HBox( {
+      children: [ questionPromptText, massNumberSpinner ],
+      centerX: layoutBounds.width * 0.65,
+      centerY: layoutBounds.height * 0.5,
+      spacing: 10
+    } ) );
 
     // Layout
-    questionPromptText.centerX = layoutBounds.width * 0.65;
-    questionPromptText.centerY = layoutBounds.height * 0.5;
-    massNumberSpinner.left = questionPromptText.right + 10;
-    massNumberSpinner.centerY = questionPromptText.centerY;
-    schematicAtomNode.centerY = massNumberSpinner.centerY + BAAConstants.ATOM_VERTICAL_OFFSET;
+    schematicAtomNode.centerY = layoutBounds.height * 0.5 + BAAConstants.ATOM_VERTICAL_OFFSET;
   }
 
   public override checkAnswer(): void {
