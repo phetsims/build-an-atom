@@ -248,7 +248,7 @@ class BAAModel {
           new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
       }
     }
-    else if ( this.atom.nucleusOffsetProperty.value.equals( Vector2.ZERO ) ) {
+    else {
 
       // animation is not running, make sure nucleus is in center of atom
       this.atom.nucleusOffsetProperty.value = Vector2.ZERO;
