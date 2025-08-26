@@ -34,7 +34,7 @@ simLauncher.launch( () => {
             'Kelly Lancaster, Patricia Loeblein, Emily B. Moore, Robert Parson, ' +
             'Ariel Paul, Kathy Perkins, Amy Rouinfar, Nancy Salpepi, Sharon Siman-Tov',
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
-                        'Elise Morgan, Ben Roberts',
+                        'Matthew Moore, Elise Morgan, Valentina P\u00e9rez, Ben Roberts, Kathryn Woessner',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     }
   };
