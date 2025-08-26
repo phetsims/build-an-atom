@@ -22,6 +22,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
@@ -179,11 +180,18 @@ class BAAScreenView extends ScreenView {
     } );
 
     // Add the electron particle views.
-    model.electrons.forEach( electron => {
-      electronLayer.addChild( new BAAParticleView( electron, modelViewTransform, {
+    model.electrons.forEach( ( electron: Particle ) => {
+      const electronNode = new BAAParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
         tandem: electronsGroupTandem.createNextTandem()
-      } ) );
+      } );
+      electronLayer.addChild( electronNode );
+
+      electron.zLayerProperty.link( zLayer => {
+        if ( zLayer === 0 ) {
+          electronNode.moveToFront();
+        }
+      } );
     } );
 
     // When the electrons are represented as a cloud, the individual particles become invisible when added to the atom.
