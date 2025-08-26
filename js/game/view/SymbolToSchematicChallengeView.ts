@@ -66,6 +66,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
     this.interactiveSchematicAtom.addChild( particleCountDisplay );
+    particleCountDisplay.moveToBack(); // Move to back so particles are in front of the display
 
     // symbol
     const interactiveSymbolNode = new InteractiveSymbolNode( challenge.correctAnswerAtom, {
