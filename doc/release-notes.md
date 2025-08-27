@@ -13,7 +13,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 -->
 
 
-## 1.8  (in progress)
+## 1.8  (2025/08/27)
 
 ### New Features
 * Basic Sound
@@ -21,11 +21,6 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 * PhET-iO for PhET Studio
 * Pan and zoom
 * Conversion to TypeScript
-
-
-### Bug Fixes
-* 
-* 
 
 ### Other Changes
 * Updated names of checkboxes and accordion boxes
