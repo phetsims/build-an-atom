@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.8.0-rc.1 Wed Aug 27 2025 13:24:40 GMT-0500 (Colombia Standard Time)",
+  "comment": "# build-an-atom 1.8.0-rc.2 Wed Aug 27 2025 13:43:27 GMT-0500 (Colombia Standard Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "HEAD"
@@ -13,12 +13,12 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "cb3fa4746c08b32771f2e9f6550e98107fc6b713",
+    "sha": "cc444d4e6a9f047be3fcd949933cc0a5a682f886",
     "branch": "1.8"
   },
   "chipper": {
     "sha": "f430eeda42844614f8761885b4f9b9adc37d1121",
-    "branch": "build-an-atom-1.8"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "fc882c815833b67ec5e5a093fb972aef234ff424",
@@ -46,7 +46,7 @@
   },
   "phet-io-sim-specific": {
     "sha": "535b1df78c87e7c84607fee839f9071b57d59ec8",
-    "branch": "build-an-atom-1.8"
+    "branch": "HEAD"
   },
   "phet-io-wrappers": {
     "sha": "161c0378b9d64222d346d94bd9a87955c4524697",
@@ -78,7 +78,7 @@
   },
   "shred": {
     "sha": "675d45bec73517f0cd4e4d1515a36fb59e4a8023",
-    "branch": "build-an-atom-1.8"
+    "branch": "HEAD"
   },
   "studio": {
     "sha": "86729fd89b7c8826874f20835d0fc2e4f4b31e5b",
