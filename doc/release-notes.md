@@ -13,7 +13,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 -->
 
 
-## 1.8  (2025/08/27)
+## 1.8  (2025-08-27)
 
 ### New Features
 * Basic Sound
@@ -25,9 +25,13 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 ### Other Changes
 * Updated names of checkboxes and accordion boxes
 * Updated colors
-* Removed ?highContrastParticles query parameter
+* Removed `?highContrastParticles` query parameter
 * Info button added to Game Screen
-  
--->
 
-## 1.0 ({{PUBLICATION_DATE}})
+## 1.6 (2017-07-27)
+
+## 1.2 (2016-04-22)
+
+## 1.1 (2013-11-04)
+
+## 1.0 (2013-08-08)
