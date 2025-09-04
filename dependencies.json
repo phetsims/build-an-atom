@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.8.0 Thu Sep 04 2025 14:27:03 GMT-0500 (Colombia Standard Time)",
+  "comment": "# build-an-atom 1.8.1-rc.1 Thu Sep 04 2025 14:38:47 GMT-0500 (Colombia Standard Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "e6dfd7e1eb85267b3cfff90fc16f3009166967ed",
+    "sha": "fab9ff255448a84cf928e31669cb3c719f9bfedd",
     "branch": "1.8"
   },
   "chipper": {
@@ -78,7 +78,7 @@
   },
   "shred": {
     "sha": "27be57d1b352e2856c755327a908d9352ddce50f",
-    "branch": "build-an-atom-1.8"
+    "branch": "HEAD"
   },
   "studio": {
     "sha": "86729fd89b7c8826874f20835d0fc2e4f4b31e5b",
