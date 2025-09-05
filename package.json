@@ -34,5 +34,8 @@
       "BUILD_AN_ATOM/symbol",
       "BUILD_AN_ATOM/game"
     ]
+  },
+  "phet-io": {
+    "compareDesignedAPIChanges": true
   }
 }

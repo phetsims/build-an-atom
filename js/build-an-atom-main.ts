@@ -36,7 +36,9 @@ simLauncher.launch( () => {
       qualityAssurance: 'Steele Dalton, Alex Dornan, Bryce Griebenow, Ethan Johnson, ' +
                         'Matthew Moore, Elise Morgan, Valentina P\u00e9rez, Ben Roberts, Kathryn Woessner',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    }
+    },
+
+    phetioDesigned: true
   };
 
   new Sim( buildAnAtomTitleStringProperty, screens, options ).start();
