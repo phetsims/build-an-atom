@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "cc4c1e9c0a9d8c97fbd49de8b85bc7a0b09e9372",
+    "sha": "55d2e3fc1f050b2af477223254c225b42fcb1c75",
     "branch": "1.8"
   },
   "chipper": {
@@ -69,7 +69,7 @@
     "branch": "HEAD"
   },
   "scenery-phet": {
-    "sha": "e9e08e97a73fd3f79522bb7476f67328351936ba",
+    "sha": "c13192583e82db5378939660fe7a64985808edf9",
     "branch": "HEAD"
   },
   "sherpa": {
