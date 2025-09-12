@@ -5,8 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
+import TReadOnlyProperty from '../../axon/js/TReadOnlyProperty.js';
+import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
+import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -67,41 +71,41 @@ const fluentSupport = new FluentContainer( createFluentFile, Array.from(fluentKe
 
 const BuildAnAtomFluent = {
   "build-an-atom": {
-    titleStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'build_an_atom_title', _.get( BuildAnAtomStrings, 'build-an-atom.titleStringProperty' ) )
+    titleStringProperty: _.get( BuildAnAtomStrings, 'build-an-atom.titleStringProperty' )
   },
-  positiveStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'positive', _.get( BuildAnAtomStrings, 'positiveStringProperty' ) ),
-  negativeStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'negative', _.get( BuildAnAtomStrings, 'negativeStringProperty' ) ),
-  ionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'ion', _.get( BuildAnAtomStrings, 'ionStringProperty' ) ),
-  stableSlashUnstableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'stableSlashUnstable', _.get( BuildAnAtomStrings, 'stableSlashUnstableStringProperty' ) ),
-  symbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'symbol', _.get( BuildAnAtomStrings, 'symbolStringProperty' ) ),
-  findTheElementStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'findTheElement', _.get( BuildAnAtomStrings, 'findTheElementStringProperty' ) ),
-  massNumberStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'massNumber', _.get( BuildAnAtomStrings, 'massNumberStringProperty' ) ),
-  atomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'atom', _.get( BuildAnAtomStrings, 'atomStringProperty' ) ),
-  netChargeStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'netCharge', _.get( BuildAnAtomStrings, 'netChargeStringProperty' ) ),
-  elementStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'element', _.get( BuildAnAtomStrings, 'elementStringProperty' ) ),
-  orbitsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'orbits', _.get( BuildAnAtomStrings, 'orbitsStringProperty' ) ),
-  modelStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'model', _.get( BuildAnAtomStrings, 'modelStringProperty' ) ),
-  whatIsTheMassNumberStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'whatIsTheMassNumber', _.get( BuildAnAtomStrings, 'whatIsTheMassNumberStringProperty' ) ),
-  whatIsTheTotalChargeStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'whatIsTheTotalCharge', _.get( BuildAnAtomStrings, 'whatIsTheTotalChargeStringProperty' ) ),
-  electronsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'electronsColon', _.get( BuildAnAtomStrings, 'electronsColonStringProperty' ) ),
+  positiveStringProperty: _.get( BuildAnAtomStrings, 'positiveStringProperty' ),
+  negativeStringProperty: _.get( BuildAnAtomStrings, 'negativeStringProperty' ),
+  ionStringProperty: _.get( BuildAnAtomStrings, 'ionStringProperty' ),
+  stableSlashUnstableStringProperty: _.get( BuildAnAtomStrings, 'stableSlashUnstableStringProperty' ),
+  symbolStringProperty: _.get( BuildAnAtomStrings, 'symbolStringProperty' ),
+  findTheElementStringProperty: _.get( BuildAnAtomStrings, 'findTheElementStringProperty' ),
+  massNumberStringProperty: _.get( BuildAnAtomStrings, 'massNumberStringProperty' ),
+  atomStringProperty: _.get( BuildAnAtomStrings, 'atomStringProperty' ),
+  netChargeStringProperty: _.get( BuildAnAtomStrings, 'netChargeStringProperty' ),
+  elementStringProperty: _.get( BuildAnAtomStrings, 'elementStringProperty' ),
+  orbitsStringProperty: _.get( BuildAnAtomStrings, 'orbitsStringProperty' ),
+  modelStringProperty: _.get( BuildAnAtomStrings, 'modelStringProperty' ),
+  whatIsTheMassNumberStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheMassNumberStringProperty' ),
+  whatIsTheTotalChargeStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheTotalChargeStringProperty' ),
+  electronsColonStringProperty: _.get( BuildAnAtomStrings, 'electronsColonStringProperty' ),
   electronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'electronsColonPatternStringProperty' ),
-  gameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'game', _.get( BuildAnAtomStrings, 'gameStringProperty' ) ),
+  gameStringProperty: _.get( BuildAnAtomStrings, 'gameStringProperty' ),
   gameNumberPatternStringProperty: _.get( BuildAnAtomStrings, 'gameNumberPatternStringProperty' ),
-  neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralAtom', _.get( BuildAnAtomStrings, 'neutralAtomStringProperty' ) ),
-  neutralSlashIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutralSlashIon', _.get( BuildAnAtomStrings, 'neutralSlashIonStringProperty' ) ),
-  neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutrons', _.get( BuildAnAtomStrings, 'neutronsStringProperty' ) ),
-  periodicTableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'periodicTable', _.get( BuildAnAtomStrings, 'periodicTableStringProperty' ) ),
-  protonsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'protonsColon', _.get( BuildAnAtomStrings, 'protonsColonStringProperty' ) ),
+  neutralAtomStringProperty: _.get( BuildAnAtomStrings, 'neutralAtomStringProperty' ),
+  neutralSlashIonStringProperty: _.get( BuildAnAtomStrings, 'neutralSlashIonStringProperty' ),
+  neutronsStringProperty: _.get( BuildAnAtomStrings, 'neutronsStringProperty' ),
+  periodicTableStringProperty: _.get( BuildAnAtomStrings, 'periodicTableStringProperty' ),
+  protonsColonStringProperty: _.get( BuildAnAtomStrings, 'protonsColonStringProperty' ),
   protonsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'protonsColonPatternStringProperty' ),
-  cloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'cloud', _.get( BuildAnAtomStrings, 'cloudStringProperty' ) ),
-  neutronsColonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'neutronsColon', _.get( BuildAnAtomStrings, 'neutronsColonStringProperty' ) ),
+  cloudStringProperty: _.get( BuildAnAtomStrings, 'cloudStringProperty' ),
+  neutronsColonStringProperty: _.get( BuildAnAtomStrings, 'neutronsColonStringProperty' ),
   neutronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'neutronsColonPatternStringProperty' ),
-  electronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'electrons', _.get( BuildAnAtomStrings, 'electronsStringProperty' ) ),
-  isItStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'isIt', _.get( BuildAnAtomStrings, 'isItStringProperty' ) ),
-  protonsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'protons', _.get( BuildAnAtomStrings, 'protonsStringProperty' ) ),
-  showStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'show', _.get( BuildAnAtomStrings, 'showStringProperty' ) ),
-  chooseYourGameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'chooseYourGame', _.get( BuildAnAtomStrings, 'chooseYourGameStringProperty' ) ),
-  gamesInfoTitleStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'gamesInfoTitle', _.get( BuildAnAtomStrings, 'gamesInfoTitleStringProperty' ) ),
+  electronsStringProperty: _.get( BuildAnAtomStrings, 'electronsStringProperty' ),
+  isItStringProperty: _.get( BuildAnAtomStrings, 'isItStringProperty' ),
+  protonsStringProperty: _.get( BuildAnAtomStrings, 'protonsStringProperty' ),
+  showStringProperty: _.get( BuildAnAtomStrings, 'showStringProperty' ),
+  chooseYourGameStringProperty: _.get( BuildAnAtomStrings, 'chooseYourGameStringProperty' ),
+  gamesInfoTitleStringProperty: _.get( BuildAnAtomStrings, 'gamesInfoTitleStringProperty' ),
   level1DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level1DescriptionPatternStringProperty' ),
   level2DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level2DescriptionPatternStringProperty' ),
   level3DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level3DescriptionPatternStringProperty' ),
