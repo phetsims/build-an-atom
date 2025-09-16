@@ -19,6 +19,16 @@ game.
 
 Both NumberAtom and ParticleAtom end up having a number of derived properties that are important to know, such as
 charge, atomic number, and atomic mass. The types themselves generally track this information and make it available in
-the form of DerivedProperty.
+the form of DerivedProperty instances.  These types are also instrumental to the PhET-iO implementation of the sim, as
+they contain the state information and allow it to be set and queried via PhET-iO APIs.
 
-The game is state driven, and the view code monitors the state and uses it to decide what to display to the user.
+The game is state driven, and the view code monitors the state and uses it to decide what to display to the user.  It
+moves through state like "selecting level", "presenting challenge", "solved correctly", "try again", etc.  Looking at
+these states and how the sim moves between them is a good way to understand the flow of the game.
+
+In mid 2025 this sim was converted from JavaScript to TypeScript, and the phet-io implementation was updated such that
+the sim could be used in the phet-io environment, specifically to run in PhET Studio.  This update had the most impact
+on the Game screen.  This model portion of this screen was refactored such that things that were previously generated
+dynamically, such as the challenges, were changed to all be created at startup and then reconfigured to present the
+different challenges to the user.  Similar changes were made to the view code so it too could support state changes
+without needing to create and destroy view elements.
