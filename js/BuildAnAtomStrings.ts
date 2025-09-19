@@ -55,7 +55,6 @@ type StringsType = {
   'a11y': {
     'atomScreen': {
       'screenIcon': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
       'elementNameCheckbox': {
@@ -80,6 +79,16 @@ type StringsType = {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleNameOrbitsStringProperty': LocalizedStringProperty;
         'accessibleNameCloudStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      }
+    };
+    'symbolScreen': {
+      'screenIcon': {
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      }
+    };
+    'gameScreen': {
+      'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     }

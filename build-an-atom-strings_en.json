@@ -116,9 +116,6 @@
   "a11y": {
     "atomScreen": {
       "screenIcon": {
-        "accessibleName": {
-          "value": "Atom"
-        },
         "accessibleHelpText": {
           "value": "Build atoms to see how particles determine mass, charge, and element identity."
         }
@@ -177,6 +174,20 @@
         },
         "accessibleHelpText": {
           "value": "Choose representation for region outside nucleus."
+        }
+      }
+    },
+    "symbolScreen": {
+      "screenIcon": {
+        "accessibleHelpText": {
+          "value": "Relate element symbols to particle counts."
+        }
+      }
+    },
+    "gameScreen": {
+      "screenIcon": {
+        "accessibleHelpText": {
+          "value": "Test your knowledge of atomic structure."
         }
       }
     }

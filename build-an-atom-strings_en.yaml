@@ -62,5 +62,11 @@ a11y:
       accessibleNameOrbits: "Orbits"
       accessibleNameCloud: "Cloud"
       accessibleHelpText: "Choose representation for region outside nucleus."
+  symbolScreen:
+    screenIcon:
+      accessibleHelpText: "Relate element symbols to particle counts."
+  gameScreen:
+    screenIcon:
+      accessibleHelpText: "Test your knowledge of atomic structure."
 
 

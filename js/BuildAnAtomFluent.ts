@@ -53,7 +53,6 @@ addToMapIfDefined( 'protons', 'protonsStringProperty' );
 addToMapIfDefined( 'show', 'showStringProperty' );
 addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleName', 'a11y.atomScreen.screenIcon.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleHelpText', 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleName', 'a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleHelpText', 'a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty' );
@@ -68,6 +67,8 @@ addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleName', 'a11y.atomScree
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameOrbits', 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameCloud', 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleHelpText', 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_screenIcon_accessibleHelpText', 'a11y.symbolScreen.screenIcon.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_screenIcon_accessibleHelpText', 'a11y.gameScreen.screenIcon.accessibleHelpTextStringProperty' );
 
 // A function that creates contents for a new Fluent file, which will be needed if any string changes.
 const createFluentFile = (): string => {
@@ -124,7 +125,6 @@ const BuildAnAtomFluent = {
   a11y: {
     atomScreen: {
       screenIcon: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenIcon_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenIcon.accessibleNameStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' ) )
       },
       elementNameCheckbox: {
@@ -150,6 +150,16 @@ const BuildAnAtomFluent = {
         accessibleNameOrbitsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameOrbits', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' ) ),
         accessibleNameCloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameCloud', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' ) )
+      }
+    },
+    symbolScreen: {
+      screenIcon: {
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_symbolScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.screenIcon.accessibleHelpTextStringProperty' ) )
+      }
+    },
+    gameScreen: {
+      screenIcon: {
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.screenIcon.accessibleHelpTextStringProperty' ) )
       }
     }
   }
