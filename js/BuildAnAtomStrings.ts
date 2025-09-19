@@ -52,6 +52,38 @@ type StringsType = {
   'level2DescriptionPatternStringProperty': LocalizedStringProperty;
   'level3DescriptionPatternStringProperty': LocalizedStringProperty;
   'level4DescriptionPatternStringProperty': LocalizedStringProperty;
+  'a11y': {
+    'atomScreen': {
+      'screenIcon': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'elementNameCheckbox': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
+      };
+      'neutralAtomIonCheckbox': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
+      };
+      'nuclearStabilityCheckbox': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
+      };
+      'modelToggle': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleNameOrbitsStringProperty': LocalizedStringProperty;
+        'accessibleNameCloudStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      }
+    }
+  }
 };
 
 const BuildAnAtomStrings = getStringModule( 'BUILD_AN_ATOM' ) as StringsType;

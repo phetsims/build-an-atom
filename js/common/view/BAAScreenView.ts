@@ -29,11 +29,12 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
-import VerticalCheckboxGroup from '../../../../sun/js/VerticalCheckboxGroup.js';
+import VerticalCheckboxGroup, { VerticalCheckboxGroupItem } from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
@@ -278,21 +279,45 @@ class BAAScreenView extends ScreenView {
       font: LABEL_CONTROL_FONT,
       maxWidth: LABEL_CONTROL_MAX_WIDTH
     };
-    const checkboxItems = [
+    const checkboxItems: VerticalCheckboxGroupItem[] = [
       {
         createNode: () => new Text( BuildAnAtomFluent.elementStringProperty, checkboxItemTextOptions ),
         property: this.viewProperties.elementNameVisibleProperty,
-        tandemName: 'elementNameCheckbox'
+        tandemName: 'elementNameCheckbox',
+        options: {
+          accessibleName: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty,
+          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
+
+          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/350
+          accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseCheckedStringProperty
+        }
       },
       {
         createNode: () => new Text( BuildAnAtomFluent.neutralSlashIonStringProperty, checkboxItemTextOptions ),
         property: this.viewProperties.neutralAtomOrIonVisibleProperty,
-        tandemName: 'neutralAtomOrIonCheckbox'
+        tandemName: 'neutralAtomOrIonCheckbox',
+        options: {
+          accessibleName: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
+          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
+
+          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/350
+          accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseCheckedStringProperty
+        }
       },
       {
         createNode: () => new Text( BuildAnAtomFluent.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
         property: this.viewProperties.nuclearStabilityVisibleProperty,
-        tandemName: 'nuclearStabilityCheckbox'
+        tandemName: 'nuclearStabilityCheckbox',
+        options: {
+          accessibleName: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
+          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
+
+          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/350
+          accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty
+        }
       }
     ];
 

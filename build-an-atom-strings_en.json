@@ -112,5 +112,73 @@
   },
   "level4DescriptionPattern": {
     "value": "<b>Game {{levelNumber}}:</b> Mixed review"
+  },
+  "a11y": {
+    "atomScreen": {
+      "screenIcon": {
+        "accessibleName": {
+          "value": "Atom"
+        },
+        "accessibleHelpText": {
+          "value": "Build atoms to see how particles determine mass, charge, and element identity."
+        }
+      },
+      "elementNameCheckbox": {
+        "accessibleName": {
+          "value": "Element Name"
+        },
+        "accessibleHelpText": {
+          "value": "Create atoms with or without Element Name shown."
+        },
+        "accessibleContextResponseChecked": {
+          "value": "Element is {{Element name}}."
+        },
+        "accessibleContextResponseUnchecked": {
+          "value": "Element Name hidden."
+        }
+      },
+      "neutralAtomIonCheckbox": {
+        "accessibleName": {
+          "value": "Neutral Atom or Ion"
+        },
+        "accessibleHelpText": {
+          "value": "Create atoms with or without charge state shown."
+        },
+        "accessibleContextResponseChecked": {
+          "value": "{{Neutral Atom / Positive Ion / Negative Ion}}."
+        },
+        "accessibleContextResponseUnchecked": {
+          "value": "Atom or Ion label hidden. "
+        }
+      },
+      "nuclearStabilityCheckbox": {
+        "accessibleName": {
+          "value": "Nuclear Stability"
+        },
+        "accessibleHelpText": {
+          "value": "Create atoms with or without Nuclear Stability shown."
+        },
+        "accessibleContextResponseChecked": {
+          "value": "{{Stable / Unstable}}."
+        },
+        "accessibleContextResponseUnchecked": {
+          "value": "Stable or Unstable label hidden."
+        }
+      },
+      "modelToggle": {
+        "accessibleName": {
+          "value": "Atomic Model"
+        },
+        "accessibleNameOrbits": {
+          "value": "Orbits"
+        },
+        "accessibleNameCloud": {
+          "value": "Cloud"
+        },
+        "accessibleHelpText": {
+          "value": "Choose representation for region outside nucleus."
+        }
+      }
+    }
   }
 }

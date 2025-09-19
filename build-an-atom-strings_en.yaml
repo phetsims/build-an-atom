@@ -36,3 +36,31 @@ level1DescriptionPattern: "<b>Game {{levelNumber}}:</b> Identify elements based 
 level2DescriptionPattern: "<b>Game {{levelNumber}}:</b> Calculate mass or charge <br>"
 level3DescriptionPattern: "<b>Game {{levelNumber}}:</b> Fill in missing atomic symbol information <br>"
 level4DescriptionPattern: "<b>Game {{levelNumber}}:</b> Mixed review"
+
+
+a11y:
+  atomScreen:
+    screenIcon:
+      accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
+    elementNameCheckbox:
+      accessibleName: "Element Name"
+      accessibleHelpText: "Create atoms with or without Element Name shown."
+      accessibleContextResponseChecked: "Element is {{Element name}}."
+      accessibleContextResponseUnchecked: "Element Name hidden."
+    neutralAtomIonCheckbox:
+      accessibleName: "Neutral Atom or Ion"
+      accessibleHelpText: "Create atoms with or without charge state shown."
+      accessibleContextResponseChecked: "{{Neutral Atom / Positive Ion / Negative Ion}}."
+      accessibleContextResponseUnchecked: "Atom or Ion label hidden. "
+    nuclearStabilityCheckbox:
+      accessibleName: "Nuclear Stability"
+      accessibleHelpText: "Create atoms with or without Nuclear Stability shown."
+      accessibleContextResponseChecked: "{{Stable / Unstable}}."
+      accessibleContextResponseUnchecked: "Stable or Unstable label hidden."
+    modelToggle:
+      accessibleName: "Atomic Model"
+      accessibleNameOrbits: "Orbits"
+      accessibleNameCloud: "Cloud"
+      accessibleHelpText: "Choose representation for region outside nucleus."
+
+
