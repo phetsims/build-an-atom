@@ -19,6 +19,7 @@ import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 type ElectronModelControlOptions = SelfOptions & WithRequired<PanelOptions, 'tandem'>;
@@ -52,14 +53,20 @@ class ElectronModelControl extends Panel {
           createNode: () => new Text( BuildAnAtomFluent.orbitsStringProperty, {
             font: ELECTRON_MODEL_SELECTOR_FONT
           } ),
-          tandemName: 'orbitsRadioButton'
+          tandemName: 'orbitsRadioButton',
+          options: {
+            accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty
+          }
         },
         {
           value: 'cloud',
           createNode: () => new Text( BuildAnAtomFluent.cloudStringProperty, {
             font: ELECTRON_MODEL_SELECTOR_FONT
           } ),
-          tandemName: 'cloudRadioButton'
+          tandemName: 'cloudRadioButton',
+          options: {
+            accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty
+          }
         }
       ],
       {
@@ -72,6 +79,8 @@ class ElectronModelControl extends Panel {
         },
         maxWidth: 100, // determined empirically
         tandem: options.tandem.createTandem( 'radioButtonGroup' ),
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty,
         phetioVisiblePropertyInstrumented: false // Clients should hide the entire panel.
       }
     );
