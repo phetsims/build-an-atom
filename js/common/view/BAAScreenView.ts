@@ -39,6 +39,7 @@ import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleView from './BAAParticleView.js';
+import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
@@ -289,8 +290,10 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/350
-          accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseCheckedStringProperty
+          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/351
+          accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
+            model.atom.elementNameStringProperty
+            )
         }
       },
       {
