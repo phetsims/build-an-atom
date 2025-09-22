@@ -264,8 +264,8 @@ class BAAScreenView extends ScreenView {
         tandem: tandem.createTandem( 'periodicTableAccordionBox' ),
         phetioFeatured: true,
 
-        // pdom
-        labelContent: BuildAnAtomFluent.elementStringProperty
+        // TODO: Add dynamic context response https://github.com/phetsims/build-an-atom/issues/351
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS ) );
 
     this.accordionBoxes = new VBox( {

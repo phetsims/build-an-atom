@@ -14,6 +14,7 @@ import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionB
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
@@ -52,8 +53,8 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        // pdom
-        labelContent: BuildAnAtomFluent.netChargeStringProperty
+        // TODO: Add dynamic context response https://github.com/phetsims/build-an-atom/issues/351
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.netChargeAccordionBox );
@@ -79,8 +80,8 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        // pdom
-        labelContent: BuildAnAtomFluent.massNumberStringProperty
+        // TODO: Add dynamic context response https://github.com/phetsims/build-an-atom/issues/351
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.massNumberAccordionBox );
