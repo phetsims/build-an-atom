@@ -11,6 +11,14 @@ Instructions:
 
 For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/blob/main/doc/release-notes.md
 -->
+## 1.9 (in progress)
+
+### New Features
+* Alt input
+* Core description
+
+
+
 
 
 ## 1.8  (2025-08-27)
