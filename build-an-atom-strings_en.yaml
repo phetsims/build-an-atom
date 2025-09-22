@@ -45,7 +45,7 @@ a11y:
     elementNameCheckbox:
       accessibleName: "Element Name"
       accessibleHelpText: "Create atoms with or without Element Name shown."
-      accessibleContextResponseChecked: "Element is {{Element name}}."
+      accessibleContextResponseChecked: "Element is {{name}}."
       accessibleContextResponseUnchecked: "Element Name hidden."
     neutralAtomIonCheckbox:
       accessibleName: "Neutral Atom or Ion"
@@ -62,6 +62,31 @@ a11y:
       accessibleNameOrbits: "Orbits"
       accessibleNameCloud: "Cloud"
       accessibleHelpText: "Choose representation for region outside nucleus."
+    protonBucket:
+      accessibleName: "Proton Bucket"
+    neutronBucket:
+      accessibleName: "Neutron Bucket"
+    electronBucket:
+      accessibleName: "Electron Bucket"
+    periodicTable:
+      accessibleName: "Periodic Table"
+      accessibleParagraphHighlighted: "Atomic symbol {{symbol}} is highlighted."
+      accessibleParagraphNoSymbol: "No atomic symbol is highlighted."
+      accessibleContextResponse: "{{Expanded / Collapsed}}"
+    netCharge:
+      accessibleName: "Net Charge"
+      accessibleParagraph: "Net Charge is {{value}}. There are {{value}} plus signs and {{value}} minus signs."
+      accessibleContextResponse: "{{Expanded / Collapsed}}"
+    massNumber:
+      accessibleName: "Mass Number"
+      accessibleParagraph: "Mass Number is {{value}}."
+      accessibleContextResponse: "{{Expanded / Collapsed}}"
+    particleCounts:
+      accessibleListNode: "
+      In atom:
+      - {{protons}} Protons
+      - {{neutrons}} Neutrons
+      - {{electrons}} Electrons"
   symbolScreen:
     screenIcon:
       accessibleHelpText: "Relate element symbols to particle counts."

@@ -80,6 +80,34 @@ type StringsType = {
         'accessibleNameOrbitsStringProperty': LocalizedStringProperty;
         'accessibleNameCloudStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'protonBucket': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+      };
+      'neutronBucket': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+      };
+      'electronBucket': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+      };
+      'periodicTable': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleParagraphHighlightedStringProperty': LocalizedStringProperty;
+        'accessibleParagraphNoSymbolStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseStringProperty': LocalizedStringProperty;
+      };
+      'netCharge': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleParagraphStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseStringProperty': LocalizedStringProperty;
+      };
+      'massNumber': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleParagraphStringProperty': LocalizedStringProperty;
+        'accessibleContextResponseStringProperty': LocalizedStringProperty;
+      };
+      'particleCounts': {
+        'accessibleListNodeStringProperty': LocalizedStringProperty;
       }
     };
     'symbolScreen': {

@@ -5,12 +5,8 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
-import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -71,6 +67,13 @@ addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleName', 'a11y.atomScree
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameOrbits', 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameCloud', 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleHelpText', 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_protonBucket_accessibleName', 'a11y.atomScreen.protonBucket.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_neutronBucket_accessibleName', 'a11y.atomScreen.neutronBucket.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_electronBucket_accessibleName', 'a11y.atomScreen.electronBucket.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_periodicTable_accessibleName', 'a11y.atomScreen.periodicTable.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', 'a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_netCharge_accessibleName', 'a11y.atomScreen.netCharge.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_massNumber_accessibleName', 'a11y.atomScreen.massNumber.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_screenIcon_accessibleHelpText', 'a11y.symbolScreen.screenIcon.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_screenIcon_accessibleHelpText', 'a11y.gameScreen.screenIcon.accessibleHelpTextStringProperty' );
 
@@ -154,6 +157,34 @@ const BuildAnAtomFluent = {
         accessibleNameOrbitsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameOrbits', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' ) ),
         accessibleNameCloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameCloud', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' ) )
+      },
+      protonBucket: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_protonBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.protonBucket.accessibleNameStringProperty' ) )
+      },
+      neutronBucket: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutronBucket.accessibleNameStringProperty' ) )
+      },
+      electronBucket: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_electronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.electronBucket.accessibleNameStringProperty' ) )
+      },
+      periodicTable: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleNameStringProperty' ) ),
+        accessibleParagraphHighlightedStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphHighlightedStringProperty' ),
+        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty' ) ),
+        accessibleContextResponseStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleContextResponseStringProperty' )
+      },
+      netCharge: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_netCharge_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleNameStringProperty' ) ),
+        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleParagraphStringProperty' ),
+        accessibleContextResponseStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleContextResponseStringProperty' )
+      },
+      massNumber: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_massNumber_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleNameStringProperty' ) ),
+        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleParagraphStringProperty' ),
+        accessibleContextResponseStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleContextResponseStringProperty' )
+      },
+      particleCounts: {
+        accessibleListNodeStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.particleCounts.accessibleListNodeStringProperty' )
       }
     },
     symbolScreen: {
