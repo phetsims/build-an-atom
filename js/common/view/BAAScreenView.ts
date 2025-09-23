@@ -9,11 +9,13 @@
  * @author Aadish Gupta
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
@@ -22,6 +24,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
@@ -248,6 +251,22 @@ class BAAScreenView extends ScreenView {
       } );
     }
 
+    const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
+      [
+        model.atom.protonCountProperty,
+        BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleParagraphHighlightedStringProperty,
+        BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty
+      ],
+      ( protonCount: number, highlightedString: string, noSymbolString: string ) => {
+        if ( protonCount > 0 ) {
+          return StringUtils.fillIn( highlightedString, { symbol: AtomIdentifier.getSymbol( protonCount ) } );
+        }
+        else {
+          return noSymbolString;
+        }
+      }
+    );
+
     // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol( model.atom.protonCountProperty, {
       pickable: false,
@@ -266,7 +285,8 @@ class BAAScreenView extends ScreenView {
         phetioFeatured: true,
 
         // TODO: Add dynamic context response https://github.com/phetsims/build-an-atom/issues/351
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleNameStringProperty
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleNameStringProperty,
+        accessibleHelpTextExpanded: periodicTableAccessibleParagraphProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS ) );
 
     this.accordionBoxes = new VBox( {
