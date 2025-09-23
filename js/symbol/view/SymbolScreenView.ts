@@ -8,17 +8,17 @@
 
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
+import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import BAASymbolNode from './BAASymbolNode.js';
 
 class SymbolScreenView extends BAAScreenView {
 
-  private readonly symbolAccordionBox: AccordionBox;
+  private readonly symbolAccordionBox: BuildAnAtomAccordionBox;
 
   public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );
@@ -27,7 +27,7 @@ class SymbolScreenView extends BAAScreenView {
     const symbolNode = new BAASymbolNode( model.atom, {
       scale: 0.41 // scale empirically determined
     } );
-    this.symbolAccordionBox = new AccordionBox( symbolNode, {
+    this.symbolAccordionBox = new BuildAnAtomAccordionBox( symbolNode, {
       cornerRadius: 3,
       titleNode: new Text( BuildAnAtomFluent.symbolStringProperty, {
         font: ShredConstants.ACCORDION_BOX_TITLE_FONT,

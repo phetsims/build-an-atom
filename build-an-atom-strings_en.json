@@ -114,6 +114,16 @@
     "value": "<b>Game {{levelNumber}}:</b> Mixed review"
   },
   "a11y": {
+    "common": {
+      "accordionAccessibleContextResponse": {
+        "expanded": {
+          "value": "Expanded"
+        },
+        "collapsed": {
+          "value": "Collapsed"
+        }
+      }
+    },
     "atomScreen": {
       "screenIcon": {
         "accessibleHelpText": {
@@ -215,9 +225,6 @@
         },
         "accessibleParagraphNoSymbol": {
           "value": "No atomic symbol is highlighted."
-        },
-        "accessibleContextResponse": {
-          "value": "{{Expanded / Collapsed}}"
         }
       },
       "netCharge": {
@@ -226,9 +233,6 @@
         },
         "accessibleParagraph": {
           "value": "Net Charge is {{value}}. There are {{value}} plus signs and {{value}} minus signs."
-        },
-        "accessibleContextResponse": {
-          "value": "{{Expanded / Collapsed}}"
         }
       },
       "massNumber": {
@@ -237,14 +241,11 @@
         },
         "accessibleParagraph": {
           "value": "Mass Number is {{value}}."
-        },
-        "accessibleContextResponse": {
-          "value": "{{Expanded / Collapsed}}"
         }
       },
       "particleCounts": {
         "accessibleListNode": {
-          "value": " In atom: - {{protons}} Protons - {{neutrons}} Neutrons - {{electrons}} Electrons"
+          "value": " - {{protons}} Protons - {{neutrons}} Neutrons - {{electrons}} Electrons"
         }
       }
     },

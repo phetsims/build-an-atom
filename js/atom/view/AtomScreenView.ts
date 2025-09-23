@@ -10,7 +10,7 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
+import { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -18,14 +18,15 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
+import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
 import MassNumberDisplay from './MassNumberDisplay.js';
 
 class AtomScreenView extends BAAScreenView {
 
-  private readonly netChargeAccordionBox: AccordionBox;
-  private readonly massNumberAccordionBox: AccordionBox;
+  private readonly netChargeAccordionBox: BuildAnAtomAccordionBox;
+  private readonly massNumberAccordionBox: BuildAnAtomAccordionBox;
 
   public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );
@@ -41,7 +42,7 @@ class AtomScreenView extends BAAScreenView {
       pickable: false,
       justify: 'left'
     } );
-    this.netChargeAccordionBox = new AccordionBox(
+    this.netChargeAccordionBox = new BuildAnAtomAccordionBox(
       netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.netChargeStringProperty, {
@@ -68,7 +69,7 @@ class AtomScreenView extends BAAScreenView {
         scale: 0.85 // empirically determined to make the control panels all fit on the screen
       }
     );
-    this.massNumberAccordionBox = new AccordionBox(
+    this.massNumberAccordionBox = new BuildAnAtomAccordionBox(
       massNumberDisplay,
       combineOptions<AccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.massNumberStringProperty, {

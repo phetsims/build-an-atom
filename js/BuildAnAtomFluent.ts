@@ -53,6 +53,8 @@ addToMapIfDefined( 'protons', 'protonsStringProperty' );
 addToMapIfDefined( 'show', 'showStringProperty' );
 addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
+addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
+addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleHelpText', 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_noElementContextResponse', 'a11y.atomScreen.noElementContextResponseStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleName', 'a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty' );
@@ -136,6 +138,12 @@ const BuildAnAtomFluent = {
   level3DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level3DescriptionPatternStringProperty' ),
   level4DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level4DescriptionPatternStringProperty' ),
   a11y: {
+    common: {
+      accordionAccessibleContextResponse: {
+        expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
+        collapsedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_collapsed', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' ) )
+      }
+    },
     atomScreen: {
       screenIcon: {
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' ) )
@@ -181,18 +189,15 @@ const BuildAnAtomFluent = {
       periodicTable: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleNameStringProperty' ) ),
         accessibleParagraphHighlightedStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphHighlightedStringProperty' ),
-        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty' ) ),
-        accessibleContextResponseStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleContextResponseStringProperty' )
+        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty' ) )
       },
       netCharge: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_netCharge_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleNameStringProperty' ) ),
-        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleParagraphStringProperty' ),
-        accessibleContextResponseStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleContextResponseStringProperty' )
+        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleParagraphStringProperty' )
       },
       massNumber: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_massNumber_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleNameStringProperty' ) ),
-        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleParagraphStringProperty' ),
-        accessibleContextResponseStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleContextResponseStringProperty' )
+        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleParagraphStringProperty' )
       },
       particleCounts: {
         accessibleListNodeStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.particleCounts.accessibleListNodeStringProperty' )

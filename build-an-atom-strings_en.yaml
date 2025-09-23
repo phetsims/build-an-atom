@@ -39,6 +39,10 @@ level4DescriptionPattern: "<b>Game {{levelNumber}}:</b> Mixed review"
 
 
 a11y:
+  common:
+    accordionAccessibleContextResponse:
+      expanded: "Expanded"
+      collapsed: "Collapsed"
   atomScreen:
     screenIcon:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
@@ -77,15 +81,12 @@ a11y:
       accessibleName: "Periodic Table"
       accessibleParagraphHighlighted: "Atomic symbol {{symbol}} is highlighted."
       accessibleParagraphNoSymbol: "No atomic symbol is highlighted."
-      accessibleContextResponse: "{{Expanded / Collapsed}}"
     netCharge:
       accessibleName: "Net Charge"
       accessibleParagraph: "Net Charge is {{value}}. There are {{value}} plus signs and {{value}} minus signs."
-      accessibleContextResponse: "{{Expanded / Collapsed}}"
     massNumber:
       accessibleName: "Mass Number"
       accessibleParagraph: "Mass Number is {{value}}."
-      accessibleContextResponse: "{{Expanded / Collapsed}}"
     particleCounts:
       accessibleListNode: "
       - {{protons}} Protons

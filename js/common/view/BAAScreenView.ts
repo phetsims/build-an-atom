@@ -28,7 +28,6 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
-import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import VerticalCheckboxGroup, { VerticalCheckboxGroupItem } from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
@@ -39,6 +38,7 @@ import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleView from './BAAParticleView.js';
+import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
 import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
@@ -49,7 +49,7 @@ const LABEL_CONTROL_MAX_WIDTH = 180;
 
 class BAAScreenView extends ScreenView {
 
-  protected readonly periodicTableAccordionBox: AccordionBox;
+  protected readonly periodicTableAccordionBox: BuildAnAtomAccordionBox;
   protected readonly accordionBoxes: VBox;
 
   // Properties that control how the atom is displayed.
@@ -253,8 +253,8 @@ class BAAScreenView extends ScreenView {
       pickable: false,
       scale: 0.55 // Scale empirically determined to match layout in design doc.
     } );
-    this.periodicTableAccordionBox = new AccordionBox( periodicTableAndSymbol,
-      combineOptions<AccordionBoxOptions>( {}, {
+    this.periodicTableAccordionBox = new BuildAnAtomAccordionBox( periodicTableAndSymbol,
+      combineOptions<BuildAnAtomAccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
           maxWidth: ShredConstants.ACCORDION_BOX_TITLE_MAX_WIDTH
@@ -290,7 +290,7 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
+          // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
             model.atom.protonCountProperty,
             model.atom.elementNameStringProperty
@@ -306,7 +306,7 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
+          // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
             model.atom.protonCountProperty,
             model.atom.chargeProperty
@@ -322,7 +322,7 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
+          // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(
             model.atom.protonCountProperty,
             model.atom.nucleusStableProperty

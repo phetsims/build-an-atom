@@ -53,6 +53,12 @@ type StringsType = {
   'level3DescriptionPatternStringProperty': LocalizedStringProperty;
   'level4DescriptionPatternStringProperty': LocalizedStringProperty;
   'a11y': {
+    'common': {
+      'accordionAccessibleContextResponse': {
+        'expandedStringProperty': LocalizedStringProperty;
+        'collapsedStringProperty': LocalizedStringProperty;
+      }
+    };
     'atomScreen': {
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
@@ -99,17 +105,14 @@ type StringsType = {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphHighlightedStringProperty': LocalizedStringProperty;
         'accessibleParagraphNoSymbolStringProperty': LocalizedStringProperty;
-        'accessibleContextResponseStringProperty': LocalizedStringProperty;
       };
       'netCharge': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphStringProperty': LocalizedStringProperty;
-        'accessibleContextResponseStringProperty': LocalizedStringProperty;
       };
       'massNumber': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphStringProperty': LocalizedStringProperty;
-        'accessibleContextResponseStringProperty': LocalizedStringProperty;
       };
       'particleCounts': {
         'accessibleListNodeStringProperty': LocalizedStringProperty;
