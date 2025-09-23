@@ -290,7 +290,7 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/351
+          // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
             model.atom.elementNameStringProperty
             )
@@ -305,8 +305,11 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/350
-          accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseCheckedStringProperty
+          // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
+          accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
+            model.atom.protonCountProperty,
+            model.atom.chargeProperty
+          )
         }
       },
       {
@@ -318,7 +321,7 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Need to StringUtils.fillIn or addContextResponse() https://github.com/phetsims/build-an-atom/issues/350
+          // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty
         }
       }

@@ -57,6 +57,7 @@ type StringsType = {
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
+      'noElementContextResponseStringProperty': LocalizedStringProperty;
       'elementNameCheckbox': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
@@ -66,8 +67,10 @@ type StringsType = {
       'neutralAtomIonCheckbox': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
-        'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
         'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
+        'neutralAtomStringProperty': LocalizedStringProperty;
+        'positiveIonStringProperty': LocalizedStringProperty;
+        'negativeIonStringProperty': LocalizedStringProperty;
       };
       'nuclearStabilityCheckbox': {
         'accessibleNameStringProperty': LocalizedStringProperty;

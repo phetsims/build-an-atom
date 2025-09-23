@@ -42,6 +42,7 @@ a11y:
   atomScreen:
     screenIcon:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
+    noElementContextResponse: "No element yet."
     elementNameCheckbox:
       accessibleName: "Element Name"
       accessibleHelpText: "Create atoms with or without Element Name shown."
@@ -50,8 +51,10 @@ a11y:
     neutralAtomIonCheckbox:
       accessibleName: "Neutral Atom or Ion"
       accessibleHelpText: "Create atoms with or without charge state shown."
-      accessibleContextResponseChecked: "{{Neutral Atom / Positive Ion / Negative Ion}}."
       accessibleContextResponseUnchecked: "Atom or Ion label hidden. "
+      neutralAtom: "Neutral Atom"
+      positiveIon: "Positive Ion"
+      negativeIon: "NegativeIon"
     nuclearStabilityCheckbox:
       accessibleName: "Nuclear Stability"
       accessibleHelpText: "Create atoms with or without Nuclear Stability shown."

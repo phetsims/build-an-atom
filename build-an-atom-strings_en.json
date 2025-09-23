@@ -120,6 +120,9 @@
           "value": "Build atoms to see how particles determine mass, charge, and element identity."
         }
       },
+      "noElementContextResponse": {
+        "value": "No element yet."
+      },
       "elementNameCheckbox": {
         "accessibleName": {
           "value": "Element Name"
@@ -141,11 +144,17 @@
         "accessibleHelpText": {
           "value": "Create atoms with or without charge state shown."
         },
-        "accessibleContextResponseChecked": {
-          "value": "{{Neutral Atom / Positive Ion / Negative Ion}}."
-        },
         "accessibleContextResponseUnchecked": {
           "value": "Atom or Ion label hidden. "
+        },
+        "neutralAtom": {
+          "value": "Neutral Atom"
+        },
+        "positiveIon": {
+          "value": "Positive Ion"
+        },
+        "negativeIon": {
+          "value": "NegativeIon"
         }
       },
       "nuclearStabilityCheckbox": {
