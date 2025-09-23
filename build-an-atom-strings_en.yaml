@@ -88,7 +88,6 @@ a11y:
       accessibleContextResponse: "{{Expanded / Collapsed}}"
     particleCounts:
       accessibleListNode: "
-      In atom:
       - {{protons}} Protons
       - {{neutrons}} Neutrons
       - {{electrons}} Electrons"
