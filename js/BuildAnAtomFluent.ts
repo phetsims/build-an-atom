@@ -67,6 +67,8 @@ addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_negativeIon', 'a11y.a
 addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleName', 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleHelpText', 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_stable', 'a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_unstable', 'a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleName', 'a11y.atomScreen.modelToggle.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameOrbits', 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameCloud', 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' );
@@ -157,7 +159,9 @@ const BuildAnAtomFluent = {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleNameStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty' ) ),
         accessibleContextResponseCheckedStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty' ),
-        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' ) )
+        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' ) ),
+        stableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_stable', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty' ) ),
+        unstableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_unstable', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty' ) )
       },
       modelToggle: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameStringProperty' ) ),

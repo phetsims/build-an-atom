@@ -165,10 +165,16 @@
           "value": "Create atoms with or without Nuclear Stability shown."
         },
         "accessibleContextResponseChecked": {
-          "value": "{{Stable / Unstable}}."
+          "value": "Nucleus is {{stability}}."
         },
         "accessibleContextResponseUnchecked": {
           "value": "Stable or Unstable label hidden."
+        },
+        "stable": {
+          "value": "Stable"
+        },
+        "unstable": {
+          "value": "Unstable"
         }
       },
       "modelToggle": {

@@ -58,8 +58,10 @@ a11y:
     nuclearStabilityCheckbox:
       accessibleName: "Nuclear Stability"
       accessibleHelpText: "Create atoms with or without Nuclear Stability shown."
-      accessibleContextResponseChecked: "{{Stable / Unstable}}."
+      accessibleContextResponseChecked: "Nucleus is {{stability}}."
       accessibleContextResponseUnchecked: "Stable or Unstable label hidden."
+      stable: "Stable"
+      unstable: "Unstable"
     modelToggle:
       accessibleName: "Atomic Model"
       accessibleNameOrbits: "Orbits"

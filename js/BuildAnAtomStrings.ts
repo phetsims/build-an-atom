@@ -77,6 +77,8 @@ type StringsType = {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
         'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
         'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
+        'stableStringProperty': LocalizedStringProperty;
+        'unstableStringProperty': LocalizedStringProperty;
       };
       'modelToggle': {
         'accessibleNameStringProperty': LocalizedStringProperty;

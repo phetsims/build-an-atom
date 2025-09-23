@@ -292,6 +292,7 @@ class BAAScreenView extends ScreenView {
 
           // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
+            model.atom.protonCountProperty,
             model.atom.elementNameStringProperty
             )
         }
@@ -322,7 +323,10 @@ class BAAScreenView extends ScreenView {
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
 
           // TODO: Should this use addContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
-          accessibleContextResponseChecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty
+          accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(
+            model.atom.protonCountProperty,
+            model.atom.nucleusStableProperty
+          )
         }
       }
     ];

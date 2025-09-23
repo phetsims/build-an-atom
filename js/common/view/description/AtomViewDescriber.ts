@@ -19,25 +19,27 @@ class AtomViewDescriber {
   }
 
   public static createElementNameContextResponse(
+    protonCountProperty: TReadOnlyProperty<number>,
     elementNameStringProperty: TReadOnlyProperty<string>
   ): TReadOnlyProperty<string> {
     return new DerivedStringProperty(
       [
+        protonCountProperty,
         elementNameStringProperty,
         BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
         BuildAnAtomStrings.a11y.atomScreen.noElementContextResponseStringProperty
       ],
       (
+        protonCount: number,
         elementNameString: string,
         checkedStringPattern: string,
         noElementString: string
       ) => {
-        if ( elementNameString === '' ) {
-          // TODO: Add this to translated strings https://github.com/phetsims/build-an-atom/issues/351
-          return noElementString;
+        if ( protonCount > 0 ) {
+          return StringUtils.fillIn( checkedStringPattern, { name: elementNameString } );
         }
         else {
-          return StringUtils.fillIn( checkedStringPattern, { name: elementNameString } );
+          return noElementString;
         }
       }
     );
@@ -66,6 +68,37 @@ class AtomViewDescriber {
       ) => {
         if ( protons > 0 ) {
           return charge > 0 ? positiveIonString : charge < 0 ? negativeIonString : neutralAtomString;
+        }
+        else {
+          return noElementString;
+        }
+      }
+    );
+  }
+
+  public static createStabilityContextResponse(
+    protonCountProperty: TReadOnlyProperty<number>,
+    isStableProperty: TReadOnlyProperty<boolean>
+  ): TReadOnlyProperty<string> {
+    return new DerivedStringProperty(
+      [
+        protonCountProperty,
+        isStableProperty,
+        BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty,
+        BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty,
+        BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty,
+        BuildAnAtomStrings.a11y.atomScreen.noElementContextResponseStringProperty
+      ],
+      (
+        protons: number,
+        isStable: boolean,
+        nucleusStabilityPattern: string,
+        stableString: string,
+        unstableString: string,
+        noElementString: string
+      ) => {
+        if ( protons > 0 ) {
+          return StringUtils.fillIn( nucleusStabilityPattern, { stability: isStable ? stableString : unstableString } );
         }
         else {
           return noElementString;
