@@ -45,6 +45,9 @@ a11y:
       expanded: "Expanded"
       collapsed: "Collapsed"
   atomScreen:
+    screenSummary:
+      controlArea: "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+      interactionHint: "Add particles to atom to play."
     screenIcon:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
     noElementContextResponse: "No element yet."
@@ -96,6 +99,14 @@ a11y:
   symbolScreen:
     screenIcon:
       accessibleHelpText: "Relate element symbols to particle counts."
+    symbol:
+      accessibleName: "Symbol"
+      noSymbol: "No symbol"
+      accessibleParagraph: "
+        - {{symbol}} in center.<br>
+        - Atomic number {{protonCount}} in lower left.<br>
+        - Mass number {{massNumber}} in upper left.<br>
+        - Charge {{charge}} in upper right."
   gameScreen:
     screenIcon:
       accessibleHelpText: "Test your knowledge of atomic structure."

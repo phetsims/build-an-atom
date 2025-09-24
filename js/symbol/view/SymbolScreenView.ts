@@ -6,11 +6,15 @@
  * @author John Blanco
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
@@ -22,6 +26,34 @@ class SymbolScreenView extends BAAScreenView {
 
   public constructor( model: BAAModel, tandem: Tandem ) {
     super( model, tandem );
+
+    const symbolAccessibleParagraphProperty = new DerivedStringProperty(
+      [
+        model.atom.protonCountProperty,
+        model.atom.massNumberProperty,
+        model.atom.chargeProperty,
+        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleParagraphStringProperty,
+        BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty,
+        BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty
+      ],
+      (
+        protonCount: number,
+        massNumber: number,
+        charge: number,
+        accessibleParagraphString: string,
+        noSymbolString: string,
+        upperString: string
+      ) => {
+        const symbol = AtomIdentifier.getSymbol( protonCount );
+        const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
+        return StringUtils.fillIn( accessibleParagraphString, {
+          symbol: protonCount > 0 ? mathSpeakSymbol : noSymbolString,
+          protonCount: protonCount,
+          massNumber: massNumber,
+          charge: charge
+        } );
+      }
+    );
 
     // Add the symbol node within an accordion box.
     const symbolNode = new BAASymbolNode( model.atom, {
@@ -46,8 +78,8 @@ class SymbolScreenView extends BAAScreenView {
       // phet-io
       tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
-      // pdom
-      labelContent: BuildAnAtomFluent.symbolStringProperty
+      accessibleName: BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleNameStringProperty,
+      accessibleHelpTextExpanded: symbolAccessibleParagraphProperty
     } );
     this.accordionBoxes.addChild( this.symbolAccordionBox );
 

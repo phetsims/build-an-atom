@@ -55,6 +55,8 @@ addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_screenSummary_controlArea', 'a11y.atomScreen.screenSummary.controlAreaStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_screenSummary_interactionHint', 'a11y.atomScreen.screenSummary.interactionHintStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleHelpText', 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_noElementContextResponse', 'a11y.atomScreen.noElementContextResponseStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleName', 'a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty' );
@@ -83,6 +85,8 @@ addToMapIfDefined( 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', 
 addToMapIfDefined( 'a11y_atomScreen_netCharge_accessibleName', 'a11y.atomScreen.netCharge.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_massNumber_accessibleName', 'a11y.atomScreen.massNumber.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_screenIcon_accessibleHelpText', 'a11y.symbolScreen.screenIcon.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_accessibleName', 'a11y.symbolScreen.symbol.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_noSymbol', 'a11y.symbolScreen.symbol.noSymbolStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_screenIcon_accessibleHelpText', 'a11y.gameScreen.screenIcon.accessibleHelpTextStringProperty' );
 
 // A function that creates contents for a new Fluent file, which will be needed if any string changes.
@@ -146,6 +150,10 @@ const BuildAnAtomFluent = {
       }
     },
     atomScreen: {
+      screenSummary: {
+        controlAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_controlArea', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.controlAreaStringProperty' ) ),
+        interactionHintStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_interactionHint', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.interactionHintStringProperty' ) )
+      },
       screenIcon: {
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' ) )
       },
@@ -207,6 +215,11 @@ const BuildAnAtomFluent = {
     symbolScreen: {
       screenIcon: {
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_symbolScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.screenIcon.accessibleHelpTextStringProperty' ) )
+      },
+      symbol: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_accessibleName', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleNameStringProperty' ) ),
+        noSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_noSymbol', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.noSymbolStringProperty' ) ),
+        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleParagraphStringProperty' )
       }
     },
     gameScreen: {

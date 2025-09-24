@@ -128,6 +128,14 @@
       }
     },
     "atomScreen": {
+      "screenSummary": {
+        "controlArea": {
+          "value": "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+        },
+        "interactionHint": {
+          "value": "Add particles to atom to play."
+        }
+      },
       "screenIcon": {
         "accessibleHelpText": {
           "value": "Build atoms to see how particles determine mass, charge, and element identity."
@@ -256,6 +264,17 @@
       "screenIcon": {
         "accessibleHelpText": {
           "value": "Relate element symbols to particle counts."
+        }
+      },
+      "symbol": {
+        "accessibleName": {
+          "value": "Symbol"
+        },
+        "noSymbol": {
+          "value": "No symbol"
+        },
+        "accessibleParagraph": {
+          "value": " - {{symbol}} in center.<br> - Atomic number {{protonCount}} in lower left.<br> - Mass number {{massNumber}} in upper left.<br> - Charge {{charge}} in upper right."
         }
       }
     },

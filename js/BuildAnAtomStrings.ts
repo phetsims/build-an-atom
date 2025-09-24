@@ -61,6 +61,10 @@ type StringsType = {
       }
     };
     'atomScreen': {
+      'screenSummary': {
+        'controlAreaStringProperty': LocalizedStringProperty;
+        'interactionHintStringProperty': LocalizedStringProperty;
+      };
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
@@ -122,6 +126,11 @@ type StringsType = {
     'symbolScreen': {
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'symbol': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'noSymbolStringProperty': LocalizedStringProperty;
+        'accessibleParagraphStringProperty': LocalizedStringProperty;
       }
     };
     'gameScreen': {
