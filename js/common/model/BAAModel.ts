@@ -12,6 +12,7 @@ import Multilink from '../../../../axon/js/Multilink.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
@@ -334,9 +335,9 @@ class BAAModel {
     const atomCenter = this.atom.positionProperty.value;
 
     while ( currentCountInAtom < targetCount ) {
-      const particle = bucket.extractClosestParticle( atomCenter )!;
-      particle.setPositionAndDestination( atomCenter );
-      particle.isDraggingProperty.value = false; // Necessary to make it look like user released particle.
+      const particle = bucket.extractClosestParticle( atomCenter );
+      affirm( particle, `No ${particleType} particle to move from bucket to atom` );
+      this.atom.addParticle( particle );
       currentCountInAtom++;
     }
     while ( currentCountInAtom > targetCount ) {

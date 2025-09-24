@@ -13,10 +13,12 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import Shape from '../../../../kite/js/Shape.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import AccessibleInteractiveOptions from '../../../../scenery-phet/js/accessibility/AccessibleInteractiveOptions.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
@@ -27,7 +29,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import AtomNode from '../../../../shred/js/view/AtomNode.js';
+import AtomNode, { AtomNodeOptions } from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
@@ -82,7 +84,7 @@ class BAAScreenView extends ScreenView {
     );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.atom, modelViewTransform, {
+    const atomNode = new AtomNode( model.atom, modelViewTransform, combineOptions<AtomNodeOptions>( {
       showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
       showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
@@ -90,7 +92,7 @@ class BAAScreenView extends ScreenView {
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false,
       phetioFeatured: true
-    } );
+    }, AccessibleInteractiveOptions ) );
     this.addChild( atomNode );
 
     // Add the particle count indicator.
@@ -139,6 +141,7 @@ class BAAScreenView extends ScreenView {
 
       nucleonLayers[ nucleon.zLayerProperty.value ].addChild( new BAAParticleView( nucleon, modelViewTransform, {
         dragBounds: particleDragBounds,
+        focusable: false,
         tandem: nucleon.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
                 neutronsGroupTandem.createNextTandem()
@@ -188,6 +191,7 @@ class BAAScreenView extends ScreenView {
     model.electrons.forEach( ( electron: Particle ) => {
       const electronNode = new BAAParticleView( electron, modelViewTransform, {
         dragBounds: particleDragBounds,
+        focusable: false,
         tandem: electronsGroupTandem.createNextTandem()
       } );
       electronLayer.addChild( electronNode );
@@ -229,7 +233,15 @@ class BAAScreenView extends ScreenView {
         // pdom
         tagName: 'button'
       } );
+
+      // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
+      // size and position were determined empirically.
+      bucketFront.setFocusHighlight(
+        Shape.bounds( bucketFront.localBounds.dilatedXY( 5, 35 ).shifted( new Vector2( 0, -30 ) ) )
+      );
       bucketFrontLayer.addChild( bucketFront );
+
+      // Add the drag listener for dragging particles out of the bucket when clicking directly on it.
       bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
         tandem: bucketsTandem.createTandem( `${bucket.tandem.name}DragListener` ),
         applyOffset: false,
@@ -243,9 +255,10 @@ class BAAScreenView extends ScreenView {
       } ) );
       bucketFront.addInputListener( {
         click: () => {
-          const activeParticle = bucket.extractClosestParticle( bucket.position );
-          if ( activeParticle !== null ) {
-            activeParticle.isDraggingProperty.value = true;
+          const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
+          if ( particle !== null ) {
+            model.atom.addParticle( particle );
+            atomNode.focus();
           }
         }
       } );
@@ -314,7 +327,7 @@ class BAAScreenView extends ScreenView {
           accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
             model.atom.protonCountProperty,
             model.atom.elementNameStringProperty
-            )
+          )
         }
       },
       {
