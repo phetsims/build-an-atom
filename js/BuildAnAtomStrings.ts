@@ -54,6 +54,7 @@ type StringsType = {
   'level4DescriptionPatternStringProperty': LocalizedStringProperty;
   'a11y': {
     'common': {
+      'mathSpeakUpperStringProperty': LocalizedStringProperty;
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;

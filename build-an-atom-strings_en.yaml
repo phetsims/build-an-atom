@@ -40,6 +40,7 @@ level4DescriptionPattern: "<b>Game {{levelNumber}}:</b> Mixed review"
 
 a11y:
   common:
+    mathSpeakUpper: "upper {{symbol}}"
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"

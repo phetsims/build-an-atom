@@ -267,12 +267,20 @@ class BAAScreenView extends ScreenView {
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [
         model.atom.protonCountProperty,
+        BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
         BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleParagraphHighlightedStringProperty,
         BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty
       ],
-      ( protonCount: number, highlightedString: string, noSymbolString: string ) => {
+      (
+        protonCount: number,
+        upperString: string,
+        highlightedString: string,
+        noSymbolString: string
+      ) => {
         if ( protonCount > 0 ) {
-          return StringUtils.fillIn( highlightedString, { symbol: AtomIdentifier.getSymbol( protonCount ) } );
+          const symbol = AtomIdentifier.getSymbol( protonCount );
+          const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
+          return StringUtils.fillIn( highlightedString, { symbol: mathSpeakSymbol } );
         }
         else {
           return noSymbolString;

@@ -108,13 +108,16 @@
     "value": "<b>Game {{levelNumber}}:</b> Calculate mass or charge <br>"
   },
   "level3DescriptionPattern": {
-    "value": "<b>Game {{levelNumber}}:</b> Fill in missing atomic symbol information <br>"
+    "value": "<b>Game {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
   },
   "level4DescriptionPattern": {
     "value": "<b>Game {{levelNumber}}:</b> Mixed review"
   },
   "a11y": {
     "common": {
+      "mathSpeakUpper": {
+        "value": "upper {{symbol}}"
+      },
       "accordionAccessibleContextResponse": {
         "expanded": {
           "value": "Expanded"
@@ -221,10 +224,10 @@
           "value": "Periodic Table"
         },
         "accessibleParagraphHighlighted": {
-          "value": "Atomic symbol {{symbol}} is highlighted."
+          "value": "Chemical symbol {{symbol}} is highlighted."
         },
         "accessibleParagraphNoSymbol": {
-          "value": "No atomic symbol is highlighted."
+          "value": "No chemical symbol is highlighted."
         }
       },
       "netCharge": {
