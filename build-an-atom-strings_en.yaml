@@ -34,7 +34,7 @@ chooseYourGame: "Choose Your Game!"
 gamesInfoTitle: "Games"
 level1DescriptionPattern: "<b>Game {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
 level2DescriptionPattern: "<b>Game {{levelNumber}}:</b> Calculate mass or charge <br>"
-level3DescriptionPattern: "<b>Game {{levelNumber}}:</b> Fill in missing atomic symbol information <br>"
+level3DescriptionPattern: "<b>Game {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
 level4DescriptionPattern: "<b>Game {{levelNumber}}:</b> Mixed review"
 
 
