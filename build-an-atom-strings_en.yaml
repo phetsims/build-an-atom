@@ -84,7 +84,7 @@ a11y:
       accessibleParagraphNoSymbol: "No chemical symbol is highlighted."
     netCharge:
       accessibleName: "Net Charge"
-      accessibleParagraph: "Net Charge is {{value}}. There are {{value}} plus signs and {{value}} minus signs."
+      accessibleParagraph: "Net Charge is {{value}}. There are {{protons}} plus signs and {{electrons}} minus signs."
     massNumber:
       accessibleName: "Mass Number"
       accessibleParagraph: "Mass Number is {{value}}."

@@ -6,7 +6,9 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -42,6 +44,26 @@ class AtomScreenView extends BAAScreenView {
       pickable: false,
       justify: 'left'
     } );
+
+    const netChargeAccessibleParagraphProperty = new DerivedStringProperty(
+      [
+        model.atom.protonCountProperty,
+        model.atom.electronCountProperty,
+        BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleParagraphStringProperty
+      ],
+      (
+        protonCount: number,
+        electronCount: number,
+        accessibleParagraphString: string
+      ) => {
+        return StringUtils.fillIn( accessibleParagraphString, {
+          value: protonCount - electronCount,
+          protons: protonCount,
+          electrons: electronCount
+        } );
+      }
+    );
+
     this.netChargeAccordionBox = new BuildAnAtomAccordionBox(
       netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
@@ -54,12 +76,25 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        // TODO: Add dynamic context response https://github.com/phetsims/build-an-atom/issues/351
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleNameStringProperty
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleNameStringProperty,
+        accessibleHelpTextExpanded: netChargeAccessibleParagraphProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.netChargeAccordionBox );
     this.netChargeAccordionBox.addLinkedElement( model.atom.chargeProperty );
+
+    const massNumberAccessibleParagraphProperty = new DerivedStringProperty(
+      [
+        model.atom.massNumberProperty,
+        BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleParagraphStringProperty
+      ],
+      (
+        massNumber: number,
+        accessibleParagraphString: string
+      ) => {
+        return StringUtils.fillIn( accessibleParagraphString, { value: massNumber } );
+      }
+    );
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(
@@ -81,8 +116,8 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        // TODO: Add dynamic context response https://github.com/phetsims/build-an-atom/issues/351
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleNameStringProperty
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleNameStringProperty,
+        accessibleHelpTextExpanded: massNumberAccessibleParagraphProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.massNumberAccordionBox );
