@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2025, University of Colorado Boulder
 
 /**
  * An accordion box with accessible features designed for Build An Atom.
