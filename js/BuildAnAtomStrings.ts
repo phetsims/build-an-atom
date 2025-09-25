@@ -62,7 +62,9 @@ type StringsType = {
     };
     'atomScreen': {
       'screenSummary': {
+        'playAreaStringProperty': LocalizedStringProperty;
         'controlAreaStringProperty': LocalizedStringProperty;
+        'currentDetailsStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
       };
       'screenIcon': {
@@ -93,7 +95,7 @@ type StringsType = {
       };
       'modelToggle': {
         'accessibleNameStringProperty': LocalizedStringProperty;
-        'accessibleNameOrbitsStringProperty': LocalizedStringProperty;
+        'accessibleNameShellsStringProperty': LocalizedStringProperty;
         'accessibleNameCloudStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };

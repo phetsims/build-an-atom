@@ -5,12 +5,8 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
-import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -59,6 +55,7 @@ addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_screenSummary_playArea', 'a11y.atomScreen.screenSummary.playAreaStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenSummary_controlArea', 'a11y.atomScreen.screenSummary.controlAreaStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenSummary_interactionHint', 'a11y.atomScreen.screenSummary.interactionHintStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleHelpText', 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' );
@@ -78,7 +75,7 @@ addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleContextRe
 addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_stable', 'a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_unstable', 'a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleName', 'a11y.atomScreen.modelToggle.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameOrbits', 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameShells', 'a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameCloud', 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleHelpText', 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_protonBucket_accessibleName', 'a11y.atomScreen.protonBucket.accessibleNameStringProperty' );
@@ -155,7 +152,9 @@ const BuildAnAtomFluent = {
     },
     atomScreen: {
       screenSummary: {
+        playAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_playArea', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.playAreaStringProperty' ) ),
         controlAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_controlArea', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.controlAreaStringProperty' ) ),
+        currentDetailsStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.currentDetailsStringProperty' ),
         interactionHintStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_interactionHint', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.interactionHintStringProperty' ) )
       },
       screenIcon: {
@@ -186,7 +185,7 @@ const BuildAnAtomFluent = {
       },
       modelToggle: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameStringProperty' ) ),
-        accessibleNameOrbitsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameOrbits', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty' ) ),
+        accessibleNameShellsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameShells', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty' ) ),
         accessibleNameCloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameCloud', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' ) )
       },

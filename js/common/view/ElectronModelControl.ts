@@ -55,7 +55,7 @@ class ElectronModelControl extends Panel {
           } ),
           tandemName: 'orbitsRadioButton',
           options: {
-            accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameOrbitsStringProperty
+            accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty
           }
         },
         {

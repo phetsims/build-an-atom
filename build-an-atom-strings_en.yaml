@@ -46,7 +46,10 @@ a11y:
       collapsed: "Collapsed"
   atomScreen:
     screenSummary:
+      playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
+                 Track the number of added particles and explore representations of the periodic table, mass, and charge."
       controlArea: "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+      currentDetails: "Currently, {{value}} particles added to the atom."
       interactionHint: "Add particles to atom to play."
     screenIcon:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
@@ -72,7 +75,7 @@ a11y:
       unstable: "Unstable"
     modelToggle:
       accessibleName: "Atomic Model"
-      accessibleNameOrbits: "Orbits"
+      accessibleNameShells: "Shells"
       accessibleNameCloud: "Cloud"
       accessibleHelpText: "Choose representation for region outside nucleus."
     protonBucket:
