@@ -132,7 +132,12 @@ type StringsType = {
       'symbol': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'noSymbolStringProperty': LocalizedStringProperty;
-        'accessibleParagraphStringProperty': LocalizedStringProperty;
+        'accessibleListNode': {
+          'symbolStringProperty': LocalizedStringProperty;
+          'atomicNumberStringProperty': LocalizedStringProperty;
+          'massNumberStringProperty': LocalizedStringProperty;
+          'chargeStringProperty': LocalizedStringProperty;
+        }
       }
     };
     'gameScreen': {

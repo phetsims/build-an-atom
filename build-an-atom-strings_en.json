@@ -279,8 +279,19 @@
         "noSymbol": {
           "value": "No symbol"
         },
-        "accessibleParagraph": {
-          "value": " - {{symbol}} in center.<br> - Atomic number {{protonCount}} in lower left.<br> - Mass number {{massNumber}} in upper left.<br> - Charge {{charge}} in upper right."
+        "accessibleListNode": {
+          "symbol": {
+            "value": "{{symbol}} in center."
+          },
+          "atomicNumber": {
+            "value": "Atomic number {{value}} in lower left."
+          },
+          "massNumber": {
+            "value": "Mass number {{value}} in upper left."
+          },
+          "charge": {
+            "value": "Charge {{value}} in upper right."
+          }
         }
       }
     },
