@@ -22,6 +22,7 @@ import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
+import AtomScreenSummaryContentNode from './AtomScreenSummaryContentNode.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
 import MassNumberDisplay from './MassNumberDisplay.js';
 
@@ -31,7 +32,10 @@ class AtomScreenView extends BAAScreenView {
   private readonly massNumberAccordionBox: BuildAnAtomAccordionBox;
 
   public constructor( model: BAAModel, tandem: Tandem ) {
-    super( model, tandem );
+
+    super( model, tandem, {
+      screenSummaryContent: new AtomScreenSummaryContentNode( model )
+    } );
 
     // Add the charge meter and charge comparison display inside an accordion box.
     const netChargeAccordionBoxContents = new HBox( {

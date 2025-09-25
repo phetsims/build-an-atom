@@ -12,7 +12,7 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import ScreenView from '../../../../joist/js/ScreenView.js';
+import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import Shape from '../../../../kite/js/Shape.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
@@ -60,10 +60,9 @@ class BAAScreenView extends ScreenView {
   // Properties that control how the atom is displayed.
   private readonly viewProperties: AtomViewProperties;
 
-  public constructor( model: BAAModel, tandem: Tandem ) {
+  public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
-    super( {
-
+    const options = combineOptions<ScreenViewOptions>( {
       // A PhET-wide decision was made to not update custom layout bounds even if they do not match the default layout
       // bounds in ScreenView. Do not change these bounds as changes could break or disturb any phet-io instrumentation.
       // See https://github.com/phetsims/phet-io/issues/1939.
@@ -71,8 +70,9 @@ class BAAScreenView extends ScreenView {
 
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false
+    }, providedOptions );
 
-    } );
+    super( options );
 
     this.viewProperties = new AtomViewProperties( tandem.createTandem( 'viewProperties' ) );
 
