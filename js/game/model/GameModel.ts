@@ -214,7 +214,7 @@ class GameModel implements TModel {
 
     this.levelNumberProperty = new DerivedProperty( [ this.levelProperty ], level => level ? level.levelNumber : 0, {
       tandem: tandem.createTandem( 'levelNumberProperty' ),
-      phetioDocumentation: 'Number of the selected game. Zero means that no game is selected.',
+      phetioDocumentation: 'Number of the selected level. Zero means that no level is selected.',
       phetioFeatured: true,
       phetioValueType: NumberIO
     } );
@@ -239,7 +239,7 @@ class GameModel implements TModel {
 
     this.scoreProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'scoreProperty' ),
-      phetioDocumentation: 'Score on current game level.',
+      phetioDocumentation: 'Score on current level.',
       range: new Range( 0, MAX_POINTS_PER_GAME_LEVEL ),
       phetioReadOnly: true,
       phetioFeatured: true
@@ -442,7 +442,7 @@ class GameModel implements TModel {
   }
 
   /**
-   * Resets only the things that should be reset when a game is started, or when in the 'levelSelection' game state.
+   * Resets only the things that should be reset when a level is started, or when in the 'levelSelection' game state.
    */
   private resetToStart(): void {
     this.attemptsProperty.reset();

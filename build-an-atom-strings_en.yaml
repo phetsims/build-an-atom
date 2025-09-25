@@ -30,12 +30,12 @@ electrons: "Electrons"
 isIt: "Is it:"
 protons: "Protons"
 show: "Show"
-chooseYourGame: "Choose Your Game!"
-gamesInfoTitle: "Games"
-level1DescriptionPattern: "<b>Game {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
-level2DescriptionPattern: "<b>Game {{levelNumber}}:</b> Calculate mass or charge <br>"
-level3DescriptionPattern: "<b>Game {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
-level4DescriptionPattern: "<b>Game {{levelNumber}}:</b> Mixed review"
+chooseYourGame: "Choose Your Level!"
+gamesInfoTitle: "Levels"
+level1DescriptionPattern: "<b>Level {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
+level2DescriptionPattern: "<b>Level {{levelNumber}}:</b> Calculate mass or charge <br>"
+level3DescriptionPattern: "<b>Level {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
+level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
 
 
 a11y:

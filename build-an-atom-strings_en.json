@@ -96,22 +96,22 @@
     "value": "Show"
   },
   "chooseYourGame": {
-    "value": "Choose Your Game!"
+    "value": "Choose Your Level!"
   },
   "gamesInfoTitle": {
-    "value": "Games"
+    "value": "Levels"
   },
   "level1DescriptionPattern": {
-    "value": "<b>Game {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
+    "value": "<b>Level {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
   },
   "level2DescriptionPattern": {
-    "value": "<b>Game {{levelNumber}}:</b> Calculate mass or charge <br>"
+    "value": "<b>Level {{levelNumber}}:</b> Calculate mass or charge <br>"
   },
   "level3DescriptionPattern": {
-    "value": "<b>Game {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
+    "value": "<b>Level {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
   },
   "level4DescriptionPattern": {
-    "value": "<b>Game {{levelNumber}}:</b> Mixed review"
+    "value": "<b>Level {{levelNumber}}:</b> Mixed review"
   },
   "a11y": {
     "common": {

@@ -1,8 +1,8 @@
 // Copyright 2016-2025, University of Colorado Boulder
 
 /**
- * The reward that is displayed when a game is completed with a perfect score. For testing, the simulation can be run
- * with the 'reward' query parameter to show the reward at the end of every game, regardless of score.
+ * The reward that is displayed when a level is completed with a perfect score. For testing, the simulation can be run
+ * with the 'reward' query parameter to show the reward at the end of every level, regardless of score.
  *
  * @author Aadish Gupta
  */
