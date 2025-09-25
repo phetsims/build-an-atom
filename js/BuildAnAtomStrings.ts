@@ -25,8 +25,9 @@ type StringsType = {
   'atomStringProperty': LocalizedStringProperty;
   'netChargeStringProperty': LocalizedStringProperty;
   'elementStringProperty': LocalizedStringProperty;
-  'orbitsStringProperty': LocalizedStringProperty;
   'modelStringProperty': LocalizedStringProperty;
+  'orbitsStringProperty': LocalizedStringProperty;
+  'cloudStringProperty': LocalizedStringProperty;
   'whatIsTheMassNumberStringProperty': LocalizedStringProperty;
   'whatIsTheTotalChargeStringProperty': LocalizedStringProperty;
   'electronsColonStringProperty': LocalizedStringProperty;
@@ -39,7 +40,6 @@ type StringsType = {
   'periodicTableStringProperty': LocalizedStringProperty;
   'protonsColonStringProperty': LocalizedStringProperty;
   'protonsColonPatternStringProperty': LocalizedStringProperty;
-  'cloudStringProperty': LocalizedStringProperty;
   'neutronsColonStringProperty': LocalizedStringProperty;
   'neutronsColonPatternStringProperty': LocalizedStringProperty;
   'electronsStringProperty': LocalizedStringProperty;

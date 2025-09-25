@@ -34,8 +34,9 @@ addToMapIfDefined( 'massNumber', 'massNumberStringProperty' );
 addToMapIfDefined( 'atom', 'atomStringProperty' );
 addToMapIfDefined( 'netCharge', 'netChargeStringProperty' );
 addToMapIfDefined( 'element', 'elementStringProperty' );
-addToMapIfDefined( 'orbits', 'orbitsStringProperty' );
 addToMapIfDefined( 'model', 'modelStringProperty' );
+addToMapIfDefined( 'orbits', 'orbitsStringProperty' );
+addToMapIfDefined( 'cloud', 'cloudStringProperty' );
 addToMapIfDefined( 'whatIsTheMassNumber', 'whatIsTheMassNumberStringProperty' );
 addToMapIfDefined( 'whatIsTheTotalCharge', 'whatIsTheTotalChargeStringProperty' );
 addToMapIfDefined( 'electronsColon', 'electronsColonStringProperty' );
@@ -45,7 +46,6 @@ addToMapIfDefined( 'neutralSlashIon', 'neutralSlashIonStringProperty' );
 addToMapIfDefined( 'neutrons', 'neutronsStringProperty' );
 addToMapIfDefined( 'periodicTable', 'periodicTableStringProperty' );
 addToMapIfDefined( 'protonsColon', 'protonsColonStringProperty' );
-addToMapIfDefined( 'cloud', 'cloudStringProperty' );
 addToMapIfDefined( 'neutronsColon', 'neutronsColonStringProperty' );
 addToMapIfDefined( 'electrons', 'electronsStringProperty' );
 addToMapIfDefined( 'isIt', 'isItStringProperty' );
@@ -115,8 +115,9 @@ const BuildAnAtomFluent = {
   atomStringProperty: _.get( BuildAnAtomStrings, 'atomStringProperty' ),
   netChargeStringProperty: _.get( BuildAnAtomStrings, 'netChargeStringProperty' ),
   elementStringProperty: _.get( BuildAnAtomStrings, 'elementStringProperty' ),
-  orbitsStringProperty: _.get( BuildAnAtomStrings, 'orbitsStringProperty' ),
   modelStringProperty: _.get( BuildAnAtomStrings, 'modelStringProperty' ),
+  orbitsStringProperty: _.get( BuildAnAtomStrings, 'orbitsStringProperty' ),
+  cloudStringProperty: _.get( BuildAnAtomStrings, 'cloudStringProperty' ),
   whatIsTheMassNumberStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheMassNumberStringProperty' ),
   whatIsTheTotalChargeStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheTotalChargeStringProperty' ),
   electronsColonStringProperty: _.get( BuildAnAtomStrings, 'electronsColonStringProperty' ),
@@ -129,7 +130,6 @@ const BuildAnAtomFluent = {
   periodicTableStringProperty: _.get( BuildAnAtomStrings, 'periodicTableStringProperty' ),
   protonsColonStringProperty: _.get( BuildAnAtomStrings, 'protonsColonStringProperty' ),
   protonsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'protonsColonPatternStringProperty' ),
-  cloudStringProperty: _.get( BuildAnAtomStrings, 'cloudStringProperty' ),
   neutronsColonStringProperty: _.get( BuildAnAtomStrings, 'neutronsColonStringProperty' ),
   neutronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'neutronsColonPatternStringProperty' ),
   electronsStringProperty: _.get( BuildAnAtomStrings, 'electronsStringProperty' ),
