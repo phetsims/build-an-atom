@@ -27,6 +27,7 @@ type StringsType = {
   'elementStringProperty': LocalizedStringProperty;
   'modelStringProperty': LocalizedStringProperty;
   'orbitsStringProperty': LocalizedStringProperty;
+  'shellsStringProperty': LocalizedStringProperty;
   'cloudStringProperty': LocalizedStringProperty;
   'whatIsTheMassNumberStringProperty': LocalizedStringProperty;
   'whatIsTheTotalChargeStringProperty': LocalizedStringProperty;

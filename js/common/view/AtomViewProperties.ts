@@ -37,7 +37,7 @@ class AtomViewProperties {
       tandem: tandem.createTandem( 'nuclearStabilityVisibleProperty' ),
       phetioFeatured: true
     } );
-    this.electronModelProperty = new Property<ElectronShellDepiction>( 'orbits', {
+    this.electronModelProperty = new Property<ElectronShellDepiction>( 'shells', {
       tandem: tandem.createTandem( 'electronModelProperty' ),
       phetioValueType: StringUnionIO( ElectronShellDepictionValues ),
       validValues: ElectronShellDepictionValues,

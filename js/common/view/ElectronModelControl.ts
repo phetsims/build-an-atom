@@ -2,7 +2,7 @@
 
 /**
  * ElectronModelControl is a panel with a title and a radio button group that allows the user to select - i.e. control -
- * the visual representation of electrons to use in the simulation, either 'orbits' or 'cloud'.
+ * the visual representation of electrons to use in the simulation, either 'shells' or 'cloud'.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -49,11 +49,11 @@ class ElectronModelControl extends Panel {
       electronModelProperty,
       [
         {
-          value: 'orbits',
-          createNode: () => new Text( BuildAnAtomFluent.orbitsStringProperty, {
+          value: 'shells',
+          createNode: () => new Text( BuildAnAtomFluent.shellsStringProperty, {
             font: ELECTRON_MODEL_SELECTOR_FONT
           } ),
-          tandemName: 'orbitsRadioButton',
+          tandemName: 'shellsRadioButton',
           options: {
             accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty
           }

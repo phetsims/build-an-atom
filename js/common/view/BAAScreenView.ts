@@ -207,7 +207,7 @@ class BAAScreenView extends ScreenView {
     const updateElectronVisibility = () => {
       electronLayer.getChildren().forEach( electronNode => {
         affirm( electronNode instanceof ParticleView, 'electronLayer should only contain ParticleView instances' );
-        electronNode.visible = this.viewProperties.electronModelProperty.value === 'orbits' ||
+        electronNode.visible = this.viewProperties.electronModelProperty.value === 'shells' ||
                                !model.atom.electrons.includes( electronNode.particle );
       } );
     };

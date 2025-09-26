@@ -5,12 +5,8 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
-import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -40,6 +36,7 @@ addToMapIfDefined( 'netCharge', 'netChargeStringProperty' );
 addToMapIfDefined( 'element', 'elementStringProperty' );
 addToMapIfDefined( 'model', 'modelStringProperty' );
 addToMapIfDefined( 'orbits', 'orbitsStringProperty' );
+addToMapIfDefined( 'shells', 'shellsStringProperty' );
 addToMapIfDefined( 'cloud', 'cloudStringProperty' );
 addToMapIfDefined( 'whatIsTheMassNumber', 'whatIsTheMassNumberStringProperty' );
 addToMapIfDefined( 'whatIsTheTotalCharge', 'whatIsTheTotalChargeStringProperty' );
@@ -121,6 +118,7 @@ const BuildAnAtomFluent = {
   elementStringProperty: _.get( BuildAnAtomStrings, 'elementStringProperty' ),
   modelStringProperty: _.get( BuildAnAtomStrings, 'modelStringProperty' ),
   orbitsStringProperty: _.get( BuildAnAtomStrings, 'orbitsStringProperty' ),
+  shellsStringProperty: _.get( BuildAnAtomStrings, 'shellsStringProperty' ),
   cloudStringProperty: _.get( BuildAnAtomStrings, 'cloudStringProperty' ),
   whatIsTheMassNumberStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheMassNumberStringProperty' ),
   whatIsTheTotalChargeStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheTotalChargeStringProperty' ),

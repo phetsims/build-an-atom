@@ -45,7 +45,7 @@ class InteractiveSchematicAtom extends Node {
       showElementNameProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
       showNeutralOrIonProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
       showStableOrUnstableProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      electronShellDepictionProperty: new Property( 'orbits' ),
+      electronShellDepictionProperty: new Property( 'shells' ),
       tandem: Tandem.OPT_OUT
     } );
     this.addChild( atomNode );
