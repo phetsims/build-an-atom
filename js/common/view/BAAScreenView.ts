@@ -26,6 +26,7 @@ import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
+import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
@@ -116,14 +117,33 @@ class BAAScreenView extends ScreenView {
     // Add the layer where the nucleons and electrons will go.
     const particleLayer = new Node();
 
+    // Define group tandems for the particles.
     const protonsGroupTandem = tandem.createTandem( 'protonNodes' ).createGroupTandem( 'protonNode', 1 );
     const neutronsGroupTandem = tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
     const electronsGroupTandem = tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
+    // The particles should not be draggable outside of the layout bounds of this screen view.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
 
     // Create a map that associates particles with their views for quick lookup.
     const mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
+
+    // Define some offsets that will be used to position the particles in various locations needed by alt-input.
+    // These are in model coordinates.
+    const belowNucleusOffset = new Vector2( 0, -40 );
+    const innerShellOffset = new Vector2( 0, -model.atom.innerElectronShellRadius );
+    const outerShellOffset = new Vector2( 0, -model.atom.outerElectronShellRadius );
+    const outsideAtomOffset = new Vector2( -65, -155 );
+    const altInputAtomOffsetsForShellMode: Vector2[] = [
+      belowNucleusOffset,
+      innerShellOffset,
+      outerShellOffset,
+      outsideAtomOffset
+    ];
+    const altInputAtomOffsetsForCloudMode: Vector2[] = [
+      belowNucleusOffset,
+      outsideAtomOffset
+    ];
 
     // Add the particle views.
     [ ...model.nucleons, ...model.electrons ].forEach( particle => {
@@ -168,6 +188,59 @@ class BAAScreenView extends ScreenView {
           }
         }
       );
+
+      // Create a listener that will be used to control the alt-input behavior of the particle when it is marked as
+      // being dragged by the user.  This allows the user to cycle through some possible drop locations and then drop
+      // the particle.  This listener will be added and removed as needed below.
+      const particlePlacementKeyboardListener = new KeyboardListener( {
+        keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp' ],
+        fireOnDown: false,
+        fire: ( event, keysPressed ) => {
+
+          // See if the user is trying to release the particle and drop it where it is if so.
+          if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
+            particle.isDraggingProperty.value = false;
+          }
+          else {
+
+            // Figure out which offset is currently being used for the particle's position.
+            let offsetIndex = 0;
+            const particleDistanceFromAtomCenter = particle.positionProperty.value.distance( model.atom.positionProperty.value );
+            const altInputAtomOffsets = this.viewProperties.electronModelProperty.value === 'shells' ?
+                                        altInputAtomOffsetsForShellMode :
+                                        altInputAtomOffsetsForCloudMode;
+            for ( const offset of altInputAtomOffsets ) {
+              if ( offset.getMagnitude() === particleDistanceFromAtomCenter ) {
+                offsetIndex = altInputAtomOffsets.indexOf( offset );
+                break;
+              }
+            }
+            if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
+              offsetIndex = ( offsetIndex + 1 ) % altInputAtomOffsets.length;
+            }
+            else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+              offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
+            }
+            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] ) );
+          }
+        },
+        blur: () => {
+
+          // If focus leaves this particle, release it and let the chips fall where they may ( the model code should
+          // move it into the atom or back to a bucket).
+          particle.isDraggingProperty.value = false;
+        }
+      } );
+
+      // Add or remove the alt-input keyboard listener based on whether the particle is being dragged.
+      particle.isDraggingProperty.lazyLink( isDragging => {
+        if ( isDragging ) {
+          particleView.addInputListener( particlePlacementKeyboardListener );
+        }
+        else {
+          particleView.hasInputListener( particlePlacementKeyboardListener ) && particleView.removeInputListener( particlePlacementKeyboardListener );
+        }
+      } );
     } );
 
     // The following code manages the visibility of the individual electron particles.  When the electrons are
@@ -252,7 +325,7 @@ class BAAScreenView extends ScreenView {
             particle.isDraggingProperty.value = true;
 
             // Position the particle just below the center of the atom.
-            particle.setPositionAndDestination( model.atom.positionProperty.value.plusXY( 0, -40 ) );
+            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
 
             // Get the view node that is associated with this particle.
             const particleView = findParticleView( particle );
