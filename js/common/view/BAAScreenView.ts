@@ -20,7 +20,6 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleContainer.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import AccessibleInteractiveOptions from '../../../../scenery-phet/js/accessibility/AccessibleInteractiveOptions.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
@@ -32,7 +31,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import AtomNode, { AtomNodeOptions } from '../../../../shred/js/view/AtomNode.js';
+import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
@@ -87,16 +86,15 @@ class BAAScreenView extends ScreenView {
     );
 
     // Add the node that shows the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.atom, modelViewTransform, combineOptions<AtomNodeOptions>( {
+    const atomNode = new AtomNode( model.atom, modelViewTransform, {
       showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
       showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
       electronShellDepictionProperty: this.viewProperties.electronModelProperty,
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false,
-      phetioFeatured: true,
-      focusable: false
-    }, AccessibleInteractiveOptions ) );
+      phetioFeatured: true
+    } );
     this.addChild( atomNode );
 
     // Add the particle count indicator.
