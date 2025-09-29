@@ -120,7 +120,7 @@ class BAAScreenView extends ScreenView {
     const neutronsGroupTandem = tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
     const electronsGroupTandem = tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
-    // The particles should not be draggable outside of the layout bounds of this screen view.
+    // The particles should not be draggable outside the layout bounds of this screen view.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
 
     // Create a map that associates particles with their views for quick lookup.
