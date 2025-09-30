@@ -95,7 +95,6 @@ class BAAScreenView extends ScreenView {
       phetioVisiblePropertyInstrumented: false,
       phetioFeatured: true
     } );
-    this.addChild( atomNode );
 
     // Add the particle count indicator.
     const particleCountDisplay = new ParticleCountDisplay( model.atom, {
@@ -103,16 +102,8 @@ class BAAScreenView extends ScreenView {
       left: CONTROLS_INSET,
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
-    this.addChild( particleCountDisplay );
 
-    // Add the bucket holes.  Done separately from the bucket front for layering.
-    _.each( model.buckets, bucket => {
-      this.addChild( new BucketHole( bucket, modelViewTransform, {
-        pickable: false
-      } ) );
-    } );
-
-    // Add the layer where the nucleons and electrons will go.
+    // Create the layer where the nucleons and electrons will go.
     const particleLayer = new Node();
 
     // Define group tandems for the particles.
@@ -172,9 +163,10 @@ class BAAScreenView extends ScreenView {
 
           if ( isParticleNodeChildOfScreenView && ( container === model.atom || isDragging ) ) {
 
-            // Move the particle view to the atom node.
+            // Move the particle view to the atom node, preserving focus if needed.
+            const hasFocus = particleView.focused;
             particleLayer.removeChild( particleView );
-            atomNode.addParticleView( particleView );
+            atomNode.addParticleView( particleView, hasFocus );
           }
           else if ( !isParticleNodeChildOfScreenView &&
                     ( ( container !== null && bucketsAsParticleContainers.includes( container ) ) ||
@@ -319,12 +311,6 @@ class BAAScreenView extends ScreenView {
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
 
-            // Mark the particle as being controlled by the user via keyboard interaction.
-            particle.isDraggingProperty.value = true;
-
-            // Position the particle just below the center of the atom.
-            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
-
             // Get the view node that is associated with this particle.
             const particleView = findParticleView( particle );
             affirm( particleView !== null, 'ParticleView not found for extracted particle' );
@@ -332,6 +318,12 @@ class BAAScreenView extends ScreenView {
             // Set the focus to the particle's view so that it can be manipulated via keyboard.
             particleView.focusable = true;
             particleView.focus();
+
+            // Mark the particle as being controlled by the user via keyboard interaction.
+            particle.isDraggingProperty.value = true;
+
+            // Position the particle just below the center of the atom's nucleus.
+            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
           }
         }
       } );
@@ -386,7 +378,6 @@ class BAAScreenView extends ScreenView {
       children: [ this.periodicTableAccordionBox ],
       spacing: 7
     } );
-    this.addChild( this.accordionBoxes );
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
     const checkboxItemTextOptions = {
@@ -453,7 +444,6 @@ class BAAScreenView extends ScreenView {
         phetioFeatured: true
       }
     } );
-    this.addChild( checkboxGroup );
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
     // controls whether the related animation is enabled.
@@ -469,7 +459,6 @@ class BAAScreenView extends ScreenView {
         phetioFeatured: true
       }
     } );
-    this.addChild( electronModelControl );
 
     // Add the reset button.
     const resetAllButton = new ResetAllButton( {
@@ -482,7 +471,6 @@ class BAAScreenView extends ScreenView {
       radius: BAAConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    this.addChild( resetAllButton );
 
     // Do the layout.
     this.accordionBoxes.top = CONTROLS_INSET;
@@ -492,8 +480,20 @@ class BAAScreenView extends ScreenView {
     electronModelControl.left = atomNode.centerX + 130;
     electronModelControl.bottom = atomNode.bottom + 5;
 
+    // Add the top level children in the desired z-order.
+    this.addChild( electronModelControl );
+    this.addChild( checkboxGroup );
+    this.addChild( particleCountDisplay );
+    this.addChild( this.accordionBoxes );
+    _.each( model.buckets, bucket => {
+      this.addChild( new BucketHole( bucket, modelViewTransform, {
+        pickable: false
+      } ) );
+    } );
     this.addChild( particleLayer );
     this.addChild( bucketFrontLayer );
+    this.addChild( atomNode );
+    this.addChild( resetAllButton );
 
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
