@@ -18,7 +18,8 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 * Core description
 
 ### Other Changes
-* For the `Model` radiobutton group, the word `Orbitals` was replaced with `Shells`
+* For the `Model` radiobutton group, the word `Orbits` was replaced with `Shells`
+* On the Game screen, the levels will now be referred to as `Levels` not `Games`
 
 
 
