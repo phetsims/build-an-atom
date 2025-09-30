@@ -17,6 +17,8 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 * Alt input
 * Core description
 
+### Other Changes
+* For the `Model` radiobutton group, the word `Orbitals` was replaced with `Shells`
 
 
 
