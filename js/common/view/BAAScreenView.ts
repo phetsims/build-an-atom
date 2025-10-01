@@ -179,19 +179,45 @@ class BAAScreenView extends ScreenView {
         }
       );
 
-      // Create a listener that will be used to control the alt-input behavior of the particle when it is marked as
-      // being dragged by the user.  This allows the user to cycle through some possible drop locations and then drop
-      // the particle.  This listener will be added and removed as needed below.
-      const particlePlacementKeyboardListener = new KeyboardListener( {
+      // This flag is set at the beginning of the process through which alt-input removes a particle from the atom and
+      // cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener from
+      // setting isDragging to false during the removal process.  The blur event ends up being triggered during the
+      // removal process because the particle changes layers, which causes it to lose focus.
+      let isParticleBeingRemovedFromAtomViaAltInput = false;
+
+      // Create a listener that will handle alt-input keyboard commands for the particle.
+      // TODO: See https://github.com/phetsims/build-an-atom/issues/356.  Flesh out the docs for this once it is fully
+      //       working, assuming it is still around.
+      const particleKeyboardListener = new KeyboardListener( {
         keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp' ],
         fireOnDown: false,
         fire: ( event, keysPressed ) => {
 
-          // See if the user is trying to release the particle and drop it where it is if so.
           if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
-            particle.isDraggingProperty.value = false;
+
+            if ( particle.containerProperty.value === model.atom ) {
+
+              isParticleBeingRemovedFromAtomViaAltInput = true;
+
+              // This particle is being extracted from the atom, so position it just below the nucleus.
+              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
+
+              // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
+              // will incite the model to remove the particle from the atom.
+              particle.isDraggingProperty.value = true;
+
+              isParticleBeingRemovedFromAtomViaAltInput = false;
+            }
+            else if ( particle.isDraggingProperty.value ) {
+
+              // This particle is being released, so let the model code move it into the atom or back to a bucket.
+              particle.isDraggingProperty.value = false;
+            }
+            else {
+              affirm( false, 'Particle must be either in the atom or being dragged if space/enter is pressed' );
+            }
           }
-          else {
+          else if ( particle.isDraggingProperty.value ) {
 
             // Figure out which offset is currently being used for the particle's position.
             let offsetIndex = 0;
@@ -216,21 +242,15 @@ class BAAScreenView extends ScreenView {
         },
         blur: () => {
 
-          // If focus leaves this particle, release it and let the chips fall where they may ( the model code should
-          // move it into the atom or back to a bucket).
-          particle.isDraggingProperty.value = false;
+          // If focus leaves this particle, release it and let the chips fall where they may (the model code should
+          // move it into the atom or back to a bucket).  However, DON'T do this if the particle is in the process of
+          // being removed from the atom via alt-input.
+          if ( !isParticleBeingRemovedFromAtomViaAltInput ) {
+            particle.isDraggingProperty.value = false;
+          }
         }
       } );
-
-      // Add or remove the alt-input keyboard listener based on whether the particle is being dragged.
-      particle.isDraggingProperty.lazyLink( isDragging => {
-        if ( isDragging ) {
-          particleView.addInputListener( particlePlacementKeyboardListener );
-        }
-        else {
-          particleView.hasInputListener( particlePlacementKeyboardListener ) && particleView.removeInputListener( particlePlacementKeyboardListener );
-        }
-      } );
+      particleView.addInputListener( particleKeyboardListener );
     } );
 
     // The following code manages the visibility of the individual electron particles.  When the electrons are
