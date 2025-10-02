@@ -72,6 +72,10 @@ class BAAScreenView extends ScreenView {
   // A map that associates particles with their views for quick lookup.
   private readonly mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
 
+  // A map that associates buckets with the bucket front views for quick lookup.
+  private readonly mapBucketsToViews: Map<ParticleContainer<Particle>, BucketFront> =
+    new Map<ParticleContainer<Particle>, BucketFront>();
+
   public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
     const options = combineOptions<ScreenViewOptions>( {
@@ -238,17 +242,26 @@ class BAAScreenView extends ScreenView {
               // where they may (the model code should move it into the atom or back to a bucket).
               particle.isDraggingProperty.value = false;
 
-              // Clearing the isDragging flag should cause the particle to go into the atom or a bucket.  If it is in
-              // the atom, make all other particles unfocusable.  If it is in the bucket, make the particle itself
-              // unfocusable.
+              // Clearing the isDragging flag should cause the particle to go into the atom or a bucket.
               if ( particle.containerProperty.value === model.atom ) {
+
+                // The particle has been put into the atom.  Make all other particles unfocusable so that this is the
+                // only thing in the tab order for the atom.
                 this.mapParticlesToViews.forEach( ( otherParticleView, otherParticle ) => {
                   if ( otherParticle !== particle ) {
                     otherParticleView.focusable = false;
                   }
                 } );
               }
-              else {
+              else if ( particle.containerProperty.value &&
+                        bucketsAsParticleContainers.includes( particle.containerProperty.value ) ) {
+
+                // Shift the focus to the bucket where this particle now resides.
+                const bucketView = this.mapBucketsToViews.get( particle.containerProperty.value );
+                affirm( bucketView, 'Missing BucketFront view for bucket' );
+                bucketView.focus();
+
+                // The particle should become unfocusable since it is now in a bucket.
                 particleView.focusable = false;
               }
             }
@@ -432,6 +445,9 @@ class BAAScreenView extends ScreenView {
           }
         }
       } );
+
+      // Keep track of the bucket front views so that we can set focus on them later when needed.
+      this.mapBucketsToViews.set( bucket, bucketFront );
     }
 
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
