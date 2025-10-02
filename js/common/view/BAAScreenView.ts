@@ -111,6 +111,10 @@ class BAAScreenView extends ScreenView {
       phetioFeatured: true
     } );
 
+    atomNode.addChild(
+      AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties.electronModelProperty )
+    );
+
     // Add the particle count indicator.
     const particleCountDisplay = new ParticleCountDisplay( model.atom, {
       top: CONTROLS_INSET,

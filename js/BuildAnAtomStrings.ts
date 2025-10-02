@@ -34,7 +34,6 @@ type StringsType = {
   'electronsColonStringProperty': LocalizedStringProperty;
   'electronsColonPatternStringProperty': LocalizedStringProperty;
   'gameStringProperty': LocalizedStringProperty;
-  'gameNumberPatternStringProperty': LocalizedStringProperty;
   'neutralAtomStringProperty': LocalizedStringProperty;
   'neutralSlashIonStringProperty': LocalizedStringProperty;
   'neutronsStringProperty': LocalizedStringProperty;
@@ -59,6 +58,17 @@ type StringsType = {
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;
+      };
+      'atomAccessibleListNode': {
+        'nucleusInfoFullStringProperty': LocalizedStringProperty;
+        'nucleusInfoEmptyStringProperty': LocalizedStringProperty;
+        'protonsStringProperty': LocalizedStringProperty;
+        'neutronsStringProperty': LocalizedStringProperty;
+        'protonsAndNeutronsStringProperty': LocalizedStringProperty;
+        'shellInfoFullStringProperty': LocalizedStringProperty;
+        'cloudInfoFullStringProperty': LocalizedStringProperty;
+        'shellInfoEmptyStringProperty': LocalizedStringProperty;
+        'cloudInfoEmptyStringProperty': LocalizedStringProperty;
       }
     };
     'atomScreen': {

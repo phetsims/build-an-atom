@@ -9,6 +9,9 @@
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
+import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
+import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 
@@ -16,6 +19,97 @@ class AtomViewDescriber {
 
   private constructor() {
     // Not intended for instantiation.
+  }
+
+  public static createAccessibleListNode(
+    atom: ParticleAtom,
+    electronModelProperty: TReadOnlyProperty<ElectronShellDepiction>
+  ): AccessibleListNode {
+
+    const nucleusContainsProperty = new DerivedStringProperty(
+      [
+        atom.protonCountProperty,
+        atom.neutronCountProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.neutronsStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty
+      ],
+      (
+        protons: number,
+        neutrons: number,
+        nucleusInfoFullString: string,
+        nucleusInfoEmptyString: string,
+        protonsString: string,
+        neutronsString: string,
+        protonsAndNeutronsString: string
+      ) => {
+        if ( protons > 0 ) {
+          if ( neutrons > 0 ) {
+            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsAndNeutronsString } );
+          }
+          else {
+            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsString } );
+          }
+        }
+        else {
+          return nucleusInfoEmptyString;
+        }
+      } );
+
+    const electronsStateProperty = new DerivedStringProperty(
+      [
+        electronModelProperty,
+        atom.electronCountProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoFullStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
+      ],
+      (
+        electronModel: ElectronShellDepiction,
+        electrons: number,
+        shellInfoFullString: string,
+        cloudInfoFullString: string,
+        shellInfoEmptyString: string,
+        cloudInfoEmptyString: string
+      ) => {
+        if ( electrons > 0 ) {
+          return electronModel === 'shells' ?
+                 StringUtils.fillIn( shellInfoFullString, {
+                   inner: Math.min( 2, electrons ), outer: Math.max( 0, electrons - 2 )
+                 } ) :
+                 StringUtils.fillIn( cloudInfoFullString, { value: electrons } );
+        }
+        else {
+          return electronModel === 'shells' ? shellInfoEmptyString : cloudInfoEmptyString;
+        }
+      }
+    );
+
+    const elementNameListItemProperty = this.createElementNameContextResponse(
+      atom.protonCountProperty,
+      atom.elementNameStringProperty
+    );
+
+    const neutralOrIonListItemProperty = this.createNeutralOrIonContextResponse(
+      atom.protonCountProperty,
+      atom.chargeProperty
+    );
+
+    const stabilityListItemProperty = this.createStabilityContextResponse(
+      atom.protonCountProperty,
+      atom.nucleusStableProperty
+    );
+
+    return new AccessibleListNode( [
+      nucleusContainsProperty,
+      electronsStateProperty,
+      elementNameListItemProperty,
+      neutralOrIonListItemProperty,
+      stabilityListItemProperty
+    ] );
   }
 
   public static createElementNameContextResponse(

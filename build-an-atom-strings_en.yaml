@@ -18,7 +18,6 @@ whatIsTheTotalCharge: "What is the<br>total charge?<br>"
 electronsColon: "Electrons:"
 electronsColonPattern: "Electrons: {0}"
 game: "Game"
-gameNumberPattern: "Game: {0}"
 neutralAtom: "Neutral Atom"
 neutralSlashIon: "Neutral Atom or Ion"
 neutrons: "Neutrons"
@@ -45,6 +44,16 @@ a11y:
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"
+    atomAccessibleListNode:
+      nucleusInfoFull: Nucleus contains {{particles}}.
+      nucleusInfoEmpty: Nucleus empty.
+      protons: Protons
+      neutrons: Neutrons
+      protonsAndNeutrons: Protons and Neutrons
+      shellInfoFull: Inner shell contains {{inner}} Electrons and outer shell contains {{outer}} Electrons.
+      cloudInfoFull: Cloud contains {{value}} Electrons.
+      shellInfoEmpty: Shells empty.
+      cloudInfoEmpty: Cloud empty.
   atomScreen:
     screenSummary:
       playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.

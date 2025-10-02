@@ -5,12 +5,8 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
-import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -60,6 +56,12 @@ addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protons', 'a11y.common.atomAccessibleListNode.protonsStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_neutrons', 'a11y.common.atomAccessibleListNode.neutronsStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protonsAndNeutrons', 'a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_shellInfoEmpty', 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenSummary_playArea', 'a11y.atomScreen.screenSummary.playAreaStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenSummary_controlArea', 'a11y.atomScreen.screenSummary.controlAreaStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenSummary_interactionHint', 'a11y.atomScreen.screenSummary.interactionHintStringProperty' );
@@ -129,7 +131,6 @@ const BuildAnAtomFluent = {
   electronsColonStringProperty: _.get( BuildAnAtomStrings, 'electronsColonStringProperty' ),
   electronsColonPatternStringProperty: _.get( BuildAnAtomStrings, 'electronsColonPatternStringProperty' ),
   gameStringProperty: _.get( BuildAnAtomStrings, 'gameStringProperty' ),
-  gameNumberPatternStringProperty: _.get( BuildAnAtomStrings, 'gameNumberPatternStringProperty' ),
   neutralAtomStringProperty: _.get( BuildAnAtomStrings, 'neutralAtomStringProperty' ),
   neutralSlashIonStringProperty: _.get( BuildAnAtomStrings, 'neutralSlashIonStringProperty' ),
   neutronsStringProperty: _.get( BuildAnAtomStrings, 'neutronsStringProperty' ),
@@ -154,6 +155,17 @@ const BuildAnAtomFluent = {
       accordionAccessibleContextResponse: {
         expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
         collapsedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_collapsed', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' ) )
+      },
+      atomAccessibleListNode: {
+        nucleusInfoFullStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty' ),
+        nucleusInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' ) ),
+        protonsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_protons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.protonsStringProperty' ) ),
+        neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_neutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.neutronsStringProperty' ) ),
+        protonsAndNeutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_protonsAndNeutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty' ) ),
+        shellInfoFullStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.shellInfoFullStringProperty' ),
+        cloudInfoFullStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty' ),
+        shellInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_shellInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' ) ),
+        cloudInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' ) )
       }
     },
     atomScreen: {

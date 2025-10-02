@@ -59,9 +59,6 @@
   "game": {
     "value": "Game"
   },
-  "gameNumberPattern": {
-    "value": "Game: {0}"
-  },
   "neutralAtom": {
     "value": "Neutral Atom"
   },
@@ -127,6 +124,35 @@
         },
         "collapsed": {
           "value": "Collapsed"
+        }
+      },
+      "atomAccessibleListNode": {
+        "nucleusInfoFull": {
+          "value": "Nucleus contains {{particles}}."
+        },
+        "nucleusInfoEmpty": {
+          "value": "Nucleus empty."
+        },
+        "protons": {
+          "value": "Protons"
+        },
+        "neutrons": {
+          "value": "Neutrons"
+        },
+        "protonsAndNeutrons": {
+          "value": "Protons and Neutrons"
+        },
+        "shellInfoFull": {
+          "value": "Inner shell contains {{inner}} Electrons and outer shell contains {{outer}} Electrons."
+        },
+        "cloudInfoFull": {
+          "value": "Cloud contains {{value}} Electrons."
+        },
+        "shellInfoEmpty": {
+          "value": "Shells empty."
+        },
+        "cloudInfoEmpty": {
+          "value": "Cloud empty."
         }
       }
     },
