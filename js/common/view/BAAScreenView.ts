@@ -12,6 +12,7 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import { equalsEpsilon } from '../../../../dot/js/util/equalsEpsilon.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import Shape from '../../../../kite/js/Shape.js';
@@ -49,18 +50,27 @@ import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './Build
 import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
+type FocusUpdateDirection = 'forward' | 'backward';
+
 // constants
 const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
+const DISTANCE_TESTING_TOLERANCE = 1e-6;
 
 class BAAScreenView extends ScreenView {
 
   protected readonly periodicTableAccordionBox: BuildAnAtomAccordionBox;
   protected readonly accordionBoxes: VBox;
 
+  // The model that this view is based on.
+  private readonly model: BAAModel;
+
   // Properties that control how the atom is displayed.
   private readonly viewProperties: AtomViewProperties;
+
+  // A map that associates particles with their views for quick lookup.
+  private readonly mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
 
   public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
@@ -76,6 +86,7 @@ class BAAScreenView extends ScreenView {
 
     super( options );
 
+    this.model = model;
     this.viewProperties = new AtomViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     // Create the model-view transform.
@@ -114,9 +125,6 @@ class BAAScreenView extends ScreenView {
     // The particles should not be draggable outside the layout bounds of this screen view.
     const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
 
-    // Create a map that associates particles with their views for quick lookup.
-    const mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
-
     // Define some offsets that will be used to position the particles in various locations needed by alt-input.
     // These are in model coordinates.
     const belowNucleusOffset = new Vector2( 0, -40 );
@@ -148,8 +156,9 @@ class BAAScreenView extends ScreenView {
       } );
 
       particleLayer.addChild( particleView );
-      mapParticlesToViews.set( particle, particleView );
+      this.mapParticlesToViews.set( particle, particleView );
 
+      // type safe reference to buckets
       const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
       // The particle view will either be a child of this screen view or a child of the atom node, based on its state.
@@ -193,51 +202,81 @@ class BAAScreenView extends ScreenView {
         fireOnDown: false,
         fire: ( event, keysPressed ) => {
 
-          if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
+          if ( particle.containerProperty.value === model.atom ) {
 
-            if ( particle.containerProperty.value === model.atom ) {
-
+            // This particle is in the atom.  If the user presses space or enter, extract it from the atom and position
+            // it just below the nucleus.  If the user presses an arrow key, move the focus to another particle (if
+            // there is one).
+            if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
               isParticleBeingRemovedFromAtomViaAltInput = true;
-
-              // This particle is being extracted from the atom, so position it just below the nucleus.
-              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
 
               // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
               // will incite the model to remove the particle from the atom.
               particle.isDraggingProperty.value = true;
 
+              // This particle is being extracted from the atom, so position it just below the nucleus.
+              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
+
               isParticleBeingRemovedFromAtomViaAltInput = false;
             }
-            else if ( particle.isDraggingProperty.value ) {
-
-              // This particle is being released, so let the model code move it into the atom or back to a bucket.
-              particle.isDraggingProperty.value = false;
+            else if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
+              this.updateParticleFocus( particleView, 'forward' );
             }
-            else {
-              affirm( false, 'Particle must be either in the atom or being dragged if space/enter is pressed' );
+            else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+              this.updateParticleFocus( particleView, 'backward' );
             }
           }
           else if ( particle.isDraggingProperty.value ) {
 
-            // Figure out which offset is currently being used for the particle's position.
-            let offsetIndex = 0;
-            const particleDistanceFromAtomCenter = particle.positionProperty.value.distance( model.atom.positionProperty.value );
-            const altInputAtomOffsets = this.viewProperties.electronModelProperty.value === 'shells' ?
-                                        altInputAtomOffsetsForShellMode :
-                                        altInputAtomOffsetsForCloudMode;
-            for ( const offset of altInputAtomOffsets ) {
-              if ( offset.getMagnitude() === particleDistanceFromAtomCenter ) {
-                offsetIndex = altInputAtomOffsets.indexOf( offset );
-                break;
+            // This particle is outside the atom and is being controlled by the user via keyboard interaction.  If the
+            // user presses space or enter, add the particle to the atom and position it just below the nucleus.  If the
+            // user presses an arrow key, move the particle to one of the other allowed positions around the atom.
+
+            if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
+
+              // Release the particle from the user's control and let the chips (or the particle in this case) fall
+              // where they may (the model code should move it into the atom or back to a bucket).
+              particle.isDraggingProperty.value = false;
+
+              // Clearing the isDragging flag should cause the particle to go into the atom or a bucket.  If it is in
+              // the atom, make all other particles unfocusable.  If it is in the bucket, make the particle itself
+              // unfocusable.
+              if ( particle.containerProperty.value === model.atom ) {
+                this.mapParticlesToViews.forEach( ( otherParticleView, otherParticle ) => {
+                  if ( otherParticle !== particle ) {
+                    otherParticleView.focusable = false;
+                  }
+                } );
+              }
+              else {
+                particleView.focusable = false;
               }
             }
-            if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
-              offsetIndex = ( offsetIndex + 1 ) % altInputAtomOffsets.length;
+            else {
+
+              // Figure out which position offset is currently being used for the particle's position.
+              let offsetIndex = 0;
+              const particleDistanceFromAtomCenter = particle.positionProperty.value.distance(
+                model.atom.positionProperty.value
+              );
+              const altInputAtomOffsets = this.viewProperties.electronModelProperty.value === 'shells' ?
+                                          altInputAtomOffsetsForShellMode :
+                                          altInputAtomOffsetsForCloudMode;
+              for ( const offset of altInputAtomOffsets ) {
+                if ( offset.getMagnitude() === particleDistanceFromAtomCenter ) {
+                  offsetIndex = altInputAtomOffsets.indexOf( offset );
+                  break;
+                }
+              }
+
+              if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
+                offsetIndex = ( offsetIndex + 1 ) % altInputAtomOffsets.length;
+              }
+              else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+                offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
+              }
+              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] ) );
             }
-            else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
-              offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
-            }
-            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] ) );
           }
         },
         blur: () => {
@@ -251,6 +290,52 @@ class BAAScreenView extends ScreenView {
         }
       } );
       particleView.addInputListener( particleKeyboardListener );
+
+      // If a particle is removed from the atom, and that particle had focus, then we need to make sure that some
+      // other particle in the atom is focusable (if there are any left).  This listener will make that happen.
+      particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
+        if ( newContainer === null && oldContainer === model.atom ) {
+
+          // Start by making a list of all the particles that are still in the atom.
+          const protonViewsInAtom: ParticleView[] = [];
+          const neutronViewsInAtom: ParticleView[] = [];
+          const electronViewsInAtom: ParticleView[] = [];
+          this.mapParticlesToViews.forEach( ( particleView, particle ) => {
+            if ( particle.containerProperty.value === model.atom ) {
+              if ( particle.type === 'proton' ) {
+                protonViewsInAtom.push( particleView );
+              }
+              else if ( particle.type === 'neutron' ) {
+                neutronViewsInAtom.push( particleView );
+              }
+              else if ( particle.type === 'electron' ) {
+                electronViewsInAtom.push( particleView );
+              }
+            }
+          } );
+
+          // Sort each list of particles by closeness to the center of the atom.
+          const distanceSortingFunction = ( a: ParticleView, b: ParticleView ): number => {
+            const aDistance = a.particle.positionProperty.value.distance( model.atom.positionProperty.value );
+            const bDistance = b.particle.positionProperty.value.distance( model.atom.positionProperty.value );
+            return aDistance - bDistance;
+          };
+          protonViewsInAtom.sort( distanceSortingFunction );
+          neutronViewsInAtom.sort( distanceSortingFunction );
+          electronViewsInAtom.sort( distanceSortingFunction );
+
+          // Pick the first one based on the designed precedence order: proton, neutron, electron.
+          if ( protonViewsInAtom[ 0 ] ) {
+            protonViewsInAtom[ 0 ].focusable = true;
+          }
+          else if ( neutronViewsInAtom[ 0 ] ) {
+            neutronViewsInAtom[ 0 ].focusable = true;
+          }
+          else if ( electronViewsInAtom[ 0 ] ) {
+            electronViewsInAtom[ 0 ].focusable = true;
+          }
+        }
+      } );
     } );
 
     // The following code manages the visibility of the individual electron particles.  When the electrons are
@@ -258,7 +343,7 @@ class BAAScreenView extends ScreenView {
     // outside the atom.
     const updateElectronViewVisibility = () => {
       model.electrons.forEach( electron => {
-        const electronView = mapParticlesToViews.get( electron );
+        const electronView = this.mapParticlesToViews.get( electron );
         affirm( electronView, 'Missing ParticleView for electron' );
         const isElectronInAtom = model.atom.electrons.includes( electron );
         electronView.visible = this.viewProperties.electronModelProperty.value === 'shells' ||
@@ -522,6 +607,125 @@ class BAAScreenView extends ScreenView {
       electronModelControl,
       this.periodicTableAccordionBox
     ];
+  }
+
+  /**
+   * Update which particle has focus based on the current particle that has focus and the direction to move.  This is
+   * for alt-input support.
+   */
+  private updateParticleFocus( currentlyFocusedParticleView: ParticleView, direction: FocusUpdateDirection ): void {
+
+    affirm( currentlyFocusedParticleView.focused, 'The provided particle view must have focus for this to work.' );
+
+    const focusOrder: ParticleView[] = [];
+
+    if ( currentlyFocusedParticleView.particle.type === 'proton' ) {
+      focusOrder.push( currentlyFocusedParticleView );
+    }
+    else {
+
+      // Get a list of all protons in the atom sorted by closeness to the center of the atom.
+      const sortedProtons = [ ...this.model.atom.protons ].sort( ( a, b ) => {
+        const aDistance = a.positionProperty.value.distance( this.model.atom.positionProperty.value );
+        const bDistance = b.positionProperty.value.distance( this.model.atom.positionProperty.value );
+        return aDistance - bDistance;
+      } );
+
+      // Add the best proton view.
+      if ( sortedProtons.length > 0 ) {
+        const protonView = this.mapParticlesToViews.get( sortedProtons[ 0 ] );
+        affirm( protonView, 'Missing ParticleView for proton' );
+        focusOrder.push( protonView );
+      }
+    }
+
+    if ( currentlyFocusedParticleView.particle.type === 'neutron' ) {
+      focusOrder.push( currentlyFocusedParticleView );
+    }
+    else {
+
+      // Get a list of all neutrons in the atom sorted by closeness to the center of the atom.
+      const sortedNeutrons = [ ...this.model.atom.neutrons ].sort( ( a, b ) => {
+        const aDistance = a.positionProperty.value.distance( this.model.atom.positionProperty.value );
+        const bDistance = b.positionProperty.value.distance( this.model.atom.positionProperty.value );
+        return aDistance - bDistance;
+      } );
+
+      // Add the best neutron view.
+      if ( sortedNeutrons.length > 0 ) {
+        const neutronView = this.mapParticlesToViews.get( sortedNeutrons[ 0 ] );
+        affirm( neutronView, 'Missing ParticleView for neutron' );
+        focusOrder.push( neutronView );
+      }
+    }
+
+    // Determine the electron shell that this particle is in.  If it's not an electron, set the shell to -1.  The
+    // inner shell is 0 and the numbers go up from there.
+    let electronShell = -1;
+    if ( currentlyFocusedParticleView.particle.type === 'electron' ) {
+      const distanceFromAtomCenter =
+        currentlyFocusedParticleView.particle.positionProperty.value.distance( this.model.atom.positionProperty.value );
+      electronShell = equalsEpsilon(
+        distanceFromAtomCenter,
+        this.model.atom.innerElectronShellRadius,
+        DISTANCE_TESTING_TOLERANCE
+      ) ? 0 : 1;
+    }
+
+    if ( electronShell === 0 ) {
+      focusOrder.push( currentlyFocusedParticleView );
+    }
+    else {
+      const electronsInInnerShell = [ ...this.model.atom.electrons ].filter( electron => {
+        const electronPosition = electron.positionProperty.value;
+        const distanceFromAtomCenter = electronPosition.distance( this.model.atom.positionProperty.value );
+        return equalsEpsilon(
+          distanceFromAtomCenter,
+          this.model.atom.innerElectronShellRadius,
+          DISTANCE_TESTING_TOLERANCE
+        );
+      } );
+      if ( electronsInInnerShell.length > 0 ) {
+        const innerShellElectron = this.mapParticlesToViews.get( electronsInInnerShell[ 0 ] );
+        affirm( innerShellElectron, 'Missing ParticleView for electron in inner shell' );
+        focusOrder.push( innerShellElectron );
+      }
+    }
+
+    if ( electronShell === 1 ) {
+      focusOrder.push( currentlyFocusedParticleView );
+    }
+    else {
+      const electronsInOuterShell = [ ...this.model.atom.electrons ].filter( electron => {
+        const electronPosition = electron.positionProperty.value;
+        const distanceFromAtomCenter = electronPosition.distance( this.model.atom.positionProperty.value );
+        return equalsEpsilon(
+          distanceFromAtomCenter,
+          this.model.atom.outerElectronShellRadius,
+          DISTANCE_TESTING_TOLERANCE
+        );
+      } );
+      if ( electronsInOuterShell.length > 0 ) {
+        const outerShellElectron = this.mapParticlesToViews.get( electronsInOuterShell[ 0 ] );
+        affirm( outerShellElectron, 'Missing ParticleView for electron in outer shell' );
+        focusOrder.push( outerShellElectron );
+      }
+    }
+
+    // If there is something availing in the atom to shift focus to, do so.
+    if ( focusOrder.length > 1 ) {
+      const currentIndex = focusOrder.indexOf( currentlyFocusedParticleView );
+      let newIndex;
+      if ( direction === 'forward' ) {
+        newIndex = ( currentIndex + 1 ) % focusOrder.length;
+      }
+      else {
+        newIndex = ( currentIndex - 1 + focusOrder.length ) % focusOrder.length;
+      }
+      focusOrder[ newIndex ].focusable = true;
+      focusOrder[ newIndex ].focus();
+      focusOrder[ currentIndex ].focusable = false;
+    }
   }
 
   public reset(): void {
