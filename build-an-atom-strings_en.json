@@ -133,7 +133,7 @@
     "atomScreen": {
       "screenSummary": {
         "playArea": {
-          "value": "There is an atom-building model and three buckets containing protons, neutrons, and electrons. Track the number of added particles and explore representations of the periodic table, mass, and charge."
+          "value": "There is an atom-building model and three buckets containing protons, neutrons, and electrons. Track the number of added particles and explore representations of the periodic table, charge, and mass."
         },
         "controlArea": {
           "value": "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
@@ -184,7 +184,7 @@
           "value": "Positive Ion"
         },
         "negativeIon": {
-          "value": "NegativeIon"
+          "value": "Negative Ion"
         }
       },
       "nuclearStabilityCheckbox": {
