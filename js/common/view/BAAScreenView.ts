@@ -112,7 +112,7 @@ class BAAScreenView extends ScreenView {
     } );
 
     atomNode.addChild(
-      AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties.electronModelProperty )
+      AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties )
     );
 
     // Add the particle count indicator.

@@ -14,6 +14,7 @@ import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
+import AtomViewProperties from '../AtomViewProperties.js';
 
 class AtomViewDescriber {
 
@@ -23,7 +24,7 @@ class AtomViewDescriber {
 
   public static createAccessibleListNode(
     atom: ParticleAtom,
-    electronModelProperty: TReadOnlyProperty<ElectronShellDepiction>
+    viewProperties: AtomViewProperties
   ): AccessibleListNode {
 
     const nucleusContainsProperty = new DerivedStringProperty(
@@ -60,7 +61,7 @@ class AtomViewDescriber {
 
     const electronsStateProperty = new DerivedStringProperty(
       [
-        electronModelProperty,
+        viewProperties.electronModelProperty,
         atom.electronCountProperty,
         BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoFullStringProperty,
         BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty,
@@ -106,9 +107,9 @@ class AtomViewDescriber {
     return new AccessibleListNode( [
       nucleusContainsProperty,
       electronsStateProperty,
-      elementNameListItemProperty,
-      neutralOrIonListItemProperty,
-      stabilityListItemProperty
+      { stringProperty: elementNameListItemProperty, visibleProperty: viewProperties.elementNameVisibleProperty },
+      { stringProperty: neutralOrIonListItemProperty, visibleProperty: viewProperties.neutralAtomOrIonVisibleProperty },
+      { stringProperty: stabilityListItemProperty, visibleProperty: viewProperties.nuclearStabilityVisibleProperty }
     ] );
   }
 
