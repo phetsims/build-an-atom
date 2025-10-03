@@ -204,13 +204,13 @@
           "value": "Atom or Ion label hidden. "
         },
         "neutralAtom": {
-          "value": "Neutral Atom"
+          "value": "Neutral Atom."
         },
         "positiveIon": {
-          "value": "Positive Ion"
+          "value": "Positive Ion."
         },
         "negativeIon": {
-          "value": "Negative Ion"
+          "value": "Negative Ion."
         }
       },
       "nuclearStabilityCheckbox": {

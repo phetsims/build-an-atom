@@ -6,6 +6,7 @@
  * @author Agustín Vallejo
  */
 
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
@@ -41,7 +42,7 @@ class AtomViewDescriber {
         protons: number,
         neutrons: number,
         nucleusInfoFullString: string,
-        nucleusInfoEmptyString: string,
+        nucleusEmptyString: string,
         protonsString: string,
         neutronsString: string,
         protonsAndNeutronsString: string
@@ -55,7 +56,12 @@ class AtomViewDescriber {
           }
         }
         else {
-          return nucleusInfoEmptyString;
+          if ( neutrons > 0 ) {
+            return StringUtils.fillIn( nucleusInfoFullString, { particles: neutronsString } );
+          }
+          else {
+            return nucleusEmptyString;
+          }
         }
       } );
 
@@ -104,12 +110,18 @@ class AtomViewDescriber {
       atom.nucleusStableProperty
     );
 
+    const hasProtonsProperty = new DerivedProperty( [ atom.protonCountProperty ], protons => protons > 0 );
+
+    const visibleAndHasProtons = ( visibleProperty: TReadOnlyProperty<boolean> ) => {
+      return DerivedProperty.and( [ visibleProperty, hasProtonsProperty ] );
+    };
+
     return new AccessibleListNode( [
       nucleusContainsProperty,
       electronsStateProperty,
-      { stringProperty: elementNameListItemProperty, visibleProperty: viewProperties.elementNameVisibleProperty },
-      { stringProperty: neutralOrIonListItemProperty, visibleProperty: viewProperties.neutralAtomOrIonVisibleProperty },
-      { stringProperty: stabilityListItemProperty, visibleProperty: viewProperties.nuclearStabilityVisibleProperty }
+      { stringProperty: elementNameListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.elementNameVisibleProperty ) },
+      { stringProperty: neutralOrIonListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.neutralAtomOrIonVisibleProperty ) },
+      { stringProperty: stabilityListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.nuclearStabilityVisibleProperty ) }
     ] );
   }
 
