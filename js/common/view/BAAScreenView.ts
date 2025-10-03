@@ -116,7 +116,7 @@ class BAAScreenView extends ScreenView {
       phetioFeatured: true
     } );
 
-    atomNode.addChild(
+    this.atomNode.addChild(
       AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties )
     );
 
@@ -399,9 +399,11 @@ class BAAScreenView extends ScreenView {
           this.atomNode.electronCloud.focusable = numberOfElectrons > 0;
         }
         else if ( electronModel === 'shells' && cloudWasFocusable ) {
-          const electronView = this.mapParticlesToViews.get( model.atom.electrons[ 0 ] );
-          affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.focusable = numberOfElectrons > 0;
+          if ( numberOfElectrons > 0 ) {
+            const electronView = this.mapParticlesToViews.get( model.atom.electrons[ 0 ] );
+            affirm( electronView, 'Missing ParticleView for electron' );
+            electronView.focusable = true;
+          }
         }
       }
     );
