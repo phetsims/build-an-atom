@@ -211,7 +211,7 @@ class BAAScreenView extends ScreenView {
       // TODO: See https://github.com/phetsims/build-an-atom/issues/356.  Flesh out the docs for this once it is fully
       //       working, assuming it is still around.
       const particleKeyboardListener = new KeyboardListener( {
-        keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp' ],
+        keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'delete', 'backspace' ],
         fireOnDown: false,
         fire: ( event, keysPressed ) => {
 
@@ -237,6 +237,25 @@ class BAAScreenView extends ScreenView {
             }
             else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
               this.updateParticleFocus( particleView, 'backward' );
+            }
+            else if ( keysPressed.includes( 'delete' ) || keysPressed.includes( 'backspace' ) ) {
+
+              isParticleBeingRemovedFromAtomViaAltInput = true;
+
+              // Set the particle as being dragged, which will cause it to be removed it from the atom.
+              particle.isDraggingProperty.value = true;
+
+              // Position the particle outside the atom so that when released, it will go to a bucket.
+              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( outsideAtomOffset ) );
+
+              // Release the particle from the user's control, which should cause the particle to return to a bucket.
+              particle.isDraggingProperty.value = false;
+
+              // Prevent animation, since it looks kind of weird in some cases.
+              particle.moveImmediatelyToDestination();
+
+              isParticleBeingRemovedFromAtomViaAltInput = false;
+
             }
           }
           else if ( particle.isDraggingProperty.value ) {
@@ -282,7 +301,8 @@ class BAAScreenView extends ScreenView {
                 particleView.focusable = false;
               }
             }
-            else {
+            else if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ||
+                      keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
 
               // Figure out which position offset is currently being used for the particle's position.
               let offsetIndex = 0;
@@ -306,6 +326,13 @@ class BAAScreenView extends ScreenView {
                 offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
               }
               particle.setPositionAndDestination( model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] ) );
+            }
+            else if ( keysPressed.includes( 'delete' ) || keysPressed.includes( 'backspace' ) ) {
+
+              // Move the particle immediately back to a bucket.
+              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( outsideAtomOffset ) );
+              particle.isDraggingProperty.value = false;
+              particle.moveImmediatelyToDestination();
             }
           }
         },
