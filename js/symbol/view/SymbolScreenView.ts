@@ -17,13 +17,16 @@ import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import BAASymbolNode from './BAASymbolNode.js';
 import SymbolAccessibleListNode from './description/SymbolAccessibleListNode.js';
+import SymbolScreenSummaryContentNode from './SymbolScreenSummaryContentNode.js';
 
 class SymbolScreenView extends BAAScreenView {
 
   private readonly symbolAccordionBox: BuildAnAtomAccordionBox;
 
   public constructor( model: BAAModel, tandem: Tandem ) {
-    super( model, tandem );
+    super( model, tandem, {
+      screenSummaryContent: new SymbolScreenSummaryContentNode( model )
+    } );
 
     // Add the symbol node within an accordion box.
     const symbolNode = new BAASymbolNode( model.atom, {

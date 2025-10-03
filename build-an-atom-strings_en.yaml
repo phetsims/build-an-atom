@@ -105,6 +105,9 @@ a11y:
       accessibleName: "Mass Number"
       accessibleParagraph: "Mass Number is {{value}}."
   symbolScreen:
+    screenSummary:
+      playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
+      Track the number of added particles and explore representations of the periodic table and chemical symbol."
     screenIcon:
       accessibleHelpText: "Relate element symbols to particle counts."
     symbol:

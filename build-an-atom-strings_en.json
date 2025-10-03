@@ -291,6 +291,11 @@
       }
     },
     "symbolScreen": {
+      "screenSummary": {
+        "playArea": {
+          "value": "There is an atom-building model and three buckets containing protons, neutrons, and electrons. Track the number of added particles and explore representations of the periodic table and chemical symbol."
+        }
+      },
       "screenIcon": {
         "accessibleHelpText": {
           "value": "Relate element symbols to particle counts."

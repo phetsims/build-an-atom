@@ -134,6 +134,9 @@ type StringsType = {
       }
     };
     'symbolScreen': {
+      'screenSummary': {
+        'playAreaStringProperty': LocalizedStringProperty;
+      };
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
