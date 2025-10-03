@@ -131,9 +131,6 @@ type StringsType = {
       'massNumber': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphStringProperty': LocalizedStringProperty;
-      };
-      'particleCounts': {
-        'accessibleListNodeStringProperty': LocalizedStringProperty;
       }
     };
     'symbolScreen': {

@@ -104,11 +104,6 @@ a11y:
     massNumber:
       accessibleName: "Mass Number"
       accessibleParagraph: "Mass Number is {{value}}."
-    particleCounts:
-      accessibleListNode: "
-      - {{protons}} Protons
-      - {{neutrons}} Neutrons
-      - {{electrons}} Electrons"
   symbolScreen:
     screenIcon:
       accessibleHelpText: "Relate element symbols to particle counts."

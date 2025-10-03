@@ -12,6 +12,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
+import ParticleCountsAccessibleListNode from '../../../../shred/js/view/description/ParticleCountsAccessibleListNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 
@@ -73,6 +74,8 @@ class ParticleCountsNode extends VBox {
       }
     );
     this.addChild( electronCountTitle );
+
+    this.addChild( new ParticleCountsAccessibleListNode( numberAtom ) );
   }
 }
 

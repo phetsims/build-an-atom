@@ -288,11 +288,6 @@
         "accessibleParagraph": {
           "value": "Mass Number is {{value}}."
         }
-      },
-      "particleCounts": {
-        "accessibleListNode": {
-          "value": " - {{protons}} Protons - {{neutrons}} Neutrons - {{electrons}} Electrons"
-        }
       }
     },
     "symbolScreen": {
