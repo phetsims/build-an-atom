@@ -30,7 +30,7 @@ import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import Particle from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
@@ -155,6 +155,9 @@ class BAAScreenView extends ScreenView {
       outsideAtomOffset
     ];
 
+    // type safe reference to buckets
+    const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
+
     // Add the particle views.
     [ ...model.nucleons, ...model.electrons ].forEach( particle => {
 
@@ -170,9 +173,6 @@ class BAAScreenView extends ScreenView {
 
       particleLayer.addChild( particleView );
       this.mapParticlesToViews.set( particle, particleView );
-
-      // type safe reference to buckets
-      const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
       // The particle view will either be a child of this screen view or a child of the atom node, based on its state.
       // The following listener moves it back and forth as needed.  It's necessary to change parent nodes like this to
@@ -220,7 +220,7 @@ class BAAScreenView extends ScreenView {
             // This particle is in the atom.  If the user presses space or enter, extract it from the atom and position
             // it just below the nucleus.  If the user presses an arrow key, move the focus to another particle (if
             // there is one).
-            if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
+            if ( keysPressed === 'space' || keysPressed === 'enter' ) {
               isParticleBeingRemovedFromAtomViaAltInput = true;
 
               // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
@@ -232,15 +232,18 @@ class BAAScreenView extends ScreenView {
 
               isParticleBeingRemovedFromAtomViaAltInput = false;
             }
-            else if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
+            else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ) {
               this.updateParticleFocus( particleView, 'forward' );
             }
-            else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+            else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
               this.updateParticleFocus( particleView, 'backward' );
             }
-            else if ( keysPressed.includes( 'delete' ) || keysPressed.includes( 'backspace' ) ) {
+            else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
               isParticleBeingRemovedFromAtomViaAltInput = true;
+
+              // Get a reference to this particle's home bucket front node.  Might need it later.
+              const homeBucketFront = this.getHomeBucketFront( particle );
 
               // Set the particle as being dragged, which will cause it to be removed it from the atom.
               particle.isDraggingProperty.value = true;
@@ -254,8 +257,20 @@ class BAAScreenView extends ScreenView {
               // Prevent animation, since it looks kind of weird in some cases.
               particle.moveImmediatelyToDestination();
 
-              isParticleBeingRemovedFromAtomViaAltInput = false;
+              // Update the focus.
+              if ( model.atom.particleCountProperty.value === 0 ) {
 
+                // The atom is empty, so there are no particles to focus.  Move the focus to the bucket associated with
+                // this particle.
+                homeBucketFront.focus();
+              }
+              else {
+
+                // There are still particles in the atom, so move the focus to one of them.
+                this.updateParticleFocus( null, 'forward' );
+              }
+
+              isParticleBeingRemovedFromAtomViaAltInput = false;
             }
           }
           else if ( particle.isDraggingProperty.value ) {
@@ -743,24 +758,33 @@ class BAAScreenView extends ScreenView {
 
   /**
    * Update which particle has focus based on the current particle that has focus and the direction to move.  This is
-   * for alt-input support.
+   * for alt-input support.  If no node is supplied, then the focus will be set to the first available particle in the
+   * atom.
    */
-  private updateParticleFocus( currentlyFocusedNode: Node, direction: FocusUpdateDirection ): void {
+  private updateParticleFocus( currentlyFocusedNode: Node | null, direction: FocusUpdateDirection ): void {
 
-    affirm( currentlyFocusedNode.focused, 'The provided particle view must have focus for this to work.' );
+    affirm(
+      currentlyFocusedNode === null || currentlyFocusedNode.focused,
+      'The provided particle view must have focus for this to work.'
+    );
 
     const focusOrder: Node[] = [];
 
-    let particleType;
-    if ( currentlyFocusedNode instanceof ParticleView ) {
-      particleType = currentlyFocusedNode.particle.type;
+    let particleType: ParticleType | null;
+    if ( currentlyFocusedNode ) {
+      if ( currentlyFocusedNode instanceof ParticleView ) {
+        particleType = currentlyFocusedNode.particle.type;
+      }
+      else {
+        affirm( currentlyFocusedNode instanceof ElectronCloudView, 'Unexpected focused node' );
+        particleType = 'electron';
+      }
     }
     else {
-      affirm( currentlyFocusedNode instanceof ElectronCloudView, 'Unexpected focused node' );
-      particleType = 'electron';
+      particleType = null;
     }
 
-    if ( particleType === 'proton' ) {
+    if ( currentlyFocusedNode && particleType === 'proton' ) {
       focusOrder.push( currentlyFocusedNode );
     }
     else {
@@ -780,7 +804,7 @@ class BAAScreenView extends ScreenView {
       }
     }
 
-    if ( particleType === 'neutron' ) {
+    if ( currentlyFocusedNode && particleType === 'neutron' ) {
       focusOrder.push( currentlyFocusedNode );
     }
     else {
@@ -808,25 +832,22 @@ class BAAScreenView extends ScreenView {
       }
       else {
 
-        const electron = ( currentlyFocusedNode as ParticleView ).particle;
-
-        // Determine the electron shell that this particle is in.  If it's not an electron, set the shell to -1.  The
-        // inner shell is 0 and the numbers go up from there.
-        let electronShell = -1;
+        // If the provided particle is an electron, determine the shell number that it's in.  If it's not an electron,
+        // set the shell number to -1.
+        let electronShellNumber = -1;
         if ( particleType === 'electron' ) {
+          const electron = ( currentlyFocusedNode as ParticleView ).particle;
           const distanceFromAtomCenter =
             electron.positionProperty.value.distance( this.model.atom.positionProperty.value );
-          electronShell = equalsEpsilon(
+          electronShellNumber = equalsEpsilon(
             distanceFromAtomCenter,
             this.model.atom.innerElectronShellRadius,
             DISTANCE_TESTING_TOLERANCE
           ) ? 0 : 1;
         }
 
-        if ( electronShell === 0 ) {
-          focusOrder.push( currentlyFocusedNode );
-        }
-        else {
+        // Define a couple of closure functions that will help with adding electrons to the focus order.
+        const addInnerElectronToFocusOrder = () => {
           const electronsInInnerShell = [ ...this.model.atom.electrons ].filter( e => {
             const electronPosition = e.positionProperty.value;
             const distanceFromAtomCenter = electronPosition.distance( this.model.atom.positionProperty.value );
@@ -841,12 +862,8 @@ class BAAScreenView extends ScreenView {
             affirm( innerShellElectron, 'Missing ParticleView for electron in inner shell' );
             focusOrder.push( innerShellElectron );
           }
-        }
-
-        if ( electronShell === 1 ) {
-          focusOrder.push( currentlyFocusedNode );
-        }
-        else {
+        };
+        const addOuterElectronToFocusOrder = () => {
           const electronsInOuterShell = [ ...this.model.atom.electrons ].filter( electron => {
             const electronPosition = electron.positionProperty.value;
             const distanceFromAtomCenter = electronPosition.distance( this.model.atom.positionProperty.value );
@@ -861,13 +878,34 @@ class BAAScreenView extends ScreenView {
             affirm( outerShellElectron, 'Missing ParticleView for electron in outer shell' );
             focusOrder.push( outerShellElectron );
           }
+        };
+
+        if ( electronShellNumber === -1 ) {
+
+          // The provided particle is not an electron, so add one electron from each shell, inner first.
+          addInnerElectronToFocusOrder();
+          addOuterElectronToFocusOrder();
+        }
+        else if ( currentlyFocusedNode && electronShellNumber === 0 ) {
+
+          // The provided particle is an electron in the inner shell, so add it first, then add an electron from the
+          // outer shell if there is one.
+          focusOrder.push( currentlyFocusedNode );
+          addOuterElectronToFocusOrder();
+        }
+        else {
+
+          // The provided particle is an electron in the outer shell, so add one from the inner shell first, then add
+          // this one.
+          addInnerElectronToFocusOrder();
+          currentlyFocusedNode && focusOrder.push( currentlyFocusedNode );
         }
       }
     }
 
     // If there is something available in the atom to shift focus to, do so.
-    if ( focusOrder.length > 1 ) {
-      const currentIndex = focusOrder.indexOf( currentlyFocusedNode );
+    if ( focusOrder.length > 0 ) {
+      const currentIndex = currentlyFocusedNode === null ? 0 : focusOrder.indexOf( currentlyFocusedNode );
       let newIndex;
       if ( direction === 'forward' ) {
         newIndex = ( currentIndex + 1 ) % focusOrder.length;
@@ -877,8 +915,29 @@ class BAAScreenView extends ScreenView {
       }
       focusOrder[ newIndex ].focusable = true;
       focusOrder[ newIndex ].focus();
-      focusOrder[ currentIndex ].focusable = false;
+      if ( currentIndex !== newIndex ) {
+        focusOrder[ currentIndex ].focusable = false;
+      }
     }
+  }
+
+  /**
+   * Get the bucket front for the bucket that is "home" for the provided particle.  This is useful in cases where focus
+   * needs to move to the bucket from which the particle came.
+   */
+  private getHomeBucketFront( particle: Particle ): BucketFront {
+    const particleType = particle.type;
+    affirm(
+      particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
+      `Unexpected particle type: ${particleType}`
+    );
+    const homeBucket = particleType === 'proton' ? this.model.protonBucket :
+                       particleType === 'neutron' ? this.model.neutronBucket :
+                       this.model.electronBucket;
+    affirm( homeBucket, `Missing home bucket for particle type: ${particleType}` );
+    const bucketView = this.mapBucketsToViews.get( homeBucket );
+    affirm( bucketView, 'Missing BucketFront view for bucket' );
+    return bucketView;
   }
 
   public reset(): void {
