@@ -266,8 +266,33 @@ class BAAScreenView extends ScreenView {
               }
               else {
 
-                // There are still particles in the atom, so move the focus to one of them.
-                this.updateParticleFocus( null, 'forward' );
+                // Because of the way that other listeners work, there should be one focusable particle in the atom at
+                // this point.  Because we know that a particle in the atom that had focus has just been removed, we
+                // set focus to the focusable particle we find in the atom.
+                const particlesInAtom: Particle[] = [
+                  ...model.atom.protons,
+                  ...model.atom.neutrons,
+                  ...model.atom.electrons
+                ];
+
+                // As a test of the expected state, count the number of focusable particles and verify it later.
+                let numberOfFocusableParticlesInAtom = 0;
+
+                for ( const particleInAtom of particlesInAtom ) {
+                  const particleView = this.mapParticlesToViews.get( particleInAtom );
+                  affirm( particleView, 'Missing ParticleView for particle' );
+                  if ( particleView.focusable ) {
+                    if ( numberOfFocusableParticlesInAtom === 0 ) {
+                      particleView.focus();
+                    }
+                    numberOfFocusableParticlesInAtom++;
+                  }
+                }
+
+                affirm(
+                  numberOfFocusableParticlesInAtom === 1,
+                  'There should be exactly one focusable particle in the atom'
+                );
               }
 
               isParticleBeingRemovedFromAtomViaAltInput = false;
@@ -362,57 +387,51 @@ class BAAScreenView extends ScreenView {
         }
       } );
       particleView.addInputListener( particleKeyboardListener );
+    } );
 
-      // If a particle is removed from the atom and that particle had focus, then we need to make sure that some
-      // other particle in the atom is focusable (if there are any left).  This listener will make that happen.
-      particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
-        if ( newContainer === null && oldContainer === model.atom ) {
+    /**
+     * Listen for when the number of particles in the atom changes and make sure that there is always one focusable
+     * particle there.
+     */
+    model.atom.particleCountProperty.lazyLink( ( particleCount: number ) => {
+      if ( particleCount > 0 ) {
 
-          // Start by making a list of all the particles that are still in the atom.
-          const protonViewsInAtom: ParticleView[] = [];
-          const neutronViewsInAtom: ParticleView[] = [];
-          const electronViewsInAtom: ParticleView[] = [];
-          this.mapParticlesToViews.forEach( ( particleView, particle ) => {
-            if ( particle.containerProperty.value === model.atom ) {
-              if ( particle.type === 'proton' ) {
-                protonViewsInAtom.push( particleView );
-              }
-              else if ( particle.type === 'neutron' ) {
-                neutronViewsInAtom.push( particleView );
-              }
-              else if ( particle.type === 'electron' ) {
-                electronViewsInAtom.push( particleView );
-              }
-            }
-          } );
-
-          // Sort each list of particles by closeness to the center of the atom.
-          const distanceSortingFunction = ( a: ParticleView, b: ParticleView ): number => {
-            const aDistance = a.particle.positionProperty.value.distance( model.atom.positionProperty.value );
-            const bDistance = b.particle.positionProperty.value.distance( model.atom.positionProperty.value );
-            return aDistance - bDistance;
-          };
-          protonViewsInAtom.sort( distanceSortingFunction );
-          neutronViewsInAtom.sort( distanceSortingFunction );
-          electronViewsInAtom.sort( distanceSortingFunction );
-
-          // Pick the first one based on the designed precedence order: proton, neutron, electron.
-          if ( protonViewsInAtom[ 0 ] ) {
-            protonViewsInAtom[ 0 ].focusable = true;
+        // Count the number of focusable particles in the atom.
+        let numberOfFocusableParticlesInAtom = 0;
+        const particlesInAtom: Particle[] = [
+          ...model.atom.protons,
+          ...model.atom.neutrons,
+          ...model.atom.electrons
+        ];
+        particlesInAtom.forEach( particle => {
+          const particleView = this.mapParticlesToViews.get( particle );
+          affirm( particleView, 'Missing ParticleView for particle' );
+          if ( particleView.focusable ) {
+            numberOfFocusableParticlesInAtom++;
           }
-          else if ( neutronViewsInAtom[ 0 ] ) {
-            neutronViewsInAtom[ 0 ].focusable = true;
-          }
-          else if ( electronViewsInAtom[ 0 ] ) {
-            if ( this.viewProperties.electronModelProperty.value === 'shells' ) {
-              electronViewsInAtom[ 0 ].focusable = true;
-            }
-            else {
-              this.atomNode.electronCloud.focusable = true;
+        } );
+
+        if ( numberOfFocusableParticlesInAtom === 0 ) {
+
+          // There are no focusable particles in the atom, so make one of them focusable.  This is done based on the
+          // designed precedence order: proton, neutron, electron.
+          const particleTypesInPrecedenceOrder: ParticleType[] = [ 'proton', 'neutron', 'electron' ];
+          for ( const particleType of particleTypesInPrecedenceOrder ) {
+            const particle = this.getClosestParticleToAtomCenter( particleType );
+            if ( particle ) {
+              const particleView = this.mapParticlesToViews.get( particle );
+              affirm( particleView, 'Missing ParticleView for particle' );
+              if ( particleType === 'electron' && this.viewProperties.electronModelProperty.value === 'cloud' ) {
+                this.atomNode.electronCloud.focusable = true;
+              }
+              else {
+                particleView.focusable = true;
+              }
+              break;
             }
           }
         }
-      } );
+      }
     } );
 
     // The following code manages the visibility of the individual electron particles.  When the electrons are
@@ -449,19 +468,6 @@ class BAAScreenView extends ScreenView {
         }
       }
     );
-
-    const updateElectronViewVisibility = () => {
-      model.electrons.forEach( electron => {
-        const electronView = this.mapParticlesToViews.get( electron );
-        affirm( electronView, 'Missing ParticleView for electron' );
-        const isElectronInAtom = model.atom.electrons.includes( electron );
-        electronView.visible = this.viewProperties.electronModelProperty.value === 'shells' ||
-                               electron.isDraggingProperty.value ||
-                               !isElectronInAtom;
-      } );
-    };
-    model.atom.electrons.lengthProperty.link( updateElectronViewVisibility );
-    this.viewProperties.electronModelProperty.link( updateElectronViewVisibility );
 
     // Add a keyboard listener to the electron cloud.
     this.atomNode.electronCloud.addInputListener( new KeyboardListener( {
@@ -789,16 +795,11 @@ class BAAScreenView extends ScreenView {
     }
     else {
 
-      // Get a list of all protons in the atom sorted by closeness to the center of the atom.
-      const sortedProtons = [ ...this.model.atom.protons ].sort( ( a, b ) => {
-        const aDistance = a.positionProperty.value.distance( this.model.atom.positionProperty.value );
-        const bDistance = b.positionProperty.value.distance( this.model.atom.positionProperty.value );
-        return aDistance - bDistance;
-      } );
+      const closestProtonToAtomCenter = this.getClosestParticleToAtomCenter( 'proton' );
 
-      // Add the best proton view.
-      if ( sortedProtons.length > 0 ) {
-        const protonView = this.mapParticlesToViews.get( sortedProtons[ 0 ] );
+      // Add the best proton view if there is one.
+      if ( closestProtonToAtomCenter ) {
+        const protonView = this.mapParticlesToViews.get( closestProtonToAtomCenter );
         affirm( protonView, 'Missing ParticleView for proton' );
         focusOrder.push( protonView );
       }
@@ -809,16 +810,11 @@ class BAAScreenView extends ScreenView {
     }
     else {
 
-      // Get a list of all neutrons in the atom sorted by closeness to the center of the atom.
-      const sortedNeutrons = [ ...this.model.atom.neutrons ].sort( ( a, b ) => {
-        const aDistance = a.positionProperty.value.distance( this.model.atom.positionProperty.value );
-        const bDistance = b.positionProperty.value.distance( this.model.atom.positionProperty.value );
-        return aDistance - bDistance;
-      } );
+      const closestNeutronToAtomCenter = this.getClosestParticleToAtomCenter( 'neutron' );
 
-      // Add the best neutron view.
-      if ( sortedNeutrons.length > 0 ) {
-        const neutronView = this.mapParticlesToViews.get( sortedNeutrons[ 0 ] );
+      // Add the best neutron view if there is one.
+      if ( closestNeutronToAtomCenter ) {
+        const neutronView = this.mapParticlesToViews.get( closestNeutronToAtomCenter );
         affirm( neutronView, 'Missing ParticleView for neutron' );
         focusOrder.push( neutronView );
       }
@@ -832,31 +828,16 @@ class BAAScreenView extends ScreenView {
       }
       else {
 
-        // If the provided particle is an electron, determine the shell number that it's in.  If it's not an electron,
-        // set the shell number to -1.
         let electronShellNumber = -1;
         if ( particleType === 'electron' ) {
-          const electron = ( currentlyFocusedNode as ParticleView ).particle;
-          const distanceFromAtomCenter =
-            electron.positionProperty.value.distance( this.model.atom.positionProperty.value );
-          electronShellNumber = equalsEpsilon(
-            distanceFromAtomCenter,
-            this.model.atom.innerElectronShellRadius,
-            DISTANCE_TESTING_TOLERANCE
-          ) ? 0 : 1;
+          electronShellNumber = this.getElectronShellNumber( ( currentlyFocusedNode as ParticleView ).particle );
         }
 
         // Define a couple of closure functions that will help with adding electrons to the focus order.
         const addInnerElectronToFocusOrder = () => {
-          const electronsInInnerShell = [ ...this.model.atom.electrons ].filter( e => {
-            const electronPosition = e.positionProperty.value;
-            const distanceFromAtomCenter = electronPosition.distance( this.model.atom.positionProperty.value );
-            return equalsEpsilon(
-              distanceFromAtomCenter,
-              this.model.atom.innerElectronShellRadius,
-              DISTANCE_TESTING_TOLERANCE
-            );
-          } );
+          const electronsInInnerShell = [ ...this.model.atom.electrons ].filter( e =>
+            this.getElectronShellNumber( e ) === 0
+          );
           if ( electronsInInnerShell.length > 0 ) {
             const innerShellElectron = this.mapParticlesToViews.get( electronsInInnerShell[ 0 ] );
             affirm( innerShellElectron, 'Missing ParticleView for electron in inner shell' );
@@ -864,15 +845,9 @@ class BAAScreenView extends ScreenView {
           }
         };
         const addOuterElectronToFocusOrder = () => {
-          const electronsInOuterShell = [ ...this.model.atom.electrons ].filter( electron => {
-            const electronPosition = electron.positionProperty.value;
-            const distanceFromAtomCenter = electronPosition.distance( this.model.atom.positionProperty.value );
-            return equalsEpsilon(
-              distanceFromAtomCenter,
-              this.model.atom.outerElectronShellRadius,
-              DISTANCE_TESTING_TOLERANCE
-            );
-          } );
+          const electronsInOuterShell = [ ...this.model.atom.electrons ].filter( electron =>
+            this.getElectronShellNumber( electron ) === 1
+          );
           if ( electronsInOuterShell.length > 0 ) {
             const outerShellElectron = this.mapParticlesToViews.get( electronsInOuterShell[ 0 ] );
             affirm( outerShellElectron, 'Missing ParticleView for electron in outer shell' );
@@ -940,9 +915,45 @@ class BAAScreenView extends ScreenView {
     return bucketView;
   }
 
+  private getElectronShellNumber( electron: Particle ): number {
+    affirm( electron.type === 'electron', 'The provided particle must be an electron' );
+    let electronShellNumber = -1;
+    if ( this.model.atom.electrons.includes( electron ) ) {
+      const distanceFromAtomCenter =
+        electron.positionProperty.value.distance( this.model.atom.positionProperty.value );
+      electronShellNumber = equalsEpsilon(
+        distanceFromAtomCenter,
+        this.model.atom.innerElectronShellRadius,
+        DISTANCE_TESTING_TOLERANCE
+      ) ? 0 : 1;
+    }
+    return electronShellNumber;
+  }
+
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
     this.viewProperties.reset();
+  }
+
+  /**
+   * Get the particle of the specified type that is closest to the center of the atom.  Returns null if there are no
+   * particles of the specified type in the atom.
+   */
+  private getClosestParticleToAtomCenter( particleType: ParticleType ): Particle | null {
+    affirm(
+      particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
+      `Unexpected particle type: ${particleType}`
+    );
+    const atomCenter = this.model.atom.positionProperty.value;
+    const particles = particleType === 'proton' ? this.model.atom.protons :
+                      particleType === 'neutron' ? this.model.atom.neutrons :
+                      this.model.atom.electrons;
+    const sortedParticles = [ ...particles ].sort( ( a, b ) => {
+      const aDistance = a.positionProperty.value.distance( atomCenter );
+      const bDistance = b.positionProperty.value.distance( atomCenter );
+      return aDistance - bDistance;
+    } );
+    return sortedParticles.length > 0 ? sortedParticles[ 0 ] : null;
   }
 }
 
