@@ -19,6 +19,7 @@ import Shape from '../../../../kite/js/Shape.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleContainer.js';
+import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
@@ -31,6 +32,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
+import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
@@ -81,9 +83,15 @@ class BAAScreenView extends ScreenView {
   private readonly mapBucketsToViews: Map<ParticleContainer<Particle>, BucketFront> =
     new Map<ParticleContainer<Particle>, BucketFront>();
 
+  // This variable is used to track the origin of a particle that is being dragged via alt-input.  There should only
+  // be one particle dragged at a time, so this is a single variable rather than a collection.  It is only updated at
+  // the beginning of an alt-input drag operation, and may not always be cleared, so use accordingly.
+  private altInputDraggingParticleOrigin: SphereBucket<Particle> | ParticleAtom | null = null;
+
   public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
     const options = combineOptions<ScreenViewOptions>( {
+
       // A PhET-wide decision was made to not update custom layout bounds even if they do not match the default layout
       // bounds in ScreenView. Do not change these bounds as changes could break or disturb any phet-io instrumentation.
       // See https://github.com/phetsims/phet-io/issues/1939.
@@ -201,9 +209,9 @@ class BAAScreenView extends ScreenView {
         }
       );
 
-      // This flag is set at the beginning of the process through which alt-input removes a particle from the atom and
-      // cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener from
-      // setting isDragging to false during the removal process.  The blur event ends up being triggered during the
+      // This flag is set at the beginning of the process through which alt-input removes a particle from the atom, and
+      // it is cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener
+      // from setting isDragging to false during the removal process.  The blur event ends up being triggered during the
       // removal process because the particle changes layers, which causes it to lose focus.
       let isParticleBeingRemovedFromAtomViaAltInput = false;
 
@@ -211,7 +219,7 @@ class BAAScreenView extends ScreenView {
       // TODO: See https://github.com/phetsims/build-an-atom/issues/356.  Flesh out the docs for this once it is fully
       //       working, assuming it is still around.
       const particleKeyboardListener = new KeyboardListener( {
-        keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'delete', 'backspace' ],
+        keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'delete', 'backspace', 'escape' ],
         fireOnDown: false,
         fire: ( event, keysPressed ) => {
 
@@ -222,6 +230,7 @@ class BAAScreenView extends ScreenView {
             // there is one).
             if ( keysPressed === 'space' || keysPressed === 'enter' ) {
               isParticleBeingRemovedFromAtomViaAltInput = true;
+              this.altInputDraggingParticleOrigin = model.atom;
 
               // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
               // will incite the model to remove the particle from the atom.
@@ -241,6 +250,7 @@ class BAAScreenView extends ScreenView {
             else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
               isParticleBeingRemovedFromAtomViaAltInput = true;
+              this.altInputDraggingParticleOrigin = model.atom;
 
               // Get a reference to this particle's home bucket front node.  Might need it later.
               const homeBucketFront = this.getHomeBucketFront( particle );
@@ -300,11 +310,10 @@ class BAAScreenView extends ScreenView {
           }
           else if ( particle.isDraggingProperty.value ) {
 
-            // This particle is outside the atom and is being controlled by the user via keyboard interaction.  If the
-            // user presses space or enter, add the particle to the atom and position it just below the nucleus.  If the
-            // user presses an arrow key, move the particle to one of the other allowed positions around the atom.
+            // This particle is outside the atom and is being controlled by the user via keyboard interaction.  Handle
+            // the various different key presses below.
 
-            if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
+            if ( keysPressed === 'space' || keysPressed === 'enter' ) {
 
               // Release the particle from the user's control and let the chips (or the particle in this case) fall
               // where they may (the model code should move it into the atom or back to a bucket).
@@ -339,10 +348,21 @@ class BAAScreenView extends ScreenView {
 
                 // The particle should become unfocusable since it is now in a bucket.
                 particleView.focusable = false;
+
+                // If this was the last electron in the atom and the electron model is set to "cloud", make the cloud
+                // unfocusable.
+                if ( particle.type &&
+                     this.viewProperties.electronModelProperty.value === 'cloud' &&
+                     model.atom.electrons.length === 0 ) {
+
+                  this.atomNode.electronCloud.focusable = false;
+                }
               }
             }
-            else if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ||
-                      keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+            else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
+                      keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
+
+              // The arrow keys are used to cycle through the various position offsets around the atom.
 
               // Figure out which position offset is currently being used for the particle's position.
               let offsetIndex = 0;
@@ -359,20 +379,88 @@ class BAAScreenView extends ScreenView {
                 }
               }
 
-              if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
+              if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ) {
                 offsetIndex = ( offsetIndex + 1 ) % altInputAtomOffsets.length;
               }
-              else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+              else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
                 offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
               }
               particle.setPositionAndDestination( model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] ) );
             }
-            else if ( keysPressed.includes( 'delete' ) || keysPressed.includes( 'backspace' ) ) {
+            else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
-              // Move the particle immediately back to a bucket.
+              // Move the particle immediately back the bucket from whence it came.
               particle.setPositionAndDestination( model.atom.positionProperty.value.plus( outsideAtomOffset ) );
               particle.isDraggingProperty.value = false;
               particle.moveImmediatelyToDestination();
+
+              // TODO: See https://github.com/phetsims/build-an-atom/issues/356.  The code that updates the focus here
+              //       is largely duplicated from the code in the atom block above.  Refactor to eliminate duplication.
+              // Update the focus.
+              if ( model.atom.particleCountProperty.value === 0 ) {
+
+                // Get a reference to this particle's home bucket front node.  Might need it later.
+                this.getHomeBucketFront( particle ).focus();
+              }
+              else {
+
+                // Because of the way that other listeners work, there should be one focusable particle in the atom at
+                // this point.  Because we know that a particle in the atom that had focus has just been removed, we
+                // set focus to the focusable particle we find in the atom.
+                const particlesInAtom: Particle[] = [
+                  ...model.atom.protons,
+                  ...model.atom.neutrons,
+                  ...model.atom.electrons
+                ];
+
+                // As a test of the expected state, count the number of focusable particles and verify it later.
+                let numberOfFocusableParticlesInAtom = 0;
+
+                for ( const particleInAtom of particlesInAtom ) {
+                  const particleView = this.mapParticlesToViews.get( particleInAtom );
+                  affirm( particleView, 'Missing ParticleView for particle' );
+                  if ( particleView.focusable ) {
+                    if ( numberOfFocusableParticlesInAtom === 0 ) {
+                      particleView.focus();
+                    }
+                    numberOfFocusableParticlesInAtom++;
+                  }
+                }
+
+                affirm(
+                  numberOfFocusableParticlesInAtom === 1,
+                  'There should be exactly one focusable particle in the atom'
+                );
+              }
+            }
+            else if ( keysPressed === 'escape' ) {
+
+              // The escape key is used to cancel the drag operation and return the particle to its origin.
+
+              // If the variable that tracks the origin of the alt-input dragged particle is not set, something is
+              // wrong with one of more of the code paths.
+              affirm(
+                this.altInputDraggingParticleOrigin,
+                'altInputDraggingParticleOrigin is null when Escape was pressed'
+              );
+              if ( this.altInputDraggingParticleOrigin instanceof SphereBucket ) {
+                particle.setPositionAndDestination( model.atom.positionProperty.value.plus( outsideAtomOffset ) );
+                particle.isDraggingProperty.value = false;
+                particle.moveImmediatelyToDestination();
+                const bucketView = this.mapBucketsToViews.get( this.altInputDraggingParticleOrigin );
+                affirm( bucketView, 'Missing BucketFront view for bucket' );
+                bucketView.focus();
+              }
+              else if ( this.altInputDraggingParticleOrigin === model.atom ) {
+                particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
+                particle.isDraggingProperty.value = false;
+
+                // Handle focus for the case where an electron is released back into the cloud.
+                if ( particle.type === 'electron' && this.viewProperties.electronModelProperty.value === 'cloud' ) {
+                  this.atomNode.electronCloud.focusable = true;
+                  this.atomNode.electronCloud.focus();
+                }
+              }
             }
           }
         },
@@ -475,15 +563,18 @@ class BAAScreenView extends ScreenView {
       fireOnDown: false,
       fire: ( event, keysPressed ) => {
 
-        if ( keysPressed.includes( 'space' ) || keysPressed.includes( 'enter' ) ) {
+        if ( keysPressed === 'space' || keysPressed === 'enter' ) {
 
           // Get a reference to the electron most recently added to the atom.
           const electron = model.atom.electrons[ model.atom.electrons.length - 1 ];
           affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
 
+          // Keep track of where this electron came from in case it needs to be returned.
+          this.altInputDraggingParticleOrigin = model.atom;
+
           // Set the electron as being controlled by the user via keyboard interaction.  This should cause it to be
           // removed from the atom.
-          electron.isDraggingProperty.set( true );
+          electron.isDraggingProperty.value = true;
 
           // Move the electron to just below the nucleus.
           electron.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
@@ -494,10 +585,10 @@ class BAAScreenView extends ScreenView {
           electronView.focusable = true;
           electronView.focus();
         }
-        else if ( keysPressed.includes( 'arrowRight' ) || keysPressed.includes( 'arrowDown' ) ) {
+        else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ) {
           this.updateParticleFocus( this.atomNode.electronCloud, 'forward' );
         }
-        else if ( keysPressed.includes( 'arrowLeft' ) || keysPressed.includes( 'arrowUp' ) ) {
+        else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
           this.updateParticleFocus( this.atomNode.electronCloud, 'backward' );
         }
       }
@@ -572,6 +663,9 @@ class BAAScreenView extends ScreenView {
             // Set the focus to the particle's view so that it can be manipulated via keyboard.
             particleView.focusable = true;
             particleView.focus();
+
+            // Keep track of where this particle came from in case it needs to be returned.
+            this.altInputDraggingParticleOrigin = bucket;
 
             // Mark the particle as being controlled by the user via keyboard interaction.
             particle.isDraggingProperty.value = true;
