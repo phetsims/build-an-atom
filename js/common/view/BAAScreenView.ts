@@ -736,7 +736,8 @@ class BAAScreenView extends ScreenView {
       bucketFrontLayer,
       this.atomNode,
       electronModelControl,
-      this.periodicTableAccordionBox
+      this.periodicTableAccordionBox,
+      particleCountDisplay
     ];
   }
 
