@@ -850,9 +850,9 @@ class BAAScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
       particleCountDisplay,
-      this.atomNode,
       electronModelControl,
-      this.periodicTableAccordionBox
+      this.atomNode,
+      this.accordionBoxes
     ];
   }
 
