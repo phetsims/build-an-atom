@@ -849,10 +849,10 @@ class BAAScreenView extends ScreenView {
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
+      particleCountDisplay,
       this.atomNode,
       electronModelControl,
-      this.periodicTableAccordionBox,
-      particleCountDisplay
+      this.periodicTableAccordionBox
     ];
   }
 
