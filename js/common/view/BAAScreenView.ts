@@ -26,6 +26,7 @@ import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -60,7 +61,7 @@ const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
 const DISTANCE_TESTING_TOLERANCE = 1e-6;
-const NAVIGATION_KEYS = [ 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'w', 'a', 's', 'd' ];
+const NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'w', 'a', 's', 'd' ];
 
 class BAAScreenView extends ScreenView {
 
