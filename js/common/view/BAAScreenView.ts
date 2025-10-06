@@ -60,6 +60,7 @@ const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
 const DISTANCE_TESTING_TOLERANCE = 1e-6;
+const NAVIGATION_KEYS = [ 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'w', 'a', 's', 'd' ];
 
 class BAAScreenView extends ScreenView {
 
@@ -219,15 +220,24 @@ class BAAScreenView extends ScreenView {
       // TODO: See https://github.com/phetsims/build-an-atom/issues/356.  Flesh out the docs for this once it is fully
       //       working, assuming it is still around.
       const particleKeyboardListener = new KeyboardListener( {
-        keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'delete', 'backspace', 'escape' ],
+        keys: [
+
+          // Support both space and enter for "action" keys.
+          'space', 'enter',
+
+          // Navigation keys for moving focus or moving particles, depending on state.
+          ...NAVIGATION_KEYS,
+
+          // Delete and backspace for removing the particle from the atom, escape for canceling the interaction.
+          'delete', 'backspace', 'escape'
+        ],
         fireOnDown: false,
         fire: ( event, keysPressed ) => {
 
           if ( particle.containerProperty.value === model.atom ) {
 
             // This particle is in the atom.  If the user presses space or enter, extract it from the atom and position
-            // it just below the nucleus.  If the user presses an arrow key, move the focus to another particle (if
-            // there is one).
+            // it just below the nucleus.
             if ( keysPressed === 'space' || keysPressed === 'enter' ) {
               isParticleBeingRemovedFromAtomViaAltInput = true;
               this.altInputDraggingParticleOrigin = model.atom;
@@ -241,10 +251,16 @@ class BAAScreenView extends ScreenView {
 
               isParticleBeingRemovedFromAtomViaAltInput = false;
             }
-            else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ) {
+            else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
+                      keysPressed === 'd' || keysPressed === 's' ) {
+
+              // Move the focus to the next item in the designed focus order.
               this.updateParticleFocus( particleView, 'forward' );
             }
-            else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
+            else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ||
+                      keysPressed === 'a' || keysPressed === 'w' ) {
+
+              // Move the focus to the previous item in the designed focus order.
               this.updateParticleFocus( particleView, 'backward' );
             }
             else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
@@ -359,10 +375,9 @@ class BAAScreenView extends ScreenView {
                 }
               }
             }
-            else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
-                      keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
+            else if ( NAVIGATION_KEYS.includes( keysPressed ) ) {
 
-              // The arrow keys are used to cycle through the various position offsets around the atom.
+              // The navigation keys are used to cycle through the various position offsets around the atom.
 
               // Figure out which position offset is currently being used for the particle's position.
               let offsetIndex = 0;
@@ -379,13 +394,21 @@ class BAAScreenView extends ScreenView {
                 }
               }
 
-              if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ) {
+              if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
+                   keysPressed === 'd' || keysPressed === 's' ) {
+
+                // Select the next position offset, wrapping if needed.
                 offsetIndex = ( offsetIndex + 1 ) % altInputAtomOffsets.length;
               }
-              else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
+              else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ||
+                        keysPressed === 'a' || keysPressed === 'w' ) {
+
+                // Select the previous position offset, wrapping if needed.
                 offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
               }
-              particle.setPositionAndDestination( model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] ) );
+              particle.setPositionAndDestination(
+                model.atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] )
+              );
             }
             else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
@@ -559,7 +582,7 @@ class BAAScreenView extends ScreenView {
 
     // Add a keyboard listener to the electron cloud.
     this.atomNode.electronCloud.addInputListener( new KeyboardListener( {
-      keys: [ 'space', 'enter', 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp' ],
+      keys: [ 'space', 'enter', ...NAVIGATION_KEYS ],
       fireOnDown: false,
       fire: ( event, keysPressed ) => {
 
@@ -585,10 +608,12 @@ class BAAScreenView extends ScreenView {
           electronView.focusable = true;
           electronView.focus();
         }
-        else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ) {
+        else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
+                  keysPressed === 'w' || keysPressed === 's' ) {
           this.updateParticleFocus( this.atomNode.electronCloud, 'forward' );
         }
-        else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ) {
+        else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ||
+                  keysPressed === 'a' || keysPressed === 'd' ) {
           this.updateParticleFocus( this.atomNode.electronCloud, 'backward' );
         }
       }
