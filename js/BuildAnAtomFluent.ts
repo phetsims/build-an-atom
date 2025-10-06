@@ -62,34 +62,39 @@ addToMapIfDefined( 'a11y_common_atomAccessibleListNode_neutrons', 'a11y.common.a
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protonsAndNeutrons', 'a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_shellInfoEmpty', 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_screenSummary_playArea', 'a11y.atomScreen.screenSummary.playAreaStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_screenSummary_controlArea', 'a11y.atomScreen.screenSummary.controlAreaStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_screenSummary_interactionHint', 'a11y.atomScreen.screenSummary.interactionHintStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_grabbed', 'a11y.common.buckets.grabbedStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_released', 'a11y.common.buckets.releasedStringProperty' );
+addToMapIfDefined( 'a11y_common_protonBucket_accessibleName', 'a11y.common.protonBucket.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_protonBucket_accessibleHelpText', 'a11y.common.protonBucket.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_neutronBucket_accessibleName', 'a11y.common.neutronBucket.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_neutronBucket_accessibleHelpText', 'a11y.common.neutronBucket.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_electronBucket_accessibleName', 'a11y.common.electronBucket.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_electronBucket_accessibleHelpText', 'a11y.common.electronBucket.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_noElementContextResponse', 'a11y.common.noElementContextResponseStringProperty' );
+addToMapIfDefined( 'a11y_common_elementNameCheckbox_accessibleName', 'a11y.common.elementNameCheckbox.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_elementNameCheckbox_accessibleHelpText', 'a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_elementNameCheckbox_accessibleContextResponseUnchecked', 'a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty' );
+addToMapIfDefined( 'a11y_common_neutralAtomIonCheckbox_accessibleName', 'a11y.common.neutralAtomIonCheckbox.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_neutralAtomIonCheckbox_accessibleHelpText', 'a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_neutralAtomIonCheckbox_accessibleContextResponseUnchecked', 'a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty' );
+addToMapIfDefined( 'a11y_common_neutralAtomIonCheckbox_neutralAtom', 'a11y.common.neutralAtomIonCheckbox.neutralAtomStringProperty' );
+addToMapIfDefined( 'a11y_common_neutralAtomIonCheckbox_positiveIon', 'a11y.common.neutralAtomIonCheckbox.positiveIonStringProperty' );
+addToMapIfDefined( 'a11y_common_neutralAtomIonCheckbox_negativeIon', 'a11y.common.neutralAtomIonCheckbox.negativeIonStringProperty' );
+addToMapIfDefined( 'a11y_common_nuclearStabilityCheckbox_accessibleName', 'a11y.common.nuclearStabilityCheckbox.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_nuclearStabilityCheckbox_accessibleHelpText', 'a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', 'a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' );
+addToMapIfDefined( 'a11y_common_nuclearStabilityCheckbox_stable', 'a11y.common.nuclearStabilityCheckbox.stableStringProperty' );
+addToMapIfDefined( 'a11y_common_nuclearStabilityCheckbox_unstable', 'a11y.common.nuclearStabilityCheckbox.unstableStringProperty' );
+addToMapIfDefined( 'a11y_common_modelToggle_accessibleName', 'a11y.common.modelToggle.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_modelToggle_accessibleNameShells', 'a11y.common.modelToggle.accessibleNameShellsStringProperty' );
+addToMapIfDefined( 'a11y_common_modelToggle_accessibleNameCloud', 'a11y.common.modelToggle.accessibleNameCloudStringProperty' );
+addToMapIfDefined( 'a11y_common_modelToggle_accessibleHelpText', 'a11y.common.modelToggle.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_periodicTable_accessibleName', 'a11y.common.periodicTable.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_periodicTable_accessibleParagraphNoSymbol', 'a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty' );
+addToMapIfDefined( 'a11y_common_screenSummary_playArea', 'a11y.common.screenSummary.playAreaStringProperty' );
+addToMapIfDefined( 'a11y_common_screenSummary_controlArea', 'a11y.common.screenSummary.controlAreaStringProperty' );
+addToMapIfDefined( 'a11y_common_screenSummary_interactionHint', 'a11y.common.screenSummary.interactionHintStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleHelpText', 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_noElementContextResponse', 'a11y.atomScreen.noElementContextResponseStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleName', 'a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleHelpText', 'a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_elementNameCheckbox_accessibleContextResponseUnchecked', 'a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_accessibleName', 'a11y.atomScreen.neutralAtomIonCheckbox.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_accessibleHelpText', 'a11y.atomScreen.neutralAtomIonCheckbox.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_accessibleContextResponseUnchecked', 'a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_neutralAtom', 'a11y.atomScreen.neutralAtomIonCheckbox.neutralAtomStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_positiveIon', 'a11y.atomScreen.neutralAtomIonCheckbox.positiveIonStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutralAtomIonCheckbox_negativeIon', 'a11y.atomScreen.neutralAtomIonCheckbox.negativeIonStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleName', 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleHelpText', 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_stable', 'a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_nuclearStabilityCheckbox_unstable', 'a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleName', 'a11y.atomScreen.modelToggle.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameShells', 'a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleNameCloud', 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_modelToggle_accessibleHelpText', 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_protonBucket_accessibleName', 'a11y.atomScreen.protonBucket.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_neutronBucket_accessibleName', 'a11y.atomScreen.neutronBucket.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_electronBucket_accessibleName', 'a11y.atomScreen.electronBucket.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_periodicTable_accessibleName', 'a11y.atomScreen.periodicTable.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', 'a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_netCharge_accessibleName', 'a11y.atomScreen.netCharge.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_massNumber_accessibleName', 'a11y.atomScreen.massNumber.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_screenSummary_playArea', 'a11y.symbolScreen.screenSummary.playAreaStringProperty' );
@@ -167,60 +172,67 @@ const BuildAnAtomFluent = {
         cloudInfoFullStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty' ),
         shellInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_shellInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' ) ),
         cloudInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' ) )
+      },
+      buckets: {
+        grabbedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_grabbed', _.get( BuildAnAtomStrings, 'a11y.common.buckets.grabbedStringProperty' ) ),
+        releasedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_released', _.get( BuildAnAtomStrings, 'a11y.common.buckets.releasedStringProperty' ) )
+      },
+      protonBucket: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_protonBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.protonBucket.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_protonBucket_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.protonBucket.accessibleHelpTextStringProperty' ) )
+      },
+      neutronBucket: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.neutronBucket.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutronBucket_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.neutronBucket.accessibleHelpTextStringProperty' ) )
+      },
+      electronBucket: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_electronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.electronBucket.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_electronBucket_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.electronBucket.accessibleHelpTextStringProperty' ) )
+      },
+      noElementContextResponseStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_noElementContextResponse', _.get( BuildAnAtomStrings, 'a11y.common.noElementContextResponseStringProperty' ) ),
+      elementNameCheckbox: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty' ) ),
+        accessibleContextResponseCheckedStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty' ),
+        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty' ) )
+      },
+      neutralAtomIonCheckbox: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutralAtomIonCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.neutralAtomIonCheckbox.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutralAtomIonCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty' ) ),
+        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutralAtomIonCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty' ) ),
+        neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutralAtomIonCheckbox_neutralAtom', _.get( BuildAnAtomStrings, 'a11y.common.neutralAtomIonCheckbox.neutralAtomStringProperty' ) ),
+        positiveIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutralAtomIonCheckbox_positiveIon', _.get( BuildAnAtomStrings, 'a11y.common.neutralAtomIonCheckbox.positiveIonStringProperty' ) ),
+        negativeIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutralAtomIonCheckbox_negativeIon', _.get( BuildAnAtomStrings, 'a11y.common.neutralAtomIonCheckbox.negativeIonStringProperty' ) )
+      },
+      nuclearStabilityCheckbox: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_nuclearStabilityCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.nuclearStabilityCheckbox.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_nuclearStabilityCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty' ) ),
+        accessibleContextResponseCheckedStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty' ),
+        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' ) ),
+        stableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_nuclearStabilityCheckbox_stable', _.get( BuildAnAtomStrings, 'a11y.common.nuclearStabilityCheckbox.stableStringProperty' ) ),
+        unstableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_nuclearStabilityCheckbox_unstable', _.get( BuildAnAtomStrings, 'a11y.common.nuclearStabilityCheckbox.unstableStringProperty' ) )
+      },
+      modelToggle: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_modelToggle_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.modelToggle.accessibleNameStringProperty' ) ),
+        accessibleNameShellsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_modelToggle_accessibleNameShells', _.get( BuildAnAtomStrings, 'a11y.common.modelToggle.accessibleNameShellsStringProperty' ) ),
+        accessibleNameCloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_modelToggle_accessibleNameCloud', _.get( BuildAnAtomStrings, 'a11y.common.modelToggle.accessibleNameCloudStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_modelToggle_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.modelToggle.accessibleHelpTextStringProperty' ) )
+      },
+      periodicTable: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleNameStringProperty' ) ),
+        accessibleParagraphHighlightedStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty' ),
+        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty' ) )
+      },
+      screenSummary: {
+        playAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_screenSummary_playArea', _.get( BuildAnAtomStrings, 'a11y.common.screenSummary.playAreaStringProperty' ) ),
+        controlAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_screenSummary_controlArea', _.get( BuildAnAtomStrings, 'a11y.common.screenSummary.controlAreaStringProperty' ) ),
+        currentDetailsStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.screenSummary.currentDetailsStringProperty' ),
+        interactionHintStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_screenSummary_interactionHint', _.get( BuildAnAtomStrings, 'a11y.common.screenSummary.interactionHintStringProperty' ) )
       }
     },
     atomScreen: {
-      screenSummary: {
-        playAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_playArea', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.playAreaStringProperty' ) ),
-        controlAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_controlArea', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.controlAreaStringProperty' ) ),
-        currentDetailsStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.currentDetailsStringProperty' ),
-        interactionHintStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenSummary_interactionHint', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenSummary.interactionHintStringProperty' ) )
-      },
       screenIcon: {
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_screenIcon_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.screenIcon.accessibleHelpTextStringProperty' ) )
-      },
-      noElementContextResponseStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_noElementContextResponse', _.get( BuildAnAtomStrings, 'a11y.atomScreen.noElementContextResponseStringProperty' ) ),
-      elementNameCheckbox: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_elementNameCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_elementNameCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty' ) ),
-        accessibleContextResponseCheckedStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.elementNameCheckbox.accessibleContextResponseCheckedStringProperty' ),
-        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_elementNameCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty' ) )
-      },
-      neutralAtomIonCheckbox: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutralAtomIonCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutralAtomIonCheckbox.accessibleNameStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutralAtomIonCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutralAtomIonCheckbox.accessibleHelpTextStringProperty' ) ),
-        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutralAtomIonCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty' ) ),
-        neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutralAtomIonCheckbox_neutralAtom', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutralAtomIonCheckbox.neutralAtomStringProperty' ) ),
-        positiveIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutralAtomIonCheckbox_positiveIon', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutralAtomIonCheckbox.positiveIonStringProperty' ) ),
-        negativeIonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutralAtomIonCheckbox_negativeIon', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutralAtomIonCheckbox.negativeIonStringProperty' ) )
-      },
-      nuclearStabilityCheckbox: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleNameStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty' ) ),
-        accessibleContextResponseCheckedStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty' ),
-        accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty' ) ),
-        stableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_stable', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty' ) ),
-        unstableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_nuclearStabilityCheckbox_unstable', _.get( BuildAnAtomStrings, 'a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty' ) )
-      },
-      modelToggle: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameStringProperty' ) ),
-        accessibleNameShellsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameShells', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty' ) ),
-        accessibleNameCloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleNameCloud', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_modelToggle_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty' ) )
-      },
-      protonBucket: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_protonBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.protonBucket.accessibleNameStringProperty' ) )
-      },
-      neutronBucket: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_neutronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.neutronBucket.accessibleNameStringProperty' ) )
-      },
-      electronBucket: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_electronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.electronBucket.accessibleNameStringProperty' ) )
-      },
-      periodicTable: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleNameStringProperty' ) ),
-        accessibleParagraphHighlightedStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphHighlightedStringProperty' ),
-        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty' ) )
       },
       netCharge: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_netCharge_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.netCharge.accessibleNameStringProperty' ) ),

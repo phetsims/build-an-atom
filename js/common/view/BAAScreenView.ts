@@ -595,7 +595,9 @@ class BAAScreenView extends ScreenView {
     } ) );
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    const bucketFrontLayer = new Node();
+    const bucketFrontLayer = new Node( {
+      accessibleHeading: 'Particles'
+    } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
     for ( const bucket of model.buckets ) {
@@ -684,8 +686,8 @@ class BAAScreenView extends ScreenView {
       [
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleParagraphHighlightedStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleParagraphNoSymbolStringProperty
+        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
+        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty
       ],
       (
         protonCount: number,
@@ -721,7 +723,7 @@ class BAAScreenView extends ScreenView {
         tandem: tandem.createTandem( 'periodicTableAccordionBox' ),
         phetioFeatured: true,
 
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.periodicTable.accessibleNameStringProperty,
+        accessibleName: BuildAnAtomStrings.a11y.common.periodicTable.accessibleNameStringProperty,
         accessibleHelpTextExpanded: periodicTableAccessibleParagraphProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS ) );
 
@@ -741,9 +743,9 @@ class BAAScreenView extends ScreenView {
         property: this.viewProperties.elementNameVisibleProperty,
         tandemName: 'elementNameCheckbox',
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
+          accessibleName: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty,
+          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
           // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
@@ -757,9 +759,9 @@ class BAAScreenView extends ScreenView {
         property: this.viewProperties.neutralAtomOrIonVisibleProperty,
         tandemName: 'neutralAtomOrIonCheckbox',
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
+          accessibleName: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
+          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
 
           // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
@@ -773,9 +775,9 @@ class BAAScreenView extends ScreenView {
         property: this.viewProperties.nuclearStabilityVisibleProperty,
         tandemName: 'nuclearStabilityCheckbox',
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
+          accessibleName: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
+          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
 
           // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(

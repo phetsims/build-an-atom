@@ -154,26 +154,37 @@
         "cloudInfoEmpty": {
           "value": "Cloud empty."
         }
-      }
-    },
-    "atomScreen": {
-      "screenSummary": {
-        "playArea": {
-          "value": "There is an atom-building model and three buckets containing protons, neutrons, and electrons. Track the number of added particles and explore representations of the periodic table, charge, and mass."
+      },
+      "buckets": {
+        "grabbed": {
+          "value": "Grabbed"
         },
-        "controlArea": {
-          "value": "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
-        },
-        "currentDetails": {
-          "value": "Currently, {{value}} particles added to the atom."
-        },
-        "interactionHint": {
-          "value": "Add particles to atom to play."
+        "released": {
+          "value": "Released"
         }
       },
-      "screenIcon": {
+      "protonBucket": {
+        "accessibleName": {
+          "value": "Proton Bucket"
+        },
         "accessibleHelpText": {
-          "value": "Build atoms to see how particles determine mass, charge, and element identity."
+          "value": "Grab proton. Once grabbed, use arrow keys to move to specific location."
+        }
+      },
+      "neutronBucket": {
+        "accessibleName": {
+          "value": "Neutron Bucket"
+        },
+        "accessibleHelpText": {
+          "value": "Grab neutron. Once grabbed, use arrow keys to move to specific location."
+        }
+      },
+      "electronBucket": {
+        "accessibleName": {
+          "value": "Electron Bucket"
+        },
+        "accessibleHelpText": {
+          "value": "Grab electron. Once grabbed, use arrow keys to move to specific location."
         }
       },
       "noElementContextResponse": {
@@ -247,21 +258,6 @@
           "value": "Choose representation for region outside nucleus."
         }
       },
-      "protonBucket": {
-        "accessibleName": {
-          "value": "Proton Bucket"
-        }
-      },
-      "neutronBucket": {
-        "accessibleName": {
-          "value": "Neutron Bucket"
-        }
-      },
-      "electronBucket": {
-        "accessibleName": {
-          "value": "Electron Bucket"
-        }
-      },
       "periodicTable": {
         "accessibleName": {
           "value": "Periodic Table"
@@ -271,6 +267,27 @@
         },
         "accessibleParagraphNoSymbol": {
           "value": "No chemical symbol is highlighted."
+        }
+      },
+      "screenSummary": {
+        "playArea": {
+          "value": "There is an atom-building model and three buckets containing protons, neutrons, and electrons. Track the number of added particles and explore representations of the periodic table, charge, and mass."
+        },
+        "controlArea": {
+          "value": "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+        },
+        "currentDetails": {
+          "value": "Currently, {{value}} particles added to the atom."
+        },
+        "interactionHint": {
+          "value": "Add particles to atom to play."
+        }
+      }
+    },
+    "atomScreen": {
+      "screenIcon": {
+        "accessibleHelpText": {
+          "value": "Build atoms to see how particles determine mass, charge, and element identity."
         }
       },
       "netCharge": {

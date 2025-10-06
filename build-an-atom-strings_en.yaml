@@ -54,15 +54,20 @@ a11y:
       cloudInfoFull: Cloud contains {{value}} Electrons.
       shellInfoEmpty: Shells empty.
       cloudInfoEmpty: Cloud empty.
-  atomScreen:
-    screenSummary:
-      playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
-                 Track the number of added particles and explore representations of the periodic table, charge, and mass."
-      controlArea: "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
-      currentDetails: "Currently, {{value}} particles added to the atom."
-      interactionHint: "Add particles to atom to play."
-    screenIcon:
-      accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
+
+    buckets:
+      grabbed: "Grabbed"
+      released: "Released"
+    protonBucket:
+      accessibleName: "Proton Bucket"
+      accessibleHelpText: "Grab proton. Once grabbed, use arrow keys to move to specific location."
+    neutronBucket:
+      accessibleName: "Neutron Bucket"
+      accessibleHelpText: "Grab neutron. Once grabbed, use arrow keys to move to specific location."
+    electronBucket:
+      accessibleName: "Electron Bucket"
+      accessibleHelpText: "Grab electron. Once grabbed, use arrow keys to move to specific location."
+
     noElementContextResponse: "No element yet."
     elementNameCheckbox:
       accessibleName: "Element Name"
@@ -88,16 +93,19 @@ a11y:
       accessibleNameShells: "Shells"
       accessibleNameCloud: "Cloud"
       accessibleHelpText: "Choose representation for region outside nucleus."
-    protonBucket:
-      accessibleName: "Proton Bucket"
-    neutronBucket:
-      accessibleName: "Neutron Bucket"
-    electronBucket:
-      accessibleName: "Electron Bucket"
     periodicTable:
       accessibleName: "Periodic Table"
       accessibleParagraphHighlighted: "Chemical symbol {{symbol}} is highlighted."
       accessibleParagraphNoSymbol: "No chemical symbol is highlighted."
+    screenSummary:
+      playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
+                 Track the number of added particles and explore representations of the periodic table, charge, and mass."
+      controlArea: "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+      currentDetails: "Currently, {{value}} particles added to the atom."
+      interactionHint: "Add particles to atom to play."
+  atomScreen:
+    screenIcon:
+      accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
     netCharge:
       accessibleName: "Net Charge"
       accessibleParagraph: "Net Charge is {{value}}. There are {{protons}} plus signs and {{electrons}} minus signs."

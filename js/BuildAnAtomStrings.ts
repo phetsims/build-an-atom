@@ -69,16 +69,21 @@ type StringsType = {
         'cloudInfoFullStringProperty': LocalizedStringProperty;
         'shellInfoEmptyStringProperty': LocalizedStringProperty;
         'cloudInfoEmptyStringProperty': LocalizedStringProperty;
-      }
-    };
-    'atomScreen': {
-      'screenSummary': {
-        'playAreaStringProperty': LocalizedStringProperty;
-        'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
-        'interactionHintStringProperty': LocalizedStringProperty;
       };
-      'screenIcon': {
+      'buckets': {
+        'grabbedStringProperty': LocalizedStringProperty;
+        'releasedStringProperty': LocalizedStringProperty;
+      };
+      'protonBucket': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'neutronBucket': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'electronBucket': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
       'noElementContextResponseStringProperty': LocalizedStringProperty;
@@ -110,19 +115,21 @@ type StringsType = {
         'accessibleNameCloudStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
-      'protonBucket': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
-      };
-      'neutronBucket': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
-      };
-      'electronBucket': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
-      };
       'periodicTable': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphHighlightedStringProperty': LocalizedStringProperty;
         'accessibleParagraphNoSymbolStringProperty': LocalizedStringProperty;
+      };
+      'screenSummary': {
+        'playAreaStringProperty': LocalizedStringProperty;
+        'controlAreaStringProperty': LocalizedStringProperty;
+        'currentDetailsStringProperty': LocalizedStringProperty;
+        'interactionHintStringProperty': LocalizedStringProperty;
+      }
+    };
+    'atomScreen': {
+      'screenIcon': {
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
       'netCharge': {
         'accessibleNameStringProperty': LocalizedStringProperty;

@@ -55,7 +55,7 @@ class ElectronModelControl extends Panel {
           } ),
           tandemName: 'shellsRadioButton',
           options: {
-            accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameShellsStringProperty
+            accessibleName: BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameShellsStringProperty
           }
         },
         {
@@ -65,7 +65,7 @@ class ElectronModelControl extends Panel {
           } ),
           tandemName: 'cloudRadioButton',
           options: {
-            accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameCloudStringProperty
+            accessibleName: BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameCloudStringProperty
           }
         }
       ],
@@ -79,8 +79,8 @@ class ElectronModelControl extends Panel {
         },
         maxWidth: 100, // determined empirically
         tandem: options.tandem.createTandem( 'radioButtonGroup' ),
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.atomScreen.modelToggle.accessibleHelpTextStringProperty,
+        accessibleName: BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomStrings.a11y.common.modelToggle.accessibleHelpTextStringProperty,
         phetioVisiblePropertyInstrumented: false // Clients should hide the entire panel.
       }
     );

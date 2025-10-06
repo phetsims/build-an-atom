@@ -17,7 +17,7 @@ export default class SymbolScreenSummaryContentNode extends ScreenSummaryContent
 
     const currentDetailsStringProperty = new DerivedStringProperty( [
         model.atom.particleCountProperty,
-        BuildAnAtomStrings.a11y.atomScreen.screenSummary.currentDetailsStringProperty
+        BuildAnAtomStrings.a11y.common.screenSummary.currentDetailsStringProperty
       ],
       ( particleCount: number, currentDetailsPattern: string ) => {
         return StringUtils.fillIn( currentDetailsPattern, { value: particleCount } );
@@ -29,8 +29,8 @@ export default class SymbolScreenSummaryContentNode extends ScreenSummaryContent
 
       // Same as atom screen
       currentDetailsContent: currentDetailsStringProperty,
-      controlAreaContent: BuildAnAtomStrings.a11y.atomScreen.screenSummary.controlAreaStringProperty,
-      interactionHintContent: BuildAnAtomStrings.a11y.atomScreen.screenSummary.interactionHintStringProperty
+      controlAreaContent: BuildAnAtomStrings.a11y.common.screenSummary.controlAreaStringProperty,
+      interactionHintContent: BuildAnAtomStrings.a11y.common.screenSummary.interactionHintStringProperty
     } );
   }
 }

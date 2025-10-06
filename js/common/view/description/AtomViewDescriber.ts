@@ -133,8 +133,8 @@ class AtomViewDescriber {
       [
         protonCountProperty,
         elementNameStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.noElementContextResponseStringProperty
+        BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
+        BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protonCount: number,
@@ -160,10 +160,10 @@ class AtomViewDescriber {
       [
         protonCountProperty,
         chargeProperty,
-        BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.neutralAtomStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.positiveIonStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.neutralAtomIonCheckbox.negativeIonStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.noElementContextResponseStringProperty
+        BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.neutralAtomStringProperty,
+        BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.positiveIonStringProperty,
+        BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.negativeIonStringProperty,
+        BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protons: number,
@@ -191,10 +191,10 @@ class AtomViewDescriber {
       [
         protonCountProperty,
         isStableProperty,
-        BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.stableStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.nuclearStabilityCheckbox.unstableStringProperty,
-        BuildAnAtomStrings.a11y.atomScreen.noElementContextResponseStringProperty
+        BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty,
+        BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.stableStringProperty,
+        BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.unstableStringProperty,
+        BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protons: number,
