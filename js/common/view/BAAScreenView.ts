@@ -850,9 +850,13 @@ class BAAScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
       particleCountDisplay,
-      electronModelControl,
       this.atomNode,
       this.accordionBoxes
+    ];
+
+    this.pdomControlAreaNode.pdomOrder = [
+      checkboxGroup,
+      electronModelControl
     ];
   }
 

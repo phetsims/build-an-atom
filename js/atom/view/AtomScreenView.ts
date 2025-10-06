@@ -126,13 +126,6 @@ class AtomScreenView extends BAAScreenView {
     );
     this.accordionBoxes.addChild( this.massNumberAccordionBox );
     this.massNumberAccordionBox.addLinkedElement( model.atom.massNumberProperty );
-
-    // pdom - set navigation order for the Atom screen view
-    this.pdomPlayAreaNode.pdomOrder = [
-      ...this.pdomPlayAreaNode.pdomOrder!,
-      this.netChargeAccordionBox,
-      this.massNumberAccordionBox
-    ];
   }
 
   public override reset(): void {
