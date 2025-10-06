@@ -60,7 +60,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
         BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty
       ],
       ( charge: number, chargePattern: string ) => {
-        return StringUtils.fillIn( chargePattern, { value: Math.abs( charge ), sign: charge > 0 ? '+' : charge === 0 ? '' : '-' } );
+        return StringUtils.fillIn( chargePattern, { value: Math.abs( charge ), sign: charge > 0 ? '+' : charge === 0 ? '' : '\u2212' } );
 
       } );
 
