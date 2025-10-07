@@ -44,6 +44,9 @@ class GameScreenView extends ScreenView {
       // any phet-io instrumentation. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
 
+      // For game screens, the default play area and control area sections are not used.
+      includeAccessibleSectionNodes: false,
+
       tandem: tandem
     } );
 

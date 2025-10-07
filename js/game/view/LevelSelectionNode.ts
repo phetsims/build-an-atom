@@ -9,15 +9,16 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
-import InfoButton from '../../../../scenery-phet/js/buttons/InfoButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
-import TimerToggleButton from '../../../../scenery-phet/js/buttons/TimerToggleButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import GameInfoButton from '../../../../vegas/js/buttons/GameInfoButton.js';
+import GameTimerToggleButton from '../../../../vegas/js/buttons/GameTimerToggleButton.js';
 import GameInfoDialog from '../../../../vegas/js/GameInfoDialog.js';
 import LevelSelectionButtonGroup, { LevelSelectionButtonGroupItem } from '../../../../vegas/js/LevelSelectionButtonGroup.js';
+import LevelSelectionScreenNode from '../../../../vegas/js/LevelSelectionScreenNode.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -36,11 +37,11 @@ type LevelSelectionNodeOptions = SelfOptions & WithRequired<NodeOptions, 'tandem
 // constants
 const CONTROLS_INSET = 10;
 
-class LevelSelectionNode extends Node {
+class LevelSelectionNode extends LevelSelectionScreenNode {
 
   public constructor( gameModel: GameModel, layoutBounds: Bounds2, options: LevelSelectionNodeOptions ) {
 
-    super( options );
+    super( BuildAnAtomFluent.gameStringProperty, options );
 
     const title = new Text( BuildAnAtomFluent.chooseYourGameStringProperty, {
       font: new PhetFont( 30 ),
@@ -118,7 +119,7 @@ class LevelSelectionNode extends Node {
         descriptionVisibleProperties: buttonGroup.buttons.map( item => item.visibleProperty )
       }
     );
-    const gamesInfoButton = new InfoButton( {
+    const gamesInfoButton = new GameInfoButton( {
       listener: () => gamesInfoDialog.show(),
       iconFill: 'rgb( 50, 145, 184 )',
       scale: 0.4,
@@ -128,7 +129,7 @@ class LevelSelectionNode extends Node {
     this.addChild( gamesInfoButton );
 
     // timer control
-    const timerToggleButton = new TimerToggleButton( gameModel.timerEnabledProperty, {
+    const timerToggleButton = new GameTimerToggleButton( gameModel.timerEnabledProperty, {
       stroke: 'gray',
       tandem: options.tandem.createTandem( 'timerToggleButton' ),
       left: CONTROLS_INSET,
@@ -160,6 +161,16 @@ class LevelSelectionNode extends Node {
       gamesInfoButton.left = title.right + CONTROLS_INSET;
       gamesInfoButton.centerY = title.centerY;
     } );
+
+    // pdom - traversal order and section grouping
+    this.accessibleLevelsSectionNode.pdomOrder = [
+      buttonGroup
+    ];
+    this.accessibleControlsSectionNode.pdomOrder = [
+      gamesInfoButton,
+      timerToggleButton,
+      resetAllButton
+    ];
   }
 }
 
