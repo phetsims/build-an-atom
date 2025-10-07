@@ -36,6 +36,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
@@ -141,7 +142,7 @@ class BAAScreenView extends ScreenView {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node( {
-      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty
+      accessibleHeading: ShredStrings.a11y.buckets.accessibleHeadingStringProperty
     } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
@@ -150,7 +151,7 @@ class BAAScreenView extends ScreenView {
       const bucketAccessibleNameProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
-          BuildAnAtomStrings.a11y.common.buckets.accessibleNameStringProperty
+          ShredStrings.a11y.buckets.accessibleNameStringProperty
         ],
         ( particleType: string, accessibleName: string ) => {
           return StringUtils.fillIn( accessibleName, { particle: particleType } );
@@ -160,7 +161,7 @@ class BAAScreenView extends ScreenView {
       const bucketaccessibleHelpTextProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
-          BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
+          ShredStrings.a11y.buckets.accessibleHelpTextStringProperty
         ],
         ( particleType: string, accessibleHelpText: string ) => {
           return StringUtils.fillIn( accessibleHelpText, { particle: particleType } );
@@ -208,6 +209,8 @@ class BAAScreenView extends ScreenView {
       // focus.  This will extract a particle from the bucket and add it to the atom.
       bucketFront.addInputListener( {
         click: () => {
+          bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.buckets.grabbedStringProperty );
+
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
 
@@ -235,9 +238,9 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.set( bucket, bucketFront );
     };
 
-    createBucketFront( model.protonBucket, BuildAnAtomStrings.a11y.common.buckets.protonStringProperty );
-    createBucketFront( model.neutronBucket, BuildAnAtomStrings.a11y.common.buckets.neutronStringProperty );
-    createBucketFront( model.electronBucket, BuildAnAtomStrings.a11y.common.buckets.electronStringProperty );
+    createBucketFront( model.protonBucket, ShredStrings.a11y.buckets.protonStringProperty );
+    createBucketFront( model.neutronBucket, ShredStrings.a11y.buckets.neutronStringProperty );
+    createBucketFront( model.electronBucket, ShredStrings.a11y.buckets.electronStringProperty );
 
     // Add the alt-input grab/release cue node.
     bucketFrontLayer.addChild( new BucketGrabCueNode(

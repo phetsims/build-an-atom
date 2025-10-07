@@ -16,6 +16,7 @@ import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
+import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
@@ -72,6 +73,17 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       outsideAtomOffset
     ];
 
+    const objectResponsesForShellMode: TReadOnlyProperty<string>[] = [
+      ShredStrings.a11y.buckets.overNucleusStringProperty,
+      ShredStrings.a11y.buckets.overInnerShellStringProperty,
+      ShredStrings.a11y.buckets.overOuterShellStringProperty,
+      ShredStrings.a11y.buckets.nearBucketsStringProperty
+    ];
+    const objectResponsesForCloudMode: TReadOnlyProperty<string>[] = [
+      ShredStrings.a11y.buckets.overAtomStringProperty,
+      ShredStrings.a11y.buckets.nearBucketsStringProperty
+    ];
+
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
     // is only updated at the beginning of an alt-input drag operation, and may not always be cleared at the end, so use
     // accordingly.
@@ -112,6 +124,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // This particle is being extracted from the atom, so position it just below the nucleus.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty );
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
           }
@@ -137,6 +150,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // Position the particle outside the atom so that when released, it will go to a homeBucket.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.nearBucketsStringProperty );
 
             // Release the particle from the user's control, which should cause the particle to return to a homeBucket.
             particle.isDraggingProperty.value = false;
@@ -217,6 +231,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             const altInputAtomOffsets = electronModelProperty.value === 'shells' ?
                                         altInputAtomOffsetsForShellMode :
                                         altInputAtomOffsetsForCloudMode;
+
+            const objectResponses = electronModelProperty.value === 'shells' ?
+                                    objectResponsesForShellMode :
+                                    objectResponsesForCloudMode;
             for ( const offset of altInputAtomOffsets ) {
               if ( offset.getMagnitude() === particleDistanceFromAtomCenter ) {
                 offsetIndex = altInputAtomOffsets.indexOf( offset );
@@ -239,11 +257,14 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             particle.setPositionAndDestination(
               atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] )
             );
+            particleView.addAccessibleObjectResponse( objectResponses[ offsetIndex ] );
           }
           else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
             // Move the particle immediately back the bucket from whence it came.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.particleReturnedToBucketStringProperty );
+
             particle.isDraggingProperty.value = false;
             particle.moveImmediatelyToDestination();
           }
@@ -259,12 +280,16 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             );
             if ( containerAtDragStart instanceof SphereBucket ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.nearBucketsStringProperty );
+
               particle.isDraggingProperty.value = false;
               particle.moveImmediatelyToDestination();
               homeBucketFront.focus();
             }
             else if ( containerAtDragStart === atom ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty );
+
               particle.isDraggingProperty.value = false;
 
               // Handle focus for the case where an electron is released back into the cloud.
