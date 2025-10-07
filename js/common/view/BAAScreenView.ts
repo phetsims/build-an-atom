@@ -209,7 +209,7 @@ class BAAScreenView extends ScreenView {
       // focus.  This will extract a particle from the bucket and add it to the atom.
       bucketFront.addInputListener( {
         click: () => {
-          bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.buckets.grabbedStringProperty );
+          bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.buckets.grabbedStringProperty, 'queue' );
 
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
@@ -227,7 +227,7 @@ class BAAScreenView extends ScreenView {
 
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty, 'queue' );
 
 
             // Indicate that the user has interacted with the buckets.
@@ -272,7 +272,7 @@ class BAAScreenView extends ScreenView {
     const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
     model.returnedToBucketEmitter.addListener( () => {
-      this.addAccessibleContextResponse( ShredStrings.a11y.buckets.particleReturnedToBucketStringProperty );
+      this.addAccessibleContextResponse( ShredStrings.a11y.buckets.particleReturnedToBucketStringProperty, 'queue' );
     } );
 
     model.addedToAtomEmitter.addListener( ( destination: AtomDestinations ) => {
@@ -287,24 +287,24 @@ class BAAScreenView extends ScreenView {
                   ShredStrings.a11y.buckets.cloudStringProperty : ''
       } );
 
-      this.addAccessibleContextResponse( contextResponse );
+      this.addAccessibleContextResponse( contextResponse, 'queue' );
     } );
 
     model.atom.protonCountProperty.link( ( protons: number ) => {
       if ( protons === 10 ) {
-        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty );
+        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
     model.atom.neutronCountProperty.link( ( neutrons: number ) => {
       if ( neutrons === 14 ) {
-        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty );
+        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
     model.atom.electronCountProperty.link( ( electrons: number ) => {
       if ( electrons === 10 ) {
-        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty );
+        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
@@ -552,7 +552,6 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
             model.atom.protonCountProperty,
             model.atom.elementNameStringProperty
@@ -568,7 +567,6 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
             model.atom.protonCountProperty,
             model.atom.chargeProperty
@@ -584,7 +582,6 @@ class BAAScreenView extends ScreenView {
           accessibleHelpText: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          // TODO: Should this use addAccessibleContextResponse()? https://github.com/phetsims/build-an-atom/issues/351
           accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(
             model.atom.protonCountProperty,
             model.atom.nucleusStableProperty
