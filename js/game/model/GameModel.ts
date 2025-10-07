@@ -111,6 +111,9 @@ class GameModel implements TModel {
   // Current challenge number in the level, starting from 1. Used only for the finite status bar.
   public readonly challengeNumberProperty: Property<number>;
 
+  // The total number of challenges in each level. Read-only and not customizable with phet-io.
+  public readonly numberOfChallengesProperty: ReadOnlyProperty<number> = new Property<number>( GameModel.CHALLENGES_PER_LEVEL );
+
   // The current challenge that is being played.
   public readonly challengeProperty: Property<BAAGameChallenge | null>;
 

@@ -91,6 +91,19 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
     // Layout
     schematicAtomNode.centerY = layoutBounds.height * 0.5 + BAAConstants.ATOM_VERTICAL_OFFSET;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+      ...this.getChallengeNodesPDOMOrder(),
+      particleCountDisplay,
+      schematicAtomNode
+    ];
+
+    this.answerNodesPDOMOrder = [
+      ...this.getAnswerNodesPDOMOrder(),
+      questionPromptText,
+      chargeNumberSpinner
+    ];
   }
 
   public override checkAnswer(): void {

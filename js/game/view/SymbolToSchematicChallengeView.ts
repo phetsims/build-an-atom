@@ -109,6 +109,16 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.745;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.51;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+      ...this.getChallengeNodesPDOMOrder(),
+      interactiveSymbolNode
+    ];
+    this.answerNodesPDOMOrder = [
+      ...this.getAnswerNodesPDOMOrder(),
+      this.interactiveSchematicAtom
+    ];
   }
 
   public override checkAnswer(): void {

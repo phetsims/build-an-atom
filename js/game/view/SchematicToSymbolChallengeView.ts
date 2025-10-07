@@ -50,6 +50,13 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     // Layout - bounds of AtomNode are dependent on its stability indicator text, so place relative to left.
     schematicAtomNode.left = layoutBounds.width * 0.15;
     schematicAtomNode.centerY = layoutBounds.height * 0.50 + BAAConstants.ATOM_VERTICAL_OFFSET;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+      ...this.getChallengeNodesPDOMOrder(),
+      schematicAtomNode,
+      particleCountDisplay
+    ];
   }
 }
 

@@ -27,6 +27,14 @@ class CountsToSymbolChallengeView extends ToSymbolChallengeView {
     // layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.48;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+
+      // start with order of the super class
+      ...this.getChallengeNodesPDOMOrder(),
+      particleCountsNode
+    ];
   }
 }
 

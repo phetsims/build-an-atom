@@ -69,10 +69,16 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   private readonly gameAudioPlayer: GameAudioPlayer;
 
   // The buttons that are used to interact with the challenge.
-  private readonly buttons: TextPushButton[];
+  public readonly answerButtons: TextPushButton[];
   private readonly nextButton: TextPushButton;
   private readonly tryAgainButton: TextPushButton;
   private readonly showAnswerButton: TextPushButton;
+
+  // Collections of Nodes exposed for ordering in the PDOM. Subclasses need to add
+  // specific components to these lists, in the order they should appear. The ScreenView will then
+  // place these components in order to the appropriate accessible sections.
+  public challengeNodesPDOMOrder: Node[] = [];
+  public answerNodesPDOMOrder: Node[] = [];
 
   // The node that will be used to display the correct answer prior to answering the challenge.  This is for internal
   // use only, and is used to make it easier to move through the game while testing.
@@ -125,7 +131,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.addChild( feedbackNode );
 
     // buttons
-    this.buttons = [];
+    this.answerButtons = [];
     this.checkButton = new TextPushButton( checkStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { this.checkAnswer(); },
       tandem: tandem.createTandem( 'checkButton' ),
@@ -133,32 +139,32 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     }, COMMON_BUTTON_OPTIONS ) );
 
     this.addChild( this.checkButton );
-    this.buttons.push( this.checkButton );
+    this.answerButtons.push( this.checkButton );
 
     this.nextButton = new TextPushButton( nextStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.next(); },
       tandem: tandem.createTandem( 'nextButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.nextButton );
-    this.buttons.push( this.nextButton );
+    this.answerButtons.push( this.nextButton );
 
     this.tryAgainButton = new TextPushButton( tryAgainStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.tryAgain(); },
       tandem: tandem.createTandem( 'tryAgainButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.tryAgainButton );
-    this.buttons.push( this.tryAgainButton );
+    this.answerButtons.push( this.tryAgainButton );
 
     this.showAnswerButton = new TextPushButton( showAnswerStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => { challenge.displayCorrectAnswer(); },
       tandem: tandem.createTandem( 'showAnswerButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.showAnswerButton );
-    this.buttons.push( this.showAnswerButton );
+    this.answerButtons.push( this.showAnswerButton );
 
     // Utility function to hide all buttons and the feedback face.
     const hideButtonsAndFace = () => {
-      this.buttons.forEach( button => {
+      this.answerButtons.forEach( button => {
         button.visible = false;
       } );
       feedbackNode.visible = false;
@@ -265,10 +271,26 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   public abstract createAnswerNode(): Node;
 
   /**
+   * Returns a defensive copy of the challengeNodesPDOMOrder array. Useful so that
+   * subclasses can add to the array without duplicating the order of the base class.
+   */
+  public getChallengeNodesPDOMOrder(): Node[] {
+    return this.challengeNodesPDOMOrder.slice();
+  }
+
+  /**
+   * Returns a defensive copy of the answerNodesPDOMOrder array. Useful so that
+   * subclasses can add to the array without duplicating the order of the base class.
+   */
+  public getAnswerNodesPDOMOrder(): Node[] {
+    return this.answerNodesPDOMOrder.slice();
+  }
+
+  /**
    * Function to set the positions of all buttons.
    */
   private setButtonCenter( buttonCenter: Vector2 ): void {
-    this.buttons.forEach( button => {
+    this.answerButtons.forEach( button => {
       button.localBoundsProperty.link( () => {
         button.center = buttonCenter;
       } );

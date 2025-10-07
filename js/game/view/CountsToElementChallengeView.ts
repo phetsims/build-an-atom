@@ -27,6 +27,14 @@ class CountsToElementChallengeView extends ToElementChallengeView {
     // Layout
     particleCountsNode.centerX = this.periodicTable.left / 2;
     particleCountsNode.centerY = this.periodicTable.centerY;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+
+      // start with order of the super class
+      ...this.getChallengeNodesPDOMOrder(),
+      particleCountsNode
+    ];
   }
 }
 

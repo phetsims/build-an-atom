@@ -89,6 +89,18 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
     // Layout
     schematicAtomNode.centerY = layoutBounds.height * 0.5 + BAAConstants.ATOM_VERTICAL_OFFSET;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+      ...this.getChallengeNodesPDOMOrder(),
+      schematicAtomNode,
+      particleCountDisplay
+    ];
+
+    this.answerNodesPDOMOrder = [
+      ...this.getAnswerNodesPDOMOrder(),
+      massNumberSpinner
+    ];
   }
 
   public override checkAnswer(): void {

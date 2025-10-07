@@ -67,6 +67,20 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+
+      // start with order of the super class
+      ...this.getChallengeNodesPDOMOrder(),
+      particleCountsNode
+    ];
+
+    this.answerNodesPDOMOrder = [
+
+      ...this.getAnswerNodesPDOMOrder(),
+      massNumberSpinner
+    ];
   }
 
   public override checkAnswer(): void {

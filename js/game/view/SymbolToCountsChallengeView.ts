@@ -49,6 +49,17 @@ class SymbolToCountsChallengeView extends ChallengeView {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
     this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.49;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+      ...this.getChallengeNodesPDOMOrder(),
+      interactiveSymbolNode
+    ];
+
+    this.answerNodesPDOMOrder = [
+      ...this.getAnswerNodesPDOMOrder(),
+      this.interactiveParticleCountsNode
+    ];
   }
 
   public override checkAnswer(): void {

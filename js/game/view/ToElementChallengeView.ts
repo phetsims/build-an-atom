@@ -133,6 +133,15 @@ class ToElementChallengeView extends ChallengeView {
       neutralAtomVersusIonQuestion.right = this.periodicTable.right;
       neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
     } );
+
+    // Assign challenge specific components to the a11y view
+    this.challengeNodesPDOMOrder = [
+      this.periodicTable,
+      neutralAtomVersusIonQuestion
+    ];
+    this.answerNodesPDOMOrder = [
+      ...this.answerButtons
+    ];
   }
 
 

@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import GatedVisibleProperty from '../../../../axon/js/GatedVisibleProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -16,6 +15,7 @@ import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioS
 import Tandem from '../../../../tandem/js/Tandem.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
+import GameScreenNode from '../../../../vegas/js/GameScreenNode.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -86,7 +86,7 @@ class GameScreenView extends ScreenView {
       gameModel.scoreProperty,
       {
         challengeNumberProperty: gameModel.challengeNumberProperty,
-        numberOfChallengesProperty: new Property( GameModel.CHALLENGES_PER_LEVEL ),
+        numberOfChallengesProperty: gameModel.numberOfChallengesProperty,
         elapsedTimeProperty: gameModel.timer.elapsedTimeProperty,
         timerEnabledProperty: gameModel.timerEnabledProperty,
         barFill: 'rgb( 49, 117, 202 )',
@@ -112,6 +112,10 @@ class GameScreenView extends ScreenView {
 
     // Create the audio player for the game.
     const gameAudioPlayer = new GameAudioPlayer();
+
+    // A parent Node for the challenge views, with sections for accessible content.
+    const gameScreenNode = new GameScreenNode( gameModel.challengeNumberProperty, gameModel.numberOfChallengesProperty );
+    this.addChild( gameScreenNode );
 
     // Show the challenge view associated with the current challenge, or remove it if there is no challenge.
     gameModel.challengeProperty.link( challenge => {
@@ -177,6 +181,17 @@ class GameScreenView extends ScreenView {
         }
       }
     } );
+
+    // pdom - assign components to the correct GameScreenNode sections,
+    gameScreenNode.accessibleChallengeSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
+      challenge => this.challengeViewSet.get( challenge ).challengeNodesPDOMOrder
+    );
+    gameScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
+      challenge => this.challengeViewSet.get( challenge ).answerNodesPDOMOrder
+    );
+    gameScreenNode.accessibleProgressSectionNode.pdomOrder = [
+      statusBar
+    ];
   }
 
   public override step( elapsedTime: number ): void {

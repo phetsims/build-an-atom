@@ -50,6 +50,15 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     schematicAtomNode.right = this.periodicTable.left - 50;
     schematicAtomNode.centerY = this.periodicTable.centerY - particleCountDisplay.height / 2 + BAAConstants.ATOM_VERTICAL_OFFSET;
     particleCountDisplay.left = schematicAtomNode.left;
+
+    // pdom order
+    this.challengeNodesPDOMOrder = [
+
+      // start with order of the super class
+      ...this.getChallengeNodesPDOMOrder(),
+      schematicAtomNode,
+      particleCountDisplay
+    ];
   }
 }
 
