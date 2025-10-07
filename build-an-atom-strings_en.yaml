@@ -45,6 +45,7 @@ a11y:
       expanded: "Expanded"
       collapsed: "Collapsed"
     atomAccessibleListNode:
+      accessibleHeading: Model Atom
       nucleusInfoFull: Nucleus contains {{particles}}.
       nucleusInfoEmpty: Nucleus empty.
       protons: Protons

@@ -60,6 +60,7 @@ type StringsType = {
         'collapsedStringProperty': LocalizedStringProperty;
       };
       'atomAccessibleListNode': {
+        'accessibleHeadingStringProperty': LocalizedStringProperty;
         'nucleusInfoFullStringProperty': LocalizedStringProperty;
         'nucleusInfoEmptyStringProperty': LocalizedStringProperty;
         'protonsStringProperty': LocalizedStringProperty;

@@ -125,7 +125,8 @@ class BAAScreenView extends ScreenView {
       electronShellDepictionProperty: this.viewProperties.electronModelProperty,
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false,
-      phetioFeatured: true
+      phetioFeatured: true,
+      accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty
     } );
 
     this.atomNode.addChild(
