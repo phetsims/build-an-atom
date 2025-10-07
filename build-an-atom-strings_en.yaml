@@ -56,17 +56,25 @@ a11y:
       cloudInfoEmpty: Cloud empty.
 
     buckets:
-      grabbed: "Grabbed"
-      released: "Released"
-    protonBucket:
-      accessibleName: "Proton Bucket"
-      accessibleHelpText: "Grab proton. Once grabbed, use arrow keys to move to specific location."
-    neutronBucket:
-      accessibleName: "Neutron Bucket"
-      accessibleHelpText: "Grab neutron. Once grabbed, use arrow keys to move to specific location."
-    electronBucket:
-      accessibleName: "Electron Bucket"
-      accessibleHelpText: "Grab electron. Once grabbed, use arrow keys to move to specific location."
+      proton: Proton
+      neutron: Neutron
+      electron: Electron
+      accessibleName: "{{particle}} Bucket"
+      accessibleHelpText: "Grab {{particle}}. Once grabbed, use arrow keys to move to specific location."
+      accessibleHeading: Particles
+      grabbed: Grabbed.
+      released: Released.
+      overNucleus: Over nucleus.
+      overInnerShell: Over inner shell.
+      overOuterShell: Over outer shell.
+      nearBuckets: Near buckets.
+      overAtom: Over atom.
+      particleAddedTo: "Particle added to {{location}}."
+      nucleus: nucleus
+      innerShell: inner shell
+      outerShell: outer shell
+      particleReturnedToBucket: Particle returned to bucket.
+      bucketEmpty: Bucket empty.
 
     noElementContextResponse: "No element yet."
     elementNameCheckbox:

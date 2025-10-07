@@ -11,6 +11,7 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { equalsEpsilon } from '../../../../dot/js/util/equalsEpsilon.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -140,12 +141,32 @@ class BAAScreenView extends ScreenView {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node( {
-      accessibleHeading: 'Particles'
+      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty
     } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
 
-    for ( const bucket of model.buckets ) {
+    const createBucketFront = ( bucket: SphereBucket<Particle>, particleTypeStringProperty: TReadOnlyProperty<string> ): void => {
+        const bucketAccessibleNameProperty = new DerivedStringProperty(
+        [
+          particleTypeStringProperty,
+          BuildAnAtomStrings.a11y.common.buckets.accessibleNameStringProperty
+        ],
+        ( particleType: string, accessibleName: string ) => {
+          return StringUtils.fillIn( accessibleName, { particle: particleType } );
+        }
+      );
+
+      const bucketaccessibleHelpTextProperty = new DerivedStringProperty(
+        [
+          particleTypeStringProperty,
+          BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
+        ],
+        ( particleType: string, accessibleHelpText: string ) => {
+          return StringUtils.fillIn( accessibleHelpText, { particle: particleType } );
+        }
+      );
+
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         labelNode: new Text( bucket.captionText, {
           font: new PhetFont( 20 ),
@@ -158,7 +179,9 @@ class BAAScreenView extends ScreenView {
         gradientLuminanceRight: -0.6,
 
         // pdom
-        tagName: 'button'
+        tagName: 'button',
+        accessibleName: bucketAccessibleNameProperty,
+        accessibleHelpText: bucketaccessibleHelpTextProperty
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
@@ -225,7 +248,11 @@ class BAAScreenView extends ScreenView {
 
       // Keep track of the bucket front views so that we can set focus on them later when needed.
       this.mapBucketsToViews.set( bucket, bucketFront );
-    }
+    };
+
+    createBucketFront( model.protonBucket, BuildAnAtomStrings.a11y.common.buckets.protonStringProperty );
+    createBucketFront( model.neutronBucket, BuildAnAtomStrings.a11y.common.buckets.neutronStringProperty );
+    createBucketFront( model.electronBucket, BuildAnAtomStrings.a11y.common.buckets.electronStringProperty );
 
     // Create the layer where the nucleons and electrons will go.
     const particleLayer = new Node();

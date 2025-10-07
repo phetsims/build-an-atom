@@ -62,14 +62,22 @@ addToMapIfDefined( 'a11y_common_atomAccessibleListNode_neutrons', 'a11y.common.a
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protonsAndNeutrons', 'a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_shellInfoEmpty', 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_proton', 'a11y.common.buckets.protonStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_neutron', 'a11y.common.buckets.neutronStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_electron', 'a11y.common.buckets.electronStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_accessibleHeading', 'a11y.common.buckets.accessibleHeadingStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_grabbed', 'a11y.common.buckets.grabbedStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_released', 'a11y.common.buckets.releasedStringProperty' );
-addToMapIfDefined( 'a11y_common_protonBucket_accessibleName', 'a11y.common.protonBucket.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_common_protonBucket_accessibleHelpText', 'a11y.common.protonBucket.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_common_neutronBucket_accessibleName', 'a11y.common.neutronBucket.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_common_neutronBucket_accessibleHelpText', 'a11y.common.neutronBucket.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_common_electronBucket_accessibleName', 'a11y.common.electronBucket.accessibleNameStringProperty' );
-addToMapIfDefined( 'a11y_common_electronBucket_accessibleHelpText', 'a11y.common.electronBucket.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_overNucleus', 'a11y.common.buckets.overNucleusStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_overInnerShell', 'a11y.common.buckets.overInnerShellStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_overOuterShell', 'a11y.common.buckets.overOuterShellStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_nearBuckets', 'a11y.common.buckets.nearBucketsStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_overAtom', 'a11y.common.buckets.overAtomStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_nucleus', 'a11y.common.buckets.nucleusStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_innerShell', 'a11y.common.buckets.innerShellStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_outerShell', 'a11y.common.buckets.outerShellStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_particleReturnedToBucket', 'a11y.common.buckets.particleReturnedToBucketStringProperty' );
+addToMapIfDefined( 'a11y_common_buckets_bucketEmpty', 'a11y.common.buckets.bucketEmptyStringProperty' );
 addToMapIfDefined( 'a11y_common_noElementContextResponse', 'a11y.common.noElementContextResponseStringProperty' );
 addToMapIfDefined( 'a11y_common_elementNameCheckbox_accessibleName', 'a11y.common.elementNameCheckbox.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_common_elementNameCheckbox_accessibleHelpText', 'a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty' );
@@ -174,20 +182,25 @@ const BuildAnAtomFluent = {
         cloudInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' ) )
       },
       buckets: {
+        protonStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_proton', _.get( BuildAnAtomStrings, 'a11y.common.buckets.protonStringProperty' ) ),
+        neutronStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_neutron', _.get( BuildAnAtomStrings, 'a11y.common.buckets.neutronStringProperty' ) ),
+        electronStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_electron', _.get( BuildAnAtomStrings, 'a11y.common.buckets.electronStringProperty' ) ),
+        accessibleNameStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.buckets.accessibleNameStringProperty' ),
+        accessibleHelpTextStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.buckets.accessibleHelpTextStringProperty' ),
+        accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.common.buckets.accessibleHeadingStringProperty' ) ),
         grabbedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_grabbed', _.get( BuildAnAtomStrings, 'a11y.common.buckets.grabbedStringProperty' ) ),
-        releasedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_released', _.get( BuildAnAtomStrings, 'a11y.common.buckets.releasedStringProperty' ) )
-      },
-      protonBucket: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_protonBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.protonBucket.accessibleNameStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_protonBucket_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.protonBucket.accessibleHelpTextStringProperty' ) )
-      },
-      neutronBucket: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.neutronBucket.accessibleNameStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_neutronBucket_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.neutronBucket.accessibleHelpTextStringProperty' ) )
-      },
-      electronBucket: {
-        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_electronBucket_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.electronBucket.accessibleNameStringProperty' ) ),
-        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_electronBucket_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.electronBucket.accessibleHelpTextStringProperty' ) )
+        releasedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_released', _.get( BuildAnAtomStrings, 'a11y.common.buckets.releasedStringProperty' ) ),
+        overNucleusStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_overNucleus', _.get( BuildAnAtomStrings, 'a11y.common.buckets.overNucleusStringProperty' ) ),
+        overInnerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_overInnerShell', _.get( BuildAnAtomStrings, 'a11y.common.buckets.overInnerShellStringProperty' ) ),
+        overOuterShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_overOuterShell', _.get( BuildAnAtomStrings, 'a11y.common.buckets.overOuterShellStringProperty' ) ),
+        nearBucketsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_nearBuckets', _.get( BuildAnAtomStrings, 'a11y.common.buckets.nearBucketsStringProperty' ) ),
+        overAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_overAtom', _.get( BuildAnAtomStrings, 'a11y.common.buckets.overAtomStringProperty' ) ),
+        particleAddedToStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.buckets.particleAddedToStringProperty' ),
+        nucleusStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_nucleus', _.get( BuildAnAtomStrings, 'a11y.common.buckets.nucleusStringProperty' ) ),
+        innerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_innerShell', _.get( BuildAnAtomStrings, 'a11y.common.buckets.innerShellStringProperty' ) ),
+        outerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_outerShell', _.get( BuildAnAtomStrings, 'a11y.common.buckets.outerShellStringProperty' ) ),
+        particleReturnedToBucketStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_particleReturnedToBucket', _.get( BuildAnAtomStrings, 'a11y.common.buckets.particleReturnedToBucketStringProperty' ) ),
+        bucketEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_bucketEmpty', _.get( BuildAnAtomStrings, 'a11y.common.buckets.bucketEmptyStringProperty' ) )
       },
       noElementContextResponseStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_noElementContextResponse', _.get( BuildAnAtomStrings, 'a11y.common.noElementContextResponseStringProperty' ) ),
       elementNameCheckbox: {

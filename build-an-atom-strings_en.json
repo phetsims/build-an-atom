@@ -156,35 +156,62 @@
         }
       },
       "buckets": {
+        "proton": {
+          "value": "Proton"
+        },
+        "neutron": {
+          "value": "Neutron"
+        },
+        "electron": {
+          "value": "Electron"
+        },
+        "accessibleName": {
+          "value": "{{particle}} Bucket"
+        },
+        "accessibleHelpText": {
+          "value": "Grab {{particle}}. Once grabbed, use arrow keys to move to specific location."
+        },
+        "accessibleHeading": {
+          "value": "Particles"
+        },
         "grabbed": {
-          "value": "Grabbed"
+          "value": "Grabbed."
         },
         "released": {
-          "value": "Released"
-        }
-      },
-      "protonBucket": {
-        "accessibleName": {
-          "value": "Proton Bucket"
+          "value": "Released."
         },
-        "accessibleHelpText": {
-          "value": "Grab proton. Once grabbed, use arrow keys to move to specific location."
-        }
-      },
-      "neutronBucket": {
-        "accessibleName": {
-          "value": "Neutron Bucket"
+        "overNucleus": {
+          "value": "Over nucleus."
         },
-        "accessibleHelpText": {
-          "value": "Grab neutron. Once grabbed, use arrow keys to move to specific location."
-        }
-      },
-      "electronBucket": {
-        "accessibleName": {
-          "value": "Electron Bucket"
+        "overInnerShell": {
+          "value": "Over inner shell."
         },
-        "accessibleHelpText": {
-          "value": "Grab electron. Once grabbed, use arrow keys to move to specific location."
+        "overOuterShell": {
+          "value": "Over outer shell."
+        },
+        "nearBuckets": {
+          "value": "Near buckets."
+        },
+        "overAtom": {
+          "value": "Over atom."
+        },
+        "particleAddedTo": {
+          "value": "Particle added to {{location}}."
+        },
+        "nucleus": {
+          "value": "nucleus"
+        },
+        "innerShell": {
+          "value": "inner shell"
+        },
+        "outerShell": {
+          "value": "outer shell"
+        },
+        "particleReturnedToBucket": {
+          "value": "Particle returned to bucket."
+        },
+        "bucketEmpty": {
+          "value": "Bucket empty."
         }
       },
       "noElementContextResponse": {
