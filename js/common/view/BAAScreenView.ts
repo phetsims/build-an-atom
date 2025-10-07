@@ -11,6 +11,7 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { equalsEpsilon } from '../../../../dot/js/util/equalsEpsilon.js';
@@ -51,6 +52,7 @@ import BAAModel from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
+import BucketGrabCueNode from './BucketGrabCueNode.js';
 import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
 import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronModelControl from './ElectronModelControl.js';
@@ -78,6 +80,9 @@ class BAAScreenView extends ScreenView {
 
   // Properties that control how the atom is displayed.
   private readonly viewProperties: AtomViewProperties;
+
+  // flag to track whether the user has extracted a particle from a bucket yet
+  private readonly hasBucketInteractionOccurredProperty = new Property<boolean>( false );
 
   // A map that associates particles with their views for quick lookup.
   private readonly mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
@@ -199,31 +204,16 @@ class BAAScreenView extends ScreenView {
         }
       } ) );
 
-      // Define a function that will find the view for a given particle.  Returns null if not found.
-      const findParticleView = ( particle: Particle ): ParticleView | null => {
-        let particleView = null;
-        for ( const node of particleLayer.children ) {
-          if ( node instanceof ParticleView && node.particle === particle ) {
-            particleView = node;
-            break;
-          }
-        }
-        if ( !particleView ) {
-          particleView = this.atomNode.getParticleView( particle );
-        }
-        return particleView;
-      };
-
-      // Add an input listener for accessibility that will be fired when the user presses enter or space while the
-      // bucket has focus.  This will extract a particle from the bucket and add it to the atom.
+      // Add a listener for alt-input that will be fired when the user presses enter or space while the bucket has
+      // focus.  This will extract a particle from the bucket and add it to the atom.
       bucketFront.addInputListener( {
         click: () => {
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
 
             // Get the view node that is associated with this particle.
-            const particleView = findParticleView( particle );
-            affirm( particleView !== null, 'ParticleView not found for extracted particle' );
+            const particleView = this.mapParticlesToViews.get( particle );
+            affirm( particleView, 'ParticleView not found for extracted particle' );
 
             // Set the focus to the particle's view so that it can be manipulated via keyboard.
             particleView.focusable = true;
@@ -234,6 +224,9 @@ class BAAScreenView extends ScreenView {
 
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
+
+            // Indicate that the user has interacted with the buckets.
+            this.hasBucketInteractionOccurredProperty.value = true;
           }
         }
       } );
@@ -245,6 +238,15 @@ class BAAScreenView extends ScreenView {
     createBucketFront( model.protonBucket, BuildAnAtomStrings.a11y.common.buckets.protonStringProperty );
     createBucketFront( model.neutronBucket, BuildAnAtomStrings.a11y.common.buckets.neutronStringProperty );
     createBucketFront( model.electronBucket, BuildAnAtomStrings.a11y.common.buckets.electronStringProperty );
+
+    // Add the alt-input grab/release cue node.
+    bucketFrontLayer.addChild( new BucketGrabCueNode(
+      this.mapBucketsToViews.get( model.protonBucket )!,
+      this.mapBucketsToViews.get( model.neutronBucket )!,
+      this.mapBucketsToViews.get( model.electronBucket )!,
+      this.hasBucketInteractionOccurredProperty,
+      bucketsTandem.createTandem( 'bucketGrabCueNode' )
+    ) );
 
     // Create the layer where the nucleons and electrons will go.
     const particleLayer = new Node();
@@ -340,49 +342,6 @@ class BAAScreenView extends ScreenView {
         }
       } );
     } );
-
-    // Listen for when the number of particles in the atom changes and make sure that there is always one focusable
-    // particle there.
-    // model.atom.particleCountProperty.lazyLink( ( particleCount: number ) => {
-    //   if ( particleCount > 0 ) {
-    //
-    //     // Count the number of focusable particles in the atom.
-    //     let numberOfFocusableParticlesInAtom = 0;
-    //     const particlesInAtom: Particle[] = [
-    //       ...model.atom.protons,
-    //       ...model.atom.neutrons,
-    //       ...model.atom.electrons
-    //     ];
-    //     particlesInAtom.forEach( particle => {
-    //       const particleView = this.mapParticlesToViews.get( particle );
-    //       affirm( particleView, 'Missing ParticleView for particle' );
-    //       if ( particleView.focusable ) {
-    //         numberOfFocusableParticlesInAtom++;
-    //       }
-    //     } );
-    //
-    //     if ( numberOfFocusableParticlesInAtom === 0 ) {
-    //
-    //       // There are no focusable particles in the atom, so make one of them focusable.  This is done based on the
-    //       // designed precedence order: proton, neutron, electron.
-    //       const particleTypesInPrecedenceOrder: ParticleType[] = [ 'proton', 'neutron', 'electron' ];
-    //       for ( const particleType of particleTypesInPrecedenceOrder ) {
-    //         const particle = this.getClosestParticleToAtomCenter( particleType );
-    //         if ( particle ) {
-    //           const particleView = this.mapParticlesToViews.get( particle );
-    //           affirm( particleView, 'Missing ParticleView for particle' );
-    //           if ( particleType === 'electron' && this.viewProperties.electronModelProperty.value === 'cloud' ) {
-    //             this.atomNode.electronCloud.focusable = true;
-    //           }
-    //           else {
-    //             particleView.focusable = true;
-    //           }
-    //           break;
-    //         }
-    //       }
-    //     }
-    //   }
-    // } );
 
     // The following code manages the visibility of the individual electron particles.  When the electrons are
     // represented as a cloud, the individual particles become invisible when added to the atom, but remain visible when
@@ -617,8 +576,8 @@ class BAAScreenView extends ScreenView {
       } ) );
     } );
     this.addChild( particleLayer );
-    this.addChild( bucketFrontLayer );
     this.addChild( this.atomNode );
+    this.addChild( bucketFrontLayer );
     this.addChild( resetAllButton );
 
     // pdom - set navigation order for the Atom screen view
@@ -865,6 +824,7 @@ class BAAScreenView extends ScreenView {
 
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
+    this.hasBucketInteractionOccurredProperty.reset();
     this.viewProperties.reset();
   }
 
