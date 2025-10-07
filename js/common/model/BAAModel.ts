@@ -8,7 +8,9 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Emitter from '../../../../axon/js/Emitter.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import TEmitter from '../../../../axon/js/TEmitter.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -46,6 +48,8 @@ type SelfOptions = {
   isInitialAtomConfigurable?: boolean; // If true, the initial atom configuration can be changed by query parameter.
 };
 
+export type AtomDestinations = 'nucleus' | 'innerElectronShell' | 'outerElectronShell' | 'electronCloud';
+
 export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 class BAAModel {
@@ -71,6 +75,10 @@ class BAAModel {
 
   // count for how many times the nucleus has jumped
   private nucleusJumpCount = 0;
+
+  // Emitter for context response for when particles are animated to position
+  public returnedToBucketEmitter: TEmitter;
+  public addedToAtomEmitter: TEmitter<[ AtomDestinations ]>;
 
   public constructor( providedOptions: BAAModelOptions ) {
 
@@ -121,13 +129,18 @@ class BAAModel {
 
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
+    this.returnedToBucketEmitter = new Emitter();
+    this.addedToAtomEmitter = new Emitter<[ AtomDestinations ]>( { parameters: [ { valueType: 'string' } ] } );
+
     // Define a function that will decide where to put nucleons.
     const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
+        this.addedToAtomEmitter.emit( 'nucleus' );
       }
       else {
         bucket.addParticleNearestOpen( particle, true );
+        this.returnedToBucketEmitter.emit();
       }
     };
 
@@ -196,10 +209,21 @@ class BAAModel {
         }
         else if ( !isDragging && !this.electronBucket.includes( electron ) ) {
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
+            if ( this.atom.electronCountProperty.value <= 2 ) {
+              // Electron will go to inner shell
+
+              this.addedToAtomEmitter.emit( 'innerElectronShell' );
+            }
+            else {
+              // Electron will go to outer shell
+
+              this.addedToAtomEmitter.emit( 'outerElectronShell' );
+            }
             this.atom.addParticle( electron );
           }
           else {
             this.electronBucket.addParticleNearestOpen( electron, true );
+            this.returnedToBucketEmitter.emit();
           }
         }
       } );

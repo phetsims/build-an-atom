@@ -49,7 +49,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAModel from '../model/BAAModel.js';
+import BAAModel, { AtomDestinations } from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
@@ -270,6 +270,43 @@ class BAAScreenView extends ScreenView {
 
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
+
+    model.returnedToBucketEmitter.addListener( () => {
+      this.addAccessibleContextResponse( ShredStrings.a11y.buckets.particleReturnedToBucketStringProperty );
+    } );
+
+    model.addedToAtomEmitter.addListener( ( destination: AtomDestinations ) => {
+      const contextResponse = StringUtils.fillIn( ShredStrings.a11y.buckets.particleAddedToStringProperty, {
+        location: destination === 'nucleus' ?
+                  ShredStrings.a11y.buckets.nucleusStringProperty :
+                  destination === 'innerElectronShell' ?
+                  ShredStrings.a11y.buckets.innerShellStringProperty :
+                  destination === 'outerElectronShell' ?
+                  ShredStrings.a11y.buckets.outerShellStringProperty :
+                  destination === 'electronCloud' ?
+                  ShredStrings.a11y.buckets.cloudStringProperty : ''
+      } );
+
+      this.addAccessibleContextResponse( contextResponse );
+    } );
+
+    model.atom.protonCountProperty.link( ( protons: number ) => {
+      if ( protons === 10 ) {
+        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty );
+      }
+    } );
+
+    model.atom.neutronCountProperty.link( ( neutrons: number ) => {
+      if ( neutrons === 14 ) {
+        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty );
+      }
+    } );
+
+    model.atom.electronCountProperty.link( ( electrons: number ) => {
+      if ( electrons === 10 ) {
+        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty );
+      }
+    } );
 
     // Add the particle views.
     [ ...model.nucleons, ...model.electrons ].forEach( particle => {
