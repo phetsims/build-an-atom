@@ -34,7 +34,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
-import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
@@ -86,11 +85,6 @@ class BAAScreenView extends ScreenView {
   // A map that associates buckets with the bucket front views for quick lookup.
   private readonly mapBucketsToViews: Map<ParticleContainer<Particle>, BucketFront> =
     new Map<ParticleContainer<Particle>, BucketFront>();
-
-  // This variable is used to track the origin of a particle that is being dragged via alt-input.  There should only
-  // be one particle dragged at a time, so this is a single variable rather than a collection.  It is only updated at
-  // the beginning of an alt-input drag operation, and may not always be cleared, so use accordingly.
-  private altInputDraggingParticleOrigin: SphereBucket<Particle> | ParticleAtom | null = null;
 
   public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
@@ -148,7 +142,7 @@ class BAAScreenView extends ScreenView {
     const bucketsTandem = tandem.createTandem( 'buckets' );
 
     const createBucketFront = ( bucket: SphereBucket<Particle>, particleTypeStringProperty: TReadOnlyProperty<string> ): void => {
-        const bucketAccessibleNameProperty = new DerivedStringProperty(
+      const bucketAccessibleNameProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
           BuildAnAtomStrings.a11y.common.buckets.accessibleNameStringProperty
@@ -235,9 +229,6 @@ class BAAScreenView extends ScreenView {
             particleView.focusable = true;
             particleView.focus();
 
-            // Keep track of where this particle came from in case it needs to be returned.
-            this.altInputDraggingParticleOrigin = bucket;
-
             // Mark the particle as being controlled by the user via keyboard interaction.
             particle.isDraggingProperty.value = true;
 
@@ -289,7 +280,7 @@ class BAAScreenView extends ScreenView {
       particleLayer.addChild( particleView );
       this.mapParticlesToViews.set( particle, particleView );
 
-      // The particle view will either be a child of this screen view or a child of the atom node, based on where the
+      // The particle view will either be a child of this screen view or a child of the atom node based on where the
       // particle it represents is and what it's doing. The following listener moves it back and forth as needed.  It's
       // necessary to change parent nodes like this to support alt-input group behavior in the atom node.
       Multilink.multilink(
@@ -439,9 +430,6 @@ class BAAScreenView extends ScreenView {
           // Get a reference to the electron most recently added to the atom.
           const electron = model.atom.electrons[ model.atom.electrons.length - 1 ];
           affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
-
-          // Keep track of where this electron came from in case it needs to be returned.
-          this.altInputDraggingParticleOrigin = model.atom;
 
           // Set the electron as being controlled by the user via keyboard interaction.  This should cause it to be
           // removed from the atom.
@@ -801,7 +789,7 @@ class BAAScreenView extends ScreenView {
            this.model.electronBucket;
   }
 
-    /**
+  /**
    * Get the bucket front for the bucket that is "home" for the provided particle.  This is useful in cases where focus
    * needs to move to the bucket from which the particle came.
    */

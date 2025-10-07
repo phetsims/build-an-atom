@@ -27,16 +27,6 @@ const NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowRight', 'arrowLeft', 'arrowDown'
 
 class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
-  // This flag is set at the beginning of the process through which alt-input removes a particle from the atom, and it
-  // is cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener from
-  // setting isDragging to false during the removal process.  The blur event ends up being triggered during the removal
-  // process because the particle changes layers, which causes it to lose focus.
-  private isParticleBeingRemovedFromAtomViaAltInput = false;
-
-  // This variable is used to track the position of a particle at the start of an alt-input drag.  It is only updated at
-  // the beginning of an alt-input drag operation, and may not always be cleared, so use accordingly.
-  private dragStartPosition: SphereBucket<Particle> | ParticleAtom | null = null;
-
   /**
    * Constructor for the BAAParticleKeyboardListener.
    * @param particle - the model Particle that this listener is associated with
@@ -82,6 +72,17 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       outsideAtomOffset
     ];
 
+    // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
+    // is only updated at the beginning of an alt-input drag operation, and may not always be cleared at the end, so use
+    // accordingly.
+    let containerAtDragStart: SphereBucket<Particle> | ParticleAtom = homeBucket;
+
+    // This flag is set at the beginning of the process through which alt-input removes a particle from the atom, and it
+    // is cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener from
+    // setting isDragging to false during the removal process.  The blur event ends up being triggered during the
+    // removal process because the particle changes layers, which causes it to lose focus.
+    let isParticleBeingRemovedFromAtomViaAltInput = false;
+
     super( {
       keys: [
 
@@ -102,8 +103,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           // This particle is in the atom.  If the user presses space or enter, extract it from the atom and position
           // it just below the nucleus.
           if ( keysPressed === 'space' || keysPressed === 'enter' ) {
-            this.isParticleBeingRemovedFromAtomViaAltInput = true;
-            this.dragStartPosition = atom;
+            isParticleBeingRemovedFromAtomViaAltInput = true;
+            containerAtDragStart = atom;
 
             // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
             // will incite the model to remove the particle from the atom.
@@ -112,7 +113,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // This particle is being extracted from the atom, so position it just below the nucleus.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
 
-            this.isParticleBeingRemovedFromAtomViaAltInput = false;
+            isParticleBeingRemovedFromAtomViaAltInput = false;
           }
           else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
                     keysPressed === 'd' || keysPressed === 's' ) {
@@ -128,8 +129,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           }
           else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
-            this.isParticleBeingRemovedFromAtomViaAltInput = true;
-            this.dragStartPosition = atom;
+            isParticleBeingRemovedFromAtomViaAltInput = true;
+            containerAtDragStart = atom;
 
             // Set the particle as being dragged, which will cause it to be removed it from the atom.
             particle.isDraggingProperty.value = true;
@@ -156,7 +157,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               shiftFocus( null, 'forward' );
             }
 
-            this.isParticleBeingRemovedFromAtomViaAltInput = false;
+            isParticleBeingRemovedFromAtomViaAltInput = false;
           }
         }
         else if ( particle.isDraggingProperty.value ) {
@@ -253,16 +254,16 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // If the variable that tracks the origin of the alt-input dragged particle is not set, something is
             // wrong with one of more of the code paths.
             affirm(
-              this.dragStartPosition,
-              'dragStartPosition is null when Escape was pressed'
+              containerAtDragStart,
+              'containerAtDragStart is null when Escape was pressed'
             );
-            if ( this.dragStartPosition instanceof SphereBucket ) {
+            if ( containerAtDragStart instanceof SphereBucket ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
               particle.isDraggingProperty.value = false;
               particle.moveImmediatelyToDestination();
               homeBucketFront.focus();
             }
-            else if ( this.dragStartPosition === atom ) {
+            else if ( containerAtDragStart === atom ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
               particle.isDraggingProperty.value = false;
 
@@ -280,9 +281,19 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
         // If focus leaves this particle, release it and let the chips fall where they may (the model code should
         // move it into the atom or back to a homeBucket).  However, DON'T do this if the particle is in the process of
         // being removed from the atom via alt-input.
-        if ( !this.isParticleBeingRemovedFromAtomViaAltInput ) {
+        if ( !isParticleBeingRemovedFromAtomViaAltInput ) {
           particle.isDraggingProperty.value = false;
         }
+      }
+    } );
+
+    // Watch the containerProperty of the particle for an indication of when the particle is extracted from the bucket
+    // and update the containerAtDragStart accordingly.  This is needed to properly handle the Escape key, since we need to
+    // know where the particle came from, and we can't update this in the keyboard listener because the particles never
+    // get focus when they are in a bucket.
+    particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
+      if ( newContainer === null && oldContainer === homeBucket ) {
+        containerAtDragStart = homeBucket;
       }
     } );
   }
