@@ -333,16 +333,24 @@ class BAAScreenView extends ScreenView {
       // particles that are in the atom as needed. The goal is to have one focusable particle in the atom when there are
       // particles there, and none (of course) when the atom is empty.
       particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
+
+        const particleView = this.mapParticlesToViews.get( particle );
+        affirm( particleView, 'Missing ParticleView for particle' );
+
         if ( newContainer === model.atom ) {
 
-          // Make the particle view focusable when it enters the atom and make it the only focusable thing there.
-          const particleView = this.mapParticlesToViews.get( particle );
-          affirm( particleView, 'Missing ParticleView for particle' );
+          // The particle has become part of the atom.  Make it focusable and make it the only focusable thing there.
           this.setAtomParticleViewFocusable( particleView );
         }
-        else if ( oldContainer === model.atom ) {
+        else if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
 
-          // Update what is focusable in the atom now that this particle has left.
+          // This particle was just placed into a bucket, so make sure that it is not focusable.
+          particleView.focusable = false;
+        }
+
+        if ( oldContainer === model.atom ) {
+
+          // If the particle was removed from the atom then update what is focusable there.
           this.setAtomParticleViewFocusable( null );
         }
       } );
