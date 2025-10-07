@@ -585,6 +585,10 @@ class BAAScreenView extends ScreenView {
     this.addChild( bucketFrontLayer );
     this.addChild( resetAllButton );
 
+    // Do an initial update of the focusable state of the particles in the atom in case there are any there.  Query
+    // parameters and phet-io state could have placed particles in the atom at startup.
+    this.setAtomParticleViewFocusable( null );
+
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
       bucketFrontLayer,
