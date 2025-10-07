@@ -227,6 +227,8 @@ class BAAScreenView extends ScreenView {
 
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty );
+
 
             // Indicate that the user has interacted with the buckets.
             this.hasBucketInteractionOccurredProperty.value = true;
