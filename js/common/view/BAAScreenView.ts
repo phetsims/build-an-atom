@@ -385,7 +385,7 @@ class BAAScreenView extends ScreenView {
 
     // Add a keyboard listener to the electron cloud.
     this.atomNode.electronCloud.addInputListener( new KeyboardListener( {
-      keys: [ 'space', 'enter', ...NAVIGATION_KEYS ],
+      keys: [ 'space', 'enter', ...NAVIGATION_KEYS, 'delete', 'backspace' ],
       fireOnDown: false,
       fire: ( event, keysPressed ) => {
 
@@ -407,6 +407,29 @@ class BAAScreenView extends ScreenView {
           affirm( electronView, 'Missing ParticleView for electron' );
           electronView.focusable = true;
           electronView.focus();
+        }
+        else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
+
+          // Get a reference to the electron most recently added to the atom.
+          const electron = model.atom.electrons[ model.atom.electrons.length - 1 ];
+          affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
+
+          // Simulate extraction of a particle from the cloud and putting it back in the bucket.
+          electron.isDraggingProperty.value = true;
+          electron.setPositionAndDestination( model.electronBucket.position );
+          electron.isDraggingProperty.value = false;
+          electron.moveImmediatelyToDestination();
+
+          if ( model.atom.particleCountProperty.value > 0 ) {
+
+            // Update focus to the first focusable particle in the atom.
+            this.updateAtomParticleFocus( null, 'forward' );
+          }
+          else {
+
+            // There are no particles left in the atom, so shift focus to the electron bucket.
+            this.mapBucketsToViews.get( model.electronBucket )!.focus();
+          }
         }
         else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
                   keysPressed === 'w' || keysPressed === 's' ) {
@@ -725,7 +748,9 @@ class BAAScreenView extends ScreenView {
 
     // If there is something available in the atom to shift focus to, do so.
     if ( focusOrder.length > 0 ) {
-      const currentIndex = currentlyFocusedNode === null ? 0 : focusOrder.indexOf( currentlyFocusedNode );
+      const currentIndex = currentlyFocusedNode === null ?
+                           focusOrder.length - 1 :
+                           focusOrder.indexOf( currentlyFocusedNode );
       let newIndex;
       if ( direction === 'forward' ) {
         newIndex = ( currentIndex + 1 ) % focusOrder.length;
