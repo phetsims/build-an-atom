@@ -49,7 +49,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAModel, { AtomDestinations } from '../model/BAAModel.js';
+import BAAModel, { AtomDestinations, MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
@@ -291,20 +291,20 @@ class BAAScreenView extends ScreenView {
     } );
 
     model.atom.protonCountProperty.link( ( protons: number ) => {
-      if ( protons === 10 ) {
-        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
+      if ( protons === MAX_PROTONS ) {
+        this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
     model.atom.neutronCountProperty.link( ( neutrons: number ) => {
-      if ( neutrons === 14 ) {
-        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
+      if ( neutrons === MAX_NEUTRONS ) {
+        this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
     model.atom.electronCountProperty.link( ( electrons: number ) => {
-      if ( electrons === 10 ) {
-        this.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
+      if ( electrons === MAX_ELECTRONS ) {
+        this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
       }
     } );
 

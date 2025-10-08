@@ -30,9 +30,9 @@ import BAAColors from '../BAAColors.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 
 // constants
-const NUM_PROTONS = 10;
-const NUM_NEUTRONS = 13;
-const NUM_ELECTRONS = 10;
+export const MAX_PROTONS = 10;
+export const MAX_NEUTRONS = 13;
+export const MAX_ELECTRONS = 10;
 const NUCLEON_CAPTURE_RADIUS = 100;
 const BUCKET_WIDTH = 120;
 const BUCKET_HEIGHT = BUCKET_WIDTH * 0.45;
@@ -201,11 +201,11 @@ class BAAModel {
     };
 
     // Add the protons and neutrons, aka the nucleons.
-    addNucleons( 'proton', NUM_PROTONS );
-    addNucleons( 'neutron', NUM_NEUTRONS );
+    addNucleons( 'proton', MAX_PROTONS );
+    addNucleons( 'neutron', MAX_NEUTRONS );
 
     // Add the electrons.
-    _.times( NUM_ELECTRONS, index => {
+    _.times( MAX_ELECTRONS, index => {
       const electron = new Particle( 'electron', {
         tandem: electronTandem.createTandem( `electron${index + 1}` ),
         maxZLayer: NUMBER_OF_NUCLEON_LAYERS - 1,
@@ -253,9 +253,9 @@ class BAAModel {
 
     if ( options.isInitialAtomConfigurable ) {
 
-      assert && assert( BAAQueryParameters.protons <= NUM_PROTONS, 'Proton count exceeds maximum allowed' );
-      assert && assert( BAAQueryParameters.neutrons <= NUM_NEUTRONS, 'Neutron count exceeds maximum allowed' );
-      assert && assert( BAAQueryParameters.electrons <= NUM_ELECTRONS, 'Electron count exceeds maximum allowed' );
+      assert && assert( BAAQueryParameters.protons <= MAX_PROTONS, 'Proton count exceeds maximum allowed' );
+      assert && assert( BAAQueryParameters.neutrons <= MAX_NEUTRONS, 'Neutron count exceeds maximum allowed' );
+      assert && assert( BAAQueryParameters.electrons <= MAX_ELECTRONS, 'Electron count exceeds maximum allowed' );
 
       this.setAtomConfiguration( new NumberAtom( {
         protonCount: BAAQueryParameters.protons,
@@ -385,7 +385,7 @@ class BAAModel {
     }
   }
 
-  public static readonly MAX_CHARGE = Math.max( NUM_PROTONS, NUM_ELECTRONS );
+  public static readonly MAX_CHARGE = Math.max( MAX_PROTONS, MAX_ELECTRONS );
   public static readonly NUMBER_OF_NUCLEON_LAYERS = NUMBER_OF_NUCLEON_LAYERS;
 }
 

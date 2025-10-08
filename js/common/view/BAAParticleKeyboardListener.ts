@@ -260,9 +260,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           }
           else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
-            // Move the particle immediately back the bucket from whence it came.
+            // Move the particle immediately back the bucket from whence it came. No accessible object response because the model has its own emitter for that.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.particleReturnedToBucketStringProperty, 'queue' );
 
             particle.isDraggingProperty.value = false;
             particle.moveImmediatelyToDestination();
@@ -307,7 +306,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
         // being removed from the atom via alt-input.
         if ( !isParticleBeingRemovedFromAtomViaAltInput ) {
           particle.isDraggingProperty.value = false;
-          particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.releasedStringProperty, 'queue' );
         }
       },
       tandem: tandem
