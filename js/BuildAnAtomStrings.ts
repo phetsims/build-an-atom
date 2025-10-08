@@ -71,27 +71,6 @@ type StringsType = {
         'shellInfoEmptyStringProperty': LocalizedStringProperty;
         'cloudInfoEmptyStringProperty': LocalizedStringProperty;
       };
-      'buckets': {
-        'protonStringProperty': LocalizedStringProperty;
-        'neutronStringProperty': LocalizedStringProperty;
-        'electronStringProperty': LocalizedStringProperty;
-        'accessibleNameStringProperty': LocalizedStringProperty;
-        'accessibleHelpTextStringProperty': LocalizedStringProperty;
-        'accessibleHeadingStringProperty': LocalizedStringProperty;
-        'grabbedStringProperty': LocalizedStringProperty;
-        'releasedStringProperty': LocalizedStringProperty;
-        'overNucleusStringProperty': LocalizedStringProperty;
-        'overInnerShellStringProperty': LocalizedStringProperty;
-        'overOuterShellStringProperty': LocalizedStringProperty;
-        'nearBucketsStringProperty': LocalizedStringProperty;
-        'overAtomStringProperty': LocalizedStringProperty;
-        'particleAddedToStringProperty': LocalizedStringProperty;
-        'nucleusStringProperty': LocalizedStringProperty;
-        'innerShellStringProperty': LocalizedStringProperty;
-        'outerShellStringProperty': LocalizedStringProperty;
-        'particleReturnedToBucketStringProperty': LocalizedStringProperty;
-        'bucketEmptyStringProperty': LocalizedStringProperty;
-      };
       'noElementContextResponseStringProperty': LocalizedStringProperty;
       'elementNameCheckbox': {
         'accessibleNameStringProperty': LocalizedStringProperty;
