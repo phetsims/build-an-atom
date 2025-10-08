@@ -28,7 +28,6 @@ import BAAColors from '../../common/BAAColors.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import { GameState } from '../model/GameModel.js';
 
-const checkStringProperty = VegasStrings.checkStringProperty;
 const nextStringProperty = VegasStrings.nextStringProperty;
 const showAnswerStringProperty = VegasStrings.showAnswerStringProperty;
 const tryAgainStringProperty = VegasStrings.tryAgainStringProperty;
