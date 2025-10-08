@@ -10,8 +10,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import GrabReleaseCueNode from '../../../../scenery-phet/js/accessibility/nodes/GrabReleaseCueNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -59,22 +57,29 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
       tandem: tandem
     } );
 
-    // Set up offset position relative to the focused bucket.  These are empirically determined, adjust as needed.
-    const mapBucketNodeToCueOffset = new Map<Node, Vector2>(
-      [
-        [ protonBucketNode, new Vector2( 10, -110 ) ],
-        [ neutronBucketNode, new Vector2( 0, -110 ) ],
-        [ electronBucketNode, new Vector2( 0, -110 ) ]
-      ]
-    );
+    // Offset in the Y direction from the top of the bucket node to the bottom of this grab/release node.
+    const yOffsetFromBucketNode = -70;
 
     // Update position when a bucket gains focus.  Note that this assumes that this node and the buckets are in the same
     // coordinate frame.
     bucketNodeWithFocusProperty.link( focusedBucketNode => {
+
       if ( focusedBucketNode ) {
-        const offset = mapBucketNodeToCueOffset.get( focusedBucketNode );
-        affirm( offset, 'No offset found for focused bucket node' );
-        this.center = focusedBucketNode.center.plus( offset );
+
+        // The y-offset is the same for all buckets.
+        this.bottom = focusedBucketNode.top + yOffsetFromBucketNode;
+
+        // The x-offset depends on which bucket has focus.
+        if ( focusedBucketNode === protonBucketNode ) {
+
+          // This one needs to be positioned such that it doesn't go off the left side of the screen.
+          this.left = 10;
+        }
+        else {
+
+          // Center this node over the focused bucket.
+          this.centerX = focusedBucketNode.centerX;
+        }
       }
     } );
   }
