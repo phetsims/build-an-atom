@@ -133,7 +133,18 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     // buttons
     this.answerButtons = [];
     this.checkButton = new TextPushButton( checkStringProperty, combineOptions<TextPushButtonOptions>( {
-      listener: () => { this.checkAnswer(); },
+      listener: () => {
+        this.checkAnswer();
+
+        // Focus management. If the answer was correct, move focus to the next challenge button.
+        // Otherwise, move to the try again button.
+        if ( challenge.model.gameStateProperty.value === 'solvedCorrectly' ) {
+          this.nextButton.focus();
+        }
+        else {
+          this.tryAgainButton.focus();
+        }
+      },
       tandem: tandem.createTandem( 'checkButton' ),
       soundPlayer: nullSoundPlayer // Turn off default sound, since a feedback sound will be played instead.
     }, COMMON_BUTTON_OPTIONS ) );
@@ -142,7 +153,13 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.answerButtons.push( this.checkButton );
 
     this.nextButton = new TextPushButton( nextStringProperty, combineOptions<TextPushButtonOptions>( {
-      listener: () => { challenge.next(); },
+      listener: () => {
+
+        // TODO: When a new challenge is shown, the heading for the next challenge gets focus. Makes sense, but
+        //  was accidental from how I implemented it. Is this OK? If so, ill make sure it is more intentional.
+        //  See https://github.com/phetsims/vegas/issues/138
+        challenge.next();
+      },
       tandem: tandem.createTandem( 'nextButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.nextButton );
