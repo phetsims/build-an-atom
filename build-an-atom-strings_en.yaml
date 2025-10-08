@@ -96,7 +96,7 @@ a11y:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
     netCharge:
       accessibleName: "Net Charge"
-      accessibleParagraph: "Net Charge is {{value}}. There are {{protons}} plus signs and {{electrons}} minus signs."
+      accessibleParagraph: "Net Charge is {{sign}}{{value}}. There are {{protons}} plus signs and {{electrons}} minus signs."
     massNumber:
       accessibleName: "Mass Number"
       accessibleParagraph: "Mass Number is {{value}}."

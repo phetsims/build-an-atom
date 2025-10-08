@@ -9,6 +9,7 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -60,8 +61,12 @@ class AtomScreenView extends BAAScreenView {
         electronCount: number,
         accessibleParagraphString: string
       ) => {
+        const charge = protonCount - electronCount;
+        const sign = charge < 0 ? MathSymbols.MINUS :
+                     charge > 0 ? MathSymbols.PLUS : '';
         return StringUtils.fillIn( accessibleParagraphString, {
-          value: protonCount - electronCount,
+          sign: sign,
+          value: Math.abs( charge ),
           protons: protonCount,
           electrons: electronCount
         } );

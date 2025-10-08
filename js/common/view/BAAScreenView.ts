@@ -361,8 +361,6 @@ class BAAScreenView extends ScreenView {
         particleView,
         this.getHomeBucketFront( particle ),
         this.atomNode.electronCloud,
-        model.atom.innerElectronShellRadius,
-        model.atom.outerElectronShellRadius,
         this.updateAtomParticleFocus.bind( this ),
         tandem.createTandem( 'particleViewKeyboardListener' )
       ) );
