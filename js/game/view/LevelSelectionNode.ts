@@ -164,10 +164,10 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
 
     // pdom - traversal order and section grouping
     this.accessibleLevelsSectionNode.pdomOrder = [
-      buttonGroup
+      buttonGroup,
+      gamesInfoButton
     ];
     this.accessibleControlsSectionNode.pdomOrder = [
-      gamesInfoButton,
       timerToggleButton,
       resetAllButton
     ];
