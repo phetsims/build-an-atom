@@ -19,7 +19,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
-import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
+import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -85,25 +85,36 @@ class ToElementChallengeView extends ChallengeView {
       maxWidth: MAX_WIDTH
     } );
 
-    const radioButtonTandems = tandem.createTandem( 'neutralOrIonRadioButtons' );
-    const neutralAtomRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'neutral', new Text( BuildAnAtomFluent.neutralAtomStringProperty, {
-      font: new PhetFont( 18 ),
-      maxWidth: MAX_WIDTH
-    } ), {
-      radius: 8,
-      tandem: radioButtonTandems.createTandem( 'neutralAtomRadioButton' ),
-      phetioVisiblePropertyInstrumented: false
-    } );
-    const ionRadioButton = new AquaRadioButton( this.neutralOrIonProperty, 'ion', new Text( BuildAnAtomFluent.ionStringProperty, {
-      font: new PhetFont( 18 ),
-      maxWidth: MAX_WIDTH
-    } ), {
-      radius: 8,
-      tandem: radioButtonTandems.createTandem( 'ionRadioButton' ),
-      phetioVisiblePropertyInstrumented: false
-    } );
+    const neutralOrIonRadioButtonGroup = new AquaRadioButtonGroup(
+      this.neutralOrIonProperty,
+      [
+        {
+          value: 'neutral',
+          createNode: () => new Text( BuildAnAtomFluent.neutralAtomStringProperty, {
+            font: new PhetFont( 18 ),
+            maxWidth: MAX_WIDTH
+          } ),
+          tandemName: 'neutralAtomRadioButton'
+        },
+        {
+          value: 'ion',
+          createNode: () => new Text( BuildAnAtomFluent.ionStringProperty, {
+            font: new PhetFont( 18 ),
+            maxWidth: MAX_WIDTH
+          } ),
+          tandemName: 'ionRadioButton'
+        }
+      ], {
+        spacing: 10,
+        orientation: 'horizontal',
+        tandem: tandem.createTandem( 'neutralOrIonRadioButtonGroup' ),
+        radioButtonOptions: {
+          radius: 8,
+          phetioVisiblePropertyInstrumented: false
+        }
+      } );
     const neutralAtomVersusIonQuestion = new HBox( {
-      children: [ neutralVersusIonPrompt, neutralAtomRadioButton, ionRadioButton ],
+      children: [ neutralVersusIonPrompt, neutralOrIonRadioButtonGroup ],
       spacing: 10
     } );
     this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
