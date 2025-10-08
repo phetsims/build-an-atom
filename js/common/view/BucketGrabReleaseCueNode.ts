@@ -10,16 +10,18 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import GrabReleaseCueNode from '../../../../scenery-phet/js/accessibility/nodes/GrabReleaseCueNode.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
+import Particle from '../../../../shred/js/model/Particle.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
   public constructor(
-    protonBucketNode: Node,
-    neutronBucketNode: Node,
-    electronBucketNode: Node,
+    protonBucketNode: BucketFront,
+    neutronBucketNode: BucketFront,
+    electronBucketNode: BucketFront,
     hasBucketInteractionOccurredProperty: TReadOnlyProperty<boolean>,
     tandem: Tandem
   ) {
@@ -32,7 +34,7 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
         electronBucketNode.focusedProperty
       ],
       ( protonBucketNodeFocused, neutronBucketNodeFocused, electronBucketNodeFocused ) => {
-        let focusedBucketNode: Node | null = null;
+        let focusedBucketNode: BucketFront | null = null;
         if ( protonBucketNodeFocused ) {
           focusedBucketNode = protonBucketNode;
         }
@@ -49,7 +51,14 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
     // Create a derived property that is true when any bucket has focus and interaction has not yet occurred.
     const showThisCueProperty = new DerivedProperty(
       [ bucketNodeWithFocusProperty, hasBucketInteractionOccurredProperty ],
-      ( bucketNodeWithFocus, hasBucketInteractionOccurred ) => !!bucketNodeWithFocus && !hasBucketInteractionOccurred
+      ( bucketNodeWithFocus, hasBucketInteractionOccurred ) => {
+        let focusedBucketIsEmpty = false;
+        if ( bucketNodeWithFocus ) {
+          const bucket = bucketNodeWithFocus.bucket as SphereBucket<Particle>;
+          focusedBucketIsEmpty = bucket.getParticleList().length === 0;
+        }
+        return !!bucketNodeWithFocus && !hasBucketInteractionOccurred && !focusedBucketIsEmpty;
+      }
     );
 
     super( {
