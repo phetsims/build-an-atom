@@ -84,9 +84,9 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     ];
 
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
-    // is only updated at the beginning of an alt-input drag operation, and may not always be cleared at the end, so use
-    // accordingly.
-    let containerAtDragStart: SphereBucket<Particle> | ParticleAtom = homeBucket;
+    // is only updated when the particle is extracted from a bucket or from the atom, and isn't cleared on the way in,
+    // so use accordingly.
+    let mostRecentContainer: SphereBucket<Particle> | ParticleAtom = homeBucket;
 
     // This flag is set at the beginning of the process through which alt-input removes a particle from the atom, and it
     // is cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener from
@@ -115,7 +115,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           // it just below the nucleus.
           if ( keysPressed === 'space' || keysPressed === 'enter' ) {
             isParticleBeingRemovedFromAtomViaAltInput = true;
-            containerAtDragStart = atom;
 
             // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
             // will incite the model to remove the particle from the atom.
@@ -142,7 +141,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
             isParticleBeingRemovedFromAtomViaAltInput = true;
-            containerAtDragStart = atom;
 
             // Set the particle as being dragged, which will cause it to be removed it from the atom.
             particle.isDraggingProperty.value = true;
@@ -272,11 +270,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // If the variable that tracks the origin of the alt-input dragged particle is not set, something is
             // wrong with one of more of the code paths.
-            affirm(
-              containerAtDragStart,
-              'containerAtDragStart is null when Escape was pressed'
-            );
-            if ( containerAtDragStart instanceof SphereBucket ) {
+            if ( mostRecentContainer instanceof SphereBucket ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
               particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.nearBucketsStringProperty, 'queue' );
 
@@ -284,7 +278,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               particle.moveImmediatelyToDestination();
               homeBucketFront.focus();
             }
-            else if ( containerAtDragStart === atom ) {
+            else if ( mostRecentContainer === atom ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
               particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty, 'queue' );
 
@@ -312,12 +306,15 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     } );
 
     // Watch the containerProperty of the particle for an indication of when the particle is extracted from the bucket
-    // and update the containerAtDragStart accordingly.  This is needed to properly handle the Escape key, since we need to
-    // know where the particle came from, and we can't update this in the keyboard listener because the particles never
-    // get focus when they are in a bucket.
+    // and update the mostRecentContainer accordingly.  This is needed to properly handle the Escape key, since we need
+    // to know where the particle came from, and we can't update this in the keyboard listener because the particles
+    // never get focus when they are in a bucket.
     particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
       if ( newContainer === null && oldContainer === homeBucket ) {
-        containerAtDragStart = homeBucket;
+        mostRecentContainer = homeBucket;
+      }
+      else if ( newContainer === null && oldContainer === atom ) {
+        mostRecentContainer = atom;
       }
     } );
   }
