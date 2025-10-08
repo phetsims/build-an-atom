@@ -20,6 +20,7 @@ import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
@@ -42,6 +43,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
    * @param outerElectronShellRadius - the radius of the outer electron shell, used for positioning electrons
    * @param shiftFocus - a function that will be called to shift focus from the provided particle to another one in the
    *                     atom
+   * @param tandem
    */
   public constructor(
     particle: Particle,
@@ -53,7 +55,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     electronCloudNode: ElectronCloudView,
     innerElectronShellRadius: number,
     outerElectronShellRadius: number,
-    shiftFocus: ( focusedNode: ParticleView | ElectronCloudView | null, direction: FocusUpdateDirection ) => void
+    shiftFocus: ( focusedNode: ParticleView | ElectronCloudView | null, direction: FocusUpdateDirection ) => void,
+    tandem: Tandem
   ) {
 
     // Define some offsets that will be used to position the particles in various locations needed by alt-input.
@@ -310,7 +313,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           particle.isDraggingProperty.value = false;
           particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.releasedStringProperty, 'queue' );
         }
-      }
+      },
+      tandem: tandem
     } );
 
     // Watch the containerProperty of the particle for an indication of when the particle is extracted from the bucket

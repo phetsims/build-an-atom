@@ -363,7 +363,8 @@ class BAAScreenView extends ScreenView {
         this.atomNode.electronCloud,
         model.atom.innerElectronShellRadius,
         model.atom.outerElectronShellRadius,
-        this.updateAtomParticleFocus.bind( this )
+        this.updateAtomParticleFocus.bind( this ),
+        tandem.createTandem( 'particleViewKeyboardListener' )
       ) );
 
       // Watch for when particles enter or leave the atom and update the focusability of the particle views for the
@@ -484,7 +485,8 @@ class BAAScreenView extends ScreenView {
                   keysPressed === 'a' || keysPressed === 'd' ) {
           this.updateAtomParticleFocus( this.atomNode.electronCloud, 'backward' );
         }
-      }
+      },
+      tandem: tandem.createTandem( 'electronCloudKeyboardListener' )
     } ) );
 
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
