@@ -200,7 +200,7 @@ class GameScreenView extends ScreenView {
     this.gameScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
       challenge => this.challengeViewSet.get( challenge ).answerNodesPDOMOrder
     );
-    this.gameScreenNode.accessibleProgressSectionNode.pdomOrder = [
+    this.gameScreenNode.accessibleStatusSectionNode.pdomOrder = [
       statusBar
     ];
   }
