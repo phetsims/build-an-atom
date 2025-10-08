@@ -53,7 +53,7 @@ import BAAModel, { AtomDestinations } from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
-import BucketGrabCueNode from './BucketGrabCueNode.js';
+import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
 import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronModelControl from './ElectronModelControl.js';
@@ -245,12 +245,12 @@ class BAAScreenView extends ScreenView {
     createBucketFront( model.electronBucket, ShredStrings.a11y.buckets.electronStringProperty );
 
     // Add the alt-input grab/release cue node.
-    bucketFrontLayer.addChild( new BucketGrabCueNode(
+    bucketFrontLayer.addChild( new BucketGrabReleaseCueNode(
       this.mapBucketsToViews.get( model.protonBucket )!,
       this.mapBucketsToViews.get( model.neutronBucket )!,
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.hasBucketInteractionOccurredProperty,
-      bucketsTandem.createTandem( 'bucketGrabCueNode' )
+      bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
     ) );
 
     // Create the layer where the nucleons and electrons will go.

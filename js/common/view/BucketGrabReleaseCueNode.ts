@@ -1,9 +1,9 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * BucketGrabCueNode is a GrabReleaseCueNode for the buckets in Build An Atom.  This is used for alt-input, and it is
- * shown to cue the user that the 'space' key can be used to grab particles from the bucket and then release them into
- * the atom.
+ * BucketGrabReleaseCueNode is a GrabReleaseCueNode for the buckets in Build An Atom.  This is used for alt-input, and
+ * it is shown to cue the user that the 'space' key can be used to grab particles from the bucket and then release them
+ * into the atom.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -17,7 +17,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
-class BucketGrabCueNode extends GrabReleaseCueNode {
+class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
   public constructor(
     protonBucketNode: Node,
     neutronBucketNode: Node,
@@ -80,6 +80,6 @@ class BucketGrabCueNode extends GrabReleaseCueNode {
   }
 }
 
-buildAnAtom.register( 'BucketGrabCueNode', BucketGrabCueNode );
+buildAnAtom.register( 'BucketGrabReleaseCueNode', BucketGrabReleaseCueNode );
 
-export default BucketGrabCueNode;
+export default BucketGrabReleaseCueNode;
