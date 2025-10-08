@@ -140,7 +140,7 @@ class ToElementChallengeView extends ChallengeView {
       neutralAtomVersusIonQuestion
     ];
     this.answerNodesPDOMOrder = [
-      ...this.answerButtons
+      ...this.getAnswerNodesPDOMOrder()
     ];
   }
 

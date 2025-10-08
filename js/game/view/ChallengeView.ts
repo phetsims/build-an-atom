@@ -69,7 +69,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   private readonly gameAudioPlayer: GameAudioPlayer;
 
   // The buttons that are used to interact with the challenge.
-  public readonly answerButtons: TextPushButton[];
+  private readonly answerButtons: TextPushButton[];
   private readonly nextButton: TextPushButton;
   private readonly tryAgainButton: TextPushButton;
   private readonly showAnswerButton: TextPushButton;
@@ -224,6 +224,12 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     const defaultButtonCenter = new Vector2( layoutBounds.width * 0.5, layoutBounds.height * 0.92 );
     this.setButtonCenter( defaultButtonCenter );
     feedbackNode.center = layoutBounds.center;
+
+    // pdom order - all challenges have buttons in the answer section, but subclasses must order
+    // all other content
+    this.answerNodesPDOMOrder = [
+      ...this.answerButtons
+    ];
 
     // If the showAnswers query parameter is set, then we will display "cheat code" answer node.
     if ( phet.chipper.queryParameters.showAnswers ) {
