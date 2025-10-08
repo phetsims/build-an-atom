@@ -116,7 +116,10 @@ class GameScreenView extends ScreenView {
     const gameAudioPlayer = new GameAudioPlayer();
 
     // A parent Node for the challenge views, with sections for accessible content.
-    this.gameScreenNode = new GameScreenNode( gameModel.challengeNumberProperty, gameModel.numberOfChallengesProperty );
+    this.gameScreenNode = new GameScreenNode( {
+      challengeNumberProperty: gameModel.challengeNumberProperty,
+      challengeCountProperty: gameModel.numberOfChallengesProperty
+    } );
     this.addChild( this.gameScreenNode );
     this.gameScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
 
