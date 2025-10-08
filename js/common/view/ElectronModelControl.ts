@@ -31,6 +31,8 @@ const TITLE_FONT = new PhetFont( {
   weight: 'bold'
 } );
 const SPACING = 5;
+const TITLE_MAX_WIDTH = 110; // empirically determined
+const RADIO_BUTTON_TEXT_MAX_WIDTH = TITLE_MAX_WIDTH - 20; // empirically determined
 
 class ElectronModelControl extends Panel {
 
@@ -41,8 +43,7 @@ class ElectronModelControl extends Panel {
       fill: Color.TRANSPARENT,
       stroke: null,
       xMargin: 0,
-      yMargin: 0,
-      maxWidth: 80 // determined empirically
+      yMargin: 0
     }, providedOptions );
 
     const radioButtonGroup = new AquaRadioButtonGroup(
@@ -51,7 +52,8 @@ class ElectronModelControl extends Panel {
         {
           value: 'shells',
           createNode: () => new Text( BuildAnAtomFluent.shellsStringProperty, {
-            font: ELECTRON_MODEL_SELECTOR_FONT
+            font: ELECTRON_MODEL_SELECTOR_FONT,
+            maxWidth: RADIO_BUTTON_TEXT_MAX_WIDTH
           } ),
           tandemName: 'shellsRadioButton',
           options: {
@@ -61,7 +63,8 @@ class ElectronModelControl extends Panel {
         {
           value: 'cloud',
           createNode: () => new Text( BuildAnAtomFluent.cloudStringProperty, {
-            font: ELECTRON_MODEL_SELECTOR_FONT
+            font: ELECTRON_MODEL_SELECTOR_FONT,
+            maxWidth: RADIO_BUTTON_TEXT_MAX_WIDTH
           } ),
           tandemName: 'cloudRadioButton',
           options: {
@@ -77,7 +80,6 @@ class ElectronModelControl extends Panel {
           radius: 6,
           phetioVisiblePropertyInstrumented: false
         },
-        maxWidth: 100, // determined empirically
         tandem: options.tandem.createTandem( 'radioButtonGroup' ),
         accessibleName: BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameStringProperty,
         accessibleHelpText: BuildAnAtomStrings.a11y.common.modelToggle.accessibleHelpTextStringProperty,
@@ -86,7 +88,8 @@ class ElectronModelControl extends Panel {
     );
 
     const titleText = new Text( BuildAnAtomFluent.modelStringProperty, {
-      font: TITLE_FONT
+      font: TITLE_FONT,
+      maxWidth: TITLE_MAX_WIDTH
     } );
 
     const content = new VBox( {
