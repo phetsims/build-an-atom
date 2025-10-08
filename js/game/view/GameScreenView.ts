@@ -35,6 +35,9 @@ class GameScreenView extends ScreenView {
   private activeChallengeView: ChallengeView | null = null;
   private gameModel: GameModel;
 
+  // For accessibility, challenge components will be put into the accessible sections of this node.
+  private readonly gameScreenNode: GameScreenNode;
+
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
     super( {
@@ -114,14 +117,9 @@ class GameScreenView extends ScreenView {
     const gameAudioPlayer = new GameAudioPlayer();
 
     // A parent Node for the challenge views, with sections for accessible content.
-    const gameScreenNode = new GameScreenNode( gameModel.challengeNumberProperty, gameModel.numberOfChallengesProperty, {
-
-      // the game screen and its accessible content is only visible when not in the level selection or level completed states
-      visibleProperty: new DerivedProperty( [ gameModel.gameStateProperty ], gameState => {
-        return !( gameState === 'levelSelection' || gameState === 'levelCompleted' );
-      } )
-    } );
-    this.addChild( gameScreenNode );
+    this.gameScreenNode = new GameScreenNode( gameModel.challengeNumberProperty, gameModel.numberOfChallengesProperty );
+    this.addChild( this.gameScreenNode );
+    this.gameScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
 
     // Show the challenge view associated with the current challenge, or remove it if there is no challenge.
     gameModel.challengeProperty.link( challenge => {
@@ -188,14 +186,15 @@ class GameScreenView extends ScreenView {
       }
     } );
 
-    // pdom - assign components to the correct GameScreenNode sections,
-    gameScreenNode.accessibleChallengeSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
+    // pdom - assign components to the correct GameScreenNode sections. All components from every challenge can be added
+    // at once since only one challenge is visible at a time.
+    this.gameScreenNode.accessibleChallengeSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
       challenge => this.challengeViewSet.get( challenge ).challengeNodesPDOMOrder
     );
-    gameScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
+    this.gameScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
       challenge => this.challengeViewSet.get( challenge ).answerNodesPDOMOrder
     );
-    gameScreenNode.accessibleProgressSectionNode.pdomOrder = [
+    this.gameScreenNode.accessibleProgressSectionNode.pdomOrder = [
       statusBar
     ];
   }
@@ -217,6 +216,9 @@ class GameScreenView extends ScreenView {
       if ( this.activeChallengeView ) {
         this.removeChild( this.activeChallengeView );
       }
+
+      // Hide the accessible game content.
+      this.gameScreenNode.hide();
     }
     else if ( challengeView !== this.activeChallengeView ) {
 
@@ -228,6 +230,9 @@ class GameScreenView extends ScreenView {
 
       // Show the new challenge view.
       this.addChild( challengeView );
+
+      // Show the accessible game content and move focus to the beginning.
+      this.gameScreenNode.show();
     }
 
     if ( isSettingPhetioStateProperty.value && challengeView ) {
