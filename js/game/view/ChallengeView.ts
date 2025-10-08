@@ -20,6 +20,7 @@ import Color from '../../../../scenery/js/util/Color.js';
 import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/buttons/TextPushButton.js';
 import nullSoundPlayer from '../../../../tambo/js/nullSoundPlayer.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import CheckButton from '../../../../vegas/js/buttons/CheckButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -132,7 +133,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
 
     // buttons
     this.answerButtons = [];
-    this.checkButton = new TextPushButton( checkStringProperty, combineOptions<TextPushButtonOptions>( {
+    this.checkButton = new CheckButton( combineOptions<TextPushButtonOptions>( {
       listener: () => {
         this.checkAnswer();
 
