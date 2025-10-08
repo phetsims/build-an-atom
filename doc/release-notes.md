@@ -29,7 +29,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 ### New Features
 * Basic Sound
 * Dynamic Locale
-* PhET-iO for PhET Studio
+* PhET-iO support, including PhET Studio
 * Pan and zoom
 * Conversion to TypeScript
 
