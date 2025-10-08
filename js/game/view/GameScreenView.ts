@@ -59,7 +59,6 @@ class GameScreenView extends ScreenView {
       gameModel,
       this.layoutBounds,
       {
-        visibleProperty: DerivedProperty.valueEqualsConstant( gameModel.gameStateProperty, 'levelSelection' ),
         tandem: tandem.createTandem( 'levelSelectionNode' )
       }
     );
@@ -131,9 +130,13 @@ class GameScreenView extends ScreenView {
 
       // Clear any level completed nodes that may be on the screen.
       this.removeLevelCompletedNodes();
+      if ( gameState !== 'levelSelection' ) {
+        this.levelSelectionNode.hide();
+      }
 
       if ( gameState === 'levelSelection' ) {
         this.removeLevelCompletedNodes();
+        this.levelSelectionNode.show();
       }
       else if ( gameState === 'levelCompleted' ) {
         if ( gameModel.scoreProperty.value === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
