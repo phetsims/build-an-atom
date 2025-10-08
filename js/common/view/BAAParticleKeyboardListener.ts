@@ -39,8 +39,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
    * @param particleView - the view representation of the particle that this listener is associated with
    * @param homeBucketFront - the BucketFront that is the "home" for this particle
    * @param electronCloudNode - the ElectronCloudView associated with the atom
-   * @param innerElectronShellRadius - the radius of the inner electron shell, used for positioning electrons
-   * @param outerElectronShellRadius - the radius of the outer electron shell, used for positioning electrons
    * @param shiftFocus - a function that will be called to shift focus from the provided particle to another one in the
    *                     atom
    * @param tandem
@@ -53,8 +51,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     particleView: ParticleView,
     homeBucketFront: Node,
     electronCloudNode: ElectronCloudView,
-    innerElectronShellRadius: number,
-    outerElectronShellRadius: number,
     shiftFocus: ( focusedNode: ParticleView | ElectronCloudView | null, direction: FocusUpdateDirection ) => void,
     tandem: Tandem
   ) {
@@ -62,8 +58,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     // Define some offsets that will be used to position the particles in various locations needed by alt-input.
     // These are in model coordinates.
     const belowNucleusOffset = new Vector2( 0, -40 );
-    const innerShellOffset = new Vector2( 0, -innerElectronShellRadius );
-    const outerShellOffset = new Vector2( 0, -outerElectronShellRadius );
+    const innerShellOffset = new Vector2( 0, -atom.innerElectronShellRadius );
+    const outerShellOffset = new Vector2( 0, -atom.outerElectronShellRadius );
     const outsideAtomOffset = new Vector2( -65, -155 );
     const altInputAtomOffsetsForShellMode: Vector2[] = [
       belowNucleusOffset,
