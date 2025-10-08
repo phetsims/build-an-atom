@@ -176,11 +176,25 @@ class BAAModel {
           }
         } );
 
-        // Prevent interaction with this particle when it is animating to a destination.
+        // Prevent interaction with this particle when it is animating to a destination.  We need the isDraggingProperty
+        // because there is a slight delay between setting position and destination that we don't want to turn off
+        // input.  The containerProperty is needed because we want to allow interaction when the nucleon is in the atom
+        // even when the nucleus is unstable and thus animation, which can also glitch input if we only check position
+        // and destination.
         Multilink.multilink(
-          [ nucleon.isDraggingProperty, nucleon.positionProperty, nucleon.destinationProperty ],
-          ( isDragging, position, destination ) => {
-            nucleon.inputEnabledProperty.value = isDragging || position.equals( destination );
+          [
+            nucleon.isDraggingProperty,
+            nucleon.containerProperty,
+            nucleon.positionProperty,
+            nucleon.destinationProperty
+          ],
+          ( isDragging, container, position, destination ) => {
+
+            const distanceToDestination = position.distance( destination );
+            nucleon.inputEnabledProperty.value = isDragging ||
+                                                 ( container === this.atom &&
+                                                   distanceToDestination <= 2 * MAX_NUCLEUS_JUMP ) ||
+                                                 position.equals( destination );
           }
         );
       } );
@@ -269,8 +283,7 @@ class BAAModel {
         this.nucleusJumpCount++;
         const angle = JUMP_ANGLES[ this.nucleusJumpCount % JUMP_ANGLES.length ];
         const distance = JUMP_DISTANCES[ this.nucleusJumpCount % JUMP_DISTANCES.length ];
-        this.atom.nucleusOffsetProperty.value =
-          new Vector2( Math.cos( angle ) * distance, Math.sin( angle ) * distance );
+        this.atom.nucleusOffsetProperty.value = new Vector2( distance, 0 ).rotated( angle );
       }
     }
     else {
