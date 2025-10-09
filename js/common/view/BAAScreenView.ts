@@ -28,9 +28,7 @@ import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
-import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
@@ -56,6 +54,7 @@ import BAAParticleView from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
 import AtomViewDescriber from './description/AtomViewDescriber.js';
+import ElectronCloudKeyboardListener from './ElectronCloudKeyboardListener.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
@@ -65,7 +64,6 @@ const CONTROLS_INSET = 10;
 const LABEL_CONTROL_FONT = new PhetFont( 12 );
 const LABEL_CONTROL_MAX_WIDTH = 180;
 const DISTANCE_TESTING_TOLERANCE = 1e-6;
-const NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'w', 'a', 's', 'd' ];
 
 class BAAScreenView extends ScreenView {
 
@@ -428,64 +426,16 @@ class BAAScreenView extends ScreenView {
     );
 
     // Add a keyboard listener to the electron cloud.
-    this.atomNode.electronCloud.addInputListener( new KeyboardListener( {
-      keys: [ 'space', 'enter', ...NAVIGATION_KEYS, 'delete', 'backspace' ],
-      fireOnDown: false,
-      fire: ( event, keysPressed ) => {
-
-        if ( keysPressed === 'space' || keysPressed === 'enter' ) {
-
-          // Get a reference to the electron most recently added to the atom.
-          const electron = model.atom.electrons[ model.atom.electrons.length - 1 ];
-          affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
-
-          // Set the electron as being controlled by the user via keyboard interaction.  This should cause it to be
-          // removed from the atom.
-          electron.isDraggingProperty.value = true;
-
-          // Move the electron to just below the nucleus.
-          electron.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
-
-          // Set the alt-input focus to this electron.
-          const electronView = this.mapParticlesToViews.get( electron );
-          affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.focusable = true;
-          electronView.focus();
-        }
-        else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
-
-          // Get a reference to the electron most recently added to the atom.
-          const electron = model.atom.electrons[ model.atom.electrons.length - 1 ];
-          affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
-
-          // Simulate extraction of a particle from the cloud and putting it back in the bucket.
-          electron.isDraggingProperty.value = true;
-          electron.setPositionAndDestination( model.electronBucket.position );
-          electron.isDraggingProperty.value = false;
-          electron.moveImmediatelyToDestination();
-
-          if ( model.atom.particleCountProperty.value > 0 ) {
-
-            // Update focus to the first focusable particle in the atom.
-            this.updateAtomParticleFocus( null, 'forward' );
-          }
-          else {
-
-            // There are no particles left in the atom, so shift focus to the electron bucket.
-            this.mapBucketsToViews.get( model.electronBucket )!.focus();
-          }
-        }
-        else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
-                  keysPressed === 'w' || keysPressed === 's' ) {
-          this.updateAtomParticleFocus( this.atomNode.electronCloud, 'forward' );
-        }
-        else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ||
-                  keysPressed === 'a' || keysPressed === 'd' ) {
-          this.updateAtomParticleFocus( this.atomNode.electronCloud, 'backward' );
-        }
-      },
-      tandem: tandem.createTandem( 'electronCloudKeyboardListener' )
-    } ) );
+    this.atomNode.electronCloud.addInputListener( new ElectronCloudKeyboardListener(
+      model.atom,
+      this.atomNode,
+      model.electronBucket,
+      this.mapBucketsToViews.get( model.electronBucket )!,
+      this.mapParticlesToViews,
+      belowNucleusOffset,
+      this.updateAtomParticleFocus.bind( this ),
+      tandem.createTandem( 'electronCloudKeyboardListener' )
+    ) );
 
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [
