@@ -19,7 +19,7 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleLocations, ParticleType } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -48,8 +48,6 @@ type SelfOptions = {
   isInitialAtomConfigurable?: boolean; // If true, the initial atom configuration can be changed by query parameter.
 };
 
-export type AtomDestinations = 'nucleus' | 'innerElectronShell' | 'outerElectronShell' | 'electronCloud';
-
 export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 class BAAModel {
@@ -76,9 +74,8 @@ class BAAModel {
   // count for how many times the nucleus has jumped
   private nucleusJumpCount = 0;
 
-  // Emitter for context response for when particles are animated to position
-  public returnedToBucketEmitter: TEmitter;
-  public addedToAtomEmitter: TEmitter<[ AtomDestinations ]>;
+  // Emitter for context response for when particles are moved to a position
+  public particleAddedToEmitter: TEmitter<[ ParticleLocations ]>;
 
   public constructor( providedOptions: BAAModelOptions ) {
 
@@ -129,18 +126,17 @@ class BAAModel {
 
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
-    this.returnedToBucketEmitter = new Emitter();
-    this.addedToAtomEmitter = new Emitter<[ AtomDestinations ]>( { parameters: [ { valueType: 'string' } ] } );
+    this.particleAddedToEmitter = new Emitter<[ ParticleLocations ]>( { parameters: [ { valueType: 'string' } ] } );
 
     // Define a function that will decide where to put nucleons.
     const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
-        this.addedToAtomEmitter.emit( 'nucleus' );
+        this.moveParticle( particle, 'nucleus' );
       }
       else {
         bucket.addParticleNearestOpen( particle, true );
-        this.returnedToBucketEmitter.emit();
+        this.moveParticle( particle, 'bucket' );
       }
     };
 
@@ -223,21 +219,19 @@ class BAAModel {
         }
         else if ( !isDragging && !this.electronBucket.includes( electron ) ) {
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
-            if ( this.atom.electronCountProperty.value <= 2 ) {
+            if ( this.atom.electronCountProperty.value < 2 ) {
               // Electron will go to inner shell
-
-              this.addedToAtomEmitter.emit( 'innerElectronShell' );
+              this.moveParticle( electron, 'innerShell' );
             }
             else {
               // Electron will go to outer shell
-
-              this.addedToAtomEmitter.emit( 'outerElectronShell' );
+              this.moveParticle( electron, 'outerShell' );
             }
             this.atom.addParticle( electron );
           }
           else {
             this.electronBucket.addParticleNearestOpen( electron, true );
-            this.returnedToBucketEmitter.emit();
+            this.moveParticle( electron, 'bucket' );
           }
         }
       } );
@@ -263,6 +257,14 @@ class BAAModel {
         electronCount: BAAQueryParameters.electrons
       } ) );
     }
+  }
+
+  /**
+   * Function to notify the movement of a particle. Specifically for context response and updating of particle description.
+   */
+  private moveParticle( particle: Particle, location: ParticleLocations ): void {
+    particle.locationNameProperty.value = location;
+    this.particleAddedToEmitter.emit( location );
   }
 
   public step( dt: number ): void {

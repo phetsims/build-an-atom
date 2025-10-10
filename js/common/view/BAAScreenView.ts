@@ -14,6 +14,7 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import type LocalizedStringProperty from '../../../../chipper/js/browser/LocalizedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { equalsEpsilon } from '../../../../dot/js/util/equalsEpsilon.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -33,7 +34,7 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleLocations, ParticleType } from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
@@ -48,7 +49,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAModel, { AtomDestinations, MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
+import BAAModel, { MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
@@ -288,21 +289,24 @@ class BAAScreenView extends ScreenView {
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
-    model.returnedToBucketEmitter.addListener( () => {
-      this.addAccessibleContextResponse( ShredStrings.a11y.particles.particleReturnedToBucketStringProperty, 'queue' );
-    } );
+    model.particleAddedToEmitter.addListener( ( destination: ParticleLocations ) => {
+      let contextResponse: LocalizedStringProperty | string = '';
 
-    model.addedToAtomEmitter.addListener( ( destination: AtomDestinations ) => {
-      const contextResponse = StringUtils.fillIn( ShredStrings.a11y.particles.particleAddedToStringProperty, {
-        location: destination === 'nucleus' ?
-                  ShredStrings.a11y.particles.nucleusStringProperty :
-                  destination === 'innerElectronShell' ?
-                  ShredStrings.a11y.particles.innerShellStringProperty :
-                  destination === 'outerElectronShell' ?
-                  ShredStrings.a11y.particles.outerShellStringProperty :
-                  destination === 'electronCloud' ?
-                  ShredStrings.a11y.particles.cloudStringProperty : ''
-      } );
+      if ( destination === 'bucket' ) {
+        contextResponse = ShredStrings.a11y.particles.particleReturnedToBucketStringProperty;
+      }
+      else {
+        contextResponse = StringUtils.fillIn( ShredStrings.a11y.particles.particleAddedToStringProperty, {
+          location: destination === 'nucleus' ?
+                    ShredStrings.a11y.particles.nucleusStringProperty :
+                    destination === 'innerShell' ?
+                    ShredStrings.a11y.particles.innerShellStringProperty :
+                    destination === 'outerShell' ?
+                    ShredStrings.a11y.particles.outerShellStringProperty :
+                    destination === 'electronCloud' ?
+                    ShredStrings.a11y.particles.cloudStringProperty : ''
+        } );
+      }
 
       this.addAccessibleContextResponse( contextResponse, 'queue' );
     } );
