@@ -41,15 +41,6 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
 
   public constructor( gameModel: GameModel, layoutBounds: Bounds2, options: LevelSelectionNodeOptions ) {
 
-    super( BuildAnAtomFluent.gameStringProperty, options );
-
-    const title = new Text( BuildAnAtomFluent.chooseYourGameStringProperty, {
-      font: new PhetFont( 30 ),
-      maxWidth: layoutBounds.width * 0.6,
-      centerX: layoutBounds.centerX
-    } );
-    this.addChild( title );
-
     // icons used for the level selection buttons, indexed by level number
     const gameButtonIcons = [
       new PeriodicTableLevelIcon(),
@@ -70,14 +61,14 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
       buttonItems.push( {
         icon: gameButtonIcons[ index ],
         scoreProperty: level.bestScoreProperty,
+        buttonListener: () => {
+          gameModel.levelProperty.value = level;
+        },
         options: {
           createScoreDisplay: scoreProperty => new ScoreDisplayStars( scoreProperty, {
             numberOfStars: level.challengeDescriptors.length,
             perfectScore: level.getPerfectScore()
           } ),
-          listener: () => {
-            gameModel.levelProperty.value = level;
-          },
           soundPlayerIndex: index,
           phetioDocumentation: gameButtonsPhetIoDocumentation[ index ]
         }
@@ -103,6 +94,15 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
       buttonGroup.center = layoutBounds.center;
     } );
 
+    super( BuildAnAtomFluent.gameStringProperty, buttonGroup, options );
+
+    const title = new Text( BuildAnAtomFluent.chooseYourGameStringProperty, {
+      font: new PhetFont( 30 ),
+      maxWidth: layoutBounds.width * 0.6,
+      centerX: layoutBounds.centerX
+    } );
+
+    this.addChild( title );
     this.addChild( buttonGroup );
 
     // Create and add the game info dialog and button.
