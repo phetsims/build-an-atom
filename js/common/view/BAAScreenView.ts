@@ -9,6 +9,7 @@
  * @author Aadish Gupta
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
@@ -145,14 +146,20 @@ class BAAScreenView extends ScreenView {
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
 
-    const createBucketFront = ( bucket: SphereBucket<Particle>, particleTypeStringProperty: TReadOnlyProperty<string> ): void => {
+    const createBucketFront = (
+      bucket: SphereBucket<Particle>,
+      particleTypeStringProperty: TReadOnlyProperty<string>,
+      bucketEmptyProperty: TReadOnlyProperty<boolean>
+    ): void => {
       const bucketAccessibleNameProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
-          ShredStrings.a11y.buckets.accessibleNameStringProperty
+          bucketEmptyProperty,
+          ShredStrings.a11y.buckets.accessibleNameStringProperty,
+          ShredStrings.a11y.buckets.emptyNameStringProperty
         ],
-        ( particleType: string, accessibleName: string ) => {
-          return StringUtils.fillIn( accessibleName, { particle: particleType } );
+        ( particleType: string, bucketEmpty: boolean, accessibleName: string, emptyName: string ) => {
+          return StringUtils.fillIn( bucketEmpty ? emptyName : accessibleName, { particle: particleType } );
         }
       );
 
@@ -238,9 +245,21 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.set( bucket, bucketFront );
     };
 
-    createBucketFront( model.protonBucket, ShredStrings.a11y.buckets.protonStringProperty );
-    createBucketFront( model.neutronBucket, ShredStrings.a11y.buckets.neutronStringProperty );
-    createBucketFront( model.electronBucket, ShredStrings.a11y.buckets.electronStringProperty );
+    createBucketFront(
+      model.protonBucket,
+      ShredStrings.a11y.buckets.protonStringProperty,
+      DerivedProperty.valueEqualsConstant( model.atom.protonCountProperty, MAX_PROTONS )
+    );
+    createBucketFront(
+      model.neutronBucket,
+      ShredStrings.a11y.buckets.neutronStringProperty,
+      DerivedProperty.valueEqualsConstant( model.atom.neutronCountProperty, MAX_NEUTRONS )
+    );
+    createBucketFront(
+      model.electronBucket,
+      ShredStrings.a11y.buckets.electronStringProperty,
+      DerivedProperty.valueEqualsConstant( model.atom.electronCountProperty, MAX_ELECTRONS )
+    );
 
     // Add the alt-input grab/release cue node.
     bucketFrontLayer.addChild( new BucketGrabReleaseCueNode(

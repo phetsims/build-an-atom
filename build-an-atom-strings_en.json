@@ -128,7 +128,7 @@
       },
       "atomAccessibleListNode": {
         "accessibleHeading": {
-          "value": "Model Atom"
+          "value": "Built Atom"
         },
         "nucleusInfoFull": {
           "value": "Nucleus contains {{particles}}."
