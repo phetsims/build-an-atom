@@ -141,7 +141,7 @@ class BAAScreenView extends ScreenView {
 
     // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
     const bucketFrontLayer = new Node( {
-      accessibleHeading: ShredStrings.a11y.buckets.accessibleHeadingStringProperty
+      accessibleHeading: ShredStrings.a11y.particles.accessibleHeadingStringProperty
     } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
@@ -166,7 +166,7 @@ class BAAScreenView extends ScreenView {
       const bucketaccessibleHelpTextProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
-          ShredStrings.a11y.buckets.accessibleHelpTextStringProperty
+          ShredStrings.a11y.particles.accessibleHelpTextStringProperty
         ],
         ( particleType: string, accessibleHelpText: string ) => {
           return StringUtils.fillIn( accessibleHelpText, { particle: particleType } );
@@ -214,7 +214,7 @@ class BAAScreenView extends ScreenView {
       // focus.  This will extract a particle from the bucket and add it to the atom.
       bucketFront.addInputListener( {
         click: () => {
-          bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.buckets.grabbedStringProperty, 'queue' );
+          bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.grabbedStringProperty, 'queue' );
 
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
@@ -232,7 +232,7 @@ class BAAScreenView extends ScreenView {
 
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty, 'queue' );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, 'queue' );
 
 
             // Indicate that the user has interacted with the buckets.
@@ -247,17 +247,17 @@ class BAAScreenView extends ScreenView {
 
     createBucketFront(
       model.protonBucket,
-      ShredStrings.a11y.buckets.protonStringProperty,
+      ShredStrings.a11y.particles.protonStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.protonCountProperty, MAX_PROTONS )
     );
     createBucketFront(
       model.neutronBucket,
-      ShredStrings.a11y.buckets.neutronStringProperty,
+      ShredStrings.a11y.particles.neutronStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.neutronCountProperty, MAX_NEUTRONS )
     );
     createBucketFront(
       model.electronBucket,
-      ShredStrings.a11y.buckets.electronStringProperty,
+      ShredStrings.a11y.particles.electronStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.electronCountProperty, MAX_ELECTRONS )
     );
 
@@ -289,19 +289,19 @@ class BAAScreenView extends ScreenView {
     const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
     model.returnedToBucketEmitter.addListener( () => {
-      this.addAccessibleContextResponse( ShredStrings.a11y.buckets.particleReturnedToBucketStringProperty, 'queue' );
+      this.addAccessibleContextResponse( ShredStrings.a11y.particles.particleReturnedToBucketStringProperty, 'queue' );
     } );
 
     model.addedToAtomEmitter.addListener( ( destination: AtomDestinations ) => {
-      const contextResponse = StringUtils.fillIn( ShredStrings.a11y.buckets.particleAddedToStringProperty, {
+      const contextResponse = StringUtils.fillIn( ShredStrings.a11y.particles.particleAddedToStringProperty, {
         location: destination === 'nucleus' ?
-                  ShredStrings.a11y.buckets.nucleusStringProperty :
+                  ShredStrings.a11y.particles.nucleusStringProperty :
                   destination === 'innerElectronShell' ?
-                  ShredStrings.a11y.buckets.innerShellStringProperty :
+                  ShredStrings.a11y.particles.innerShellStringProperty :
                   destination === 'outerElectronShell' ?
-                  ShredStrings.a11y.buckets.outerShellStringProperty :
+                  ShredStrings.a11y.particles.outerShellStringProperty :
                   destination === 'electronCloud' ?
-                  ShredStrings.a11y.buckets.cloudStringProperty : ''
+                  ShredStrings.a11y.particles.cloudStringProperty : ''
       } );
 
       this.addAccessibleContextResponse( contextResponse, 'queue' );
@@ -309,19 +309,19 @@ class BAAScreenView extends ScreenView {
 
     model.atom.protonCountProperty.link( ( protons: number ) => {
       if ( protons === MAX_PROTONS ) {
-        this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
+        this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
     model.atom.neutronCountProperty.link( ( neutrons: number ) => {
       if ( neutrons === MAX_NEUTRONS ) {
-        this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
+        this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, 'queue' );
       }
     } );
 
     model.atom.electronCountProperty.link( ( electrons: number ) => {
       if ( electrons === MAX_ELECTRONS ) {
-        this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.buckets.bucketEmptyStringProperty, 'queue' );
+        this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, 'queue' );
       }
     } );
 

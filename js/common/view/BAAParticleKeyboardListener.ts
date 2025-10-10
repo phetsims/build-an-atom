@@ -73,14 +73,14 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     ];
 
     const objectResponsesForShellMode: TReadOnlyProperty<string>[] = [
-      ShredStrings.a11y.buckets.overNucleusStringProperty,
-      ShredStrings.a11y.buckets.overInnerShellStringProperty,
-      ShredStrings.a11y.buckets.overOuterShellStringProperty,
-      ShredStrings.a11y.buckets.nearBucketsStringProperty
+      ShredStrings.a11y.particles.overNucleusStringProperty,
+      ShredStrings.a11y.particles.overInnerShellStringProperty,
+      ShredStrings.a11y.particles.overOuterShellStringProperty,
+      ShredStrings.a11y.particles.nearBucketsStringProperty
     ];
     const objectResponsesForCloudMode: TReadOnlyProperty<string>[] = [
-      ShredStrings.a11y.buckets.overAtomStringProperty,
-      ShredStrings.a11y.buckets.nearBucketsStringProperty
+      ShredStrings.a11y.particles.overAtomStringProperty,
+      ShredStrings.a11y.particles.nearBucketsStringProperty
     ];
 
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
@@ -122,7 +122,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // This particle is being extracted from the atom, so position it just below the nucleus.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty, 'queue' );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, 'queue' );
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
           }
@@ -147,7 +147,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // Position the particle outside the atom so that when released, it will go to a homeBucket.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.nearBucketsStringProperty, 'queue' );
+            particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.nearBucketsStringProperty, 'queue' );
 
             // Release the particle from the user's control, which should cause the particle to return to a homeBucket.
             particle.isDraggingProperty.value = false;
@@ -272,7 +272,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // wrong with one of more of the code paths.
             if ( mostRecentContainer instanceof SphereBucket ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.nearBucketsStringProperty, 'queue' );
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.nearBucketsStringProperty, 'queue' );
 
               particle.isDraggingProperty.value = false;
               particle.moveImmediatelyToDestination();
@@ -280,7 +280,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             }
             else if ( mostRecentContainer === atom ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.buckets.overNucleusStringProperty, 'queue' );
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, 'queue' );
 
               particle.isDraggingProperty.value = false;
 
