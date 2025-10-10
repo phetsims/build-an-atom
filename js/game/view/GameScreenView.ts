@@ -17,6 +17,7 @@ import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import GameScreenNode from '../../../../vegas/js/GameScreenNode.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
+import RewardScreenNode from '../../../../vegas/js/RewardScreenNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
@@ -37,6 +38,9 @@ class GameScreenView extends ScreenView {
 
   // For accessibility, challenge components will be put into the accessible sections of this node.
   private readonly gameScreenNode: GameScreenNode;
+
+  // For accessibility, reward components will be put into the accessible sections of this Node.
+  private readonly rewardScreenNode: RewardScreenNode;
 
   public constructor( gameModel: GameModel, tandem: Tandem ) {
 
@@ -123,6 +127,10 @@ class GameScreenView extends ScreenView {
     this.addChild( this.gameScreenNode );
     this.gameScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
 
+    this.rewardScreenNode = new RewardScreenNode( gameModel.levelNumberProperty );
+    this.addChild( this.rewardScreenNode );
+    this.rewardScreenNode.hide(); // initially hidden and will be shown when the level is completed
+
     // Show the challenge view associated with the current challenge, or remove it if there is no challenge.
     gameModel.challengeProperty.link( challenge => {
       this.showChallengeView( challenge );
@@ -133,15 +141,19 @@ class GameScreenView extends ScreenView {
 
       // Clear any level completed nodes that may be on the screen.
       this.removeLevelCompletedNodes();
-      if ( gameState !== 'levelSelection' ) {
-        this.levelSelectionNode.hide();
-      }
 
       if ( gameState === 'levelSelection' ) {
+        this.levelSelectionNode.hide();
         this.removeLevelCompletedNodes();
+
         this.levelSelectionNode.show();
       }
       else if ( gameState === 'levelCompleted' ) {
+        this.levelSelectionNode.hide();
+        this.levelSelectionNode.hide();
+
+        this.rewardScreenNode.show();
+
         if ( gameModel.scoreProperty.value === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
           // Perfect score, add the reward node.
@@ -179,8 +191,13 @@ class GameScreenView extends ScreenView {
           }
         );
         this.addChild( this.levelCompletedNode );
+        this.rewardScreenNode.accessibleRewardSectionNode.pdomOrder = [ this.levelCompletedNode ];
+
+        this.levelCompletedNode.focusContinueButton();
       }
       else {
+        this.levelSelectionNode.hide();
+        this.rewardScreenNode.hide();
 
         // The game is in the middle of presenting a challenge to the user, so pass the state change to the challenge
         // view.  This will perform updates like showing the feedback nodes, updating button states, etc.
