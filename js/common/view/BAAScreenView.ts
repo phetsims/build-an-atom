@@ -117,7 +117,8 @@ class BAAScreenView extends ScreenView {
       1.0
     );
 
-    // Add the node that shows the textual labels, the electron shells, and the center X marker.
+    // Create the node that represents the built atom.  This includes things like the electron shells, textual labels,
+    // and the marker at the center of an empty atom.
     this.atomNode = new AtomNode( model.atom, modelViewTransform, {
       showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
       showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
@@ -133,21 +134,22 @@ class BAAScreenView extends ScreenView {
       AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties )
     );
 
-    // Add the particle count indicator.
+    // Create the particle count indicator.
     const particleCountDisplay = new ParticleCountDisplay( model.atom, {
       top: CONTROLS_INSET,
       left: CONTROLS_INSET,
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
 
-    // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
+    // Create the layers that will hold the bucket fronts.
     const bucketFrontLayer = new Node( {
       accessibleHeading: ShredStrings.a11y.particles.accessibleHeadingStringProperty
     } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
 
-    const createBucketFront = (
+    // Helper function to add a bucket front to the bucket front layer.
+    const addBucketFront = (
       bucket: SphereBucket<Particle>,
       particleTypeStringProperty: TReadOnlyProperty<string>,
       bucketEmptyProperty: TReadOnlyProperty<boolean>
@@ -164,7 +166,7 @@ class BAAScreenView extends ScreenView {
         }
       );
 
-      const bucketaccessibleHelpTextProperty = new DerivedStringProperty(
+      const bucketAccessibleHelpTextProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
           ShredStrings.a11y.particles.accessibleHelpTextStringProperty
@@ -188,7 +190,7 @@ class BAAScreenView extends ScreenView {
         // pdom
         tagName: 'button',
         accessibleName: bucketAccessibleNameProperty,
-        accessibleHelpText: bucketaccessibleHelpTextProperty
+        accessibleHelpText: bucketAccessibleHelpTextProperty
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
@@ -246,23 +248,23 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.set( bucket, bucketFront );
     };
 
-    createBucketFront(
+    addBucketFront(
       model.protonBucket,
       ShredStrings.a11y.particles.protonStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.protonCountProperty, MAX_PROTONS )
     );
-    createBucketFront(
+    addBucketFront(
       model.neutronBucket,
       ShredStrings.a11y.particles.neutronStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.neutronCountProperty, MAX_NEUTRONS )
     );
-    createBucketFront(
+    addBucketFront(
       model.electronBucket,
       ShredStrings.a11y.particles.electronStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.electronCountProperty, MAX_ELECTRONS )
     );
 
-    // Add the alt-input grab/release cue node.
+    // Add the alt-input grab/release cue node for the buckets.
     bucketFrontLayer.addChild( new BucketGrabReleaseCueNode(
       this.mapBucketsToViews.get( model.protonBucket )!,
       this.mapBucketsToViews.get( model.neutronBucket )!,
@@ -271,7 +273,7 @@ class BAAScreenView extends ScreenView {
       bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
     ) );
 
-    // Create the layer where the nucleons and electrons will go.
+    // Create the layer where the subatomic particles will go when they are not a part of the atom.
     const particleLayer = new Node();
 
     // Define group tandems for the particles.
@@ -279,18 +281,11 @@ class BAAScreenView extends ScreenView {
     const neutronsGroupTandem = tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
     const electronsGroupTandem = tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
-    // The particles should not be draggable outside the layout bounds of this screen view.
-    const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
-
-    // Define some offsets that will be used to position the particles in various locations needed by alt-input.
-    // These are in model coordinates.
-    const belowNucleusOffset = new Vector2( 0, -40 );
-
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
     model.particleAddedToEmitter.addListener( ( destination: ParticleLocations ) => {
-      let contextResponse: LocalizedStringProperty | string = '';
+      let contextResponse: LocalizedStringProperty | string;
 
       if ( destination === 'bucket' ) {
         contextResponse = ShredStrings.a11y.particles.particleReturnedToBucketStringProperty;
@@ -333,7 +328,7 @@ class BAAScreenView extends ScreenView {
     [ ...model.nucleons, ...model.electrons ].forEach( particle => {
 
       const particleView = new BAAParticleView( particle, modelViewTransform, {
-        dragBounds: particleDragBounds,
+        dragBounds: modelViewTransform.viewToModelBounds( this.layoutBounds ),
         focusable: false,
         tandem: particle.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
@@ -386,9 +381,9 @@ class BAAScreenView extends ScreenView {
         tandem.createTandem( 'particleViewKeyboardListener' )
       ) );
 
-      // Watch for when particles enter or leave the atom and update the focusability of the particle views for the
-      // particles that are in the atom as needed. The goal is to have one focusable particle in the atom when there are
-      // particles there, and none (of course) when the atom is empty.
+      // Watch for when particles enter or leave the atom and update the focusability of the particle views owned by the
+      // for the atom as needed. The goal is to have one focusable particle in the atom when there are particles there
+      // and none (of course) when the atom is empty.
       particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
 
         const particleView = this.mapParticlesToViews.get( particle );
@@ -448,6 +443,9 @@ class BAAScreenView extends ScreenView {
       }
     );
 
+    // Define the position where a particle will be initially placed when pulled from a bucket using alt-input.
+    const belowNucleusOffset = new Vector2( 0, -40 );
+
     // Add a keyboard listener to the electron cloud.
     this.atomNode.electronCloud.addInputListener( new ElectronCloudKeyboardListener(
       model.atom,
@@ -489,7 +487,8 @@ class BAAScreenView extends ScreenView {
       pickable: false,
       scale: 0.55 // Scale empirically determined to match layout in design doc.
     } );
-    this.periodicTableAccordionBox = new BuildAnAtomAccordionBox( periodicTableAndSymbol,
+    this.periodicTableAccordionBox = new BuildAnAtomAccordionBox(
+      periodicTableAndSymbol,
       combineOptions<BuildAnAtomAccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
@@ -503,7 +502,8 @@ class BAAScreenView extends ScreenView {
 
         accessibleName: BuildAnAtomStrings.a11y.common.periodicTable.accessibleNameStringProperty,
         accessibleHelpTextExpanded: periodicTableAccessibleParagraphProperty
-      }, BAAConstants.ACCORDION_BOX_OPTIONS ) );
+      }, BAAConstants.ACCORDION_BOX_OPTIONS )
+    );
 
     this.accordionBoxes = new VBox( {
       children: [ this.periodicTableAccordionBox ],
