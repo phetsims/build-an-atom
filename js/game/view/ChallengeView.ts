@@ -141,6 +141,9 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
         if ( challenge.model.gameStateProperty.value === 'solvedCorrectly' ) {
           this.nextButton.focus();
         }
+        else if ( challenge.model.gameStateProperty.value === 'attemptsExhausted' ) {
+          this.showAnswerButton.focus();
+        }
         else {
           this.tryAgainButton.focus();
         }
@@ -173,7 +176,10 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.answerButtons.push( this.tryAgainButton );
 
     this.showAnswerButton = new TextPushButton( showAnswerStringProperty, combineOptions<TextPushButtonOptions>( {
-      listener: () => { challenge.displayCorrectAnswer(); },
+      listener: () => {
+        challenge.displayCorrectAnswer();
+        this.nextButton.focus();
+      },
       tandem: tandem.createTandem( 'showAnswerButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.showAnswerButton );
