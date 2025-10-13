@@ -15,7 +15,7 @@ import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioS
 import Tandem from '../../../../tandem/js/Tandem.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import GameScreenNode from '../../../../vegas/js/GameScreenNode.js';
+import ChallengeScreenNode from '../../../../vegas/js/ChallengeScreenNode.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import RewardScreenNode from '../../../../vegas/js/RewardScreenNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -37,7 +37,7 @@ class GameScreenView extends ScreenView {
   private gameModel: GameModel;
 
   // For accessibility, challenge components will be put into the accessible sections of this node.
-  private readonly gameScreenNode: GameScreenNode;
+  private readonly challengeScreenNode: ChallengeScreenNode;
 
   // For accessibility, reward components will be put into the accessible sections of this Node.
   private readonly rewardScreenNode: RewardScreenNode;
@@ -120,13 +120,13 @@ class GameScreenView extends ScreenView {
     const gameAudioPlayer = new GameAudioPlayer();
 
     // A parent Node for the challenge views, with sections for accessible content.
-    this.gameScreenNode = new GameScreenNode( {
+    this.challengeScreenNode = new ChallengeScreenNode( {
       challengeNumberProperty: gameModel.challengeNumberProperty,
       challengeCountProperty: gameModel.numberOfChallengesProperty,
       levelNumberProperty: gameModel.levelNumberProperty
     } );
-    this.addChild( this.gameScreenNode );
-    this.gameScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
+    this.addChild( this.challengeScreenNode );
+    this.challengeScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
 
     this.rewardScreenNode = new RewardScreenNode( gameModel.levelNumberProperty );
     this.addChild( this.rewardScreenNode );
@@ -210,15 +210,15 @@ class GameScreenView extends ScreenView {
       }
     } );
 
-    // pdom - assign components to the correct GameScreenNode sections. All components from every challenge can be added
+    // pdom - assign components to the correct ChallengeScreenNode sections. All components from every challenge can be added
     // at once since only one challenge is visible at a time.
-    this.gameScreenNode.accessibleChallengeSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
+    this.challengeScreenNode.accessibleChallengeSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
       challenge => this.challengeViewSet.get( challenge ).challengeNodesPDOMOrder
     );
-    this.gameScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
+    this.challengeScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
       challenge => this.challengeViewSet.get( challenge ).answerNodesPDOMOrder
     );
-    this.gameScreenNode.accessibleStatusSectionNode.pdomOrder = [
+    this.challengeScreenNode.accessibleStatusSectionNode.pdomOrder = [
       statusBar
     ];
   }
@@ -242,7 +242,7 @@ class GameScreenView extends ScreenView {
       }
 
       // Hide the accessible game content.
-      this.gameScreenNode.hide();
+      this.challengeScreenNode.hide();
     }
     else if ( challengeView !== this.activeChallengeView ) {
 
@@ -256,7 +256,7 @@ class GameScreenView extends ScreenView {
       this.addChild( challengeView );
 
       // Show the accessible game content and move focus to the beginning.
-      this.gameScreenNode.show();
+      this.challengeScreenNode.show();
     }
 
     if ( isSettingPhetioStateProperty.value && challengeView ) {
