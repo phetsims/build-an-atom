@@ -122,7 +122,8 @@ class GameScreenView extends ScreenView {
     // A parent Node for the challenge views, with sections for accessible content.
     this.gameScreenNode = new GameScreenNode( {
       challengeNumberProperty: gameModel.challengeNumberProperty,
-      challengeCountProperty: gameModel.numberOfChallengesProperty
+      challengeCountProperty: gameModel.numberOfChallengesProperty,
+      levelNumberProperty: gameModel.levelNumberProperty
     } );
     this.addChild( this.gameScreenNode );
     this.gameScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
