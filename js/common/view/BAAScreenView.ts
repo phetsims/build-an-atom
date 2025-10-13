@@ -16,7 +16,6 @@ import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import type LocalizedStringProperty from '../../../../chipper/js/browser/LocalizedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { equalsEpsilon } from '../../../../dot/js/util/equalsEpsilon.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import Shape from '../../../../kite/js/Shape.js';
@@ -34,7 +33,7 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import Particle, { ParticleLocations, ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleLocations } from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
@@ -59,11 +58,8 @@ import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronCloudKeyboardListener from './ElectronCloudKeyboardListener.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
-type FocusUpdateDirection = 'forward' | 'backward';
-
 // constants
 const CONTROLS_INSET = 10;
-const DISTANCE_TESTING_TOLERANCE = 1e-6;
 
 class BAAScreenView extends ScreenView {
 
@@ -375,7 +371,7 @@ class BAAScreenView extends ScreenView {
         particleView,
         this.getHomeBucketFront( particle ),
         this.atomNode.electronCloud,
-        this.updateAtomParticleFocus.bind( this ),
+        this.atomNode.updateParticleFocus.bind( this.atomNode ),
         tandem.createTandem( 'particleViewKeyboardListener' )
       ) );
 
@@ -452,7 +448,7 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.mapParticlesToViews,
       belowNucleusOffset,
-      this.updateAtomParticleFocus.bind( this ),
+      this.atomNode.updateParticleFocus.bind( this.atomNode ),
       tandem.createTandem( 'electronCloudKeyboardListener' )
     ) );
 
@@ -526,6 +522,11 @@ class BAAScreenView extends ScreenView {
 
     // Add the selector panel that controls the electron representation in the atom.
     const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
+
+      // position empirically determined to match design doc
+      left: this.atomNode.centerX + 130,
+      bottom: this.atomNode.bottom + 5,
+
       tandem: tandem.createTandem( 'electronModelControl' ),
       phetioFeatured: true,
       visiblePropertyOptions: {
@@ -544,10 +545,6 @@ class BAAScreenView extends ScreenView {
       radius: BAAConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-
-    // Do the layout.
-    electronModelControl.left = this.atomNode.centerX + 130;
-    electronModelControl.bottom = this.atomNode.bottom + 5;
 
     // Add the top level children in the desired z-order.
     this.addChild( electronModelControl );
@@ -580,146 +577,6 @@ class BAAScreenView extends ScreenView {
       checkboxGroup,
       electronModelControl
     ];
-  }
-
-  /**
-   * Update which particle in the atom has focus based on the current particle that has focus and the direction to move.
-   * This is for alt-input support.  If no node is supplied, then the focus will be set to the first available particle
-   * in the atom.
-   */
-  private updateAtomParticleFocus( currentlyFocusedNode: ParticleView | ElectronCloudView | null,
-                                   direction: FocusUpdateDirection ): void {
-
-    affirm(
-      currentlyFocusedNode === null || currentlyFocusedNode.focused,
-      'The provided particle view or electron cloud must have focus for this to work.'
-    );
-
-    // This array will be populated with the nodes that are eligible to receive focus, in the order in which they
-    // should receive focus.
-    const focusOrder: ( ParticleView | ElectronCloudView )[] = [];
-
-    let particleType: ParticleType | null;
-    if ( currentlyFocusedNode ) {
-      if ( currentlyFocusedNode instanceof ParticleView ) {
-        particleType = currentlyFocusedNode.particle.type;
-      }
-      else {
-
-        // The provided node must be the electron cloud.
-        particleType = 'electron';
-      }
-    }
-    else {
-      particleType = null;
-    }
-
-    if ( currentlyFocusedNode && particleType === 'proton' ) {
-      focusOrder.push( currentlyFocusedNode );
-    }
-    else {
-
-      const closestProtonToAtomCenter = this.getClosestParticleToAtomCenter( 'proton' );
-
-      // Add the best proton view if there is one.
-      if ( closestProtonToAtomCenter ) {
-        const protonView = this.mapParticlesToViews.get( closestProtonToAtomCenter );
-        affirm( protonView, 'Missing ParticleView for proton' );
-        focusOrder.push( protonView );
-      }
-    }
-
-    if ( currentlyFocusedNode && particleType === 'neutron' ) {
-      focusOrder.push( currentlyFocusedNode );
-    }
-    else {
-
-      const closestNeutronToAtomCenter = this.getClosestParticleToAtomCenter( 'neutron' );
-
-      // Add the best neutron view if there is one.
-      if ( closestNeutronToAtomCenter ) {
-        const neutronView = this.mapParticlesToViews.get( closestNeutronToAtomCenter );
-        affirm( neutronView, 'Missing ParticleView for neutron' );
-        focusOrder.push( neutronView );
-      }
-    }
-
-    if ( this.model.atom.electrons.length > 0 ) {
-      if ( this.viewProperties.electronModelProperty.value === 'cloud' ) {
-
-        // We are in cloud mode, so add the cloud to the focus order.
-        focusOrder.push( this.atomNode.electronCloud );
-      }
-      else {
-
-        let electronShellNumber = -1;
-        if ( particleType === 'electron' ) {
-          electronShellNumber = this.getElectronShellNumber( ( currentlyFocusedNode as ParticleView ).particle );
-        }
-
-        // Define a couple of closure functions that will help with adding electrons to the focus order.
-        const addInnerElectronToFocusOrder = () => {
-          const electronsInInnerShell = [ ...this.model.atom.electrons ].filter( e =>
-            this.getElectronShellNumber( e ) === 0
-          );
-          if ( electronsInInnerShell.length > 0 ) {
-            const innerShellElectron = this.mapParticlesToViews.get( electronsInInnerShell[ 0 ] );
-            affirm( innerShellElectron, 'Missing ParticleView for electron in inner shell' );
-            focusOrder.push( innerShellElectron );
-          }
-        };
-        const addOuterElectronToFocusOrder = () => {
-          const electronsInOuterShell = [ ...this.model.atom.electrons ].filter( electron =>
-            this.getElectronShellNumber( electron ) === 1
-          );
-          if ( electronsInOuterShell.length > 0 ) {
-            const outerShellElectron = this.mapParticlesToViews.get( electronsInOuterShell[ 0 ] );
-            affirm( outerShellElectron, 'Missing ParticleView for electron in outer shell' );
-            focusOrder.push( outerShellElectron );
-          }
-        };
-
-        if ( electronShellNumber === -1 ) {
-
-          // The provided particle is not an electron, so add one electron from each shell, inner first.
-          addInnerElectronToFocusOrder();
-          addOuterElectronToFocusOrder();
-        }
-        else if ( currentlyFocusedNode && electronShellNumber === 0 ) {
-
-          // The provided particle is an electron in the inner shell, so add it first, then add an electron from the
-          // outer shell if there is one.
-          focusOrder.push( currentlyFocusedNode );
-          addOuterElectronToFocusOrder();
-        }
-        else {
-
-          // The provided particle is an electron in the outer shell, so add one from the inner shell first, then add
-          // this one.
-          addInnerElectronToFocusOrder();
-          currentlyFocusedNode && focusOrder.push( currentlyFocusedNode );
-        }
-      }
-    }
-
-    // If there is something available in the atom to shift focus to, do so.
-    if ( focusOrder.length > 0 ) {
-      const currentIndex = currentlyFocusedNode === null ?
-                           focusOrder.length - 1 :
-                           focusOrder.indexOf( currentlyFocusedNode );
-      let newIndex;
-      if ( direction === 'forward' ) {
-        newIndex = ( currentIndex + 1 ) % focusOrder.length;
-      }
-      else {
-        newIndex = ( currentIndex - 1 + focusOrder.length ) % focusOrder.length;
-      }
-      this.setAtomParticleViewFocusable( focusOrder[ newIndex ] );
-      focusOrder[ newIndex ].focus();
-      if ( currentIndex !== newIndex ) {
-        focusOrder[ currentIndex ].focusable = false;
-      }
-    }
   }
 
   /**
@@ -793,50 +650,10 @@ class BAAScreenView extends ScreenView {
     }
   }
 
-  /**
-   * Get the shell number (0 for inner, 1 for outer) for the provided electron.  If the electron is not in the atom,
-   * or if it is not in either shell, -1 is returned.
-   */
-  private getElectronShellNumber( electron: Particle ): number {
-    affirm( electron.type === 'electron', 'The provided particle must be an electron' );
-    let electronShellNumber = -1;
-    if ( this.model.atom.electrons.includes( electron ) ) {
-      const distanceFromAtomCenter =
-        electron.positionProperty.value.distance( this.model.atom.positionProperty.value );
-      electronShellNumber = equalsEpsilon(
-        distanceFromAtomCenter,
-        this.model.atom.innerElectronShellRadius,
-        DISTANCE_TESTING_TOLERANCE
-      ) ? 0 : 1;
-    }
-    return electronShellNumber;
-  }
-
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
     this.hasBucketInteractionOccurredProperty.reset();
     this.viewProperties.reset();
-  }
-
-  /**
-   * Get the particle of the specified type that is closest to the center of the atom.  Returns null if there are no
-   * particles of the specified type in the atom.
-   */
-  private getClosestParticleToAtomCenter( particleType: ParticleType ): Particle | null {
-    affirm(
-      particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
-      `Unexpected particle type: ${particleType}`
-    );
-    const atomCenter = this.model.atom.positionProperty.value;
-    const particles = particleType === 'proton' ? this.model.atom.protons :
-                      particleType === 'neutron' ? this.model.atom.neutrons :
-                      this.model.atom.electrons;
-    const sortedParticles = [ ...particles ].sort( ( a, b ) => {
-      const aDistance = a.positionProperty.value.distance( atomCenter );
-      const bDistance = b.positionProperty.value.distance( atomCenter );
-      return aDistance - bDistance;
-    } );
-    return sortedParticles.length > 0 ? sortedParticles[ 0 ] : null;
   }
 }
 
