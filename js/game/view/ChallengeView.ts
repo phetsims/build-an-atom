@@ -13,6 +13,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import PDOMUtils from '../../../../scenery/js/accessibility/pdom/PDOMUtils.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -169,7 +170,10 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.answerButtons.push( this.nextButton );
 
     this.tryAgainButton = new TextPushButton( tryAgainStringProperty, combineOptions<TextPushButtonOptions>( {
-      listener: () => { challenge.tryAgain(); },
+      listener: () => {
+        challenge.tryAgain();
+        PDOMUtils.focusTop();
+      },
       tandem: tandem.createTandem( 'tryAgainButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.tryAgainButton );
