@@ -42,7 +42,6 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
-import VerticalCheckboxGroup, { VerticalCheckboxGroupItem } from '../../../../sun/js/VerticalCheckboxGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -50,6 +49,7 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel, { MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
+import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
@@ -63,8 +63,6 @@ type FocusUpdateDirection = 'forward' | 'backward';
 
 // constants
 const CONTROLS_INSET = 10;
-const LABEL_CONTROL_FONT = new PhetFont( 12 );
-const LABEL_CONTROL_MAX_WIDTH = 180;
 const DISTANCE_TESTING_TOLERANCE = 1e-6;
 
 class BAAScreenView extends ScreenView {
@@ -507,70 +505,17 @@ class BAAScreenView extends ScreenView {
 
     this.accordionBoxes = new VBox( {
       children: [ this.periodicTableAccordionBox ],
-      spacing: 7
+      spacing: 7,
+      top: CONTROLS_INSET,
+      right: this.layoutBounds.maxX - CONTROLS_INSET
     } );
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
-    const checkboxItemTextOptions = {
-      font: LABEL_CONTROL_FONT,
-      maxWidth: LABEL_CONTROL_MAX_WIDTH
-    };
-    const checkboxItems: VerticalCheckboxGroupItem[] = [
-      {
-        createNode: () => new Text( BuildAnAtomFluent.elementStringProperty, checkboxItemTextOptions ),
-        property: this.viewProperties.elementNameVisibleProperty,
-        tandemName: 'elementNameCheckbox',
-        options: {
-          accessibleName: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
-
-          accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
-            model.atom.protonCountProperty,
-            model.atom.elementNameStringProperty
-          )
-        }
-      },
-      {
-        createNode: () => new Text( BuildAnAtomFluent.neutralSlashIonStringProperty, checkboxItemTextOptions ),
-        property: this.viewProperties.neutralAtomOrIonVisibleProperty,
-        tandemName: 'neutralAtomOrIonCheckbox',
-        options: {
-          accessibleName: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
-
-          accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
-            model.atom.protonCountProperty,
-            model.atom.chargeProperty
-          )
-        }
-      },
-      {
-        createNode: () => new Text( BuildAnAtomFluent.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
-        property: this.viewProperties.nuclearStabilityVisibleProperty,
-        tandemName: 'nuclearStabilityCheckbox',
-        options: {
-          accessibleName: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
-
-          accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(
-            model.atom.protonCountProperty,
-            model.atom.nucleusStableProperty
-          )
-        }
-      }
-    ];
-
-    const checkboxGroup = new VerticalCheckboxGroup( checkboxItems, {
-      checkboxOptions: { boxWidth: 12 },
-      spacing: 8,
-      tandem: tandem.createTandem( 'checkboxGroup' ),
-      phetioFeatured: true,
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      }
+    // Add the checkbox group that controls some of the atom appearance options.
+    const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.viewProperties, {
+      left: this.accordionBoxes.left,
+      bottom: this.layoutBounds.height - 2 * CONTROLS_INSET,
+      tandem: tandem.createTandem( 'checkboxGroup' )
     } );
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
@@ -601,10 +546,6 @@ class BAAScreenView extends ScreenView {
     } );
 
     // Do the layout.
-    this.accordionBoxes.top = CONTROLS_INSET;
-    this.accordionBoxes.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    checkboxGroup.left = this.accordionBoxes.left;
-    checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
     electronModelControl.left = this.atomNode.centerX + 130;
     electronModelControl.bottom = this.atomNode.bottom + 5;
 
