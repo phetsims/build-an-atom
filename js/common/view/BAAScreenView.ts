@@ -615,12 +615,16 @@ class BAAScreenView extends ScreenView {
       affirm( particle.containerProperty.value === this.model.atom, 'The provided particle must be in the atom' );
 
       if ( this.viewProperties.electronModelProperty.value === 'cloud' && particle.type === 'electron' ) {
+
+        // Make the electron cloud focusable instead of the individual electron particle.
         this.atomNode.electronCloud.focusable = true;
         this.mapParticlesToViews.forEach( otherParticleView => {
           otherParticleView.focusable = false;
         } );
       }
       else {
+
+        // Make the provided particle's view node focusable.
         const particleView = this.mapParticlesToViews.get( particle );
         affirm( particleView, 'Missing ParticleView for particle' );
         particleView.focusable = true;
@@ -631,6 +635,9 @@ class BAAScreenView extends ScreenView {
             otherParticleView.focusable = false;
           }
         } );
+
+        // Make sure that the electron cloud is not focusable.
+        this.atomNode.electronCloud.focusable = false;
       }
     }
     else {
