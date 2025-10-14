@@ -87,6 +87,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     // for sound generation
     const grabSoundPlayer = sharedSoundPlayers.get( 'grab' );
     const releaseSoundPlayer = sharedSoundPlayers.get( 'release' );
+    const deleteSoundPlayer = sharedSoundPlayers.get( 'erase' );
 
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
     // is only updated when the particle is extracted from a bucket or from the atom, and isn't cleared on the way in,
@@ -175,6 +176,9 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               // Shift the focus to the next subatomic particle in the atom.
               shiftFocus( null, 'forward' );
             }
+
+            // Play sound for delete action.
+            deleteSoundPlayer.play();
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
           }
@@ -269,11 +273,13 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           }
           else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
-            // Move the particle immediately back the bucket from whence it came. No accessible object response because the model has its own emitter for that.
+            // Move the particle immediately back the bucket from whence it came. No accessible object response because
+            // the model has its own emitter for that.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
 
             particle.isDraggingProperty.value = false;
             particle.moveImmediatelyToDestination();
+            deleteSoundPlayer.play();
           }
           else if ( keysPressed === 'escape' ) {
 
