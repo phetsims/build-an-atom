@@ -26,6 +26,11 @@ import buildAnAtom from '../../buildAnAtom.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
 
+type ParticleLocationInformation = {
+  offset: Vector2;
+  responseProperty: TReadOnlyProperty<string>;
+};
+
 const NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'w', 'a', 's', 'd' ];
 
 class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
@@ -62,26 +67,17 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     const innerShellOffset = new Vector2( 0, -atom.innerElectronShellRadius );
     const outerShellOffset = new Vector2( 0, -atom.outerElectronShellRadius );
     const outsideAtomOffset = new Vector2( -65, -155 );
-    const altInputAtomOffsetsForShellMode: Vector2[] = [
-      belowNucleusOffset,
-      innerShellOffset,
-      outerShellOffset,
-      outsideAtomOffset
-    ];
-    const altInputAtomOffsetsForCloudMode: Vector2[] = [
-      belowNucleusOffset,
-      outsideAtomOffset
+
+    const altInputAtomForShellMode: ParticleLocationInformation[] = [
+      { offset: belowNucleusOffset, responseProperty: ShredStrings.a11y.particles.overNucleusStringProperty },
+      { offset: innerShellOffset, responseProperty: ShredStrings.a11y.particles.overInnerShellStringProperty },
+      { offset: outerShellOffset, responseProperty: ShredStrings.a11y.particles.overOuterShellStringProperty },
+      { offset: outsideAtomOffset, responseProperty: ShredStrings.a11y.particles.nearBucketsStringProperty }
     ];
 
-    const objectResponsesForShellMode: TReadOnlyProperty<string>[] = [
-      ShredStrings.a11y.particles.overNucleusStringProperty,
-      ShredStrings.a11y.particles.overInnerShellStringProperty,
-      ShredStrings.a11y.particles.overOuterShellStringProperty,
-      ShredStrings.a11y.particles.nearBucketsStringProperty
-    ];
-    const objectResponsesForCloudMode: TReadOnlyProperty<string>[] = [
-      ShredStrings.a11y.particles.overAtomStringProperty,
-      ShredStrings.a11y.particles.nearBucketsStringProperty
+    const altInputAtomForCloudMode: ParticleLocationInformation[] = [
+      { offset: belowNucleusOffset, responseProperty: ShredStrings.a11y.particles.overNucleusStringProperty },
+      { offset: outsideAtomOffset, responseProperty: ShredStrings.a11y.particles.nearBucketsStringProperty }
     ];
 
     // for sound generation
@@ -240,13 +236,13 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             const particleDistanceFromAtomCenter = particle.positionProperty.value.distance(
               atom.positionProperty.value
             );
-            const altInputAtomOffsets = electronModelProperty.value === 'shells' ?
-                                        altInputAtomOffsetsForShellMode :
-                                        altInputAtomOffsetsForCloudMode;
+            const altInputInfoForAtom = electronModelProperty.value === 'shells' ?
+                                        altInputAtomForShellMode :
+                                        altInputAtomForCloudMode;
 
-            const objectResponses = electronModelProperty.value === 'shells' ?
-                                    objectResponsesForShellMode :
-                                    objectResponsesForCloudMode;
+            const altInputAtomOffsets = altInputInfoForAtom.map( info => info.offset );
+            const objectResponses = altInputInfoForAtom.map( info => info.responseProperty );
+
             for ( const offset of altInputAtomOffsets ) {
               if ( offset.getMagnitude() === particleDistanceFromAtomCenter ) {
                 offsetIndex = altInputAtomOffsets.indexOf( offset );
