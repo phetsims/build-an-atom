@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.9.0-dev.1 Wed Oct 08 2025 16:54:37 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.9.0-dev.2 Tue Oct 14 2025 17:04:35 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "main"
@@ -13,11 +13,11 @@
     "branch": "main"
   },
   "build-an-atom": {
-    "sha": "dacf2fff278d62cce28ec1afcd41b8bcd35b4134",
+    "sha": "d671da627d7a6f9fed3f7d9848be676027cd395f",
     "branch": "main"
   },
   "chipper": {
-    "sha": "12c3b01e8e8c9028930fed3b123074a7b0002f45",
+    "sha": "f165778c16fcef786ae10bdbbe882bda6a4ad679",
     "branch": "main"
   },
   "dot": {
@@ -33,7 +33,7 @@
     "branch": "main"
   },
   "perennial-alias": {
-    "sha": "274339e030ba53c677dabf3cb639fd15b126847b",
+    "sha": "e47b080a8efbdffbaa13078974d600e88dd6f7f1",
     "branch": "main"
   },
   "phet-core": {
@@ -53,7 +53,7 @@
     "branch": "main"
   },
   "phetcommon": {
-    "sha": "8130db3074f830d9dcc5d09558ec4b7b8b4e9991",
+    "sha": "6343150359f1fafb499144c7ea35abc465ebf47b",
     "branch": "main"
   },
   "phetmarks": {
@@ -65,7 +65,7 @@
     "branch": "main"
   },
   "scenery": {
-    "sha": "3ecbad6d4e86000e3a2dc05ee2b0eedb7b1017e1",
+    "sha": "bc468587b536e0fffa2d079221dec2c1808a0344",
     "branch": "main"
   },
   "scenery-phet": {
@@ -73,11 +73,11 @@
     "branch": "main"
   },
   "sherpa": {
-    "sha": "d920145b92fe0421a0b226830537e349e7b8919f",
+    "sha": "c0051f610de98c2c1f10bf6c0a905ed7201a6c2e",
     "branch": "main"
   },
   "shred": {
-    "sha": "6a579e87d42af12e40810ca15ef794e871d0c2eb",
+    "sha": "617d6670d8e2718b5bd3b231e724a822780bf43d",
     "branch": "main"
   },
   "studio": {
@@ -105,7 +105,7 @@
     "branch": "main"
   },
   "vegas": {
-    "sha": "1c21d4ab3b9fe33418d393b315890d58985e2df0",
+    "sha": "933d997e661deb218c52f1ad92720ceb1410debb",
     "branch": "main"
   }
 }
