@@ -55,7 +55,7 @@ import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
-import AtomViewDescriber from './description/AtomViewDescriber.js';
+import AtomDescriberAccessibleListNode from './description/AtomDescriberAccessibleListNode.js';
 import ElectronCloudKeyboardListener from './ElectronCloudKeyboardListener.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
@@ -126,7 +126,7 @@ class BAAScreenView extends ScreenView {
     } );
 
     this.atomNode.addChild(
-      AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties )
+      new AtomDescriberAccessibleListNode( model.atom, this.viewProperties )
     );
 
     // Create the particle count indicator.

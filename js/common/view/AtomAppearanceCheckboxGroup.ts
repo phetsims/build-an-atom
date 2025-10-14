@@ -17,7 +17,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import AtomViewProperties from './AtomViewProperties.js';
-import AtomViewDescriber from './description/AtomViewDescriber.js';
+import AtomDescriberAccessibleListNode from './description/AtomDescriberAccessibleListNode.js';
 
 const LABEL_FONT = new PhetFont( 12 );
 const LABEL_MAX_WIDTH = 180;
@@ -54,7 +54,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleHelpText: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
+          accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createElementNameContextResponse(
             atom.protonCountProperty,
             atom.elementNameStringProperty
           )
@@ -69,7 +69,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleHelpText: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
+          accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createNeutralOrIonContextResponse(
             atom.protonCountProperty,
             atom.chargeProperty
           )
@@ -84,7 +84,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleHelpText: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
 
-          accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(
+          accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createStabilityContextResponse(
             atom.protonCountProperty,
             atom.nucleusStableProperty
           )

@@ -17,17 +17,12 @@ import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import AtomViewProperties from '../AtomViewProperties.js';
 
-class AtomViewDescriber {
+class AtomDescriberAccessibleListNode extends AccessibleListNode {
 
-  private constructor() {
-    // Not intended for instantiation.
-  }
-
-  public static createAccessibleListNode(
+  public constructor(
     atom: ParticleAtom,
     viewProperties: AtomViewProperties
-  ): AccessibleListNode {
-
+  ) {
     const nucleusContainsProperty = new DerivedStringProperty(
       [
         atom.protonCountProperty,
@@ -95,17 +90,17 @@ class AtomViewDescriber {
       }
     );
 
-    const elementNameListItemProperty = this.createElementNameContextResponse(
+    const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameContextResponse(
       atom.protonCountProperty,
       atom.elementNameStringProperty
     );
 
-    const neutralOrIonListItemProperty = this.createNeutralOrIonContextResponse(
+    const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonContextResponse(
       atom.protonCountProperty,
       atom.chargeProperty
     );
 
-    const stabilityListItemProperty = this.createStabilityContextResponse(
+    const stabilityListItemProperty = AtomDescriberAccessibleListNode.createStabilityContextResponse(
       atom.protonCountProperty,
       atom.nucleusStableProperty
     );
@@ -116,7 +111,7 @@ class AtomViewDescriber {
       return DerivedProperty.and( [ visibleProperty, hasProtonsProperty ] );
     };
 
-    return new AccessibleListNode( [
+    super( [
       nucleusContainsProperty,
       electronsStateProperty,
       { stringProperty: elementNameListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.elementNameVisibleProperty ) },
@@ -215,6 +210,6 @@ class AtomViewDescriber {
   }
 }
 
-buildAnAtom.register( 'AtomViewDescriber', AtomViewDescriber );
+buildAnAtom.register( 'AtomDescriberAccessibleListNode', AtomDescriberAccessibleListNode );
 
-export default AtomViewDescriber;
+export default AtomDescriberAccessibleListNode;
