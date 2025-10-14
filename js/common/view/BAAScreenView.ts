@@ -41,6 +41,7 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -231,6 +232,8 @@ class BAAScreenView extends ScreenView {
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
             particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, 'queue' );
 
+            // Play the grab sound.
+            sharedSoundPlayers.get( 'grab' ).play();
 
             // Indicate that the user has interacted with the buckets.
             this.hasBucketInteractionOccurredProperty.value = true;

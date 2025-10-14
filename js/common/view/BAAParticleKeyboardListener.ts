@@ -2,7 +2,7 @@
 
 /**
  * BAAParticleKeyboardListener is a specialization of scenery's KeyboardListener that handles keystrokes far alt-input
- * that occur when the user is focused on a BAAParticle.
+ * that occur when the user is focused on a particle.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -20,6 +20,7 @@ import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -83,6 +84,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       ShredStrings.a11y.particles.nearBucketsStringProperty
     ];
 
+    // for sound generation
+    const grabSoundPlayer = sharedSoundPlayers.get( 'grab' );
+    const releaseSoundPlayer = sharedSoundPlayers.get( 'release' );
+
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
     // is only updated when the particle is extracted from a bucket or from the atom, and isn't cleared on the way in,
     // so use accordingly.
@@ -119,6 +124,9 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
             // will incite the model to remove the particle from the atom.
             particle.isDraggingProperty.value = true;
+
+            // Play sound that signifies grab of particle.
+            grabSoundPlayer.play();
 
             // This particle is being extracted from the atom, so position it just below the nucleus.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
@@ -181,6 +189,9 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // Release the particle from the user's control and let the chips (or the particle in this case) fall
             // where they may (the model code should move it into the atom or back to a homeBucket).
             particle.isDraggingProperty.value = false;
+
+            // Play sound that signifies release of particle.
+            releaseSoundPlayer.play();
 
             // Verify that the particle has gone into the atom or a homeBucket.
             affirm(
@@ -276,6 +287,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
               particle.isDraggingProperty.value = false;
               particle.moveImmediatelyToDestination();
+              releaseSoundPlayer.play();
               homeBucketFront.focus();
             }
             else if ( mostRecentContainer === atom ) {
@@ -283,6 +295,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, 'queue' );
 
               particle.isDraggingProperty.value = false;
+
+              releaseSoundPlayer.play();
 
               // Handle focus for the case where an electron is released back into the cloud.
               if ( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) {
