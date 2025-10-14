@@ -13,6 +13,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import PDOMUtils from '../../../../scenery/js/accessibility/pdom/PDOMUtils.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -21,6 +22,7 @@ import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/button
 import nullSoundPlayer from '../../../../tambo/js/nullSoundPlayer.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import CheckButton from '../../../../vegas/js/buttons/CheckButton.js';
+import ShowAnswerButton from '../../../../vegas/js/buttons/ShowAnswerButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -29,7 +31,6 @@ import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import { GameState } from '../model/GameModel.js';
 
 const nextStringProperty = VegasStrings.nextStringProperty;
-const showAnswerStringProperty = VegasStrings.showAnswerStringProperty;
 const tryAgainStringProperty = VegasStrings.tryAgainStringProperty;
 
 // constants
@@ -140,6 +141,16 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
         // Otherwise, move to the try again button.
         if ( challenge.model.gameStateProperty.value === 'solvedCorrectly' ) {
           this.nextButton.focus();
+
+          // TODO: Move these strings into vegas so that they can be reused. That way we share translations.
+          //   See https://github.com/phetsims/vegas/issues/138
+          //   But not built into options to offer lots of flexibility.
+          // If correct: Great! You earned {{# points}}. // one for points and one for stars
+          // If correct: Great! You earned {{# stars}}.
+          // If incorrect (regardless of attempts remaining): Oops! Let’s review.
+        }
+        else if ( challenge.model.gameStateProperty.value === 'attemptsExhausted' ) {
+          this.showAnswerButton.focus();
         }
         else {
           this.tryAgainButton.focus();
@@ -166,14 +177,20 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.answerButtons.push( this.nextButton );
 
     this.tryAgainButton = new TextPushButton( tryAgainStringProperty, combineOptions<TextPushButtonOptions>( {
-      listener: () => { challenge.tryAgain(); },
+      listener: () => {
+        challenge.tryAgain();
+        PDOMUtils.focusTop();
+      },
       tandem: tandem.createTandem( 'tryAgainButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.tryAgainButton );
     this.answerButtons.push( this.tryAgainButton );
 
-    this.showAnswerButton = new TextPushButton( showAnswerStringProperty, combineOptions<TextPushButtonOptions>( {
-      listener: () => { challenge.displayCorrectAnswer(); },
+    this.showAnswerButton = new ShowAnswerButton( combineOptions<TextPushButtonOptions>( {
+      listener: () => {
+        challenge.displayCorrectAnswer();
+        this.nextButton.focus();
+      },
       tandem: tandem.createTandem( 'showAnswerButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.showAnswerButton );

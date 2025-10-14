@@ -16,7 +16,6 @@ import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import type LocalizedStringProperty from '../../../../chipper/js/browser/LocalizedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { equalsEpsilon } from '../../../../dot/js/util/equalsEpsilon.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import Shape from '../../../../kite/js/Shape.js';
@@ -34,7 +33,7 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import Particle, { ParticleLocations, ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleLocations } from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
@@ -42,7 +41,7 @@ import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js'
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
-import VerticalCheckboxGroup, { VerticalCheckboxGroupItem } from '../../../../sun/js/VerticalCheckboxGroup.js';
+import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -50,6 +49,7 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel, { MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
+import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
@@ -59,13 +59,8 @@ import AtomViewDescriber from './description/AtomViewDescriber.js';
 import ElectronCloudKeyboardListener from './ElectronCloudKeyboardListener.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
-type FocusUpdateDirection = 'forward' | 'backward';
-
 // constants
 const CONTROLS_INSET = 10;
-const LABEL_CONTROL_FONT = new PhetFont( 12 );
-const LABEL_CONTROL_MAX_WIDTH = 180;
-const DISTANCE_TESTING_TOLERANCE = 1e-6;
 
 class BAAScreenView extends ScreenView {
 
@@ -117,7 +112,8 @@ class BAAScreenView extends ScreenView {
       1.0
     );
 
-    // Add the node that shows the textual labels, the electron shells, and the center X marker.
+    // Create the node that represents the built atom.  This includes things like the electron shells, textual labels,
+    // and the marker at the center of an empty atom.
     this.atomNode = new AtomNode( model.atom, modelViewTransform, {
       showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
       showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
@@ -133,21 +129,22 @@ class BAAScreenView extends ScreenView {
       AtomViewDescriber.createAccessibleListNode( model.atom, this.viewProperties )
     );
 
-    // Add the particle count indicator.
+    // Create the particle count indicator.
     const particleCountDisplay = new ParticleCountDisplay( model.atom, {
       top: CONTROLS_INSET,
       left: CONTROLS_INSET,
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
 
-    // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
+    // Create the layers that will hold the bucket fronts.
     const bucketFrontLayer = new Node( {
       accessibleHeading: ShredStrings.a11y.particles.accessibleHeadingStringProperty
     } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
 
-    const createBucketFront = (
+    // Helper function to add a bucket front to the bucket front layer.
+    const addBucketFront = (
       bucket: SphereBucket<Particle>,
       particleTypeStringProperty: TReadOnlyProperty<string>,
       bucketEmptyProperty: TReadOnlyProperty<boolean>
@@ -164,7 +161,7 @@ class BAAScreenView extends ScreenView {
         }
       );
 
-      const bucketaccessibleHelpTextProperty = new DerivedStringProperty(
+      const bucketAccessibleHelpTextProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
           ShredStrings.a11y.particles.accessibleHelpTextStringProperty
@@ -188,7 +185,7 @@ class BAAScreenView extends ScreenView {
         // pdom
         tagName: 'button',
         accessibleName: bucketAccessibleNameProperty,
-        accessibleHelpText: bucketaccessibleHelpTextProperty
+        accessibleHelpText: bucketAccessibleHelpTextProperty
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
@@ -235,6 +232,8 @@ class BAAScreenView extends ScreenView {
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
             particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, 'queue' );
 
+            // Play the grab sound.
+            sharedSoundPlayers.get( 'grab' ).play();
 
             // Indicate that the user has interacted with the buckets.
             this.hasBucketInteractionOccurredProperty.value = true;
@@ -246,23 +245,23 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.set( bucket, bucketFront );
     };
 
-    createBucketFront(
+    addBucketFront(
       model.protonBucket,
       ShredStrings.a11y.particles.protonStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.protonCountProperty, MAX_PROTONS )
     );
-    createBucketFront(
+    addBucketFront(
       model.neutronBucket,
       ShredStrings.a11y.particles.neutronStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.neutronCountProperty, MAX_NEUTRONS )
     );
-    createBucketFront(
+    addBucketFront(
       model.electronBucket,
       ShredStrings.a11y.particles.electronStringProperty,
       DerivedProperty.valueEqualsConstant( model.atom.electronCountProperty, MAX_ELECTRONS )
     );
 
-    // Add the alt-input grab/release cue node.
+    // Add the alt-input grab/release cue node for the buckets.
     bucketFrontLayer.addChild( new BucketGrabReleaseCueNode(
       this.mapBucketsToViews.get( model.protonBucket )!,
       this.mapBucketsToViews.get( model.neutronBucket )!,
@@ -271,7 +270,7 @@ class BAAScreenView extends ScreenView {
       bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
     ) );
 
-    // Create the layer where the nucleons and electrons will go.
+    // Create the layer where the subatomic particles will go when they are not a part of the atom.
     const particleLayer = new Node();
 
     // Define group tandems for the particles.
@@ -279,18 +278,11 @@ class BAAScreenView extends ScreenView {
     const neutronsGroupTandem = tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
     const electronsGroupTandem = tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
-    // The particles should not be draggable outside the layout bounds of this screen view.
-    const particleDragBounds = modelViewTransform.viewToModelBounds( this.layoutBounds );
-
-    // Define some offsets that will be used to position the particles in various locations needed by alt-input.
-    // These are in model coordinates.
-    const belowNucleusOffset = new Vector2( 0, -40 );
-
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
 
     model.particleAddedToEmitter.addListener( ( destination: ParticleLocations ) => {
-      let contextResponse: LocalizedStringProperty | string = '';
+      let contextResponse: LocalizedStringProperty | string;
 
       if ( destination === 'bucket' ) {
         contextResponse = ShredStrings.a11y.particles.particleReturnedToBucketStringProperty;
@@ -333,7 +325,7 @@ class BAAScreenView extends ScreenView {
     [ ...model.nucleons, ...model.electrons ].forEach( particle => {
 
       const particleView = new BAAParticleView( particle, modelViewTransform, {
-        dragBounds: particleDragBounds,
+        dragBounds: modelViewTransform.viewToModelBounds( this.layoutBounds ),
         focusable: false,
         tandem: particle.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
@@ -382,13 +374,13 @@ class BAAScreenView extends ScreenView {
         particleView,
         this.getHomeBucketFront( particle ),
         this.atomNode.electronCloud,
-        this.updateAtomParticleFocus.bind( this ),
+        this.atomNode.updateParticleFocus.bind( this.atomNode ),
         tandem.createTandem( 'particleViewKeyboardListener' )
       ) );
 
-      // Watch for when particles enter or leave the atom and update the focusability of the particle views for the
-      // particles that are in the atom as needed. The goal is to have one focusable particle in the atom when there are
-      // particles there, and none (of course) when the atom is empty.
+      // Watch for when particles enter or leave the atom and update the focusability of the particle views owned by the
+      // for the atom as needed. The goal is to have one focusable particle in the atom when there are particles there
+      // and none (of course) when the atom is empty.
       particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
 
         const particleView = this.mapParticlesToViews.get( particle );
@@ -448,6 +440,9 @@ class BAAScreenView extends ScreenView {
       }
     );
 
+    // Define the position where a particle will be initially placed when pulled from a bucket using alt-input.
+    const belowNucleusOffset = new Vector2( 0, -40 );
+
     // Add a keyboard listener to the electron cloud.
     this.atomNode.electronCloud.addInputListener( new ElectronCloudKeyboardListener(
       model.atom,
@@ -456,7 +451,7 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.mapParticlesToViews,
       belowNucleusOffset,
-      this.updateAtomParticleFocus.bind( this ),
+      this.atomNode.updateParticleFocus.bind( this.atomNode ),
       tandem.createTandem( 'electronCloudKeyboardListener' )
     ) );
 
@@ -489,7 +484,8 @@ class BAAScreenView extends ScreenView {
       pickable: false,
       scale: 0.55 // Scale empirically determined to match layout in design doc.
     } );
-    this.periodicTableAccordionBox = new BuildAnAtomAccordionBox( periodicTableAndSymbol,
+    this.periodicTableAccordionBox = new BuildAnAtomAccordionBox(
+      periodicTableAndSymbol,
       combineOptions<BuildAnAtomAccordionBoxOptions>( {}, {
         titleNode: new Text( BuildAnAtomFluent.periodicTableStringProperty, {
           font: ShredConstants.ACCORDION_BOX_TITLE_FONT,
@@ -503,74 +499,22 @@ class BAAScreenView extends ScreenView {
 
         accessibleName: BuildAnAtomStrings.a11y.common.periodicTable.accessibleNameStringProperty,
         accessibleHelpTextExpanded: periodicTableAccessibleParagraphProperty
-      }, BAAConstants.ACCORDION_BOX_OPTIONS ) );
+      }, BAAConstants.ACCORDION_BOX_OPTIONS )
+    );
 
     this.accordionBoxes = new VBox( {
       children: [ this.periodicTableAccordionBox ],
-      spacing: 7
+      spacing: 7,
+      top: CONTROLS_INSET,
+      right: this.layoutBounds.maxX - CONTROLS_INSET
     } );
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
-    const checkboxItemTextOptions = {
-      font: LABEL_CONTROL_FONT,
-      maxWidth: LABEL_CONTROL_MAX_WIDTH
-    };
-    const checkboxItems: VerticalCheckboxGroupItem[] = [
-      {
-        createNode: () => new Text( BuildAnAtomFluent.elementStringProperty, checkboxItemTextOptions ),
-        property: this.viewProperties.elementNameVisibleProperty,
-        tandemName: 'elementNameCheckbox',
-        options: {
-          accessibleName: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
-
-          accessibleContextResponseChecked: AtomViewDescriber.createElementNameContextResponse(
-            model.atom.protonCountProperty,
-            model.atom.elementNameStringProperty
-          )
-        }
-      },
-      {
-        createNode: () => new Text( BuildAnAtomFluent.neutralSlashIonStringProperty, checkboxItemTextOptions ),
-        property: this.viewProperties.neutralAtomOrIonVisibleProperty,
-        tandemName: 'neutralAtomOrIonCheckbox',
-        options: {
-          accessibleName: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
-
-          accessibleContextResponseChecked: AtomViewDescriber.createNeutralOrIonContextResponse(
-            model.atom.protonCountProperty,
-            model.atom.chargeProperty
-          )
-        }
-      },
-      {
-        createNode: () => new Text( BuildAnAtomFluent.stableSlashUnstableStringProperty, checkboxItemTextOptions ),
-        property: this.viewProperties.nuclearStabilityVisibleProperty,
-        tandemName: 'nuclearStabilityCheckbox',
-        options: {
-          accessibleName: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
-          accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
-
-          accessibleContextResponseChecked: AtomViewDescriber.createStabilityContextResponse(
-            model.atom.protonCountProperty,
-            model.atom.nucleusStableProperty
-          )
-        }
-      }
-    ];
-
-    const checkboxGroup = new VerticalCheckboxGroup( checkboxItems, {
-      checkboxOptions: { boxWidth: 12 },
-      spacing: 8,
-      tandem: tandem.createTandem( 'checkboxGroup' ),
-      phetioFeatured: true,
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      }
+    // Add the checkbox group that controls some of the atom appearance options.
+    const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.viewProperties, {
+      left: this.accordionBoxes.left,
+      bottom: this.layoutBounds.height - 2 * CONTROLS_INSET,
+      tandem: tandem.createTandem( 'checkboxGroup' )
     } );
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
@@ -581,6 +525,11 @@ class BAAScreenView extends ScreenView {
 
     // Add the selector panel that controls the electron representation in the atom.
     const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
+
+      // position empirically determined to match design doc
+      left: this.atomNode.centerX + 130,
+      bottom: this.atomNode.bottom + 5,
+
       tandem: tandem.createTandem( 'electronModelControl' ),
       phetioFeatured: true,
       visiblePropertyOptions: {
@@ -599,14 +548,6 @@ class BAAScreenView extends ScreenView {
       radius: BAAConstants.RESET_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-
-    // Do the layout.
-    this.accordionBoxes.top = CONTROLS_INSET;
-    this.accordionBoxes.right = this.layoutBounds.maxX - CONTROLS_INSET;
-    checkboxGroup.left = this.accordionBoxes.left;
-    checkboxGroup.bottom = this.layoutBounds.height - 2 * CONTROLS_INSET;
-    electronModelControl.left = this.atomNode.centerX + 130;
-    electronModelControl.bottom = this.atomNode.bottom + 5;
 
     // Add the top level children in the desired z-order.
     this.addChild( electronModelControl );
@@ -639,146 +580,6 @@ class BAAScreenView extends ScreenView {
       checkboxGroup,
       electronModelControl
     ];
-  }
-
-  /**
-   * Update which particle in the atom has focus based on the current particle that has focus and the direction to move.
-   * This is for alt-input support.  If no node is supplied, then the focus will be set to the first available particle
-   * in the atom.
-   */
-  private updateAtomParticleFocus( currentlyFocusedNode: ParticleView | ElectronCloudView | null,
-                                   direction: FocusUpdateDirection ): void {
-
-    affirm(
-      currentlyFocusedNode === null || currentlyFocusedNode.focused,
-      'The provided particle view or electron cloud must have focus for this to work.'
-    );
-
-    // This array will be populated with the nodes that are eligible to receive focus, in the order in which they
-    // should receive focus.
-    const focusOrder: ( ParticleView | ElectronCloudView )[] = [];
-
-    let particleType: ParticleType | null;
-    if ( currentlyFocusedNode ) {
-      if ( currentlyFocusedNode instanceof ParticleView ) {
-        particleType = currentlyFocusedNode.particle.type;
-      }
-      else {
-
-        // The provided node must be the electron cloud.
-        particleType = 'electron';
-      }
-    }
-    else {
-      particleType = null;
-    }
-
-    if ( currentlyFocusedNode && particleType === 'proton' ) {
-      focusOrder.push( currentlyFocusedNode );
-    }
-    else {
-
-      const closestProtonToAtomCenter = this.getClosestParticleToAtomCenter( 'proton' );
-
-      // Add the best proton view if there is one.
-      if ( closestProtonToAtomCenter ) {
-        const protonView = this.mapParticlesToViews.get( closestProtonToAtomCenter );
-        affirm( protonView, 'Missing ParticleView for proton' );
-        focusOrder.push( protonView );
-      }
-    }
-
-    if ( currentlyFocusedNode && particleType === 'neutron' ) {
-      focusOrder.push( currentlyFocusedNode );
-    }
-    else {
-
-      const closestNeutronToAtomCenter = this.getClosestParticleToAtomCenter( 'neutron' );
-
-      // Add the best neutron view if there is one.
-      if ( closestNeutronToAtomCenter ) {
-        const neutronView = this.mapParticlesToViews.get( closestNeutronToAtomCenter );
-        affirm( neutronView, 'Missing ParticleView for neutron' );
-        focusOrder.push( neutronView );
-      }
-    }
-
-    if ( this.model.atom.electrons.length > 0 ) {
-      if ( this.viewProperties.electronModelProperty.value === 'cloud' ) {
-
-        // We are in cloud mode, so add the cloud to the focus order.
-        focusOrder.push( this.atomNode.electronCloud );
-      }
-      else {
-
-        let electronShellNumber = -1;
-        if ( particleType === 'electron' ) {
-          electronShellNumber = this.getElectronShellNumber( ( currentlyFocusedNode as ParticleView ).particle );
-        }
-
-        // Define a couple of closure functions that will help with adding electrons to the focus order.
-        const addInnerElectronToFocusOrder = () => {
-          const electronsInInnerShell = [ ...this.model.atom.electrons ].filter( e =>
-            this.getElectronShellNumber( e ) === 0
-          );
-          if ( electronsInInnerShell.length > 0 ) {
-            const innerShellElectron = this.mapParticlesToViews.get( electronsInInnerShell[ 0 ] );
-            affirm( innerShellElectron, 'Missing ParticleView for electron in inner shell' );
-            focusOrder.push( innerShellElectron );
-          }
-        };
-        const addOuterElectronToFocusOrder = () => {
-          const electronsInOuterShell = [ ...this.model.atom.electrons ].filter( electron =>
-            this.getElectronShellNumber( electron ) === 1
-          );
-          if ( electronsInOuterShell.length > 0 ) {
-            const outerShellElectron = this.mapParticlesToViews.get( electronsInOuterShell[ 0 ] );
-            affirm( outerShellElectron, 'Missing ParticleView for electron in outer shell' );
-            focusOrder.push( outerShellElectron );
-          }
-        };
-
-        if ( electronShellNumber === -1 ) {
-
-          // The provided particle is not an electron, so add one electron from each shell, inner first.
-          addInnerElectronToFocusOrder();
-          addOuterElectronToFocusOrder();
-        }
-        else if ( currentlyFocusedNode && electronShellNumber === 0 ) {
-
-          // The provided particle is an electron in the inner shell, so add it first, then add an electron from the
-          // outer shell if there is one.
-          focusOrder.push( currentlyFocusedNode );
-          addOuterElectronToFocusOrder();
-        }
-        else {
-
-          // The provided particle is an electron in the outer shell, so add one from the inner shell first, then add
-          // this one.
-          addInnerElectronToFocusOrder();
-          currentlyFocusedNode && focusOrder.push( currentlyFocusedNode );
-        }
-      }
-    }
-
-    // If there is something available in the atom to shift focus to, do so.
-    if ( focusOrder.length > 0 ) {
-      const currentIndex = currentlyFocusedNode === null ?
-                           focusOrder.length - 1 :
-                           focusOrder.indexOf( currentlyFocusedNode );
-      let newIndex;
-      if ( direction === 'forward' ) {
-        newIndex = ( currentIndex + 1 ) % focusOrder.length;
-      }
-      else {
-        newIndex = ( currentIndex - 1 + focusOrder.length ) % focusOrder.length;
-      }
-      this.setAtomParticleViewFocusable( focusOrder[ newIndex ] );
-      focusOrder[ newIndex ].focus();
-      if ( currentIndex !== newIndex ) {
-        focusOrder[ currentIndex ].focusable = false;
-      }
-    }
   }
 
   /**
@@ -852,50 +653,10 @@ class BAAScreenView extends ScreenView {
     }
   }
 
-  /**
-   * Get the shell number (0 for inner, 1 for outer) for the provided electron.  If the electron is not in the atom,
-   * or if it is not in either shell, -1 is returned.
-   */
-  private getElectronShellNumber( electron: Particle ): number {
-    affirm( electron.type === 'electron', 'The provided particle must be an electron' );
-    let electronShellNumber = -1;
-    if ( this.model.atom.electrons.includes( electron ) ) {
-      const distanceFromAtomCenter =
-        electron.positionProperty.value.distance( this.model.atom.positionProperty.value );
-      electronShellNumber = equalsEpsilon(
-        distanceFromAtomCenter,
-        this.model.atom.innerElectronShellRadius,
-        DISTANCE_TESTING_TOLERANCE
-      ) ? 0 : 1;
-    }
-    return electronShellNumber;
-  }
-
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
     this.hasBucketInteractionOccurredProperty.reset();
     this.viewProperties.reset();
-  }
-
-  /**
-   * Get the particle of the specified type that is closest to the center of the atom.  Returns null if there are no
-   * particles of the specified type in the atom.
-   */
-  private getClosestParticleToAtomCenter( particleType: ParticleType ): Particle | null {
-    affirm(
-      particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
-      `Unexpected particle type: ${particleType}`
-    );
-    const atomCenter = this.model.atom.positionProperty.value;
-    const particles = particleType === 'proton' ? this.model.atom.protons :
-                      particleType === 'neutron' ? this.model.atom.neutrons :
-                      this.model.atom.electrons;
-    const sortedParticles = [ ...particles ].sort( ( a, b ) => {
-      const aDistance = a.positionProperty.value.distance( atomCenter );
-      const bDistance = b.positionProperty.value.distance( atomCenter );
-      return aDistance - bDistance;
-    } );
-    return sortedParticles.length > 0 ? sortedParticles[ 0 ] : null;
   }
 }
 
