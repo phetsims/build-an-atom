@@ -132,11 +132,11 @@ class BAAModel {
     const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
-        this.moveParticle( particle, 'nucleus' );
+        this.updateParticleLocationDescription( particle, 'nucleus' );
       }
       else {
         bucket.addParticleNearestOpen( particle, true );
-        this.moveParticle( particle, 'bucket' );
+        this.updateParticleLocationDescription( particle, 'bucket' );
       }
     };
 
@@ -221,17 +221,17 @@ class BAAModel {
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
             if ( this.atom.electronCountProperty.value < 2 ) {
               // Electron will go to inner shell
-              this.moveParticle( electron, 'innerShell' );
+              this.updateParticleLocationDescription( electron, 'innerShell' );
             }
             else {
               // Electron will go to outer shell
-              this.moveParticle( electron, 'outerShell' );
+              this.updateParticleLocationDescription( electron, 'outerShell' );
             }
             this.atom.addParticle( electron );
           }
           else {
             this.electronBucket.addParticleNearestOpen( electron, true );
-            this.moveParticle( electron, 'bucket' );
+            this.updateParticleLocationDescription( electron, 'bucket' );
           }
         }
       } );
@@ -262,7 +262,7 @@ class BAAModel {
   /**
    * Function to notify the movement of a particle. Specifically for context response and updating of particle description.
    */
-  private moveParticle( particle: Particle, location: ParticleLocations ): void {
+  private updateParticleLocationDescription( particle: Particle, location: ParticleLocations ): void {
     particle.locationNameProperty.value = location;
     this.particleAddedToEmitter.emit( location );
   }
