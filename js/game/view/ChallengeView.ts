@@ -165,10 +165,6 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
 
     this.nextButton = new TextPushButton( nextStringProperty, combineOptions<TextPushButtonOptions>( {
       listener: () => {
-
-        // TODO: When a new challenge is shown, the heading for the next challenge gets focus. Makes sense, but
-        //  was accidental from how I implemented it. Is this OK? If so, ill make sure it is more intentional.
-        //  See https://github.com/phetsims/vegas/issues/138
         challenge.next();
       },
       tandem: tandem.createTandem( 'nextButton' )
