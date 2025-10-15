@@ -24,6 +24,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import CheckButton from '../../../../vegas/js/buttons/CheckButton.js';
 import ShowAnswerButton from '../../../../vegas/js/buttons/ShowAnswerButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
+import VegasFluent from '../../../../vegas/js/VegasFluent.js';
 import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
@@ -141,19 +142,17 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
         // Otherwise, move to the try again button.
         if ( challenge.model.gameStateProperty.value === 'solvedCorrectly' ) {
           this.nextButton.focus();
-
-          // TODO: Move these strings into vegas so that they can be reused. That way we share translations.
-          //   See https://github.com/phetsims/vegas/issues/138
-          //   But not built into options to offer lots of flexibility.
-          // If correct: Great! You earned {{# points}}. // one for points and one for stars
-          // If correct: Great! You earned {{# stars}}.
-          // If incorrect (regardless of attempts remaining): Oops! Let’s review.
+          this.addAccessibleContextResponse( VegasFluent.a11y.checkButton.accessibleContextResponseCorrectPoints.format( {
+            points: challenge.model.pointsProperty
+          } ), { alertWhenNotDisplayed: true } );
         }
         else if ( challenge.model.gameStateProperty.value === 'attemptsExhausted' ) {
           this.showAnswerButton.focus();
+          this.addAccessibleContextResponse( VegasFluent.a11y.checkButton.accessibleContextResponseIncorrectStringProperty );
         }
         else {
           this.tryAgainButton.focus();
+          this.addAccessibleContextResponse( VegasFluent.a11y.checkButton.accessibleContextResponseIncorrectStringProperty );
         }
       },
       tandem: tandem.createTandem( 'checkButton' ),
