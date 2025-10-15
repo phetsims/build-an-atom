@@ -18,6 +18,7 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -51,6 +52,9 @@ class ElectronCloudKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     tandem: Tandem
   ) {
 
+    // Get the needed shared sound generators.
+    const grabSoundPlayer = sharedSoundPlayers.get( 'grab' );
+
     super( {
       keys: [ 'space', 'enter', ...NAVIGATION_KEYS, 'delete', 'backspace' ],
       fireOnDown: false,
@@ -74,6 +78,9 @@ class ElectronCloudKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           affirm( electronView, 'Missing ParticleView for electron' );
           electronView.focusable = true;
           electronView.focus();
+
+          // Play the grab sound.
+          grabSoundPlayer.play();
         }
         else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 

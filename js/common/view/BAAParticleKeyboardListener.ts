@@ -312,10 +312,11 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       blur: () => {
 
         // If focus leaves this particle, release it and let the chips fall where they may (the model code should
-        // move it into the atom or back to a homeBucket).  However, DON'T do this if the particle is in the process of
-        // being removed from the atom via alt-input.
+        // move the particle into the atom or back to a homeBucket).  However, DON'T do this if the particle is in the
+        // process of being removed from the atom via alt-input.
         if ( !isParticleBeingRemovedFromAtomViaAltInput ) {
           particle.isDraggingProperty.value = false;
+          releaseSoundPlayer.play();
         }
       },
       tandem: tandem
