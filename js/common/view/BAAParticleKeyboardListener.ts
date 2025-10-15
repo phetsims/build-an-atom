@@ -143,41 +143,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // Move the focus to the previous item in the designed focus order.
             shiftFocus( particleView, 'backward' );
           }
-          else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
-
-            isParticleBeingRemovedFromAtomViaAltInput = true;
-
-            // Set the particle as being dragged, which will cause it to be removed it from the atom.
-            particle.isDraggingProperty.value = true;
-
-            // Position the particle outside the atom so that when released, it will go to a homeBucket.
-            particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.nearBucketsStringProperty, { alertBehavior: 'queue' } );
-
-            // Release the particle from the user's control, which should cause the particle to return to a homeBucket.
-            particle.isDraggingProperty.value = false;
-
-            // Prevent animation, since it looks kind of weird in some cases.
-            particle.moveImmediatelyToDestination();
-
-            // Update the focus.
-            if ( atom.particleCountProperty.value === 0 ) {
-
-              // The atom is empty, so there are no particles to focus.  Move the focus to the homeBucket associated with
-              // this particle.
-              homeBucketFront.focus();
-            }
-            else {
-
-              // Shift the focus to the next subatomic particle in the atom.
-              shiftFocus( null, 'forward' );
-            }
-
-            // Play sound for delete action.
-            deleteSoundPlayer.play();
-
-            isParticleBeingRemovedFromAtomViaAltInput = false;
-          }
         }
         else if ( particle.isDraggingProperty.value ) {
 
@@ -273,9 +238,27 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // the model has its own emitter for that.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
 
+            // Set the particle as not being dragged, which should cause it to fall into the bucket.
             particle.isDraggingProperty.value = false;
+
+            // Move instantly - no animation.
             particle.moveImmediatelyToDestination();
+
+            // Play sound for delete action.
             deleteSoundPlayer.play();
+
+            // Update the alt-input focus.
+            if ( atom.particleCountProperty.value === 0 || ( mostRecentContainer === homeBucket ) ) {
+
+              // If the atom is now empty, or if the particle was just dragged from a bucket, move the focus to that
+              // bucket.
+              homeBucketFront.focus();
+            }
+            else {
+
+              // Shift the focus to the next subatomic particle in the atom.
+              shiftFocus( null, 'forward' );
+            }
           }
           else if ( keysPressed === 'escape' ) {
 
