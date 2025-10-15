@@ -10,17 +10,17 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Particle, { ParticleLocations } from '../../../../shred/js/model/Particle.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import ParticleView, { ParticleViewOptions } from '../../../../shred/js/view/ParticleView.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
+import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
 
 export type BAAParticleViewOptions = ParticleViewOptions;
 
 export default class BAAParticleView extends ParticleView {
 
-  public constructor( particle: Particle,
+  public constructor( particle: BAAParticle,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions?: BAAParticleViewOptions ) {
 

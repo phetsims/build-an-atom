@@ -19,7 +19,7 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import Particle, { ParticleLocations, ParticleType } from '../../../../shred/js/model/Particle.js';
+import { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -28,6 +28,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
+import BAAParticle, { ParticleLocations } from './BAAParticle.js';
 
 // constants
 export const MAX_PROTONS = 10;
@@ -56,14 +57,14 @@ class BAAModel {
   public readonly atom: ParticleAtom;
 
   // The buckets that hold the subatomic particles.
-  public readonly protonBucket: SphereBucket<Particle>;
-  public readonly neutronBucket: SphereBucket<Particle>;
-  public readonly electronBucket: SphereBucket<Particle>;
-  public readonly buckets: SphereBucket<Particle>[];
+  public readonly protonBucket: SphereBucket<BAAParticle>;
+  public readonly neutronBucket: SphereBucket<BAAParticle>;
+  public readonly electronBucket: SphereBucket<BAAParticle>;
+  public readonly buckets: SphereBucket<BAAParticle>[];
 
   // Arrays that hold the subatomic particles.
-  public readonly nucleons: Particle[];
-  public readonly electrons: Particle[];
+  public readonly nucleons: BAAParticle[];
+  public readonly electrons: BAAParticle[];
 
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
@@ -129,7 +130,7 @@ class BAAModel {
     this.particleAddedToEmitter = new Emitter<[ ParticleLocations ]>( { parameters: [ { valueType: 'string' } ] } );
 
     // Define a function that will decide where to put nucleons.
-    const placeNucleon = ( particle: Particle, bucket: SphereBucket<Particle>, atom: ParticleAtom ): void => {
+    const placeNucleon = ( particle: BAAParticle, bucket: SphereBucket<BAAParticle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
         this.updateParticleLocationDescription( particle, 'nucleus' );
@@ -152,7 +153,7 @@ class BAAModel {
       const bucket = particleType === 'proton' ? this.protonBucket : this.neutronBucket;
       const parentTandem = particleType === 'proton' ? protonTandem : neutronTandem;
       _.times( numberToAdd, index => {
-        const nucleon = new Particle( particleType, {
+        const nucleon = new BAAParticle( particleType, {
           tandem: parentTandem.createTandem( `${particleType}${index + 1}` ),
           maxZLayer: NUMBER_OF_NUCLEON_LAYERS - 1,
           colorProperty: particleType === 'proton' ? BAAColors.protonColorProperty : BAAColors.neutronColorProperty
@@ -202,7 +203,7 @@ class BAAModel {
 
     // Add the electrons.
     _.times( MAX_ELECTRONS, index => {
-      const electron = new Particle( 'electron', {
+      const electron = new BAAParticle( 'electron', {
         tandem: electronTandem.createTandem( `electron${index + 1}` ),
         maxZLayer: NUMBER_OF_NUCLEON_LAYERS - 1,
         colorProperty: BAAColors.electronColorProperty
@@ -262,7 +263,7 @@ class BAAModel {
   /**
    * Function to notify the movement of a particle. Specifically for context response and updating of particle description.
    */
-  private updateParticleLocationDescription( particle: Particle, location: ParticleLocations ): void {
+  private updateParticleLocationDescription( particle: BAAParticle, location: ParticleLocations ): void {
     particle.locationNameProperty.value = location;
     this.particleAddedToEmitter.emit( location );
   }
@@ -381,8 +382,8 @@ class BAAModel {
     }
     while ( currentCountInAtom > targetCount ) {
       const particle = this.atom.extractParticle( particleType );
-      assert && assert( particle, `No ${particleType} particle to move from atom to bucket` );
-      bucket.addParticleFirstOpen( particle, true );
+      affirm( particle, `No ${particleType} particle to move from atom to bucket` );
+      bucket.addParticleFirstOpen( particle as BAAParticle, true );
       currentCountInAtom--;
     }
   }

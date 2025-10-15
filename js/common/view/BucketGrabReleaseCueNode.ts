@@ -13,9 +13,9 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import GrabReleaseCueNode from '../../../../scenery-phet/js/accessibility/nodes/GrabReleaseCueNode.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
-import Particle from '../../../../shred/js/model/Particle.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAParticle from '../model/BAAParticle.js';
 
 class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
   public constructor(
@@ -54,7 +54,7 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
       ( bucketNodeWithFocus, hasBucketInteractionOccurred ) => {
         let focusedBucketIsEmpty = false;
         if ( bucketNodeWithFocus ) {
-          const bucket = bucketNodeWithFocus.bucket as SphereBucket<Particle>;
+          const bucket = bucketNodeWithFocus.bucket as SphereBucket<BAAParticle>;
           focusedBucketIsEmpty = bucket.getParticleList().length === 0;
         }
         return !!bucketNodeWithFocus && !hasBucketInteractionOccurred && !focusedBucketIsEmpty;

@@ -33,7 +33,7 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import Particle, { ParticleLocations } from '../../../../shred/js/model/Particle.js';
+import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
@@ -48,6 +48,7 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel, { MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
+import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
 import AtomViewProperties from './AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
@@ -83,8 +84,8 @@ class BAAScreenView extends ScreenView {
   private readonly mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
 
   // A map that associates buckets with the bucket front views for quick lookup.
-  private readonly mapBucketsToViews: Map<ParticleContainer<Particle>, BucketFront> =
-    new Map<ParticleContainer<Particle>, BucketFront>();
+  private readonly mapBucketsToViews: Map<ParticleContainer<BAAParticle>, BucketFront> =
+    new Map<ParticleContainer<BAAParticle>, BucketFront>();
 
   public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
@@ -144,7 +145,7 @@ class BAAScreenView extends ScreenView {
 
     // Helper function to add a bucket front to the bucket front layer.
     const addBucketFront = (
-      bucket: SphereBucket<Particle>,
+      bucket: SphereBucket<BAAParticle>,
       particleTypeStringProperty: TReadOnlyProperty<string>,
       bucketEmptyProperty: TReadOnlyProperty<boolean>
     ): void => {
@@ -278,7 +279,7 @@ class BAAScreenView extends ScreenView {
     const electronsGroupTandem = tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
     // type safe reference to buckets
-    const bucketsAsParticleContainers: ParticleContainer<Particle>[] = model.buckets;
+    const bucketsAsParticleContainers: ParticleContainer<BAAParticle>[] = model.buckets;
 
     model.particleAddedToEmitter.addListener( ( destination: ParticleLocations ) => {
       let contextResponse: LocalizedStringProperty | string;
@@ -581,7 +582,7 @@ class BAAScreenView extends ScreenView {
   /**
    * Get the bucket that is "home" for the provided particle.
    */
-  private getHomeBucket( particle: Particle ): SphereBucket<Particle> {
+  private getHomeBucket( particle: Particle ): SphereBucket<BAAParticle> {
     const particleType = particle.type;
     affirm(
       particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',

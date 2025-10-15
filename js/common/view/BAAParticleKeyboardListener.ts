@@ -14,7 +14,6 @@ import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
@@ -23,6 +22,7 @@ import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAParticle from '../model/BAAParticle.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
 
@@ -50,8 +50,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
    * @param tandem
    */
   public constructor(
-    particle: Particle,
-    homeBucket: SphereBucket<Particle>,
+    particle: BAAParticle,
+    homeBucket: SphereBucket<BAAParticle>,
     atom: ParticleAtom,
     electronModelProperty: TReadOnlyProperty<ElectronShellDepiction>,
     particleView: ParticleView,
@@ -88,7 +88,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
     // is only updated when the particle is extracted from a bucket or from the atom, and isn't cleared on the way in,
     // so use accordingly.
-    let mostRecentContainer: SphereBucket<Particle> | ParticleAtom = homeBucket;
+    let mostRecentContainer: SphereBucket<BAAParticle> | ParticleAtom = homeBucket;
 
     // This flag is set at the beginning of the process through which alt-input removes a particle from the atom, and it
     // is cleared (set to false) once the particle is fully removed.  This is used to prevent the blur listener from
