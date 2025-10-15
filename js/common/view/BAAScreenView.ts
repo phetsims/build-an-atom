@@ -281,28 +281,6 @@ class BAAScreenView extends ScreenView {
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<BAAParticle>[] = model.buckets;
 
-    model.particleAddedToEmitter.addListener( ( destination: ParticleLocations ) => {
-      let contextResponse: LocalizedStringProperty | string;
-
-      if ( destination === 'bucket' ) {
-        contextResponse = ShredStrings.a11y.particles.particleReturnedToBucketStringProperty;
-      }
-      else {
-        contextResponse = StringUtils.fillIn( ShredStrings.a11y.particles.particleAddedToStringProperty, {
-          location: destination === 'nucleus' ?
-                    ShredStrings.a11y.particles.nucleusStringProperty :
-                    destination === 'innerShell' ?
-                    ShredStrings.a11y.particles.innerShellStringProperty :
-                    destination === 'outerShell' ?
-                    ShredStrings.a11y.particles.outerShellStringProperty :
-                    destination === 'electronCloud' ?
-                    ShredStrings.a11y.particles.cloudStringProperty : ''
-        } );
-      }
-
-      this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
-    } );
-
     model.atom.protonCountProperty.link( ( protons: number ) => {
       if ( protons === MAX_PROTONS ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
@@ -399,6 +377,29 @@ class BAAScreenView extends ScreenView {
           // If the particle was removed from the atom then update what is focusable there.
           this.setAtomParticleFocusable( null );
         }
+      } );
+
+      // TODO: Should this be merged with the above listener? https://github.com/phetsims/build-an-atom/issues/376
+      particle.locationNameProperty.lazyLink( ( destination: ParticleLocations ) => {
+        let contextResponse: LocalizedStringProperty | string;
+
+        if ( destination === 'bucket' ) {
+          contextResponse = ShredStrings.a11y.particles.particleReturnedToBucketStringProperty;
+        }
+        else {
+          contextResponse = StringUtils.fillIn( ShredStrings.a11y.particles.particleAddedToStringProperty, {
+            location: destination === 'nucleus' ?
+                      ShredStrings.a11y.particles.nucleusStringProperty :
+                      destination === 'innerShell' ?
+                      ShredStrings.a11y.particles.innerShellStringProperty :
+                      destination === 'outerShell' ?
+                      ShredStrings.a11y.particles.outerShellStringProperty :
+                      destination === 'electronCloud' ?
+                      ShredStrings.a11y.particles.cloudStringProperty : ''
+          } );
+        }
+
+        this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
       } );
     } );
 

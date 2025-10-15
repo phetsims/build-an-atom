@@ -8,9 +8,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import Emitter from '../../../../axon/js/Emitter.js';
 import Multilink from '../../../../axon/js/Multilink.js';
-import TEmitter from '../../../../axon/js/TEmitter.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -75,9 +73,6 @@ class BAAModel {
   // count for how many times the nucleus has jumped
   private nucleusJumpCount = 0;
 
-  // Emitter for context response for when particles are moved to a position
-  public particleAddedToEmitter: TEmitter<[ ParticleLocations ]>;
-
   public constructor( providedOptions: BAAModelOptions ) {
 
     const options = combineOptions<BAAModelOptions>( {
@@ -126,8 +121,6 @@ class BAAModel {
     this.buckets = [ this.protonBucket, this.neutronBucket, this.electronBucket ];
 
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
-
-    this.particleAddedToEmitter = new Emitter<[ ParticleLocations ]>( { parameters: [ { valueType: 'string' } ] } );
 
     // Define a function that will decide where to put nucleons.
     const placeNucleon = ( particle: BAAParticle, bucket: SphereBucket<BAAParticle>, atom: ParticleAtom ): void => {
@@ -265,7 +258,6 @@ class BAAModel {
    */
   private updateParticleLocationDescription( particle: BAAParticle, location: ParticleLocations ): void {
     particle.locationNameProperty.value = location;
-    this.particleAddedToEmitter.emit( location );
   }
 
   public step( dt: number ): void {
