@@ -26,7 +26,6 @@ type StringsType = {
   'netChargeStringProperty': LocalizedStringProperty;
   'elementStringProperty': LocalizedStringProperty;
   'modelStringProperty': LocalizedStringProperty;
-  'orbitsStringProperty': LocalizedStringProperty;
   'shellsStringProperty': LocalizedStringProperty;
   'cloudStringProperty': LocalizedStringProperty;
   'whatIsTheMassNumberStringProperty': LocalizedStringProperty;

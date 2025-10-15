@@ -37,7 +37,6 @@ addToMapIfDefined( 'atom', 'atomStringProperty' );
 addToMapIfDefined( 'netCharge', 'netChargeStringProperty' );
 addToMapIfDefined( 'element', 'elementStringProperty' );
 addToMapIfDefined( 'model', 'modelStringProperty' );
-addToMapIfDefined( 'orbits', 'orbitsStringProperty' );
 addToMapIfDefined( 'shells', 'shellsStringProperty' );
 addToMapIfDefined( 'cloud', 'cloudStringProperty' );
 addToMapIfDefined( 'whatIsTheMassNumber', 'whatIsTheMassNumberStringProperty' );
@@ -126,7 +125,6 @@ const BuildAnAtomFluent = {
   netChargeStringProperty: _.get( BuildAnAtomStrings, 'netChargeStringProperty' ),
   elementStringProperty: _.get( BuildAnAtomStrings, 'elementStringProperty' ),
   modelStringProperty: _.get( BuildAnAtomStrings, 'modelStringProperty' ),
-  orbitsStringProperty: _.get( BuildAnAtomStrings, 'orbitsStringProperty' ),
   shellsStringProperty: _.get( BuildAnAtomStrings, 'shellsStringProperty' ),
   cloudStringProperty: _.get( BuildAnAtomStrings, 'cloudStringProperty' ),
   whatIsTheMassNumberStringProperty: _.get( BuildAnAtomStrings, 'whatIsTheMassNumberStringProperty' ),
