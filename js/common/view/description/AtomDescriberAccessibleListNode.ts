@@ -68,7 +68,6 @@ class AtomDescriberAccessibleListNode extends AccessibleListNode {
       [
         viewProperties.electronModelProperty,
         atom.electronCountProperty,
-        // BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoFullStringProperty,
         BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoFull.createProperty( {
           inner: innerElectronCountProperty, outer: outerElectronCountProperty
         } ),
