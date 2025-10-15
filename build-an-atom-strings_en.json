@@ -146,10 +146,10 @@
           "value": "Protons and Neutrons"
         },
         "shellInfoFull": {
-          "value": "Inner shell contains {{inner}} Electrons and outer shell contains {{outer}} Electrons."
+          "value": "Inner shell contains\n{ $inner ->\n[one]{ $inner } electron\n*[other] { $inner } electrons\n}\n and outer shell contains\n{ $outer ->\n[one]{ $outer } electron\n*[other] { $outer } electrons\n}."
         },
         "cloudInfoFull": {
-          "value": "Cloud contains {{value}} Electrons."
+          "value": "Cloud contains { $value ->\n[one]{ $value } electron\n*[other] { $value } electrons\n}."
         },
         "shellInfoEmpty": {
           "value": "Shells empty."

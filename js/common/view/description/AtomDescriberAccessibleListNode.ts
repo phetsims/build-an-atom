@@ -14,6 +14,7 @@ import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/Acc
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
 import buildAnAtom from '../../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import AtomViewProperties from '../AtomViewProperties.js';
 
@@ -60,12 +61,20 @@ class AtomDescriberAccessibleListNode extends AccessibleListNode {
         }
       } );
 
+    const innerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.min( 2, electrons ) );
+    const outerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.max( 0, electrons - 2 ) );
+
     const electronsStateProperty = new DerivedStringProperty(
       [
         viewProperties.electronModelProperty,
         atom.electronCountProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoFullStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty,
+        // BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoFullStringProperty,
+        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoFull.createProperty( {
+          inner: innerElectronCountProperty, outer: outerElectronCountProperty
+        } ),
+        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoFull.createProperty( {
+          value: atom.electronCountProperty
+        } ),
         BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
         BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
       ],
@@ -78,11 +87,7 @@ class AtomDescriberAccessibleListNode extends AccessibleListNode {
         cloudInfoEmptyString: string
       ) => {
         if ( electrons > 0 ) {
-          return electronModel === 'shells' ?
-                 StringUtils.fillIn( shellInfoFullString, {
-                   inner: Math.min( 2, electrons ), outer: Math.max( 0, electrons - 2 )
-                 } ) :
-                 StringUtils.fillIn( cloudInfoFullString, { value: electrons } );
+          return electronModel === 'shells' ? shellInfoFullString : cloudInfoFullString;
         }
         else {
           return electronModel === 'shells' ? shellInfoEmptyString : cloudInfoEmptyString;

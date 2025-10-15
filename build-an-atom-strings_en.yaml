@@ -51,8 +51,22 @@ a11y:
       protons: Protons
       neutrons: Neutrons
       protonsAndNeutrons: Protons and Neutrons
-      shellInfoFull: Inner shell contains {{inner}} Electrons and outer shell contains {{outer}} Electrons.
-      cloudInfoFull: Cloud contains {{value}} Electrons.
+      shellInfoFull: |- 
+        Inner shell contains
+        { $inner ->
+        [one]{ $inner } electron
+        *[other] { $inner } electrons
+        }
+         and outer shell contains
+        { $outer ->
+        [one]{ $outer } electron
+        *[other] { $outer } electrons
+        }.
+      cloudInfoFull: |-
+        Cloud contains { $value ->
+        [one]{ $value } electron
+        *[other] { $value } electrons
+        }.
       shellInfoEmpty: Shells empty.
       cloudInfoEmpty: Cloud empty.
 
