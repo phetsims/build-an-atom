@@ -245,7 +245,7 @@
           "value": "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
         },
         "currentDetails": {
-          "value": "Currently, {{value}} particles added to the atom."
+          "value": "Currently, { $value ->\n  [one] { $value } particle\n  *[other] { $value } particles\n  } added to the atom."
         },
         "interactionHint": {
           "value": "Add particles to atom to play."

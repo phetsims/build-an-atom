@@ -5,24 +5,20 @@
  * @author Agustín Vallejo
  */
 
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAModel from '../../common/model/BAAModel.js';
 
 export default class AtomScreenSummaryContentNode extends ScreenSummaryContent {
   public constructor( model: BAAModel ) {
 
-    const currentDetailsStringProperty = new DerivedStringProperty( [
-        model.atom.particleCountProperty,
-        BuildAnAtomStrings.a11y.common.screenSummary.currentDetailsStringProperty
-      ],
-      ( particleCount: number, currentDetailsPattern: string ) => {
-        return StringUtils.fillIn( currentDetailsPattern, { value: particleCount } );
-      } );
-
+    const currentDetailsStringProperty = BuildAnAtomFluent.a11y.common.screenSummary.currentDetails.createProperty(
+      {
+        value: model.atom.particleCountProperty
+      }
+    );
 
     super( {
       currentDetailsContent: currentDetailsStringProperty,

@@ -102,7 +102,11 @@ a11y:
       playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
                  Track the number of added particles and explore representations of the periodic table, charge, and mass."
       controlArea: "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
-      currentDetails: "Currently, {{value}} particles added to the atom."
+      currentDetails: |-
+        Currently, { $value ->
+          [one] { $value } particle
+          *[other] { $value } particles
+          } added to the atom.
       interactionHint: "Add particles to atom to play."
   atomScreen:
     screenIcon:
