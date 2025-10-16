@@ -281,20 +281,20 @@ class BAAScreenView extends ScreenView {
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<BAAParticle>[] = model.buckets;
 
-    model.atom.protonCountProperty.link( ( protons: number ) => {
-      if ( protons === MAX_PROTONS ) {
+    model.protonBucketParticleCountProperty.link( ( protons: number ) => {
+      if ( protons === 0 ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 
-    model.atom.neutronCountProperty.link( ( neutrons: number ) => {
-      if ( neutrons === MAX_NEUTRONS ) {
+    model.neutronBucketParticleCountProperty.link( ( neutrons: number ) => {
+      if ( neutrons === 0 ) {
         this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 
-    model.atom.electronCountProperty.link( ( electrons: number ) => {
-      if ( electrons === MAX_ELECTRONS ) {
+    model.electronBucketParticleCountProperty.link( ( electrons: number ) => {
+      if ( electrons === 0 ) {
         this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );

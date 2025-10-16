@@ -9,15 +9,17 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleContainer.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import { ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -49,6 +51,9 @@ type SelfOptions = {
 
 export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
+// Type for particle containers
+type ContainerType = ParticleContainer<Particle> | null;
+
 class BAAModel {
 
   // The atom that the user will build, modify, and generally play with.
@@ -59,6 +64,11 @@ class BAAModel {
   public readonly neutronBucket: SphereBucket<BAAParticle>;
   public readonly electronBucket: SphereBucket<BAAParticle>;
   public readonly buckets: SphereBucket<BAAParticle>[];
+
+  // Properties that report the number of particles in each bucket. Used mostly for a11y.
+  public readonly protonBucketParticleCountProperty: TProperty<number>;
+  public readonly neutronBucketParticleCountProperty: TProperty<number>;
+  public readonly electronBucketParticleCountProperty: TProperty<number>;
 
   // Arrays that hold the subatomic particles.
   public readonly nucleons: BAAParticle[];
@@ -120,6 +130,10 @@ class BAAModel {
 
     this.buckets = [ this.protonBucket, this.neutronBucket, this.electronBucket ];
 
+    this.protonBucketParticleCountProperty = new NumberProperty( 0 );
+    this.neutronBucketParticleCountProperty = new NumberProperty( 0 );
+    this.electronBucketParticleCountProperty = new NumberProperty( 0 );
+
     this.animateNuclearInstabilityProperty = new BooleanProperty( false );
 
     // Define a function that will decide where to put nucleons.
@@ -166,6 +180,7 @@ class BAAModel {
           }
         } );
 
+        // TODO: Why is this multilink so different than the one for electrons below? https://github.com/phetsims/build-an-atom/issues/376
         // Prevent interaction with this particle when it is animating to a destination.  We need the isDraggingProperty
         // because there is a slight delay between setting position and destination that we don't want to turn off
         // input.  The containerProperty is needed because we want to allow interaction when the nucleon is in the atom
@@ -187,6 +202,25 @@ class BAAModel {
                                                  position.equals( destination );
           }
         );
+
+        nucleon.containerProperty.link( ( container: ContainerType, lastCointainer: ContainerType ) => {
+          if ( container === bucket ) {
+            if ( particleType === 'proton' ) {
+              this.protonBucketParticleCountProperty.value++;
+            }
+            else {
+              this.neutronBucketParticleCountProperty.value++;
+            }
+          }
+          else if ( lastCointainer === bucket ) {
+            if ( particleType === 'proton' ) {
+              this.protonBucketParticleCountProperty.value--;
+            }
+            else {
+              this.neutronBucketParticleCountProperty.value--;
+            }
+          }
+        } );
       } );
     };
 
@@ -237,6 +271,15 @@ class BAAModel {
           electron.inputEnabledProperty.value = isDragging || position.equals( destination );
         }
       );
+
+      electron.containerProperty.link( ( container: ContainerType, lastCointainer: ContainerType ) => {
+        if ( container === this.electronBucket ) {
+          this.electronBucketParticleCountProperty.value++;
+        }
+        else if ( lastCointainer === this.electronBucket ) {
+          this.electronBucketParticleCountProperty.value--;
+        }
+      } );
     } );
 
     if ( options.isInitialAtomConfigurable ) {
