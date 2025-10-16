@@ -21,7 +21,7 @@ export default class BAAParticle extends Particle {
   public constructor( type: ParticleType, providedOptions?: ParticleOptions ) {
     super( type, providedOptions );
 
-    // TODO: This is for description, should it have a tandem? https://github.com/phetsims/build-an-atom/issues/351
+    // TODO: This is for description, should it have a tandem? https://github.com/phetsims/build-an-atom/issues/376
     this.locationNameProperty = new Property<ParticleLocations>( 'bucket' );
   }
 }
