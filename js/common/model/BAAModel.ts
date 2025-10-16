@@ -180,7 +180,6 @@ class BAAModel {
           }
         } );
 
-        // TODO: Why is this multilink so different than the one for electrons below? https://github.com/phetsims/build-an-atom/issues/376
         // Prevent interaction with this particle when it is animating to a destination.  We need the isDraggingProperty
         // because there is a slight delay between setting position and destination that we don't want to turn off
         // input.  The containerProperty is needed because we want to allow interaction when the nucleon is in the atom
