@@ -22,17 +22,15 @@ import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/button
 import nullSoundPlayer from '../../../../tambo/js/nullSoundPlayer.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import CheckButton from '../../../../vegas/js/buttons/CheckButton.js';
+import NextButton from '../../../../vegas/js/buttons/NextButton.js';
 import ShowAnswerButton from '../../../../vegas/js/buttons/ShowAnswerButton.js';
+import TryAgainButton from '../../../../vegas/js/buttons/TryAgainButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import VegasFluent from '../../../../vegas/js/VegasFluent.js';
-import VegasStrings from '../../../../vegas/js/VegasStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import { GameState } from '../model/GameModel.js';
-
-const nextStringProperty = VegasStrings.nextStringProperty;
-const tryAgainStringProperty = VegasStrings.tryAgainStringProperty;
 
 // constants
 const BUTTON_FONT = new PhetFont( 20 );
@@ -162,7 +160,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.addChild( this.checkButton );
     this.answerButtons.push( this.checkButton );
 
-    this.nextButton = new TextPushButton( nextStringProperty, combineOptions<TextPushButtonOptions>( {
+    this.nextButton = new NextButton( combineOptions<TextPushButtonOptions>( {
       listener: () => {
         challenge.next();
       },
@@ -171,7 +169,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.addChild( this.nextButton );
     this.answerButtons.push( this.nextButton );
 
-    this.tryAgainButton = new TextPushButton( tryAgainStringProperty, combineOptions<TextPushButtonOptions>( {
+    this.tryAgainButton = new TryAgainButton( combineOptions<TextPushButtonOptions>( {
       listener: () => {
         challenge.tryAgain();
         PDOMUtils.focusTop();
