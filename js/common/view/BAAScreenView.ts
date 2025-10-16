@@ -459,27 +459,45 @@ class BAAScreenView extends ScreenView {
       tandem.createTandem( 'electronCloudKeyboardListener' )
     ) );
 
+    // TODO: See https://github.com/phetsims/build-an-atom/issues/370 - This derived string was causing issues with
+    //   the focus order due to it triggering a significant re-render when the proton count changed.  The original code
+    //   is commented out below, and a slightly modified version that does not watch the proton count and therefore does
+    //   not cause the same problem is used instead.  When the larger issue is resolved, the original code should be
+    //   restored.
+    //
+    // const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
+    //   [
+    //     model.atom.protonCountProperty,
+    //     BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
+    //     BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
+    //     BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty
+    //   ],
+    //   (
+    //     protonCount: number,
+    //     upperString: string,
+    //     highlightedString: string,
+    //     noSymbolString: string
+    //   ) => {
+    //     if ( protonCount > 0 ) {
+    //       const symbol = AtomIdentifier.getSymbol( protonCount );
+    //       const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
+    //       return StringUtils.fillIn( highlightedString, { symbol: mathSpeakSymbol } );
+    //     }
+    //     else {
+    //       return noSymbolString;
+    //     }
+    //   }
+    // );
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [
-        model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
-        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
-        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty
+        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty
       ],
-      (
-        protonCount: number,
-        upperString: string,
-        highlightedString: string,
-        noSymbolString: string
-      ) => {
-        if ( protonCount > 0 ) {
-          const symbol = AtomIdentifier.getSymbol( protonCount );
-          const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
-          return StringUtils.fillIn( highlightedString, { symbol: mathSpeakSymbol } );
-        }
-        else {
-          return noSymbolString;
-        }
+      ( upperString: string, highlightedString: string ) => {
+        const protonCount = 1; // Hardcoded to 1 to avoid re-render issues, see comment above.
+        const symbol = AtomIdentifier.getSymbol( protonCount );
+        const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
+        return StringUtils.fillIn( highlightedString, { symbol: mathSpeakSymbol } ) + ' <i>(This is likely incorrect, fix coming.)</i>';
       }
     );
 
