@@ -47,7 +47,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAModel, { MAX_ELECTRONS, MAX_NEUTRONS, MAX_PROTONS } from '../model/BAAModel.js';
+import BAAModel from '../model/BAAModel.js';
 import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
 import AtomViewProperties from './AtomViewProperties.js';
@@ -164,10 +164,12 @@ class BAAScreenView extends ScreenView {
       const bucketAccessibleHelpTextProperty = new DerivedStringProperty(
         [
           particleTypeStringProperty,
-          ShredStrings.a11y.particles.accessibleHelpTextStringProperty
+          bucketEmptyProperty,
+          ShredStrings.a11y.particles.accessibleHelpTextStringProperty,
+          ShredStrings.a11y.buckets.emptyHelpTextStringProperty
         ],
-        ( particleType: string, accessibleHelpText: string ) => {
-          return StringUtils.fillIn( accessibleHelpText, { particle: particleType } );
+        ( particleType: string, bucketEmpty: boolean, accessibleHelpText: string, emptyHelpText: string ) => {
+          return bucketEmpty ? emptyHelpText : StringUtils.fillIn( accessibleHelpText, { particle: particleType } );
         }
       );
 
@@ -186,6 +188,10 @@ class BAAScreenView extends ScreenView {
         tagName: 'button',
         accessibleName: bucketAccessibleNameProperty,
         accessibleHelpText: bucketAccessibleHelpTextProperty
+      } );
+
+      bucketEmptyProperty.link( ( empty: boolean ) => {
+        bucketFront.setPDOMAttribute( 'aria-disabled', empty );
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
@@ -248,17 +254,17 @@ class BAAScreenView extends ScreenView {
     addBucketFront(
       model.protonBucket,
       ShredStrings.a11y.particles.protonStringProperty,
-      DerivedProperty.valueEqualsConstant( model.atom.protonCountProperty, MAX_PROTONS )
+      DerivedProperty.valueEqualsConstant( model.protonBucketParticleCountProperty, 0 )
     );
     addBucketFront(
       model.neutronBucket,
       ShredStrings.a11y.particles.neutronStringProperty,
-      DerivedProperty.valueEqualsConstant( model.atom.neutronCountProperty, MAX_NEUTRONS )
+      DerivedProperty.valueEqualsConstant( model.neutronBucketParticleCountProperty, 0 )
     );
     addBucketFront(
       model.electronBucket,
       ShredStrings.a11y.particles.electronStringProperty,
-      DerivedProperty.valueEqualsConstant( model.atom.electronCountProperty, MAX_ELECTRONS )
+      DerivedProperty.valueEqualsConstant( model.electronBucketParticleCountProperty, 0 )
     );
 
     // Add the alt-input grab/release cue node for the buckets.
