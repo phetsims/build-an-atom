@@ -50,7 +50,7 @@ a11y:
       protons: Protons
       neutrons: Neutrons
       protonsAndNeutrons: Protons and Neutrons
-      shellInfoFull: |- 
+      shellInfoFull: |-
         Inner shell contains
         { $inner ->
         [one]{ $inner } electron
@@ -109,7 +109,14 @@ a11y:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
     netCharge:
       accessibleName: "Net Charge"
-      accessibleParagraph: "Net Charge is {{sign}}{{value}}. There are {{protons}} plus signs and {{electrons}} minus signs."
+      accessibleParagraph: |-
+        Net Charge is {$sign}{$charge}. There { $protons -> 
+                          [one] is { $protons } plus sign
+                          *[other] are { $protons } plus signs
+                          } and { $electrons ->
+                          [one] { $electrons } minus sign
+                          *[other] { $electrons } minus signs
+                          }.
     massNumber:
       accessibleName: "Mass Number"
       accessibleParagraph: "Mass Number is {{value}}."

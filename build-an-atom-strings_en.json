@@ -263,7 +263,7 @@
           "value": "Net Charge"
         },
         "accessibleParagraph": {
-          "value": "Net Charge is {{sign}}{{value}}. There are {{protons}} plus signs and {{electrons}} minus signs."
+          "value": "Net Charge is {$sign}{$charge}. There { $protons -> \n                  [one] is { $protons } plus sign\n                  *[other] are { $protons } plus signs\n                  } and { $electrons ->\n                  [one] { $electrons } minus sign\n                  *[other] { $electrons } minus signs\n                  }."
         }
       },
       "massNumber": {

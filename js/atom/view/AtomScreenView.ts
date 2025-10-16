@@ -50,26 +50,18 @@ class AtomScreenView extends BAAScreenView {
       justify: 'left'
     } );
 
-    const netChargeAccessibleParagraphProperty = new DerivedStringProperty(
-      [
-        model.atom.protonCountProperty,
-        model.atom.electronCountProperty,
-        BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleParagraphStringProperty
-      ],
-      (
-        protonCount: number,
-        electronCount: number,
-        accessibleParagraphString: string
-      ) => {
-        const charge = protonCount - electronCount;
-        const sign = charge < 0 ? MathSymbols.MINUS :
-                     charge > 0 ? MathSymbols.PLUS : '';
-        return StringUtils.fillIn( accessibleParagraphString, {
-          sign: sign,
-          value: Math.abs( charge ),
-          protons: protonCount,
-          electrons: electronCount
-        } );
+    const absoluteChargeProperty = new DerivedStringProperty( [ model.atom.chargeProperty ], charge => Math.abs( charge ).toString() );
+    const chargeSignProperty = new DerivedStringProperty( [ model.atom.chargeProperty ], charge => {
+      return charge < 0 ? MathSymbols.MINUS :
+             charge > 0 ? MathSymbols.PLUS : '';
+    } );
+
+    const netChargeAccessibleParagraphProperty = BuildAnAtomFluent.a11y.atomScreen.netCharge.accessibleParagraph.createProperty(
+      {
+        charge: absoluteChargeProperty,
+        sign: chargeSignProperty,
+        protons: model.atom.protonCountProperty,
+        electrons: model.atom.electronCountProperty
       }
     );
 
