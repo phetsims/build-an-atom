@@ -218,7 +218,9 @@ class BAAScreenView extends ScreenView {
       // focus.  This will extract a particle from the bucket and add it to the atom.
       bucketFront.addInputListener( {
         click: () => {
-          bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' } );
+          if ( !bucketEmptyProperty.value ) {
+            bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' } );
+          }
 
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
