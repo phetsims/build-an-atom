@@ -230,6 +230,7 @@ class BAAScreenView extends ScreenView {
             affirm( particleView, 'ParticleView not found for extracted particle' );
 
             // Set the focus to the particle's view so that it can be manipulated via keyboard.
+            particleView.pdomVisible = true;
             particleView.focusable = true;
             particleView.focus();
 
@@ -312,7 +313,7 @@ class BAAScreenView extends ScreenView {
 
       const particleView = new BAAParticleView( particle, modelViewTransform, {
         dragBounds: modelViewTransform.viewToModelBounds( this.layoutBounds ),
-        focusable: false,
+        pdomVisible: false,
         tandem: particle.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
                 particle.type === 'neutron' ?
@@ -378,6 +379,7 @@ class BAAScreenView extends ScreenView {
 
           // This particle was just placed into a bucket, so make sure that it is not focusable.
           particleView.focusable = false;
+          particleView.pdomVisible = false;
         }
 
         if ( oldContainer === model.atom ) {
@@ -440,6 +442,7 @@ class BAAScreenView extends ScreenView {
           if ( numberOfElectrons > 0 ) {
             const electronView = this.mapParticlesToViews.get( model.atom.electrons[ 0 ] );
             affirm( electronView, 'Missing ParticleView for electron' );
+            electronView.pdomVisible = true;
             electronView.focusable = true;
           }
         }
@@ -648,6 +651,7 @@ class BAAScreenView extends ScreenView {
         this.atomNode.electronCloud.focusable = true;
         this.mapParticlesToViews.forEach( otherParticleView => {
           otherParticleView.focusable = false;
+          otherParticleView.pdomVisible = false;
         } );
       }
       else {
@@ -655,12 +659,14 @@ class BAAScreenView extends ScreenView {
         // Make the provided particle's view node focusable.
         const particleView = this.mapParticlesToViews.get( particle );
         affirm( particleView, 'Missing ParticleView for particle' );
+        particleView.pdomVisible = true;
         particleView.focusable = true;
 
         // Make all other particles in the atom non-focusable.
         this.mapParticlesToViews.forEach( otherParticleView => {
           if ( otherParticleView !== particleView ) {
             otherParticleView.focusable = false;
+            otherParticleView.pdomVisible = false;
           }
         } );
 
@@ -687,6 +693,7 @@ class BAAScreenView extends ScreenView {
           this.atomNode.electronCloud.focusable = true;
         }
         else {
+          particleView.pdomVisible = true;
           particleView.focusable = true;
           this.atomNode.electronCloud.focusable = false;
         }

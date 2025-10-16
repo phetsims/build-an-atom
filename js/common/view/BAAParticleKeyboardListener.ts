@@ -172,6 +172,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
                 electronCloudNode.focusable = true;
                 electronCloudNode.focus();
                 particleView.focusable = false;
+                particleView.pdomVisible = false;
               }
             }
             else if ( particle.containerProperty.value === homeBucket ) {
@@ -181,6 +182,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
               // The particle should become unfocusable since it is now in a homeBucket.
               particleView.focusable = false;
+              particleView.pdomVisible = false;
 
               // If this was the last electron in the atom and the electron model is set to "cloud", make the cloud
               // unfocusable.
