@@ -126,11 +126,15 @@ class GameScreenView extends ScreenView {
       levelNumberProperty: gameModel.levelNumberProperty
     } );
     this.addChild( this.challengeScreenNode );
-    this.challengeScreenNode.hide(); // initially hidden and will be shown when a challenge is presented
+
+     // initially hidden and will be shown when a challenge is presented
+    this.challengeScreenNode.visible = false;
 
     this.rewardScreenNode = new RewardScreenNode( gameModel.levelNumberProperty );
     this.addChild( this.rewardScreenNode );
-    this.rewardScreenNode.hide(); // initially hidden and will be shown when the level is completed
+
+     // initially hidden and will be shown when the level is completed
+    this.rewardScreenNode.visible = false;
 
     // Show the challenge view associated with the current challenge, or remove it if there is no challenge.
     gameModel.challengeProperty.link( challenge => {
@@ -144,16 +148,16 @@ class GameScreenView extends ScreenView {
       this.removeLevelCompletedNodes();
 
       if ( gameState === 'levelSelection' ) {
-        this.levelSelectionNode.hide();
+        this.levelSelectionNode.visible = false;
         this.removeLevelCompletedNodes();
 
-        this.levelSelectionNode.show();
+        this.levelSelectionNode.visible = true;
       }
       else if ( gameState === 'levelCompleted' ) {
-        this.levelSelectionNode.hide();
-        this.levelSelectionNode.hide();
+        this.levelSelectionNode.visible = false;
+        this.levelSelectionNode.visible = false;
 
-        this.rewardScreenNode.show();
+        this.rewardScreenNode.visible = true;
 
         if ( gameModel.scoreProperty.value === GameModel.MAX_POINTS_PER_GAME_LEVEL || BAAQueryParameters.reward ) {
 
@@ -197,8 +201,8 @@ class GameScreenView extends ScreenView {
         this.levelCompletedNode.show();
       }
       else {
-        this.levelSelectionNode.hide();
-        this.rewardScreenNode.hide();
+        this.levelSelectionNode.visible = false;
+        this.rewardScreenNode.visible = false;
 
         // The game is in the middle of presenting a challenge to the user, so pass the state change to the challenge
         // view.  This will perform updates like showing the feedback nodes, updating button states, etc.
@@ -242,7 +246,7 @@ class GameScreenView extends ScreenView {
       }
 
       // Hide the accessible game content.
-      this.challengeScreenNode.hide();
+      this.challengeScreenNode.visible = false;
     }
     else if ( challengeView !== this.activeChallengeView ) {
 
@@ -256,7 +260,7 @@ class GameScreenView extends ScreenView {
       this.addChild( challengeView );
 
       // Show the accessible game content and move focus to the beginning.
-      this.challengeScreenNode.show();
+      this.challengeScreenNode.visible = true;
     }
 
     if ( isSettingPhetioStateProperty.value && challengeView ) {
