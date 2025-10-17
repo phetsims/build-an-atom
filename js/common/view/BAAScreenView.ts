@@ -396,7 +396,6 @@ class BAAScreenView extends ScreenView {
         }
       } );
 
-      // TODO: Should this be merged with the above listener? https://github.com/phetsims/build-an-atom/issues/376
       particle.locationNameProperty.lazyLink( ( destination: ParticleLocations ) => {
         let contextResponse: LocalizedStringProperty | string;
 
