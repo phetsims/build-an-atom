@@ -219,7 +219,9 @@ class BAAScreenView extends ScreenView {
       bucketFront.addInputListener( {
         click: () => {
           if ( !bucketEmptyProperty.value ) {
-            bucketFront.addAccessibleObjectResponse( ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' } );
+            bucketFront.addAccessibleObjectResponse(
+              ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
+            );
           }
 
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
@@ -239,7 +241,9 @@ class BAAScreenView extends ScreenView {
 
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+            particleView.addAccessibleObjectResponse(
+              ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' }
+            );
 
             // Play the grab sound.
             sharedSoundPlayers.get( 'grab' ).play();
@@ -292,19 +296,22 @@ class BAAScreenView extends ScreenView {
 
     model.protonBucketParticleCountProperty.link( ( protons: number ) => {
       if ( protons === 0 ) {
-        this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+        this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
+          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 
     model.neutronBucketParticleCountProperty.link( ( neutrons: number ) => {
       if ( neutrons === 0 ) {
-        this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+        this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
+          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 
     model.electronBucketParticleCountProperty.link( ( electrons: number ) => {
       if ( electrons === 0 ) {
-        this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse( ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+        this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
+          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 
