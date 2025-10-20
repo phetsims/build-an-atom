@@ -13,9 +13,9 @@ import ScreenView from '../../../../joist/js/ScreenView.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import ChallengeScreenNode from '../../../../vegas/js/ChallengeScreenNode.js';
 import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import ChallengeScreenNode from '../../../../vegas/js/ChallengeScreenNode.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import RewardScreenNode from '../../../../vegas/js/RewardScreenNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -261,6 +261,7 @@ class GameScreenView extends ScreenView {
 
       // Show the accessible game content and move focus to the beginning.
       this.challengeScreenNode.visible = true;
+      this.challengeScreenNode.accessibleFocusableHeadingNode.focus();
     }
 
     if ( isSettingPhetioStateProperty.value && challengeView ) {
