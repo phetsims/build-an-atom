@@ -29,6 +29,7 @@ import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -138,7 +139,9 @@ class BAAScreenView extends ScreenView {
 
     // Create the layers that will hold the bucket fronts.
     const bucketFrontLayer = new Node( {
-      accessibleHeading: ShredStrings.a11y.particles.accessibleHeadingStringProperty
+      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty,
+      accessibleHelpText: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty,
+      accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT
     } );
 
     const bucketsTandem = tandem.createTandem( 'buckets' );
@@ -163,13 +166,11 @@ class BAAScreenView extends ScreenView {
 
       const bucketAccessibleHelpTextProperty = new DerivedStringProperty(
         [
-          particleTypeStringProperty,
           bucketEmptyProperty,
-          ShredStrings.a11y.particles.accessibleHelpTextStringProperty,
           ShredStrings.a11y.buckets.emptyHelpTextStringProperty
         ],
-        ( particleType: string, bucketEmpty: boolean, accessibleHelpText: string, emptyHelpText: string ) => {
-          return bucketEmpty ? emptyHelpText : StringUtils.fillIn( accessibleHelpText, { particle: particleType } );
+        ( bucketEmpty: boolean, emptyHelpText: string ) => {
+          return bucketEmpty ? emptyHelpText : '';
         }
       );
 

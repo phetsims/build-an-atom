@@ -43,6 +43,12 @@ a11y:
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"
+    buckets:
+      accessibleHeading: Particle Buckets
+      accessibleHelpText: |-
+        Look for Protons, Neutrons, and Electrons buttons to grab a particle. 
+          Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 
+          Press space to release.
     atomAccessibleListNode:
       accessibleHeading: Built Atom
       nucleusInfoFull: Nucleus contains {{particles}}.
@@ -96,38 +102,41 @@ a11y:
       accessibleHelpText: "Choose representation for region outside nucleus."
     periodicTable:
       accessibleName: "Periodic Table"
-      accessibleParagraphHighlighted: "Chemical symbol {{symbol}} is highlighted."
-      accessibleParagraphNoSymbol: "No chemical symbol is highlighted."
+      accessibleParagraphHighlighted: "Your Built Atom is {{symbol}} located in row {{value}}, column {{value}}."
+      accessibleParagraphNoSymbol: "Your Built Atom is not an element yet."
     screenSummary:
-      playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
-                 Track the number of added particles and explore representations of the periodic table, charge, and mass."
-      controlArea: "Turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+      controlArea: "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
       currentDetails: |-
-        Currently, { $value ->
+        Currently, your built atom has { $value ->
           [one] { $value } particle
           *[other] { $value } particles
           } added to the atom.
-      interactionHint: "Add particles to atom to play."
+      interactionHint: "Add particles to build your atom."
   atomScreen:
+    screenSummary:
+      playArea: |-
+        There is an interactive atom that you build by grabbing protons, neutrons, and electrons from their buckets.
+          As you build, you can track the number of added particles and explore how they influence element identity, charge, and mass.
     screenIcon:
       accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
     netCharge:
       accessibleName: "Net Charge"
       accessibleParagraph: |-
         Net Charge is {$sign}{$charge}. There { $protons -> 
-                          [one] is { $protons } plus sign
-                          *[other] are { $protons } plus signs
+                          [one] is { $protons } positive charge
+                          *[other] are { $protons } positive charges
                           } and { $electrons ->
-                          [one] { $electrons } minus sign
-                          *[other] { $electrons } minus signs
+                          [one] { $electrons } negative charge
+                          *[other] { $electrons } negative charges
                           }.
     massNumber:
       accessibleName: "Mass Number"
-      accessibleParagraph: "Mass Number is {{value}}."
+      accessibleParagraph: "Your Built Atom has a Mass Number of {{value}}."
   symbolScreen:
     screenSummary:
-      playArea: "There is an atom-building model and three buckets containing protons, neutrons, and electrons.
-      Track the number of added particles and explore representations of the periodic table and chemical symbol."
+      playArea: |-
+        There is an interactive atom that you build by grabbing protons, neutrons, and electrons from their buckets. 
+          As you build, you can track the number of added particles and explore how they influence element identity and chemical symbol information.
     screenIcon:
       accessibleHelpText: "Relate element symbols to particle counts."
     symbol:

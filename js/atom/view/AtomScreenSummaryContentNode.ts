@@ -22,7 +22,7 @@ export default class AtomScreenSummaryContentNode extends ScreenSummaryContent {
 
     super( {
       currentDetailsContent: currentDetailsStringProperty,
-      playAreaContent: BuildAnAtomStrings.a11y.common.screenSummary.playAreaStringProperty,
+      playAreaContent: BuildAnAtomStrings.a11y.atomScreen.screenSummary.playAreaStringProperty,
       controlAreaContent: BuildAnAtomStrings.a11y.common.screenSummary.controlAreaStringProperty,
       interactionHintContent: BuildAnAtomStrings.a11y.common.screenSummary.interactionHintStringProperty
     } );

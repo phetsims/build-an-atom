@@ -58,6 +58,10 @@ type StringsType = {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;
       };
+      'buckets': {
+        'accessibleHeadingStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
       'atomAccessibleListNode': {
         'accessibleHeadingStringProperty': LocalizedStringProperty;
         'nucleusInfoFullStringProperty': LocalizedStringProperty;
@@ -105,13 +109,15 @@ type StringsType = {
         'accessibleParagraphNoSymbolStringProperty': LocalizedStringProperty;
       };
       'screenSummary': {
-        'playAreaStringProperty': LocalizedStringProperty;
         'controlAreaStringProperty': LocalizedStringProperty;
         'currentDetailsStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
     'atomScreen': {
+      'screenSummary': {
+        'playAreaStringProperty': LocalizedStringProperty;
+      };
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
