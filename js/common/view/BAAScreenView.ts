@@ -152,17 +152,6 @@ class BAAScreenView extends ScreenView {
       particleTypeStringProperty: TReadOnlyProperty<string>,
       bucketEmptyProperty: TReadOnlyProperty<boolean>
     ): void => {
-      const bucketAccessibleNameProperty = new DerivedStringProperty(
-        [
-          particleTypeStringProperty,
-          bucketEmptyProperty,
-          ShredStrings.a11y.buckets.accessibleNameStringProperty,
-          ShredStrings.a11y.buckets.emptyNameStringProperty
-        ],
-        ( particleType: string, bucketEmpty: boolean, accessibleName: string, emptyName: string ) => {
-          return StringUtils.fillIn( bucketEmpty ? emptyName : accessibleName, { particle: particleType } );
-        }
-      );
 
       const bucketAccessibleHelpTextProperty = new DerivedStringProperty(
         [
@@ -187,7 +176,7 @@ class BAAScreenView extends ScreenView {
 
         // pdom
         tagName: 'button',
-        accessibleName: bucketAccessibleNameProperty,
+        accessibleName: particleTypeStringProperty,
         accessibleHelpText: bucketAccessibleHelpTextProperty
       } );
 
@@ -261,17 +250,17 @@ class BAAScreenView extends ScreenView {
 
     addBucketFront(
       model.protonBucket,
-      ShredStrings.a11y.particles.protonStringProperty,
+      ShredStrings.a11y.particles.protonsStringProperty,
       DerivedProperty.valueEqualsConstant( model.protonBucketParticleCountProperty, 0 )
     );
     addBucketFront(
       model.neutronBucket,
-      ShredStrings.a11y.particles.neutronStringProperty,
+      ShredStrings.a11y.particles.neutronsStringProperty,
       DerivedProperty.valueEqualsConstant( model.neutronBucketParticleCountProperty, 0 )
     );
     addBucketFront(
       model.electronBucket,
-      ShredStrings.a11y.particles.electronStringProperty,
+      ShredStrings.a11y.particles.electronsStringProperty,
       DerivedProperty.valueEqualsConstant( model.electronBucketParticleCountProperty, 0 )
     );
 

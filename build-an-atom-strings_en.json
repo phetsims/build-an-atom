@@ -239,7 +239,7 @@
           "value": "Periodic Table"
         },
         "accessibleParagraphHighlighted": {
-          "value": "Your Built Atom is {{symbol}} located in row {{value}}, column {{value}}."
+          "value": "Your Built Atom is {{symbol}} located in row VALUE, column VALUE."
         },
         "accessibleParagraphNoSymbol": {
           "value": "Your Built Atom is not an element yet."
