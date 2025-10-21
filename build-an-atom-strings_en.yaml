@@ -75,11 +75,11 @@ a11y:
       shellInfoEmpty: Shells empty.
       cloudInfoEmpty: Cloud empty.
 
-    noElementContextResponse: "No element yet."
+    noElementContextResponse: "Your Built Atom is not an element yet."
     elementNameCheckbox:
       accessibleName: "Element Name"
       accessibleHelpText: "Build atoms with or without Element Name shown."
-      accessibleContextResponseChecked: "{{name}}." # TODO: Your Built Atom is not an element yet.
+      accessibleContextResponseChecked: "{{name}}."
       accessibleContextResponseUnchecked: "Element Name hidden."
     neutralAtomIonCheckbox:
       accessibleName: "Neutral Atom or Ion"
@@ -91,7 +91,7 @@ a11y:
     nuclearStabilityCheckbox:
       accessibleName: "Nuclear Stability"
       accessibleHelpText: "Build atoms with or without Nuclear Stability shown."
-      accessibleContextResponseChecked: "{{stability}} nucleus."  # TODO: Your Built Atom is not an element yet.
+      accessibleContextResponseChecked: "{{stability}} nucleus."
       accessibleContextResponseUnchecked: "Nuclear Stability hidden."
       stable: "Stable"
       unstable: "Unstable"
