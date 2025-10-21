@@ -102,7 +102,7 @@ a11y:
       accessibleHelpText: "Choose representation for region outside nucleus."
     periodicTable:
       accessibleName: "Periodic Table"
-      accessibleParagraphHighlighted: "Your Built Atom is {{symbol}} located in row VALUE, column VALUE."
+      accessibleParagraphHighlighted: "Your Built Atom is {{symbol}} located in row {{row}}, column {{column}}."
       accessibleParagraphNoSymbol: "Your Built Atom is not an element yet."
     screenSummary:
       controlArea: "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
@@ -110,7 +110,7 @@ a11y:
         Currently, your built atom has { $value ->
           [one] { $value } particle
           *[other] { $value } particles
-          } added to the atom.
+          }.
       interactionHint: "Add particles to build your atom."
   atomScreen:
     screenSummary:

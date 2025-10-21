@@ -41,6 +41,7 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
@@ -465,40 +466,23 @@ class BAAScreenView extends ScreenView {
     //   is commented out below, and a slightly modified version that does not watch the proton count and therefore does
     //   not cause the same problem is used instead.  When the larger issue is resolved, the original code should be
     //   restored.
-    //
-    // const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
-    //   [
-    //     model.atom.protonCountProperty,
-    //     BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
-    //     BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
-    //     BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty
-    //   ],
-    //   (
-    //     protonCount: number,
-    //     upperString: string,
-    //     highlightedString: string,
-    //     noSymbolString: string
-    //   ) => {
-    //     if ( protonCount > 0 ) {
-    //       const symbol = AtomIdentifier.getSymbol( protonCount );
-    //       const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
-    //       return StringUtils.fillIn( highlightedString, { symbol: mathSpeakSymbol } );
-    //     }
-    //     else {
-    //       return noSymbolString;
-    //     }
-    //   }
-    // );
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [
+        // model.atom.protonCountProperty, // TODO: Uncomment!!! https://github.com/phetsims/build-an-atom/issues/370
         BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty
       ],
+      // ( protonCount: number, upperString: string, highlightedString: string ) => {
       ( upperString: string, highlightedString: string ) => {
         const protonCount = 1; // Hardcoded to 1 to avoid re-render issues, see comment above.
         const symbol = AtomIdentifier.getSymbol( protonCount );
         const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
-        return StringUtils.fillIn( highlightedString, { symbol: mathSpeakSymbol } ) + ' <i>(This is likely incorrect, fix coming.)</i>';
+        const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
+        return StringUtils.fillIn( highlightedString, {
+          symbol: mathSpeakSymbol,
+          row: elementCoordinates.y,
+          column: elementCoordinates.x
+        } ) + ' <i>(This is likely incorrect, fix coming.)</i>'; // TODO: Remove!!! https://github.com/phetsims/build-an-atom/issues/370
       }
     );
 
