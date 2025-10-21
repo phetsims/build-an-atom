@@ -239,10 +239,10 @@
           "value": "Periodic Table"
         },
         "accessibleParagraphHighlighted": {
-          "value": "Chemical symbol {{symbol}} is highlighted."
+          "value": "Your Built Atom is {{symbol}} located in row {{value}}, column {{value}}."
         },
         "accessibleParagraphNoSymbol": {
-          "value": "No chemical symbol is highlighted."
+          "value": "Your Built Atom is not an element yet."
         }
       },
       "screenSummary": {
@@ -273,7 +273,7 @@
           "value": "Net Charge"
         },
         "accessibleParagraph": {
-          "value": "Net Charge is {$sign}{$charge}. There { $protons -> \n                  [one] is { $protons } plus sign\n                  *[other] are { $protons } plus signs\n                  } and { $electrons ->\n                  [one] { $electrons } minus sign\n                  *[other] { $electrons } minus signs\n                  }."
+          "value": "Net Charge is {$sign}{$charge}. There { $protons -> \n                  [one] is { $protons } positive charge\n                  *[other] are { $protons } positive charges\n                  } and { $electrons ->\n                  [one] { $electrons } negative charge\n                  *[other] { $electrons } negative charges\n                  }."
         }
       },
       "massNumber": {
@@ -281,7 +281,7 @@
           "value": "Mass Number"
         },
         "accessibleParagraph": {
-          "value": "Mass Number is {{value}}."
+          "value": "Your Built Atom has a Mass Number of {{value}}."
         }
       }
     },
