@@ -50,7 +50,7 @@ a11y:
           Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 
           Press space to release.
     atomAccessibleListNode:
-      accessibleHeading: Built Atom
+      accessibleHeading: Your Built Atom
       nucleusInfoFull: Nucleus contains {{particles}}.
       nucleusInfoEmpty: Nucleus empty.
       protons: Protons
@@ -78,21 +78,21 @@ a11y:
     noElementContextResponse: "No element yet."
     elementNameCheckbox:
       accessibleName: "Element Name"
-      accessibleHelpText: "Create atoms with or without Element Name shown."
-      accessibleContextResponseChecked: "Element is {{name}}."
+      accessibleHelpText: "Build atoms with or without Element Name shown."
+      accessibleContextResponseChecked: "{{name}}." # TODO: Your Built Atom is not an element yet.
       accessibleContextResponseUnchecked: "Element Name hidden."
     neutralAtomIonCheckbox:
       accessibleName: "Neutral Atom or Ion"
-      accessibleHelpText: "Create atoms with or without charge state shown."
-      accessibleContextResponseUnchecked: "Atom or Ion label hidden. "
+      accessibleHelpText: "Build atoms with or without charge state shown."
+      accessibleContextResponseUnchecked: "Charge state hidden."
       neutralAtom: "Neutral Atom."
       positiveIon: "Positive Ion."
       negativeIon: "Negative Ion."
     nuclearStabilityCheckbox:
       accessibleName: "Nuclear Stability"
-      accessibleHelpText: "Create atoms with or without Nuclear Stability shown."
-      accessibleContextResponseChecked: "Nucleus is {{stability}}."
-      accessibleContextResponseUnchecked: "Stable or Unstable label hidden."
+      accessibleHelpText: "Build atoms with or without Nuclear Stability shown."
+      accessibleContextResponseChecked: "{{stability}} nucleus."  # TODO: Your Built Atom is not an element yet.
+      accessibleContextResponseUnchecked: "Nuclear Stability hidden."
       stable: "Stable"
       unstable: "Unstable"
     modelToggle:
