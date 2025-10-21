@@ -379,11 +379,14 @@ class BAAScreenView extends ScreenView {
           particleView.focusable = false;
           particleView.pdomVisible = false;
         }
+        else if ( newContainer === null && oldContainer === model.atom ) {
 
-        if ( oldContainer === model.atom ) {
-
-          // If the particle was removed from the atom then update what is focusable there.
+          // The particle was just removed from the atom, so update what is focusable there.
           this.setAtomParticleFocusable( null );
+
+          // The particle is still focusable, since the user is interacting with it, but should no longer be visible in
+          // the PDOM.
+          particleView.pdomVisible = false;
         }
       } );
 
@@ -629,9 +632,8 @@ class BAAScreenView extends ScreenView {
 
         // Make the electron cloud focusable instead of the individual electron particle.
         this.atomNode.electronCloud.focusable = true;
-        this.mapParticlesToViews.forEach( otherParticleView => {
-          otherParticleView.focusable = false;
-          otherParticleView.pdomVisible = false;
+        this.mapParticlesToViews.forEach( electronParticleView => {
+          electronParticleView.focusable = false;
         } );
       }
       else {
@@ -646,7 +648,6 @@ class BAAScreenView extends ScreenView {
         this.mapParticlesToViews.forEach( otherParticleView => {
           if ( otherParticleView !== particleView ) {
             otherParticleView.focusable = false;
-            otherParticleView.pdomVisible = false;
           }
         } );
 
@@ -673,7 +674,6 @@ class BAAScreenView extends ScreenView {
           this.atomNode.electronCloud.focusable = true;
         }
         else {
-          particleView.pdomVisible = true;
           particleView.focusable = true;
           this.atomNode.electronCloud.focusable = false;
         }
@@ -685,7 +685,6 @@ class BAAScreenView extends ScreenView {
       }
     }
   }
-
 
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();

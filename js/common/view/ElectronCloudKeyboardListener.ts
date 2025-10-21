@@ -76,7 +76,6 @@ class ElectronCloudKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           // Set the alt-input focus to this electron.
           const electronView = mapElectronsToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.pdomVisible = true;
           electronView.focusable = true;
           electronView.focus();
 

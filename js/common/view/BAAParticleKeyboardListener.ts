@@ -172,7 +172,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
                 electronCloudNode.focusable = true;
                 electronCloudNode.focus();
                 particleView.focusable = false;
-                particleView.pdomVisible = false;
               }
             }
             else if ( particle.containerProperty.value === homeBucket ) {
