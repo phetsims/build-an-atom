@@ -375,7 +375,7 @@ class BAAScreenView extends ScreenView {
         }
         else if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
 
-          // This particle was just placed into a bucket, so make sure that it is not focusable.
+          // This particle was just placed into a bucket, so make sure that it is not focusable or visible in the PDOM.
           particleView.focusable = false;
           particleView.pdomVisible = false;
         }
