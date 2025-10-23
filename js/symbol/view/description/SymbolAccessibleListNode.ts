@@ -69,7 +69,10 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
       atomicNumberListItemProperty,
       massNumberListItemProperty,
       chargeListItemProperty
-    ], { visibleProperty: visibleProperty } );
+    ], {
+      visibleProperty: visibleProperty,
+      leadingParagraphStringProperty: BuildAnAtomStrings.a11y.symbolScreen.symbol.leadingParagraphStringProperty
+    } );
   }
 }
 

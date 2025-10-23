@@ -155,6 +155,7 @@ type StringsType = {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
       'symbol': {
+        'leadingParagraphStringProperty': LocalizedStringProperty;
         'accessibleNameStringProperty': LocalizedStringProperty;
         'noSymbolStringProperty': LocalizedStringProperty;
         'accessibleListNode': {

@@ -162,6 +162,7 @@ a11y:
     screenIcon:
       accessibleHelpText: "Relate element symbols to particle counts."
     symbol:
+      leadingParagraph: "Your Built Atom is represented as:"
       accessibleName: "Chemical Symbol"
       noSymbol: "No symbol"
       accessibleListNode:
