@@ -505,7 +505,8 @@ class BAAScreenView extends ScreenView {
     // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol( model.atom.protonCountProperty, {
       pickable: false,
-      scale: 0.55 // Scale empirically determined to match layout in design doc.
+      scale: 0.55, // Scale empirically determined to match layout in design doc.
+      accessibleParagraph: periodicTableAccessibleParagraphProperty
     } );
     this.periodicTableAccordionBox = new BuildAnAtomAccordionBox(
       periodicTableAndSymbol,
@@ -520,8 +521,7 @@ class BAAScreenView extends ScreenView {
         tandem: tandem.createTandem( 'periodicTableAccordionBox' ),
         phetioFeatured: true,
 
-        accessibleName: BuildAnAtomStrings.a11y.common.periodicTable.accessibleNameStringProperty,
-        accessibleHelpTextExpanded: periodicTableAccessibleParagraphProperty
+        accessibleName: BuildAnAtomStrings.a11y.common.periodicTable.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
 

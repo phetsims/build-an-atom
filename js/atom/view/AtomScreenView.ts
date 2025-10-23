@@ -38,18 +38,6 @@ class AtomScreenView extends BAAScreenView {
       screenSummaryContent: new AtomScreenSummaryContentNode( model )
     } );
 
-    // Add the charge meter and charge comparison display inside an accordion box.
-    const netChargeAccordionBoxContents = new HBox( {
-      children: [
-        new ChargeMeter( model.atom.chargeProperty ),
-        new ChargeComparisonDisplay( model.atom, { pickable: false } )
-      ],
-      spacing: 5,
-      scale: 0.85, // empirically determined to keep the box height reasonable
-      pickable: false,
-      justify: 'left'
-    } );
-
     const absoluteChargeProperty = new DerivedStringProperty( [ model.atom.chargeProperty ], charge => Math.abs( charge ).toString() );
     const chargeSignProperty = new DerivedStringProperty( [ model.atom.chargeProperty ], charge => {
       return charge < 0 ? MathSymbols.MINUS :
@@ -65,6 +53,19 @@ class AtomScreenView extends BAAScreenView {
       }
     );
 
+    // Add the charge meter and charge comparison display inside an accordion box.
+    const netChargeAccordionBoxContents = new HBox( {
+      children: [
+        new ChargeMeter( model.atom.chargeProperty ),
+        new ChargeComparisonDisplay( model.atom, { pickable: false } )
+      ],
+      spacing: 5,
+      scale: 0.85, // empirically determined to keep the box height reasonable
+      pickable: false,
+      justify: 'left',
+      accessibleParagraph: netChargeAccessibleParagraphProperty
+    } );
+
     this.netChargeAccordionBox = new BuildAnAtomAccordionBox(
       netChargeAccordionBoxContents,
       combineOptions<AccordionBoxOptions>( {}, {
@@ -77,8 +78,7 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleNameStringProperty,
-        accessibleHelpTextExpanded: netChargeAccessibleParagraphProperty
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.netChargeAccordionBox );
@@ -102,7 +102,8 @@ class AtomScreenView extends BAAScreenView {
       model.atom.massNumberProperty,
       {
         pickable: false,
-        scale: 0.85 // empirically determined to make the control panels all fit on the screen
+        scale: 0.85, // empirically determined to make the control panels all fit on the screen
+        accessibleParagraph: massNumberAccessibleParagraphProperty
       }
     );
     this.massNumberAccordionBox = new BuildAnAtomAccordionBox(
@@ -117,8 +118,7 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleNameStringProperty,
-        accessibleHelpTextExpanded: massNumberAccessibleParagraphProperty
+        accessibleName: BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.massNumberAccordionBox );
