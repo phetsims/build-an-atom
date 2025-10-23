@@ -13,7 +13,9 @@ import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
+import ShredStrings from '../../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
+import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/description/ParticleCountsAccessibleListNode.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
@@ -27,7 +29,13 @@ class AtomDescriberAccessibleListNode extends Node {
     super( {
       children: [
         new AtomStateAccessibleListNode( atom, viewProperties ),
-        new CheckboxesAccessibleListNode( atom, viewProperties )
+        new CheckboxesAccessibleListNode( atom, viewProperties ),
+        new Node( {
+          accessibleHeading: ShredStrings.a11y.particleCounts.accessibleHeadingStringProperty,
+          children: [
+            new ParticleCountsAccessibleListNode( atom )
+          ]
+        } )
       ]
     } );
   }
