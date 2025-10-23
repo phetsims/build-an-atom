@@ -92,7 +92,10 @@ class NonInteractiveSchematicAtomNode extends Node {
         // Layer the particle views so that the nucleus looks good, with the particles closer to the center being higher
         // in the z-order.
         if ( particleViews.length > 3 ) {
-          const sortedParticleViews = _.sortBy( particleViews, particleView => -particleView.particle.destinationProperty.value.distance( particleAtom.positionProperty.value ) );
+          const sortedParticleViews = _.sortBy(
+            particleViews,
+            particleView => -particleView.particle.destinationProperty.value.distance( particleAtom.positionProperty.value )
+          );
           sortedParticleViews.forEach( particleView => {
             particleView.moveToFront();
           } );

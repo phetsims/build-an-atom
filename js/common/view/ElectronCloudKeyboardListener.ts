@@ -56,7 +56,7 @@ class ElectronCloudKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     const grabSoundPlayer = sharedSoundPlayers.get( 'grab' );
 
     super( {
-      keys: [ 'space', 'enter', ...NAVIGATION_KEYS, 'delete', 'backspace' ],
+      keys: [ 'space', 'enter', ...NAVIGATION_KEYS ],
       fireOnDown: false,
       fire: ( event, keysPressed ) => {
 
@@ -82,29 +82,6 @@ class ElectronCloudKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
           // Play the grab sound.
           grabSoundPlayer.play();
-        }
-        else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
-
-          // Get a reference to the electron most recently added to the atom.
-          const electron = atom.electrons[ atom.electrons.length - 1 ];
-          affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
-
-          // Simulate extraction of a particle from the cloud and putting it back in the bucket.
-          electron.isDraggingProperty.value = true;
-          electron.setPositionAndDestination( electronBucket.position );
-          electron.isDraggingProperty.value = false;
-          electron.moveImmediatelyToDestination();
-
-          if ( atom.particleCountProperty.value > 0 ) {
-
-            // Update focus to the first focusable particle in the atom.
-            updateAtomParticleFocus( null, 'forward' );
-          }
-          else {
-
-            // There are no particles left in the atom, so shift focus to the electron bucket.
-            electronBucketNode.focus();
-          }
         }
         else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
                   keysPressed === 'w' || keysPressed === 's' ) {

@@ -62,12 +62,12 @@ export default class BAAParticleView extends ParticleView {
         particleLocationStringProperty,
         ShredStrings.a11y.particles.accessibleNameStringProperty
       ],
-      ( isDragging: boolean, particle: string, location: string, accessibleName: string ) => {
+      ( isDragging: boolean, particleType: string, location: string, accessibleName: string ) => {
         if ( isDragging ) {
-          return particle;
+          return particleType;
         }
         else {
-          return StringUtils.fillIn( accessibleName, { particle: particle, location: location } );
+          return StringUtils.fillIn( accessibleName, { particle: particleType, location: location } );
         }
       } );
 
