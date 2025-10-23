@@ -72,6 +72,8 @@ a11y:
           Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 
           Press space to release.
     atomAccessibleListNode:
+      atomStateLeadingParagraph: "In {$model} view:"
+      checkboxesListLeadingParagraph: "You have created:"
       accessibleHeading: Your Built Atom
       nucleusInfoFull: Nucleus contains {{particles}}.
       nucleusInfoEmpty: Nucleus empty.

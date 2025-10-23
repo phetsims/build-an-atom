@@ -80,6 +80,8 @@ type StringsType = {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
       'atomAccessibleListNode': {
+        'atomStateLeadingParagraphStringProperty': LocalizedStringProperty;
+        'checkboxesListLeadingParagraphStringProperty': LocalizedStringProperty;
         'accessibleHeadingStringProperty': LocalizedStringProperty;
         'nucleusInfoFullStringProperty': LocalizedStringProperty;
         'nucleusInfoEmptyStringProperty': LocalizedStringProperty;

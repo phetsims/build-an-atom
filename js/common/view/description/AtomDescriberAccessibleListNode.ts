@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 /**
  * Descriptions for the atom view checkboxes.
- * This file is a collection of methods for creating natural language descriptions of the sate of the atom view.
+ * This file is a collection of methods for creating natural language descriptions of the state of the atom view.
  *
  * @author Agustín Vallejo
  */
@@ -11,6 +11,7 @@ import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import Node from '../../../../../scenery/js/nodes/Node.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
 import buildAnAtom from '../../../buildAnAtom.js';
@@ -18,110 +19,17 @@ import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import AtomViewProperties from '../AtomViewProperties.js';
 
-class AtomDescriberAccessibleListNode extends AccessibleListNode {
-
+class AtomDescriberAccessibleListNode extends Node {
   public constructor(
     atom: ParticleAtom,
     viewProperties: AtomViewProperties
   ) {
-    const nucleusContainsProperty = new DerivedStringProperty(
-      [
-        atom.protonCountProperty,
-        atom.neutronCountProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.neutronsStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty
-      ],
-      (
-        protons: number,
-        neutrons: number,
-        nucleusInfoFullString: string,
-        nucleusEmptyString: string,
-        protonsString: string,
-        neutronsString: string,
-        protonsAndNeutronsString: string
-      ) => {
-        if ( protons > 0 ) {
-          if ( neutrons > 0 ) {
-            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsAndNeutronsString } );
-          }
-          else {
-            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsString } );
-          }
-        }
-        else {
-          if ( neutrons > 0 ) {
-            return StringUtils.fillIn( nucleusInfoFullString, { particles: neutronsString } );
-          }
-          else {
-            return nucleusEmptyString;
-          }
-        }
-      } );
-
-    const innerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.min( 2, electrons ) );
-    const outerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.max( 0, electrons - 2 ) );
-
-    const electronsStateProperty = new DerivedStringProperty(
-      [
-        viewProperties.electronModelProperty,
-        atom.electronCountProperty,
-        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoFull.createProperty( {
-          inner: innerElectronCountProperty, outer: outerElectronCountProperty
-        } ),
-        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoFull.createProperty( {
-          value: atom.electronCountProperty
-        } ),
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
-      ],
-      (
-        electronModel: ElectronShellDepiction,
-        electrons: number,
-        shellInfoFullString: string,
-        cloudInfoFullString: string,
-        shellInfoEmptyString: string,
-        cloudInfoEmptyString: string
-      ) => {
-        if ( electrons > 0 ) {
-          return electronModel === 'shells' ? shellInfoFullString : cloudInfoFullString;
-        }
-        else {
-          return electronModel === 'shells' ? shellInfoEmptyString : cloudInfoEmptyString;
-        }
-      }
-    );
-
-    const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameContextResponse(
-      atom.protonCountProperty,
-      atom.elementNameStringProperty
-    );
-
-    const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonContextResponse(
-      atom.protonCountProperty,
-      atom.chargeProperty
-    );
-
-    const stabilityListItemProperty = AtomDescriberAccessibleListNode.createStabilityContextResponse(
-      atom.protonCountProperty,
-      atom.nucleusStableProperty
-    );
-
-    const hasProtonsProperty = new DerivedProperty( [ atom.protonCountProperty ], protons => protons > 0 );
-
-    const visibleAndHasProtons = ( visibleProperty: TReadOnlyProperty<boolean> ) => {
-      return DerivedProperty.and( [ visibleProperty, hasProtonsProperty ] );
-    };
-
-    super( [
-      nucleusContainsProperty,
-      electronsStateProperty,
-      { stringProperty: elementNameListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.elementNameVisibleProperty ) },
-      { stringProperty: neutralOrIonListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.neutralAtomOrIonVisibleProperty ) },
-      { stringProperty: stabilityListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.nuclearStabilityVisibleProperty ) }
-    ] );
+    super( {
+      children: [
+        new AtomStateAccessibleListNode( atom, viewProperties ),
+        new CheckboxesAccessibleListNode( atom, viewProperties )
+      ]
+    } );
   }
 
   public static createElementNameContextResponse(
@@ -211,6 +119,150 @@ class AtomDescriberAccessibleListNode extends AccessibleListNode {
         }
       }
     );
+  }
+}
+
+class AtomStateAccessibleListNode extends AccessibleListNode {
+  public constructor(
+    atom: ParticleAtom,
+    viewProperties: AtomViewProperties
+  ) {
+    const nucleusContainsProperty = new DerivedStringProperty(
+      [
+        atom.protonCountProperty,
+        atom.neutronCountProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.neutronsStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty
+      ],
+      (
+        protons: number,
+        neutrons: number,
+        nucleusInfoFullString: string,
+        nucleusEmptyString: string,
+        protonsString: string,
+        neutronsString: string,
+        protonsAndNeutronsString: string
+      ) => {
+        if ( protons > 0 ) {
+          if ( neutrons > 0 ) {
+            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsAndNeutronsString } );
+          }
+          else {
+            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsString } );
+          }
+        }
+        else {
+          if ( neutrons > 0 ) {
+            return StringUtils.fillIn( nucleusInfoFullString, { particles: neutronsString } );
+          }
+          else {
+            return nucleusEmptyString;
+          }
+        }
+      } );
+
+    const innerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.min( 2, electrons ) );
+    const outerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.max( 0, electrons - 2 ) );
+
+    const electronsStateProperty = new DerivedStringProperty(
+      [
+        viewProperties.electronModelProperty,
+        atom.electronCountProperty,
+        // Shell contains N electrons
+        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoFull.createProperty( {
+          inner: innerElectronCountProperty, outer: outerElectronCountProperty
+        } ),
+        // Cloud contains N electrons
+        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoFull.createProperty( {
+          value: atom.electronCountProperty
+        } ),
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
+      ],
+      (
+        electronModel: ElectronShellDepiction,
+        electrons: number,
+        shellInfoFullString: string,
+        cloudInfoFullString: string,
+        shellInfoEmptyString: string,
+        cloudInfoEmptyString: string
+      ) => {
+        if ( electrons > 0 ) {
+          return electronModel === 'shells' ? shellInfoFullString : cloudInfoFullString;
+        }
+        else {
+          return electronModel === 'shells' ? shellInfoEmptyString : cloudInfoEmptyString;
+        }
+      }
+    );
+
+    const shellsOrCloudStringProperty = new DerivedStringProperty(
+      [
+        viewProperties.electronModelProperty,
+        BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameShellsStringProperty,
+        BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameCloudStringProperty
+      ],
+      (
+        electronModel: ElectronShellDepiction,
+        shells: string,
+        cloud: string
+      ) => {
+        return electronModel === 'shells' ? shells : cloud;
+      } );
+
+    const leadingParagraphStringProperty =
+      BuildAnAtomFluent.a11y.common.atomAccessibleListNode.atomStateLeadingParagraph.createProperty( {
+        model: shellsOrCloudStringProperty
+      } );
+
+    super( [
+      nucleusContainsProperty,
+      electronsStateProperty
+    ], {
+      leadingParagraphStringProperty: leadingParagraphStringProperty
+    } );
+  }
+}
+
+
+class CheckboxesAccessibleListNode extends AccessibleListNode {
+  public constructor(
+    atom: ParticleAtom,
+    viewProperties: AtomViewProperties
+  ) {
+
+    const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameContextResponse(
+      atom.protonCountProperty,
+      atom.elementNameStringProperty
+    );
+
+    const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonContextResponse(
+      atom.protonCountProperty,
+      atom.chargeProperty
+    );
+
+    const stabilityListItemProperty = AtomDescriberAccessibleListNode.createStabilityContextResponse(
+      atom.protonCountProperty,
+      atom.nucleusStableProperty
+    );
+
+    const hasProtonsProperty = new DerivedProperty( [ atom.protonCountProperty ], protons => protons > 0 );
+
+    const visibleAndHasProtons = ( visibleProperty: TReadOnlyProperty<boolean> ) => {
+      return DerivedProperty.and( [ visibleProperty, hasProtonsProperty ] );
+    };
+
+    super( [
+      { stringProperty: elementNameListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.elementNameVisibleProperty ) },
+      { stringProperty: neutralOrIonListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.neutralAtomOrIonVisibleProperty ) },
+      { stringProperty: stabilityListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.nuclearStabilityVisibleProperty ) }
+    ], {
+      leadingParagraphStringProperty: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
+      leadingParagraphVisibleProperty: hasProtonsProperty
+    } );
   }
 }
 
