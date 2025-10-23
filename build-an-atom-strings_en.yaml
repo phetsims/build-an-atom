@@ -43,6 +43,28 @@ a11y:
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"
+    particles:
+      # For Object Response
+      accessibleHeading: Particles
+      particleAddedTo: |-
+        { $particle } added to { $location }. Now { $count ->
+         [one]{ $count } { $particle }
+         *[other] { $count } { $particles }
+        } in total.
+      accessibleName: "{{particle}}, in {{location}}"
+      overNucleus: Over nucleus.
+      overInnerShell: Over inner shell.
+      overOuterShell: Over outer shell.
+      nearBuckets: Near buckets.
+      overAtom: Over atom.
+      nucleus: nucleus
+      innerShell: inner shell
+      outerShell: outer shell
+      cloud: cloud
+      bucket: bucket
+      particleReturnedToBucket: |-
+        { $particle } returned to bucket.
+      bucketEmpty: Bucket empty.
     buckets:
       accessibleHeading: Particle Buckets
       accessibleHelpText: |-

@@ -58,6 +58,23 @@ type StringsType = {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;
       };
+      'particles': {
+        'accessibleHeadingStringProperty': LocalizedStringProperty;
+        'particleAddedToStringProperty': LocalizedStringProperty;
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'overNucleusStringProperty': LocalizedStringProperty;
+        'overInnerShellStringProperty': LocalizedStringProperty;
+        'overOuterShellStringProperty': LocalizedStringProperty;
+        'nearBucketsStringProperty': LocalizedStringProperty;
+        'overAtomStringProperty': LocalizedStringProperty;
+        'nucleusStringProperty': LocalizedStringProperty;
+        'innerShellStringProperty': LocalizedStringProperty;
+        'outerShellStringProperty': LocalizedStringProperty;
+        'cloudStringProperty': LocalizedStringProperty;
+        'bucketStringProperty': LocalizedStringProperty;
+        'particleReturnedToBucketStringProperty': LocalizedStringProperty;
+        'bucketEmptyStringProperty': LocalizedStringProperty;
+      };
       'buckets': {
         'accessibleHeadingStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;

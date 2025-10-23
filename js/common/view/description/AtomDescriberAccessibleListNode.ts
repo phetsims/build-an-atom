@@ -142,7 +142,7 @@ class AtomDescriberAccessibleListNode extends AccessibleListNode {
         noElementString: string
       ) => {
         if ( protonCount > 0 ) {
-          return StringUtils.fillIn( checkedStringPattern, { name: elementNameString } );
+          return StringUtils.fillIn( checkedStringPattern, { name: StringUtils.capitalize( elementNameString ) } );
         }
         else {
           return noElementString;

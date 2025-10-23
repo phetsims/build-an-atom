@@ -7,8 +7,9 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import Particle, { ParticleOptions, ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle, { ParticleOptions } from '../../../../shred/js/model/Particle.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import { BAAParticleType } from './BAAModel.js';
 
 // List of the places the particle in BAA could be located.
 export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'electronCloud' | 'bucket';
@@ -18,7 +19,7 @@ export default class BAAParticle extends Particle {
   // The location of the particle in Build an Atom.
   public readonly locationNameProperty: Property<ParticleLocations>;
 
-  public constructor( type: ParticleType, providedOptions?: ParticleOptions ) {
+  public constructor( type: BAAParticleType, providedOptions?: ParticleOptions ) {
     super( type, providedOptions );
 
     this.locationNameProperty = new Property<ParticleLocations>( 'bucket' );

@@ -123,6 +123,53 @@
           "value": "Collapsed"
         }
       },
+      "particles": {
+        "accessibleHeading": {
+          "value": "Particles"
+        },
+        "particleAddedTo": {
+          "value": "{ $particle } added to { $location }. Now { $count ->\n [one]{ $count } { $particle }\n *[other] { $count } { $particles }\n} in total."
+        },
+        "accessibleName": {
+          "value": "{{particle}}, in {{location}}"
+        },
+        "overNucleus": {
+          "value": "Over nucleus."
+        },
+        "overInnerShell": {
+          "value": "Over inner shell."
+        },
+        "overOuterShell": {
+          "value": "Over outer shell."
+        },
+        "nearBuckets": {
+          "value": "Near buckets."
+        },
+        "overAtom": {
+          "value": "Over atom."
+        },
+        "nucleus": {
+          "value": "nucleus"
+        },
+        "innerShell": {
+          "value": "inner shell"
+        },
+        "outerShell": {
+          "value": "outer shell"
+        },
+        "cloud": {
+          "value": "cloud"
+        },
+        "bucket": {
+          "value": "bucket"
+        },
+        "particleReturnedToBucket": {
+          "value": "{ $particle } returned to bucket."
+        },
+        "bucketEmpty": {
+          "value": "Bucket empty."
+        }
+      },
       "buckets": {
         "accessibleHeading": {
           "value": "Particle Buckets"

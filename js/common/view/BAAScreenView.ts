@@ -14,6 +14,7 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import { FluentPatternDerivedProperty } from '../../../../chipper/js/browser/FluentPattern.js';
 import type LocalizedStringProperty from '../../../../chipper/js/browser/LocalizedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -49,7 +50,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAModel from '../model/BAAModel.js';
+import BAAModel, { BAAParticleType } from '../model/BAAModel.js';
 import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
 import AtomViewProperties from './AtomViewProperties.js';
@@ -63,6 +64,12 @@ import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
 const CONTROLS_INSET = 10;
+
+const PARTICLE_TO_PLURAL = new Map<BAAParticleType, TReadOnlyProperty<string>>( [
+  [ 'proton', ShredStrings.a11y.particles.protonsStringProperty ],
+  [ 'neutron', ShredStrings.a11y.particles.neutronsStringProperty ],
+  [ 'electron', ShredStrings.a11y.particles.electronsStringProperty ]
+] );
 
 class BAAScreenView extends ScreenView {
 
@@ -251,17 +258,17 @@ class BAAScreenView extends ScreenView {
 
     addBucketFront(
       model.protonBucket,
-      ShredStrings.a11y.particles.protonsStringProperty,
+      PARTICLE_TO_PLURAL.get( 'proton' )!,
       DerivedProperty.valueEqualsConstant( model.protonBucketParticleCountProperty, 0 )
     );
     addBucketFront(
       model.neutronBucket,
-      ShredStrings.a11y.particles.neutronsStringProperty,
+      PARTICLE_TO_PLURAL.get( 'neutron' )!,
       DerivedProperty.valueEqualsConstant( model.neutronBucketParticleCountProperty, 0 )
     );
     addBucketFront(
       model.electronBucket,
-      ShredStrings.a11y.particles.electronsStringProperty,
+      PARTICLE_TO_PLURAL.get( 'electron' )!,
       DerivedProperty.valueEqualsConstant( model.electronBucketParticleCountProperty, 0 )
     );
 
@@ -388,21 +395,27 @@ class BAAScreenView extends ScreenView {
       } );
 
       particle.locationNameProperty.lazyLink( ( destination: ParticleLocations ) => {
-        let contextResponse: LocalizedStringProperty | string;
+        let contextResponse: LocalizedStringProperty | FluentPatternDerivedProperty | string;
 
         if ( destination === 'bucket' ) {
-          contextResponse = ShredStrings.a11y.particles.particleReturnedToBucketStringProperty;
+          contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
+            particle: StringUtils.capitalize( particle.type )
+          } );
         }
         else {
-          contextResponse = StringUtils.fillIn( ShredStrings.a11y.particles.particleAddedToStringProperty, {
-            location: destination === 'nucleus' ?
-                      ShredStrings.a11y.particles.nucleusStringProperty :
-                      destination === 'innerShell' ?
-                      ShredStrings.a11y.particles.innerShellStringProperty :
-                      destination === 'outerShell' ?
-                      ShredStrings.a11y.particles.outerShellStringProperty :
-                      destination === 'electronCloud' ?
-                      ShredStrings.a11y.particles.cloudStringProperty : ''
+          const location = destination === 'nucleus' ?
+                           BuildAnAtomStrings.a11y.common.particles.nucleusStringProperty :
+                           destination === 'innerShell' ?
+                           BuildAnAtomStrings.a11y.common.particles.innerShellStringProperty :
+                           destination === 'outerShell' ?
+                           BuildAnAtomStrings.a11y.common.particles.outerShellStringProperty :
+                           destination === 'electronCloud' ?
+                           BuildAnAtomStrings.a11y.common.particles.cloudStringProperty : '';
+          contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
+            particle: StringUtils.capitalize( particle.type ),
+            particles: PARTICLE_TO_PLURAL.get( particle.type as BAAParticleType )!,
+            count: model.getParticleCountByType( particle.type as BAAParticleType ),
+            location: location
           } );
         }
 

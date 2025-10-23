@@ -5,11 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
+import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -58,6 +59,20 @@ addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_accessibleHeading', 'a11y.common.particles.accessibleHeadingStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_particleAddedTo', 'a11y.common.particles.particleAddedToStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_overNucleus', 'a11y.common.particles.overNucleusStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_overInnerShell', 'a11y.common.particles.overInnerShellStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_overOuterShell', 'a11y.common.particles.overOuterShellStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_nearBuckets', 'a11y.common.particles.nearBucketsStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_overAtom', 'a11y.common.particles.overAtomStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_nucleus', 'a11y.common.particles.nucleusStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_innerShell', 'a11y.common.particles.innerShellStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_outerShell', 'a11y.common.particles.outerShellStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_cloud', 'a11y.common.particles.cloudStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_bucket', 'a11y.common.particles.bucketStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_particleReturnedToBucket', 'a11y.common.particles.particleReturnedToBucketStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_bucketEmpty', 'a11y.common.particles.bucketEmptyStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_accessibleHeading', 'a11y.common.buckets.accessibleHeadingStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_accessibleHelpText', 'a11y.common.buckets.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_accessibleHeading', 'a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty' );
@@ -162,11 +177,31 @@ const BuildAnAtomFluent = {
         expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
         collapsedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_collapsed', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' ) )
       },
+      particles: {
+        _comment_0: new FluentComment( {"comment":"For Object Response","associatedKey":"accessibleHeading"} ),
+        accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.common.particles.accessibleHeadingStringProperty' ) ),
+        particleAddedTo: new FluentPattern<{ count: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, location: FluentVariable, particle: FluentVariable, particles: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleAddedTo', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleAddedToStringProperty' ), [{"name":"count","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"location"},{"name":"particle"},{"name":"particles"}] ),
+        accessibleNameStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.particles.accessibleNameStringProperty' ),
+        overNucleusStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_overNucleus', _.get( BuildAnAtomStrings, 'a11y.common.particles.overNucleusStringProperty' ) ),
+        overInnerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_overInnerShell', _.get( BuildAnAtomStrings, 'a11y.common.particles.overInnerShellStringProperty' ) ),
+        overOuterShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_overOuterShell', _.get( BuildAnAtomStrings, 'a11y.common.particles.overOuterShellStringProperty' ) ),
+        nearBucketsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_nearBuckets', _.get( BuildAnAtomStrings, 'a11y.common.particles.nearBucketsStringProperty' ) ),
+        overAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_overAtom', _.get( BuildAnAtomStrings, 'a11y.common.particles.overAtomStringProperty' ) ),
+        nucleusStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_nucleus', _.get( BuildAnAtomStrings, 'a11y.common.particles.nucleusStringProperty' ) ),
+        innerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_innerShell', _.get( BuildAnAtomStrings, 'a11y.common.particles.innerShellStringProperty' ) ),
+        outerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_outerShell', _.get( BuildAnAtomStrings, 'a11y.common.particles.outerShellStringProperty' ) ),
+        cloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_cloud', _.get( BuildAnAtomStrings, 'a11y.common.particles.cloudStringProperty' ) ),
+        bucketStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_bucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.bucketStringProperty' ) ),
+        particleReturnedToBucket: new FluentPattern<{ particle: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleReturnedToBucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleReturnedToBucketStringProperty' ), [{"name":"particle"}] ),
+        bucketEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_bucketEmpty', _.get( BuildAnAtomStrings, 'a11y.common.particles.bucketEmptyStringProperty' ) )
+      },
       buckets: {
+        _comment_0: new FluentComment( {"comment":"For Object Response","associatedKey":"accessibleHeading"} ),
         accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.common.buckets.accessibleHeadingStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_buckets_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.buckets.accessibleHelpTextStringProperty' ) )
       },
       atomAccessibleListNode: {
+        _comment_0: new FluentComment( {"comment":"For Object Response","associatedKey":"accessibleHeading"} ),
         accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty' ) ),
         nucleusInfoFullStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty' ),
         nucleusInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' ) ),

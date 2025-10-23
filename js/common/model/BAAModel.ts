@@ -19,7 +19,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleContainer.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import Particle, { ParticleType } from '../../../../shred/js/model/Particle.js';
+import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -50,6 +50,8 @@ type SelfOptions = {
 };
 
 export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+
+export type BAAParticleType = 'proton' | 'neutron' | 'electron';
 
 // Type for particle containers
 type ContainerType = ParticleContainer<Particle> | null;
@@ -156,7 +158,7 @@ class BAAModel {
     const neutronTandem = tandem.createTandem( 'neutrons' );
     const electronTandem = tandem.createTandem( 'electrons' );
 
-    const addNucleons = ( particleType: ParticleType, numberToAdd: number ): void => {
+    const addNucleons = ( particleType: BAAParticleType, numberToAdd: number ): void => {
       const bucket = particleType === 'proton' ? this.protonBucket : this.neutronBucket;
       const parentTandem = particleType === 'proton' ? protonTandem : neutronTandem;
       _.times( numberToAdd, index => {
@@ -374,6 +376,19 @@ class BAAModel {
     this.nucleusJumpCount = 0;
   }
 
+  public getParticleCountByType( particleType: BAAParticleType ): number {
+    if ( particleType === 'proton' ) {
+      return this.atom.protons.length;
+    }
+    else if ( particleType === 'neutron' ) {
+      return this.atom.neutrons.length;
+    }
+    else {
+      // TODO: Why is the electron length off by one?? https://github.com/phetsims/build-an-atom/issues/383
+      return this.atom.electrons.length + 1;
+    }
+  }
+
   /**
    * Set the atom to the provided configuration.  This will move particles between the buckets and the atom as needed.
    */
@@ -392,7 +407,7 @@ class BAAModel {
   /**
    * Move particles of the specified type between the buckets and atoms to reach the specified target count in the atom.
    */
-  private adjustParticleCountInAtom( particleType: ParticleType, targetCount: number ): void {
+  private adjustParticleCountInAtom( particleType: BAAParticleType, targetCount: number ): void {
 
     // Make sure this is one of the particle types we handle.
     assert && assert( particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
