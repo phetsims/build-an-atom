@@ -261,7 +261,7 @@ class GameScreenView extends ScreenView {
 
       // Show the accessible game content and move focus to the beginning.
       this.challengeScreenNode.visible = true;
-      this.challengeScreenNode.accessibleFocusableHeadingNode.focus();
+      this.challengeScreenNode.handleShow();
     }
 
     if ( isSettingPhetioStateProperty.value && challengeView ) {
