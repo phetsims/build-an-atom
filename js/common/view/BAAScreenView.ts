@@ -370,7 +370,7 @@ class BAAScreenView extends ScreenView {
         particleView,
         this.getHomeBucketFront( particle ),
         this.atomNode.electronCloud,
-        this.atomNode.updateParticleFocus.bind( this.atomNode ),
+        this.atomNode.shiftParticleFocus.bind( this.atomNode ),
         tandem.createTandem( 'particleViewKeyboardListener' )
       ) );
 
@@ -473,7 +473,7 @@ class BAAScreenView extends ScreenView {
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.mapParticlesToViews,
       belowNucleusOffset,
-      this.atomNode.updateParticleFocus.bind( this.atomNode ),
+      this.atomNode.shiftParticleFocus.bind( this.atomNode ),
       tandem.createTandem( 'electronCloudKeyboardListener' )
     ) );
 
