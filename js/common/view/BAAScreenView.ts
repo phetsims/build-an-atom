@@ -234,6 +234,10 @@ class BAAScreenView extends ScreenView {
             particleView.focusable = true;
             particleView.focus();
 
+            // Make sure that nothing else in the atom is focusable so that if the user tabs away, focus doesn't go to
+            // another particle in the atom.
+            this.atomNode.makeAllOtherParticleViewsNotFocusable( particleView );
+
             // Mark the particle as being controlled by the user via keyboard interaction.
             particle.isDraggingProperty.value = true;
 
