@@ -195,6 +195,68 @@ type StringsType = {
         'level2AccessibleHelpTextStringProperty': LocalizedStringProperty;
         'level3AccessibleHelpTextStringProperty': LocalizedStringProperty;
         'level4AccessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'challenges': {
+        'countsToElement': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'countsToCharge': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'countsToMassNumber': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'countsToSymbolAll': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'countsToSymbolCharge': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'countsToSymbolMassNumber': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToElement': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToCharge': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToMassNumber': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToSymbolAll': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToSymbolCharge': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToSymbolMassNumber': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToSymbolProtonCount': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'symbolToCounts': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'symbolToSchematic': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        }
       }
     }
   }

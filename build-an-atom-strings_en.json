@@ -444,6 +444,128 @@
         "level4AccessibleHelpText": {
           "value": "Mixed review."
         }
+      },
+      "challenges": {
+        "countsToElement": {
+          "accessibleParagraph": {
+            "value": "Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Element is {{chemical symbol}}, {{Neutral Atom / Ion}}."
+          }
+        },
+        "countsToCharge": {
+          "accessibleParagraph": {
+            "value": "What is the total charge based on the given particle counts?"
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Total charge is {{value}}."
+          }
+        },
+        "countsToMassNumber": {
+          "accessibleParagraph": {
+            "value": "What is the mass number based on the given particle counts?"
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Mass number is {{value}}."
+          }
+        },
+        "countsToSymbolAll": {
+          "accessibleParagraph": {
+            "value": "Use Particle Counts to create the Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Element is {{name}}, symbol  {{chemical symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+          }
+        },
+        "countsToSymbolCharge": {
+          "accessibleParagraph": {
+            "value": "Use Particle Counts to determine what value belongs in upper right of Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: {{value}} in upper right of Chemical Symbol."
+          }
+        },
+        "countsToSymbolMassNumber": {
+          "accessibleParagraph": {
+            "value": "Use Particle Counts to determine what value belongs in upper left of Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: {{value}} in upper left of Chemical Symbol."
+          }
+        },
+        "schematicToElement": {
+          "accessibleParagraph": {
+            "value": "Use Built Atom to find element on Periodic Table. Determine whether it is a neutral atom or ion."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Element is {{chemical symbol}}, {{Neutral Atom / Ion}}."
+          }
+        },
+        "schematicToCharge": {
+          "accessibleParagraph": {
+            "value": "What is the total charge of the built atom?"
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Total charge is {{value}}."
+          }
+        },
+        "schematicToMassNumber": {
+          "accessibleParagraph": {
+            "value": "What is the mass number of the built atom?"
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Mass number is {{value}}."
+          }
+        },
+        "schematicToSymbolAll": {
+          "accessibleParagraph": {
+            "value": "Use Built Atom to create the Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Element is {{name}}, symbol  {{chemical symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+          }
+        },
+        "schematicToSymbolCharge": {
+          "accessibleParagraph": {
+            "value": "Use Built Atom to determine what value belongs in upper right of Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: {{value}} in upper right of Chemical Symbol."
+          }
+        },
+        "schematicToSymbolMassNumber": {
+          "accessibleParagraph": {
+            "value": "Use Built Atom to determine what value belongs in upper left of Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: {{value}} in upper left of Chemical Symbol."
+          }
+        },
+        "schematicToSymbolProtonCount": {
+          "accessibleParagraph": {
+            "value": "Use Built Atom to determine what value belongs in bottom left of Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: {{value}} in lower left of Chemical Symbol."
+          }
+        },
+        "symbolToCounts": {
+          "accessibleParagraph": {
+            "value": "Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: There are {{value}} Protons, {{value}} Neutrons, and {{value}} Electrons."
+          }
+        },
+        "symbolToSchematic": {
+          "accessibleParagraph": {
+            "value": "Build an atom or ion to match the given Chemical Symbol."
+          },
+          "correctAnswerParagraph": {
+            "value": "Correct Answer: Nucleus contains {{value}} Protons and {{value}} Neutrons. Inner shell contains {{value}} Electrons and outer shell contains {{value}} Electrons."
+          }
+        }
       }
     }
   }

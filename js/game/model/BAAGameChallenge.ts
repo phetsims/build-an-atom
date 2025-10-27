@@ -23,13 +23,15 @@ abstract class BAAGameChallenge extends PhetioObject {
 
   public readonly model: GameModel;
 
+  public readonly challengeType: ChallengeType;
+
   // Correct answer atom for this challenge, which the user is trying to deduce.
   public readonly correctAnswerAtom: NumberAtom;
 
   // This flag is used to hide the arrow buttons on Spinners whenever we're checking or showing the correct answer.
   public isAnswerInteractiveProperty: Property<boolean>;
 
-  protected constructor( model: GameModel, public readonly challengeType: ChallengeType, tandem: Tandem ) {
+  protected constructor( model: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
 
     super( {
       tandem: tandem,
@@ -38,6 +40,8 @@ abstract class BAAGameChallenge extends PhetioObject {
       phetioType: BAAGameChallenge.BAAGameChallengeIO,
       phetioFeatured: true
     } );
+
+    this.challengeType = challengeType;
 
     this.correctAnswerAtom = new NumberAtom( {
       protonCount: 1,

@@ -141,6 +141,21 @@ addToMapIfDefined( 'a11y_gameScreen_gameButtons_level1AccessibleHelpText', 'a11y
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level2AccessibleHelpText', 'a11y.gameScreen.gameButtons.level2AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level3AccessibleHelpText', 'a11y.gameScreen.gameButtons.level3AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level4AccessibleHelpText', 'a11y.gameScreen.gameButtons.level4AccessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToElement_accessibleParagraph', 'a11y.gameScreen.challenges.countsToElement.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToCharge_accessibleParagraph', 'a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToMassNumber_accessibleParagraph', 'a11y.gameScreen.challenges.countsToMassNumber.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToSymbolAll_accessibleParagraph', 'a11y.gameScreen.challenges.countsToSymbolAll.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToSymbolCharge_accessibleParagraph', 'a11y.gameScreen.challenges.countsToSymbolCharge.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToSymbolMassNumber_accessibleParagraph', 'a11y.gameScreen.challenges.countsToSymbolMassNumber.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToElement_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToCharge_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToCharge.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToMassNumber_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToMassNumber.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolAll_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToSymbolAll.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolCharge_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToSymbolCharge.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolMassNumber_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToSymbolMassNumber.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolProtonCount_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToCounts_accessibleParagraph', 'a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_accessibleParagraph', 'a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty' );
 
 // A function that creates contents for a new Fluent file, which will be needed if any string changes.
 const createFluentFile = (): string => {
@@ -340,6 +355,68 @@ const BuildAnAtomFluent = {
         level2AccessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_gameButtons_level2AccessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.gameButtons.level2AccessibleHelpTextStringProperty' ) ),
         level3AccessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_gameButtons_level3AccessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.gameButtons.level3AccessibleHelpTextStringProperty' ) ),
         level4AccessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_gameButtons_level4AccessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.gameButtons.level4AccessibleHelpTextStringProperty' ) )
+      },
+      challenges: {
+        countsToElement: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToElement_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToElement.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToElement.correctAnswerParagraphStringProperty' )
+        },
+        countsToCharge: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToCharge_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToCharge.correctAnswerParagraphStringProperty' )
+        },
+        countsToMassNumber: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToMassNumber_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToMassNumber.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToMassNumber.correctAnswerParagraphStringProperty' )
+        },
+        countsToSymbolAll: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToSymbolAll_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbolAll.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbolAll.correctAnswerParagraphStringProperty' )
+        },
+        countsToSymbolCharge: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToSymbolCharge_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbolCharge.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbolCharge.correctAnswerParagraphStringProperty' )
+        },
+        countsToSymbolMassNumber: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToSymbolMassNumber_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbolMassNumber.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbolMassNumber.correctAnswerParagraphStringProperty' )
+        },
+        schematicToElement: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToElement_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToElement.correctAnswerParagraphStringProperty' )
+        },
+        schematicToCharge: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToCharge_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToCharge.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToCharge.correctAnswerParagraphStringProperty' )
+        },
+        schematicToMassNumber: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToMassNumber_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToMassNumber.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToMassNumber.correctAnswerParagraphStringProperty' )
+        },
+        schematicToSymbolAll: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToSymbolAll_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolAll.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolAll.correctAnswerParagraphStringProperty' )
+        },
+        schematicToSymbolCharge: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToSymbolCharge_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolCharge.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolCharge.correctAnswerParagraphStringProperty' )
+        },
+        schematicToSymbolMassNumber: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToSymbolMassNumber_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolMassNumber.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolMassNumber.correctAnswerParagraphStringProperty' )
+        },
+        schematicToSymbolProtonCount: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToSymbolProtonCount_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.correctAnswerParagraphStringProperty' )
+        },
+        symbolToCounts: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToCounts_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraphStringProperty' )
+        },
+        symbolToSchematic: {
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty' ) ),
+          correctAnswerParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraphStringProperty' )
+        }
       }
     }
   }
