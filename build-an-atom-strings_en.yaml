@@ -120,7 +120,7 @@ a11y:
       stable: "Stable"
       unstable: "Unstable"
     modelToggle:
-      accessibleName: "Atomic Model"
+      accessibleName: "Model Options"
       accessibleNameShells: "Shells"
       accessibleNameCloud: "Cloud"
       accessibleHelpText: "Choose representation for region outside nucleus."
