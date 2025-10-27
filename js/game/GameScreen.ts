@@ -14,6 +14,7 @@ import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 import BAAColors from '../common/BAAColors.js';
 import GameModel from './model/GameModel.js';
 import GameScreenIcon from './view/GameScreenIcon.js';
+import GameScreenKeyboardHelpContent from './view/GameScreenKeyboardHelpContent.js';
 import GameScreenView from './view/GameScreenView.js';
 
 class GameScreen extends Screen<GameModel, GameScreenView> {
@@ -28,7 +29,8 @@ class GameScreen extends Screen<GameModel, GameScreenView> {
         screenButtonsHelpText: BuildAnAtomStrings.a11y.gameScreen.screenIcon.accessibleHelpTextStringProperty,
         backgroundColorProperty: BAAColors.gameScreenBackgroundColorProperty,
         homeScreenIcon: new GameScreenIcon(),
-        tandem: tandem
+        tandem: tandem,
+        createKeyboardHelpNode: () => new GameScreenKeyboardHelpContent()
       }
     );
   }

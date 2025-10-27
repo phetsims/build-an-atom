@@ -54,6 +54,24 @@ type StringsType = {
   'a11y': {
     'common': {
       'mathSpeakUpperStringProperty': LocalizedStringProperty;
+      'keyboardHelpContent': {
+        'particleNavigationHeadingStringProperty': LocalizedStringProperty;
+        'grabOrReleaseStringProperty': LocalizedStringProperty;
+        'grabOrReleaseDescriptionStringProperty': LocalizedStringProperty;
+        'selectParticleInAtomStringProperty': LocalizedStringProperty;
+        'selectParticleInAtomDescriptionStringProperty': LocalizedStringProperty;
+        'moveGrabbedParticleStringProperty': LocalizedStringProperty;
+        'moveGrabbedParticleDescriptionStringProperty': LocalizedStringProperty;
+        'returnToBucketStringProperty': LocalizedStringProperty;
+        'returnToBucketDescriptionStringProperty': LocalizedStringProperty;
+        'cancelMovementStringProperty': LocalizedStringProperty;
+        'cancelMovementDescriptionStringProperty': LocalizedStringProperty;
+        'periodicTableHeadingStringProperty': LocalizedStringProperty;
+        'navigateThroughTableStringProperty': LocalizedStringProperty;
+        'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
+        'selectChemicalSymbolStringProperty': LocalizedStringProperty;
+        'selectChemicalSymbolDescriptionStringProperty': LocalizedStringProperty;
+      };
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;

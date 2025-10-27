@@ -115,6 +115,56 @@
       "mathSpeakUpper": {
         "value": "upper {{symbol}}"
       },
+      "keyboardHelpContent": {
+        "particleNavigationHeading": {
+          "value": "Particle Navigation"
+        },
+        "grabOrRelease": {
+          "value": "Grab or Release"
+        },
+        "grabOrReleaseDescription": {
+          "value": "Grab or release particle with Space or Enter keys."
+        },
+        "selectParticleInAtom": {
+          "value": "Select particle in atom"
+        },
+        "selectParticleInAtomDescription": {
+          "value": "Select particle in atom with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+        },
+        "moveGrabbedParticle": {
+          "value": "Move grabbed particle"
+        },
+        "moveGrabbedParticleDescription": {
+          "value": "Move grabbed particle with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+        },
+        "returnToBucket": {
+          "value": "Return to bucket"
+        },
+        "returnToBucketDescription": {
+          "value": "Return to bucket with Delete or Backspace keys."
+        },
+        "cancelMovement": {
+          "value": "Cancel movement"
+        },
+        "cancelMovementDescription": {
+          "value": "Cancel movement with Escape key."
+        },
+        "periodicTableHeading": {
+          "value": "Periodic Table Navigation"
+        },
+        "navigateThroughTable": {
+          "value": "Navigate through table"
+        },
+        "navigateThroughTableDescription": {
+          "value": "Navigate through the periodic table with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+        },
+        "selectChemicalSymbol": {
+          "value": "Select chemical symbol"
+        },
+        "selectChemicalSymbolDescription": {
+          "value": "Select chemical symbol with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+        }
+      },
       "accordionAccessibleContextResponse": {
         "expanded": {
           "value": "Expanded"
