@@ -200,7 +200,7 @@ a11y:
     challenges:
       countsToElement:
         accessibleParagraph: Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion.
-        correctAnswerParagraph: "Correct Answer: Element is {{chemical symbol}}, {{Neutral Atom / Ion}}."
+        correctAnswerParagraph: "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
 
       countsToCharge:
         accessibleParagraph: What is the total charge based on the given particle counts?
@@ -212,7 +212,7 @@ a11y:
 
       countsToSymbolAll:
         accessibleParagraph: Use Particle Counts to create the Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: Element is {{name}}, symbol  {{chemical symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+        correctAnswerParagraph: "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
 
       countsToSymbolCharge:
         accessibleParagraph: Use Particle Counts to determine what value belongs in upper right of Chemical Symbol.
@@ -224,7 +224,7 @@ a11y:
 
       schematicToElement:
         accessibleParagraph: Use Built Atom to find element on Periodic Table. Determine whether it is a neutral atom or ion.
-        correctAnswerParagraph: "Correct Answer: Element is {{chemical symbol}}, {{Neutral Atom / Ion}}."
+        correctAnswerParagraph: "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
 
       schematicToCharge:
         accessibleParagraph: What is the total charge of the built atom?
@@ -236,7 +236,7 @@ a11y:
 
       schematicToSymbolAll:
         accessibleParagraph: Use Built Atom to create the Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: Element is {{name}}, symbol  {{chemical symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+        correctAnswerParagraph: "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
 
       schematicToSymbolCharge:
         accessibleParagraph: Use Built Atom to determine what value belongs in upper right of Chemical Symbol.
