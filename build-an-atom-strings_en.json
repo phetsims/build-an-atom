@@ -326,7 +326,7 @@
           "value": "Net Charge"
         },
         "accessibleParagraph": {
-          "value": "Net Charge is {$sign}{$charge}. There { $protons -> \n                  [one] is { $protons } positive charge\n                  *[other] are { $protons } positive charges\n                  } and { $electrons ->\n                  [one] { $electrons } negative charge\n                  *[other] { $electrons } negative charges\n                  }."
+          "value": "Your Built Atom has a Net Charge of {$sign}{$charge}. There { $protons -> \n                  [one] is { $protons } positive charge\n                  *[other] are { $protons } positive charges\n                  } and { $electrons ->\n                  [one] { $electrons } negative charge\n                  *[other] { $electrons } negative charges\n                  }."
         }
       },
       "massNumber": {
