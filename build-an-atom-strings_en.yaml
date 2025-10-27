@@ -146,7 +146,7 @@ a11y:
     netCharge:
       accessibleName: "Net Charge"
       accessibleParagraph: |-
-        Net Charge is {$sign}{$charge}. There { $protons -> 
+        Your Built Atom has a Net Charge of {$sign}{$charge}. There { $protons -> 
                           [one] is { $protons } positive charge
                           *[other] are { $protons } positive charges
                           } and { $electrons ->
