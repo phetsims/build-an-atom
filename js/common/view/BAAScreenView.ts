@@ -390,10 +390,6 @@ class BAAScreenView extends ScreenView {
 
           // The particle was just removed from the atom, so update what is focusable there.
           this.setAtomParticleFocusable( null );
-
-          // The particle is still focusable, since the user is interacting with it, but should no longer be visible in
-          // the PDOM.
-          particleView.pdomVisible = false;
         }
       } );
 
