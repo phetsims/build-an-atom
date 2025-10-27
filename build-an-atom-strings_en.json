@@ -380,6 +380,20 @@
         "accessibleHelpText": {
           "value": "Test your knowledge of atomic structure."
         }
+      },
+      "gameButtons": {
+        "level1AccessibleHelpText": {
+          "value": "Identify elements based on subatomic particles."
+        },
+        "level2AccessibleHelpText": {
+          "value": "Calculate mass or charge."
+        },
+        "level3AccessibleHelpText": {
+          "value": "Fill in missing chemical symbol information."
+        },
+        "level4AccessibleHelpText": {
+          "value": "Mixed review."
+        }
       }
     }
   }

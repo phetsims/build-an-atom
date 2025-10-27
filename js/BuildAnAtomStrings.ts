@@ -171,6 +171,12 @@ type StringsType = {
     'gameScreen': {
       'screenIcon': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'gameButtons': {
+        'level1AccessibleHelpTextStringProperty': LocalizedStringProperty;
+        'level2AccessibleHelpTextStringProperty': LocalizedStringProperty;
+        'level3AccessibleHelpTextStringProperty': LocalizedStringProperty;
+        'level4AccessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     }
   }
