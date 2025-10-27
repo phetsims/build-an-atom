@@ -10,9 +10,11 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
@@ -50,6 +52,12 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     schematicAtomNode.right = this.periodicTable.left - 50;
     schematicAtomNode.centerY = this.periodicTable.centerY - particleCountDisplay.height / 2 + BAAConstants.ATOM_VERTICAL_OFFSET;
     particleCountDisplay.left = schematicAtomNode.left;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [

@@ -14,6 +14,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import SymbolToCountsChallenge from '../model/SymbolToCountsChallenge.js';
 import ChallengeView from './ChallengeView.js';
@@ -49,6 +50,12 @@ class SymbolToCountsChallengeView extends ChallengeView {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
     this.interactiveParticleCountsNode.centerX = layoutBounds.width * 0.75;
     this.interactiveParticleCountsNode.centerY = layoutBounds.height * 0.49;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [

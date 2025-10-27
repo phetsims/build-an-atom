@@ -8,8 +8,10 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
@@ -27,6 +29,12 @@ class CountsToElementChallengeView extends ToElementChallengeView {
     // Layout
     particleCountsNode.centerX = this.periodicTable.left / 2;
     particleCountsNode.centerY = this.periodicTable.centerY;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToElement.accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [

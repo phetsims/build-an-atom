@@ -17,6 +17,7 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToMassNumberChallenge from '../model/CountsToMassNumberChallenge.js';
@@ -67,6 +68,12 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     // Layout
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [

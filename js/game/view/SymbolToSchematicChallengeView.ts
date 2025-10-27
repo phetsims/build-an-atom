@@ -20,6 +20,7 @@ import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -109,6 +110,12 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.745;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.51;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [

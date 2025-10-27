@@ -8,12 +8,16 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import SchematicToSymbolChallenge from '../model/SchematicToSymbolChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
@@ -50,6 +54,52 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     // Layout - bounds of AtomNode are dependent on its stability indicator text, so place relative to left.
     schematicAtomNode.left = layoutBounds.width * 0.15;
     schematicAtomNode.centerY = layoutBounds.height * 0.50 + BAAConstants.ATOM_VERTICAL_OFFSET;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    // Determine which specific challenge type this is based on the configurable flags
+    const accessibleParagraphStringProperty: TReadOnlyProperty<string> = new DerivedProperty(
+      [
+        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolAll.accessibleParagraphStringProperty,
+        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolCharge.accessibleParagraphStringProperty,
+        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolMassNumber.accessibleParagraphStringProperty,
+        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty
+      ],
+      (
+        schematicToSymbolAll: string,
+        schematicToSymbolCharge: string,
+        schematicToSymbolMassNumber: string,
+        schematicToSymbolProtonCount: string
+      ) => {
+        if ( schematicToSymbolChallenge.isProtonCountConfigurable &&
+             schematicToSymbolChallenge.isMassNumberConfigurable &&
+             schematicToSymbolChallenge.isChargeConfigurable ) {
+          return schematicToSymbolAll;
+        }
+        else if ( schematicToSymbolChallenge.isChargeConfigurable &&
+                  !schematicToSymbolChallenge.isProtonCountConfigurable &&
+                  !schematicToSymbolChallenge.isMassNumberConfigurable ) {
+          return schematicToSymbolCharge;
+        }
+        else if ( schematicToSymbolChallenge.isMassNumberConfigurable &&
+                  !schematicToSymbolChallenge.isProtonCountConfigurable &&
+                  !schematicToSymbolChallenge.isChargeConfigurable ) {
+          return schematicToSymbolMassNumber;
+        }
+        else if ( schematicToSymbolChallenge.isProtonCountConfigurable &&
+                  !schematicToSymbolChallenge.isMassNumberConfigurable &&
+                  !schematicToSymbolChallenge.isChargeConfigurable ) {
+          return schematicToSymbolProtonCount;
+        }
+        else {
+          return ''; // Fallback for any other configuration
+        }
+      }
+    );
+
+    this.addChild( new Node( {
+      accessibleParagraph: accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [

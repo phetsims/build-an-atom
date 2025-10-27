@@ -20,6 +20,7 @@ import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToMassNumberChallenge from '../model/SchematicToMassNumberChallenge.js';
@@ -89,6 +90,12 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
     // Layout
     schematicAtomNode.centerY = layoutBounds.height * 0.5 + BAAConstants.ATOM_VERTICAL_OFFSET;
+
+    // Accessible Paragraphs for the description of the challenge.
+    // Made a child node for consistency with the correct answer paragraph.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToMassNumber.accessibleParagraphStringProperty
+    } ) );
 
     // pdom order
     this.challengeNodesPDOMOrder = [
