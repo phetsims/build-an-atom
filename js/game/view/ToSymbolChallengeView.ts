@@ -75,13 +75,13 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
           symbol: AtomIdentifier.getSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
-          charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'counts-to-symbol-charge' ) {
       this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
         BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolCharge.correctAnswerParagraph.format( {
-          charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'counts-to-symbol-mass-number' ) {
@@ -97,7 +97,7 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
           symbol: AtomIdentifier.getSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
-          charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'schematic-to-symbol-charge' ) {
