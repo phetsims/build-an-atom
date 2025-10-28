@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import Vector2 from '../../../dot/js/Vector2.js';
+import MathSymbols from '../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
 import Color from '../../../scenery/js/util/Color.js';
@@ -19,6 +20,18 @@ class BAAConstants {
 
   private constructor() {
     // Not intended for instantiation.
+  }
+
+  public static chargeToStringSignBeforeValue( charge: number, showPlus = true ): string {
+    return charge < 0 ? MathSymbols.MINUS + `${Math.abs( charge )}` :
+           charge > 0 ? showPlus ? MathSymbols.PLUS + `${charge}` : `${charge}` :
+           '0';
+  }
+
+  public static chargeToStringSignAfterValue( charge: number, showPlus = true ): string {
+    return charge < 0 ? `${Math.abs( charge )}` + MathSymbols.MINUS :
+           charge > 0 ? showPlus ? `${charge}` + MathSymbols.PLUS : `${charge}` :
+           '0';
   }
 
   public static readonly RESET_BUTTON_RADIUS = 20;

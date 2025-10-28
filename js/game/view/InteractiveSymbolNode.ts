@@ -17,18 +17,18 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import AlignBox from '../../../../scenery/js/layout/nodes/AlignBox.js';
 import VBox, { VBoxOptions } from '../../../../scenery/js/layout/nodes/VBox.js';
-import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
+import BAAConstants from '../../common/BAAConstants.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
 
 // constants
@@ -236,8 +236,7 @@ class InteractiveSymbolNode extends VBox {
       symbolBox.addChild( chargeDisplay );
 
       chargeProperty.link( charge => {
-        const chargeSign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
-        displayedTextProperty.value = `${Math.abs( charge ).toString()}${chargeSign}`;
+        displayedTextProperty.value = BAAConstants.chargeToStringSignAfterValue( charge );
         chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.value );
         chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
       } );

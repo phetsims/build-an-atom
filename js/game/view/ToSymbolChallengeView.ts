@@ -9,7 +9,6 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -91,8 +90,7 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       const protonCountTextProperty = new DerivedStringProperty(
         [ this.challenge.correctAnswerAtom.chargeProperty ],
         ( charge: number ) => {
-          const sign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
-          return `${this.challenge.challengeType}<br> Net Charge: ${Math.abs( charge )}${sign}`;
+          return `${this.challenge.challengeType}<br> Net Charge: ${BAAConstants.chargeToStringSignAfterValue( charge )}`;
         }
       );
       answerNode = new RichText( protonCountTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

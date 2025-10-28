@@ -12,7 +12,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
@@ -134,8 +133,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     const chargeTextProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.chargeProperty ],
       ( charge: number ) => {
-        const sign = charge > 0 ? MathSymbols.PLUS : charge < 0 ? MathSymbols.MINUS : '';
-        return `${this.challenge.challengeType}<br> Net Charge: ${Math.abs( charge )}${sign}`;
+        return `${this.challenge.challengeType}<br> Net Charge: ${BAAConstants.chargeToStringSignAfterValue( charge )}`;
       }
     );
     return new RichText( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

@@ -9,12 +9,12 @@
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
 import NumberSpinner, { NumberSpinnerOptions } from '../../../../sun/js/NumberSpinner.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAConstants from '../../common/BAAConstants.js';
 
 type SelfOptions = {
   showPlusForPositive?: boolean; // Whether to show a plus sign for positive numbers.
@@ -82,11 +82,9 @@ class BAANumberSpinner extends NumberSpinner {
 
     // Creating the formatter here in order to use the options
     options.numberDisplayOptions.numberFormatter = ( value: number ) => {
-      const sign = value < 0 ? MathSymbols.MINUS :
-                   value > 0 && options.showPlusForPositive ? MathSymbols.PLUS :
-                   '';
-      const absoluteValueString = Math.abs( value ).toString();
-      return options.signAfterValue ? `${absoluteValueString}${sign}` : `${sign}${absoluteValueString}`;
+      return options.signAfterValue ?
+             BAAConstants.chargeToStringSignAfterValue( value, options.showPlusForPositive ) :
+             BAAConstants.chargeToStringSignBeforeValue( value, options.showPlusForPositive );
     };
 
     super( numberProperty, new Property<Range>( new Range( options.minValue, options.maxValue ) ), options );
