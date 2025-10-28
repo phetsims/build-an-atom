@@ -120,7 +120,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
     this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
       BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.correctAnswerParagraph.format( {
-        value: this.challenge.correctAnswerAtom.chargeProperty.value
+        charge: this.challenge.correctAnswerAtom.chargeProperty.value
       } );
   }
 }
