@@ -451,7 +451,7 @@
             "value": "Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{chemical symbol}}, {{Neutral Atom / Ion}}."
+            "value": "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
           }
         },
         "countsToCharge": {
@@ -475,7 +475,7 @@
             "value": "Use Particle Counts to create the Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{name}}, symbol  {{chemical symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+            "value": "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
           }
         },
         "countsToSymbolCharge": {
@@ -499,7 +499,7 @@
             "value": "Use Built Atom to find element on Periodic Table. Determine whether it is a neutral atom or ion."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{chemical symbol}}, {{Neutral Atom / Ion}}."
+            "value": "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
           }
         },
         "schematicToCharge": {
@@ -523,7 +523,7 @@
             "value": "Use Built Atom to create the Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{name}}, symbol  {{chemical symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+            "value": "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
           }
         },
         "schematicToSymbolCharge": {
