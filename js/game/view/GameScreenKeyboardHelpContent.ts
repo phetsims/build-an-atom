@@ -45,7 +45,7 @@ class PeriodicTableHelpSection extends KeyboardHelpSection {
     // all rows contained in a left aligned vbox
     const rows = [ navigateThroughTable, selectChemicalSymbol ];
 
-    super( BuildAnAtomStrings.a11y.common.keyboardHelpContent.particleNavigationHeadingStringProperty, rows, options );
+    super( BuildAnAtomStrings.a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty, rows, options );
   }
 }
 

@@ -45,18 +45,18 @@ a11y:
       grabOrRelease: Grab or Release
       grabOrReleaseDescription: Grab or release particle with Space or Enter keys.
       selectParticleInAtom: Select particle in atom
-      selectParticleInAtomDescription: Select particle in atom with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D.
+      selectParticleInAtomDescription: Select particle in atom with the Left and Right arrow keys, or A and D keys, or Up and Down arrow keys or W and S keys.
       moveGrabbedParticle: Move grabbed particle
-      moveGrabbedParticleDescription: Move grabbed particle with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D.
-      returnToBucket: Return to bucket
-      returnToBucketDescription: Return to bucket with Delete or Backspace keys.
+      moveGrabbedParticleDescription: Move grabbed particle with the Left and Right arrow keys, or A and D keys, or Up and Down arrow keys or W and S keys.
+      returnToBucket: Return grabbed particle to bucket
+      returnToBucketDescription: Return grabbed particle to bucket with Delete or Backspace keys.
       cancelMovement: Cancel movement
       cancelMovementDescription: Cancel movement with Escape key.
       periodicTableHeading: Periodic Table Navigation
       navigateThroughTable: Navigate through table
-      navigateThroughTableDescription: Navigate through the periodic table with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D.
+      navigateThroughTableDescription: Navigate through the periodic table with the Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D.
       selectChemicalSymbol: Select chemical symbol
-      selectChemicalSymbolDescription: Select chemical symbol with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D.
+      selectChemicalSymbolDescription: Select chemical symbol with the Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D.
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"

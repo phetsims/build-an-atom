@@ -129,19 +129,19 @@
           "value": "Select particle in atom"
         },
         "selectParticleInAtomDescription": {
-          "value": "Select particle in atom with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+          "value": "Select particle in atom with the Left and Right arrow keys, or A and D keys, or Up and Down arrow keys or W and S keys."
         },
         "moveGrabbedParticle": {
           "value": "Move grabbed particle"
         },
         "moveGrabbedParticleDescription": {
-          "value": "Move grabbed particle with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+          "value": "Move grabbed particle with the Left and Right arrow keys, or A and D keys, or Up and Down arrow keys or W and S keys."
         },
         "returnToBucket": {
-          "value": "Return to bucket"
+          "value": "Return grabbed particle to bucket"
         },
         "returnToBucketDescription": {
-          "value": "Return to bucket with Delete or Backspace keys."
+          "value": "Return grabbed particle to bucket with Delete or Backspace keys."
         },
         "cancelMovement": {
           "value": "Cancel movement"
@@ -156,13 +156,13 @@
           "value": "Navigate through table"
         },
         "navigateThroughTableDescription": {
-          "value": "Navigate through the periodic table with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+          "value": "Navigate through the periodic table with the Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D."
         },
         "selectChemicalSymbol": {
           "value": "Select chemical symbol"
         },
         "selectChemicalSymbolDescription": {
-          "value": "Select chemical symbol with the up, left, down, or right Arrow keys, or with letter keys W, A, S, or D."
+          "value": "Select chemical symbol with the Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D."
         }
       },
       "accordionAccessibleContextResponse": {
