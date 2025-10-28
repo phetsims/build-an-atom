@@ -20,6 +20,7 @@ import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
@@ -143,6 +144,18 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.challenge.submittedAnswerModel.setAtomConfiguration( this.challenge.correctAnswerAtom );
+
+    const electronCount = this.challenge.correctAnswerAtom.electronCountProperty.value;
+    const innerElectrons = Math.min( 2, electronCount );
+    const outerElectrons = Math.max( 0, electronCount - 2 );
+
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraph.format( {
+        protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
+        neutrons: this.challenge.correctAnswerAtom.neutronCountProperty.value,
+        inner: innerElectrons,
+        outer: outerElectrons
+      } );
   }
 
   public override createAnswerNode(): Node {

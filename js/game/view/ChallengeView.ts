@@ -7,6 +7,7 @@
  * @author John Blanco
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -255,7 +256,9 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.setButtonCenter( defaultButtonCenter );
     feedbackNode.center = layoutBounds.center;
 
-    this.correctAnswerAccessibleParagraphNode = new Node();
+    this.correctAnswerAccessibleParagraphNode = new Node( {
+      visibleProperty: DerivedProperty.not( this.challenge.isAnswerInteractiveProperty )
+    } );
     this.addChild( this.correctAnswerAccessibleParagraphNode );
 
     // pdom order - all challenges have buttons in the answer section, but subclasses must order

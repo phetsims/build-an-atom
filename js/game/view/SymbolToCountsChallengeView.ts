@@ -14,6 +14,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import SymbolToCountsChallenge from '../model/SymbolToCountsChallenge.js';
@@ -77,6 +78,13 @@ class SymbolToCountsChallengeView extends ChallengeView {
     this.interactiveParticleCountsNode.submittedAnswerAtom.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
     this.interactiveParticleCountsNode.submittedAnswerAtom.neutronCountProperty.value = this.challenge.correctAnswerAtom.neutronCountProperty.value;
     this.interactiveParticleCountsNode.submittedAnswerAtom.electronCountProperty.value = this.challenge.correctAnswerAtom.electronCountProperty.value;
+
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraph.format( {
+        protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
+        neutrons: this.challenge.correctAnswerAtom.neutronCountProperty.value,
+        electrons: this.challenge.correctAnswerAtom.electronCountProperty.value
+      } );
   }
 
   public override reset(): void {

@@ -179,6 +179,25 @@ class ToElementChallengeView extends ChallengeView {
   public override displayCorrectAnswer(): void {
     this.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
     this.neutralOrIonProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value === 0 ? 'neutral' : 'ion';
+
+    const elementSymbol = AtomIdentifier.getSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value );
+    const neutralOrIonString = this.challenge.correctAnswerAtom.chargeProperty.value === 0 ? 'neutral atom' : 'ion';
+
+    // Handle both 'counts-to-element' and 'schematic-to-element' challenge types
+    if ( this.challenge.challengeType === 'counts-to-element' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToElement.correctAnswerParagraph.format( {
+          symbol: elementSymbol,
+          neutralOrIon: neutralOrIonString
+        } );
+    }
+    else if ( this.challenge.challengeType === 'schematic-to-element' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToElement.correctAnswerParagraph.format( {
+          symbol: elementSymbol,
+          neutralOrIon: neutralOrIonString
+        } );
+    }
   }
 
   public override createAnswerNode(): Node {

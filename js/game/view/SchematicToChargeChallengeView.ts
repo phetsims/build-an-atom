@@ -127,6 +127,11 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
+
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToCharge.correctAnswerParagraph.format( {
+        charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+      } );
   }
 
   public override createAnswerNode(): Node {

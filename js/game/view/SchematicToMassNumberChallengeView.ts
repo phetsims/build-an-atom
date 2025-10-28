@@ -121,6 +121,11 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
+
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToMassNumber.correctAnswerParagraph.format( {
+        mass: this.challenge.correctAnswerAtom.massNumberProperty.value
+      } );
   }
 
   public override reset(): void {
