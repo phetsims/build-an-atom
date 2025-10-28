@@ -451,7 +451,7 @@
             "value": "Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
+            "value": "Correct Answer: Element is { $symbol }, { $neutralOrIon }."
           }
         },
         "countsToCharge": {
@@ -459,7 +459,7 @@
             "value": "What is the total charge based on the given particle counts?"
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Total charge is {{value}}."
+            "value": "Correct Answer: Total charge is { $value }."
           }
         },
         "countsToMassNumber": {
@@ -467,7 +467,7 @@
             "value": "What is the mass number based on the given particle counts?"
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Mass number is {{value}}."
+            "value": "Correct Answer: Mass number is { $value }."
           }
         },
         "countsToSymbolAll": {
@@ -475,7 +475,7 @@
             "value": "Use Particle Counts to create the Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+            "value": "Correct Answer: Element is { $name }, symbol  { $symbol }. { $value } in lower left, { $value } in upper left, and { $value } in upper right."
           }
         },
         "countsToSymbolCharge": {
@@ -483,7 +483,7 @@
             "value": "Use Particle Counts to determine what value belongs in upper right of Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: {{value}} in upper right of Chemical Symbol."
+            "value": "Correct Answer: { $value } in upper right of Chemical Symbol."
           }
         },
         "countsToSymbolMassNumber": {
@@ -491,7 +491,7 @@
             "value": "Use Particle Counts to determine what value belongs in upper left of Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: {{value}} in upper left of Chemical Symbol."
+            "value": "Correct Answer: { $value } in upper left of Chemical Symbol."
           }
         },
         "schematicToElement": {
@@ -499,7 +499,7 @@
             "value": "Use Built Atom to find element on Periodic Table. Determine whether it is a neutral atom or ion."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
+            "value": "Correct Answer: Element is { $symbol }, { $neutralOrIon }."
           }
         },
         "schematicToCharge": {
@@ -507,7 +507,7 @@
             "value": "What is the total charge of the built atom?"
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Total charge is {{value}}."
+            "value": "Correct Answer: Total charge is { $value }."
           }
         },
         "schematicToMassNumber": {
@@ -515,7 +515,7 @@
             "value": "What is the mass number of the built atom?"
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Mass number is {{value}}."
+            "value": "Correct Answer: Mass number is { $value }."
           }
         },
         "schematicToSymbolAll": {
@@ -523,7 +523,7 @@
             "value": "Use Built Atom to create the Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+            "value": "Correct Answer: Element is { $name }, symbol  { $symbol }. { $value } in lower left, { $value } in upper left, and { $value } in upper right."
           }
         },
         "schematicToSymbolCharge": {
@@ -531,7 +531,7 @@
             "value": "Use Built Atom to determine what value belongs in upper right of Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: {{value}} in upper right of Chemical Symbol."
+            "value": "Correct Answer: { $value } in upper right of Chemical Symbol."
           }
         },
         "schematicToSymbolMassNumber": {
@@ -539,7 +539,7 @@
             "value": "Use Built Atom to determine what value belongs in upper left of Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: {{value}} in upper left of Chemical Symbol."
+            "value": "Correct Answer: { $value } in upper left of Chemical Symbol."
           }
         },
         "schematicToSymbolProtonCount": {
@@ -547,7 +547,7 @@
             "value": "Use Built Atom to determine what value belongs in bottom left of Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: {{value}} in lower left of Chemical Symbol."
+            "value": "Correct Answer: { $value } in lower left of Chemical Symbol."
           }
         },
         "symbolToCounts": {
@@ -555,7 +555,7 @@
             "value": "Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: There are {{value}} Protons, {{value}} Neutrons, and {{value}} Electrons."
+            "value": "Correct Answer: There are { $value } Protons, { $value } Neutrons, and { $value } Electrons."
           }
         },
         "symbolToSchematic": {
@@ -563,7 +563,7 @@
             "value": "Build an atom or ion to match the given Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Nucleus contains {{value}} Protons and {{value}} Neutrons. Inner shell contains {{value}} Electrons and outer shell contains {{value}} Electrons."
+            "value": "Correct Answer: Nucleus contains { $value } Protons and { $value } Neutrons. Inner shell contains { $value } Electrons and outer shell contains { $value } Electrons."
           }
         }
       }

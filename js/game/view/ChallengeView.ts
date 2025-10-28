@@ -84,6 +84,9 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   // use only, and is used to make it easier to move through the game while testing.
   protected readonly showAnswerNode: Node | null = null;
 
+  // Node which contains the correct answer paragraph for accessibility.
+  protected readonly correctAnswerAccessibleParagraphNode: Node;
+
   protected constructor( challenge: TChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( {
       tandem: tandem,
@@ -251,6 +254,9 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     const defaultButtonCenter = new Vector2( layoutBounds.width * 0.5, layoutBounds.height * 0.92 );
     this.setButtonCenter( defaultButtonCenter );
     feedbackNode.center = layoutBounds.center;
+
+    this.correctAnswerAccessibleParagraphNode = new Node();
+    this.addChild( this.correctAnswerAccessibleParagraphNode );
 
     // pdom order - all challenges have buttons in the answer section, but subclasses must order
     // all other content

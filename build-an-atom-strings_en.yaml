@@ -200,60 +200,60 @@ a11y:
     challenges:
       countsToElement:
         accessibleParagraph: Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion.
-        correctAnswerParagraph: "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
+        correctAnswerParagraph: "Correct Answer: Element is { $symbol }, { $neutralOrIon }."
 
       countsToCharge:
         accessibleParagraph: What is the total charge based on the given particle counts?
-        correctAnswerParagraph: "Correct Answer: Total charge is {{value}}."
+        correctAnswerParagraph: "Correct Answer: Total charge is { $value }."
 
       countsToMassNumber:
         accessibleParagraph: What is the mass number based on the given particle counts?
-        correctAnswerParagraph: "Correct Answer: Mass number is {{value}}."
+        correctAnswerParagraph: "Correct Answer: Mass number is { $value }."
 
       countsToSymbolAll:
         accessibleParagraph: Use Particle Counts to create the Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+        correctAnswerParagraph: "Correct Answer: Element is { $name }, symbol  { $symbol }. { $value } in lower left, { $value } in upper left, and { $value } in upper right."
 
       countsToSymbolCharge:
         accessibleParagraph: Use Particle Counts to determine what value belongs in upper right of Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: {{value}} in upper right of Chemical Symbol."
+        correctAnswerParagraph: "Correct Answer: { $value } in upper right of Chemical Symbol."
 
       countsToSymbolMassNumber:
         accessibleParagraph: Use Particle Counts to determine what value belongs in upper left of Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: {{value}} in upper left of Chemical Symbol."
+        correctAnswerParagraph: "Correct Answer: { $value } in upper left of Chemical Symbol."
 
       schematicToElement:
         accessibleParagraph: Use Built Atom to find element on Periodic Table. Determine whether it is a neutral atom or ion.
-        correctAnswerParagraph: "Correct Answer: Element is {{symbol}}, {{neutralOrIon}}."
+        correctAnswerParagraph: "Correct Answer: Element is { $symbol }, { $neutralOrIon }."
 
       schematicToCharge:
         accessibleParagraph: What is the total charge of the built atom?
-        correctAnswerParagraph: "Correct Answer: Total charge is {{value}}."
+        correctAnswerParagraph: "Correct Answer: Total charge is { $value }."
 
       schematicToMassNumber:
         accessibleParagraph: What is the mass number of the built atom?
-        correctAnswerParagraph: "Correct Answer: Mass number is {{value}}."
+        correctAnswerParagraph: "Correct Answer: Mass number is { $value }."
 
       schematicToSymbolAll:
         accessibleParagraph: Use Built Atom to create the Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: Element is {{name}}, symbol  {{symbol}}. {{value}} in lower left, {{value}} in upper left, and {{value}} in upper right."
+        correctAnswerParagraph: "Correct Answer: Element is { $name }, symbol  { $symbol }. { $value } in lower left, { $value } in upper left, and { $value } in upper right."
 
       schematicToSymbolCharge:
         accessibleParagraph: Use Built Atom to determine what value belongs in upper right of Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: {{value}} in upper right of Chemical Symbol."
+        correctAnswerParagraph: "Correct Answer: { $value } in upper right of Chemical Symbol."
 
       schematicToSymbolMassNumber:
         accessibleParagraph: Use Built Atom to determine what value belongs in upper left of Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: {{value}} in upper left of Chemical Symbol."
+        correctAnswerParagraph: "Correct Answer: { $value } in upper left of Chemical Symbol."
 
       schematicToSymbolProtonCount:
         accessibleParagraph: Use Built Atom to determine what value belongs in bottom left of Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: {{value}} in lower left of Chemical Symbol."
+        correctAnswerParagraph: "Correct Answer: { $value } in lower left of Chemical Symbol."
 
       symbolToCounts:
         accessibleParagraph: Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons.
-        correctAnswerParagraph: "Correct Answer: There are {{value}} Protons, {{value}} Neutrons, and {{value}} Electrons."
+        correctAnswerParagraph: "Correct Answer: There are { $value } Protons, { $value } Neutrons, and { $value } Electrons."
 
       symbolToSchematic:
         accessibleParagraph: Build an atom or ion to match the given Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: Nucleus contains {{value}} Protons and {{value}} Neutrons. Inner shell contains {{value}} Electrons and outer shell contains {{value}} Electrons."
+        correctAnswerParagraph: "Correct Answer: Nucleus contains { $value } Protons and { $value } Neutrons. Inner shell contains { $value } Electrons and outer shell contains { $value } Electrons."

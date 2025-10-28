@@ -117,6 +117,11 @@ class CountsToChargeChallengeView extends ChallengeView {
 
   public override displayCorrectAnswer(): void {
     this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
+
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.correctAnswerParagraph.format( {
+        value: this.challenge.correctAnswerAtom.chargeProperty.value
+      } );
   }
 }
 
