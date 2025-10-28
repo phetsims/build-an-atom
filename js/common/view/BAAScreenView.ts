@@ -34,7 +34,6 @@ import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.j
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
@@ -491,8 +490,7 @@ class BAAScreenView extends ScreenView {
       // ( protonCount: number, upperString: string, highlightedString: string ) => {
       ( upperString: string, highlightedString: string ) => {
         const protonCount = 1; // Hardcoded to 1 to avoid re-render issues, see comment above.
-        const symbol = AtomIdentifier.getSymbol( protonCount );
-        const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
+        const mathSpeakSymbol = BAAConstants.getMathSpeakSymbol( protonCount );
         const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
           symbol: mathSpeakSymbol,

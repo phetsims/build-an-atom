@@ -8,13 +8,16 @@
 
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import Vector2 from '../../../dot/js/Vector2.js';
+import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
 import Color from '../../../scenery/js/util/Color.js';
+import AtomIdentifier from '../../../shred/js/AtomIdentifier.js';
 import ShredConstants from '../../../shred/js/ShredConstants.js';
 import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../buildAnAtom.js';
+import BuildAnAtomStrings from '../BuildAnAtomStrings.js';
 
 class BAAConstants {
 
@@ -32,6 +35,17 @@ class BAAConstants {
     return charge < 0 ? `${Math.abs( charge )}` + MathSymbols.MINUS :
            charge > 0 ? showPlus ? `${charge}` + MathSymbols.PLUS : `${charge}` :
            '0';
+  }
+
+  // Formats the chemical symbol so a screen reader can read it properly. For example "He" becomes "upper H e"
+  // It's important to note that this function uses the StringProperty value directly, so it will not update
+  // automatically with locale changes. It should be called again to get the updated value.
+  public static getMathSpeakSymbol( protonCount: number ): string {
+    const symbol = AtomIdentifier.getSymbol( protonCount );
+    return StringUtils.fillIn(
+      BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty.value,
+      { symbol: symbol.split( '' ).join( ' ' ) }
+    );
   }
 
   public static readonly RESET_BUTTON_RADIUS = 20;
