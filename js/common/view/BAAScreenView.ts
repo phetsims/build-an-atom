@@ -378,21 +378,14 @@ class BAAScreenView extends ScreenView {
       // and none (of course) when the atom is empty.
       particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
 
-        if ( newContainer === model.atom ) {
+        if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
 
-          // The particle has become part of the atom.  Make it focusable and make it the only focusable thing there.
-          this.setAtomParticleFocusable( particle );
-        }
-        else if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
-
-          // This particle was just placed into a bucket, so make sure that it is not focusable or visible in the PDOM.
+          // The particle was just placed into a bucket. Make sure that it is not focusable or visible in the PDOM.
           particleView.focusable = false;
           particleView.pdomVisible = false;
-        }
-        else if ( newContainer === null && oldContainer === model.atom ) {
 
-          // The particle was just removed from the atom, so update what is focusable there.
-          this.setAtomParticleFocusable( null );
+          // Update what is focusable in the atom now that a particle fully has left it.
+          this.atomNode.updateParticleViewAltInputState();
         }
       } );
 
@@ -585,9 +578,9 @@ class BAAScreenView extends ScreenView {
     this.addChild( bucketFrontLayer );
     this.addChild( resetAllButton );
 
-    // Do an initial update of the focusable state of the particles in the atom in case there are any there.  Query
+    // Do an initial update of the alt-input state of the particles in the atom in case there are any there.  Query
     // parameters and phet-io state could have placed particles in the atom at startup.
-    this.setAtomParticleFocusable( null );
+    this.atomNode.updateParticleViewAltInputState();
 
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
@@ -628,73 +621,6 @@ class BAAScreenView extends ScreenView {
     const bucketView = this.mapBucketsToViews.get( homeBucket );
     affirm( bucketView, 'Missing BucketFront view for bucket' );
     return bucketView;
-  }
-
-  /**
-   * Set the view associated with the provided particle as focusable, and make all other particles in the atom
-   * non-focusable.  If null is provided, then the first available particle in the atom will be made focusable based
-   * on the designed precedence order.
-   */
-  private setAtomParticleFocusable( particle: Particle | null ): void {
-    if ( particle ) {
-      affirm( particle.containerProperty.value === this.model.atom, 'The provided particle must be in the atom' );
-
-      if ( this.viewProperties.electronModelProperty.value === 'cloud' && particle.type === 'electron' ) {
-
-        // Make the electron cloud focusable instead of the individual electron particle.
-        this.atomNode.electronCloud.focusable = true;
-        this.mapParticlesToViews.forEach( electronParticleView => {
-          electronParticleView.focusable = false;
-        } );
-      }
-      else {
-
-        // Make the provided particle's view node focusable.
-        const particleView = this.mapParticlesToViews.get( particle );
-        affirm( particleView, 'Missing ParticleView for particle' );
-        particleView.pdomVisible = true;
-        particleView.focusable = true;
-
-        // Make all other particles in the atom non-focusable.
-        this.mapParticlesToViews.forEach( otherParticleView => {
-          if ( otherParticleView !== particleView ) {
-            otherParticleView.focusable = false;
-          }
-        } );
-
-        // Make sure that the electron cloud is not focusable.
-        this.atomNode.electronCloud.focusable = false;
-      }
-    }
-    else {
-
-      // If no particleView is provided, make the first available particle in the atom focusable based on the designed
-      // precedence order: proton, neutron, electron.
-      const particlesInAtom: Particle[] = [
-        ...this.model.atom.protons,
-        ...this.model.atom.neutrons,
-        ...this.model.atom.electrons
-      ];
-      if ( particlesInAtom.length > 0 ) {
-        const particleView = this.mapParticlesToViews.get( particlesInAtom[ 0 ] );
-        affirm( particleView, 'Missing ParticleView for particle' );
-        if ( particleView.particle.type === 'electron' &&
-             this.viewProperties.electronModelProperty.value === 'cloud' ) {
-
-          // If the first particle is an electron and the electron model is "cloud", then make the cloud focusable.
-          this.atomNode.electronCloud.focusable = true;
-        }
-        else {
-          particleView.focusable = true;
-          this.atomNode.electronCloud.focusable = false;
-        }
-      }
-      else {
-
-        // There are no particles in the atom, so make sure that the electron cloud is not focusable.
-        this.atomNode.electronCloud.focusable = false;
-      }
-    }
   }
 
   public reset(): void {

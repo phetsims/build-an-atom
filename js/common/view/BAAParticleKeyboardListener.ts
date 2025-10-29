@@ -179,7 +179,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               // Shift the focus to the homeBucket where this particle now resides.
               homeBucketFront.focus();
 
-              // The particle should become unfocusable since it is now in a homeBucket.
+              // The particle should become unfocusable since it is now in its home bucket.
               particleView.focusable = false;
               particleView.pdomVisible = false;
 
