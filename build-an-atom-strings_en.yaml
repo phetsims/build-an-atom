@@ -197,6 +197,33 @@ a11y:
       level2AccessibleHelpText: Calculate mass or charge.
       level3AccessibleHelpText: Fill in missing chemical symbol information.
       level4AccessibleHelpText: Mixed review.
+    components:
+      periodicTable:
+        accessibleName: Periodic Table
+        accessibleHelpText: Use WASD keys to navigate.
+        objectResponse: "{ $symbol } selected"
+        accessibleParagraph: Is the selected element a neutral atom or ion?
+        neutralAtom: Neutral Atom
+        ion: Ion
+      chemicalSymbol:
+        accessibleHelpText: Set values for each area of Chemical Symbol. Then check your answer.
+        upperLeft:
+          accessibleName: Upper Left
+          accessibleHelpText: Set value displayed in upper left of Chemical Symbol. Then check your answer.
+        upperRight:
+          accessibleName: Upper Right
+          accessibleHelpText: Set value displayed in upper right of Chemical Symbol. Then check your answer
+        lowerLeft:
+          accessibleName: Lower Left
+          accessibleHelpText: Set value displayed in lower left of Chemical Symbol. Then check your answer
+        checkButton:
+          accessibleName: Check Answer
+          accessibleContextResponses:
+            correctFirstTry: Awesome! You earned 2 points.
+            correctSecondTry: Good! You earned 1 point.
+            incorrectFirstTry: Oops! Not quite right.
+            incorrectSecondTry: Oops! Not quite right.
+
     challenges:
       countsToElement:
         accessibleParagraph: Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion.
@@ -205,10 +232,14 @@ a11y:
       countsToCharge:
         accessibleParagraph: What is the total charge based on the given particle counts?
         correctAnswerParagraph: "Correct Answer: Total charge is { $charge }."
+        accessibleName: Total Charge
+        accessibleHelpText: Set Total Charge value. Then check your answer.
 
       countsToMassNumber:
         accessibleParagraph: What is the mass number based on the given particle counts?
         correctAnswerParagraph: "Correct Answer: Mass number is { $mass }."
+        accessibleName: Mass Number
+        accessibleHelpText: Set Mass Number value. Then check your answer.
 
       countsToSymbolAll:
         accessibleParagraph: Use Particle Counts to create the Chemical Symbol.
@@ -253,7 +284,16 @@ a11y:
       symbolToCounts:
         accessibleParagraph: Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons.
         correctAnswerParagraph: "Correct Answer: There are { $protons } Protons, { $neutrons } Neutrons, and { $electrons } Electrons."
+        accessibleHelpText: Set values for particles represented in Chemical Symbol. Then check your answer.
 
       symbolToSchematic:
         accessibleParagraph: Build an atom or ion to match the given Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: Nucleus contains { $protons } Protons and { $neutrons } Neutrons. Inner shell contains { $inner } Electrons and outer shell contains { $outer } Electrons."
+        accessibleHelpText: |-
+          Look for Protons, Neutrons, and Electrons buttons to grab a particle. 
+           Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 
+           Press space to release. Once built, check your answer.
+        builtAtomHelpText: |-
+          Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
+           Once grabbed use W or S key to change location or delete to return to bucket.
+

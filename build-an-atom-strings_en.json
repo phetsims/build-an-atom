@@ -445,6 +445,76 @@
           "value": "Mixed review."
         }
       },
+      "components": {
+        "periodicTable": {
+          "accessibleName": {
+            "value": "Periodic Table"
+          },
+          "accessibleHelpText": {
+            "value": "Use WASD keys to navigate."
+          },
+          "objectResponse": {
+            "value": "{ $symbol } selected"
+          },
+          "accessibleParagraph": {
+            "value": "Is the selected element a neutral atom or ion?"
+          },
+          "neutralAtom": {
+            "value": "Neutral Atom"
+          },
+          "ion": {
+            "value": "Ion"
+          }
+        },
+        "chemicalSymbol": {
+          "accessibleHelpText": {
+            "value": "Set values for each area of Chemical Symbol. Then check your answer."
+          },
+          "upperLeft": {
+            "accessibleName": {
+              "value": "Upper Left"
+            },
+            "accessibleHelpText": {
+              "value": "Set value displayed in upper left of Chemical Symbol. Then check your answer."
+            }
+          },
+          "upperRight": {
+            "accessibleName": {
+              "value": "Upper Right"
+            },
+            "accessibleHelpText": {
+              "value": "Set value displayed in upper right of Chemical Symbol. Then check your answer"
+            }
+          },
+          "lowerLeft": {
+            "accessibleName": {
+              "value": "Lower Left"
+            },
+            "accessibleHelpText": {
+              "value": "Set value displayed in lower left of Chemical Symbol. Then check your answer"
+            }
+          },
+          "checkButton": {
+            "accessibleName": {
+              "value": "Check Answer"
+            },
+            "accessibleContextResponses": {
+              "correctFirstTry": {
+                "value": "Awesome! You earned 2 points."
+              },
+              "correctSecondTry": {
+                "value": "Good! You earned 1 point."
+              },
+              "incorrectFirstTry": {
+                "value": "Oops! Not quite right."
+              },
+              "incorrectSecondTry": {
+                "value": "Oops! Not quite right."
+              }
+            }
+          }
+        }
+      },
       "challenges": {
         "countsToElement": {
           "accessibleParagraph": {
@@ -460,6 +530,12 @@
           },
           "correctAnswerParagraph": {
             "value": "Correct Answer: Total charge is { $charge }."
+          },
+          "accessibleName": {
+            "value": "Total Charge"
+          },
+          "accessibleHelpText": {
+            "value": "Set Total Charge value. Then check your answer."
           }
         },
         "countsToMassNumber": {
@@ -468,6 +544,12 @@
           },
           "correctAnswerParagraph": {
             "value": "Correct Answer: Mass number is { $mass }."
+          },
+          "accessibleName": {
+            "value": "Mass Number"
+          },
+          "accessibleHelpText": {
+            "value": "Set Mass Number value. Then check your answer."
           }
         },
         "countsToSymbolAll": {
@@ -556,6 +638,9 @@
           },
           "correctAnswerParagraph": {
             "value": "Correct Answer: There are { $protons } Protons, { $neutrons } Neutrons, and { $electrons } Electrons."
+          },
+          "accessibleHelpText": {
+            "value": "Set values for particles represented in Chemical Symbol. Then check your answer."
           }
         },
         "symbolToSchematic": {
@@ -564,6 +649,12 @@
           },
           "correctAnswerParagraph": {
             "value": "Correct Answer: Nucleus contains { $protons } Protons and { $neutrons } Neutrons. Inner shell contains { $inner } Electrons and outer shell contains { $outer } Electrons."
+          },
+          "accessibleHelpText": {
+            "value": "Look for Protons, Neutrons, and Electrons buttons to grab a particle. \n Once grabbed, use W or S key to move particle to specific location in Your Built Atom. \n Press space to release. Once built, check your answer."
+          },
+          "builtAtomHelpText": {
+            "value": "Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. \n Once grabbed use W or S key to change location or delete to return to bucket."
           }
         }
       }

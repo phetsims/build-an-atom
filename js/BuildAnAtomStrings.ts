@@ -196,6 +196,40 @@ type StringsType = {
         'level3AccessibleHelpTextStringProperty': LocalizedStringProperty;
         'level4AccessibleHelpTextStringProperty': LocalizedStringProperty;
       };
+      'components': {
+        'periodicTable': {
+          'accessibleNameStringProperty': LocalizedStringProperty;
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          'objectResponseStringProperty': LocalizedStringProperty;
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+          'neutralAtomStringProperty': LocalizedStringProperty;
+          'ionStringProperty': LocalizedStringProperty;
+        };
+        'chemicalSymbol': {
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          'upperLeft': {
+            'accessibleNameStringProperty': LocalizedStringProperty;
+            'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          };
+          'upperRight': {
+            'accessibleNameStringProperty': LocalizedStringProperty;
+            'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          };
+          'lowerLeft': {
+            'accessibleNameStringProperty': LocalizedStringProperty;
+            'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          };
+          'checkButton': {
+            'accessibleNameStringProperty': LocalizedStringProperty;
+            'accessibleContextResponses': {
+              'correctFirstTryStringProperty': LocalizedStringProperty;
+              'correctSecondTryStringProperty': LocalizedStringProperty;
+              'incorrectFirstTryStringProperty': LocalizedStringProperty;
+              'incorrectSecondTryStringProperty': LocalizedStringProperty;
+            }
+          }
+        }
+      };
       'challenges': {
         'countsToElement': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
@@ -204,10 +238,14 @@ type StringsType = {
         'countsToCharge': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+          'accessibleNameStringProperty': LocalizedStringProperty;
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
         };
         'countsToMassNumber': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+          'accessibleNameStringProperty': LocalizedStringProperty;
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
         };
         'countsToSymbolAll': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
@@ -252,10 +290,13 @@ type StringsType = {
         'symbolToCounts': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
         };
         'symbolToSchematic': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          'builtAtomHelpTextStringProperty': LocalizedStringProperty;
         }
       }
     }
