@@ -384,7 +384,6 @@ class BAAModel {
       return this.atom.neutrons.length;
     }
     else {
-      // TODO: Why is the electron length off by one?? https://github.com/phetsims/build-an-atom/issues/383
       return this.atom.electrons.length + 1;
     }
   }
