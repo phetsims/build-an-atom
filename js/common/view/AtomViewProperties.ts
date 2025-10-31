@@ -53,6 +53,22 @@ class AtomViewProperties {
   }
 }
 
+/** Reduced set of AtomViewProperties for use in more constrained views, like the Game Screen. */
+export class ReducedAtomViewProperties {
+  public readonly elementNameVisibleProperty: BooleanProperty = new BooleanProperty( false );
+  public readonly neutralAtomOrIonVisibleProperty: BooleanProperty = new BooleanProperty( false );
+  public readonly nuclearStabilityVisibleProperty: BooleanProperty = new BooleanProperty( false );
+  public readonly electronModelProperty: Property<ElectronShellDepiction> = new Property<ElectronShellDepiction>( 'shells' );
+
+  public constructor() {
+    // no-op
+  }
+
+  public reset(): void {
+    // no-op
+  }
+}
+
 buildAnAtom.register( 'AtomViewProperties', AtomViewProperties );
 
 export default AtomViewProperties;

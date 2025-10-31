@@ -12,6 +12,7 @@ import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
+import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/NumberAtom.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import ShredStrings from '../../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
@@ -19,7 +20,7 @@ import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/descr
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
-import AtomViewProperties from '../AtomViewProperties.js';
+import AtomViewProperties, { ReducedAtomViewProperties } from '../AtomViewProperties.js';
 
 class AtomDescriberAccessibleListNode extends Node {
   public constructor(
@@ -30,6 +31,21 @@ class AtomDescriberAccessibleListNode extends Node {
       children: [
         new AtomStateAccessibleListNode( atom, viewProperties ),
         new CheckboxesAccessibleListNode( atom, viewProperties ),
+        new Node( {
+          accessibleHeading: ShredStrings.a11y.particleCounts.accessibleHeadingStringProperty,
+          children: [
+            new ParticleCountsAccessibleListNode( atom )
+          ]
+        } )
+      ]
+    } );
+  }
+
+  public static createNonInteractiveAtomListNode( atom: NumberAtom ): Node {
+    const viewProperties = new ReducedAtomViewProperties();
+    return new Node( {
+      children: [
+        new AtomStateAccessibleListNode( atom, viewProperties ),
         new Node( {
           accessibleHeading: ShredStrings.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
@@ -132,7 +148,7 @@ class AtomDescriberAccessibleListNode extends Node {
 
 class AtomStateAccessibleListNode extends AccessibleListNode {
   public constructor(
-    atom: ParticleAtom,
+    atom: TReadOnlyNumberAtom | NumberAtom,
     viewProperties: AtomViewProperties
   ) {
     const nucleusContainsProperty = new DerivedStringProperty(
