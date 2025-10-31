@@ -31,7 +31,7 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
     const elementDynamicStringProperty = new DynamicProperty<string, number, TReadOnlyProperty<string>>( currentElementStringProperty );
 
     // Update the element name based on the proton count.
-    protonCountProperty.lazyLink( protonCount => {
+    protonCountProperty.link( protonCount => {
       currentElementStringProperty.value = AtomIdentifier.getName( protonCount );
     } );
 

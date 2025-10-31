@@ -16,8 +16,10 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
+import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
 
@@ -39,7 +41,8 @@ class InteractiveParticleCountsNode extends Node {
 
     const options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
       font: new PhetFont( 24 ),
-      showArrowButtonsProperty: new BooleanProperty( true )
+      showArrowButtonsProperty: new BooleanProperty( true ),
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty
     }, providedOptions );
 
     super( options );
@@ -58,6 +61,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem.createTandem( 'protonCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
+        accessibleName: ShredStrings.a11y.particles.protonsStringProperty,
         arrowButtonOptions: {
           visibleProperty: options.showArrowButtonsProperty
         }
@@ -75,6 +79,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem.createTandem( 'neutronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
+        accessibleName: ShredStrings.a11y.particles.neutronsStringProperty,
         arrowButtonOptions: {
           visibleProperty: options.showArrowButtonsProperty
         }
@@ -93,6 +98,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem.createTandem( 'electronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
+        accessibleName: ShredStrings.a11y.particles.electronsStringProperty,
         arrowButtonOptions: {
           visibleProperty: options.showArrowButtonsProperty
         }

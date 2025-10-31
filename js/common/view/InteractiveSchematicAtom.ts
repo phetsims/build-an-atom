@@ -18,6 +18,7 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import BAAParticleView from './BAAParticleView.js';
@@ -49,6 +50,10 @@ class InteractiveSchematicAtom extends Node {
       tandem: Tandem.OPT_OUT
     } );
     this.addChild( atomNode );
+
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty
+    } ) );
 
     // Add the bucket holes.  Done separately from the bucket front for layering.
     _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) );
