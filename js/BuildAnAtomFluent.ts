@@ -148,6 +148,7 @@ addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_objectResponse', 'a
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleParagraph', 'a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_neutralAtom', 'a11y.gameScreen.components.periodicTable.neutralAtomStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_ion', 'a11y.gameScreen.components.periodicTable.ionStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleName', 'a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleHelpText', 'a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_upperLeft_accessibleName', 'a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_upperLeft_accessibleHelpText', 'a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty' );
@@ -414,6 +415,7 @@ const BuildAnAtomFluent = {
           ionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_ion', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.ionStringProperty' ) )
         },
         chemicalSymbol: {
+          accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty' ) ),
           accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty' ) ),
           upperLeft: {
             accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_upperLeft_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty' ) ),

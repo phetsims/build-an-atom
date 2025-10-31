@@ -209,6 +209,7 @@ a11y:
         neutralAtom: Neutral Atom
         ion: Ion
       chemicalSymbol:
+        accessibleName: Chemical Symbol
         accessibleHelpText: Set values for each area of Chemical Symbol. Then check your answer.
         upperLeft:
           accessibleName: Upper Left

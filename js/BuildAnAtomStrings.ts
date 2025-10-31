@@ -207,6 +207,7 @@ type StringsType = {
           'ionStringProperty': LocalizedStringProperty;
         };
         'chemicalSymbol': {
+          'accessibleNameStringProperty': LocalizedStringProperty;
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
           'upperLeft': {
             'accessibleNameStringProperty': LocalizedStringProperty;

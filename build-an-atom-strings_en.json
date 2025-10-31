@@ -470,6 +470,9 @@
           }
         },
         "chemicalSymbol": {
+          "accessibleName": {
+            "value": "Chemical Symbol"
+          },
           "accessibleHelpText": {
             "value": "Set values for each area of Chemical Symbol. Then check your answer."
           },

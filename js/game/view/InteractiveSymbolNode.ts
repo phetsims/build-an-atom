@@ -251,7 +251,9 @@ class InteractiveSymbolNode extends VBox {
     }
 
     super( combineOptions<InteractiveSymbolNodeOptions>( {
-      children: contentNodes
+      children: contentNodes,
+      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty,
+      accessibleHeadingIncrement: 2
     }, options ) );
 
     this.addChild( new GameSymbolAccessibleListNode(
