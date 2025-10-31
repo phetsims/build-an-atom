@@ -160,6 +160,7 @@ addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_checkButton_access
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_checkButton_accessibleContextResponses_correctSecondTry', 'a11y.gameScreen.components.chemicalSymbol.checkButton.accessibleContextResponses.correctSecondTryStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_checkButton_accessibleContextResponses_incorrectFirstTry', 'a11y.gameScreen.components.chemicalSymbol.checkButton.accessibleContextResponses.incorrectFirstTryStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_checkButton_accessibleContextResponses_incorrectSecondTry', 'a11y.gameScreen.components.chemicalSymbol.checkButton.accessibleContextResponses.incorrectSecondTryStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToElement_accessibleHeading', 'a11y.gameScreen.challenges.countsToElement.accessibleHeadingStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_countsToElement_accessibleParagraph', 'a11y.gameScreen.challenges.countsToElement.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_countsToElement_correctAnswerParagraph', 'a11y.gameScreen.challenges.countsToElement.correctAnswerParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_countsToCharge_accessibleParagraph', 'a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty' );
@@ -434,6 +435,8 @@ const BuildAnAtomFluent = {
       },
       challenges: {
         countsToElement: {
+          _comment_0: new FluentComment( {"comment":"For Object Response","associatedKey":"accessibleHeading"} ),
+          accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToElement_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToElement.accessibleHeadingStringProperty' ) ),
           accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToElement_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToElement.accessibleParagraphStringProperty' ) ),
           correctAnswerParagraph: new FluentPattern<{ neutralOrIon: FluentVariable, symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToElement_correctAnswerParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToElement.correctAnswerParagraphStringProperty' ), [{"name":"neutralOrIon"},{"name":"symbol"}] )
         },

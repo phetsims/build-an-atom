@@ -520,6 +520,9 @@
       },
       "challenges": {
         "countsToElement": {
+          "accessibleHeading": {
+            "value": "Particle Counts"
+          },
           "accessibleParagraph": {
             "value": "Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion."
           },

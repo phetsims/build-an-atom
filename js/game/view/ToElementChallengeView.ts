@@ -24,6 +24,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom, { NeutralOrIon, neutralOrIonValues } from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
@@ -68,9 +69,21 @@ class ToElementChallengeView extends ChallengeView {
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
       selectedCellColor: 'yellow',
       scale: 1.02,
-      tandem: tandem.createTandem( 'periodicTable' )
+      tandem: tandem.createTandem( 'periodicTable' ),
+      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
+      accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
+      accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
+
+    this.protonCountProperty.lazyLink( protons => {
+      this.periodicTable.addAccessibleObjectResponse(
+        BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.objectResponse.format( {
+          symbol: BAAConstants.getMathSpeakSymbol( protons )
+        } )
+      );
+    } );
 
     // Challenge title
     const challengeTitle = new Text( BuildAnAtomFluent.findTheElementStringProperty, {
@@ -108,6 +121,13 @@ class ToElementChallengeView extends ChallengeView {
         spacing: 10,
         orientation: 'horizontal',
         tandem: tandem.createTandem( 'neutralOrIonRadioButtonGroup' ),
+        accessibleName: new DerivedStringProperty( [
+          this.neutralOrIonProperty,
+          BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.neutralAtomStringProperty,
+          BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.ionStringProperty
+        ], ( neutralOrIon: NeutralOrIon, neutralAtom: string, ion: string ) => {
+          return neutralOrIon === 'neutral' ? neutralAtom : ion;
+        } ),
         radioButtonOptions: {
           radius: 8,
           phetioVisiblePropertyInstrumented: false

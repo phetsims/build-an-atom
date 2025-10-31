@@ -229,6 +229,7 @@ a11y:
 
     challenges:
       countsToElement:
+        accessibleHeading: Particle Counts
         accessibleParagraph: Use Particle Counts to find element on Periodic Table. Determine whether it is a neutral atom or ion.
         correctAnswerParagraph: "Correct Answer: Element is { $symbol }, { $neutralOrIon }."
 

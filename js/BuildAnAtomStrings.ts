@@ -233,6 +233,7 @@ type StringsType = {
       };
       'challenges': {
         'countsToElement': {
+          'accessibleHeadingStringProperty': LocalizedStringProperty;
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
