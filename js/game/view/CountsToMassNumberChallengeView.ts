@@ -54,6 +54,8 @@ class CountsToMassNumberChallengeView extends ChallengeView {
       tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
+        accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
         arrowButtonOptions: {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }

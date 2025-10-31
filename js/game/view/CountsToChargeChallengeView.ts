@@ -56,6 +56,8 @@ class CountsToChargeChallengeView extends ChallengeView {
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99,
+        accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
         arrowButtonOptions: {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }
