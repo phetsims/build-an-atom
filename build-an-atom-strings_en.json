@@ -497,23 +497,40 @@
               "value": "Set value displayed in lower left of Chemical Symbol. Then check your answer"
             }
           },
-          "checkButton": {
-            "accessibleName": {
-              "value": "Check Answer"
+          "accessibleListNode": {
+            "leadingParagraph": {
+              "value": "Particle Counts are represented as:"
             },
-            "accessibleContextResponses": {
-              "correctFirstTry": {
-                "value": "Awesome! You earned 2 points."
-              },
-              "correctSecondTry": {
-                "value": "Good! You earned 1 point."
-              },
-              "incorrectFirstTry": {
-                "value": "Oops! Not quite right."
-              },
-              "incorrectSecondTry": {
-                "value": "Oops! Not quite right."
-              }
+            "symbol": {
+              "value": "{ $symbol } in center."
+            },
+            "atomicNumber": {
+              "value": "{ $protons } in lower left."
+            },
+            "massNumber": {
+              "value": "{ $mass } in upper left."
+            },
+            "charge": {
+              "value": "{ $charge } in upper right."
+            }
+          }
+        },
+        "checkButton": {
+          "accessibleName": {
+            "value": "Check Answer"
+          },
+          "accessibleContextResponses": {
+            "correctFirstTry": {
+              "value": "Awesome! You earned 2 points."
+            },
+            "correctSecondTry": {
+              "value": "Good! You earned 1 point."
+            },
+            "incorrectFirstTry": {
+              "value": "Oops! Not quite right."
+            },
+            "incorrectSecondTry": {
+              "value": "Oops! Not quite right."
             }
           }
         }

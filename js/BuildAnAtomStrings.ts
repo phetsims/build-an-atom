@@ -220,14 +220,21 @@ type StringsType = {
             'accessibleNameStringProperty': LocalizedStringProperty;
             'accessibleHelpTextStringProperty': LocalizedStringProperty;
           };
-          'checkButton': {
-            'accessibleNameStringProperty': LocalizedStringProperty;
-            'accessibleContextResponses': {
-              'correctFirstTryStringProperty': LocalizedStringProperty;
-              'correctSecondTryStringProperty': LocalizedStringProperty;
-              'incorrectFirstTryStringProperty': LocalizedStringProperty;
-              'incorrectSecondTryStringProperty': LocalizedStringProperty;
-            }
+          'accessibleListNode': {
+            'leadingParagraphStringProperty': LocalizedStringProperty;
+            'symbolStringProperty': LocalizedStringProperty;
+            'atomicNumberStringProperty': LocalizedStringProperty;
+            'massNumberStringProperty': LocalizedStringProperty;
+            'chargeStringProperty': LocalizedStringProperty;
+          }
+        };
+        'checkButton': {
+          'accessibleNameStringProperty': LocalizedStringProperty;
+          'accessibleContextResponses': {
+            'correctFirstTryStringProperty': LocalizedStringProperty;
+            'correctSecondTryStringProperty': LocalizedStringProperty;
+            'incorrectFirstTryStringProperty': LocalizedStringProperty;
+            'incorrectSecondTryStringProperty': LocalizedStringProperty;
           }
         }
       };

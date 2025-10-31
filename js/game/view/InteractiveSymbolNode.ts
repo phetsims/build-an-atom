@@ -31,6 +31,7 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
+import GameSymbolAccessibleListNode from './description/GameSymbolAccessibleListNode.js';
 
 // constants
 const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
@@ -252,6 +253,12 @@ class InteractiveSymbolNode extends VBox {
     super( combineOptions<InteractiveSymbolNodeOptions>( {
       children: contentNodes
     }, options ) );
+
+    this.addChild( new GameSymbolAccessibleListNode(
+      protonCountProperty,
+      massNumberProperty,
+      chargeProperty
+    ) );
 
     this.options = options;
     this.protonCountProperty = protonCountProperty;
