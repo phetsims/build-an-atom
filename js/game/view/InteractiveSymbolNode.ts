@@ -27,6 +27,7 @@ import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -169,6 +170,8 @@ class InteractiveSymbolNode extends VBox {
           getTextColor: () => BAAColors.protonColorProperty,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
+          accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
@@ -194,6 +197,8 @@ class InteractiveSymbolNode extends VBox {
           maxValue: 99,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
+          accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
@@ -221,6 +226,8 @@ class InteractiveSymbolNode extends VBox {
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
+          accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
