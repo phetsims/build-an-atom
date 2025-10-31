@@ -264,6 +264,9 @@
         },
         "cloudInfoEmpty": {
           "value": "Cloud empty."
+        },
+        "accessibleParagraph": {
+          "value": "Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. \n  Once grabbed use W or S key to change location or delete to return to bucket."
         }
       },
       "noElementContextResponse": {

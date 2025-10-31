@@ -115,6 +115,9 @@ a11y:
         }.
       shellInfoEmpty: Shells empty.
       cloudInfoEmpty: Cloud empty.
+      accessibleParagraph: |-
+        Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
+          Once grabbed use W or S key to change location or delete to return to bucket.
 
     noElementContextResponse: "Your Built Atom is not an element yet."
     elementNameCheckbox:

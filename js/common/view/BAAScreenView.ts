@@ -130,7 +130,8 @@ class BAAScreenView extends ScreenView {
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false,
       phetioFeatured: true,
-      accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty
+      accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
+      accessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
     } );
 
     this.atomNode.addChild(
