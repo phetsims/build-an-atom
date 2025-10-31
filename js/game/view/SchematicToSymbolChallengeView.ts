@@ -13,7 +13,6 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -103,9 +102,7 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
       }
     );
 
-    this.addChild( new Node( {
-      accessibleParagraph: accessibleParagraphStringProperty
-    } ) );
+    this.accessibleParagraphNode.accessibleParagraph = accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [

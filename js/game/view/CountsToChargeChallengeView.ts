@@ -73,9 +73,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.addChild( new Node( {
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty
-    } ) );
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [

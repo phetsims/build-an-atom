@@ -10,7 +10,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -66,9 +65,7 @@ class CountsToSymbolChallengeView extends ToSymbolChallengeView {
       }
     );
 
-    this.addChild( new Node( {
-      accessibleParagraph: accessibleParagraphStringProperty
-    } ) );
+    this.accessibleParagraphNode.accessibleParagraph = accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [

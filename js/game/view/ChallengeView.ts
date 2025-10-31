@@ -85,6 +85,9 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   // use only, and is used to make it easier to move through the game while testing.
   protected readonly showAnswerNode: Node | null = null;
 
+  // Accessible paragraph with the description of the challenge. The accessibleParagraph itself is set in each subclass.
+  protected readonly accessibleParagraphNode: Node;
+
   // Node which contains the correct answer paragraph for accessibility.
   protected readonly correctAnswerAccessibleParagraphNode: Node;
 
@@ -255,6 +258,9 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     const defaultButtonCenter = new Vector2( layoutBounds.width * 0.5, layoutBounds.height * 0.92 );
     this.setButtonCenter( defaultButtonCenter );
     feedbackNode.center = layoutBounds.center;
+
+    this.accessibleParagraphNode = new Node();
+    this.addChild( this.accessibleParagraphNode );
 
     this.correctAnswerAccessibleParagraphNode = new Node( {
       visibleProperty: DerivedProperty.not( this.challenge.isAnswerInteractiveProperty )

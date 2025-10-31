@@ -10,7 +10,6 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -55,9 +54,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.addChild( new Node( {
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty
-    } ) );
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [

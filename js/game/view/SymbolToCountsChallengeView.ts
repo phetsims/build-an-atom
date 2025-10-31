@@ -54,9 +54,7 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.addChild( new Node( {
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty
-    } ) );
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [
