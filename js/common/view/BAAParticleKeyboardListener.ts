@@ -302,6 +302,13 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
         if ( particle.isDraggingProperty.value && !isParticleBeingRemovedFromAtomViaAltInput ) {
           particle.isDraggingProperty.value = false;
           releaseSoundPlayer.play();
+
+          // When an electron is released back into the cloud during a blur event, the focus needs to be shifted from
+          // the electron to the cloud.
+          if ( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) {
+            particleView.focusable = false;
+            electronCloudNode.focusable = true;
+          }
         }
       },
       tandem: tandem

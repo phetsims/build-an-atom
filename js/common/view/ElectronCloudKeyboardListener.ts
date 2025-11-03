@@ -66,19 +66,24 @@ class ElectronCloudKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           const electron = atom.electrons[ atom.electrons.length - 1 ];
           affirm( electron, 'It should not be possible to get key presses here with no electrons in the atom.' );
 
+          // Set the alt-input focus to this electron *before* we set it to dragging.  This is done because it makes
+          // this extracted particle behave more like the normal drag cases, both for pointer and alt-input
+          // interactions, so the listeners that handle those interactions will work properly.  The one weird bit about
+          // this is that it has to make the electron visible to work, and the visibility is normally handled elsewhere.
+          const electronView = mapElectronsToViews.get( electron );
+          affirm( electronView, 'Missing ParticleView for electron' );
+          electronView.visible = true;
+          electronView.pdomVisible = true;
+          electronView.focusable = true;
+          electronView.focus();
+          atomNode.electronCloud.focusable = false;
+
           // Set the electron as being controlled by the user via keyboard interaction.  This should cause it to be
           // removed from the atom.
           electron.isDraggingProperty.value = true;
 
           // Move the electron to just below the nucleus.
           electron.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
-
-          // Set the alt-input focus to this electron.
-          const electronView = mapElectronsToViews.get( electron );
-          affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.pdomVisible = true;
-          electronView.focusable = true;
-          electronView.focus();
 
           // Play the grab sound.
           grabSoundPlayer.play();

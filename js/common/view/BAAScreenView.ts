@@ -333,9 +333,21 @@ class BAAScreenView extends ScreenView {
       particleLayer.addChild( particleView );
       this.mapParticlesToViews.set( particle, particleView );
 
-      // The particle view will either be a child of this screen view or a child of the atom node based on where the
-      // particle it represents is and what it's doing. The following listener moves it back and forth as needed.  It's
-      // necessary to change parent nodes like this to support alt-input group behavior in the atom node.
+      // Add a listener that makes sure that this particle view has the alt-input focus when the particle is being
+      // dragged by the user.  This will sometimes be redundant with other code that also sets focus, but there are
+      // cases where it isn't, such as when the particle is grabbed with a pointer.
+      particle.isDraggingProperty.lazyLink( isDragging => {
+        if ( isDragging ) {
+          particleView.pdomVisible = true;
+          particleView.focusable = true;
+          particleView.focus();
+        }
+      } );
+
+      // The particle view will transition back and forth from being a child of the particle layer or a child of the
+      // atom node based on where the particle model is and what it's doing. The following listener moves it back and
+      // forth as needed.  It's necessary to change parent nodes like this to support alt-input group behavior in the
+      // atom node.
       Multilink.multilink(
         [ particle.containerProperty, particle.isDraggingProperty ],
         ( container, isDragging ) => {
@@ -425,33 +437,14 @@ class BAAScreenView extends ScreenView {
     Multilink.multilink(
       [ this.viewProperties.electronModelProperty, model.atom.electrons.lengthProperty ],
       ( electronModel, numberOfElectrons ) => {
-        const cloudWasFocusable = this.atomNode.electronCloud.focusable;
-        let anElectronWasFocusable = false;
         model.electrons.forEach( electron => {
           const electronView = this.mapParticlesToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
-          if ( electronView.focusable ) {
-            anElectronWasFocusable = true;
-          }
           const isElectronInAtom = model.atom.electrons.includes( electron );
           electronView.visible = electronModel === 'shells' ||
                                  electron.isDraggingProperty.value ||
                                  !isElectronInAtom;
         } );
-
-        // If the electron model is changing and the other representation had focus, transfer the focus to the new
-        // representation.
-        if ( electronModel === 'cloud' && anElectronWasFocusable ) {
-          this.atomNode.electronCloud.focusable = numberOfElectrons > 0;
-        }
-        else if ( electronModel === 'shells' && cloudWasFocusable ) {
-          if ( numberOfElectrons > 0 ) {
-            const electronView = this.mapParticlesToViews.get( model.atom.electrons[ 0 ] );
-            affirm( electronView, 'Missing ParticleView for electron' );
-            electronView.pdomVisible = true;
-            electronView.focusable = true;
-          }
-        }
       }
     );
 
