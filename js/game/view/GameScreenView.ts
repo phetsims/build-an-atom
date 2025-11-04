@@ -127,13 +127,13 @@ class GameScreenView extends ScreenView {
     } );
     this.addChild( this.challengeScreenNode );
 
-     // initially hidden and will be shown when a challenge is presented
+    // initially hidden and will be shown when a challenge is presented
     this.challengeScreenNode.visible = false;
 
     this.rewardScreenNode = new RewardScreenNode( gameModel.levelNumberProperty );
     this.addChild( this.rewardScreenNode );
 
-     // initially hidden and will be shown when the level is completed
+    // initially hidden and will be shown when the level is completed
     this.rewardScreenNode.visible = false;
 
     // Show the challenge view associated with the current challenge, or remove it if there is no challenge.
@@ -216,16 +216,26 @@ class GameScreenView extends ScreenView {
 
     // pdom - assign components to the correct ChallengeScreenNode sections. All components from every challenge can be added
     // at once since only one challenge is visible at a time.
-    this.challengeScreenNode.accessibleChallengeSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
-      challenge => this.challengeViewSet.get( challenge ).challengeNodesPDOMOrder
-    );
-    this.challengeScreenNode.accessibleAnswerSectionNode.pdomOrder = gameModel.getAllChallenges().flatMap(
-      challenge => this.challengeViewSet.get( challenge ).answerNodesPDOMOrder
-    );
+    this.updatePDOMOrder();
     this.challengeScreenNode.accessibleStatusSectionNode.pdomOrder = [
       statusBar
     ];
   }
+
+  /**
+   * Assign components to the correct sections of the challenge screen node for accessibility. Note we must do this
+   * every time the challenge changes because the challenge view is removed from the scene graph, and we cannot have
+   * components in a pdomOrder that are not in the scene graph.
+   */
+  private updatePDOMOrder(): void {
+    const challengeView = this.activeChallengeView;
+    this.challengeScreenNode.accessibleChallengeSectionNode.pdomOrder = challengeView ?
+                                                                        challengeView.getChallengeNodesPDOMOrder() : [];
+
+    this.challengeScreenNode.accessibleAnswerSectionNode.pdomOrder = challengeView ?
+                                                                     challengeView.getAnswerNodesPDOMOrder() : [];
+  }
+
 
   public override step( elapsedTime: number ): void {
     if ( this.rewardNode ) {
@@ -269,6 +279,8 @@ class GameScreenView extends ScreenView {
     }
 
     this.activeChallengeView = challengeView;
+
+    this.updatePDOMOrder();
   }
 
   /**
