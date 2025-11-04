@@ -27,8 +27,8 @@ import NextButton from '../../../../vegas/js/buttons/NextButton.js';
 import ShowAnswerButton from '../../../../vegas/js/buttons/ShowAnswerButton.js';
 import TryAgainButton from '../../../../vegas/js/buttons/TryAgainButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import VegasFluent from '../../../../vegas/js/VegasFluent.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import { GameState } from '../model/GameModel.js';
@@ -147,17 +147,18 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
         // Otherwise, move to the try again button.
         if ( challenge.model.gameStateProperty.value === 'solvedCorrectly' ) {
           this.nextButton.focus();
-          this.addAccessibleContextResponse( VegasFluent.a11y.checkButton.accessibleContextResponseCorrectPoints.format( {
-            points: challenge.model.pointsProperty
-          } ), { alertWhenNotDisplayed: true } );
+          const contextResponseProperty = challenge.model.pointsProperty.value === 2 ?
+                                  BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty :
+                                  BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.correctSecondTryStringProperty;
+          this.addAccessibleContextResponse( contextResponseProperty, { alertWhenNotDisplayed: true } );
         }
         else if ( challenge.model.gameStateProperty.value === 'attemptsExhausted' ) {
           this.showAnswerButton.focus();
-          this.addAccessibleContextResponse( VegasFluent.a11y.checkButton.accessibleContextResponseIncorrectStringProperty );
+          this.addAccessibleContextResponse( BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.incorrectSecondTryStringProperty );
         }
         else {
           this.tryAgainButton.focus();
-          this.addAccessibleContextResponse( VegasFluent.a11y.checkButton.accessibleContextResponseIncorrectStringProperty );
+          this.addAccessibleContextResponse( BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.incorrectFirstTryStringProperty );
         }
       },
       tandem: tandem.createTandem( 'checkButton' ),

@@ -232,7 +232,7 @@ a11y:
           correctFirstTry: Awesome! You earned 2 points.
           correctSecondTry: Good! You earned 1 point.
           incorrectFirstTry: Oops! Not quite right.
-          incorrectSecondTry: Oops! Not quite right.
+          incorrectSecondTry: Oops! Let's review.
 
     challenges:
       countsToElement:
