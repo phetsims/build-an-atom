@@ -102,6 +102,8 @@ type StringsType = {
         'checkboxesListLeadingParagraphStringProperty': LocalizedStringProperty;
         'accessibleHeadingStringProperty': LocalizedStringProperty;
         'nucleusInfoFullStringProperty': LocalizedStringProperty;
+        'nucleusInfoProtonsStringProperty': LocalizedStringProperty;
+        'nucleusInfoNeutronsStringProperty': LocalizedStringProperty;
         'nucleusInfoEmptyStringProperty': LocalizedStringProperty;
         'protonsStringProperty': LocalizedStringProperty;
         'neutronsStringProperty': LocalizedStringProperty;

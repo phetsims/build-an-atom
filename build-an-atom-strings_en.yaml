@@ -92,7 +92,28 @@ a11y:
       atomStateLeadingParagraph: "In {$model} view:"
       checkboxesListLeadingParagraph: "You have created:"
       accessibleHeading: Your Built Atom
-      nucleusInfoFull: Nucleus contains {{particles}}.
+      nucleusInfoFull: |-
+        Nucleus contains
+        { $protons ->
+        [one]{ $protons } Proton
+        *[other] { $protons } Protons
+        } and
+        { $neutrons ->
+        [one]{ $neutrons } Neutron
+        *[other] { $neutrons } Neutrons
+        }.
+      nucleusInfoProtons: |-
+        Nucleus contains
+        { $protons ->
+        [one]{ $protons } Proton
+        *[other] { $protons } Protons
+        }.
+      nucleusInfoNeutrons: |-
+        Nucleus contains
+        { $neutrons ->
+        [one]{ $neutrons } Neutron
+        *[other] { $neutrons } Neutrons
+        }.
       nucleusInfoEmpty: Nucleus empty.
       protons: Protons
       neutrons: Neutrons

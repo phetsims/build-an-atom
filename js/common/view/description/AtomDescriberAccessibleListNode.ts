@@ -151,39 +151,47 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
     atom: TReadOnlyNumberAtom | NumberAtom,
     viewProperties: AtomViewProperties
   ) {
+    const nucleusFullProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusInfoFull.createProperty( {
+      protons: atom.protonCountProperty,
+      neutrons: atom.neutronCountProperty
+    } );
+    const nucleusProtonsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusInfoProtons.createProperty( {
+      protons: atom.protonCountProperty
+    } );
+    const nucleusNeutronsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusInfoNeutrons.createProperty( {
+      neutrons: atom.neutronCountProperty
+    } );
     const nucleusContainsProperty = new DerivedStringProperty(
       [
         atom.protonCountProperty,
         atom.neutronCountProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.neutronsStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty
+        nucleusFullProperty,
+        nucleusProtonsProperty,
+        nucleusNeutronsProperty,
+        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty
       ],
       (
         protons: number,
         neutrons: number,
         nucleusInfoFullString: string,
-        nucleusEmptyString: string,
-        protonsString: string,
-        neutronsString: string,
-        protonsAndNeutronsString: string
+        nucleusInfoProtons: string,
+        nucleusInfoNeutrons: string,
+        nucleusInfoEmpty: string
       ) => {
         if ( protons > 0 ) {
           if ( neutrons > 0 ) {
-            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsAndNeutronsString } );
+            return nucleusInfoFullString;
           }
           else {
-            return StringUtils.fillIn( nucleusInfoFullString, { particles: protonsString } );
+            return nucleusInfoProtons;
           }
         }
         else {
           if ( neutrons > 0 ) {
-            return StringUtils.fillIn( nucleusInfoFullString, { particles: neutronsString } );
+            return nucleusInfoNeutrons;
           }
           else {
-            return nucleusEmptyString;
+            return nucleusInfoEmpty;
           }
         }
       } );

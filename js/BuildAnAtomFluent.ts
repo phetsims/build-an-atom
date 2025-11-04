@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -94,6 +94,9 @@ addToMapIfDefined( 'a11y_common_buckets_accessibleHelpText', 'a11y.common.bucket
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_atomStateLeadingParagraph', 'a11y.common.atomAccessibleListNode.atomStateLeadingParagraphStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_checkboxesListLeadingParagraph', 'a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_accessibleHeading', 'a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoFull', 'a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoProtons', 'a11y.common.atomAccessibleListNode.nucleusInfoProtonsStringProperty' );
+addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoNeutrons', 'a11y.common.atomAccessibleListNode.nucleusInfoNeutronsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protons', 'a11y.common.atomAccessibleListNode.protonsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_neutrons', 'a11y.common.atomAccessibleListNode.neutronsStringProperty' );
@@ -309,7 +312,9 @@ const BuildAnAtomFluent = {
         checkboxesListLeadingParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_checkboxesListLeadingParagraph', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty' ) ),
         _comment_0: new FluentComment( {"comment":"For Object Response","associatedKey":"accessibleHeading"} ),
         accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty' ) ),
-        nucleusInfoFullStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty' ),
+        nucleusInfoFull: new FluentPattern<{ neutrons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, protons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoFull', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoFullStringProperty' ), [{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
+        nucleusInfoProtons: new FluentPattern<{ protons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoProtons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoProtonsStringProperty' ), [{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
+        nucleusInfoNeutrons: new FluentPattern<{ neutrons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoNeutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoNeutronsStringProperty' ), [{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
         nucleusInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' ) ),
         protonsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_protons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.protonsStringProperty' ) ),
         neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_neutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.neutronsStringProperty' ) ),
