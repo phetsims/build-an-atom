@@ -11,6 +11,7 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -22,6 +23,7 @@ import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAParticle from '../model/BAAParticle.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
@@ -269,7 +271,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // wrong with one of more of the code paths.
             if ( mostRecentContainer instanceof SphereBucket ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.nearBucketsStringProperty, { alertBehavior: 'queue' } );
+              const contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
+                particle: StringUtils.capitalize( particle.type )
+              } );
+              particleView.addAccessibleObjectResponse( contextResponse, { alertBehavior: 'queue' } );
 
               particle.isDraggingProperty.value = false;
               particle.moveImmediatelyToDestination();
