@@ -1,11 +1,11 @@
 {
-  "comment": "# build-an-atom 1.9.0-dev.3 Thu Oct 30 2025 11:48:58 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# build-an-atom 1.9.0-dev.4 Tue Nov 04 2025 14:33:05 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "main"
   },
   "axon": {
-    "sha": "e9850391fe71462c117a9f09db7cf53754bd6aeb",
+    "sha": "152f25a11bf7d58ede254b50c8764876f3f3e53e",
     "branch": "main"
   },
   "brand": {
@@ -13,11 +13,11 @@
     "branch": "main"
   },
   "build-an-atom": {
-    "sha": "e111f5f743dae13f75f647333bba5184764817a5",
+    "sha": "40e2038512434e5de6d6de7002b9bc89b4f2fd09",
     "branch": "main"
   },
   "chipper": {
-    "sha": "1c6ec48c9e4b6c4ee13387f37a70d7094101f291",
+    "sha": "051cadea3acf1f01eb87bdce2e790ca7ad2863d7",
     "branch": "main"
   },
   "dot": {
@@ -33,7 +33,7 @@
     "branch": "main"
   },
   "perennial-alias": {
-    "sha": "854f08b278e4f1435f47a313390511cd37d42c16",
+    "sha": "36a0d30c43bdd31a28e51ab78115b5cf71771bb8",
     "branch": "main"
   },
   "phet-core": {
@@ -41,11 +41,11 @@
     "branch": "main"
   },
   "phet-io": {
-    "sha": "3608e754640d31f909ddd8d8ed055cfdba89406e",
+    "sha": "89d92c80e150301649af4c24fab25a79fca96f33",
     "branch": "main"
   },
   "phet-io-sim-specific": {
-    "sha": "95640ed14ab28eea2dbfef9bb8fe01699c108e8f",
+    "sha": "d0166c72f7eee96e4772712d06f23c61ef756b61",
     "branch": "main"
   },
   "phet-io-wrappers": {
@@ -65,7 +65,7 @@
     "branch": "main"
   },
   "scenery": {
-    "sha": "2e9bb63f348e6a3e65ff41ca553bdd55943dacd0",
+    "sha": "f719d32ca182662db5b5cfad322d7089dad4924d",
     "branch": "main"
   },
   "scenery-phet": {
@@ -77,7 +77,7 @@
     "branch": "main"
   },
   "shred": {
-    "sha": "a6e779011805bb336b3703104f23f4adf58be4ab",
+    "sha": "d82cd225ee8ad822b3c10bfe2ea14bde36ac6a05",
     "branch": "main"
   },
   "studio": {
@@ -85,7 +85,7 @@
     "branch": "main"
   },
   "sun": {
-    "sha": "5a46ae0cecda716a154149a50367518164e60bee",
+    "sha": "4b52ace37ee41651a06976d17931350f9626561c",
     "branch": "main"
   },
   "tambo": {
@@ -105,7 +105,7 @@
     "branch": "main"
   },
   "vegas": {
-    "sha": "6a0305753548fa02cbf2a15d2f66e7af9d4f7b0b",
+    "sha": "3765559cae78fae0569137c6f1e92fc76e2f352c",
     "branch": "main"
   }
 }
