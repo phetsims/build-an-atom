@@ -333,14 +333,12 @@ class BAAScreenView extends ScreenView {
       particleLayer.addChild( particleView );
       this.mapParticlesToViews.set( particle, particleView );
 
-      // Add a listener that makes sure that this particle view has the alt-input focus when the particle is being
-      // dragged by the user.  This will sometimes be redundant with other code that also sets focus, but there are
-      // cases where it isn't, such as when the particle is grabbed with a pointer.
+      // Add a listener that makes sure that this particle view is visible in the PDOM and focusable when the particle
+      // is being dragged.  This is for consistency between pointer and alt-input interactions.
       particle.isDraggingProperty.lazyLink( isDragging => {
         if ( isDragging ) {
           particleView.pdomVisible = true;
           particleView.focusable = true;
-          particleView.focus();
         }
       } );
 
