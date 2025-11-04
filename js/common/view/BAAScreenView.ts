@@ -461,27 +461,20 @@ class BAAScreenView extends ScreenView {
       tandem.createTandem( 'electronCloudKeyboardListener' )
     ) );
 
-    // TODO: See https://github.com/phetsims/build-an-atom/issues/370 - This derived string was causing issues with
-    //   the focus order due to it triggering a significant re-render when the proton count changed.  The original code
-    //   is commented out below, and a slightly modified version that does not watch the proton count and therefore does
-    //   not cause the same problem is used instead.  When the larger issue is resolved, the original code should be
-    //   restored.
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [
-        // model.atom.protonCountProperty, // TODO: Uncomment!!! https://github.com/phetsims/build-an-atom/issues/370
-        BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty,
-        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty
+        model.atom.protonCountProperty,
+        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
+        BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty // needed to update math speak symbol
       ],
-      // ( protonCount: number, upperString: string, highlightedString: string ) => {
-      ( upperString: string, highlightedString: string ) => {
-        const protonCount = 1; // Hardcoded to 1 to avoid re-render issues, see comment above.
+      ( protonCount: number, highlightedString: string ) => {
         const mathSpeakSymbol = BAAConstants.getMathSpeakSymbol( protonCount );
         const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
           symbol: mathSpeakSymbol,
           row: elementCoordinates.y,
           column: elementCoordinates.x
-        } ) + ' <i>(This is likely incorrect, fix coming.)</i>'; // TODO: Remove!!! https://github.com/phetsims/build-an-atom/issues/370
+        } );
       }
     );
 
