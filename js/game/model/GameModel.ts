@@ -437,7 +437,7 @@ class GameModel implements TModel {
 
     // Set the challenge property to this challenge.
     this.challengeProperty.value = this.getChallengeByDescriptor(
-      level.challengeDescriptors[ this.challengeNumberProperty.value - 1 ]
+      level.challengeDescriptors[ challengeNumber - 1 ]
     );
 
     // Set the game state to presenting a challenge.

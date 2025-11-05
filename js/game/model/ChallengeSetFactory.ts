@@ -8,7 +8,6 @@
  */
 
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
 import AtomValuePool from './AtomValuePool.js';
@@ -36,7 +35,7 @@ export default class ChallengeSetFactory {
    * For a given Game Level, create a set of challenge descriptors that can be used to obtain and configure the
    * challenges that will be presented to the user.
    */
-  public static createChallengeDescriptorSet( levelIndex: number, model: GameModel, tandem: Tandem ): ChallengeDescriptor[] {
+  public static createChallengeDescriptorSet( levelIndex: number, model: GameModel ): ChallengeDescriptor[] {
 
     // Get a list of the challenge names that are valid for this level.
     const validChallengeNames = LEVEL_CHALLENGE_NAMES[ levelIndex ];
