@@ -41,6 +41,7 @@ class ToElementChallengeView extends ChallengeView {
   protected readonly protonCountProperty: NumberProperty;
   protected readonly periodicTable: PeriodicTableNode;
   protected readonly neutralOrIonProperty: Property<NeutralOrIon>;
+  protected readonly neutralOrIonQuestion: Node;
 
   protected constructor( countsToElementChallenge: CountsToElementChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -133,15 +134,15 @@ class ToElementChallengeView extends ChallengeView {
           phetioVisiblePropertyInstrumented: false
         }
       } );
-    const neutralAtomVersusIonQuestion = new HBox( {
+    this.neutralOrIonQuestion = new HBox( {
       children: [ neutralVersusIonPrompt, neutralOrIonRadioButtonGroup ],
       spacing: 10
     } );
-    this.interactiveAnswerNode.addChild( neutralAtomVersusIonQuestion );
+    this.interactiveAnswerNode.addChild( this.neutralOrIonQuestion );
 
     // If the proton count is 0, then the user cannot select "neutral" or "ion".
     this.protonCountProperty.link( protonCount => {
-      neutralAtomVersusIonQuestion.visible = protonCount > 0;
+      this.neutralOrIonQuestion.visible = protonCount > 0;
     } );
 
     // Don't enable the "check answer" button until the user has answered the "neutral vs. ion" question.
@@ -160,16 +161,11 @@ class ToElementChallengeView extends ChallengeView {
       challengeTitle.bottom = this.periodicTable.top - 30; // Offset empirically determined.
     } );
 
-    neutralAtomVersusIonQuestion.boundsProperty.link( () => {
-      neutralAtomVersusIonQuestion.right = this.periodicTable.right;
-      neutralAtomVersusIonQuestion.top = this.periodicTable.bottom + 20;
+    this.neutralOrIonQuestion.boundsProperty.link( () => {
+      this.neutralOrIonQuestion.right = this.periodicTable.right;
+      this.neutralOrIonQuestion.top = this.periodicTable.bottom + 20;
     } );
 
-    // Assign challenge specific components to the a11y view
-    this.challengeNodesPDOMOrder = [
-      this.periodicTable,
-      neutralAtomVersusIonQuestion
-    ];
     this.answerNodesPDOMOrder = [
       ...this.getAnswerNodesPDOMOrder()
     ];

@@ -15,6 +15,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
@@ -40,6 +41,10 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     );
     this.challengePresentationNode.addChild( schematicAtomNode );
 
+    schematicAtomNode.addChild(
+      AtomDescriberAccessibleListNode.createNonInteractiveAtomListNode( schematicToElementChallenge.correctAnswerAtom )
+    );
+
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToElementChallenge.correctAnswerAtom, {
       bottom: schematicAtomNode.top,
@@ -56,13 +61,13 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty;
 
-    // pdom order
+    // Assign challenge specific components to the a11y view
     this.challengeNodesPDOMOrder = [
-
-      // start with order of the super class
       ...this.getChallengeNodesPDOMOrder(),
       schematicAtomNode,
-      particleCountDisplay
+      particleCountDisplay,
+      this.periodicTable,
+      this.neutralOrIonQuestion
     ];
   }
 }

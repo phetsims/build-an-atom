@@ -41,12 +41,12 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
       modelViewTransform,
       Tandem.OPT_OUT
     );
+    this.challengePresentationNode.addChild( schematicAtomNode );
 
     schematicAtomNode.addChild(
       AtomDescriberAccessibleListNode.createNonInteractiveAtomListNode( schematicToSymbolChallenge.correctAnswerAtom )
     );
 
-    this.challengePresentationNode.addChild( schematicAtomNode );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToSymbolChallenge.correctAnswerAtom, {

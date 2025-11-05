@@ -22,6 +22,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToChargeChallenge from '../model/SchematicToChargeChallenge.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -57,6 +58,10 @@ class SchematicToChargeChallengeView extends ChallengeView {
       Tandem.OPT_OUT
     );
     this.challengePresentationNode.addChild( schematicAtomNode );
+
+    schematicAtomNode.addChild(
+      AtomDescriberAccessibleListNode.createNonInteractiveAtomListNode( schematicToChargeChallenge.correctAnswerAtom )
+    );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToChargeChallenge.correctAnswerAtom, {

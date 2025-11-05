@@ -33,12 +33,11 @@ class CountsToElementChallengeView extends ToElementChallengeView {
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.countsToElement.accessibleParagraphStringProperty;
 
-    // pdom order
+    // Assign challenge specific components to the a11y view
     this.challengeNodesPDOMOrder = [
-
-      // start with order of the super class
       ...this.getChallengeNodesPDOMOrder(),
-      particleCountsNode
+      this.periodicTable,
+      this.neutralOrIonQuestion
     ];
   }
 }

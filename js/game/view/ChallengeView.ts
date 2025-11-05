@@ -268,6 +268,12 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     } );
     this.addChild( this.correctAnswerAccessibleParagraphNode );
 
+    this.challengeNodesPDOMOrder = [
+      this.accessibleParagraphNode,
+      this.correctAnswerAccessibleParagraphNode,
+      this.challengePresentationNode
+    ];
+
     // pdom order - all challenges have buttons in the answer section, but subclasses must order
     // all other content
     this.answerNodesPDOMOrder = [

@@ -22,6 +22,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SchematicToMassNumberChallenge from '../model/SchematicToMassNumberChallenge.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -56,9 +57,11 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       modelViewTransform,
       Tandem.OPT_OUT
     );
-
     this.challengePresentationNode.addChild( schematicAtomNode );
 
+    schematicAtomNode.addChild(
+      AtomDescriberAccessibleListNode.createNonInteractiveAtomListNode( schematicToMassNumberChallenge.correctAnswerAtom )
+    );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
     const particleCountDisplay = new ParticleCountDisplay( schematicToMassNumberChallenge.correctAnswerAtom, {
