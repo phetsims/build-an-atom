@@ -462,9 +462,13 @@ class BAAScreenView extends ScreenView {
       [
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
+        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty,
         BuildAnAtomStrings.a11y.common.spokenSymbolStringProperty // needed to update spoken symbol
       ],
-      ( protonCount: number, highlightedString: string ) => {
+      ( protonCount: number, highlightedString: string, noSymbolString: string ) => {
+        if ( protonCount === 0 ) {
+          return noSymbolString;
+        }
         const spokenSymbol = BAAConstants.getSpokenSymbol( protonCount );
         const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
