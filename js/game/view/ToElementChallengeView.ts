@@ -71,6 +71,11 @@ class ToElementChallengeView extends ChallengeView {
       selectedCellColor: 'yellow',
       scale: 1.02,
       tandem: tandem.createTandem( 'periodicTable' ),
+
+      // Accessibility features and descriptions
+      tagName: 'div',
+      focusable: true,
+      ariaRole: 'application',
       accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
       accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
       accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
@@ -167,6 +172,8 @@ class ToElementChallengeView extends ChallengeView {
     } );
 
     this.answerNodesPDOMOrder = [
+      this.periodicTable,
+      this.neutralOrIonQuestion,
       ...this.getAnswerNodesPDOMOrder()
     ];
   }

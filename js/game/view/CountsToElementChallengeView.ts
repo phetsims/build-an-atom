@@ -37,11 +37,6 @@ class CountsToElementChallengeView extends ToElementChallengeView {
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder()
     ];
-    this.answerNodesPDOMOrder = [
-      this.periodicTable,
-      this.neutralOrIonQuestion,
-      ...this.getAnswerNodesPDOMOrder()
-    ];
   }
 }
 
