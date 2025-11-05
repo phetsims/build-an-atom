@@ -57,7 +57,11 @@ class NonInteractiveSchematicAtomNode extends Node {
         _.times( targetCount - existingCount, () => {
           const particle = new Particle( particleType, { tandem: Tandem.OPT_OUT } );
           particleAtom.addParticle( particle );
-          const particleView = new ParticleView( particle, modelViewTransform, { tandem: Tandem.OPT_OUT } );
+          const particleView = new ParticleView( particle, modelViewTransform, {
+            tandem: Tandem.OPT_OUT,
+            focusable: false,
+            pdomVisible: false
+          } );
           particleLayer.addChild( particleView );
           particleViews.push( particleView );
         } );
