@@ -127,16 +127,13 @@ class BAAScreenView extends ScreenView {
       showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
       electronShellDepictionProperty: this.viewProperties.electronModelProperty,
+      atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.viewProperties ),
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false,
       phetioFeatured: true,
       accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
       accessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
     } );
-
-    this.atomNode.addChild(
-      new AtomDescriberAccessibleListNode( model.atom, this.viewProperties )
-    );
 
     // Create the particle count indicator.
     const particleCountDisplay = new ParticleCountDisplay( model.atom, {
