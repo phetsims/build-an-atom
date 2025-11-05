@@ -106,9 +106,10 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
 
     // pdom order
     this.challengeNodesPDOMOrder = [
-      schematicAtomNode,
       ...this.getChallengeNodesPDOMOrder(),
-      particleCountDisplay
+      schematicAtomNode,
+      particleCountDisplay,
+      this.interactiveSymbolNode
     ];
   }
 }

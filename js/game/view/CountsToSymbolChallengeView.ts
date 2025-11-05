@@ -72,7 +72,8 @@ class CountsToSymbolChallengeView extends ToSymbolChallengeView {
 
       // start with order of the super class
       ...this.getChallengeNodesPDOMOrder(),
-      particleCountsNode
+      particleCountsNode,
+      this.interactiveSymbolNode
     ];
   }
 }

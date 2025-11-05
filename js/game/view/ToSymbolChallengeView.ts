@@ -24,7 +24,7 @@ import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 // constants
 class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
 
-  private readonly interactiveSymbolNode: InteractiveSymbolNode;
+  protected readonly interactiveSymbolNode: InteractiveSymbolNode;
 
   protected constructor( toSymbolChallenge: ToSymbolChallenge,
                          layoutBounds: Bounds2,
