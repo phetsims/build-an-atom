@@ -122,8 +122,8 @@ class SymbolToSchematicChallengeView extends ChallengeView {
       interactiveSymbolNode
     ];
     this.answerNodesPDOMOrder = [
-      ...this.getAnswerNodesPDOMOrder(),
-      this.interactiveSchematicAtom
+      this.interactiveSchematicAtom,
+      ...this.getAnswerNodesPDOMOrder()
     ];
   }
 

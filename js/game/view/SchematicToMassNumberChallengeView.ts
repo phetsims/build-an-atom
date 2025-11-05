@@ -104,11 +104,11 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
       schematicAtomNode,
-      particleCountDisplay,
-      massNumberSpinner
+      particleCountDisplay
     ];
 
     this.answerNodesPDOMOrder = [
+      massNumberSpinner,
       ...this.getAnswerNodesPDOMOrder()
     ];
   }
