@@ -112,7 +112,7 @@
   },
   "a11y": {
     "common": {
-      "mathSpeakUpper": {
+      "spokenSymbol": {
         "value": "upper {{symbol}}"
       },
       "keyboardHelpContent": {

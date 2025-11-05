@@ -43,7 +43,7 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
         return noSymbol;
       }
       else {
-        return BAAConstants.getMathSpeakSymbol( protonCount );
+        return BAAConstants.getSpokenSymbol( protonCount );
       }
     } );
 

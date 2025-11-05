@@ -462,13 +462,13 @@ class BAAScreenView extends ScreenView {
       [
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
-        BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty // needed to update math speak symbol
+        BuildAnAtomStrings.a11y.common.spokenSymbolStringProperty // needed to update spoken symbol
       ],
       ( protonCount: number, highlightedString: string ) => {
-        const mathSpeakSymbol = BAAConstants.getMathSpeakSymbol( protonCount );
+        const spokenSymbol = BAAConstants.getSpokenSymbol( protonCount );
         const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
-          symbol: mathSpeakSymbol,
+          symbol: spokenSymbol,
           row: elementCoordinates.y,
           column: elementCoordinates.x
         } );

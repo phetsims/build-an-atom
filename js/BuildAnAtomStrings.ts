@@ -53,7 +53,7 @@ type StringsType = {
   'level4DescriptionPatternStringProperty': LocalizedStringProperty;
   'a11y': {
     'common': {
-      'mathSpeakUpperStringProperty': LocalizedStringProperty;
+      'spokenSymbolStringProperty': LocalizedStringProperty;
       'keyboardHelpContent': {
         'particleNavigationHeadingStringProperty': LocalizedStringProperty;
         'grabOrReleaseStringProperty': LocalizedStringProperty;

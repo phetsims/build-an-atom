@@ -72,7 +72,7 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
         BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolAll.correctAnswerParagraph.format( {
           protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
-          symbol: BAAConstants.getMathSpeakSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
+          symbol: BAAConstants.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
           charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
@@ -94,7 +94,7 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
       this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
         BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolAll.correctAnswerParagraph.format( {
           protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
-          symbol: BAAConstants.getMathSpeakSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
+          symbol: BAAConstants.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
           charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )

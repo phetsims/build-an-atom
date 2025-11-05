@@ -40,10 +40,10 @@ class BAAConstants {
   // Formats the chemical symbol so a screen reader can read it properly. For example "He" becomes "upper H e"
   // It's important to note that this function uses the StringProperty value directly, so it will not update
   // automatically with locale changes. It should be called again to get the updated value.
-  public static getMathSpeakSymbol( protonCount: number ): string {
+  public static getSpokenSymbol( protonCount: number ): string {
     const symbol = AtomIdentifier.getSymbol( protonCount );
     return StringUtils.fillIn(
-      BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty.value,
+      BuildAnAtomStrings.a11y.common.spokenSymbolStringProperty.value,
       { symbol: symbol.split( '' ).join( ' ' ) }
     );
   }

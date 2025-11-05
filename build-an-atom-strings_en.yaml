@@ -39,7 +39,7 @@ level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
 
 a11y:
   common:
-    mathSpeakUpper: "upper {{symbol}}"
+    spokenSymbol: "upper {{symbol}}"
     keyboardHelpContent:
       particleNavigationHeading: Particle Navigation
       grabOrRelease: Grab or Release

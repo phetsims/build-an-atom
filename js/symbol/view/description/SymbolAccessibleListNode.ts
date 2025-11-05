@@ -22,7 +22,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty,
         BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty,
-        BuildAnAtomStrings.a11y.common.mathSpeakUpperStringProperty
+        BuildAnAtomStrings.a11y.common.spokenSymbolStringProperty
       ],
       (
         protonCount: number,
@@ -31,8 +31,8 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
         upperString: string
       ) => {
         const symbol = AtomIdentifier.getSymbol( protonCount );
-        const mathSpeakSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
-        return StringUtils.fillIn( symbolPattern, { symbol: protonCount > 0 ? mathSpeakSymbol : noSymbolString } );
+        const spokenSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
+        return StringUtils.fillIn( symbolPattern, { symbol: protonCount > 0 ? spokenSymbol : noSymbolString } );
       }
     );
 

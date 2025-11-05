@@ -86,7 +86,7 @@ class ToElementChallengeView extends ChallengeView {
     this.protonCountProperty.lazyLink( protons => {
       this.periodicTable.addAccessibleObjectResponse(
         BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.objectResponse.format( {
-          symbol: BAAConstants.getMathSpeakSymbol( protons )
+          symbol: BAAConstants.getSpokenSymbol( protons )
         } )
       );
     } );
