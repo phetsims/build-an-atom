@@ -470,7 +470,7 @@ class BAAScreenView extends ScreenView {
           return noSymbolString;
         }
         const spokenSymbol = BAAConstants.getSpokenSymbol( protonCount );
-        const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
+        const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
           symbol: spokenSymbol,
           row: elementCoordinates.y + 1,
