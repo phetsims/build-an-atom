@@ -473,8 +473,8 @@ class BAAScreenView extends ScreenView {
         const elementCoordinates = PeriodicTableNode.getElementCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
           symbol: spokenSymbol,
-          row: elementCoordinates.y,
-          column: elementCoordinates.x
+          row: elementCoordinates.y + 1,
+          column: elementCoordinates.x + 1
         } );
       }
     );
