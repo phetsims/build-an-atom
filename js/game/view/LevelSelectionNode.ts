@@ -11,14 +11,13 @@ import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import GameInfoButton from '../../../../vegas/js/buttons/GameInfoButton.js';
 import GameTimerToggleButton from '../../../../vegas/js/buttons/GameTimerToggleButton.js';
 import GameInfoDialog from '../../../../vegas/js/GameInfoDialog.js';
 import LevelSelectionButtonGroup, { LevelSelectionButtonGroupItem } from '../../../../vegas/js/LevelSelectionButtonGroup.js';
-import LevelSelectionScreenNode from '../../../../vegas/js/LevelSelectionScreenNode.js';
+import LevelSelectionScreenNode, { LevelSelectionScreenNodeOptions } from '../../../../vegas/js/LevelSelectionScreenNode.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -33,7 +32,7 @@ import PeriodicTableLevelIcon from './PeriodicTableLevelIcon.js';
 import SymbolLevelIcon from './SymbolLevelIcon.js';
 
 type SelfOptions = EmptySelfOptions;
-type LevelSelectionNodeOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+type LevelSelectionNodeOptions = SelfOptions & WithRequired<LevelSelectionScreenNodeOptions, 'tandem'>;
 
 // constants
 const CONTROLS_INSET = 10;
