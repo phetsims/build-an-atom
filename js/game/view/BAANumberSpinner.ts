@@ -80,14 +80,19 @@ class BAANumberSpinner extends NumberSpinner {
       }
     }, providedOptions );
 
-    // Creating the formatter here in order to use the options
-    options.numberDisplayOptions.numberFormatter = ( value: number ) => {
+    const signNumberFormatter = ( value: number ) => {
       return options.signAfterValue ?
              BAAConstants.chargeToStringSignAfterValue( value, options.showPlusForPositive ) :
              BAAConstants.chargeToStringSignBeforeValue( value, options.showPlusForPositive );
     };
 
+
+    // Creating the formatter here in order to use the options
+    options.numberDisplayOptions.numberFormatter = signNumberFormatter;
+    options.pdomCreateAriaValueText = signNumberFormatter;
+
     super( numberProperty, new Property<Range>( new Range( options.minValue, options.maxValue ) ), options );
+
 
     numberProperty.link( number => {
       this.setNumberFill( options.getTextColor( number ) );
