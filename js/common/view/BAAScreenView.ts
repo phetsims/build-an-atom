@@ -34,6 +34,7 @@ import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.j
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
@@ -463,13 +464,13 @@ class BAAScreenView extends ScreenView {
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty,
-        BuildAnAtomStrings.a11y.common.spokenSymbolStringProperty // needed to update spoken symbol
+        ShredStrings.a11y.spokenSymbolStringProperty // needed to update spoken symbol
       ],
       ( protonCount: number, highlightedString: string, noSymbolString: string ) => {
         if ( protonCount === 0 ) {
           return noSymbolString;
         }
-        const spokenSymbol = BAAConstants.getSpokenSymbol( protonCount );
+        const spokenSymbol = AtomIdentifier.getSpokenSymbol( protonCount );
         const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
         return StringUtils.fillIn( highlightedString, {
           symbol: spokenSymbol,

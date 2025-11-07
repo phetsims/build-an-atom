@@ -83,16 +83,6 @@ class ToElementChallengeView extends ChallengeView {
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
 
-    this.protonCountProperty.lazyLink( protons => {
-      if ( protons > 0 ) {
-        this.periodicTable.addAccessibleObjectResponse(
-          BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.objectResponse.format( {
-            symbol: BAAConstants.getSpokenSymbol( protons )
-          } )
-        );
-      }
-    } );
-
     // Challenge title
     const challengeTitle = new Text( BuildAnAtomFluent.findTheElementStringProperty, {
       font: TITLE_FONT,

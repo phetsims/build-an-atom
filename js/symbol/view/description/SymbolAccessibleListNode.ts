@@ -10,6 +10,7 @@ import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
+import ShredStrings from '../../../../../shred/js/ShredStrings.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import BAAModel from '../../../common/model/BAAModel.js';
@@ -22,7 +23,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty,
         BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty,
-        BuildAnAtomStrings.a11y.common.spokenSymbolStringProperty
+        ShredStrings.a11y.spokenSymbolStringProperty
       ],
       (
         protonCount: number,

@@ -112,9 +112,6 @@
   },
   "a11y": {
     "common": {
-      "spokenSymbol": {
-        "value": "upper {{symbol}}"
-      },
       "keyboardHelpContent": {
         "particleNavigationHeading": {
           "value": "Particle Navigation"
