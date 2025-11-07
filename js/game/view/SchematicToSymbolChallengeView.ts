@@ -108,12 +108,8 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
       schematicAtomNode,
-      particleCountDisplay
-    ];
-
-    this.answerNodesPDOMOrder = [
-      this.interactiveSymbolNode,
-      ...this.getAnswerNodesPDOMOrder()
+      particleCountDisplay,
+      this.interactiveSymbolNode
     ];
   }
 }

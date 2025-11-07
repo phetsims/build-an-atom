@@ -80,11 +80,11 @@ class CountsToChargeChallengeView extends ChallengeView {
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
-      particleCountsNode
+      particleCountsNode,
+      chargeNumberSpinner
     ];
 
     this.answerNodesPDOMOrder = [
-      chargeNumberSpinner,
       ...this.getAnswerNodesPDOMOrder()
     ];
   }

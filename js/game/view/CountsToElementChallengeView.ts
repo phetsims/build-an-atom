@@ -35,7 +35,9 @@ class CountsToElementChallengeView extends ToElementChallengeView {
 
     // Assign challenge specific components to the a11y view
     this.challengeNodesPDOMOrder = [
-      ...this.getChallengeNodesPDOMOrder()
+      ...this.getChallengeNodesPDOMOrder(),
+      this.periodicTable,
+      this.neutralOrIonQuestion
     ];
   }
 }

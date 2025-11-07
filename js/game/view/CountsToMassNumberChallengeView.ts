@@ -80,11 +80,11 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
       // start with order of the super class
       ...this.getChallengeNodesPDOMOrder(),
-      particleCountsNode
+      particleCountsNode,
+      massNumberSpinner
     ];
 
     this.answerNodesPDOMOrder = [
-      massNumberSpinner,
       ...this.getAnswerNodesPDOMOrder()
     ];
   }
