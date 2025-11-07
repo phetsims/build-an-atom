@@ -250,17 +250,20 @@ class InteractiveSymbolNode extends VBox {
       } );
     }
 
-    super( combineOptions<InteractiveSymbolNodeOptions>( {
-      children: contentNodes,
-      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty,
-      accessibleHeadingIncrement: 2
-    }, options ) );
-
-    this.addChild( new GameSymbolAccessibleListNode(
+    const descriptionListNode = new GameSymbolAccessibleListNode(
       protonCountProperty,
       massNumberProperty,
       chargeProperty
-    ) );
+    );
+
+    super( combineOptions<InteractiveSymbolNodeOptions>( {
+      children: [
+        descriptionListNode,
+        ...contentNodes
+      ],
+      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty,
+      accessibleHeadingIncrement: 2
+    }, options ) );
 
     this.options = options;
     this.protonCountProperty = protonCountProperty;
