@@ -133,7 +133,9 @@ class BAAScreenView extends ScreenView {
       phetioVisiblePropertyInstrumented: false,
       phetioFeatured: true,
       accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
-      accessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
+      particlesDescriptionOptions: {
+        accessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
+      }
     } );
 
     // Create the particle count indicator.

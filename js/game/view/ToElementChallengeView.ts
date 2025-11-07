@@ -75,6 +75,7 @@ class ToElementChallengeView extends ChallengeView {
       // Accessibility features and descriptions
       tagName: 'div',
       focusable: true,
+      pdomVisible: true,
       ariaRole: 'application',
       accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
       accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
@@ -164,8 +165,6 @@ class ToElementChallengeView extends ChallengeView {
     } );
 
     this.answerNodesPDOMOrder = [
-      this.periodicTable,
-      this.neutralOrIonQuestion,
       ...this.getAnswerNodesPDOMOrder()
     ];
   }
