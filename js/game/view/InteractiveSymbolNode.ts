@@ -183,6 +183,7 @@ class InteractiveSymbolNode extends VBox {
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
           accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty : '',
+          accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
@@ -210,6 +211,7 @@ class InteractiveSymbolNode extends VBox {
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
           accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty : '',
+          accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
@@ -239,6 +241,7 @@ class InteractiveSymbolNode extends VBox {
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
           accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty : '',
+          accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
