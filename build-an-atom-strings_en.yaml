@@ -241,7 +241,7 @@ a11y:
           accessibleName: Lower Left
           accessibleHelpText: Set value displayed in lower left of Chemical Symbol. Then check your answer
         accessibleListNode:
-          leadingParagraph: "Particle Counts are represented as:"
+          leadingParagraph: "Particles are represented as:"
           symbol: "{ $symbol } in center."
           atomicNumber: "{ $protons } in lower left."
           massNumber: "{ $mass } in upper left."

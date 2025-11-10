@@ -505,7 +505,7 @@
           },
           "accessibleListNode": {
             "leadingParagraph": {
-              "value": "Particle Counts are represented as:"
+              "value": "Particles are represented as:"
             },
             "symbol": {
               "value": "{ $symbol } in center."
