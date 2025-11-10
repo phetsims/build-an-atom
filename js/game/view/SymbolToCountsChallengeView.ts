@@ -59,12 +59,12 @@ class SymbolToCountsChallengeView extends ChallengeView {
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
-      interactiveSymbolNode
+      interactiveSymbolNode,
+      this.interactiveParticleCountsNode
     ];
 
     this.answerNodesPDOMOrder = [
-      ...this.getAnswerNodesPDOMOrder(),
-      this.interactiveParticleCountsNode
+      ...this.getAnswerNodesPDOMOrder()
     ];
   }
 

@@ -119,11 +119,11 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
-      interactiveSymbolNode
+      interactiveSymbolNode,
+      this.interactiveSchematicAtom
     ];
     this.answerNodesPDOMOrder = [
-      ...this.getAnswerNodesPDOMOrder(),
-      this.interactiveSchematicAtom
+      ...this.getAnswerNodesPDOMOrder()
     ];
   }
 

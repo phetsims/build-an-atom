@@ -107,13 +107,13 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
       particleCountDisplay,
-      schematicAtomNode
+      schematicAtomNode,
+      questionPromptText,
+      chargeNumberSpinner
     ];
 
     this.answerNodesPDOMOrder = [
-      ...this.getAnswerNodesPDOMOrder(),
-      questionPromptText,
-      chargeNumberSpinner
+      ...this.getAnswerNodesPDOMOrder()
     ];
   }
 
