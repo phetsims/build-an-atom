@@ -11,6 +11,7 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -42,7 +43,10 @@ class InteractiveParticleCountsNode extends Node {
     const options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
       font: new PhetFont( 24 ),
       showArrowButtonsProperty: new BooleanProperty( true ),
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty
+      accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty,
+      accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
+      tagName: 'div',
+      focusable: true
     }, providedOptions );
 
     super( options );
