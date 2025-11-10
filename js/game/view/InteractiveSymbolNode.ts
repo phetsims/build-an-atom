@@ -18,6 +18,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import AlignBox from '../../../../scenery/js/layout/nodes/AlignBox.js';
 import VBox, { VBoxOptions } from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -71,6 +72,10 @@ class InteractiveSymbolNode extends VBox {
 
     const contentNodes: Node[] = [];
 
+    const isFullyInteractive = options.isProtonCountInteractive &&
+                               options.isMassNumberInteractive &&
+                               options.isChargeInteractive;
+
     const protonCountProperty = new NumberProperty( options.isProtonCountInteractive ? 0 : numberAtom.protonCountProperty.value, {
       tandem: options.tandem.createTandem( 'protonCountProperty' ),
       phetioDocumentation: 'Atomic number entered by the user.',
@@ -113,7 +118,12 @@ class InteractiveSymbolNode extends VBox {
     const symbolBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
       stroke: 'black',
       lineWidth: 2,
-      fill: 'white'
+      fill: 'white',
+      tagName: 'div',
+      pdomVisible: true,
+      accessibleHelpText: isFullyInteractive ?
+                          BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty : '',
+      accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT
     } );
     contentNodes.push( symbolBox );
 
@@ -172,7 +182,7 @@ class InteractiveSymbolNode extends VBox {
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty,
+          accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty : '',
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
@@ -199,7 +209,7 @@ class InteractiveSymbolNode extends VBox {
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty,
+          accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty : '',
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
@@ -228,7 +238,7 @@ class InteractiveSymbolNode extends VBox {
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
-          accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty,
+          accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty : '',
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
           }
