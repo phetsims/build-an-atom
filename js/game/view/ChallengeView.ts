@@ -9,6 +9,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
@@ -351,6 +352,25 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
       } );
     } );
   }
+
+  /**
+   * Utility function for creating help text that is only present when the challenge is interactive.
+   */
+  public static createDynamicHelpText(
+    accessibleHelpText: TReadOnlyProperty<string>,
+    isInteractive: TReadOnlyProperty<boolean>
+  ): TReadOnlyProperty<string> {
+    return new DerivedStringProperty(
+      [
+        accessibleHelpText,
+        isInteractive
+      ], ( helpText, isInteractive ) => {
+
+        return isInteractive ? helpText : '';
+      }
+    );
+  }
+
 }
 
 buildAnAtom.register( 'ChallengeView', ChallengeView );

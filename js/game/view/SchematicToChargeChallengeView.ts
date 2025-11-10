@@ -84,7 +84,10 @@ class SchematicToChargeChallengeView extends ChallengeView {
         signAfterValue: false,
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+        accessibleHelpText: ChallengeView.createDynamicHelpText(
+          BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+          this.challenge.isAnswerInteractiveProperty
+        ),
         arrowButtonOptions: {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }

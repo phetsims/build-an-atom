@@ -55,7 +55,10 @@ class CountsToMassNumberChallengeView extends ChallengeView {
         minValue: 0,
         maxValue: 99,
         accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
+        accessibleHelpText: ChallengeView.createDynamicHelpText(
+          BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
+          this.challenge.isAnswerInteractiveProperty
+        ),
         arrowButtonOptions: {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }

@@ -79,7 +79,10 @@ class ToElementChallengeView extends ChallengeView {
       ariaRole: 'application',
       accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
       accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
-      accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
+      accessibleHelpText: ChallengeView.createDynamicHelpText(
+        BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
+        this.challenge.isAnswerInteractiveProperty
+      ),
       accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );

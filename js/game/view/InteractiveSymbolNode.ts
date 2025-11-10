@@ -171,6 +171,19 @@ class InteractiveSymbolNode extends VBox {
 
     const interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
 
+    const createDynamicHelpText = ( accessibleHelpText: TReadOnlyProperty<string> ) => {
+      return new DerivedStringProperty(
+        [
+          accessibleHelpText,
+          options.showArrowButtonsProperty
+        ], ( helpText: string, showArrows: boolean ) => {
+
+          // Only show help text when the symbol is not fully interactive and arrows are shown.
+          return !isFullyInteractive && showArrows ? helpText : '';
+        }
+      );
+    };
+
     // Add the proton count display, either interactive or not.
     if ( options.isProtonCountInteractive ) {
       symbolBox.addChild( new BAANumberSpinner(
@@ -182,7 +195,8 @@ class InteractiveSymbolNode extends VBox {
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
-          accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty : '',
+          accessibleHelpText: createDynamicHelpText(
+            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty ),
           accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
@@ -210,7 +224,8 @@ class InteractiveSymbolNode extends VBox {
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
-          accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty : '',
+          accessibleHelpText: createDynamicHelpText(
+            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty ),
           accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty
@@ -240,7 +255,8 @@ class InteractiveSymbolNode extends VBox {
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
-          accessibleHelpText: !isFullyInteractive ? BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty : '',
+          accessibleHelpText: createDynamicHelpText(
+            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty ),
           accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
           arrowButtonOptions: {
             visibleProperty: options.showArrowButtonsProperty

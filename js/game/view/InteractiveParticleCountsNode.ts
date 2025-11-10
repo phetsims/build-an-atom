@@ -23,6 +23,7 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
+import ChallengeView from './ChallengeView.js';
 
 // constants
 const MAX_WIDTH = 200;
@@ -43,13 +44,17 @@ class InteractiveParticleCountsNode extends Node {
     const options = optionize<InteractiveParticleCountsNodeOptions, SelfOptions, NodeOptions>()( {
       font: new PhetFont( 24 ),
       showArrowButtonsProperty: new BooleanProperty( true ),
-      accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty,
       accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
       tagName: 'div',
       focusable: true
     }, providedOptions );
 
     super( options );
+
+    this.accessibleHelpText = ChallengeView.createDynamicHelpText(
+      BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty,
+      options.showArrowButtonsProperty
+    );
 
     const tandem = options.tandem;
 

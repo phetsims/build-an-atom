@@ -57,7 +57,10 @@ class CountsToChargeChallengeView extends ChallengeView {
         maxValue: 99,
         minValue: -99,
         accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+        accessibleHelpText: ChallengeView.createDynamicHelpText(
+          BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+          this.challenge.isAnswerInteractiveProperty
+        ),
         arrowButtonOptions: {
           visibleProperty: this.challenge.isAnswerInteractiveProperty
         }
