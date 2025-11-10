@@ -52,7 +52,8 @@ class AtomDescriberAccessibleListNode extends Node {
             new ParticleCountsAccessibleListNode( atom )
           ]
         } )
-      ]
+      ],
+      accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.builtAtomStringProperty
     } );
   }
 

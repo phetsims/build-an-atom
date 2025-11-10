@@ -91,6 +91,7 @@ a11y:
       atomStateLeadingParagraph: "In {$model} view:"
       checkboxesListLeadingParagraph: "You have created:"
       accessibleHeading: Your Built Atom
+      builtAtom: Built Atom
       nucleusInfoFull: |-
         Nucleus contains
         { $protons ->

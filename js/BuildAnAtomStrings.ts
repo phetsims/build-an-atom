@@ -100,6 +100,7 @@ type StringsType = {
         'atomStateLeadingParagraphStringProperty': LocalizedStringProperty;
         'checkboxesListLeadingParagraphStringProperty': LocalizedStringProperty;
         'accessibleHeadingStringProperty': LocalizedStringProperty;
+        'builtAtomStringProperty': LocalizedStringProperty;
         'nucleusInfoFullStringProperty': LocalizedStringProperty;
         'nucleusInfoProtonsStringProperty': LocalizedStringProperty;
         'nucleusInfoNeutronsStringProperty': LocalizedStringProperty;

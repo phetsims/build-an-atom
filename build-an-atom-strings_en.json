@@ -235,6 +235,9 @@
         "accessibleHeading": {
           "value": "Your Built Atom"
         },
+        "builtAtom": {
+          "value": "Built Atom"
+        },
         "nucleusInfoFull": {
           "value": "Nucleus contains\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n} and\n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}."
         },
