@@ -220,7 +220,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
       hideButtonsAndFace();
       switch( challengeState ) {
         case 'presentingChallenge':
-          this.clearAnswer();
+          this.reset();
           setAnswerNodeInteractive( true );
           this.checkButton.visible = true;
           break;
@@ -265,7 +265,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.addChild( this.accessibleParagraphNode );
 
     this.correctAnswerAccessibleParagraphNode = new Node( {
-      visibleProperty: DerivedProperty.not( this.challenge.isAnswerInteractiveProperty )
+      visibleProperty: DerivedProperty.valueEqualsConstant( this.challenge.model.gameStateProperty, 'showingAnswer' )
     } );
     this.addChild( this.correctAnswerAccessibleParagraphNode );
 
@@ -288,14 +288,6 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
       this.showAnswerNode.centerX = layoutBounds.width * 0.75;
       this.showAnswerNode.centerY = defaultButtonCenter.y;
     }
-  }
-
-  /**
-   * Function to clear the user's answer, generally used when giving the user another chance to answer.  Must be
-   * implemented in subclasses if any action is desired.
-   */
-  public clearAnswer(): void {
-    // no-op, implemented in subclass
   }
 
   /**

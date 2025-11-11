@@ -183,7 +183,7 @@ class ToElementChallengeView extends ChallengeView {
     this.challenge.checkAnswer( userSubmittedAnswer );
   }
 
-  public override clearAnswer(): void {
+  public override reset(): void {
 
     // This method can be called before the superconstructor has completed, so the existence of the items being cleared
     // must be checked.
