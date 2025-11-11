@@ -198,9 +198,7 @@ class InteractiveSymbolNode extends VBox {
           accessibleHelpText: createDynamicHelpText(
             BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty ),
           accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
-          arrowButtonOptions: {
-            visibleProperty: options.showArrowButtonsProperty
-          }
+          enabledProperty: options.showArrowButtonsProperty
         }
       ) );
     }
@@ -227,9 +225,7 @@ class InteractiveSymbolNode extends VBox {
           accessibleHelpText: createDynamicHelpText(
             BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty ),
           accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
-          arrowButtonOptions: {
-            visibleProperty: options.showArrowButtonsProperty
-          }
+          enabledProperty: options.showArrowButtonsProperty
         }
       ) );
     }
@@ -258,9 +254,7 @@ class InteractiveSymbolNode extends VBox {
           accessibleHelpText: createDynamicHelpText(
             BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty ),
           accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
-          arrowButtonOptions: {
-            visibleProperty: options.showArrowButtonsProperty
-          }
+          enabledProperty: options.showArrowButtonsProperty
         }
       ) );
     }
