@@ -10,14 +10,20 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import { FluentPatternDerivedProperty } from '../../../../chipper/js/browser/FluentPattern.js';
+import type LocalizedStringProperty from '../../../../chipper/js/browser/LocalizedStringProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleContainer.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
@@ -26,18 +32,29 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
-import AtomNode from '../../../../shred/js/view/AtomNode.js';
+import AtomNode, { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel, { BAAParticleType } from '../model/BAAModel.js';
-import BAAParticle from '../model/BAAParticle.js';
+import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
+import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+
+  // drag bounds for particles in view coordinates
+  particleDragBounds?: Bounds2;
+
+  // properties to control what is shown in the AtomNode
+  showElementNameProperty?: TReadOnlyProperty<boolean>;
+  showNeutralOrIonProperty?: TReadOnlyProperty<boolean>;
+  showStableOrUnstableProperty?: TReadOnlyProperty<boolean>;
+  electronShellDepictionProperty?: TReadOnlyProperty<ElectronShellDepiction>;
+};
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 // constants
@@ -62,102 +79,36 @@ class InteractiveSchematicAtom extends Node {
   // flag to track whether the user has extracted a particle from a bucket yet
   private readonly hasBucketInteractionOccurredProperty = new Property<boolean>( false );
 
+  private model!: BAAModel;
+
   public constructor( model: BAAModel,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions: InteractiveSchematicAtomOptions ) {
 
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
-      phetioVisiblePropertyInstrumented: false
+      particleDragBounds: Bounds2.EVERYTHING,
+      phetioVisiblePropertyInstrumented: false,
+      showElementNameProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
+      showNeutralOrIonProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
+      showStableOrUnstableProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
+      electronShellDepictionProperty: new Property( 'shells' )
     }, providedOptions );
 
     super( options );
 
+    this.model = model;
+
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
     const atomNode = new AtomNode( model.atom, modelViewTransform, {
-      showElementNameProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      showNeutralOrIonProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      showStableOrUnstableProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      electronShellDepictionProperty: new Property( 'shells' ),
-      tandem: Tandem.OPT_OUT
-    } );
-    this.addChild( atomNode );
-
-    this.addChild( new Node( {
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty
-    } ) );
-
-    // Add the bucket holes.  Done separately from the bucket front for layering.
-    _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) );
-
-    // Add the layers where the nucleons will be maintained.
-    const nucleonLayers: Node[] = [];
-    _.times( BAAModel.NUMBER_OF_NUCLEON_LAYERS, () => {
-      const nucleonLayer = new Node();
-      nucleonLayers.push( nucleonLayer );
-      this.addChild( nucleonLayer );
-    } );
-
-    nucleonLayers.reverse(); // Set up the nucleon layers so that layer 0 is in front.
-
-    // Add the layer where the electrons will be maintained.
-    const electronLayer = new Node();
-    this.addChild( electronLayer );
-
-    // Add the nucleon particle views.
-    const protonGroupTandem = options.tandem && options.tandem.createTandem( 'protons' ).createGroupTandem( 'proton', 0 );
-    const neutronGroupTandem = options.tandem && options.tandem.createTandem( 'neutrons' ).createGroupTandem( 'neutron', 0 );
-    const electronGroupTandem = options.tandem && options.tandem.createTandem( 'electrons' ).createGroupTandem( 'electron', 0 );
-    model.nucleons.forEach( nucleon => {
-
-      const tandemGroup = nucleon.typeProperty.value === 'proton' ? protonGroupTandem : neutronGroupTandem;
-
-      const particleView = new BAAParticleView( nucleon, modelViewTransform, {
-        focusable: false,
-        tandem: tandemGroup.createNextTandem()
-      } );
-      nucleonLayers[ nucleon.zLayerProperty.value ].addChild( particleView );
-
-      // Add a listener that adjusts a nucleon's z-order layering.
-      nucleon.zLayerProperty.link( ( zLayer: number ) => {
-        assert && assert( nucleonLayers.length > zLayer,
-          'zLayer for nucleon exceeds number of layers, max number may need increasing.' );
-
-        const desiredLayer = nucleonLayers[ zLayer ];
-
-        // Determine whether nucleon view is on the correct layer.
-        const onCorrectLayer = desiredLayer.children.includes( particleView );
-
-        if ( !onCorrectLayer ) {
-
-          // Remove particle view from its current layer.
-          let particleViewFoundAndRemoved = false;
-          for ( const layer of nucleonLayers ) {
-            if ( layer.children.includes( particleView ) ) {
-              layer.removeChild( particleView );
-              particleViewFoundAndRemoved = true;
-              break;
-            }
-          }
-
-          // Add the particle view to its new layer.
-          assert && assert( particleViewFoundAndRemoved, 'Particle view not found during relayering' );
-          desiredLayer.addChild( particleView );
-        }
-      } );
-    } );
-
-    // Add the electron particle views.
-    model.electrons.forEach( electron => {
-      const particleView = new BAAParticleView( electron, modelViewTransform, {
-        focusable: false,
-        tandem: electronGroupTandem.createNextTandem()
-      } );
-      electronLayer.addChild( particleView );
+      showElementNameProperty: options.showElementNameProperty,
+      showNeutralOrIonProperty: options.showNeutralOrIonProperty,
+      showStableOrUnstableProperty: options.showStableOrUnstableProperty,
+      electronShellDepictionProperty: options.electronShellDepictionProperty,
+      tandem: options.tandem.createTandem( 'atomNode' )
     } );
 
     const bucketsTandem = options.tandem.createTandem( 'buckets' );
     const bucketFrontLayer = new Node();
-    this.addChild( bucketFrontLayer );
 
     const addBucketFront = (
       bucket: SphereBucket<BAAParticle>,
@@ -282,6 +233,165 @@ class InteractiveSchematicAtom extends Node {
       PARTICLE_TO_PLURAL.get( 'electron' )!,
       DerivedProperty.valueEqualsConstant( model.electronBucketParticleCountProperty, 0 )
     );
+
+    // Create the layer where the subatomic particles will go when they are not a part of the atom.
+    const particleLayer = new Node();
+
+    // Define group tandems for the particles.
+    const protonsGroupTandem = options.tandem.createTandem( 'protonNodes' ).createGroupTandem( 'protonNode', 1 );
+    const neutronsGroupTandem = options.tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
+    const electronsGroupTandem = options.tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
+
+    // type safe reference to buckets
+    const bucketsAsParticleContainers: ParticleContainer<BAAParticle>[] = model.buckets;
+
+    // Add the particle views.
+    [ ...model.nucleons, ...model.electrons ].forEach( particle => {
+
+      const particleView = new BAAParticleView( particle, modelViewTransform, {
+        dragBounds: options.particleDragBounds,
+        pdomVisible: false,
+        tandem: particle.type === 'proton' ?
+                protonsGroupTandem.createNextTandem() :
+                particle.type === 'neutron' ?
+                neutronsGroupTandem.createNextTandem() :
+                electronsGroupTandem.createNextTandem()
+      } );
+
+      particleLayer.addChild( particleView );
+      this.mapParticlesToViews.set( particle, particleView );
+
+      // Add a listener that makes sure that this particle view is visible in the PDOM and focusable when the particle
+      // is being dragged.  This is for consistency between pointer and alt-input interactions.
+      particle.isDraggingProperty.lazyLink( isDragging => {
+        if ( isDragging ) {
+          particleView.pdomVisible = true;
+          particleView.focusable = true;
+        }
+      } );
+
+      // The particle view will transition back and forth from being a child of the particle layer or a child of the
+      // atom node based on where the particle model is and what it's doing. The following listener moves it back and
+      // forth as needed.  It's necessary to change parent nodes like this to support alt-input group behavior in the
+      // atom node.
+      Multilink.multilink(
+        [ particle.containerProperty, particle.isDraggingProperty ],
+        ( container, isDragging ) => {
+
+          const isParticleViewOnParticleLayer = particleView.parent === particleLayer;
+
+          if ( isParticleViewOnParticleLayer && ( container === model.atom || isDragging ) ) {
+
+            // Move the particle view to the atom node, preserving focus if needed.
+            const hasFocus = particleView.focused;
+            particleLayer.removeChild( particleView );
+            atomNode.addParticleView( particleView, hasFocus );
+          }
+          else if ( !isParticleViewOnParticleLayer &&
+                    ( ( container !== null && bucketsAsParticleContainers.includes( container ) ) ||
+                      ( container === null && !isDragging ) ) ) {
+
+            // Move the particle view to this screen view.
+            atomNode.removeParticleView( particleView );
+            particleLayer.addChild( particleView );
+          }
+        }
+      );
+
+      // Add the keyboard listener that will allow this particle to be controlled via keyboard when it has alt-input
+      // focus.
+      particleView.addInputListener( new BAAParticleKeyboardListener(
+        particle,
+        this.getHomeBucket( particle ),
+        model.atom,
+        options.electronShellDepictionProperty,
+        particleView,
+        this.getHomeBucketFront( particle ),
+        atomNode.electronCloud,
+        atomNode.shiftParticleFocus.bind( atomNode ),
+        options.tandem.createTandem( 'particleViewKeyboardListener' )
+      ) );
+
+      // Watch for when particles enter or leave the atom and update the focusability of the particle views owned by the
+      // for the atom as needed. The goal is to have one focusable particle in the atom when there are particles there
+      // and none (of course) when the atom is empty.
+      particle.containerProperty.lazyLink( newContainer => {
+
+        if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
+
+          // The particle was just placed into a bucket. Make sure that it is not focusable or visible in the PDOM.
+          particleView.focusable = false;
+          particleView.pdomVisible = false;
+
+          // Update what is focusable in the atom now that a particle fully has left it.
+          atomNode.updateParticleViewAltInputState();
+        }
+      } );
+
+      particle.locationNameProperty.lazyLink( ( destination: ParticleLocations ) => {
+        let contextResponse: LocalizedStringProperty | FluentPatternDerivedProperty | string;
+
+        if ( destination === 'bucket' ) {
+          contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
+            particle: StringUtils.capitalize( particle.type )
+          } );
+        }
+        else {
+          const location = destination === 'nucleus' ?
+                           BuildAnAtomStrings.a11y.common.particles.nucleusStringProperty :
+                           destination === 'innerShell' ?
+                           BuildAnAtomStrings.a11y.common.particles.innerShellStringProperty :
+                           destination === 'outerShell' ?
+                           BuildAnAtomStrings.a11y.common.particles.outerShellStringProperty :
+                           destination === 'electronCloud' ?
+                           BuildAnAtomStrings.a11y.common.particles.cloudStringProperty : '';
+          contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
+            particle: StringUtils.capitalize( particle.type ),
+            particles: PARTICLE_TO_PLURAL.get( particle.type as BAAParticleType )!,
+            count: model.getParticleCountByType( particle.type as BAAParticleType ),
+            location: location
+          } );
+        }
+
+        this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+      } );
+    } );
+
+    // Add the layers in the sequence needed for desired z-order.
+    _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) ); // bucket holes
+    this.addChild( particleLayer );
+    this.addChild( bucketFrontLayer );
+    this.addChild( atomNode );
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty
+    } ) );
+  }
+
+  /**
+   * Get the bucket that is "home" for the provided particle.
+   */
+  private getHomeBucket( particle: Particle ): SphereBucket<BAAParticle> {
+    const particleType = particle.type;
+    affirm(
+      particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
+      `Unexpected particle type: ${particleType}`
+    );
+    return particleType === 'proton' ?
+           this.model.protonBucket :
+           particleType === 'neutron' ?
+           this.model.neutronBucket :
+           this.model.electronBucket;
+  }
+
+  /**
+   * Get the bucket front for the bucket that is "home" for the provided particle.  This is useful in cases where focus
+   * needs to move to the bucket from which the particle came.
+   */
+  private getHomeBucketFront( particle: Particle ): BucketFront {
+    const homeBucket = this.getHomeBucket( particle );
+    const bucketView = this.mapBucketsToViews.get( homeBucket );
+    affirm( bucketView, 'Missing BucketFront view for bucket' );
+    return bucketView;
   }
 
   public reset(): void {

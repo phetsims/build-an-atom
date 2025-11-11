@@ -1,11 +1,11 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * View for game challenges where the user is presented with a chemical symbol including proton count (aka atomic
- * number), mass number, and charge, and needs to determine the number of protons, neutrons, and electrons that comprise
- * the atom.
+ * SymbolToSchematicChallengeView is a view for game challenges where the user is presented with a chemical symbol
+ * including proton count (aka atomic number), mass number, and charge, and needs to build the corresponding atom out of
+ * protons, neutrons, and electrons.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
@@ -53,12 +53,11 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
     this.challenge = challenge;
 
+    // Create and add the interactive schematic atom.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
       scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined
     } );
-
-    // Add interactive schematic atom.
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
@@ -137,7 +136,14 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   }
 
   public override reset(): void {
-    this.challenge.submittedAnswerModel.reset();
+    const gameModel = this.challenge.model;
+
+    // Clear the answer, but only if this method is *not* being called after the user's the first attempt.  This allows
+    // the user to keep what they've built so far and not have to start over from scratch.
+    if ( !( gameModel.gameStateProperty.value === 'presentingChallenge' &&
+            gameModel.attemptsProperty.value === 1 ) ) {
+      this.challenge.submittedAnswerModel.reset();
+    }
   }
 
   public override displayCorrectAnswer(): void {

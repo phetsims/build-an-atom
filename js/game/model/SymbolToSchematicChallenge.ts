@@ -16,6 +16,7 @@ import GameModel from './GameModel.js';
 
 class SymbolToSchematicChallenge extends BAAGameChallenge {
 
+  // The model representing the user's submitted answer (the atom they built).
   public readonly submittedAnswerModel: BAAModel;
 
   public constructor( buildAnAtomGameModel: GameModel, challengeType: ChallengeType, tandem: Tandem ) {
