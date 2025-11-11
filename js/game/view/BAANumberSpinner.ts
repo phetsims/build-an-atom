@@ -57,6 +57,8 @@ class BAANumberSpinner extends NumberSpinner {
       mouseAreaYDilation: 5,
       arrowsPosition: 'bothRight',
 
+      disabledOpacity: 1,
+
       phetioVisiblePropertyInstrumented: false,
       phetioEnabledPropertyInstrumented: false,
       phetioFeatured: false,
@@ -80,6 +82,8 @@ class BAANumberSpinner extends NumberSpinner {
       }
     }, providedOptions );
 
+    options.arrowButtonOptions.visibleProperty = options.enabledProperty;
+
     const signNumberFormatter = ( value: number ) => {
       return options.signAfterValue ?
              BAAConstants.chargeToStringSignAfterValue( value, options.showPlusForPositive ) :
@@ -93,6 +97,10 @@ class BAANumberSpinner extends NumberSpinner {
 
     super( numberProperty, new Property<Range>( new Range( options.minValue, options.maxValue ) ), options );
 
+    // Update the help text based on whether the spinner is enabled
+    this.enabledProperty.link( enabled => {
+      this.accessibleHelpText = enabled ? options.accessibleHelpText : '';
+    } );
 
     numberProperty.link( number => {
       this.setNumberFill( options.getTextColor( number ) );

@@ -71,9 +71,7 @@ class InteractiveParticleCountsNode extends Node {
         minValue: 0,
         maxValue: 99,
         accessibleName: ShredStrings.a11y.particles.protonsStringProperty,
-        arrowButtonOptions: {
-          visibleProperty: options.showArrowButtonsProperty
-        }
+        enabledProperty: options.showArrowButtonsProperty
       } );
     const protonRowNode = new HBox( {
       children: [ protonCountPrompt, protonCountNumberSpinner ],
@@ -89,9 +87,7 @@ class InteractiveParticleCountsNode extends Node {
         minValue: 0,
         maxValue: 99,
         accessibleName: ShredStrings.a11y.particles.neutronsStringProperty,
-        arrowButtonOptions: {
-          visibleProperty: options.showArrowButtonsProperty
-        }
+        enabledProperty: options.showArrowButtonsProperty
       } );
     const neutronRowNode = new HBox( {
       children: [ neutronCountPrompt, neutronCountNumberSpinner ],
@@ -108,9 +104,7 @@ class InteractiveParticleCountsNode extends Node {
         minValue: 0,
         maxValue: 99,
         accessibleName: ShredStrings.a11y.particles.electronsStringProperty,
-        arrowButtonOptions: {
-          visibleProperty: options.showArrowButtonsProperty
-        }
+        enabledProperty: options.showArrowButtonsProperty
       } );
     const electronRowNode = new HBox( {
       children: [ electronCountPrompt, electronCountNumberSpinner ],

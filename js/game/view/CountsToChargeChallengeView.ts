@@ -57,13 +57,8 @@ class CountsToChargeChallengeView extends ChallengeView {
         maxValue: 99,
         minValue: -99,
         accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
-        accessibleHelpText: ChallengeView.createDynamicHelpText(
-          BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
-          this.challenge.isAnswerInteractiveProperty
-        ),
-        arrowButtonOptions: {
-          visibleProperty: this.challenge.isAnswerInteractiveProperty
-        }
+        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+        enabledProperty: this.challenge.isAnswerInteractiveProperty
       } );
     this.interactiveAnswerNode.addChild( new HBox( {
       children: [ questionPromptText, chargeNumberSpinner ],
