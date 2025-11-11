@@ -86,6 +86,9 @@ class ToElementChallengeView extends ChallengeView {
       accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
+    this.challenge.isAnswerInteractiveProperty.link( isInteractive => {
+      this.periodicTable.enabled = isInteractive;
+    } );
 
     // Challenge title
     const challengeTitle = new Text( BuildAnAtomFluent.findTheElementStringProperty, {
@@ -123,6 +126,8 @@ class ToElementChallengeView extends ChallengeView {
         spacing: 10,
         orientation: 'horizontal',
         tandem: tandem.createTandem( 'neutralOrIonRadioButtonGroup' ),
+        enabledProperty: this.challenge.isAnswerInteractiveProperty,
+        disabledOpacity: 1,
         accessibleName: new DerivedStringProperty( [
           this.neutralOrIonProperty,
           BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.neutralAtomStringProperty,
