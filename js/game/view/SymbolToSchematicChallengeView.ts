@@ -34,11 +34,11 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   public override challenge: SymbolToSchematicChallenge;
   public interactiveSchematicAtom: InteractiveSchematicAtom;
 
-  // These properties are only used for PhET-iO, so they are not used in the code elsewhere.
+  // These properties are only used for PhET-iO, so they are not used in the code elsewhere, and may appear unused in
+  // the IDE.
   private userProtonCountProperty: TReadOnlyProperty<number>;
   private userNeutronCountProperty: TReadOnlyProperty<number>;
   private userElectronCountProperty: TReadOnlyProperty<number>;
-
 
   public constructor( challenge: SymbolToSchematicChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
 
@@ -69,56 +69,63 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.interactiveSchematicAtom.addChild( particleCountDisplay );
     particleCountDisplay.moveToBack(); // Move to back so particles are in front of the display
 
-    // symbol
-    const interactiveSymbolNode = new InteractiveSymbolNode( challenge.correctAnswerAtom, {
+    // Add the symbol node representing the challenge's correct answer.  This is non-interactive.
+    const symbolNode = new InteractiveSymbolNode( challenge.correctAnswerAtom, {
       tandem: Tandem.OPT_OUT
     } );
-    interactiveSymbolNode.scale( 0.75 );
-    this.challengePresentationNode.addChild( interactiveSymbolNode );
+    symbolNode.scale( 0.75 );
+    this.challengePresentationNode.addChild( symbolNode );
 
-    // Derived properties to know the amount of protons, neutrons, and electrons
-    // For PhET-iO we need to create these properties even if they are not used in the code elsewhere.
-    // This was requested in https://github.com/phetsims/build-an-atom/issues/294
+    // Create derived properties for the numbers of protons, neutrons, and electrons in the user-create atom.  These
+    // were requested for PhET-iO instrumentation and are not otherwise used in the code.  See
+    // https://github.com/phetsims/build-an-atom/issues/294.
     const particleCountTandem = tandem.createTandem( 'particleCounts' );
     this.userProtonCountProperty = new DerivedProperty(
-      [ challenge.submittedAnswerModel.atom.protonCountProperty ], protons => protons,
+      [ challenge.submittedAnswerModel.atom.protonCountProperty ],
+      protons => protons,
       {
         tandem: particleCountTandem.createTandem( 'protonCountProperty' ),
         phetioDocumentation: 'The number of protons entered by the user.',
         phetioValueType: NumberIO,
         phetioFeatured: true
-      } );
+      }
+    );
     this.userNeutronCountProperty = new DerivedProperty(
-      [ challenge.submittedAnswerModel.atom.neutronCountProperty ], neutrons => neutrons,
+      [ challenge.submittedAnswerModel.atom.neutronCountProperty ],
+      neutrons => neutrons,
       {
         tandem: particleCountTandem.createTandem( 'neutronCountProperty' ),
         phetioDocumentation: 'The number of neutrons entered by the user.',
         phetioValueType: NumberIO,
         phetioFeatured: true
-      } );
+      }
+    );
     this.userElectronCountProperty = new DerivedProperty(
-      [ challenge.submittedAnswerModel.atom.electronCountProperty ], electrons => electrons,
+      [ challenge.submittedAnswerModel.atom.electronCountProperty ],
+      electrons => electrons,
       {
         tandem: particleCountTandem.createTandem( 'electronCountProperty' ),
         phetioDocumentation: 'The number of electrons entered by the user.',
         phetioValueType: NumberIO,
         phetioFeatured: true
-      } );
+      }
+    );
 
-    // layout
-    interactiveSymbolNode.centerX = layoutBounds.width * 0.27;
-    interactiveSymbolNode.centerY = layoutBounds.height * 0.52;
+    // layout, empirically determined to match spec
+    symbolNode.centerX = layoutBounds.width * 0.27;
+    symbolNode.centerY = layoutBounds.height * 0.52;
     this.interactiveSchematicAtom.centerX = layoutBounds.width * 0.745;
     this.interactiveSchematicAtom.centerY = layoutBounds.height * 0.51;
 
-    // Accessible Paragraphs for the description of the challenge.
-    // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty;
+    // Accessible Paragraphs for the description of the challenge. This is a child node for consistency with the correct
+    // answer paragraph.
+    this.accessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
-      interactiveSymbolNode,
+      symbolNode,
       this.interactiveSchematicAtom
     ];
     this.answerNodesPDOMOrder = [

@@ -1,10 +1,11 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Type for game challenges where the user is presented with a chemical symbol including proton count, mass number, and
- * charge, and needs to construct the equivalent atom from buckets of protons, neutrons, and electrons.
+ * SymbolToSchematicChallenge is the model for a game challenge where the user is presented with a chemical symbol
+ * including proton count (aka atomic number), mass number, and charge, and needs to construct the equivalent atom from
+ * buckets of protons, neutrons, and electrons.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -31,7 +32,7 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
   }
 
   /**
-   * step the atom model when the challenge is stepped
+   * Step the atom model when the challenge is stepped.  This is needed for animation.
    */
   public override step( dt: number ): void {
     this.submittedAnswerModel.step( dt );
