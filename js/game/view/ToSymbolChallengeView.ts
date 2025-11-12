@@ -103,7 +103,7 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
     else if ( challengeType === 'schematic-to-symbol-charge' ) {
       this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
         BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolCharge.correctAnswerParagraph.format( {
-          charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'schematic-to-symbol-mass-number' ) {
