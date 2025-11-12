@@ -143,14 +143,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   }
 
   public override reset(): void {
-    const gameModel = this.challenge.model;
-
-    // Clear the answer, but only if this method is *not* being called after the user's the first attempt.  This allows
-    // the user to keep what they've built so far and not have to start over from scratch.
-    if ( !( gameModel.gameStateProperty.value === 'presentingChallenge' &&
-            gameModel.attemptsProperty.value === 1 ) ) {
-      this.challenge.submittedAnswerModel.reset();
-    }
+    this.challenge.submittedAnswerModel.reset();
   }
 
   public override displayCorrectAnswer(): void {
