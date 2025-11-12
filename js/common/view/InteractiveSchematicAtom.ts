@@ -100,7 +100,7 @@ class InteractiveSchematicAtom extends Node {
     this.model = model;
 
     // Add the node that depicts the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.atom, modelViewTransform, {
+    const atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, {
       showElementNameProperty: options.showElementNameProperty,
       showNeutralOrIonProperty: options.showNeutralOrIonProperty,
       showStableOrUnstableProperty: options.showStableOrUnstableProperty,

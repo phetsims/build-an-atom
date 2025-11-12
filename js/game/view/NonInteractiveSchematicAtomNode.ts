@@ -31,21 +31,12 @@ class NonInteractiveSchematicAtomNode extends Node {
     // Create the ParticleAtom, which is a local model that contains the particles.
     const particleAtom = new ParticleAtom( { tandem: Tandem.OPT_OUT } );
 
-    // Add the atom node, which in this node basically just adds the electron shells.
-    const atomNode = new AtomNode( particleAtom, modelViewTransform, {
-      showElementNameProperty: new Property( false ),
-      showNeutralOrIonProperty: new Property( false ),
-      showStableOrUnstableProperty: new Property( false ),
-      tandem: Tandem.OPT_OUT,
-      excludeInvisibleChildrenFromBounds: true
-    } );
-    this.addChild( atomNode );
-
     // Create the layers where the particle views will go.
     const particleLayer = new Node();
     this.addChild( particleLayer );
 
     let particleViews: ParticleView[] = [];
+    const mapParticlesToViews = new Map<Particle, ParticleView>();
 
     const adjustParticleCount = ( particleType: BAAParticleType, targetCount: number ) => {
       const existingParticleViews = particleViews.filter( pv => pv.particle.type === particleType );
@@ -63,6 +54,7 @@ class NonInteractiveSchematicAtomNode extends Node {
             pdomVisible: false
           } );
           particleLayer.addChild( particleView );
+          mapParticlesToViews.set( particle, particleView );
           particleViews.push( particleView );
         } );
       }
@@ -80,6 +72,16 @@ class NonInteractiveSchematicAtomNode extends Node {
         } );
       }
     };
+
+    // Add the atom node.
+    const atomNode = new AtomNode( particleAtom, mapParticlesToViews, modelViewTransform, {
+      showElementNameProperty: new Property( false ),
+      showNeutralOrIonProperty: new Property( false ),
+      showStableOrUnstableProperty: new Property( false ),
+      tandem: Tandem.OPT_OUT,
+      excludeInvisibleChildrenFromBounds: true
+    } );
+    this.addChild( atomNode );
 
     Multilink.multilink(
       [

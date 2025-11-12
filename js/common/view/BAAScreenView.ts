@@ -59,7 +59,6 @@ import BAAParticleView from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
 import AtomDescriberAccessibleListNode from './description/AtomDescriberAccessibleListNode.js';
-import ElectronCloudKeyboardListener from './ElectronCloudKeyboardListener.js';
 import ElectronModelControl from './ElectronModelControl.js';
 
 // constants
@@ -123,7 +122,7 @@ class BAAScreenView extends ScreenView {
 
     // Create the node that represents the built atom.  This includes things like the electron shells, textual labels,
     // and the marker at the center of an empty atom.
-    this.atomNode = new AtomNode( model.atom, modelViewTransform, {
+    this.atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, {
       showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
       showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
       showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
@@ -242,7 +241,7 @@ class BAAScreenView extends ScreenView {
             particle.isDraggingProperty.value = true;
 
             // Position the particle just below the center of the atom's nucleus.
-            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( belowNucleusOffset ) );
+            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( ShredConstants.BELOW_NUCLEUS_OFFSET ) );
             particleView.addAccessibleObjectResponse(
               ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' }
             );
@@ -445,21 +444,6 @@ class BAAScreenView extends ScreenView {
         } );
       }
     );
-
-    // Define the position where a particle will be initially placed when pulled from a bucket using alt-input.
-    const belowNucleusOffset = new Vector2( 0, -40 );
-
-    // Add a keyboard listener to the electron cloud.
-    this.atomNode.electronCloud.addInputListener( new ElectronCloudKeyboardListener(
-      model.atom,
-      this.atomNode,
-      model.electronBucket,
-      this.mapBucketsToViews.get( model.electronBucket )!,
-      this.mapParticlesToViews,
-      belowNucleusOffset,
-      this.atomNode.shiftParticleFocus.bind( this.atomNode ),
-      tandem.createTandem( 'electronCloudKeyboardListener' )
-    ) );
 
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [

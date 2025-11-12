@@ -56,7 +56,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // Create and add the interactive schematic atom.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
-      scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined
+      scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined.
     } );
     this.interactiveAnswerNode.addChild( this.interactiveSchematicAtom );
 
