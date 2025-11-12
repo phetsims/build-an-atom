@@ -203,7 +203,7 @@ type StringsType = {
         'periodicTable': {
           'accessibleNameStringProperty': LocalizedStringProperty;
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
-          'objectResponseStringProperty': LocalizedStringProperty;
+          'cellAriaDescriptionStringProperty': LocalizedStringProperty;
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'neutralAtomStringProperty': LocalizedStringProperty;
           'ionStringProperty': LocalizedStringProperty;

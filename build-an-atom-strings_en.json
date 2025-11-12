@@ -462,8 +462,8 @@
           "accessibleHelpText": {
             "value": "Use WASD keys to navigate."
           },
-          "objectResponse": {
-            "value": "{ $symbol } selected"
+          "cellAriaDescription": {
+            "value": "Selected element"
           },
           "accessibleParagraph": {
             "value": "Is the selected element a neutral atom or ion?"

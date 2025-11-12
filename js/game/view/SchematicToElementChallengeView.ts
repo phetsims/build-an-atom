@@ -66,8 +66,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
       ...this.getChallengeNodesPDOMOrder(),
       schematicAtomNode,
       particleCountDisplay,
-      this.periodicTable,
-      this.neutralOrIonQuestion
+      this.periodicTable
     ];
   }
 }

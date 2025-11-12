@@ -12,6 +12,8 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
+import PDOMPeer from '../../../../scenery/js/accessibility/pdom/PDOMPeer.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
@@ -78,16 +80,23 @@ class ToElementChallengeView extends ChallengeView {
       pdomVisible: true,
       ariaRole: 'application',
       accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
-      accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
       accessibleHelpText: ChallengeView.createDynamicHelpText(
         BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
         this.challenge.isAnswerInteractiveProperty
       ),
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
+      accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
+      cellAriaRoleDescription: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
     this.challenge.isAnswerInteractiveProperty.link( isInteractive => {
       this.periodicTable.enabled = isInteractive;
+    } );
+
+    // This is so the aria role announces periodic table instead of 'application'
+    this.periodicTable.addAriaLabelledbyAssociation( {
+      otherElementName: PDOMPeer.HEADING_SIBLING,
+      otherNode: this.periodicTable,
+      thisElementName: PDOMPeer.PRIMARY_SIBLING
     } );
 
     // Challenge title
@@ -100,7 +109,8 @@ class ToElementChallengeView extends ChallengeView {
     // Neutral atom versus ion question.
     const neutralVersusIonPrompt = new Text( BuildAnAtomFluent.isItStringProperty, {
       font: new PhetFont( 24 ),
-      maxWidth: MAX_WIDTH
+      maxWidth: MAX_WIDTH,
+      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
     } );
 
     const neutralOrIonRadioButtonGroup = new AquaRadioButtonGroup(
@@ -128,13 +138,6 @@ class ToElementChallengeView extends ChallengeView {
         tandem: tandem.createTandem( 'neutralOrIonRadioButtonGroup' ),
         enabledProperty: this.challenge.isAnswerInteractiveProperty,
         disabledOpacity: 1,
-        accessibleName: new DerivedStringProperty( [
-          this.neutralOrIonProperty,
-          BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.neutralAtomStringProperty,
-          BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.ionStringProperty
-        ], ( neutralOrIon: NeutralOrIon, neutralAtom: string, ion: string ) => {
-          return neutralOrIon === 'neutral' ? neutralAtom : ion;
-        } ),
         radioButtonOptions: {
           radius: 8,
           phetioVisiblePropertyInstrumented: false
@@ -171,6 +174,8 @@ class ToElementChallengeView extends ChallengeView {
       this.neutralOrIonQuestion.right = this.periodicTable.right;
       this.neutralOrIonQuestion.top = this.periodicTable.bottom + 20;
     } );
+
+    this.periodicTable.pdomOrder = [ null, this.neutralOrIonQuestion ];
 
     this.answerNodesPDOMOrder = [
       ...this.getAnswerNodesPDOMOrder()
