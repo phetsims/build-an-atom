@@ -35,6 +35,7 @@ import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
+import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
@@ -65,7 +66,7 @@ const PARTICLE_TO_PLURAL = new Map<BAAParticleType, TReadOnlyProperty<string>>( 
 ] );
 
 // Define the position where a particle will be initially placed when pulled from a bucket using alt-input.
-// const BELOW_NUCLEUS_OFFSET = new Vector2( 0, -40 );
+const BELOW_NUCLEUS_OFFSET = new Vector2( 0, -40 );
 
 class InteractiveSchematicAtom extends Node {
 
@@ -178,38 +179,37 @@ class InteractiveSchematicAtom extends Node {
           }
 
           console.warn( 'InteractiveSchematicAtom: alt-input extraction from buckets is disabled.' );
-          // TODO: Bring back this code when the maps are being populated.  See https://github.com/phetsims/build-an-atom/issues/394.
-          // const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
-          // if ( particle !== null ) {
-          //
-          //   // Get the view node that is associated with this particle.
-          //   const particleView = this.mapParticlesToViews.get( particle );
-          //   affirm( particleView, 'ParticleView not found for extracted particle' );
-          //
-          //   // Set the focus to the particle's view so that it can be manipulated via keyboard.
-          //   particleView.pdomVisible = true;
-          //   particleView.focusable = true;
-          //   particleView.focus();
-          //
-          //   // Make sure that nothing else in the atom is focusable so that if the user tabs away, focus doesn't go to
-          //   // another particle in the atom.
-          //   atomNode.makeAllOtherParticleViewsNotFocusable( particleView );
-          //
-          //   // Mark the particle as being controlled by the user via keyboard interaction.
-          //   particle.isDraggingProperty.value = true;
-          //
-          //   // Position the particle just below the center of the atom's nucleus.
-          //   particle.setPositionAndDestination( model.atom.positionProperty.value.plus( BELOW_NUCLEUS_OFFSET ) );
-          //   particleView.addAccessibleObjectResponse(
-          //     ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' }
-          //   );
-          //
-          //   // Play the grab sound.
-          //   sharedSoundPlayers.get( 'grab' ).play();
-          //
-          //   // Indicate that the user has interacted with the buckets.
-          //   this.hasBucketInteractionOccurredProperty.value = true;
-          // }
+          const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
+          if ( particle !== null ) {
+
+            // Get the view node that is associated with this particle.
+            const particleView = this.mapParticlesToViews.get( particle );
+            affirm( particleView, 'ParticleView not found for extracted particle' );
+
+            // Set the focus to the particle's view so that it can be manipulated via keyboard.
+            particleView.pdomVisible = true;
+            particleView.focusable = true;
+            particleView.focus();
+
+            // Make sure that nothing else in the atom is focusable so that if the user tabs away, focus doesn't go to
+            // another particle in the atom.
+            atomNode.makeAllOtherParticleViewsNotFocusable( particleView );
+
+            // Mark the particle as being controlled by the user via keyboard interaction.
+            particle.isDraggingProperty.value = true;
+
+            // Position the particle just below the center of the atom's nucleus.
+            particle.setPositionAndDestination( model.atom.positionProperty.value.plus( BELOW_NUCLEUS_OFFSET ) );
+            particleView.addAccessibleObjectResponse(
+              ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' }
+            );
+
+            // Play the grab sound.
+            sharedSoundPlayers.get( 'grab' ).play();
+
+            // Indicate that the user has interacted with the buckets.
+            this.hasBucketInteractionOccurredProperty.value = true;
+          }
         }
       } );
 
