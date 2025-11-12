@@ -114,6 +114,19 @@ class InteractiveSymbolNode extends VBox {
       } );
     }
 
+    const createDynamicHelpText = ( accessibleHelpText: TReadOnlyProperty<string> ) => {
+      return new DerivedStringProperty(
+        [
+          accessibleHelpText,
+          options.showArrowButtonsProperty
+        ], ( helpText: string, showArrows: boolean ) => {
+
+          // Only show help text when the symbol is not fully interactive and arrows are shown.
+          return !isFullyInteractive && showArrows ? helpText : '';
+        }
+      );
+    };
+
     // Add the symbolBox rectangle, which will contain the symbol, proton count, mass number, and charge.
     const symbolBox = new Rectangle( 0, 0, SYMBOL_BOX_WIDTH, SYMBOL_BOX_HEIGHT, 0, 0, {
       stroke: 'black',
@@ -121,8 +134,7 @@ class InteractiveSymbolNode extends VBox {
       fill: 'white',
       tagName: 'div',
       pdomVisible: true,
-      accessibleHelpText: isFullyInteractive ?
-                          BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty : '',
+      accessibleHelpText: createDynamicHelpText( BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty ),
       accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT
     } );
     contentNodes.push( symbolBox );
@@ -170,19 +182,6 @@ class InteractiveSymbolNode extends VBox {
     }
 
     const interactiveNumberCenterYOffset = new Text( '8', { font: NUMBER_FONT } ).height / 2;
-
-    const createDynamicHelpText = ( accessibleHelpText: TReadOnlyProperty<string> ) => {
-      return new DerivedStringProperty(
-        [
-          accessibleHelpText,
-          options.showArrowButtonsProperty
-        ], ( helpText: string, showArrows: boolean ) => {
-
-          // Only show help text when the symbol is not fully interactive and arrows are shown.
-          return !isFullyInteractive && showArrows ? helpText : '';
-        }
-      );
-    };
 
     // Add the proton count display, either interactive or not.
     if ( options.isProtonCountInteractive ) {
