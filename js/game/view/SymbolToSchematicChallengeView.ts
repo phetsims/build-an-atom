@@ -24,6 +24,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
@@ -55,14 +56,16 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.challenge = challenge;
 
     // Create and add the interactive schematic atom.
+    const atomViewProperties = new AtomViewProperties( {
+      elementNameVisibleInitialValue: false,
+      neutralAtomOrIonVisibleInitialValue: false,
+      nuclearStabilityVisibleInitialValue: false,
+      tandem: Tandem.OPT_OUT
+    } );
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
       atomNodeOptions: {
-        atomViewProperties: new AtomViewProperties( {
-          elementNameVisibleInitialValue: false,
-          neutralAtomOrIonVisibleInitialValue: false,
-          nuclearStabilityVisibleInitialValue: false,
-          tandem: Tandem.OPT_OUT
-        } ),
+        atomViewProperties: atomViewProperties,
+        atomDescriber: new AtomDescriberAccessibleListNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
         tandem: Tandem.OPT_OUT
       },
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),

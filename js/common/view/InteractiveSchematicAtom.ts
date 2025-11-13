@@ -236,13 +236,34 @@ class InteractiveSchematicAtom extends Node {
     );
 
     // Add the alt-input grab/release cue node for the buckets.
-    bucketFrontLayer.addChild( new BucketGrabReleaseCueNode(
+    const cueLayer = new Node();
+    cueLayer.addChild( new BucketGrabReleaseCueNode(
       this.mapBucketsToViews.get( model.protonBucket )!,
       this.mapBucketsToViews.get( model.neutronBucket )!,
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.hasBucketInteractionOccurredProperty,
       bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
     ) );
+
+    // Add listeners that will announce when a bucket becomes empty.
+    model.protonBucketParticleCountProperty.link( ( protons: number ) => {
+      if ( protons === 0 ) {
+        this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
+          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+      }
+    } );
+    model.neutronBucketParticleCountProperty.link( ( neutrons: number ) => {
+      if ( neutrons === 0 ) {
+        this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
+          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+      }
+    } );
+    model.electronBucketParticleCountProperty.link( ( electrons: number ) => {
+      if ( electrons === 0 ) {
+        this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
+          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+      }
+    } );
 
     // Create the layer where the subatomic particles will go when they are not a part of the atom.
     const particleLayer = new Node();
@@ -388,14 +409,17 @@ class InteractiveSchematicAtom extends Node {
       }
     );
 
+    // Add accessible help text for the entire interactive schematic atom.
+    this.addChild( new Node( {
+      accessibleParagraph: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
+    } ) );
+
     // Add the layers in the sequence needed for desired z-order.
     _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) ); // bucket holes
     this.addChild( particleLayer );
-    this.addChild( atomNode );
     this.addChild( bucketFrontLayer );
-    this.addChild( new Node( {
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty
-    } ) );
+    this.addChild( atomNode );
+    this.addChild( cueLayer );
   }
 
   /**
