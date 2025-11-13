@@ -53,7 +53,7 @@ import BAAConstants from '../BAAConstants.js';
 import BAAModel, { BAAParticleType } from '../model/BAAModel.js';
 import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
-import AtomViewProperties from './AtomViewProperties.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
@@ -83,7 +83,7 @@ class BAAScreenView extends ScreenView {
   private readonly atomNode: AtomNode;
 
   // Properties that control how the atom is displayed.
-  private readonly viewProperties: AtomViewProperties;
+  private readonly atomViewProperties: AtomViewProperties;
 
   // flag to track whether the user has extracted a particle from a bucket yet
   private readonly hasBucketInteractionOccurredProperty = new Property<boolean>( false );
@@ -111,7 +111,7 @@ class BAAScreenView extends ScreenView {
     super( options );
 
     this.model = model;
-    this.viewProperties = new AtomViewProperties( tandem.createTandem( 'viewProperties' ) );
+    this.atomViewProperties = new AtomViewProperties( { tandem: tandem.createTandem( 'atomViewProperties' ) } );
 
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -123,11 +123,8 @@ class BAAScreenView extends ScreenView {
     // Create the node that represents the built atom.  This includes things like the electron shells, textual labels,
     // and the marker at the center of an empty atom.
     this.atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, {
-      showElementNameProperty: this.viewProperties.elementNameVisibleProperty,
-      showNeutralOrIonProperty: this.viewProperties.neutralAtomOrIonVisibleProperty,
-      showStableOrUnstableProperty: this.viewProperties.nuclearStabilityVisibleProperty,
-      electronShellDepictionProperty: this.viewProperties.electronModelProperty,
-      atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.viewProperties ),
+      atomViewProperties: this.atomViewProperties,
+      atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.atomViewProperties ),
       tandem: tandem.createTandem( 'atomNode' ),
       phetioVisiblePropertyInstrumented: false,
       phetioFeatured: true,
@@ -375,7 +372,7 @@ class BAAScreenView extends ScreenView {
         particle,
         this.getHomeBucket( particle ),
         model.atom,
-        this.viewProperties.electronModelProperty,
+        this.atomViewProperties.electronModelProperty,
         particleView,
         this.getHomeBucketFront( particle ),
         this.atomNode.electronCloud,
@@ -386,7 +383,7 @@ class BAAScreenView extends ScreenView {
       // Watch for when particles enter or leave the atom and update the focusability of the particle views owned by the
       // for the atom as needed. The goal is to have one focusable particle in the atom when there are particles there
       // and none (of course) when the atom is empty.
-      particle.containerProperty.lazyLink( ( newContainer, oldContainer ) => {
+      particle.containerProperty.lazyLink( newContainer => {
 
         if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
 
@@ -432,8 +429,8 @@ class BAAScreenView extends ScreenView {
     // represented as a cloud, the individual particles become invisible when added to the atom, but remain visible when
     // outside the atom.
     Multilink.multilink(
-      [ this.viewProperties.electronModelProperty, model.atom.electrons.lengthProperty ],
-      ( electronModel, numberOfElectrons ) => {
+      [ this.atomViewProperties.electronModelProperty, model.atom.electrons.lengthProperty ],
+      electronModel => {
         model.electrons.forEach( electron => {
           const electronView = this.mapParticlesToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
@@ -498,7 +495,7 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
     // Add the checkbox group that controls some of the atom appearance options.
-    const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.viewProperties, {
+    const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.atomViewProperties, {
       left: this.accordionBoxes.left,
       bottom: this.layoutBounds.height - 2 * CONTROLS_INSET,
       tandem: tandem.createTandem( 'checkboxGroup' )
@@ -506,12 +503,12 @@ class BAAScreenView extends ScreenView {
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
     // controls whether the related animation is enabled.
-    this.viewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
+    this.atomViewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
       model.animateNuclearInstabilityProperty.value = nuclearStabilityVisible;
     } );
 
     // Add the selector panel that controls the electron representation in the atom.
-    const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
+    const electronModelControl = new ElectronModelControl( this.atomViewProperties.electronModelProperty, {
 
       // position empirically determined to match design doc
       left: this.atomNode.centerX + 130,
@@ -599,7 +596,7 @@ class BAAScreenView extends ScreenView {
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
     this.hasBucketInteractionOccurredProperty.reset();
-    this.viewProperties.reset();
+    this.atomViewProperties.reset();
   }
 }
 

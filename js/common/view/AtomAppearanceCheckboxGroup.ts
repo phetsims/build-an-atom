@@ -16,7 +16,7 @@ import VerticalCheckboxGroup, { VerticalCheckboxGroupItem, VerticalCheckboxGroup
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import AtomViewProperties from './AtomViewProperties.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import AtomDescriberAccessibleListNode from './description/AtomDescriberAccessibleListNode.js';
 
 const LABEL_FONT = new PhetFont( 12 );

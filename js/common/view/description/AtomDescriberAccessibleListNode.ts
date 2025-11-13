@@ -20,7 +20,7 @@ import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/descr
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
-import AtomViewProperties, { ReducedAtomViewProperties } from '../AtomViewProperties.js';
+import AtomViewProperties, { ReducedAtomViewProperties } from '../../../../../shred/js/view/AtomViewProperties.js';
 
 class AtomDescriberAccessibleListNode extends Node {
   public constructor(

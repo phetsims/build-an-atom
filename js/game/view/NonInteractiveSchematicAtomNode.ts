@@ -7,13 +7,13 @@
  */
 
 import Multilink from '../../../../axon/js/Multilink.js';
-import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -75,9 +75,12 @@ class NonInteractiveSchematicAtomNode extends Node {
 
     // Add the atom node.
     const atomNode = new AtomNode( particleAtom, mapParticlesToViews, modelViewTransform, {
-      showElementNameProperty: new Property( false ),
-      showNeutralOrIonProperty: new Property( false ),
-      showStableOrUnstableProperty: new Property( false ),
+      atomViewProperties: new AtomViewProperties( {
+        elementNameVisibleInitialValue: false,
+        neutralAtomOrIonVisibleInitialValue: false,
+        nuclearStabilityVisibleInitialValue: false,
+        tandem: Tandem.OPT_OUT
+      } ),
       tandem: Tandem.OPT_OUT,
       excludeInvisibleChildrenFromBounds: true
     } );

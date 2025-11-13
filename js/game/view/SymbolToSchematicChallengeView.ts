@@ -16,6 +16,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
@@ -45,7 +46,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // Create the model-view transform used by the schematic atom.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
-      new Vector2( layoutBounds.width * 0.275, layoutBounds.height * 0.45 ),
+      new Vector2( layoutBounds.width * 0.2, layoutBounds.height * 0.05 ),
       0.75
     );
 
@@ -55,6 +56,15 @@ class SymbolToSchematicChallengeView extends ChallengeView {
 
     // Create and add the interactive schematic atom.
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
+      atomNodeOptions: {
+        atomViewProperties: new AtomViewProperties( {
+          elementNameVisibleInitialValue: false,
+          neutralAtomOrIonVisibleInitialValue: false,
+          nuclearStabilityVisibleInitialValue: false,
+          tandem: Tandem.OPT_OUT
+        } ),
+        tandem: Tandem.OPT_OUT
+      },
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
       scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined.
     } );

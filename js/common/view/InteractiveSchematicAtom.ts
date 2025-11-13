@@ -32,7 +32,8 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
-import AtomNode, { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
+import AtomNode, { AtomNodeOptions, ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
@@ -44,17 +45,15 @@ import BAAModel, { BAAParticleType } from '../model/BAAModel.js';
 import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView from './BAAParticleView.js';
+import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 
 type SelfOptions = {
 
-  // drag bounds for particles in view coordinates
+  // Drag bounds for particles in view coordinates.
   particleDragBounds?: Bounds2;
 
-  // properties to control what is shown in the AtomNode
-  showElementNameProperty?: TReadOnlyProperty<boolean>;
-  showNeutralOrIonProperty?: TReadOnlyProperty<boolean>;
-  showStableOrUnstableProperty?: TReadOnlyProperty<boolean>;
-  electronShellDepictionProperty?: TReadOnlyProperty<ElectronShellDepiction>;
+  // Options for the AtomNode that is used to depict the atom.
+  atomNodeOptions?: AtomNodeOptions;
 };
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
@@ -89,24 +88,26 @@ class InteractiveSchematicAtom extends Node {
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
       particleDragBounds: Bounds2.EVERYTHING,
       phetioVisiblePropertyInstrumented: false,
-      showElementNameProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      showNeutralOrIonProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      showStableOrUnstableProperty: BAAConstants.ALWAYS_FALSE_PROPERTY,
-      electronShellDepictionProperty: new Property( 'shells' )
+      atomNodeOptions: {
+        atomViewProperties: new AtomViewProperties( {
+          tandem: providedOptions.tandem.createTandem( 'atomViewProperties' )
+        } ),
+        accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
+        phetioVisiblePropertyInstrumented: false,
+        particlesDescriptionOptions: {
+          accessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
+        },
+        tandem: providedOptions.tandem.createTandem( 'atomNode' )
+      }
     }, providedOptions );
 
     super( options );
 
     this.model = model;
 
-    // Add the node that depicts the textual labels, the electron shells, and the center X marker.
-    const atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, {
-      showElementNameProperty: options.showElementNameProperty,
-      showNeutralOrIonProperty: options.showNeutralOrIonProperty,
-      showStableOrUnstableProperty: options.showStableOrUnstableProperty,
-      electronShellDepictionProperty: options.electronShellDepictionProperty,
-      tandem: options.tandem.createTandem( 'atomNode' )
-    } );
+    // Add the node that depicts the constructed atom, including textual labels, the electron shells or cloud, and the
+    // center X marker.
+    const atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, options.atomNodeOptions );
 
     const bucketsTandem = options.tandem.createTandem( 'buckets' );
     const bucketFrontLayer = new Node();
@@ -234,6 +235,15 @@ class InteractiveSchematicAtom extends Node {
       DerivedProperty.valueEqualsConstant( model.electronBucketParticleCountProperty, 0 )
     );
 
+    // Add the alt-input grab/release cue node for the buckets.
+    bucketFrontLayer.addChild( new BucketGrabReleaseCueNode(
+      this.mapBucketsToViews.get( model.protonBucket )!,
+      this.mapBucketsToViews.get( model.neutronBucket )!,
+      this.mapBucketsToViews.get( model.electronBucket )!,
+      this.hasBucketInteractionOccurredProperty,
+      bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
+    ) );
+
     // Create the layer where the subatomic particles will go when they are not a part of the atom.
     const particleLayer = new Node();
 
@@ -244,6 +254,10 @@ class InteractiveSchematicAtom extends Node {
 
     // type safe reference to buckets
     const bucketsAsParticleContainers: ParticleContainer<BAAParticle>[] = model.buckets;
+
+    const electronModelProperty = options.atomNodeOptions.atomViewProperties ?
+                                  options.atomNodeOptions.atomViewProperties.electronModelProperty :
+                                  new Property<ElectronShellDepiction>( 'shells' );
 
     // Add the particle views.
     [ ...model.nucleons, ...model.electrons ].forEach( particle => {
@@ -304,7 +318,7 @@ class InteractiveSchematicAtom extends Node {
         particle,
         this.getHomeBucket( particle ),
         model.atom,
-        options.electronShellDepictionProperty,
+        electronModelProperty,
         particleView,
         this.getHomeBucketFront( particle ),
         atomNode.electronCloud,
@@ -357,11 +371,28 @@ class InteractiveSchematicAtom extends Node {
       } );
     } );
 
+    // The following code manages the visibility of the individual electron particles.  When the electrons are
+    // represented as a cloud, the individual particles become invisible when added to the atom, but remain visible when
+    // outside the atom.
+    Multilink.multilink(
+      [ electronModelProperty, model.atom.electrons.lengthProperty ],
+      electronModel => {
+        model.electrons.forEach( electron => {
+          const electronView = this.mapParticlesToViews.get( electron );
+          affirm( electronView, 'Missing ParticleView for electron' );
+          const isElectronInAtom = model.atom.electrons.includes( electron );
+          electronView.visible = electronModel === 'shells' ||
+                                 electron.isDraggingProperty.value ||
+                                 !isElectronInAtom;
+        } );
+      }
+    );
+
     // Add the layers in the sequence needed for desired z-order.
     _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) ); // bucket holes
     this.addChild( particleLayer );
-    this.addChild( bucketFrontLayer );
     this.addChild( atomNode );
+    this.addChild( bucketFrontLayer );
     this.addChild( new Node( {
       accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty
     } ) );
