@@ -1,10 +1,11 @@
 // Copyright 2014-2025, University of Colorado Boulder
 
 /**
- * Node that depicts an interactive atom where the user can add subatomic particles from a set of buckets.
+ * InteractiveSchematicAtom is a scenery Node that depicts an interactive atom where the user can add subatomic
+ * particles from a set of buckets.
  *
- * @author Jesse Greenberg (PhET Interactive Simulations)
  * @author John Blanco (PhET Interactive Simulations)
+ * @author Jesse Greenberg (PhET Interactive Simulations)
  * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
@@ -31,6 +32,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
+import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { AtomNodeOptions, ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
@@ -49,10 +51,10 @@ import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 
 type SelfOptions = {
 
-  // Drag bounds for particles in view coordinates.
+  // drag bounds for particles in view coordinates
   particleDragBounds?: Bounds2;
 
-  // Options for the AtomNode that is used to depict the atom.
+  // options for the AtomNode that is used to depict the atom
   atomNodeOptions?: AtomNodeOptions;
 };
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
@@ -65,7 +67,7 @@ const PARTICLE_TO_PLURAL = new Map<BAAParticleType, TReadOnlyProperty<string>>( 
 ] );
 
 // Define the position where a particle will be initially placed when pulled from a bucket using alt-input.
-const BELOW_NUCLEUS_OFFSET = new Vector2( 0, -40 );
+const BELOW_NUCLEUS_OFFSET = ShredConstants.BELOW_NUCLEUS_OFFSET;
 
 class InteractiveSchematicAtom extends Node {
 
@@ -76,10 +78,11 @@ class InteractiveSchematicAtom extends Node {
   // A map that associates particles with their views for quick lookup.
   private readonly mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
 
-  // flag to track whether the user has extracted a particle from a bucket yet
+  // A flag to track whether the user has extracted a particle from a bucket yet.
   private readonly hasBucketInteractionOccurredProperty = new Property<boolean>( false );
 
-  private model!: BAAModel;
+  // reference to the model, which contains the buckets, particles, and atom
+  private model: BAAModel;
 
   public constructor( model: BAAModel,
                       modelViewTransform: ModelViewTransform2,
@@ -105,14 +108,17 @@ class InteractiveSchematicAtom extends Node {
 
     this.model = model;
 
-    // Add the node that depicts the constructed atom, including textual labels, the electron shells or cloud, and the
-    // center X marker.
+    // Add the node that depicts the constructed atom, which includes the electron shell or cloud, the textual labels,
+    // and the center X marker.
     const atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, options.atomNodeOptions );
 
+    // variable needed for bucket creation
     const bucketsTandem = options.tandem.createTandem( 'buckets' );
     const bucketFrontLayer = new Node();
+    const bucketHoleLayer = new Node();
 
-    const addBucketFront = (
+    // Define a function that adds the nodes for a bucket.
+    const addBucketNodes = (
       bucket: SphereBucket<BAAParticle>,
       particleTypeStringProperty: TReadOnlyProperty<string>,
       bucketEmptyProperty: TReadOnlyProperty<boolean>
@@ -216,20 +222,23 @@ class InteractiveSchematicAtom extends Node {
 
       // Keep track of the bucket front views so that we can set focus on them later when needed.
       this.mapBucketsToViews.set( bucket, bucketFront );
+
+      // Add the bucket hole to the appropriate layer.
+      bucketHoleLayer.addChild( new BucketHole( bucket, modelViewTransform ) );
     };
 
-    // Add the front portion of the buckets. This is done separately from the bucket holes for layering purposes.
-    addBucketFront(
+    // Add the nodes for the buckets.
+    addBucketNodes(
       model.protonBucket,
       PARTICLE_TO_PLURAL.get( 'proton' )!,
       DerivedProperty.valueEqualsConstant( model.protonBucketParticleCountProperty, 0 )
     );
-    addBucketFront(
+    addBucketNodes(
       model.neutronBucket,
       PARTICLE_TO_PLURAL.get( 'neutron' )!,
       DerivedProperty.valueEqualsConstant( model.neutronBucketParticleCountProperty, 0 )
     );
-    addBucketFront(
+    addBucketNodes(
       model.electronBucket,
       PARTICLE_TO_PLURAL.get( 'electron' )!,
       DerivedProperty.valueEqualsConstant( model.electronBucketParticleCountProperty, 0 )
@@ -273,7 +282,7 @@ class InteractiveSchematicAtom extends Node {
     const neutronsGroupTandem = options.tandem.createTandem( 'neutronNodes' ).createGroupTandem( 'neutronNode', 1 );
     const electronsGroupTandem = options.tandem.createTandem( 'electronNodes' ).createGroupTandem( 'electronNode', 1 );
 
-    // type safe reference to buckets
+    // Define a type-safe reference to buckets.
     const bucketsAsParticleContainers: ParticleContainer<BAAParticle>[] = model.buckets;
 
     const electronModelProperty = options.atomNodeOptions.atomViewProperties ?
@@ -414,8 +423,8 @@ class InteractiveSchematicAtom extends Node {
       accessibleParagraph: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
     } ) );
 
-    // Add the layers in the sequence needed for desired z-order.
-    _.each( model.buckets, bucket => this.addChild( new BucketHole( bucket, modelViewTransform ) ) ); // bucket holes
+    // Add the layers in the sequence needed for desired z-order and tab navigation order.
+    this.addChild( bucketHoleLayer );
     this.addChild( particleLayer );
     this.addChild( bucketFrontLayer );
     this.addChild( atomNode );
