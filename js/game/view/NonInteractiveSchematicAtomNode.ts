@@ -7,6 +7,7 @@
  */
 
 import Multilink from '../../../../axon/js/Multilink.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
@@ -31,47 +32,8 @@ class NonInteractiveSchematicAtomNode extends Node {
     // Create the ParticleAtom, which is a local model that contains the particles.
     const particleAtom = new ParticleAtom( { tandem: Tandem.OPT_OUT } );
 
-    // Create the layers where the particle views will go.
-    const particleLayer = new Node();
-    this.addChild( particleLayer );
-
-    let particleViews: ParticleView[] = [];
+    // Map to keep track of which ParticleView corresponds to which Particle.
     const mapParticlesToViews = new Map<Particle, ParticleView>();
-
-    const adjustParticleCount = ( particleType: BAAParticleType, targetCount: number ) => {
-      const existingParticleViews = particleViews.filter( pv => pv.particle.type === particleType );
-      const existingCount = existingParticleViews.length;
-
-      if ( targetCount > existingCount ) {
-
-        // Add new particles.
-        _.times( targetCount - existingCount, () => {
-          const particle = new Particle( particleType, { tandem: Tandem.OPT_OUT } );
-          particleAtom.addParticle( particle );
-          const particleView = new ParticleView( particle, modelViewTransform, {
-            tandem: Tandem.OPT_OUT,
-            focusable: false,
-            pdomVisible: false
-          } );
-          particleLayer.addChild( particleView );
-          mapParticlesToViews.set( particle, particleView );
-          particleViews.push( particleView );
-        } );
-      }
-      else if ( targetCount < existingCount ) {
-
-        // Remove excess particles.
-        _.times( existingCount - targetCount, () => {
-          const particleViewToRemove = existingParticleViews.pop();
-          assert && assert( particleViewToRemove, 'There should be a particle view to remove, why isn\'t there?' );
-          const particleToRemove = particleViewToRemove!.particle;
-          assert && assert( particleViewToRemove, 'There should be a particle to remove, why isn\'t there?' );
-          particleAtom.removeParticle( particleToRemove );
-          particleLayer.removeChild( particleViewToRemove! );
-          particleViews = particleViews.filter( pv => pv !== particleViewToRemove );
-        } );
-      }
-    };
 
     // Add the atom node.
     const atomNode = new AtomNode( particleAtom, mapParticlesToViews, modelViewTransform, {
@@ -86,6 +48,47 @@ class NonInteractiveSchematicAtomNode extends Node {
     } );
     this.addChild( atomNode );
 
+    const adjustParticleCount = ( particleType: BAAParticleType, targetCount: number ) => {
+      const existingParticleViews = [ ...mapParticlesToViews.values() ].filter( pv => pv.particle.type === particleType );
+      const existingCount = existingParticleViews.length;
+
+      if ( targetCount > existingCount ) {
+
+        // Add new particles.
+        _.times( targetCount - existingCount, () => {
+          const particle = new Particle( particleType, { tandem: Tandem.OPT_OUT } );
+          particleAtom.addParticle( particle );
+          const particleView = new ParticleView( particle, modelViewTransform, {
+            tandem: Tandem.OPT_OUT,
+            focusable: false,
+            pdomVisible: false
+          } );
+          mapParticlesToViews.set( particle, particleView );
+          atomNode.addParticleView( particleView );
+        } );
+      }
+      else if ( targetCount < existingCount ) {
+
+        // Remove excess particles.
+        _.times( existingCount - targetCount, () => {
+          const particleViewToRemove = existingParticleViews.pop();
+          affirm( particleViewToRemove, 'There should be a particle view to remove, why isn\'t there?' );
+          let particleToRemove: Particle | null = null;
+          for ( const [ particle, particleView ] of mapParticlesToViews.entries() ) {
+            if ( particleView === particleViewToRemove ) {
+              particleToRemove = particle;
+              break;
+            }
+          }
+          affirm( particleToRemove, 'There should be a particle to remove, why isn\'t there?' );
+          atomNode.removeParticleView( particleViewToRemove );
+          particleAtom.removeParticle( particleToRemove );
+          mapParticlesToViews.delete( particleToRemove );
+        } );
+      }
+    };
+
+    // Listen to changes in the number atom's proton, neutron, and electron counts and add/remove particles as needed.
     Multilink.multilink(
       [
         numberAtom.protonCountProperty,
@@ -97,18 +100,6 @@ class NonInteractiveSchematicAtomNode extends Node {
         adjustParticleCount( 'neutron', neutronCount );
         adjustParticleCount( 'electron', electronCount );
         particleAtom.moveAllParticlesToDestination();
-
-        // Layer the particle views so that the nucleus looks good, with the particles closer to the center being higher
-        // in the z-order.
-        if ( particleViews.length > 3 ) {
-          const sortedParticleViews = _.sortBy(
-            particleViews,
-            particleView => -particleView.particle.destinationProperty.value.distance( particleAtom.positionProperty.value )
-          );
-          sortedParticleViews.forEach( particleView => {
-            particleView.moveToFront();
-          } );
-        }
       }
     );
   }
