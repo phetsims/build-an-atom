@@ -30,7 +30,6 @@ import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import NonInteractiveSchematicAtomNode from '../../game/view/NonInteractiveSchematicAtomNode.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
@@ -44,11 +43,11 @@ const CONTROLS_INSET = 10;
 
 class BAAScreenView extends ScreenView {
 
+  // The periodic table accordion box, made protected so that subclasses can access it for layout purposes.
   protected readonly periodicTableAccordionBox: BuildAnAtomAccordionBox;
+  
+  // The VBox that contains all accordion boxes on the right side of the screen, subclasses may add more boxes to this.
   protected readonly accordionBoxes: VBox;
-
-  // A node that shows the atom and the particle buckets.
-  private readonly interactiveAtomNode: NonInteractiveSchematicAtomNode;
 
   // Properties that control how the atom is displayed.
   private readonly atomViewProperties: AtomViewProperties;
@@ -78,7 +77,7 @@ class BAAScreenView extends ScreenView {
     );
 
     // Create the interactive atom node.
-    this.interactiveAtomNode = new InteractiveSchematicAtom( model, modelViewTransform, {
+    const interactiveAtomNode = new InteractiveSchematicAtom( model, modelViewTransform, {
       atomNodeOptions: {
         atomViewProperties: this.atomViewProperties,
         atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.atomViewProperties )
@@ -146,7 +145,7 @@ class BAAScreenView extends ScreenView {
     } );
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
-    // Add the checkbox group that controls some of the atom appearance options.
+    // Add the checkbox group that controls the atom appearance options.
     const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.atomViewProperties, {
       left: this.accordionBoxes.left,
       bottom: this.layoutBounds.height - 2 * CONTROLS_INSET,
@@ -163,8 +162,8 @@ class BAAScreenView extends ScreenView {
     const electronModelControl = new ElectronModelControl( this.atomViewProperties.electronModelProperty, {
 
       // position empirically determined to match design doc
-      left: this.interactiveAtomNode.centerX + 149,
-      top: this.interactiveAtomNode.centerY + 62,
+      left: interactiveAtomNode.centerX + 149,
+      top: interactiveAtomNode.centerY + 62,
 
       tandem: tandem.createTandem( 'electronModelControl' ),
       phetioFeatured: true,
@@ -189,14 +188,14 @@ class BAAScreenView extends ScreenView {
     this.addChild( electronModelControl );
     this.addChild( checkboxGroup );
     this.addChild( particleCountDisplay );
-    this.addChild( this.interactiveAtomNode );
+    this.addChild( interactiveAtomNode );
     this.addChild( this.accordionBoxes );
     this.addChild( resetAllButton );
 
     // pdom - set navigation order for the Atom screen view
     this.pdomPlayAreaNode.pdomOrder = [
       particleCountDisplay,
-      this.interactiveAtomNode,
+      interactiveAtomNode,
       this.accordionBoxes
     ];
 
