@@ -14,7 +14,7 @@ import { TNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomNode from '../../../../shred/js/view/AtomNode.js';
-import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
+import { ReducedAtomViewProperties } from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -37,12 +37,7 @@ class NonInteractiveSchematicAtomNode extends Node {
 
     // Add the atom node.
     const atomNode = new AtomNode( particleAtom, mapParticlesToViews, modelViewTransform, {
-      atomViewProperties: new AtomViewProperties( {
-        elementNameVisibleInitialValue: false,
-        neutralAtomOrIonVisibleInitialValue: false,
-        nuclearStabilityVisibleInitialValue: false,
-        tandem: Tandem.OPT_OUT
-      } ),
+      atomViewProperties: new ReducedAtomViewProperties(),
       tandem: Tandem.OPT_OUT,
       excludeInvisibleChildrenFromBounds: true
     } );

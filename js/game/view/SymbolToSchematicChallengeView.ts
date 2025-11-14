@@ -16,7 +16,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
+import { ReducedAtomViewProperties } from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
@@ -56,17 +56,20 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.challenge = challenge;
 
     // Create and add the interactive schematic atom.
-    const atomViewProperties = new AtomViewProperties( {
-      elementNameVisibleInitialValue: false,
-      neutralAtomOrIonVisibleInitialValue: false,
-      nuclearStabilityVisibleInitialValue: false,
-      tandem: Tandem.OPT_OUT
-    } );
+    const atomViewProperties = new ReducedAtomViewProperties();
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
+      bucketsAccessibleParagraph: {
+        stringProperty: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty,
+        visibleProperty: this.challenge.isAnswerInteractiveProperty
+      },
       atomNodeOptions: {
-        atomViewProperties: atomViewProperties,
+        atomViewProperties: new ReducedAtomViewProperties(),
         atomDescriber: new AtomDescriberAccessibleListNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
-        tandem: Tandem.OPT_OUT
+        tandem: Tandem.OPT_OUT,
+        particlesDescriptionOptions: {
+          stringProperty: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty,
+          visibleProperty: this.challenge.isAnswerInteractiveProperty
+        }
       },
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
       scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined.

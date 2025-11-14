@@ -80,7 +80,8 @@ class BAAScreenView extends ScreenView {
     const interactiveAtomNode = new InteractiveSchematicAtom( model, modelViewTransform, {
       atomNodeOptions: {
         atomViewProperties: this.atomViewProperties,
-        atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.atomViewProperties )
+        atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.atomViewProperties ),
+        tandem: tandem.createTandem( 'atomNode' )
       },
       tandem: tandem.createTandem( 'interactiveAtomNode' ),
       phetioFeatured: true

@@ -26,6 +26,7 @@ import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleConta
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -56,6 +57,11 @@ type SelfOptions = {
 
   // options for the AtomNode that is used to depict the atom
   atomNodeOptions?: AtomNodeOptions;
+
+
+  // accessible paragraphs for the buckets and particles
+  // Since they should hide in the game cases, we should also provide visibleProperty from the challenge.
+  bucketsAccessibleParagraph?: AccessibleListItem;
 };
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
@@ -91,6 +97,11 @@ class InteractiveSchematicAtom extends Node {
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
       particleDragBounds: Bounds2.EVERYTHING,
       phetioVisiblePropertyInstrumented: false,
+
+      bucketsAccessibleParagraph: {
+        stringProperty: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
+      },
+
       atomNodeOptions: {
         atomViewProperties: new AtomViewProperties( {
           tandem: providedOptions.tandem.createTandem( 'atomViewProperties' )
@@ -98,7 +109,7 @@ class InteractiveSchematicAtom extends Node {
         accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
         phetioVisiblePropertyInstrumented: false,
         particlesDescriptionOptions: {
-          accessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
+          stringProperty: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
         },
         tandem: providedOptions.tandem.createTandem( 'atomNode' )
       }
@@ -124,7 +135,8 @@ class InteractiveSchematicAtom extends Node {
       bucketEmptyProperty: TReadOnlyProperty<boolean>
     ): void => {
 
-      const bucketAccessibleHelpTextProperty = new DerivedStringProperty(
+      // Help text that's visible when bucket is empty
+      const bucketEmptyAccessibleHelpTextProperty = new DerivedStringProperty(
         [
           bucketEmptyProperty,
           ShredStrings.a11y.buckets.emptyHelpTextStringProperty
@@ -148,10 +160,10 @@ class InteractiveSchematicAtom extends Node {
         // pdom
         tagName: 'button',
         accessibleName: particleTypeStringProperty,
-        accessibleHelpText: bucketAccessibleHelpTextProperty
+        accessibleHelpText: bucketEmptyAccessibleHelpTextProperty
       } );
 
-      bucketEmptyProperty.link( ( empty: boolean ) => {
+      bucketEmptyProperty.lazyLink( ( empty: boolean ) => {
         bucketFront.setPDOMAttribute( 'aria-disabled', empty );
       } );
 
@@ -255,19 +267,19 @@ class InteractiveSchematicAtom extends Node {
     ) );
 
     // Add listeners that will announce when a bucket becomes empty.
-    model.protonBucketParticleCountProperty.link( ( protons: number ) => {
+    model.protonBucketParticleCountProperty.lazyLink( ( protons: number ) => {
       if ( protons === 0 ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
           ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
-    model.neutronBucketParticleCountProperty.link( ( neutrons: number ) => {
+    model.neutronBucketParticleCountProperty.lazyLink( ( neutrons: number ) => {
       if ( neutrons === 0 ) {
         this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
           ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
-    model.electronBucketParticleCountProperty.link( ( electrons: number ) => {
+    model.electronBucketParticleCountProperty.lazyLink( ( electrons: number ) => {
       if ( electrons === 0 ) {
         this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
           ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
@@ -418,9 +430,11 @@ class InteractiveSchematicAtom extends Node {
       }
     );
 
-    // Add accessible help text for the entire interactive schematic atom.
+    // Add accessible paragraph for the buckets, at the beggining of the tab order.
     this.addChild( new Node( {
-      accessibleParagraph: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
+      accessibleParagraph: options.bucketsAccessibleParagraph.stringProperty,
+      visibleProperty: options.bucketsAccessibleParagraph.visibleProperty ?
+                       options.bucketsAccessibleParagraph.visibleProperty : null
     } ) );
 
     // Add the layers in the sequence needed for desired z-order and tab navigation order.
