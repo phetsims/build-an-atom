@@ -120,7 +120,9 @@ class InteractiveSchematicAtom extends Node {
 
     // variable needed for bucket creation
     const bucketsTandem = options.tandem.createTandem( 'buckets' );
-    const bucketFrontLayer = new Node();
+    const bucketFrontLayer = new Node( {
+      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty
+    } );
     const bucketHoleLayer = new Node();
 
     // Define a function that adds the nodes for a bucket.
