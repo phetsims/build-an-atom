@@ -93,7 +93,7 @@ class BAANumberSpinner extends NumberSpinner {
 
     // Creating the formatter here in order to use the options
     options.numberDisplayOptions.numberFormatter = signNumberFormatter;
-    options.pdomCreateAriaValueText = signNumberFormatter;
+    options.createAriaValueText = signNumberFormatter;
 
     super( numberProperty, new Property<Range>( new Range( options.minValue, options.maxValue ) ), options );
 
