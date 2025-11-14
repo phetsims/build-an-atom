@@ -23,6 +23,7 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
     neutronBucketNode: BucketFront,
     electronBucketNode: BucketFront,
     hasBucketInteractionOccurredProperty: TReadOnlyProperty<boolean>,
+    enabledProperty: TReadOnlyProperty<boolean>,
     tandem: Tandem
   ) {
 
@@ -50,14 +51,14 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
 
     // Create a derived property that is true when any bucket has focus and interaction has not yet occurred.
     const showThisCueProperty = new DerivedProperty(
-      [ bucketNodeWithFocusProperty, hasBucketInteractionOccurredProperty ],
-      ( bucketNodeWithFocus, hasBucketInteractionOccurred ) => {
+      [ bucketNodeWithFocusProperty, hasBucketInteractionOccurredProperty, enabledProperty ],
+      ( bucketNodeWithFocus, hasBucketInteractionOccurred, enabled ) => {
         let focusedBucketIsEmpty = false;
         if ( bucketNodeWithFocus ) {
           const bucket = bucketNodeWithFocus.bucket as SphereBucket<BAAParticle>;
           focusedBucketIsEmpty = bucket.getParticleList().length === 0;
         }
-        return !!bucketNodeWithFocus && !hasBucketInteractionOccurred && !focusedBucketIsEmpty;
+        return !!bucketNodeWithFocus && !hasBucketInteractionOccurred && !focusedBucketIsEmpty && enabled;
       }
     );
 

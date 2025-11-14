@@ -262,6 +262,7 @@ class InteractiveSchematicAtom extends Node {
       this.mapBucketsToViews.get( model.neutronBucket )!,
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.hasBucketInteractionOccurredProperty,
+      this.enabledProperty,
       bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
     ) );
 
@@ -306,6 +307,7 @@ class InteractiveSchematicAtom extends Node {
       const particleView = new BAAParticleView( particle, modelViewTransform, {
         dragBounds: options.particleDragBounds,
         pdomVisible: false,
+        enabledProperty: this.enabledProperty,
         tandem: particle.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
                 particle.type === 'neutron' ?
