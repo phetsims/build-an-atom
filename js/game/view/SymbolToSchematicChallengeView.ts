@@ -58,18 +58,13 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // Create and add the interactive schematic atom.
     const atomViewProperties = new ReducedAtomViewProperties();
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
-      bucketsAccessibleParagraph: {
-        stringProperty: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty,
-        visibleProperty: this.challenge.isAnswerInteractiveProperty
-      },
+      bucketsAccessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty,
+      enabledProperty: this.challenge.isAnswerInteractiveProperty,
       atomNodeOptions: {
         atomViewProperties: new ReducedAtomViewProperties(),
         atomDescriber: new AtomDescriberAccessibleListNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
         tandem: Tandem.OPT_OUT,
-        particlesDescriptionOptions: {
-          stringProperty: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty,
-          visibleProperty: this.challenge.isAnswerInteractiveProperty
-        }
+        particlesAccessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty
       },
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
       scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined.

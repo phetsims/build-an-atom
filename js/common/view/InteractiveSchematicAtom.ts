@@ -26,10 +26,10 @@ import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleConta
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import { PDOMValueType } from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
@@ -58,10 +58,8 @@ type SelfOptions = {
   // options for the AtomNode that is used to depict the atom
   atomNodeOptions?: AtomNodeOptions;
 
-
-  // accessible paragraphs for the buckets and particles
-  // Since they should hide in the game cases, we should also provide visibleProperty from the challenge.
-  bucketsAccessibleParagraph?: AccessibleListItem;
+  // accessible paragraph for the buckets
+  bucketsAccessibleParagraph?: PDOMValueType;
 };
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
@@ -98,19 +96,16 @@ class InteractiveSchematicAtom extends Node {
       particleDragBounds: Bounds2.EVERYTHING,
       phetioVisiblePropertyInstrumented: false,
 
-      bucketsAccessibleParagraph: {
-        stringProperty: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty
-      },
+      bucketsAccessibleParagraph: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty,
 
       atomNodeOptions: {
+        enabledProperty: providedOptions.enabledProperty,
         atomViewProperties: new AtomViewProperties( {
           tandem: providedOptions.tandem.createTandem( 'atomViewProperties' )
         } ),
         accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
         phetioVisiblePropertyInstrumented: false,
-        particlesDescriptionOptions: {
-          stringProperty: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty
-        },
+        particlesAccessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty,
         tandem: providedOptions.tandem.createTandem( 'atomNode' )
       }
     }, providedOptions );
@@ -163,8 +158,12 @@ class InteractiveSchematicAtom extends Node {
         accessibleHelpText: bucketEmptyAccessibleHelpTextProperty
       } );
 
-      bucketEmptyProperty.lazyLink( ( empty: boolean ) => {
-        bucketFront.setPDOMAttribute( 'aria-disabled', empty );
+      // When bucket is empty, or when the game has made them non-interactive, set aria-disabled.
+      Multilink.lazyMultilink( [
+        bucketEmptyProperty,
+        this.enabledProperty
+      ], ( empty: boolean, enabled: boolean ) => {
+        bucketFront.setPDOMAttribute( 'aria-disabled', empty || !enabled );
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
@@ -432,9 +431,8 @@ class InteractiveSchematicAtom extends Node {
 
     // Add accessible paragraph for the buckets, at the beggining of the tab order.
     this.addChild( new Node( {
-      accessibleParagraph: options.bucketsAccessibleParagraph.stringProperty,
-      visibleProperty: options.bucketsAccessibleParagraph.visibleProperty ?
-                       options.bucketsAccessibleParagraph.visibleProperty : null
+      accessibleParagraph: options.bucketsAccessibleParagraph,
+      visibleProperty: this.enabledProperty
     } ) );
 
     // Add the layers in the sequence needed for desired z-order and tab navigation order.
