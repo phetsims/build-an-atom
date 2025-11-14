@@ -268,19 +268,19 @@ class InteractiveSchematicAtom extends Node {
 
     // Add listeners that will announce when a bucket becomes empty.
     model.protonBucketParticleCountProperty.lazyLink( ( protons: number ) => {
-      if ( protons === 0 ) {
+      if ( protons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
           ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
     model.neutronBucketParticleCountProperty.lazyLink( ( neutrons: number ) => {
-      if ( neutrons === 0 ) {
+      if ( neutrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
           ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
     model.electronBucketParticleCountProperty.lazyLink( ( electrons: number ) => {
-      if ( electrons === 0 ) {
+      if ( electrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
           ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }

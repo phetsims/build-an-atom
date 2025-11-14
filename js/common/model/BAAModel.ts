@@ -85,6 +85,9 @@ class BAAModel {
   // count for how many times the nucleus has jumped
   private nucleusJumpCount = 0;
 
+  // Flag to keep track of whether we are resetting to avoid redundant operations
+  public resetting = false;
+
   public constructor( providedOptions: BAAModelOptions ) {
 
     const options = combineOptions<BAAModelOptions>( {
@@ -334,6 +337,8 @@ class BAAModel {
 
   public reset(): void {
 
+    this.resetting = true;
+
     if ( isSettingPhetioStateProperty.value ) {
       // If we are setting the phet-io state, we don't want to reset the model.
       return;
@@ -374,6 +379,8 @@ class BAAModel {
 
     this.nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
     this.nucleusJumpCount = 0;
+
+    this.resetting = false;
   }
 
   public getParticleCountByType( particleType: BAAParticleType ): number {
