@@ -669,7 +669,7 @@
             "value": "Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: There are { $protons } Protons, { $neutrons } Neutrons, and { $electrons } Electrons."
+            "value": "Correct Answer: There are\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n}, \n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}, and\n{ $electrons ->\n[one]{ $electrons } Electron\n*[other] { $electrons } Electrons\n}"
           },
           "accessibleHelpText": {
             "value": "Set values for particles represented in Chemical Symbol. Then check your answer."
@@ -680,7 +680,7 @@
             "value": "Build an atom or ion to match the given Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Nucleus contains { $protons } Protons and { $neutrons } Neutrons. Inner shell contains { $inner } Electrons and outer shell contains { $outer } Electrons."
+            "value": "Correct Answer: Nucleus contains\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n} and \n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}. Inner shell contains\n{ $inner ->\n[one]{ $inner } electron\n*[other] { $inner } electrons\n} and outer shell contains\n{ $outer ->\n[one]{ $outer } electron\n*[other] { $outer } electrons\n}."
           },
           "accessibleHelpText": {
             "value": "Look for Protons, Neutrons, and Electrons buttons to grab a particle. \n Once grabbed, use W or S key to move particle to specific location in Your Built Atom. \n Press space to release. Once built, check your answer."

@@ -315,12 +315,42 @@ a11y:
 
       symbolToCounts:
         accessibleParagraph: Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons.
-        correctAnswerParagraph: "Correct Answer: There are { $protons } Protons, { $neutrons } Neutrons, and { $electrons } Electrons."
+        correctAnswerParagraph: |-
+          Correct Answer: There are
+          { $protons ->
+          [one]{ $protons } Proton
+          *[other] { $protons } Protons
+          }, 
+          { $neutrons ->
+          [one]{ $neutrons } Neutron
+          *[other] { $neutrons } Neutrons
+          }, and
+          { $electrons ->
+          [one]{ $electrons } Electron
+          *[other] { $electrons } Electrons
+          }
         accessibleHelpText: Set values for particles represented in Chemical Symbol. Then check your answer.
 
       symbolToSchematic:
         accessibleParagraph: Build an atom or ion to match the given Chemical Symbol.
-        correctAnswerParagraph: "Correct Answer: Nucleus contains { $protons } Protons and { $neutrons } Neutrons. Inner shell contains { $inner } Electrons and outer shell contains { $outer } Electrons."
+        correctAnswerParagraph: |-
+          Correct Answer: Nucleus contains
+          { $protons ->
+          [one]{ $protons } Proton
+          *[other] { $protons } Protons
+          } and 
+          { $neutrons ->
+          [one]{ $neutrons } Neutron
+          *[other] { $neutrons } Neutrons
+          }. Inner shell contains
+          { $inner ->
+          [one]{ $inner } electron
+          *[other] { $inner } electrons
+          } and outer shell contains
+          { $outer ->
+          [one]{ $outer } electron
+          *[other] { $outer } electrons
+          }.
         accessibleHelpText: |-
           Look for Protons, Neutrons, and Electrons buttons to grab a particle. 
            Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 

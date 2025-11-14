@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -514,12 +514,12 @@ const BuildAnAtomFluent = {
         },
         symbolToCounts: {
           accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToCounts_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty' ) ),
-          correctAnswerParagraph: new FluentPattern<{ electrons: FluentVariable, neutrons: FluentVariable, protons: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToCounts_correctAnswerParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraphStringProperty' ), [{"name":"electrons"},{"name":"neutrons"},{"name":"protons"}] ),
+          correctAnswerParagraph: new FluentPattern<{ electrons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, neutrons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, protons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToCounts_correctAnswerParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraphStringProperty' ), [{"name":"electrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
           accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToCounts_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty' ) )
         },
         symbolToSchematic: {
           accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty' ) ),
-          correctAnswerParagraph: new FluentPattern<{ inner: FluentVariable, neutrons: FluentVariable, outer: FluentVariable, protons: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_correctAnswerParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraphStringProperty' ), [{"name":"inner"},{"name":"neutrons"},{"name":"outer"},{"name":"protons"}] ),
+          correctAnswerParagraph: new FluentPattern<{ inner: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, neutrons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, outer: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, protons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_correctAnswerParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraphStringProperty' ), [{"name":"inner","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"outer","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
           accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty' ) ),
           builtAtomHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_builtAtomHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty' ) )
         }
