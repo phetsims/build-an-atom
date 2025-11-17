@@ -21,8 +21,8 @@ const LEVEL_CHALLENGE_NAMES: ChallengeType[][] = [
   [ 'schematic-to-element', 'counts-to-element' ],
   [ 'schematic-to-charge', 'schematic-to-mass-number', 'counts-to-charge', 'counts-to-mass-number' ],
   [ 'schematic-to-symbol-charge', 'schematic-to-symbol-mass-number', 'schematic-to-symbol-proton-count', 'counts-to-symbol-charge', 'counts-to-symbol-mass-number' ],
-  [ 'symbol-to-schematic' ]
-  // [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ] // TODO: Uncomment when done with description https://github.com/phetsims/build-an-atom/issues/394
+  // [ 'symbol-to-schematic' ]
+  [ 'schematic-to-symbol-all', 'symbol-to-schematic', 'symbol-to-counts', 'counts-to-symbol-all' ] // TODO: Uncomment when done with description https://github.com/phetsims/build-an-atom/issues/394
 
 ];
 
