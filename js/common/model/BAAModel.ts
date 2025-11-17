@@ -29,7 +29,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
-import BAAParticle, { ParticleLocations } from './BAAParticle.js';
+import BAAParticle from './BAAParticle.js';
 
 // constants
 export const MAX_PROTONS = 10;
@@ -151,11 +151,9 @@ class BAAModel {
     const placeNucleon = ( particle: BAAParticle, bucket: SphereBucket<BAAParticle>, atom: ParticleAtom ): void => {
       if ( particle.positionProperty.value.distance( atom.positionProperty.value ) < NUCLEON_CAPTURE_RADIUS ) {
         atom.addParticle( particle );
-        this.updateParticleLocationDescription( particle, 'nucleus' );
       }
       else {
         bucket.addParticleNearestOpen( particle, true );
-        this.updateParticleLocationDescription( particle, 'bucket' );
       }
     };
 
@@ -259,24 +257,10 @@ class BAAModel {
         }
         else if ( !isDragging && !this.electronBucket.includes( electron ) ) {
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
-            if ( this.electronModelProperty.value === 'shells' ) {
-              if ( this.atom.electronCountProperty.value < 2 ) {
-                // Electron will go to inner shell
-                this.updateParticleLocationDescription( electron, 'innerShell' );
-              }
-              else {
-                // Electron will go to outer shell
-                this.updateParticleLocationDescription( electron, 'outerShell' );
-              }
-            }
-            else {
-              this.updateParticleLocationDescription( electron, 'electronCloud' );
-            }
             this.atom.addParticle( electron );
           }
           else {
             this.electronBucket.addParticleNearestOpen( electron, true );
-            this.updateParticleLocationDescription( electron, 'bucket' );
           }
         }
       } );
@@ -311,13 +295,6 @@ class BAAModel {
         electronCount: BAAQueryParameters.electrons
       } ) );
     }
-  }
-
-  /**
-   * Function to notify the movement of a particle. Specifically for context response and updating of particle description.
-   */
-  private updateParticleLocationDescription( particle: BAAParticle, location: ParticleLocations ): void {
-    particle.locationNameProperty.value = location;
   }
 
   public step( dt: number ): void {
@@ -404,7 +381,7 @@ class BAAModel {
       return this.atom.neutrons.length;
     }
     else {
-      return this.atom.electrons.length + 1;
+      return this.atom.electrons.length;
     }
   }
 

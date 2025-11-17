@@ -34,6 +34,7 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
+import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { AtomNodeOptions, ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
@@ -45,9 +46,9 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel, { BAAParticleType } from '../model/BAAModel.js';
-import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
+import BAAParticle from '../model/BAAParticle.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
-import BAAParticleView from './BAAParticleView.js';
+import BAAParticleView, { ParticleLocations } from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 
 type SelfOptions = {
@@ -324,7 +325,6 @@ class InteractiveSchematicAtom extends Node {
           particleView.addAccessibleObjectResponse(
             ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
           );
-          particle.locationNameProperty.value = null;
         }
         else {
           particleView.addAccessibleObjectResponse(
@@ -379,6 +379,7 @@ class InteractiveSchematicAtom extends Node {
       // for the atom as needed. The goal is to have one focusable particle in the atom when there are particles there
       // and none (of course) when the atom is empty.
       particle.containerProperty.lazyLink( newContainer => {
+        let contextResponse: LocalizedStringProperty | FluentPatternDerivedProperty | string;
 
         if ( newContainer && bucketsAsParticleContainers.includes( newContainer ) ) {
 
@@ -388,39 +389,44 @@ class InteractiveSchematicAtom extends Node {
 
           // Update what is focusable in the atom now that a particle fully has left it.
           atomNode.updateParticleViewAltInputState();
-        }
-      } );
 
-      particle.locationNameProperty.lazyLink( ( destination: ParticleLocations ) => {
-        let contextResponse: LocalizedStringProperty | FluentPatternDerivedProperty | string;
-
-        if ( destination === null ) {
-          return;
-        }
-
-        if ( destination === 'bucket' ) {
           contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
             particle: StringUtils.capitalize( particle.type )
           } );
+          this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+
         }
-        else {
-          const location = destination === 'nucleus' ?
-                           BuildAnAtomStrings.a11y.common.particles.nucleusStringProperty :
-                           destination === 'innerShell' ?
-                           BuildAnAtomStrings.a11y.common.particles.innerShellStringProperty :
-                           destination === 'outerShell' ?
-                           BuildAnAtomStrings.a11y.common.particles.outerShellStringProperty :
-                           destination === 'electronCloud' ?
-                           BuildAnAtomStrings.a11y.common.particles.cloudStringProperty : '';
+        else if ( newContainer === model.atom ) {
+
+          let location: ParticleLocations = 'bucket';
+
+          if ( particle.type === 'proton' || particle.type === 'neutron' ) {
+            location = 'nucleus';
+          }
+          else if ( particle.type === 'electron' ) {
+            if ( electronModelProperty.value === 'cloud' ) {
+              location = 'cloud';
+            }
+            else if ( model.atom.electronCountProperty.value <= 2 ) {
+              location = 'innerShell';
+            }
+            else {
+              location = 'outerShell';
+            }
+          }
+          particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
+            location: location
+          } );
+
           contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
             particle: StringUtils.capitalize( particle.type ),
             particles: PARTICLE_TO_PLURAL.get( particle.type as BAAParticleType )!,
             count: model.getParticleCountByType( particle.type as BAAParticleType ),
-            location: location
+            location: particleView.locationNameProperty.value
           } );
-        }
 
-        this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+          this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+        }
       } );
     } );
 

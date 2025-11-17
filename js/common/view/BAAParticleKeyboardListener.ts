@@ -89,7 +89,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
       // Move the particle immediately back the bucket from whence it came.
       particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
-      particle.locationNameProperty.value = 'bucket';
 
       // Set the particle as not being dragged, which should cause it to fall into the bucket.
       particle.isDraggingProperty.value = false;

@@ -7,6 +7,8 @@
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import Property from '../../../../axon/js/Property.js';
+import TProperty from '../../../../axon/js/TProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -14,15 +16,29 @@ import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import ParticleView, { ParticleViewOptions } from '../../../../shred/js/view/ParticleView.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAParticle, { ParticleLocations } from '../model/BAAParticle.js';
+import BAAParticle from '../model/BAAParticle.js';
 
 export type BAAParticleViewOptions = ParticleViewOptions;
 
+// Possible locations for particles within the atom view, used for accessibility.
+export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud' | 'bucket';
+
 export default class BAAParticleView extends ParticleView {
+
+  // For accessibility we set the string of the current location of particles
+  public locationNameProperty: TProperty<string>;
 
   public constructor( particle: BAAParticle,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions?: BAAParticleViewOptions ) {
+
+    const options = optionize<BAAParticleViewOptions, EmptySelfOptions, ParticleViewOptions>()( {
+      touchOffset: BAAConstants.PARTICLE_TOUCH_DRAG_OFFSET,
+      phetioVisiblePropertyInstrumented: false
+    }, providedOptions );
+
+    super( particle, modelViewTransform, options );
+
 
     const particleTypeStringProperty = particle.type === 'proton' ?
                                        ShredStrings.a11y.particles.protonStringProperty :
@@ -30,54 +46,28 @@ export default class BAAParticleView extends ParticleView {
                                        ShredStrings.a11y.particles.neutronStringProperty :
                                        ShredStrings.a11y.particles.electronStringProperty;
 
-    const particleLocationStringProperty = new DerivedStringProperty(
-      [
-        particle.locationNameProperty,
-        ShredStrings.a11y.particles.bucketStringProperty,
-        ShredStrings.a11y.particles.nucleusStringProperty,
-        ShredStrings.a11y.particles.innerShellStringProperty,
-        ShredStrings.a11y.particles.outerShellStringProperty,
-        ShredStrings.a11y.particles.cloudStringProperty
-      ],
-      (
-        locationName: ParticleLocations,
-        bucket: string,
-        nucleus: string,
-        innerShell: string,
-        outerShell: string,
-        electronCloud: string
-      ) => {
-        return locationName === 'bucket' ? bucket :
-               locationName === 'nucleus' ? nucleus :
-               locationName === 'innerShell' ? innerShell :
-                locationName === 'outerShell' ? outerShell :
-                locationName === 'electronCloud' ? electronCloud : '';
-      }
-    );
+    this.locationNameProperty = new Property<string>( '' );
 
     const accessibleNameProperty = new DerivedStringProperty(
       [
         particle.isDraggingProperty,
         particleTypeStringProperty,
-        particleLocationStringProperty,
+        this.locationNameProperty,
         ShredStrings.a11y.particles.accessibleNameStringProperty
       ],
       ( isDragging: boolean, particleType: string, location: string, accessibleName: string ) => {
         if ( isDragging ) {
           return particleType;
         }
-        else {
+        else if ( location !== '' ) {
           return StringUtils.fillIn( accessibleName, { particle: particleType, location: location } );
+        }
+        else {
+          return particleType;
         }
       } );
 
-    const options = optionize<BAAParticleViewOptions, EmptySelfOptions, ParticleViewOptions>()( {
-      touchOffset: BAAConstants.PARTICLE_TOUCH_DRAG_OFFSET,
-      phetioVisiblePropertyInstrumented: false,
-      accessibleName: accessibleNameProperty
-    }, providedOptions );
-
-    super( particle, modelViewTransform, options );
+    this.accessibleName = accessibleNameProperty;
   }
 }
 
