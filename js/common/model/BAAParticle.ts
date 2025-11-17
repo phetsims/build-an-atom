@@ -11,12 +11,12 @@ import Particle, { ParticleOptions } from '../../../../shred/js/model/Particle.j
 import buildAnAtom from '../../buildAnAtom.js';
 import { BAAParticleType } from './BAAModel.js';
 
-// List of the places the particle in BAA could be located.
-export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'electronCloud' | 'bucket';
+// Valid particle locations used for description. null, it means it's being dragged around.
+export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'electronCloud' | 'bucket' | null;
 
 export default class BAAParticle extends Particle {
 
-  // The location of the particle in Build an Atom.
+  // The location of the particle in Build an Atom. Used for description.
   public readonly locationNameProperty: Property<ParticleLocations>;
 
   public constructor( type: BAAParticleType, providedOptions?: ParticleOptions ) {

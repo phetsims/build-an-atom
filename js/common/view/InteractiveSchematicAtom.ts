@@ -198,7 +198,6 @@ class InteractiveSchematicAtom extends Node {
             );
           }
 
-          console.warn( 'InteractiveSchematicAtom: alt-input extraction from buckets is disabled.' );
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
 
@@ -218,14 +217,14 @@ class InteractiveSchematicAtom extends Node {
             // Mark the particle as being controlled by the user via keyboard interaction.
             particle.isDraggingProperty.value = true;
 
+            // Play the grab sound.
+            sharedSoundPlayers.get( 'grab' ).play();
+
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( BELOW_NUCLEUS_OFFSET ) );
             particleView.addAccessibleObjectResponse(
               ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' }
             );
-
-            // Play the grab sound.
-            sharedSoundPlayers.get( 'grab' ).play();
 
             // Indicate that the user has interacted with the buckets.
             this.hasBucketInteractionOccurredProperty.value = true;
@@ -326,6 +325,10 @@ class InteractiveSchematicAtom extends Node {
         if ( isDragging ) {
           particleView.pdomVisible = true;
           particleView.focusable = true;
+
+          // Now that it's pdomVisible we can announce the grab.
+          particleView.addAccessibleObjectResponse( ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' } );
+          particle.locationNameProperty.value = null;
         }
       } );
 
@@ -389,6 +392,10 @@ class InteractiveSchematicAtom extends Node {
 
       particle.locationNameProperty.lazyLink( ( destination: ParticleLocations ) => {
         let contextResponse: LocalizedStringProperty | FluentPatternDerivedProperty | string;
+
+        if ( destination === null ) {
+          return;
+        }
 
         if ( destination === 'bucket' ) {
           contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
