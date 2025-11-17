@@ -12,7 +12,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import PDOMPeer from '../../../../scenery/js/accessibility/pdom/PDOMPeer.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -79,12 +78,11 @@ class ToElementChallengeView extends ChallengeView {
       focusable: true,
       pdomVisible: true,
       ariaRole: 'application',
-      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
+      accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
       accessibleHelpText: ChallengeView.createDynamicHelpText(
         BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
         this.challenge.isAnswerInteractiveProperty
       ),
-      accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
       cellAriaRoleDescription: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
     } );
     this.interactiveAnswerNode.addChild( this.periodicTable );
