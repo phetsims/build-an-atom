@@ -98,13 +98,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       particle.moveImmediatelyToDestination();
     };
 
-    const releaseParticleSoundAndResponse = ( particleView: ParticleView ) => {
-      releaseSoundPlayer.play();
-      particleView.addAccessibleObjectResponse(
-        ShredStrings.a11y.releasedStringProperty, { alertBehavior: 'queue' }
-      );
-    };
-
     // This variable is used to track the container where the particle came from at the start of an alt-input drag.  It
     // is only updated when the particle is extracted from a bucket or from the atom, and isn't cleared on the way in,
     // so use accordingly.
@@ -144,9 +137,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // Play sound that signifies grab of particle.
             grabSoundPlayer.play();
-            particleView.addAccessibleObjectResponse(
-              ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
-            );
 
             // This particle is being extracted from the atom, so position it just below the nucleus.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
@@ -178,7 +168,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // where they may (the model code should move it into the atom or back to a homeBucket).
             particle.isDraggingProperty.value = false;
 
-            releaseParticleSoundAndResponse( particleView );
+            releaseSoundPlayer.play();
 
             // Verify that the particle has gone into the atom or a homeBucket.
             affirm(
@@ -193,7 +183,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               if ( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) {
                 electronCloudNode.focusable = true;
                 electronCloudNode.focus();
-                particleView.focusable = false;
+                // particleView.focusable = false;
               }
             }
             else if ( particle.containerProperty.value === homeBucket ) {
@@ -284,7 +274,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             if ( mostRecentContainer instanceof SphereBucket ) {
               returnParticleToBucket( particle, particleView );
 
-              releaseParticleSoundAndResponse( particleView );
+              releaseSoundPlayer.play();
 
               homeBucketFront.focus();
             }
@@ -292,15 +282,13 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
               particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
 
-              particle.isDraggingProperty.value = false;
-
-              releaseParticleSoundAndResponse( particleView );
-
               // Handle focus for the case where an electron is released back into the cloud.
               if ( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) {
                 electronCloudNode.focusable = true;
                 electronCloudNode.focus();
               }
+              particle.isDraggingProperty.value = false;
+              releaseSoundPlayer.play();
             }
           }
         }
@@ -313,7 +301,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
         // due to layer changes.
         if ( particle.isDraggingProperty.value && !isParticleBeingRemovedFromAtomViaAltInput ) {
           particle.isDraggingProperty.value = false;
-          releaseParticleSoundAndResponse( particleView );
+          releaseSoundPlayer.play();
 
 
           // When an electron is released back into the cloud during a blur event, the focus needs to be shifted from

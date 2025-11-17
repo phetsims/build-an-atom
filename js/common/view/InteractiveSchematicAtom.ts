@@ -192,12 +192,6 @@ class InteractiveSchematicAtom extends Node {
       // focus.  This will extract a particle from the bucket and add it to the atom.
       bucketFront.addInputListener( {
         click: () => {
-          if ( !bucketEmptyProperty.value ) {
-            bucketFront.addAccessibleObjectResponse(
-              ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
-            );
-          }
-
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
 
@@ -327,8 +321,15 @@ class InteractiveSchematicAtom extends Node {
           particleView.focusable = true;
 
           // Now that it's pdomVisible we can announce the grab.
-          particleView.addAccessibleObjectResponse( ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' } );
+          particleView.addAccessibleObjectResponse(
+            ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
+          );
           particle.locationNameProperty.value = null;
+        }
+        else {
+          particleView.addAccessibleObjectResponse(
+            ShredStrings.a11y.releasedStringProperty, { alertBehavior: 'queue' }
+          );
         }
       } );
 
