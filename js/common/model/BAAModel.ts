@@ -10,6 +10,7 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -56,6 +57,8 @@ export type BAAParticleType = 'proton' | 'neutron' | 'electron';
 // Type for particle containers
 type ContainerType = ParticleContainer<Particle> | null;
 
+type ElectronModelDepiction = 'shells' | 'cloud';
+
 class BAAModel {
 
   // The atom that the user will build, modify, and generally play with.
@@ -75,6 +78,9 @@ class BAAModel {
   // Arrays that hold the subatomic particles.
   public readonly nucleons: BAAParticle[];
   public readonly electrons: BAAParticle[];
+
+  // What representation is the electron using
+  public readonly electronModelProperty: TProperty<ElectronModelDepiction>;
 
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
@@ -156,6 +162,8 @@ class BAAModel {
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
     this.electrons = [];
+
+    this.electronModelProperty = new Property<ElectronModelDepiction>( 'shells' );
 
     const protonTandem = tandem.createTandem( 'protons' );
     const neutronTandem = tandem.createTandem( 'neutrons' );
@@ -251,13 +259,18 @@ class BAAModel {
         }
         else if ( !isDragging && !this.electronBucket.includes( electron ) ) {
           if ( electron.positionProperty.value.distance( Vector2.ZERO ) < this.atom.outerElectronShellRadius * 1.1 ) {
-            if ( this.atom.electronCountProperty.value < 2 ) {
-              // Electron will go to inner shell
-              this.updateParticleLocationDescription( electron, 'innerShell' );
+            if ( this.electronModelProperty.value === 'shells' ) {
+              if ( this.atom.electronCountProperty.value < 2 ) {
+                // Electron will go to inner shell
+                this.updateParticleLocationDescription( electron, 'innerShell' );
+              }
+              else {
+                // Electron will go to outer shell
+                this.updateParticleLocationDescription( electron, 'outerShell' );
+              }
             }
             else {
-              // Electron will go to outer shell
-              this.updateParticleLocationDescription( electron, 'outerShell' );
+              this.updateParticleLocationDescription( electron, 'electronCloud' );
             }
             this.atom.addParticle( electron );
           }
