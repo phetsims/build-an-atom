@@ -327,7 +327,8 @@ class InteractiveSchematicAtom extends Node {
           );
         }
         else {
-          particleView.addAccessibleObjectResponse(
+          // Emitting the response from the atom since sometimes released particles are invisible before the response
+          this.addAccessibleObjectResponse(
             ShredStrings.a11y.releasedStringProperty, { alertBehavior: 'queue' }
           );
         }
