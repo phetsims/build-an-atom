@@ -217,9 +217,14 @@ class InteractiveSchematicAtom extends Node {
 
             // Position the particle just below the center of the atom's nucleus.
             particle.setPositionAndDestination( model.atom.positionProperty.value.plus( BELOW_NUCLEUS_OFFSET ) );
-            particleView.addAccessibleObjectResponse(
-              ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' }
-            );
+
+            // Handle focus for the case where an electron is released back into the cloud.
+            if ( electronModelProperty.value === 'cloud' ) {
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+            }
+            else {
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+            }
 
             // Indicate that the user has interacted with the buckets.
             this.hasBucketInteractionOccurredProperty.value = true;
@@ -447,6 +452,7 @@ class InteractiveSchematicAtom extends Node {
           electronView.visible = electronModel === 'shells' ||
                                  electron.isDraggingProperty.value ||
                                  !isElectronInAtom;
+          // this.focus();
         } );
       }
     );

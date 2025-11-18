@@ -76,7 +76,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     ];
 
     const altInputAtomForCloudMode: ParticleLocationInformation[] = [
-      { offset: belowNucleusOffset, responseProperty: ShredStrings.a11y.particles.overNucleusStringProperty },
+      { offset: belowNucleusOffset, responseProperty: ShredStrings.a11y.particles.overAtomStringProperty },
       { offset: outsideAtomOffset, responseProperty: ShredStrings.a11y.particles.nearBucketsStringProperty }
     ];
 
@@ -139,7 +139,14 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // This particle is being extracted from the atom, so position it just below the nucleus.
             particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
-            particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+
+            // Handle focus for the case where an electron is released back into the cloud.
+            if ( electronModelProperty.value === 'cloud' ) {
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+            }
+            else {
+              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+            }
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
           }
@@ -182,7 +189,6 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               if ( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) {
                 electronCloudNode.focusable = true;
                 electronCloudNode.focus();
-                // particleView.focusable = false;
               }
             }
             else if ( particle.containerProperty.value === homeBucket ) {
@@ -279,12 +285,18 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             }
             else if ( mostRecentContainer === atom ) {
               particle.setPositionAndDestination( atom.positionProperty.value.plus( belowNucleusOffset ) );
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
 
               // Handle focus for the case where an electron is released back into the cloud.
               if ( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) {
                 electronCloudNode.focusable = true;
                 electronCloudNode.focus();
+              }
+
+              if ( electronModelProperty.value === 'cloud' ) {
+                particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+              }
+              else {
+                particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
               }
               particle.isDraggingProperty.value = false;
               releaseSoundPlayer.play();
