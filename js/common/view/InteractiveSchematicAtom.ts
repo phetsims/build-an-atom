@@ -391,13 +391,16 @@ class InteractiveSchematicAtom extends Node {
           // Update what is focusable in the atom now that a particle fully has left it.
           atomNode.updateParticleViewAltInputState();
 
-          contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
-            particle: StringUtils.capitalize( particle.type )
-          } );
-          this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+          if ( !model.resetting ) {
+            contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
+              particle: StringUtils.capitalize( particle.type )
+            } );
+            this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+          }
+
 
         }
-        else if ( newContainer === model.atom ) {
+        else if ( newContainer === model.atom && !model.resetting ) {
 
           let location: ParticleLocations = 'bucket';
 
