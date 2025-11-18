@@ -405,7 +405,7 @@ class InteractiveSchematicAtom extends Node {
 
 
         }
-        else if ( newContainer === model.atom && !model.resetting ) {
+        else if ( newContainer === model.atom ) {
 
           let location: ParticleLocations = 'bucket';
 
@@ -427,14 +427,16 @@ class InteractiveSchematicAtom extends Node {
             location: location
           } );
 
-          contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
-            particle: StringUtils.capitalize( particle.type ),
-            particles: PARTICLE_TO_PLURAL.get( particle.type )!,
-            count: model.getParticleCountByType( particle.type ),
-            location: particleView.locationNameProperty.value
-          } );
+          if ( !model.resetting ) {
+            contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
+              particle: StringUtils.capitalize( particle.type ),
+              particles: PARTICLE_TO_PLURAL.get( particle.type )!,
+              count: model.getParticleCountByType( particle.type ),
+              location: particleView.locationNameProperty.value
+            } );
 
-          this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+            this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+          }
         }
       } );
     } );
@@ -452,7 +454,6 @@ class InteractiveSchematicAtom extends Node {
           electronView.visible = electronModel === 'shells' ||
                                  electron.isDraggingProperty.value ||
                                  !isElectronInAtom;
-          // this.focus();
         } );
       }
     );
