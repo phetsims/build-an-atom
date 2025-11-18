@@ -69,10 +69,6 @@ class BAAScreenView extends ScreenView {
 
     this.atomViewProperties = new AtomViewProperties( { tandem: tandem.createTandem( 'atomViewProperties' ) } );
 
-    this.atomViewProperties.electronModelProperty.link( electronModel => {
-      model.electronModelProperty.value = electronModel;
-    } );
-
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,

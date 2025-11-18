@@ -12,6 +12,7 @@ import TProperty from '../../../../axon/js/TProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import ParticleView, { ParticleViewOptions } from '../../../../shred/js/view/ParticleView.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -22,6 +23,7 @@ export type BAAParticleViewOptions = ParticleViewOptions;
 
 // Possible locations for particles within the atom view, used for accessibility.
 export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud' | 'bucket';
+
 
 export default class BAAParticleView extends ParticleView {
 
@@ -39,16 +41,13 @@ export default class BAAParticleView extends ParticleView {
 
     super( particle, modelViewTransform, options );
 
-
-    const particleTypeStringProperty = particle.type === 'proton' ?
-                                       ShredStrings.a11y.particles.protonStringProperty :
-                                       particle.type === 'neutron' ?
-                                       ShredStrings.a11y.particles.neutronStringProperty :
-                                       ShredStrings.a11y.particles.electronStringProperty;
+    const particleTypeStringProperty = ShredFluent.a11y.particles.type.createProperty( {
+      type: particle.type
+    } );
 
     this.locationNameProperty = new Property<string>( '' );
 
-    const accessibleNameProperty = new DerivedStringProperty(
+    this.accessibleName = new DerivedStringProperty(
       [
         particle.isDraggingProperty,
         particleTypeStringProperty,
@@ -66,8 +65,6 @@ export default class BAAParticleView extends ParticleView {
           return particleType;
         }
       } );
-
-    this.accessibleName = accessibleNameProperty;
   }
 }
 

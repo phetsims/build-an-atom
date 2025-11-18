@@ -45,8 +45,8 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
-import BAAModel, { BAAParticleType } from '../model/BAAModel.js';
-import BAAParticle from '../model/BAAParticle.js';
+import BAAModel from '../model/BAAModel.js';
+import BAAParticle, { BAAParticleType } from '../model/BAAParticle.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 import BAAParticleView, { ParticleLocations } from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
@@ -420,8 +420,8 @@ class InteractiveSchematicAtom extends Node {
 
           contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
             particle: StringUtils.capitalize( particle.type ),
-            particles: PARTICLE_TO_PLURAL.get( particle.type as BAAParticleType )!,
-            count: model.getParticleCountByType( particle.type as BAAParticleType ),
+            particles: PARTICLE_TO_PLURAL.get( particle.type )!,
+            count: model.getParticleCountByType( particle.type ),
             location: particleView.locationNameProperty.value
           } );
 

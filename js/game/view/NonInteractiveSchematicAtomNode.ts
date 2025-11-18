@@ -18,7 +18,7 @@ import { ReducedAtomViewProperties } from '../../../../shred/js/view/AtomViewPro
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import { BAAParticleType } from '../../common/model/BAAModel.js';
+import { BAAParticleType } from '../../common/model/BAAParticle.js';
 
 class NonInteractiveSchematicAtomNode extends Node {
 

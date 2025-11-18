@@ -10,7 +10,6 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -29,7 +28,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
-import BAAParticle from './BAAParticle.js';
+import BAAParticle, { BAAParticleType } from './BAAParticle.js';
 
 // constants
 export const MAX_PROTONS = 10;
@@ -52,12 +51,8 @@ type SelfOptions = {
 
 export type BAAModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export type BAAParticleType = 'proton' | 'neutron' | 'electron';
-
 // Type for particle containers
 type ContainerType = ParticleContainer<Particle> | null;
-
-type ElectronModelDepiction = 'shells' | 'cloud';
 
 class BAAModel {
 
@@ -78,9 +73,6 @@ class BAAModel {
   // Arrays that hold the subatomic particles.
   public readonly nucleons: BAAParticle[];
   public readonly electrons: BAAParticle[];
-
-  // What representation is the electron using
-  public readonly electronModelProperty: TProperty<ElectronModelDepiction>;
 
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
@@ -160,8 +152,6 @@ class BAAModel {
     // Define the arrays where the subatomic particles will reside.
     this.nucleons = [];
     this.electrons = [];
-
-    this.electronModelProperty = new Property<ElectronModelDepiction>( 'shells' );
 
     const protonTandem = tandem.createTandem( 'protons' );
     const neutronTandem = tandem.createTandem( 'neutrons' );
