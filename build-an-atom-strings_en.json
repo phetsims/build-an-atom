@@ -669,7 +669,7 @@
             "value": "Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: There are\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n}, \n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}, and\n{ $electrons ->\n[one]{ $electrons } Electron\n*[other] { $electrons } Electrons\n}"
+            "value": "Correct Answer: There are\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n}, \n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}, and\n{ $electrons ->\n[one]{ $electrons } Electron\n*[other] { $electrons } Electrons\n}."
           },
           "accessibleHelpText": {
             "value": "Set values for particles represented in Chemical Symbol. Then check your answer."

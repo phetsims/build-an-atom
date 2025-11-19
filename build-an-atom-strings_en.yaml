@@ -328,7 +328,7 @@ a11y:
           { $electrons ->
           [one]{ $electrons } Electron
           *[other] { $electrons } Electrons
-          }
+          }.
         accessibleHelpText: Set values for particles represented in Chemical Symbol. Then check your answer.
 
       symbolToSchematic:

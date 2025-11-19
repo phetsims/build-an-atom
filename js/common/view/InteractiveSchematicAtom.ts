@@ -122,7 +122,13 @@ class InteractiveSchematicAtom extends Node {
     // variable needed for bucket creation
     const bucketsTandem = options.tandem.createTandem( 'buckets' );
     const bucketFrontLayer = new Node( {
-      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty
+      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty,
+      children: [
+        new Node( {
+          accessibleParagraph: options.bucketsAccessibleParagraph,
+          visibleProperty: this.enabledProperty
+        } )
+      ]
     } );
     const bucketHoleLayer = new Node();
 
@@ -457,12 +463,6 @@ class InteractiveSchematicAtom extends Node {
         } );
       }
     );
-
-    // Add accessible paragraph for the buckets, at the beggining of the tab order.
-    this.addChild( new Node( {
-      accessibleParagraph: options.bucketsAccessibleParagraph,
-      visibleProperty: this.enabledProperty
-    } ) );
 
     // Add the layers in the sequence needed for desired z-order and tab navigation order.
     this.addChild( bucketHoleLayer );
