@@ -29,7 +29,9 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import { PDOMValueType } from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
+import { PressListenerEvent } from '../../../../scenery/js/listeners/PressListener.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
@@ -38,13 +40,11 @@ import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { AtomNodeOptions, ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
-import BucketDragListener from '../../../../shred/js/view/BucketDragListener.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import BAAParticle, { BAAParticleType } from '../model/BAAParticle.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
@@ -153,7 +153,8 @@ class InteractiveSchematicAtom extends Node {
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         labelNode: new Text( bucket.captionText, {
           font: new PhetFont( 20 ),
-          fill: bucket.captionColor
+          fill: bucket.captionColor,
+          pickable: false
         } ),
 
         // Adjust the gradient luminance a bit to improve contrast with the labels, see
@@ -183,17 +184,28 @@ class InteractiveSchematicAtom extends Node {
       bucketFrontLayer.addChild( bucketFront );
 
       // Add the drag listener for dragging particles out of the bucket when clicking directly on it.
-      bucketFront.addInputListener( new BucketDragListener( bucket, bucketFront, modelViewTransform, {
-        tandem: bucketsTandem.createTandem( `${bucket.tandem.name}DragListener` ),
-        applyOffset: false,
+      bucketFront.addInputListener( SoundDragListener.createForwardingListener(
+          ( event: PressListenerEvent ) => {
 
-        // Offset the particle position a little if this is a touch pointer so that the finger doesn't cover it.
-        offsetPosition: ( viewPoint, dragListener ) => {
-          return dragListener.pointer?.isTouchLike() ?
-                 BAAConstants.PARTICLE_TOUCH_DRAG_OFFSET :
-                 Vector2.ZERO;
-        }
-      } ) );
+            // Determine where this pointer event is in model space.
+            const positionInModelFrame = bucket.position.plusXY( 0, -25 );
+
+            // Extract a particle from the bucket to add to the model.
+            const particle = bucket.extractClosestParticle( positionInModelFrame );
+
+            if ( particle !== null ) {
+              particle.isDraggingProperty.value = true;
+              particle.setPositionAndDestination( positionInModelFrame );
+
+              // Forward the event to the particle.
+              const particleView = this.mapParticlesToViews.get( particle );
+              affirm( particleView, 'ParticleView not found for extracted particle' );
+              particleView.startSyntheticDrag( event );
+            }
+          },
+          { allowTouchSnag: true }
+        )
+      );
 
       // Add a listener for alt-input that will be fired when the user presses enter or space while the bucket has
       // focus.  This will extract a particle from the bucket and add it to the atom.
