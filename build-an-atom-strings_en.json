@@ -160,6 +160,12 @@
         },
         "selectChemicalSymbolDescription": {
           "value": "Select chemical symbol with Space or Enter keys."
+        },
+        "gameOptions": {
+          "value": "Game Options"
+        },
+        "checkAnswer": {
+          "value": "Press Alt/Option + C to check your answer."
         }
       },
       "accordionAccessibleContextResponse": {
@@ -525,9 +531,6 @@
           }
         },
         "checkButton": {
-          "keyboardHelpHeading": {
-            "value": "Game Options"
-          },
           "accessibleName": {
             "value": "Check Answer"
           },

@@ -73,6 +73,8 @@ addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTable', 'a11y
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectChemicalSymbol', 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectChemicalSymbolDescription', 'a11y.common.keyboardHelpContent.selectChemicalSymbolDescriptionStringProperty' );
+addToMapIfDefined( 'a11y_common_keyboardHelpContent_gameOptions', 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' );
+addToMapIfDefined( 'a11y_common_keyboardHelpContent_checkAnswer', 'a11y.common.keyboardHelpContent.checkAnswerStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_accessibleHeading', 'a11y.common.particles.accessibleHeadingStringProperty' );
@@ -165,7 +167,6 @@ addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_atomicNumber', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumberStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_massNumber', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumberStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_charge', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.chargeStringProperty' );
-addToMapIfDefined( 'a11y_gameScreen_components_checkButton_keyboardHelpHeading', 'a11y.gameScreen.components.checkButton.keyboardHelpHeadingStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleName', 'a11y.gameScreen.components.checkButton.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctFirstTry', 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctSecondTry', 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctSecondTryStringProperty' );
@@ -279,7 +280,9 @@ const BuildAnAtomFluent = {
         navigateThroughTableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTable', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableStringProperty' ) ),
         navigateThroughTableDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' ) ),
         selectChemicalSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbol', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' ) ),
-        selectChemicalSymbolDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbolDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolDescriptionStringProperty' ) )
+        selectChemicalSymbolDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbolDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolDescriptionStringProperty' ) ),
+        gameOptionsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_gameOptions', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' ) ),
+        checkAnswerStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_checkAnswer', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.checkAnswerStringProperty' ) )
       },
       accordionAccessibleContextResponse: {
         expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
@@ -445,7 +448,6 @@ const BuildAnAtomFluent = {
           }
         },
         checkButton: {
-          keyboardHelpHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_checkButton_keyboardHelpHeading', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.checkButton.keyboardHelpHeadingStringProperty' ) ),
           accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_checkButton_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.checkButton.accessibleNameStringProperty' ) ),
           accessibleContextResponses: {
             correctFirstTryStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctFirstTry', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty' ) ),

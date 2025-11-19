@@ -70,6 +70,8 @@ type StringsType = {
         'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
         'selectChemicalSymbolStringProperty': LocalizedStringProperty;
         'selectChemicalSymbolDescriptionStringProperty': LocalizedStringProperty;
+        'gameOptionsStringProperty': LocalizedStringProperty;
+        'checkAnswerStringProperty': LocalizedStringProperty;
       };
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;
@@ -232,7 +234,6 @@ type StringsType = {
           }
         };
         'checkButton': {
-          'keyboardHelpHeadingStringProperty': LocalizedStringProperty;
           'accessibleNameStringProperty': LocalizedStringProperty;
           'accessibleContextResponses': {
             'correctFirstTryStringProperty': LocalizedStringProperty;

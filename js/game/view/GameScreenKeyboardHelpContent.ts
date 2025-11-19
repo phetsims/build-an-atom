@@ -22,12 +22,12 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
   public constructor() {
 
     const gameOptionsKeyboardHelpSection = new KeyboardHelpSection(
-      BuildAnAtomStrings.a11y.gameScreen.components.checkButton.keyboardHelpHeadingStringProperty,
+      BuildAnAtomStrings.a11y.common.keyboardHelpContent.gameOptionsStringProperty,
       [
         KeyboardHelpSectionRow.labelWithIcon(
           BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleNameStringProperty,
           KeyboardHelpIconFactory.iconPlusIcon( TextKeyNode.altOrOption(), LetterKeyNode.c() ), {
-            labelInnerContent: BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleNameStringProperty
+            labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.checkAnswerStringProperty
           } )
       ] );
 
@@ -37,7 +37,7 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
         KeyboardHelpSectionRow.labelWithIcon(
           BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty,
           KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon(), {
-            labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty
+            labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty
           } )
       ] );
 

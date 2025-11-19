@@ -56,6 +56,8 @@ a11y:
       navigateThroughTableDescription: Navigate through the periodic table with Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D.
       selectChemicalSymbol: Select chemical symbol
       selectChemicalSymbolDescription: Select chemical symbol with Space or Enter keys.
+      gameOptions: Game Options
+      checkAnswer: Press Alt/Option + C to check your answer.
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"
@@ -248,7 +250,6 @@ a11y:
           massNumber: "{ $mass } in upper left."
           charge: "{ $charge } in upper right."
       checkButton:
-        keyboardHelpHeading: Game Options
         accessibleName: Check Answer
         accessibleContextResponses:
           correctFirstTry: Awesome! You earned 2 points.
