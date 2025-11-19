@@ -188,14 +188,15 @@ class InteractiveSchematicAtom extends Node {
           ( event: PressListenerEvent ) => {
 
             // Determine where this pointer event is in model space.
-            const positionInModelFrame = bucket.position.plusXY( 0, -25 );
+            const pointInParticleLayer = particleLayer.globalToLocalPoint( event.pointer.point );
+            const modelPosition = modelViewTransform.viewToModelPosition( pointInParticleLayer );
 
             // Extract a particle from the bucket to add to the model.
-            const particle = bucket.extractClosestParticle( positionInModelFrame );
+            const particle = bucket.extractClosestParticle( modelPosition );
 
             if ( particle !== null ) {
               particle.isDraggingProperty.value = true;
-              particle.setPositionAndDestination( positionInModelFrame );
+              particle.setPositionAndDestination( modelPosition );
 
               // Forward the event to the particle.
               const particleView = this.mapParticlesToViews.get( particle );
