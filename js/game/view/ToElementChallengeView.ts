@@ -141,6 +141,15 @@ class ToElementChallengeView extends ChallengeView {
           phetioVisiblePropertyInstrumented: false
         }
       } );
+
+    neutralOrIonRadioButtonGroup.addInputListener( {
+      focusin: () => {
+        if ( this.neutralOrIonProperty.value === 'noSelection' ) {
+          this.neutralOrIonProperty.value = 'neutral';
+        }
+      }
+    } );
+
     this.neutralOrIonQuestion = new HBox( {
       children: [ neutralVersusIonPrompt, neutralOrIonRadioButtonGroup ],
       spacing: 10
