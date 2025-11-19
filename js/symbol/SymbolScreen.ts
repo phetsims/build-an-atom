@@ -29,7 +29,7 @@ class SymbolScreen extends Screen<BAAModel, SymbolScreenView> {
         backgroundColorProperty: BAAColors.symbolsScreenBackgroundColorProperty,
         homeScreenIcon: new SymbolScreenIcon(),
         tandem: tandem,
-        createKeyboardHelpNode: () => new BAAKeyboardHelpContent( {} )
+        createKeyboardHelpNode: () => new BAAKeyboardHelpContent()
       }
     );
   }

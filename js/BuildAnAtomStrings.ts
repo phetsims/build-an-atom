@@ -232,6 +232,7 @@ type StringsType = {
           }
         };
         'checkButton': {
+          'keyboardHelpHeadingStringProperty': LocalizedStringProperty;
           'accessibleNameStringProperty': LocalizedStringProperty;
           'accessibleContextResponses': {
             'correctFirstTryStringProperty': LocalizedStringProperty;

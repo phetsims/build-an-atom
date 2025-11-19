@@ -1,51 +1,63 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * GameScreenKeyboardHelpContent is the content for the keyboard-help dialog in the Game screen.
+ * GameScreenKeyboardHelpContent is the content for the keyboard-help dialog in screen 3.
  *
  * @author Agustín Vallejo
  */
 
+import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import KeyboardHelpIconFactory from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpIconFactory.js';
-import KeyboardHelpSection, { KeyboardHelpSectionOptions } from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
+import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
+import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
+import LetterKeyNode from '../../../../scenery-phet/js/keyboard/LetterKeyNode.js';
+import TextKeyNode from '../../../../scenery-phet/js/keyboard/TextKeyNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BAAKeyboardHelpContent from '../../common/view/BAAKeyboardHelpContent.js';
+import ParticleNavigationHelpSection from '../../common/view/ParticleNavigationHelpSection.js';
 
-export default class GameScreenKeyboardHelpContent extends BAAKeyboardHelpContent {
+export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
   public constructor() {
-    super( {
-      extraLeftSectionContent: new PeriodicTableHelpSection()
+
+    const gameOptionsKeyboardHelpSection = new KeyboardHelpSection(
+      BuildAnAtomStrings.a11y.gameScreen.components.checkButton.keyboardHelpHeadingStringProperty,
+      [
+        KeyboardHelpSectionRow.labelWithIcon(
+          BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleNameStringProperty,
+          KeyboardHelpIconFactory.iconPlusIcon( TextKeyNode.altOrOption(), LetterKeyNode.c() ), {
+            labelInnerContent: BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleNameStringProperty
+          } )
+      ] );
+
+    const periodicTableNavigationHelpSection = new KeyboardHelpSection(
+      BuildAnAtomStrings.a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty,
+      [
+        KeyboardHelpSectionRow.labelWithIcon(
+          BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty,
+          KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon(), {
+            labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty
+          } )
+      ] );
+
+    // sections in the left column
+    const leftSections = [
+      gameOptionsKeyboardHelpSection,
+      periodicTableNavigationHelpSection,
+      new ParticleNavigationHelpSection()
+    ];
+
+    // sections in the right column
+    const rightSections = [
+      new BasicActionsKeyboardHelpSection( {
+        withCheckboxContent: true
+      } )
+    ];
+
+    super( leftSections, rightSections, {
+      isDisposable: false
     } );
-  }
-}
-
-
-/**
- * Help section for how to move the particles around.
- */
-class PeriodicTableHelpSection extends KeyboardHelpSection {
-
-  public constructor( options?: KeyboardHelpSectionOptions ) {
-
-    const navigateThroughTable = KeyboardHelpSectionRow.labelWithIcon(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.navigateThroughTableStringProperty,
-      KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon(), {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty
-      } );
-
-    const selectChemicalSymbol = KeyboardHelpSectionRow.labelWithIcon(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty,
-      KeyboardHelpIconFactory.spaceOrEnter(), {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolDescriptionStringProperty
-      } );
-
-    // all rows contained in a left aligned vbox
-    const rows = [ navigateThroughTable, selectChemicalSymbol ];
-
-    super( BuildAnAtomStrings.a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty, rows, options );
   }
 }
 

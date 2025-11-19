@@ -29,7 +29,7 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
         homeScreenIcon: new AtomScreenIcon(),
         tandem: tandem,
 
-        createKeyboardHelpNode: () => new BAAKeyboardHelpContent( {} )
+        createKeyboardHelpNode: () => new BAAKeyboardHelpContent()
 
       }
     );

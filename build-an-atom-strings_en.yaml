@@ -248,6 +248,7 @@ a11y:
           massNumber: "{ $mass } in upper left."
           charge: "{ $charge } in upper right."
       checkButton:
+        keyboardHelpHeading: Game Options
         accessibleName: Check Answer
         accessibleContextResponses:
           correctFirstTry: Awesome! You earned 2 points.

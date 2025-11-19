@@ -525,6 +525,9 @@
           }
         },
         "checkButton": {
+          "keyboardHelpHeading": {
+            "value": "Game Options"
+          },
           "accessibleName": {
             "value": "Check Answer"
           },
