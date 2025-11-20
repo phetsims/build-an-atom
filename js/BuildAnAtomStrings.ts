@@ -69,7 +69,6 @@ type StringsType = {
         'navigateThroughTableStringProperty': LocalizedStringProperty;
         'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
         'selectChemicalSymbolStringProperty': LocalizedStringProperty;
-        'selectChemicalSymbolDescriptionStringProperty': LocalizedStringProperty;
         'gameOptionsStringProperty': LocalizedStringProperty;
         'checkAnswerStringProperty': LocalizedStringProperty;
       };

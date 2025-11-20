@@ -153,19 +153,16 @@
           "value": "Navigate through table"
         },
         "navigateThroughTableDescription": {
-          "value": "Navigate through the periodic table with Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D."
+          "value": "Select chemical symbol with arrow keys or W, A, S, or D keys."
         },
         "selectChemicalSymbol": {
           "value": "Select chemical symbol"
-        },
-        "selectChemicalSymbolDescription": {
-          "value": "Select chemical symbol with Space or Enter keys."
         },
         "gameOptions": {
           "value": "Game Options"
         },
         "checkAnswer": {
-          "value": "Press Alt/Option + C to check your answer."
+          "value": "Check answer with Option plus C key."
         }
       },
       "accordionAccessibleContextResponse": {

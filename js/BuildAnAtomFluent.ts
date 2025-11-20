@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -72,7 +72,6 @@ addToMapIfDefined( 'a11y_common_keyboardHelpContent_periodicTableHeading', 'a11y
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTable', 'a11y.common.keyboardHelpContent.navigateThroughTableStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectChemicalSymbol', 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectChemicalSymbolDescription', 'a11y.common.keyboardHelpContent.selectChemicalSymbolDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_gameOptions', 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_checkAnswer', 'a11y.common.keyboardHelpContent.checkAnswerStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
@@ -280,7 +279,6 @@ const BuildAnAtomFluent = {
         navigateThroughTableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTable', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableStringProperty' ) ),
         navigateThroughTableDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' ) ),
         selectChemicalSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbol', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' ) ),
-        selectChemicalSymbolDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbolDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolDescriptionStringProperty' ) ),
         gameOptionsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_gameOptions', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' ) ),
         checkAnswerStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_checkAnswer', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.checkAnswerStringProperty' ) )
       },

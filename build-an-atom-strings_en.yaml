@@ -53,11 +53,10 @@ a11y:
       cancelMovementDescription: Cancel movement with Escape key.
       periodicTableHeading: Periodic Table Navigation
       navigateThroughTable: Navigate through table
-      navigateThroughTableDescription: Navigate through the periodic table with Up, Left, Down, or Right Arrow keys, or with letter keys W, A, S, or D.
+      navigateThroughTableDescription: Select chemical symbol with arrow keys or W, A, S, or D keys.
       selectChemicalSymbol: Select chemical symbol
-      selectChemicalSymbolDescription: Select chemical symbol with Space or Enter keys.
       gameOptions: Game Options
-      checkAnswer: Press Alt/Option + C to check your answer.
+      checkAnswer: Check answer with Option plus C key.
     accordionAccessibleContextResponse:
       expanded: "Expanded"
       collapsed: "Collapsed"
