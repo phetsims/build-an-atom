@@ -23,8 +23,7 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
     neutronBucketNode: BucketFront,
     electronBucketNode: BucketFront,
     hasBucketInteractionOccurredProperty: TReadOnlyProperty<boolean>,
-    enabledProperty: TReadOnlyProperty<boolean>,
-    tandem: Tandem
+    enabledProperty: TReadOnlyProperty<boolean>
   ) {
 
     // Create a derived property that tracks which bucket node has focus, or null if none have focus.
@@ -64,7 +63,7 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
 
     super( {
       visibleProperty: showThisCueProperty,
-      tandem: tandem
+      tandem: Tandem.OPT_OUT
     } );
 
     // Offset in the Y direction from the top of the bucket node to the bottom of this grab/release node.

@@ -86,7 +86,7 @@ class ChallengeViewSet {
         this.schematicToMassNumberView = new SchematicToMassNumberChallengeView( challenge, layoutBounds, parentTandem.createTandem( 'schematicToMassNumberChallengeView' ) );
       }
       else if ( challenge instanceof SchematicToSymbolAllChallenge ) {
-        this.schematicToSymbolAllView = new SchematicToSymbolChallengeView( challenge, layoutBounds, parentTandem.createTandem( 'schematicToSymbolChallengeView' ) );
+        this.schematicToSymbolAllView = new SchematicToSymbolChallengeView( challenge, layoutBounds, parentTandem.createTandem( 'schematicToSymbolAllChallengeView' ) );
       }
       else if ( challenge instanceof SchematicToSymbolChargeChallenge ) {
         this.schematicToSymbolChargeView = new SchematicToSymbolChallengeView( challenge, layoutBounds, parentTandem.createTandem( 'schematicToSymbolChargeChallengeView' ) );

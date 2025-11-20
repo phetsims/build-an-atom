@@ -71,7 +71,7 @@ class ToElementChallengeView extends ChallengeView {
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
       selectedCellColor: 'yellow',
       scale: 1.02,
-      tandem: tandem.createTandem( 'periodicTable' ),
+      tandem: Tandem.OPT_OUT,
 
       // Accessibility features and descriptions
       tagName: 'div',
@@ -130,7 +130,8 @@ class ToElementChallengeView extends ChallengeView {
           } ),
           tandemName: 'ionRadioButton'
         }
-      ], {
+      ],
+      {
         spacing: 10,
         orientation: 'horizontal',
         tandem: tandem.createTandem( 'neutralOrIonRadioButtonGroup' ),
@@ -139,8 +140,12 @@ class ToElementChallengeView extends ChallengeView {
         radioButtonOptions: {
           radius: 8,
           phetioVisiblePropertyInstrumented: false
+        },
+        visiblePropertyOptions: {
+          phetioReadOnly: true
         }
-      } );
+      }
+    );
 
     neutralOrIonRadioButtonGroup.addInputListener( {
       focusin: () => {
