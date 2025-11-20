@@ -134,7 +134,15 @@ class InteractiveSymbolNode extends VBox {
       fill: 'white',
       tagName: 'div',
       pdomVisible: true,
-      accessibleHelpText: createDynamicHelpText( BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty ),
+      accessibleHelpText: new DerivedStringProperty(
+        [
+          BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty,
+          options.showArrowButtonsProperty
+        ], ( helpText: string, showArrows: boolean ) => {
+          // Only show help text when the symbol is fully interactive and arrows are shown.
+          return isFullyInteractive && showArrows ? helpText : '';
+        }
+      ),
       accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT
     } );
     contentNodes.push( symbolBox );
