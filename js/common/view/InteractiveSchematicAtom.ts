@@ -379,7 +379,7 @@ class InteractiveSchematicAtom extends Node {
                     ( ( container !== null && bucketsAsParticleContainers.includes( container ) ) ||
                       ( container === null && !isDragging ) ) ) {
 
-            // Move the particle view to this screen view.
+            // Move the particle view to the local particle layer (outside the atom).
             atomNode.removeParticleView( particleView );
             particleLayer.addChild( particleView );
           }
