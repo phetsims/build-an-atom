@@ -188,8 +188,8 @@ class BAAScreenView extends ScreenView {
     this.addChild( electronModelControl );
     this.addChild( checkboxGroup );
     this.addChild( particleCountDisplay );
-    this.addChild( interactiveAtomNode );
     this.addChild( this.accordionBoxes );
+    this.addChild( interactiveAtomNode );
     this.addChild( resetAllButton );
 
     // pdom - set navigation order for the Atom screen view
