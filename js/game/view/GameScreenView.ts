@@ -200,6 +200,7 @@ class GameScreenView extends ScreenView {
         this.rewardScreenNode.accessibleRewardSectionNode.pdomOrder = [ this.levelCompletedNode ];
 
         this.levelCompletedNode.visible = true;
+        this.levelCompletedNode.handleShow();
       }
       else {
         this.levelSelectionNode.visible = false;
