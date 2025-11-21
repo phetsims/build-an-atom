@@ -64,7 +64,10 @@ class GameScreenView extends ScreenView {
       this.layoutBounds,
       {
         tandem: tandem.createTandem( 'levelSelectionNode' ),
-        accessibleIncludeOptionsDescription: true
+        accessibleIncludeOptionsDescription: true,
+        visiblePropertyOptions: {
+          phetioReadOnly: true
+        }
       }
     );
     this.addChild( this.levelSelectionNode );

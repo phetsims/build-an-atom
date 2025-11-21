@@ -39,7 +39,6 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { AtomNodeOptions, ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
-import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -101,9 +100,6 @@ class InteractiveSchematicAtom extends Node {
 
       atomNodeOptions: {
         enabledProperty: providedOptions.enabledProperty,
-        atomViewProperties: new AtomViewProperties( {
-          tandem: providedOptions.tandem.createTandem( 'atomViewProperties' )
-        } ),
         accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
         phetioVisiblePropertyInstrumented: false,
         particlesAccessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty,
@@ -120,7 +116,6 @@ class InteractiveSchematicAtom extends Node {
     const atomNode = new AtomNode( model.atom, this.mapParticlesToViews, modelViewTransform, options.atomNodeOptions );
 
     // variable needed for bucket creation
-    const bucketsTandem = options.tandem.createTandem( 'buckets' );
     const bucketFrontLayer = new Node( {
       accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty,
       children: [
@@ -282,8 +277,7 @@ class InteractiveSchematicAtom extends Node {
       this.mapBucketsToViews.get( model.neutronBucket )!,
       this.mapBucketsToViews.get( model.electronBucket )!,
       this.hasBucketInteractionOccurredProperty,
-      this.enabledProperty,
-      bucketsTandem.createTandem( 'bucketGrabReleaseCueNode' )
+      this.enabledProperty
     ) );
 
     // Add listeners that will announce when a bucket becomes empty.

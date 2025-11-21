@@ -50,7 +50,7 @@ class BAAScreenView extends ScreenView {
   protected readonly accordionBoxes: VBox;
 
   // Properties that control how the atom is displayed.
-  private readonly atomViewProperties: AtomViewProperties;
+  private readonly viewProperties: AtomViewProperties;
 
   public constructor( model: BAAModel, tandem: Tandem, providedOptions?: ScreenViewOptions ) {
 
@@ -67,7 +67,7 @@ class BAAScreenView extends ScreenView {
 
     super( options );
 
-    this.atomViewProperties = new AtomViewProperties( { tandem: tandem.createTandem( 'atomViewProperties' ) } );
+    this.viewProperties = new AtomViewProperties( { tandem: tandem.createTandem( 'viewProperties' ) } );
 
     // Create the model-view transform.
     const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -79,9 +79,8 @@ class BAAScreenView extends ScreenView {
     // Create the interactive atom node.
     const interactiveAtomNode = new InteractiveSchematicAtom( model, modelViewTransform, {
       atomNodeOptions: {
-        atomViewProperties: this.atomViewProperties,
-        atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.atomViewProperties ),
-        tandem: tandem.createTandem( 'atomNode' )
+        atomViewProperties: this.viewProperties,
+        atomDescriber: new AtomDescriberAccessibleListNode( model.atom, this.viewProperties )
       },
       tandem: tandem.createTandem( 'interactiveAtomNode' ),
       phetioFeatured: true
@@ -147,7 +146,7 @@ class BAAScreenView extends ScreenView {
     this.periodicTableAccordionBox.addLinkedElement( model.atom.elementNameStringProperty );
 
     // Add the checkbox group that controls the atom appearance options.
-    const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.atomViewProperties, {
+    const checkboxGroup = new AtomAppearanceCheckboxGroup( model.atom, this.viewProperties, {
       left: this.accordionBoxes.left,
       bottom: this.layoutBounds.height - 2 * CONTROLS_INSET,
       tandem: tandem.createTandem( 'checkboxGroup' )
@@ -155,12 +154,12 @@ class BAAScreenView extends ScreenView {
 
     // Link the property that controls whether nuclear instability is depicted by the atom to the model element that
     // controls whether the related animation is enabled.
-    this.atomViewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
+    this.viewProperties.nuclearStabilityVisibleProperty.link( nuclearStabilityVisible => {
       model.animateNuclearInstabilityProperty.value = nuclearStabilityVisible;
     } );
 
     // Add the selector panel that controls the electron representation in the atom.
-    const electronModelControl = new ElectronModelControl( this.atomViewProperties.electronModelProperty, {
+    const electronModelControl = new ElectronModelControl( this.viewProperties.electronModelProperty, {
 
       // position empirically determined to match design doc
       left: interactiveAtomNode.centerX + 149,
@@ -189,8 +188,8 @@ class BAAScreenView extends ScreenView {
     this.addChild( electronModelControl );
     this.addChild( checkboxGroup );
     this.addChild( particleCountDisplay );
-    this.addChild( interactiveAtomNode );
     this.addChild( this.accordionBoxes );
+    this.addChild( interactiveAtomNode );
     this.addChild( resetAllButton );
 
     // pdom - set navigation order for the Atom screen view
@@ -208,7 +207,7 @@ class BAAScreenView extends ScreenView {
 
   public reset(): void {
     this.periodicTableAccordionBox.expandedProperty.reset();
-    this.atomViewProperties.reset();
+    this.viewProperties.reset();
   }
 }
 
