@@ -14,7 +14,6 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import AccessibleInteractiveOptions from '../../../../scenery-phet/js/accessibility/AccessibleInteractiveOptions.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import PDOMPeer from '../../../../scenery/js/accessibility/pdom/PDOMPeer.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
@@ -79,6 +78,7 @@ class ToElementChallengeView extends ChallengeView {
         tandem: Tandem.OPT_OUT,
 
         // Accessibility features and descriptions
+        accessibleRoleDescription: 'navigable',
         accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
         accessibleHelpText: ChallengeView.createDynamicHelpText(
           BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
@@ -90,13 +90,6 @@ class ToElementChallengeView extends ChallengeView {
     this.interactiveAnswerNode.addChild( this.periodicTable );
     this.challenge.isAnswerInteractiveProperty.link( isInteractive => {
       this.periodicTable.enabled = isInteractive;
-    } );
-
-    // This is so the aria role announces periodic table instead of 'application'
-    this.periodicTable.addAriaLabelledbyAssociation( {
-      otherElementName: PDOMPeer.HEADING_SIBLING,
-      otherNode: this.periodicTable,
-      thisElementName: PDOMPeer.PRIMARY_SIBLING
     } );
 
     // Challenge title
