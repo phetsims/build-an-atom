@@ -16,8 +16,8 @@ import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.
 import Node from '../../../../scenery/js/nodes/Node.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
-import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
+import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepiction.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';

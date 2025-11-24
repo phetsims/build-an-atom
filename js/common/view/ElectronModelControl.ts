@@ -14,7 +14,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import { ElectronShellDepiction } from '../../../../shred/js/view/AtomNode.js';
+import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepiction.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import buildAnAtom from '../../buildAnAtom.js';
