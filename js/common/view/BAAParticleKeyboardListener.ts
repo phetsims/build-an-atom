@@ -85,7 +85,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     const releaseSoundPlayer = sharedSoundPlayers.get( 'release' );
     const deleteSoundPlayer = sharedSoundPlayers.get( 'erase' );
 
-    const returnParticleToBucket = ( particle: BAAParticle, particleView: ParticleView ) => {
+    const returnParticleToBucket = ( particle: BAAParticle ) => {
 
       // Move the particle immediately back the bucket from whence it came.
       particle.setPositionAndDestination( atom.positionProperty.value.plus( outsideAtomOffset ) );
@@ -253,7 +253,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           }
           else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
 
-            returnParticleToBucket( particle, particleView );
+            returnParticleToBucket( particle );
 
             // Play sound for delete action.
             deleteSoundPlayer.play();
@@ -278,7 +278,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             // If the variable that tracks the origin of the alt-input dragged particle is not set, something is
             // wrong with one of more of the code paths.
             if ( mostRecentContainer instanceof SphereBucket ) {
-              returnParticleToBucket( particle, particleView );
+              returnParticleToBucket( particle );
 
               releaseSoundPlayer.play();
 
