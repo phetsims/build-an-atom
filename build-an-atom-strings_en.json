@@ -356,6 +356,9 @@
         "accessibleParagraphHighlighted": {
           "value": "Your Built Atom is {{symbol}} located in row {{row}}, column {{column}}."
         },
+        "accessibleParagraphHighlightedWithName": {
+          "value": "Your Built Atom is {{symbol}}, {{name}}, located in row {{row}}, column {{column}}."
+        },
         "accessibleParagraphNoSymbol": {
           "value": "Your Built Atom is not an element yet."
         }

@@ -147,6 +147,7 @@ type StringsType = {
       'periodicTable': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphHighlightedStringProperty': LocalizedStringProperty;
+        'accessibleParagraphHighlightedWithNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphNoSymbolStringProperty': LocalizedStringProperty;
       };
       'screenSummary': {

@@ -169,6 +169,7 @@ a11y:
     periodicTable:
       accessibleName: "Periodic Table"
       accessibleParagraphHighlighted: "Your Built Atom is {{symbol}} located in row {{row}}, column {{column}}."
+      accessibleParagraphHighlightedWithName: "Your Built Atom is {{symbol}}, {{name}}, located in row {{row}}, column {{column}}."
       accessibleParagraphNoSymbol: "Your Built Atom is not an element yet."
     screenSummary:
       controlArea: "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."

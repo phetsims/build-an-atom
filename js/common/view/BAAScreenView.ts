@@ -97,20 +97,38 @@ class BAAScreenView extends ScreenView {
       [
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
+        this.viewProperties.elementNameVisibleProperty,
+        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty,
         BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty,
         ShredStrings.a11y.spokenSymbolStringProperty // needed to update spoken symbol
       ],
-      ( protonCount: number, highlightedString: string, noSymbolString: string ) => {
+      (
+        protonCount: number,
+        highlightedString: string,
+        elementNameVisible: boolean,
+        highlightedNameString: string,
+        noSymbolString: string
+      ) => {
         if ( protonCount === 0 ) {
           return noSymbolString;
         }
-        const spokenSymbol = AtomIdentifier.getSpokenSymbol( protonCount );
-        const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
-        return StringUtils.fillIn( highlightedString, {
-          symbol: spokenSymbol,
-          row: elementCoordinates.y + 1,
-          column: elementCoordinates.x + 1
-        } );
+        else if ( !elementNameVisible ) {
+          const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
+          return StringUtils.fillIn( highlightedString, {
+            symbol: AtomIdentifier.getSpokenSymbol( protonCount ),
+            row: elementCoordinates.y + 1,
+            column: elementCoordinates.x + 1
+          } );
+        }
+        else {
+          const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
+          return StringUtils.fillIn( highlightedNameString, {
+            name: AtomIdentifier.getName( protonCount ),
+            symbol: AtomIdentifier.getSpokenSymbol( protonCount ),
+            row: elementCoordinates.y + 1,
+            column: elementCoordinates.x + 1
+          } );
+        }
       }
     );
 
