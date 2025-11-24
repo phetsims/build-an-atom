@@ -16,11 +16,11 @@ import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/N
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import ShredStrings from '../../../../../shred/js/ShredStrings.js';
 import { ElectronShellDepiction } from '../../../../../shred/js/view/AtomNode.js';
+import AtomViewProperties from '../../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/description/ParticleCountsAccessibleListNode.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
-import AtomViewProperties, { ReducedAtomViewProperties } from '../../../../../shred/js/view/AtomViewProperties.js';
 
 class AtomDescriberAccessibleListNode extends Node {
   public constructor(
@@ -42,10 +42,9 @@ class AtomDescriberAccessibleListNode extends Node {
   }
 
   public static createNonInteractiveAtomListNode( atom: NumberAtom ): Node {
-    const viewProperties = new ReducedAtomViewProperties();
     return new Node( {
       children: [
-        new AtomStateAccessibleListNode( atom, viewProperties ),
+        new AtomStateAccessibleListNode( atom, AtomViewProperties.everythingOffAtomViewProperties ),
         new Node( {
           accessibleHeading: ShredStrings.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [

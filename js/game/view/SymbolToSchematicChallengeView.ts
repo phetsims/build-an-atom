@@ -16,7 +16,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import { ReducedAtomViewProperties } from '../../../../shred/js/view/AtomViewProperties.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
@@ -56,12 +56,12 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.challenge = challenge;
 
     // Create and add the interactive schematic atom.
-    const atomViewProperties = new ReducedAtomViewProperties();
+    const atomViewProperties = AtomViewProperties.everythingOffAtomViewProperties;
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
       bucketsAccessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty,
       enabledProperty: this.challenge.isAnswerInteractiveProperty,
       atomNodeOptions: {
-        atomViewProperties: new ReducedAtomViewProperties(),
+        atomViewProperties: atomViewProperties,
         atomDescriber: new AtomDescriberAccessibleListNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
         tandem: Tandem.OPT_OUT,
         particlesAccessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty
