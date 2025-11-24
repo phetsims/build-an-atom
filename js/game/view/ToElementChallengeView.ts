@@ -11,6 +11,8 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import AccessibleInteractiveOptions from '../../../../scenery-phet/js/accessibility/AccessibleInteractiveOptions.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import PDOMPeer from '../../../../scenery/js/accessibility/pdom/PDOMPeer.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
@@ -19,7 +21,7 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
+import PeriodicTableNode, { PeriodicTableNodeOptions } from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
@@ -65,26 +67,26 @@ class ToElementChallengeView extends ChallengeView {
     } );
 
     // Periodic table
-    this.periodicTable = new PeriodicTableNode( this.protonCountProperty, {
-      interactiveMax: 118,
-      cellDimension: CELL_DIMENSION,
-      enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
-      selectedCellColor: 'yellow',
-      scale: 1.02,
-      tandem: Tandem.OPT_OUT,
+    this.periodicTable = new PeriodicTableNode( this.protonCountProperty, combineOptions<PeriodicTableNodeOptions>(
+      {},
+      AccessibleInteractiveOptions,
+      {
+        interactiveMax: 118,
+        cellDimension: CELL_DIMENSION,
+        enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
+        selectedCellColor: 'yellow',
+        scale: 1.02,
+        tandem: Tandem.OPT_OUT,
 
-      // Accessibility features and descriptions
-      tagName: 'div',
-      focusable: true,
-      pdomVisible: true,
-      ariaRole: 'application',
-      accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
-      accessibleHelpText: ChallengeView.createDynamicHelpText(
-        BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
-        this.challenge.isAnswerInteractiveProperty
-      ),
-      cellAriaRoleDescription: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
-    } );
+        // Accessibility features and descriptions
+        accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
+        accessibleHelpText: ChallengeView.createDynamicHelpText(
+          BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
+          this.challenge.isAnswerInteractiveProperty
+        ),
+        pdomVisible: true,
+        cellAriaRoleDescription: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
+      } ) );
     this.interactiveAnswerNode.addChild( this.periodicTable );
     this.challenge.isAnswerInteractiveProperty.link( isInteractive => {
       this.periodicTable.enabled = isInteractive;
@@ -186,8 +188,6 @@ class ToElementChallengeView extends ChallengeView {
       this.neutralOrIonQuestion.right = this.periodicTable.right;
       this.neutralOrIonQuestion.top = this.periodicTable.bottom + 20;
     } );
-
-    this.periodicTable.pdomOrder = [ null, this.neutralOrIonQuestion ];
 
     this.answerNodesPDOMOrder = [
       ...this.getAnswerNodesPDOMOrder()
