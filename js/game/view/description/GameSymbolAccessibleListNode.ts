@@ -43,7 +43,7 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
         return noSymbol;
       }
       else {
-        return AtomIdentifier.getSpokenSymbol( protonCount );
+        return AtomIdentifier.getSpokenSymbol( protonCount, true );
       }
     } );
 

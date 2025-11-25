@@ -112,18 +112,18 @@ a11y:
       shellInfoFull: |-
         Inner shell contains
         { $inner ->
-        [one]{ $inner } electron
-        *[other] { $inner } electrons
+        [one]{ $inner } Electron
+        *[other] { $inner } Electrons
         }
          and outer shell contains
         { $outer ->
-        [one]{ $outer } electron
-        *[other] { $outer } electrons
+        [one]{ $outer } Electron
+        *[other] { $outer } Electrons
         }.
       cloudInfoFull: |-
         Cloud contains { $value ->
-        [one]{ $value } electron
-        *[other] { $value } electrons
+        [one]{ $value } Electron
+        *[other] { $value } Electrons
         }.
       shellInfoEmpty: Shells empty.
       cloudInfoEmpty: Cloud empty.
@@ -337,12 +337,12 @@ a11y:
           *[other] { $neutrons } Neutrons
           }. Inner shell contains
           { $inner ->
-          [one]{ $inner } electron
-          *[other] { $inner } electrons
+          [one]{ $inner } Electron
+          *[other] { $inner } Electrons
           } and outer shell contains
           { $outer ->
-          [one]{ $outer } electron
-          *[other] { $outer } electrons
+          [one]{ $outer } Electron
+          *[other] { $outer } Electrons
           }.
         accessibleHelpText: |-
           Look for Protons, Neutrons, and Electrons buttons to grab a particle. 

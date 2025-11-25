@@ -203,11 +203,11 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
       [
         viewProperties.electronModelProperty,
         atom.electronCountProperty,
-        // Shell contains N electrons
+        // Shell contains N Electrons
         BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoFull.createProperty( {
           inner: innerElectronCountProperty, outer: outerElectronCountProperty
         } ),
-        // Cloud contains N electrons
+        // Cloud contains N Electrons
         BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoFull.createProperty( {
           value: atom.electronCountProperty
         } ),

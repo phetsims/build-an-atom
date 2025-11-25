@@ -236,10 +236,10 @@
           "value": "Protons and Neutrons"
         },
         "shellInfoFull": {
-          "value": "Inner shell contains\n{ $inner ->\n[one]{ $inner } electron\n*[other] { $inner } electrons\n}\n and outer shell contains\n{ $outer ->\n[one]{ $outer } electron\n*[other] { $outer } electrons\n}."
+          "value": "Inner shell contains\n{ $inner ->\n[one]{ $inner } Electron\n*[other] { $inner } Electrons\n}\n and outer shell contains\n{ $outer ->\n[one]{ $outer } Electron\n*[other] { $outer } Electrons\n}."
         },
         "cloudInfoFull": {
-          "value": "Cloud contains { $value ->\n[one]{ $value } electron\n*[other] { $value } electrons\n}."
+          "value": "Cloud contains { $value ->\n[one]{ $value } Electron\n*[other] { $value } Electrons\n}."
         },
         "shellInfoEmpty": {
           "value": "Shells empty."
@@ -662,7 +662,7 @@
             "value": "Build an atom or ion to match the given Chemical Symbol."
           },
           "correctAnswerParagraph": {
-            "value": "Correct Answer: Nucleus contains\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n} and \n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}. Inner shell contains\n{ $inner ->\n[one]{ $inner } electron\n*[other] { $inner } electrons\n} and outer shell contains\n{ $outer ->\n[one]{ $outer } electron\n*[other] { $outer } electrons\n}."
+            "value": "Correct Answer: Nucleus contains\n{ $protons ->\n[one]{ $protons } Proton\n*[other] { $protons } Protons\n} and \n{ $neutrons ->\n[one]{ $neutrons } Neutron\n*[other] { $neutrons } Neutrons\n}. Inner shell contains\n{ $inner ->\n[one]{ $inner } Electron\n*[other] { $inner } Electrons\n} and outer shell contains\n{ $outer ->\n[one]{ $outer } Electron\n*[other] { $outer } Electrons\n}."
           },
           "accessibleHelpText": {
             "value": "Look for Protons, Neutrons, and Electrons buttons to grab a particle. \n Once grabbed, use W or S key to move particle to specific location in Your Built Atom. \n Press space to release. Once built, check your answer."
