@@ -167,10 +167,10 @@
       },
       "accordionAccessibleContextResponse": {
         "expanded": {
-          "value": "Expanded"
+          "value": "expanded"
         },
         "collapsed": {
-          "value": "Collapsed"
+          "value": "collapsed"
         }
       },
       "particles": {
@@ -184,40 +184,43 @@
           "value": "{{particle}}, in {{location}}"
         },
         "overNucleus": {
-          "value": "Over nucleus."
+          "value": "over nucleus"
         },
         "overInnerShell": {
-          "value": "Over inner shell."
+          "value": "over inner shell"
         },
         "overOuterShell": {
-          "value": "Over outer shell."
+          "value": "over outer shell"
         },
         "nearBuckets": {
-          "value": "Near buckets."
+          "value": "near buckets"
         },
         "overAtom": {
-          "value": "Over atom."
+          "value": "over atom"
         },
         "nucleus": {
-          "value": "nucleus"
+          "value": "Nucleus"
         },
         "innerShell": {
-          "value": "inner shell"
+          "value": "Inner Shell"
         },
         "outerShell": {
-          "value": "outer shell"
+          "value": "Outer Shell"
         },
         "cloud": {
-          "value": "cloud"
+          "value": "Cloud"
         },
         "bucket": {
-          "value": "bucket"
+          "value": "Bucket"
         },
         "particleReturnedToBucket": {
           "value": "{ $particle } returned to bucket."
         },
         "bucketEmpty": {
           "value": "Bucket empty."
+        },
+        "outerElectronMovedToInnerShell": {
+          "value": "Outer Electron moved to inner shell."
         }
       },
       "buckets": {

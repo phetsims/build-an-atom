@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -90,6 +90,7 @@ addToMapIfDefined( 'a11y_common_particles_cloud', 'a11y.common.particles.cloudSt
 addToMapIfDefined( 'a11y_common_particles_bucket', 'a11y.common.particles.bucketStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_particleReturnedToBucket', 'a11y.common.particles.particleReturnedToBucketStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_bucketEmpty', 'a11y.common.particles.bucketEmptyStringProperty' );
+addToMapIfDefined( 'a11y_common_particles_outerElectronMovedToInnerShell', 'a11y.common.particles.outerElectronMovedToInnerShellStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_accessibleHeading', 'a11y.common.buckets.accessibleHeadingStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_accessibleHelpText', 'a11y.common.buckets.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_atomStateLeadingParagraph', 'a11y.common.atomAccessibleListNode.atomStateLeadingParagraphStringProperty' );
@@ -302,7 +303,8 @@ const BuildAnAtomFluent = {
         cloudStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_cloud', _.get( BuildAnAtomStrings, 'a11y.common.particles.cloudStringProperty' ) ),
         bucketStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_bucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.bucketStringProperty' ) ),
         particleReturnedToBucket: new FluentPattern<{ particle: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleReturnedToBucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleReturnedToBucketStringProperty' ), [{"name":"particle"}] ),
-        bucketEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_bucketEmpty', _.get( BuildAnAtomStrings, 'a11y.common.particles.bucketEmptyStringProperty' ) )
+        bucketEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_bucketEmpty', _.get( BuildAnAtomStrings, 'a11y.common.particles.bucketEmptyStringProperty' ) ),
+        outerElectronMovedToInnerShellStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_outerElectronMovedToInnerShell', _.get( BuildAnAtomStrings, 'a11y.common.particles.outerElectronMovedToInnerShellStringProperty' ) )
       },
       buckets: {
         _comment_0: new FluentComment( {"comment":"For Object Response","associatedKey":"accessibleHeading"} ),

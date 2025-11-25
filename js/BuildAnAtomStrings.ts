@@ -92,6 +92,7 @@ type StringsType = {
         'bucketStringProperty': LocalizedStringProperty;
         'particleReturnedToBucketStringProperty': LocalizedStringProperty;
         'bucketEmptyStringProperty': LocalizedStringProperty;
+        'outerElectronMovedToInnerShellStringProperty': LocalizedStringProperty;
       };
       'buckets': {
         'accessibleHeadingStringProperty': LocalizedStringProperty;
