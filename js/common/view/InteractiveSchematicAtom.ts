@@ -40,7 +40,6 @@ import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { AtomNodeOptions } from '../../../../shred/js/view/AtomNode.js';
 import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepiction.js';
-import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
@@ -48,7 +47,7 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAModel from '../model/BAAModel.js';
 import BAAParticle, { BAAParticleType } from '../model/BAAParticle.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
-import BAAParticleView, { ParticleLocations } from './BAAParticleView.js';
+import BAAParticleView from './BAAParticleView.js';
 import BucketGrabReleaseCueNode from './BucketGrabReleaseCueNode.js';
 
 type SelfOptions = {
@@ -63,6 +62,9 @@ type SelfOptions = {
   bucketsAccessibleParagraph?: PDOMValueType;
 };
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
+
+// Possible locations for particles within the atom view, used for accessibility.
+export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud' | 'bucket';
 
 // constants
 const PARTICLE_TO_PLURAL = new Map<BAAParticleType, TReadOnlyProperty<string>>( [
@@ -81,7 +83,7 @@ class InteractiveSchematicAtom extends Node {
     new Map<ParticleContainer<BAAParticle>, BucketFront>();
 
   // A map that associates particles with their views for quick lookup.
-  private readonly mapParticlesToViews: Map<Particle, ParticleView> = new Map<Particle, ParticleView>();
+  private readonly mapParticlesToViews: Map<Particle, BAAParticleView> = new Map<Particle, BAAParticleView>();
 
   // A flag to track whether the user has extracted a particle from a bucket yet.
   private readonly hasBucketInteractionOccurredProperty = new Property<boolean>( false );
@@ -437,9 +439,12 @@ class InteractiveSchematicAtom extends Node {
               location = 'outerShell';
             }
           }
-          particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
-            location: location
-          } );
+
+          if ( electronModelProperty.value !== 'cloud' ) {
+            particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
+              location: location
+            } );
+          }
 
           if ( !model.resetting ) {
             contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
@@ -471,6 +476,20 @@ class InteractiveSchematicAtom extends Node {
         } );
       }
     );
+
+    // When a particle is moving inwards to the nucleus, make sure all inner shell electrons are labeled appropriately
+    model.atom.isMovingElectronInwardsProperty.link( isMovingInwards => {
+      if ( isMovingInwards ) {
+        const innerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 0 );
+        innerShellElectrons.forEach( electron => {
+          const electronView = this.mapParticlesToViews.get( electron );
+          affirm( electronView, 'Missing ParticleView for electron' );
+          electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
+            location: 'innerShell'
+          } );
+        } );
+      }
+    } );
 
     // Add the layers in the sequence needed for desired z-order and tab navigation order.
     this.addChild( bucketHoleLayer );

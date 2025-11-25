@@ -21,13 +21,9 @@ import BAAParticle from '../model/BAAParticle.js';
 
 export type BAAParticleViewOptions = ParticleViewOptions;
 
-// Possible locations for particles within the atom view, used for accessibility.
-export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud' | 'bucket';
-
-
 export default class BAAParticleView extends ParticleView {
 
-  // For accessibility we set the string of the current location of particles
+  // For accessibility, we set the string of the current location of particles
   public locationNameProperty: TProperty<string>;
 
   public constructor( particle: BAAParticle,
