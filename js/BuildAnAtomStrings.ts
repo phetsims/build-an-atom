@@ -228,6 +228,7 @@ type StringsType = {
           };
           'accessibleListNode': {
             'leadingParagraphStringProperty': LocalizedStringProperty;
+            'nameStringProperty': LocalizedStringProperty;
             'symbolStringProperty': LocalizedStringProperty;
             'atomicNumberStringProperty': LocalizedStringProperty;
             'massNumberStringProperty': LocalizedStringProperty;

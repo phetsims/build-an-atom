@@ -519,6 +519,9 @@
             "leadingParagraph": {
               "value": "Particles are represented as:"
             },
+            "name": {
+              "value": "{ $name }."
+            },
             "symbol": {
               "value": "{ $symbol } in center."
             },

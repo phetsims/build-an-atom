@@ -55,7 +55,9 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
 
     super( [
       {
-        stringProperty: elementDynamicStringProperty,
+        stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {
+          name: elementDynamicStringProperty
+        } ),
         visibleProperty: DerivedProperty.valueNotEqualsConstant( protonCountProperty, 0 )
       },
       BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbol.createProperty( {

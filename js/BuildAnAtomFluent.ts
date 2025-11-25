@@ -163,6 +163,7 @@ addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_upperRight_accessi
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_lowerLeft_accessibleName', 'a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_lowerLeft_accessibleHelpText', 'a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_leadingParagraph', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_name', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.nameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_symbol', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbolStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_atomicNumber', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumberStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_massNumber', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumberStringProperty' );
@@ -442,6 +443,7 @@ const BuildAnAtomFluent = {
           },
           accessibleListNode: {
             leadingParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_leadingParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty' ) ),
+            name: new FluentPattern<{ name: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_name', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.nameStringProperty' ), [{"name":"name"}] ),
             symbol: new FluentPattern<{ symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_symbol', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbolStringProperty' ), [{"name":"symbol"}] ),
             atomicNumber: new FluentPattern<{ protons: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_atomicNumber', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumberStringProperty' ), [{"name":"protons"}] ),
             massNumber: new FluentPattern<{ mass: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_massNumber', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumberStringProperty' ), [{"name":"mass"}] ),
