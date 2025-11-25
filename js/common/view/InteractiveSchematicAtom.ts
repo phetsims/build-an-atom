@@ -440,6 +440,8 @@ class InteractiveSchematicAtom extends Node {
             }
           }
 
+          // Only update location name if we're not in the cloud. Cloud's accessible name is handled by its own node,
+          // not by electrons
           if ( electronModelProperty.value !== 'cloud' ) {
             particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
               location: location
