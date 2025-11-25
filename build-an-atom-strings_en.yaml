@@ -58,8 +58,8 @@ a11y:
       gameOptions: Game Options
       checkAnswer: Check answer with Option plus C key.
     accordionAccessibleContextResponse:
-      expanded: "Expanded"
-      collapsed: "Collapsed"
+      expanded: "expanded"
+      collapsed: "collapsed"
     particles:
       # For Object Response
       accessibleHeading: Particles
@@ -69,19 +69,20 @@ a11y:
          *[other] { $count } { $particles }
         } in total.
       accessibleName: "{{particle}}, in {{location}}"
-      overNucleus: Over nucleus.
-      overInnerShell: Over inner shell.
-      overOuterShell: Over outer shell.
-      nearBuckets: Near buckets.
-      overAtom: Over atom.
-      nucleus: nucleus
-      innerShell: inner shell
-      outerShell: outer shell
-      cloud: cloud
-      bucket: bucket
+      overNucleus: over nucleus
+      overInnerShell: over inner shell
+      overOuterShell: over outer shell
+      nearBuckets: near buckets
+      overAtom: over atom
+      nucleus: Nucleus
+      innerShell: Inner Shell
+      outerShell: Outer Shell
+      cloud: Cloud
+      bucket: Bucket
       particleReturnedToBucket: |-
         { $particle } returned to bucket.
       bucketEmpty: Bucket empty.
+      outerElectronMovedToInnerShell: Outer Electron moved to inner shell.
     buckets:
       accessibleHeading: Particle Buckets
       accessibleHelpText: |-
