@@ -139,7 +139,7 @@ class InteractiveSchematicAtom extends Node {
       const bucketEmptyAccessibleHelpTextProperty = new DerivedStringProperty(
         [
           bucketEmptyProperty,
-          ShredStrings.a11y.buckets.emptyHelpTextStringProperty
+          BuildAnAtomStrings.a11y.common.buckets.emptyHelpTextStringProperty
         ],
         ( bucketEmpty: boolean, emptyHelpText: string ) => {
           return bucketEmpty ? emptyHelpText : '';
@@ -285,19 +285,19 @@ class InteractiveSchematicAtom extends Node {
     model.protonBucketParticleCountProperty.lazyLink( ( protons: number ) => {
       if ( protons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
-          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomStrings.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
     model.neutronBucketParticleCountProperty.lazyLink( ( neutrons: number ) => {
       if ( neutrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
-          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomStrings.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
     model.electronBucketParticleCountProperty.lazyLink( ( electrons: number ) => {
       if ( electrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
-          ShredStrings.a11y.particles.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomStrings.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 

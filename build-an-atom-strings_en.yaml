@@ -61,7 +61,6 @@ a11y:
       expanded: "expanded"
       collapsed: "collapsed"
     particles:
-      # For Object Response
       accessibleHeading: Particles
       particleAddedTo: |-
         { $particle } added to { $location }. Now { $count ->
@@ -69,21 +68,11 @@ a11y:
          *[other] { $count } { $particles }
         } in total.
       accessibleName: "{{particle}}, in {{location}}"
-      overNucleus: over nucleus
-      overInnerShell: over inner shell
-      overOuterShell: over outer shell
-      nearBuckets: near buckets
-      overAtom: over atom
-      nucleus: Nucleus
-      innerShell: Inner Shell
-      outerShell: Outer Shell
-      cloud: Cloud
-      bucket: Bucket
       particleReturnedToBucket: |-
         { $particle } returned to bucket.
-      bucketEmpty: Bucket empty.
-      outerElectronMovedToInnerShell: Outer Electron moved to inner shell.
     buckets:
+      bucketEmpty: Bucket empty.
+      emptyHelpText: Disabled when bucket is empty.
       accessibleHeading: Particle Buckets
       accessibleHelpText: |-
         Look for Protons, Neutrons, and Electrons buttons to grab a particle. 
