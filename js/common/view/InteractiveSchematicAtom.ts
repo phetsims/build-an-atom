@@ -440,13 +440,9 @@ class InteractiveSchematicAtom extends Node {
             }
           }
 
-          // Only update location name if we're not an electron in the cloud. Cloud's accessible name is handled by its own node,
-          // not by electrons
-          if ( !( particle.type === 'electron' && electronModelProperty.value === 'cloud' ) ) {
-            particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
-              location: location
-            } );
-          }
+          particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
+            location: location
+          } );
 
           if ( !model.resetting ) {
             contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
@@ -480,14 +476,35 @@ class InteractiveSchematicAtom extends Node {
     );
 
     // When a particle is moving inwards to the nucleus, make sure all inner shell electrons are labeled appropriately
-    model.atom.isMovingElectronInwardsProperty.link( isMovingInwards => {
-      if ( isMovingInwards ) {
+      Multilink.multilink(
+        [ electronModelProperty, model.atom.isMovingElectronInwardsProperty ],
+        ( electronModel, isMovingInwards ) => {
+
+      if ( isMovingInwards || electronModel === 'shells' ) {
         const innerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 0 );
         innerShellElectrons.forEach( electron => {
           const electronView = this.mapParticlesToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
           electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
             location: 'innerShell'
+          } );
+        } );
+
+        const outerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 1 );
+        outerShellElectrons.forEach( electron => {
+          const electronView = this.mapParticlesToViews.get( electron );
+          affirm( electronView, 'Missing ParticleView for electron' );
+          electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
+            location: 'outerShell'
+          } );
+        } );
+      }
+      else if ( electronModel === 'cloud' ) {
+        model.atom.electrons.forEach( electron => {
+          const electronView = this.mapParticlesToViews.get( electron );
+          affirm( electronView, 'Missing ParticleView for electron' );
+          electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
+            location: 'cloud'
           } );
         } );
       }
