@@ -55,7 +55,7 @@ export default class BAAParticleView extends ParticleView {
           return particleType;
         }
         else if ( location !== '' ) {
-          return StringUtils.fillIn( accessibleName, { particle: particleType, location: location } );
+          return StringUtils.fillIn( accessibleName, { particle: particleType, location: StringUtils.capitalize( location ) } );
         }
         else {
           return particleType;
