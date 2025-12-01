@@ -84,7 +84,7 @@ class ToElementChallengeView extends ChallengeView {
           BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
           this.challenge.isAnswerInteractiveProperty
         ),
-        pdomVisible: true,
+        accessibleVisible: true,
         cellAriaRoleDescription: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
       } ) );
     this.interactiveAnswerNode.addChild( this.periodicTable );

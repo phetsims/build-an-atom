@@ -217,7 +217,7 @@ class InteractiveSchematicAtom extends Node {
             affirm( particleView, 'ParticleView not found for extracted particle' );
 
             // Set the focus to the particle's view so that it can be manipulated via keyboard.
-            particleView.pdomVisible = true;
+            particleView.accessibleVisible = true;
             particleView.focusable = true;
             particleView.focus();
 
@@ -322,7 +322,7 @@ class InteractiveSchematicAtom extends Node {
 
       const particleView = new BAAParticleView( particle, modelViewTransform, {
         dragBounds: options.particleDragBounds,
-        pdomVisible: false,
+        accessibleVisible: false,
         enabledProperty: this.enabledProperty,
         tandem: particle.type === 'proton' ?
                 protonsGroupTandem.createNextTandem() :
@@ -338,10 +338,10 @@ class InteractiveSchematicAtom extends Node {
       // is being dragged.  This is for consistency between pointer and alt-input interactions.
       particle.isDraggingProperty.lazyLink( isDragging => {
         if ( isDragging ) {
-          particleView.pdomVisible = true;
+          particleView.accessibleVisible = true;
           particleView.focusable = true;
 
-          // Now that it's pdomVisible we can announce the grab.
+          // Now that it's accessibleVisible we can announce the grab.
           particleView.addAccessibleObjectResponse(
             ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
           );
@@ -406,7 +406,7 @@ class InteractiveSchematicAtom extends Node {
 
           // The particle was just placed into a bucket. Make sure that it is not focusable or visible in the PDOM.
           particleView.focusable = false;
-          particleView.pdomVisible = false;
+          particleView.accessibleVisible = false;
 
           // Update what is focusable in the atom now that a particle fully has left it.
           atomNode.updateParticleViewAltInputState();

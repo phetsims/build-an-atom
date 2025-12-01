@@ -41,7 +41,7 @@ class NonInteractiveSchematicAtomNode extends Node {
       atomViewProperties: AtomViewProperties.everythingOffAtomViewProperties,
       tandem: Tandem.OPT_OUT,
       excludeInvisibleChildrenFromBounds: true,
-      particlesPDOMVisible: false,
+      particlesAccessibleVisible: false,
       focusable: false
     } );
     this.addChild( atomNode );
@@ -59,7 +59,7 @@ class NonInteractiveSchematicAtomNode extends Node {
           const particleView = new ParticleView( particle, modelViewTransform, {
             tandem: Tandem.OPT_OUT,
             focusable: false,
-            pdomVisible: false,
+            accessibleVisible: false,
             focusHighlight: 'invisible'
           } );
           mapParticlesToViews.set( particle, particleView );

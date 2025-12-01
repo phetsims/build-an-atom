@@ -200,7 +200,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
               // The particle should become unfocusable since it is now in its home bucket.
               particleView.focusable = false;
-              particleView.pdomVisible = false;
+              particleView.accessibleVisible = false;
 
               // If this was the last electron in the atom and the electron model is set to "cloud", make the cloud
               // unfocusable.

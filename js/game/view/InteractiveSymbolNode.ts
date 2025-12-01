@@ -133,7 +133,7 @@ class InteractiveSymbolNode extends VBox {
       lineWidth: 2,
       fill: 'white',
       tagName: 'div',
-      pdomVisible: true,
+      accessibleVisible: true,
       accessibleHelpText: new DerivedStringProperty(
         [
           BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty,

@@ -46,7 +46,7 @@ class InteractiveParticleCountsNode extends Node {
       showArrowButtonsProperty: new BooleanProperty( true ),
       accessibleHelpTextBehavior: ParallelDOM.HELP_TEXT_BEFORE_CONTENT,
       tagName: 'div',
-      pdomVisible: true
+      accessibleVisible: true
     }, providedOptions );
 
     super( options );
