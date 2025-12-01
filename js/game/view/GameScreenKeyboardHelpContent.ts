@@ -11,8 +11,7 @@ import KeyboardHelpIconFactory from '../../../../scenery-phet/js/keyboard/help/K
 import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
-import LetterKeyNode from '../../../../scenery-phet/js/keyboard/LetterKeyNode.js';
-import TextKeyNode from '../../../../scenery-phet/js/keyboard/TextKeyNode.js';
+import CheckButton from '../../../../vegas/js/buttons/CheckButton.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ParticleNavigationHelpSection from '../../common/view/ParticleNavigationHelpSection.js';
@@ -24,11 +23,7 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
     const gameOptionsKeyboardHelpSection = new KeyboardHelpSection(
       BuildAnAtomStrings.a11y.common.keyboardHelpContent.gameOptionsStringProperty,
       [
-        KeyboardHelpSectionRow.labelWithIcon(
-          BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleNameStringProperty,
-          KeyboardHelpIconFactory.iconPlusIcon( TextKeyNode.altOrOption(), LetterKeyNode.c() ), {
-            labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.checkAnswerStringProperty
-          } )
+        KeyboardHelpSectionRow.fromHotkeyData( CheckButton.CHECK_ANSWER_HOTKEY_DATA )
       ] );
 
     const periodicTableNavigationHelpSection = new KeyboardHelpSection(
