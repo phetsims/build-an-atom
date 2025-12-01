@@ -12,6 +12,7 @@ import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
+import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/NumberAtom.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import ShredStrings from '../../../../../shred/js/ShredStrings.js';
@@ -57,24 +58,21 @@ class AtomDescriberAccessibleListNode extends Node {
   }
 
   public static createElementNameContextResponse(
-    protonCountProperty: TReadOnlyProperty<number>,
-    elementNameStringProperty: TReadOnlyProperty<string>
+    protonCountProperty: TReadOnlyProperty<number>
   ): TReadOnlyProperty<string> {
     return new DerivedStringProperty(
       [
         protonCountProperty,
-        elementNameStringProperty,
         BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
         BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protonCount: number,
-        elementNameString: string,
         checkedStringPattern: string,
         noElementString: string
       ) => {
         if ( protonCount > 0 ) {
-          return StringUtils.fillIn( checkedStringPattern, { name: StringUtils.capitalize( elementNameString ) } );
+          return StringUtils.fillIn( checkedStringPattern, { name: AtomIdentifier.getName( protonCount ).value } );
         }
         else {
           return noElementString;
@@ -267,8 +265,7 @@ class CheckboxesAccessibleListNode extends AccessibleListNode {
   ) {
 
     const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameContextResponse(
-      atom.protonCountProperty,
-      atom.elementNameStringProperty
+      atom.protonCountProperty
     );
 
     const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonContextResponse(

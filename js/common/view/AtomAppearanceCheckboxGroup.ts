@@ -12,11 +12,11 @@ import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
+import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import VerticalCheckboxGroup, { VerticalCheckboxGroupItem, VerticalCheckboxGroupOptions } from '../../../../sun/js/VerticalCheckboxGroup.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import AtomDescriberAccessibleListNode from './description/AtomDescriberAccessibleListNode.js';
 
 const LABEL_FONT = new PhetFont( 12 );
@@ -55,8 +55,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleContextResponseUnchecked: BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
 
           accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createElementNameContextResponse(
-            atom.protonCountProperty,
-            atom.elementNameStringProperty
+            atom.protonCountProperty
           )
         }
       },
