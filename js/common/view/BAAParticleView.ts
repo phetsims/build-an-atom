@@ -18,13 +18,14 @@ import ParticleView, { ParticleViewOptions } from '../../../../shred/js/view/Par
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAParticle from '../model/BAAParticle.js';
+import { ParticleLocations } from './InteractiveSchematicAtom.js';
 
 export type BAAParticleViewOptions = ParticleViewOptions;
 
 export default class BAAParticleView extends ParticleView {
 
   // For accessibility, we set the string of the current location of particles
-  public locationNameProperty: TProperty<string>;
+  public locationNameProperty: TProperty<ParticleLocations>;
 
   public constructor( particle: BAAParticle,
                       modelViewTransform: ModelViewTransform2,
@@ -41,7 +42,7 @@ export default class BAAParticleView extends ParticleView {
       type: particle.type
     } );
 
-    this.locationNameProperty = new Property<string>( '' );
+    this.locationNameProperty = new Property<ParticleLocations>( '' );
 
     this.accessibleName = new DerivedStringProperty(
       [
@@ -50,12 +51,15 @@ export default class BAAParticleView extends ParticleView {
         this.locationNameProperty,
         ShredStrings.a11y.particles.accessibleNameStringProperty
       ],
-      ( isDragging: boolean, particleType: string, location: string, accessibleName: string ) => {
+      ( isDragging: boolean, particleType: string, location: ParticleLocations, accessibleName: string ) => {
         if ( isDragging ) {
           return particleType;
         }
         else if ( location !== '' ) {
-          return StringUtils.fillIn( accessibleName, { particle: particleType, location: StringUtils.capitalize( location ) } );
+          return StringUtils.fillIn( accessibleName, {
+            particle: particleType,
+            location: ShredFluent.a11y.particles.locationCapitalized.format( { location: location } )
+          } );
         }
         else {
           return particleType;

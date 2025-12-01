@@ -24,7 +24,6 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import { ParticleContainer } from '../../../../phetcommon/js/model/ParticleContainer.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
@@ -64,7 +63,7 @@ type SelfOptions = {
 type InteractiveSchematicAtomOptions = SelfOptions & WithRequired<NodeOptions, 'tandem'>;
 
 // Possible locations for particles within the atom view, used for accessibility.
-export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud' | 'bucket';
+export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud' | 'bucket' | '';
 
 // constants
 const PARTICLE_TO_PLURAL = new Map<BAAParticleType, TReadOnlyProperty<string>>( [
@@ -414,7 +413,7 @@ class InteractiveSchematicAtom extends Node {
 
           if ( !model.resetting ) {
             contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
-              particle: StringUtils.capitalize( particle.type )
+              particle: ShredFluent.a11y.particles.type.format( { type: particle.type } )
             } );
             this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
           }
@@ -440,16 +439,16 @@ class InteractiveSchematicAtom extends Node {
             }
           }
 
-          particleView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
-            location: location
-          } );
+          particleView.locationNameProperty.value = location;
 
           if ( !model.resetting ) {
             contextResponse = BuildAnAtomFluent.a11y.common.particles.particleAddedTo.format( {
-              particle: StringUtils.capitalize( particle.type ),
+              particle: ShredFluent.a11y.particles.type.format( { type: particle.type } ),
               particles: PARTICLE_TO_PLURAL.get( particle.type )!,
               count: model.getParticleCountByType( particle.type ),
-              location: particleView.locationNameProperty.value
+              location: ShredFluent.a11y.particles.location.format( {
+                location: location
+              } )
             } );
 
             this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
@@ -485,27 +484,21 @@ class InteractiveSchematicAtom extends Node {
         innerShellElectrons.forEach( electron => {
           const electronView = this.mapParticlesToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
-            location: 'innerShell'
-          } );
+          electronView.locationNameProperty.value = 'innerShell';
         } );
 
         const outerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 1 );
         outerShellElectrons.forEach( electron => {
           const electronView = this.mapParticlesToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
-            location: 'outerShell'
-          } );
+          electronView.locationNameProperty.value = 'outerShell';
         } );
       }
       else if ( electronModel === 'cloud' ) {
         model.atom.electrons.forEach( electron => {
           const electronView = this.mapParticlesToViews.get( electron );
           affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.locationNameProperty.value = ShredFluent.a11y.particles.location.format( {
-            location: 'cloud'
-          } );
+          electronView.locationNameProperty.value = 'cloud';
         } );
       }
     } );
