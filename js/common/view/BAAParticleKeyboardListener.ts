@@ -11,6 +11,7 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
+import isResettingAllProperty from '../../../../scenery-phet/js/isResettingAllProperty.js';
 import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -307,14 +308,17 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       },
       blur: () => {
 
-        // If focus leaves this particle, release it and let the chips fall where they may (the model code should
-        // move the particle into the atom or back to a homeBucket).  However, DON'T do this if the particle is in the
-        // process of being removed from the atom via alt-input because blur events get triggered during that process
-        // due to layer changes.
-        if ( particle.isDraggingProperty.value && !isParticleBeingRemovedFromAtomViaAltInput ) {
+        // If focus leaves this particle, release it by setting isDragging to false and let the chips fall where they
+        // may (the model code should move the particle into the atom or back to a homeBucket).  However, DON'T do this
+        // if the particle is in the process of being removed from the atom via alt-input because blur events get
+        // triggered during that process due to layer changes.  Also, DON'T do this if a reset is in progress because
+        // the various cleanup activities will be handled elsewhere.
+        if ( particle.isDraggingProperty.value &&
+             !isParticleBeingRemovedFromAtomViaAltInput &&
+             !isResettingAllProperty.value
+        ) {
           particle.isDraggingProperty.value = false;
           releaseSoundPlayer.play();
-
 
           // When an electron is released back into the cloud during a blur event, the focus needs to be shifted from
           // the electron to the cloud.
