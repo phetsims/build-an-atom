@@ -34,7 +34,8 @@ class MassNumberDisplay extends Node {
   public constructor( massNumberProperty: TReadOnlyProperty<number>, providedOptions?: MassNumberDisplayOptions ) {
 
     const options = optionize<MassNumberDisplayOptions, SelfOptions, NodeOptions>()( {
-      showMassReadout: true
+      showMassReadout: true,
+      isDisposable: false
     }, providedOptions );
 
     super( options );

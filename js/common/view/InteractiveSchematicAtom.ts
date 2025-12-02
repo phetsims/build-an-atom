@@ -106,7 +106,8 @@ class InteractiveSchematicAtom extends Node {
         phetioVisiblePropertyInstrumented: false,
         particlesAccessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty,
         tandem: providedOptions.tandem.createTandem( 'atomNode' )
-      }
+      },
+      isDisposable: false
     }, providedOptions );
 
     super( options );

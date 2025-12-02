@@ -14,6 +14,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Disposable from '../../../../axon/js/Disposable.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
@@ -453,6 +454,10 @@ class GameModel implements TModel {
     this.timer.reset();
   }
 
+  // Disallow disposal
+  public dispose(): void {
+    Disposable.assertNotDisposable();
+  }
 }
 
 buildAnAtom.register( 'GameModel', GameModel );

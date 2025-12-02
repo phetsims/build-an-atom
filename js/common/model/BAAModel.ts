@@ -8,6 +8,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Disposable from '../../../../axon/js/Disposable.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TProperty from '../../../../axon/js/TProperty.js';
@@ -421,6 +422,11 @@ class BAAModel {
       bucket.addParticleFirstOpen( particle as BAAParticle, true );
       currentCountInAtom--;
     }
+  }
+
+  // Disallow disposal
+  public dispose(): void {
+    Disposable.assertNotDisposable();
   }
 
   public static readonly MAX_CHARGE = Math.max( MAX_PROTONS, MAX_ELECTRONS );

@@ -30,7 +30,9 @@ class PeriodicTableAndSymbol extends Node {
   public constructor( protonCountProperty: TReadOnlyProperty<number>,
                       providedOptions: PeriodicTableAndSymbolOptions ) {
 
-    const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
+    const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {
+      isDisposable: false
+    }, providedOptions );
 
     super( options );
 

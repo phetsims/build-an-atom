@@ -67,7 +67,8 @@ class InteractiveSymbolNode extends VBox {
       isChargeInteractive: false,
       showAtomName: true,
       showArrowButtonsProperty: new BooleanProperty( false ),
-      spacing: 10
+      spacing: 10,
+      isDisposable: false
     }, providedOptions );
 
     const contentNodes: Node[] = [];

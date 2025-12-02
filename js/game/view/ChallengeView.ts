@@ -95,6 +95,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   protected constructor( challenge: TChallenge, layoutBounds: Bounds2, tandem: Tandem ) {
     super( {
       tandem: tandem,
+      isDisposable: false,
       phetioVisiblePropertyInstrumented: false
     } );
     this.challenge = challenge;

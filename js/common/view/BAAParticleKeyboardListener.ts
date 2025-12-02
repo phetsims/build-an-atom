@@ -328,7 +328,8 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           }
         }
       },
-      tandem: tandem
+      tandem: tandem,
+      isDisposable: false
     } );
 
     // Watch the containerProperty of the particle for an indication of when the particle is extracted from the bucket

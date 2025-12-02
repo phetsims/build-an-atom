@@ -79,7 +79,8 @@ class BAANumberSpinner extends NumberSpinner {
 
       arrowButtonOptions: {
         phetioVisiblePropertyInstrumented: false
-      }
+      },
+      isDisposable: false
     }, providedOptions );
 
     options.arrowButtonOptions.visibleProperty = options.enabledProperty;

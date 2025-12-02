@@ -53,28 +53,31 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
       return BAAConstants.chargeToStringSignAfterValue( charge );
     } );
 
-    super( [
-      {
-        stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {
-          name: elementDynamicStringProperty
+    super(
+      [
+        {
+          stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {
+            name: elementDynamicStringProperty
+          } ),
+          visibleProperty: DerivedProperty.valueNotEqualsConstant( protonCountProperty, 0 )
+        },
+        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbol.createProperty( {
+          symbol: symbolStringProperty
         } ),
-        visibleProperty: DerivedProperty.valueNotEqualsConstant( protonCountProperty, 0 )
-      },
-      BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbol.createProperty( {
-        symbol: symbolStringProperty
-      } ),
-      BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumber.createProperty( {
-        protons: protonCountProperty
-      } ),
-      BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumber.createProperty( {
-        mass: massNumberProperty
-      } ),
-      BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.charge.createProperty( {
-        charge: chargeStringProperty
-      } )
-    ], {
-      leadingParagraphStringProperty: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty
-    } );
+        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumber.createProperty( {
+          protons: protonCountProperty
+        } ),
+        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumber.createProperty( {
+          mass: massNumberProperty
+        } ),
+        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.charge.createProperty( {
+          charge: chargeStringProperty
+        } )
+      ],
+      {
+        leadingParagraphStringProperty: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty
+      }
+    );
   }
 }
 

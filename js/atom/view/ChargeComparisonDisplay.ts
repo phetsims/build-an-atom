@@ -32,6 +32,7 @@ class ChargeComparisonDisplay extends Node {
   public constructor( particleAtom: ParticleAtom, providedOptions?: ChargeComparisonDisplayOptions ) {
 
     const options = optionize<ChargeComparisonDisplayOptions, SelfOptions, NodeOptions>()( {
+      isDisposable: false,
       tandem: Tandem.OPT_OUT
     }, providedOptions );
 

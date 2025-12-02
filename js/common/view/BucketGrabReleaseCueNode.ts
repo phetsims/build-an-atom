@@ -63,6 +63,7 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
 
     super( {
       visibleProperty: showThisCueProperty,
+      isDisposable: false,
       tandem: Tandem.OPT_OUT
     } );
 

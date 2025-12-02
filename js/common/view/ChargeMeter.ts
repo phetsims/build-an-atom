@@ -41,7 +41,8 @@ class ChargeMeter extends Node {
   public constructor( chargeProperty: TReadOnlyProperty<number>, providedOptions?: ChargeMeterOptions ) {
 
     const options = optionize<ChargeMeterOptions, SelfOptions, NodeOptions>()( {
-      showNumericalReadout: true
+      showNumericalReadout: true,
+      isDisposable: false
     }, providedOptions );
 
     super( options );
