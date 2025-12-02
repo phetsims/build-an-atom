@@ -150,8 +150,8 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
         if ( challenge.model.gameStateProperty.value === 'solvedCorrectly' ) {
           this.nextButton.focus();
           const contextResponseProperty = challenge.model.pointsProperty.value === 2 ?
-                                  BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty :
-                                  BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.correctSecondTryStringProperty;
+                                          BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty :
+                                          BuildAnAtomStrings.a11y.gameScreen.components.checkButton.accessibleContextResponses.correctSecondTryStringProperty;
           this.addAccessibleContextResponse( contextResponseProperty, { alertWhenNotDisplayed: true } );
         }
         else if ( challenge.model.gameStateProperty.value === 'attemptsExhausted' ) {

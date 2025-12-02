@@ -67,7 +67,7 @@ class AnswerAtom extends NumberAtom {
       }
     }
 
-   return particleCountsAreEqual && neutralOrIonIsEqual;
+    return particleCountsAreEqual && neutralOrIonIsEqual;
   }
 
   public reset(): void {

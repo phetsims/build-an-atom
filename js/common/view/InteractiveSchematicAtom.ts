@@ -476,33 +476,33 @@ class InteractiveSchematicAtom extends Node {
     );
 
     // When a particle is moving inwards to the nucleus, make sure all inner shell electrons are labeled appropriately
-      Multilink.multilink(
-        [ electronModelProperty, model.atom.isMovingElectronInwardsProperty ],
-        ( electronModel, isMovingInwards ) => {
+    Multilink.multilink(
+      [ electronModelProperty, model.atom.isMovingElectronInwardsProperty ],
+      ( electronModel, isMovingInwards ) => {
 
-      if ( isMovingInwards || electronModel === 'shells' ) {
-        const innerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 0 );
-        innerShellElectrons.forEach( electron => {
-          const electronView = this.mapParticlesToViews.get( electron );
-          affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.locationNameProperty.value = 'innerShell';
-        } );
+        if ( isMovingInwards || electronModel === 'shells' ) {
+          const innerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 0 );
+          innerShellElectrons.forEach( electron => {
+            const electronView = this.mapParticlesToViews.get( electron );
+            affirm( electronView, 'Missing ParticleView for electron' );
+            electronView.locationNameProperty.value = 'innerShell';
+          } );
 
-        const outerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 1 );
-        outerShellElectrons.forEach( electron => {
-          const electronView = this.mapParticlesToViews.get( electron );
-          affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.locationNameProperty.value = 'outerShell';
-        } );
-      }
-      else if ( electronModel === 'cloud' ) {
-        model.atom.electrons.forEach( electron => {
-          const electronView = this.mapParticlesToViews.get( electron );
-          affirm( electronView, 'Missing ParticleView for electron' );
-          electronView.locationNameProperty.value = 'cloud';
-        } );
-      }
-    } );
+          const outerShellElectrons = model.atom.electrons.filter( e => atomNode.getElectronShellNumber( e ) === 1 );
+          outerShellElectrons.forEach( electron => {
+            const electronView = this.mapParticlesToViews.get( electron );
+            affirm( electronView, 'Missing ParticleView for electron' );
+            electronView.locationNameProperty.value = 'outerShell';
+          } );
+        }
+        else if ( electronModel === 'cloud' ) {
+          model.atom.electrons.forEach( electron => {
+            const electronView = this.mapParticlesToViews.get( electron );
+            affirm( electronView, 'Missing ParticleView for electron' );
+            electronView.locationNameProperty.value = 'cloud';
+          } );
+        }
+      } );
 
     // Add the layers in the sequence needed for desired z-order and tab navigation order.
     this.addChild( bucketHoleLayer );

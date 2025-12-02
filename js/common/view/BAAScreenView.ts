@@ -45,7 +45,7 @@ class BAAScreenView extends ScreenView {
 
   // The periodic table accordion box, made protected so that subclasses can access it for layout purposes.
   protected readonly periodicTableAccordionBox: BuildAnAtomAccordionBox;
-  
+
   // The VBox that contains all accordion boxes on the right side of the screen, subclasses may add more boxes to this.
   protected readonly accordionBoxes: VBox;
 
