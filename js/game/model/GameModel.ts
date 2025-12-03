@@ -12,9 +12,9 @@
  * @author Agustín Vallejo
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Disposable from '../../../../axon/js/Disposable.js';
+import EnabledProperty from '../../../../axon/js/EnabledProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
@@ -226,8 +226,8 @@ class GameModel implements TModel {
     const timerTandem = tandem.createTandem( 'timer' );
     this.timer = new GameTimer( timerTandem );
 
-    this.timerEnabledProperty = new BooleanProperty( false, {
-      tandem: timerTandem.createTandem( 'enabledProperty' ),
+    this.timerEnabledProperty = new EnabledProperty( false, {
+      tandem: timerTandem.createTandem( EnabledProperty.TANDEM_NAME ),
       phetioDocumentation: 'Whether the timer will run while playing a level.',
       phetioFeatured: true
     } );
