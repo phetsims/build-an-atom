@@ -1,9 +1,10 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * A model of a set of subatomic particles - protons, neutrons, and electrons - that can be assembled into atoms.
+ * BAAModel is the main model class for the screens in this sim that have a single interactive atom and a set of
+ * buckets that contain subatomic particles that can be dragged into the atom.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  * @author Agustín Vallejo
  */
 
@@ -64,6 +65,8 @@ class BAAModel {
   public readonly protonBucket: SphereBucket<BAAParticle>;
   public readonly neutronBucket: SphereBucket<BAAParticle>;
   public readonly electronBucket: SphereBucket<BAAParticle>;
+
+  // The set of all buckets.
   public readonly buckets: SphereBucket<BAAParticle>[];
 
   // Properties that report the number of particles in each bucket. Used mostly for a11y.
@@ -78,13 +81,13 @@ class BAAModel {
   // Property that controls whether the nuclear instability is animated, meaning that it jumps around.
   public readonly animateNuclearInstabilityProperty: TProperty<boolean>;
 
-  // countdown for nucleus jump animation, in seconds
+  // Countdown for nucleus jump animation, in seconds.
   private nucleusJumpCountdown = NUCLEUS_JUMP_PERIOD;
 
-  // count for how many times the nucleus has jumped
+  // Count for how many times the nucleus has jumped.
   private nucleusJumpCount = 0;
 
-  // Flag to keep track of whether we are resetting to avoid redundant operations
+  // Flag to keep track of whether we are resetting to avoid redundant operations.
   public resetting = false;
 
   public constructor( providedOptions: BAAModelOptions ) {
@@ -321,6 +324,7 @@ class BAAModel {
     this.resetting = true;
 
     if ( isSettingPhetioStateProperty.value ) {
+
       // If we are setting the phet-io state, we don't want to reset the model.
       return;
     }
@@ -397,8 +401,10 @@ class BAAModel {
   private adjustParticleCountInAtom( particleType: BAAParticleType, targetCount: number ): void {
 
     // Make sure this is one of the particle types we handle.
-    assert && assert( particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
-      `Unhandled particle type: ${particleType}` );
+    affirm(
+      particleType === 'proton' || particleType === 'neutron' || particleType === 'electron',
+      `Unhandled particle type: ${particleType}`
+    );
 
     // Get the bucket and the current count of this particle type in the atom based on the particle type.
     const bucket = particleType === 'proton' ? this.protonBucket :

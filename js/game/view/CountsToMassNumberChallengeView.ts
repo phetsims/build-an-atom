@@ -4,7 +4,7 @@
  * Challenge where the user is presented with a set of counts for protons, neutrons, and electrons, and must determine
  * the mass number.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';

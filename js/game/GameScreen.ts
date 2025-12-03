@@ -3,7 +3,7 @@
 /**
  * The 'Game' screen in the 'Build an Atom' simulation. Conforms to the contract specified in joist/Screen.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Screen from '../../../joist/js/Screen.js';

@@ -4,7 +4,7 @@
  * Base class for the challenges used in the Build an Atom game. The general approach is that an atom is presented in
  * some way to the user, and the user must submit a correct guess about the atom's configuration.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

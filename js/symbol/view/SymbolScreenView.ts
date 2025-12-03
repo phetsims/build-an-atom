@@ -3,7 +3,7 @@
 /**
  * Main view for the "Symbol" screen of the Build an Atom simulation.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Text from '../../../../scenery/js/nodes/Text.js';

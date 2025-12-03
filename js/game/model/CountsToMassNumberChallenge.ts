@@ -4,7 +4,7 @@
  * Base type for challenges where the user is presented with a set of particle counts for an atom and must determine the
  * mass number.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';

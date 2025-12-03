@@ -4,7 +4,7 @@
  * Base type for views of challenges where the user is asked to identify the element on the periodic table and then
  * choose whether it is an ion or a neutral atom.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';

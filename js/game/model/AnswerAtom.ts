@@ -38,9 +38,9 @@ class AnswerAtom extends NumberAtom {
   }
 
   /**
-   * Utility method to determine equality between an user subitted atom and the correct answer atom.
-   * If the submitted one is of the type AnswerAtom, it contains information on wether it was said to be neutral or an ion.
-   * Otherwise, it is assumed to be a NumberAtom, and the neutralOrIon property is not considered but derived from the charge.
+   * Utility method to determine equality between a user submitted atom and the correct answer atom. If the submitted
+   * one is of the type AnswerAtom, it contains information on whether it was said to be neutral or an ion. Otherwise,
+   * it is assumed to be a NumberAtom, and the neutralOrIon property is not considered but derived from the charge.
    */
   public override equals( other: NumberAtom | AnswerAtom ): boolean {
     const particleCountsAreEqual = super.equals( other );

@@ -4,7 +4,7 @@
  * Base class for challenge views.  This type adds the titles, buttons, and the feedback node, and controls the
  * visibility based on the state of the challenge.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';

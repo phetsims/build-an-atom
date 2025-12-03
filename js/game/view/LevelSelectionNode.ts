@@ -3,7 +3,7 @@
 /**
  * A Scenery Node that allows the user to select which level to play.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';

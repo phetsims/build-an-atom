@@ -4,7 +4,7 @@
  * InteractiveSymbolNode is a Scenery Node that represents an element symbol where each of the numbers on the symbol,
  * i.e. proton count (aka atomic number), mass number, and charge, can potentially be interactive.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
@@ -120,7 +120,8 @@ class InteractiveSymbolNode extends VBox {
         [
           accessibleHelpText,
           options.showArrowButtonsProperty
-        ], ( helpText: string, showArrows: boolean ) => {
+        ],
+        ( helpText: string, showArrows: boolean ) => {
 
           // Only show help text when the symbol is not fully interactive and arrows are shown.
           return !isFullyInteractive && showArrows ? helpText : '';
@@ -139,7 +140,9 @@ class InteractiveSymbolNode extends VBox {
         [
           BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty,
           options.showArrowButtonsProperty
-        ], ( helpText: string, showArrows: boolean ) => {
+        ],
+        ( helpText: string, showArrows: boolean ) => {
+
           // Only show help text when the symbol is fully interactive and arrows are shown.
           return isFullyInteractive && showArrows ? helpText : '';
         }
@@ -204,7 +207,8 @@ class InteractiveSymbolNode extends VBox {
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
           accessibleHelpText: createDynamicHelpText(
-            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty ),
+            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty
+          ),
           enabledProperty: options.showArrowButtonsProperty
         }
       ) );
@@ -230,7 +234,8 @@ class InteractiveSymbolNode extends VBox {
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
           accessibleHelpText: createDynamicHelpText(
-            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty ),
+            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty
+          ),
           enabledProperty: options.showArrowButtonsProperty
         }
       ) );
@@ -258,7 +263,8 @@ class InteractiveSymbolNode extends VBox {
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
           accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
           accessibleHelpText: createDynamicHelpText(
-            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty ),
+            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty
+          ),
           enabledProperty: options.showArrowButtonsProperty
         }
       ) );

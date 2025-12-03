@@ -5,7 +5,7 @@
  * looks much like the atoms constructed on the 1st tab) and has to adjust some or all portions of an interactive
  * chemical symbol to match.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';

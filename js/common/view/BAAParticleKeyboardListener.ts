@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * BAAParticleKeyboardListener is a specialization of scenery's KeyboardListener that handles keystrokes far alt-input
+ * BAAParticleKeyboardListener is a specialization of scenery's KeyboardListener that handles keystrokes for alt-input
  * that occur when the user is focused on a particle.
  *
  * @author John Blanco (PhET Interactive Simulations)

@@ -1,9 +1,9 @@
 // Copyright 2017-2025, University of Colorado Boulder
 
 /**
- * The 'Build an Atom' screen in the 'Build an Atom' simulation. Conforms to the contract specified in joist/Screen.
+ * The 'Atom' screen in the 'Build an Atom' simulation. Conforms to the contract specified in joist/Screen.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Screen from '../../../joist/js/Screen.js';

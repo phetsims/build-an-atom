@@ -4,7 +4,7 @@
  * Base type for challenges where the user is presented with some sort of information about an atom and must find the
  * atom on a periodic table, and must also determine whether it is an ion or a neutral atom.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';

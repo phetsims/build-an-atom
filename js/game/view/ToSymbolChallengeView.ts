@@ -4,7 +4,7 @@
  * Base type for views of challenges where the user is asked to configure an interactive symbol (basically like a cell
  * in the periodic table) to be correct based on provided information about the atom.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';

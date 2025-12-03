@@ -5,7 +5,7 @@
  * number), mass number, and charge, and needs to determine the number of protons, neutrons, and electrons that comprise
  * the atom.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';

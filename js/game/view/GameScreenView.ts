@@ -3,7 +3,7 @@
 /**
  * Main view for the game screen of the Build an Atom simulation.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';

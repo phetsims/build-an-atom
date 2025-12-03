@@ -3,7 +3,7 @@
 /**
  * Node for entering numbers of protons, neutrons, electrons.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

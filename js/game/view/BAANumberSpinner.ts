@@ -3,7 +3,7 @@
 /**
  * Node that allows a user to enter a numerical value using up/down arrow buttons.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Property from '../../../../axon/js/Property.js';

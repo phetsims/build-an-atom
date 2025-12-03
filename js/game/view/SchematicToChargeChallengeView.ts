@@ -4,7 +4,7 @@
  * Visual representation of a challenge where the user is presented with a schematic representation of an atom (which
  * looks much like the atoms constructed on the 1st tab), and must determine that atom's charge.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';

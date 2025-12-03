@@ -4,7 +4,7 @@
  * Challenge where the user is presented with a schematic representation of an atom (which looks much like the atoms
  * constructed on the 1st tab), and must determine the mass number.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';

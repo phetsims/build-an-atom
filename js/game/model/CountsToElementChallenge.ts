@@ -4,7 +4,7 @@
  * Challenge where the user is presented with a set of counts for protons, neutrons, and electrons, and must find the
  * represented element on a periodic table.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';

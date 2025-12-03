@@ -3,7 +3,7 @@
 /**
  * Node that adds a scale image and a charge meter to the left and right side of the symbol node, respectively.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  * @author Luisa Vargas
  */
 

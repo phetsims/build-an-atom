@@ -1,8 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Type that represents a change meter that displays the charge of the
- * provided atom.
+ * ChargeMeter is a Scener Node that represents a meter that displays the charge of the provided atom.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -26,9 +25,9 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../BAAColors.js';
 
 // constants
-const WIDTH = 70; // In screen coords, which are roughly pixels.
-const _MAX_CHARGE = 10;
-const SYMBOL_LINE_WIDTH = 0.8; // In screen coords, which are roughly pixels.
+const WIDTH = 70; // in screen coords, which are roughly pixels
+const MAX_CHARGE = 10;
+const SYMBOL_LINE_WIDTH = 0.8; // in screen coords, which are roughly pixels
 
 type SelfOptions = {
   showNumericalReadout?: boolean;
@@ -136,7 +135,7 @@ class ChargeMeter extends Node {
 
     // Add the listeners that will update the meter and numerical display when the charge changes.
     chargeProperty.link( charge => {
-      meterNeedle.rotation = ( charge / _MAX_CHARGE ) * Math.PI * 0.4;
+      meterNeedle.rotation = ( charge / MAX_CHARGE ) * Math.PI * 0.4;
 
       if ( numericalReadout !== undefined ) {
         let sign = '';

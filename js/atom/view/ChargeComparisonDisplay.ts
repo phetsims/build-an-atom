@@ -3,7 +3,7 @@
 /**
  * A node that presents a comparison of the protons and electrons in an atom in order to make the net charge apparent.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Shape from '../../../../kite/js/Shape.js';

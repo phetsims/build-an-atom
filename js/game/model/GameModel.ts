@@ -8,8 +8,8 @@
  *    Level - a single level in the game, which consists of multiple challenges
  *    Challenge - a single challenge in a level, which consists of a question and an answer
  *
+ * @author John Blanco (PhET Interactive Simulations)
  * @author Agustín Vallejo
- * @author John Blanco
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

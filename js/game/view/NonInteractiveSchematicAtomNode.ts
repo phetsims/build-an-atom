@@ -3,7 +3,7 @@
 /**
  * A non-interactive representation of an atom where the individual subatomic particles are visible.
  *
- * @author John Blanco
+ * @author John Blanco (PhET Interactive Simulations)
  */
 
 import Multilink from '../../../../axon/js/Multilink.js';
