@@ -10,6 +10,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import GatedVisibleProperty from '../../../../axon/js/GatedVisibleProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -178,7 +179,7 @@ class GameScreenView extends ScreenView {
         }
 
         const level = gameModel.levelProperty.value;
-        assert && assert( level, 'Level should be defined when gameState is levelCompleted' );
+        affirm( level, 'Level should be defined when gameState is levelCompleted' );
 
         // Add the dialog node that indicates that the level has been completed.
         this.levelCompletedNode && this.levelCompletedNode.dispose(); // Dispose of the previous level completed node if it exists.
@@ -189,8 +190,8 @@ class GameScreenView extends ScreenView {
           GameModel.CHALLENGES_PER_LEVEL,
           gameModel.timerEnabledProperty.value,
           gameModel.timer.elapsedTimeProperty.value,
-          level!.bestTimeProperty.value === 0 ? null : level!.bestTimeProperty.value,
-          level!.isNewBestTimeProperty.value,
+          level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
+          level.isNewBestTimeProperty.value,
           () => { gameModel.levelProperty.reset(); }, {
             centerX: this.layoutBounds.width / 2,
             centerY: this.layoutBounds.height / 2,
@@ -211,7 +212,7 @@ class GameScreenView extends ScreenView {
 
         // The game is in the middle of presenting a challenge to the user, so pass the state change to the challenge
         // view.  This will perform updates like showing the feedback nodes, updating button states, etc.
-        assert && assert( this.activeChallengeView || isSettingPhetioStateProperty.value,
+        affirm( this.activeChallengeView || isSettingPhetioStateProperty.value,
           `activeChallengeView should be defined in this game state: ${gameState}` );
         if ( this.activeChallengeView ) {
           this.activeChallengeView.handleStateChange( gameState );

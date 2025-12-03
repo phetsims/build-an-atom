@@ -279,9 +279,9 @@ class BAAModel {
 
     if ( options.isInitialAtomConfigurable ) {
 
-      assert && assert( BAAQueryParameters.protons <= MAX_PROTONS, 'Proton count exceeds maximum allowed' );
-      assert && assert( BAAQueryParameters.neutrons <= MAX_NEUTRONS, 'Neutron count exceeds maximum allowed' );
-      assert && assert( BAAQueryParameters.electrons <= MAX_ELECTRONS, 'Electron count exceeds maximum allowed' );
+      affirm( BAAQueryParameters.protons <= MAX_PROTONS, 'Proton count exceeds maximum allowed' );
+      affirm( BAAQueryParameters.neutrons <= MAX_NEUTRONS, 'Neutron count exceeds maximum allowed' );
+      affirm( BAAQueryParameters.electrons <= MAX_ELECTRONS, 'Electron count exceeds maximum allowed' );
 
       this.setAtomConfiguration( new NumberAtom( {
         protonCount: BAAQueryParameters.protons,

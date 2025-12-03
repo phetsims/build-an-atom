@@ -281,7 +281,7 @@ class GameModel implements TModel {
     this.resetToStart();
 
     const level = this.levelProperty.value!;
-    assert && assert( level, 'Cannot start the level if no level is selected' );
+    affirm( level, 'Cannot start the level if no level is selected' );
 
     // Set the challenge back to the first one.
     this.challengeNumberProperty.reset();
@@ -299,7 +299,7 @@ class GameModel implements TModel {
   public check( submittedAnswer: AnswerAtom ): void {
 
     const level = this.levelProperty.value!;
-    assert && assert( level );
+    affirm( level );
 
     this.attemptsProperty.value++;
     const attempts = this.attemptsProperty.value;
@@ -335,7 +335,7 @@ class GameModel implements TModel {
   public next(): void {
 
     const level = this.levelProperty.value!;
-    assert && assert( level );
+    affirm( level );
 
     if ( !level.isLastChallenge() ) {
 
@@ -420,7 +420,7 @@ class GameModel implements TModel {
   public getChallengeByDescriptor( challengeDescriptor: ChallengeDescriptor ): BAAGameChallenge {
     const challengeType: ChallengeType = challengeDescriptor.type;
     const correctAnswerAtom = challengeDescriptor.atomValue;
-    assert && assert( this.challengeTypeToInstanceMap.has( challengeType ),
+    affirm( this.challengeTypeToInstanceMap.has( challengeType ),
       `No challenge of type ${challengeType} exists in the game` );
 
     const challenge = this.challengeTypeToInstanceMap.get( challengeType )!;
@@ -431,7 +431,7 @@ class GameModel implements TModel {
   private setChallenge( challengeNumber: number ): void {
 
     const level = this.levelProperty.value!;
-    assert && assert( level, 'Can\'t set next challenge unless a level is selected.' );
+    affirm( level, 'Can\'t set next challenge unless a level is selected.' );
 
     // Reset the number of attempts made.
     this.attemptsProperty.value = 0;

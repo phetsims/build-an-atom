@@ -11,6 +11,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -51,7 +52,7 @@ class GameLevel extends PhetioObject {
     providedOptions: GameLevelOptions
   ) {
 
-    assert && assert( levelNumber > 0, 'The levelNumber parameter should be greater than zero.' );
+    affirm( levelNumber > 0, 'The levelNumber parameter should be greater than zero.' );
 
     const options = optionize<GameLevelOptions, SelfOptions, PhetioObjectOptions>()( {
 

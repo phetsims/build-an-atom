@@ -12,6 +12,7 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -108,7 +109,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.gameAudioPlayer = new GameAudioPlayer();
 
     // Layout assumes that bounds start at (0,0), so verify that this is true.
-    assert && assert( layoutBounds.minX === 0 && layoutBounds.minY === 0 );
+    affirm( layoutBounds.minX === 0 && layoutBounds.minY === 0 );
 
     // Add the parent nodes where subclasses will add the challenge presentation and the interactive controls.
     this.challengePresentationNode = new Node();

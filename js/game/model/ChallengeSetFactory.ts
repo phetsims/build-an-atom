@@ -7,6 +7,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
@@ -65,7 +66,7 @@ export default class ChallengeSetFactory {
     // like if the number of challengeDescriptors per level is very high.  This assertion checks that, and if it is hit during
     // testing we should investigate and fix it.  If this case were hit in the published version, there would just be
     // fewer challengeDescriptors than expected, which isn't great but not a disaster.
-    assert && assert(
+    affirm(
       challengeDescriptors.length === GameModel.CHALLENGES_PER_LEVEL,
       `expected ${GameModel.CHALLENGES_PER_LEVEL} challenges, but got ${challengeDescriptors.length}`
     );

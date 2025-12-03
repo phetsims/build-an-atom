@@ -8,6 +8,7 @@
  * @author Agustín Vallejo
  */
 
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import NumberAtom, { NumberAtomOptions } from '../../../../shred/js/model/NumberAtom.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -62,7 +63,7 @@ class AnswerAtom extends NumberAtom {
         neutralOrIonIsEqual = other.chargeProperty.value !== 0;
       }
       else {
-        assert && assert( this.neutralOrIon === 'neutral', `unexpected value for neutralOrIon: ${this.neutralOrIon}` );
+        affirm( this.neutralOrIon === 'neutral', `unexpected value for neutralOrIon: ${this.neutralOrIon}` );
         neutralOrIonIsEqual = other.chargeProperty.value === 0;
       }
     }
