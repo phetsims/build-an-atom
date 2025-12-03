@@ -24,7 +24,8 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
       BuildAnAtomStrings.a11y.common.keyboardHelpContent.gameOptionsStringProperty,
       [
         KeyboardHelpSectionRow.fromHotkeyData( CheckButton.CHECK_ANSWER_HOTKEY_DATA )
-      ] );
+      ]
+    );
 
     const periodicTableNavigationHelpSection = new KeyboardHelpSection(
       BuildAnAtomStrings.a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty,
@@ -34,7 +35,8 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
           KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon(), {
             labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty
           } )
-      ] );
+      ]
+    );
 
     // sections in the left column
     const leftSections = [

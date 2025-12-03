@@ -1,7 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Node that adds a scale image and a charge meter to the left and right side of the symbol node, respectively.
+ * Node that adds an image of a scale and a charge meter to the left and right side of the symbol node, respectively.
  *
  * @author John Blanco (PhET Interactive Simulations)
  * @author Luisa Vargas

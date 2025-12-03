@@ -117,9 +117,7 @@ class InteractiveParticleCountsNode extends Node {
       align: 'right'
     } );
     this.addChild( particleCountsNode );
-
   }
-
 
   public reset(): void {
     this.submittedAnswerAtom.protonCountProperty.reset();

@@ -4,7 +4,17 @@
 
 ## Table of Contents
 
-TODO
+<!-- TOC -->
+* [Build an Atom - Implementation Notes](#build-an-atom---implementation-notes)
+  * [Table of Contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Overview](#overview)
+  * [General Considerations](#general-considerations)
+  * [The "Atom" and "Symbol" Screens](#the-atom-and-symbol-screens)
+  * [Game Screen](#game-screen)
+  * [PhET-iO Implementation](#phet-io-implementation)
+  * [Alt-Input and Core Description](#alt-input-and-core-description)
+<!-- TOC -->
 
 ## Introduction
 
@@ -92,9 +102,9 @@ Much of that code is in the `BAAParticleView` class, and studying that class is 
 is implemented in this sim.
 
 The core description implementation required the addition of many strings to the sim for screen reader users, and these
-strings had to be dynamic so that they would update as the state of the sim changes.  Heavy use of Fluent was used in
-the strings file to support these strings.  These strings are added to nodes in the scene graph using a11y-related
-options such as `accessibleName`, `accessibleHelpText`, `accessibleParagraph`, etc.  A class was created with a set of
-static methods to help generate these strings, called `AtomDescriberAccessibleListNode`.  This follows a pattern used
-elsewhere in the PhET codebase for core description, which enables much of the string creation logic to be centralized
-in one place.
+strings had to be dynamic so that they would update as the state of the sim changes. Heavy use of Fluent was used in the
+strings file to support these strings. These strings are added to nodes in the scene graph using a11y-related options
+such as `accessibleName`, `accessibleHelpText`, `accessibleParagraph`, etc. Classes was created with a set of static
+methods to help generate these strings, such as `AtomDescriberAccessibleListNode` and `SymbolAccessibleListNode`. This
+follows a pattern used elsewhere in the PhET codebase for core description, which enables much of the string creation
+logic to be centralized in one place.
