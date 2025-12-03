@@ -90,9 +90,11 @@ class InteractiveSchematicAtom extends Node {
   // reference to the model, which contains the buckets, particles, and atom
   private model: BAAModel;
 
-  public constructor( model: BAAModel,
-                      modelViewTransform: ModelViewTransform2,
-                      providedOptions: InteractiveSchematicAtomOptions ) {
+  public constructor(
+    model: BAAModel,
+    modelViewTransform: ModelViewTransform2,
+    providedOptions: InteractiveSchematicAtomOptions
+  ) {
 
     const options = optionize<InteractiveSchematicAtomOptions, SelfOptions, NodeOptions>()( {
       particleDragBounds: Bounds2.EVERYTHING,
@@ -332,8 +334,17 @@ class InteractiveSchematicAtom extends Node {
                 electronsGroupTandem.createNextTandem()
       } );
 
-      particleLayer.addChild( particleView );
       this.mapParticlesToViews.set( particle, particleView );
+
+      // Add the particle to the appropriate parent.  Since it is possible for the model atom to have particles in it
+      // at startup, we need to check the container property to determine where to add it.
+      affirm( particle.containerProperty.value, 'Particle must be in a container at startup.' );
+      if ( particle.containerProperty.value === model.atom ) {
+        atomNode.addParticleView( particleView, false );
+      }
+      else {
+        particleLayer.addChild( particleView );
+      }
 
       // Add a listener that makes sure that this particle view is visible in the PDOM and focusable when the particle
       // is being dragged.  This is for consistency between pointer and alt-input interactions.
@@ -359,7 +370,7 @@ class InteractiveSchematicAtom extends Node {
       // atom node based on where the particle model is and what it's doing. The following listener moves it back and
       // forth as needed.  It's necessary to change parent nodes like this to support alt-input group behavior in the
       // atom node.
-      Multilink.multilink(
+      Multilink.lazyMultilink(
         [ particle.containerProperty, particle.isDraggingProperty ],
         ( container, isDragging ) => {
 
@@ -418,8 +429,6 @@ class InteractiveSchematicAtom extends Node {
             } );
             this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
           }
-
-
         }
         else if ( newContainer === model.atom ) {
 
