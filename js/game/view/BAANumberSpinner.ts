@@ -91,7 +91,6 @@ class BAANumberSpinner extends NumberSpinner {
              BAAConstants.chargeToStringSignBeforeValue( value, options.showPlusForPositive );
     };
 
-
     // Creating the formatter here in order to use the options
     options.numberDisplayOptions.numberFormatter = signNumberFormatter;
     options.createAriaValueText = signNumberFormatter;
