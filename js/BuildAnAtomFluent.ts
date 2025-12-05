@@ -56,6 +56,7 @@ addToMapIfDefined( 'protons', 'protonsStringProperty' );
 addToMapIfDefined( 'show', 'showStringProperty' );
 addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
+addToMapIfDefined( 'chargeNotation', 'chargeNotationStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_particleNavigationHeading', 'a11y.common.keyboardHelpContent.particleNavigationHeadingStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_grabOrRelease', 'a11y.common.keyboardHelpContent.grabOrReleaseStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_grabOrReleaseDescription', 'a11y.common.keyboardHelpContent.grabOrReleaseDescriptionStringProperty' );
@@ -248,6 +249,7 @@ const BuildAnAtomFluent = {
   showStringProperty: _.get( BuildAnAtomStrings, 'showStringProperty' ),
   chooseYourGameStringProperty: _.get( BuildAnAtomStrings, 'chooseYourGameStringProperty' ),
   gamesInfoTitleStringProperty: _.get( BuildAnAtomStrings, 'gamesInfoTitleStringProperty' ),
+  chargeNotationStringProperty: _.get( BuildAnAtomStrings, 'chargeNotationStringProperty' ),
   level1DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level1DescriptionPatternStringProperty' ),
   level2DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level2DescriptionPatternStringProperty' ),
   level3DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level3DescriptionPatternStringProperty' ),

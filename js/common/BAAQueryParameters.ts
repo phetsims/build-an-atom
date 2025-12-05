@@ -10,8 +10,17 @@ import { QueryStringMachine } from '../../../query-string-machine/js/QueryString
 import getGameLevelsSchema from '../../../vegas/js/getGameLevelsSchema.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BAAConstants from './BAAConstants.js';
+import { ChargeNotationValues } from './model/ChargeNotation.js';
 
 const BAAQueryParameters = QueryStringMachine.getAll( {
+
+  // Initial value of the 'Charge Notation' preference. See https://github.com/phetsims/build-an-atom/issues/434.
+  chargeNotation: {
+    public: true,
+    type: 'string',
+    validValues: ChargeNotationValues,
+    defaultValue: 'signLast'
+  },
 
   // shows the game reward regardless of score
   reward: { type: 'flag' },

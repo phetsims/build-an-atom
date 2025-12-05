@@ -31,11 +31,11 @@ protons: "Protons"
 show: "Show"
 chooseYourGame: "Choose Your Level!"
 gamesInfoTitle: "Levels"
+chargeNotation: "Charge Notation"
 level1DescriptionPattern: "<b>Level {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
 level2DescriptionPattern: "<b>Level {{levelNumber}}:</b> Calculate mass or charge <br>"
 level3DescriptionPattern: "<b>Level {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
 level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
-
 
 a11y:
   common:

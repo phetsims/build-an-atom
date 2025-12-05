@@ -47,6 +47,7 @@ type StringsType = {
   'showStringProperty': LocalizedStringProperty;
   'chooseYourGameStringProperty': LocalizedStringProperty;
   'gamesInfoTitleStringProperty': LocalizedStringProperty;
+  'chargeNotationStringProperty': LocalizedStringProperty;
   'level1DescriptionPatternStringProperty': LocalizedStringProperty;
   'level2DescriptionPatternStringProperty': LocalizedStringProperty;
   'level3DescriptionPatternStringProperty': LocalizedStringProperty;

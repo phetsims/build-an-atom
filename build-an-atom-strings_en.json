@@ -98,6 +98,9 @@
   "gamesInfoTitle": {
     "value": "Levels"
   },
+  "chargeNotation": {
+    "value": "Charge Notation"
+  },
   "level1DescriptionPattern": {
     "value": "<b>Level {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
   },

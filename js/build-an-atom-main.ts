@@ -6,11 +6,14 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
+import BAAPreferences from './common/model/BAAPreferences.js';
+import BAAPreferencesNode from './common/view/BAAPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
@@ -27,6 +30,7 @@ simLauncher.launch( () => {
   ];
 
   const options: SimOptions = {
+
     credits: {
       leadDesign: 'Kelly Lancaster',
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid, Agust\u00edn Vallejo',
@@ -37,6 +41,15 @@ simLauncher.launch( () => {
                         'Matthew Moore, Elise Morgan, Valentina P\u00e9rez, Ben Roberts, Kathryn Woessner',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     },
+
+    // Preferences
+    preferencesModel: new PreferencesModel( {
+      simulationOptions: {
+        customPreferences: [ {
+          createContent: tandem => new BAAPreferencesNode( BAAPreferences.instance, tandem )
+        } ]
+      }
+    } ),
 
     phetioDesigned: true
   };
