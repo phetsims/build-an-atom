@@ -29,7 +29,7 @@ export default class BAAPreferences {
       BAAQueryParameters.chargeNotation as ChargeNotation,
       {
         validValues: ChargeNotationValues,
-        tandem: Tandem.PREFERENCES.createTandem( 'chargeNotation' ),
+        tandem: Tandem.PREFERENCES.createTandem( 'chargeNotationProperty' ),
         phetioDocumentation: 'Whether to display charge of atoms with sign on left or right.',
         phetioFeatured: true
       }
