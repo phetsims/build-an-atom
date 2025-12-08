@@ -52,6 +52,9 @@ type StringsType = {
   'level2DescriptionPatternStringProperty': LocalizedStringProperty;
   'level3DescriptionPatternStringProperty': LocalizedStringProperty;
   'level4DescriptionPatternStringProperty': LocalizedStringProperty;
+  'preferences': {
+    'chargeNotationSelectorLabelStringProperty': LocalizedStringProperty;
+  };
   'a11y': {
     'common': {
       'keyboardHelpContent': {
@@ -305,6 +308,17 @@ type StringsType = {
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
           'builtAtomHelpTextStringProperty': LocalizedStringProperty;
         }
+      }
+    };
+    'preferences': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'signFirst': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      };
+      'signLast': {
+        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     }
   }

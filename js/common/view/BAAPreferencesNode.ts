@@ -27,7 +27,6 @@ export default class BAAPreferencesNode extends GridBox {
 
   public constructor( preferences: BAAPreferences, tandem: Tandem ) {
 
-    // TODO: See https://github.com/phetsims/build-an-atom/issues/434.  Make translatable and add description.
     const label = new Text( BuildAnAtomStrings.chargeNotationStringProperty, { font: LABEL_FONT } );
 
     const radioButtonItems: AquaRadioButtonGroupItem<ChargeNotation>[] = [
@@ -35,7 +34,7 @@ export default class BAAPreferencesNode extends GridBox {
         value: 'signLast',
         createNode: () => new Text( `n${MathSymbols.PLUS_MINUS}`, RADIO_BUTTON_LABEL_OPTIONS ),
         options: {
-          accessibleName: 'TBD'
+          accessibleName: BuildAnAtomStrings.a11y.preferences.signLast.accessibleNameStringProperty
         },
         tandemName: 'signLastRadioButton'
       },
@@ -43,7 +42,7 @@ export default class BAAPreferencesNode extends GridBox {
         value: 'signFirst',
         createNode: () => new Text( `${MathSymbols.PLUS_MINUS}n`, RADIO_BUTTON_LABEL_OPTIONS ),
         options: {
-          accessibleName: 'TBD'
+          accessibleName: BuildAnAtomStrings.a11y.preferences.signFirst.accessibleNameStringProperty
         },
         tandemName: 'signFirstRadioButton'
       }
@@ -66,11 +65,12 @@ export default class BAAPreferencesNode extends GridBox {
     super( {
       rows: [
         [ label, radioButtonGroup ],
-        [ new Text( 'Choose sign convention for charges', { font: TEXT_FONT } ), null ]
+        [ new Text( BuildAnAtomStrings.preferences.chargeNotationSelectorLabelStringProperty, { font: TEXT_FONT } ), null ]
       ],
       xAlign: 'left',
       xSpacing: 50,
-      ySpacing: 5
+      ySpacing: 5,
+      accessibleHelpText: BuildAnAtomStrings.a11y.preferences.accessibleHelpTextStringProperty
     } );
   }
 }

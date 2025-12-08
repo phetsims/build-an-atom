@@ -10,6 +10,7 @@ import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
 import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -57,6 +58,7 @@ addToMapIfDefined( 'show', 'showStringProperty' );
 addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'chargeNotation', 'chargeNotationStringProperty' );
+addToMapIfDefined( 'preferences_chargeNotationSelectorLabel', 'preferences.chargeNotationSelectorLabelStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_particleNavigationHeading', 'a11y.common.keyboardHelpContent.particleNavigationHeadingStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_grabOrRelease', 'a11y.common.keyboardHelpContent.grabOrReleaseStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_grabOrReleaseDescription', 'a11y.common.keyboardHelpContent.grabOrReleaseDescriptionStringProperty' );
@@ -201,6 +203,11 @@ addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_accessibleParag
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_correctAnswerParagraph', 'a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_accessibleHelpText', 'a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_builtAtomHelpText', 'a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_preferences_accessibleHelpText', 'a11y.preferences.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_preferences_signFirst_accessibleName', 'a11y.preferences.signFirst.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_preferences_signFirst_accessibleHelpText', 'a11y.preferences.signFirst.accessibleHelpTextStringProperty' );
+addToMapIfDefined( 'a11y_preferences_signLast_accessibleName', 'a11y.preferences.signLast.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_preferences_signLast_accessibleHelpText', 'a11y.preferences.signLast.accessibleHelpTextStringProperty' );
 
 // A function that creates contents for a new Fluent file, which will be needed if any string changes.
 const createFluentFile = (): string => {
@@ -254,6 +261,10 @@ const BuildAnAtomFluent = {
   level2DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level2DescriptionPatternStringProperty' ),
   level3DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level3DescriptionPatternStringProperty' ),
   level4DescriptionPatternStringProperty: _.get( BuildAnAtomStrings, 'level4DescriptionPatternStringProperty' ),
+  _comment_0: new FluentComment( {"comment":"Preferences","associatedKey":"preferences"} ),
+  preferences: {
+    chargeNotationSelectorLabelStringProperty: _.get( BuildAnAtomStrings, 'preferences.chargeNotationSelectorLabelStringProperty' )
+  },
   a11y: {
     common: {
       keyboardHelpContent: {
@@ -507,6 +518,18 @@ const BuildAnAtomFluent = {
           accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty' ) ),
           builtAtomHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToSchematic_builtAtomHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty' ) )
         }
+      }
+    },
+    _comment_0: new FluentComment( {"comment":"Preferences","associatedKey":"preferences"} ),
+    preferences: {
+      accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.preferences.accessibleHelpTextStringProperty' ) ),
+      signFirst: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_signFirst_accessibleName', _.get( BuildAnAtomStrings, 'a11y.preferences.signFirst.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_signFirst_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.preferences.signFirst.accessibleHelpTextStringProperty' ) )
+      },
+      signLast: {
+        accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_signLast_accessibleName', _.get( BuildAnAtomStrings, 'a11y.preferences.signLast.accessibleNameStringProperty' ) ),
+        accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_signLast_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.preferences.signLast.accessibleHelpTextStringProperty' ) )
       }
     }
   }

@@ -113,6 +113,11 @@
   "level4DescriptionPattern": {
     "value": "<b>Level {{levelNumber}}:</b> Mixed review"
   },
+  "preferences": {
+    "chargeNotationSelectorLabel": {
+      "value": "Choose sign convention for charges"
+    }
+  },
   "a11y": {
     "common": {
       "keyboardHelpContent": {
@@ -673,6 +678,27 @@
           "builtAtomHelpText": {
             "value": "Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. \n Once grabbed use W or S key to change location or delete to return to bucket."
           }
+        }
+      }
+    },
+    "preferences": {
+      "accessibleHelpText": {
+        "value": "Choose sign convention for charges."
+      },
+      "signFirst": {
+        "accessibleName": {
+          "value": "Sign First"
+        },
+        "accessibleHelpText": {
+          "value": "number last"
+        }
+      },
+      "signLast": {
+        "accessibleName": {
+          "value": "Sign Last"
+        },
+        "accessibleHelpText": {
+          "value": "number first"
         }
       }
     }

@@ -37,6 +37,10 @@ level2DescriptionPattern: "<b>Level {{levelNumber}}:</b> Calculate mass or charg
 level3DescriptionPattern: "<b>Level {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
 level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
 
+# Preferences
+preferences:
+  chargeNotationSelectorLabel: "Choose sign convention for charges"
+
 a11y:
   common:
     keyboardHelpContent:
@@ -351,4 +355,12 @@ a11y:
         builtAtomHelpText: |-
           Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
            Once grabbed use W or S key to change location or delete to return to bucket.
+  preferences:
+    accessibleHelpText: "Choose sign convention for charges."
+    signFirst:
+      accessibleName: "Sign First"
+      accessibleHelpText: "number last"
+    signLast:
+      accessibleName: "Sign Last"
+      accessibleHelpText: "number first"
 
