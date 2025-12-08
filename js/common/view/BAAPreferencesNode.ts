@@ -9,29 +9,26 @@
 
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import GridBox from '../../../../scenery/js/layout/nodes/GridBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAPreferences from '../model/BAAPreferences.js';
 import { ChargeNotation } from '../model/ChargeNotation.js';
-import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 
-const RADIO_BUTTON_LABEL_OPTIONS = {
-  font: new PhetFont( 20 ),
-  maxWidth: 200
-};
+const FONT_SIZE = 16;
+const TEXT_FONT = new PhetFont( FONT_SIZE );
+const LABEL_FONT = new PhetFont( { size: FONT_SIZE, weight: 'bold' } );
+const RADIO_BUTTON_LABEL_OPTIONS = { font: TEXT_FONT, maxWidth: 200 };
 
-export default class BAAPreferencesNode extends VBox {
+export default class BAAPreferencesNode extends GridBox {
 
   public constructor( preferences: BAAPreferences, tandem: Tandem ) {
 
     // TODO: See https://github.com/phetsims/build-an-atom/issues/434.  Make translatable and add description.
-    const label = new Text( BuildAnAtomStrings.chargeNotationStringProperty, {
-      fontSize: 16,
-      fontWeight: 'bold'
-    } );
+    const label = new Text( BuildAnAtomStrings.chargeNotationStringProperty, { font: LABEL_FONT } );
 
     const radioButtonItems: AquaRadioButtonGroupItem<ChargeNotation>[] = [
       {
@@ -48,7 +45,7 @@ export default class BAAPreferencesNode extends VBox {
         options: {
           accessibleName: 'TBD'
         },
-        tandemName: 'signLastRadioButton'
+        tandemName: 'signFirstRadioButton'
       }
     ];
 
@@ -56,7 +53,7 @@ export default class BAAPreferencesNode extends VBox {
       preferences.chargeNotationProperty,
       radioButtonItems,
       {
-        orientation: 'vertical',
+        orientation: 'horizontal',
         spacing: 5,
         radioButtonOptions: {
           phetioVisiblePropertyInstrumented: false
@@ -67,9 +64,13 @@ export default class BAAPreferencesNode extends VBox {
     );
 
     super( {
-      children: [ label, radioButtonGroup ],
-      spacing: 10,
-      align: 'left'
+      rows: [
+        [ label, radioButtonGroup ],
+        [ new Text( 'Choose sign convention for charges', { font: TEXT_FONT } ), null ]
+      ],
+      xAlign: 'left',
+      xSpacing: 50,
+      ySpacing: 5
     } );
   }
 }
