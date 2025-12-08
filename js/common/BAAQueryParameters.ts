@@ -7,10 +7,10 @@
  */
 
 import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
+import { ChargeNotationValues } from '../../../shred/js/model/ChargeNotation.js';
 import getGameLevelsSchema from '../../../vegas/js/getGameLevelsSchema.js';
 import buildAnAtom from '../buildAnAtom.js';
 import BAAConstants from './BAAConstants.js';
-import { ChargeNotationValues } from './model/ChargeNotation.js';
 
 const BAAQueryParameters = QueryStringMachine.getAll( {
 

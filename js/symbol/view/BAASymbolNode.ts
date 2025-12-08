@@ -13,6 +13,7 @@ import { TReadOnlyNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
 import scale_png from '../../../images/scale_png.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BAAPreferences from '../../common/model/BAAPreferences.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -24,7 +25,8 @@ class BAASymbolNode extends SymbolNode {
   public constructor( numberAtom: TReadOnlyNumberAtom, providedOptions: BAASymbolNodeOptions ) {
 
     const options = optionize<BAASymbolNodeOptions, SelfOptions, SymbolNodeOptions>()( {
-      chargeProperty: numberAtom.chargeProperty
+      chargeProperty: numberAtom.chargeProperty,
+      chargeNotationProperty: BAAPreferences.instance.chargeNotationProperty
     }, providedOptions );
 
     super( numberAtom.protonCountProperty, numberAtom.massNumberProperty, options );

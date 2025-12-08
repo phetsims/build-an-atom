@@ -11,14 +11,14 @@ import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import GridBox from '../../../../scenery/js/layout/nodes/GridBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import { ChargeNotation } from '../../../../shred/js/model/ChargeNotation.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAPreferences from '../model/BAAPreferences.js';
-import { ChargeNotation } from '../model/ChargeNotation.js';
 
-const FONT_SIZE = 16;
+const FONT_SIZE = 18;
 const TEXT_FONT = new PhetFont( FONT_SIZE );
 const LABEL_FONT = new PhetFont( { size: FONT_SIZE, weight: 'bold' } );
 const RADIO_BUTTON_LABEL_OPTIONS = { font: TEXT_FONT, maxWidth: 200 };
@@ -54,7 +54,7 @@ export default class BAAPreferencesNode extends GridBox {
       radioButtonItems,
       {
         orientation: 'horizontal',
-        spacing: 5,
+        spacing: 15,
         radioButtonOptions: {
           phetioVisiblePropertyInstrumented: false
         },
