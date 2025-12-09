@@ -7,6 +7,7 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
@@ -52,7 +53,7 @@ class CountsToChargeChallengeView extends ChallengeView {
       this.chargeProperty,
       tandem.createTandem( 'chargeNumberSpinner' ), {
         showPlusForPositive: true,
-        signAfterValue: false,
+        signAfterValueProperty: new BooleanProperty( false ),
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99,

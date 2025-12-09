@@ -7,6 +7,7 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
@@ -81,7 +82,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
         minValue: -99,
         maxValue: 99,
         showPlusForPositive: true,
-        signAfterValue: false,
+        signAfterValueProperty: new BooleanProperty( false ),
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
         accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,

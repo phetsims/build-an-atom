@@ -1,8 +1,8 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * InteractiveSymbolNode is a Scenery Node that represents an element symbol where each of the numbers on the symbol,
- * i.e. proton count (aka atomic number), mass number, and charge, can potentially be interactive.
+ * InteractiveSymbolNode is a Scenery Node that represents an atomic element symbol where each of the numbers on the
+ * symbol, i.e. proton count (aka atomic number), mass number, and charge, can potentially be interactive.
  *
  * @author John Blanco (PhET Interactive Simulations)
  */
@@ -11,6 +11,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
@@ -31,6 +32,7 @@ import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import BAAPreferences from '../../common/model/BAAPreferences.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
 import GameSymbolAccessibleListNode from './description/GameSymbolAccessibleListNode.js';
 
@@ -277,11 +279,16 @@ class InteractiveSymbolNode extends VBox {
       } );
       symbolBox.addChild( chargeDisplay );
 
-      chargeProperty.link( charge => {
-        displayedTextProperty.value = BAAConstants.chargeToStringSignAfterValue( charge );
-        chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.value );
-        chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
-      } );
+      Multilink.multilink(
+        [ chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
+        ( charge, chargeNotation ) => {
+          displayedTextProperty.value = chargeNotation === 'signFirst' ?
+                                        BAAConstants.chargeToStringSignBeforeValue( charge ) :
+                                        BAAConstants.chargeToStringSignAfterValue( charge );
+          chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.value );
+          chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
+        }
+      );
     }
 
     const descriptionListNode = new GameSymbolAccessibleListNode(

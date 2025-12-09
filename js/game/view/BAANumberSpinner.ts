@@ -6,7 +6,9 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -15,10 +17,11 @@ import NumberSpinner, { NumberSpinnerOptions } from '../../../../sun/js/NumberSp
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import BAAPreferences from '../../common/model/BAAPreferences.js';
 
 type SelfOptions = {
   showPlusForPositive?: boolean; // Whether to show a plus sign for positive numbers.
-  signAfterValue?: boolean; // Whether the sign is shown after the value.
+  signAfterValueProperty?: TReadOnlyProperty<boolean> | null; // Whether the sign is shown after the value (or before).
   getTextColor?: ( value: number ) => TColor; // Function to determine text color based on value.
   minValue?: number; // Minimum value supported.
   maxValue?: number; // Maximum value supported.
@@ -37,9 +40,9 @@ class BAANumberSpinner extends NumberSpinner {
       // sign is depicted.
       showPlusForPositive: false,
 
-      // {boolean} - Controls whether the sign (i.e. +/-) is shown before or after the numeric value.  For charge, the
-      // sign is generally shown after, which is the most common use case for this, and hence the default.
-      signAfterValue: true,
+      // {boolean} - Controls whether the sign (i.e. +/-) is shown before or after the numeric value.  If not provided,
+      // one will be created below.
+      signAfterValueProperty: null,
 
       // {function} - A function that can be used to change the color used to depict the value based on the value.
       getTextColor: () => 'black',
@@ -85,19 +88,27 @@ class BAANumberSpinner extends NumberSpinner {
 
     options.arrowButtonOptions.visibleProperty = options.enabledProperty;
 
+    // If a signAfterValueProperty was not provided, use the global preference.
+    const signAfterValueProperty = options.signAfterValueProperty ||
+                                   DerivedProperty.valueEqualsConstant(
+                                     BAAPreferences.instance.chargeNotationProperty,
+                                     'signLast'
+                                   );
+
     const signNumberFormatter = ( value: number ) => {
-      return options.signAfterValue ?
+      return signAfterValueProperty.value ?
              BAAConstants.chargeToStringSignAfterValue( value, options.showPlusForPositive ) :
              BAAConstants.chargeToStringSignBeforeValue( value, options.showPlusForPositive );
     };
 
-    // Creating the formatter here in order to use the options
+    // Set up the options to use the formatter.
     options.numberDisplayOptions.numberFormatter = signNumberFormatter;
+    options.numberDisplayOptions.numberFormatterDependencies = [ signAfterValueProperty ];
     options.createAriaValueText = signNumberFormatter;
 
     super( numberProperty, new Property<Range>( new Range( options.minValue, options.maxValue ) ), options );
 
-    // Update the help text based on whether the spinner is enabled
+    // Update the help text based on whether the spinner is enabled.
     this.enabledProperty.link( enabled => {
       this.accessibleHelpText = enabled ? options.accessibleHelpText : '';
     } );
