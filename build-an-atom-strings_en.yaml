@@ -39,7 +39,7 @@ level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
 
 # Preferences
 preferences:
-  chargeNotationSelectorLabel: "Choose sign convention for charges"
+  chargeNotationSelectorLabel: "Choose sign convention for charges in chemical symbol."
 
 a11y:
   common:
