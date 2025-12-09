@@ -33,6 +33,7 @@ import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
+import chargeToString from '../../common/view/chargeToString.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
 import GameSymbolAccessibleListNode from './description/GameSymbolAccessibleListNode.js';
 
@@ -281,10 +282,8 @@ class InteractiveSymbolNode extends VBox {
 
       Multilink.multilink(
         [ chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
-        ( charge, chargeNotation ) => {
-          displayedTextProperty.value = chargeNotation === 'signFirst' ?
-                                        BAAConstants.chargeToStringSignBeforeValue( charge ) :
-                                        BAAConstants.chargeToStringSignAfterValue( charge );
+        charge => {
+          displayedTextProperty.value = chargeToString( charge );
           chargeDisplay.fill = ShredConstants.CHARGE_TEXT_COLOR( numberAtom.chargeProperty.value );
           chargeDisplay.right = SYMBOL_BOX_WIDTH - NUMBER_INSET;
         }
