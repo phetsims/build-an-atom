@@ -16,7 +16,8 @@ import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
-import BAAConstants from '../../../common/BAAConstants.js';
+import BAAPreferences from '../../../common/model/BAAPreferences.js';
+import chargeToString from '../../../common/view/chargeToString.js';
 
 class GameSymbolAccessibleListNode extends AccessibleListNode {
   public constructor(
@@ -35,23 +36,25 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
       currentElementStringProperty.value = AtomIdentifier.getName( protonCount );
     } );
 
-    const symbolStringProperty = new DerivedStringProperty( [
-      protonCountProperty,
-      BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty
-    ], ( protonCount: number, noSymbol: string ) => {
-      if ( protonCount === 0 ) {
-        return noSymbol;
+    const symbolStringProperty = new DerivedStringProperty(
+      [
+        protonCountProperty,
+        BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty
+      ],
+      ( protonCount: number, noSymbol: string ) => {
+        if ( protonCount === 0 ) {
+          return noSymbol;
+        }
+        else {
+          return AtomIdentifier.getSpokenSymbol( protonCount, true );
+        }
       }
-      else {
-        return AtomIdentifier.getSpokenSymbol( protonCount, true );
-      }
-    } );
+    );
 
-    const chargeStringProperty = new DerivedStringProperty( [
-      chargeProperty
-    ], ( charge: number ) => {
-      return BAAConstants.chargeToStringSignAfterValue( charge );
-    } );
+    const chargeStringProperty = new DerivedStringProperty(
+      [ chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
+      ( charge: number ) => chargeToString( charge )
+    );
 
     super(
       [

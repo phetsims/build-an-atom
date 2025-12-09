@@ -208,7 +208,7 @@ a11y:
         symbol: "{{symbol}} in center."
         atomicNumber: "Atomic number {{value}} in lower left."
         massNumber: "Mass number {{value}} in upper left."
-        charge: "Charge {{value}}{{sign}} in upper right."
+        charge: "Charge {{value}} in upper right."
   gameScreen:
     screenIcon:
       accessibleHelpText: "Test your knowledge of atomic structure."

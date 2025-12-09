@@ -1,4 +1,5 @@
 // Copyright 2025, University of Colorado Boulder
+
 /**
  * AccessibleListNode displays the information on the symbol accordion box.
  *
@@ -14,6 +15,8 @@ import ShredStrings from '../../../../../shred/js/ShredStrings.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import BAAModel from '../../../common/model/BAAModel.js';
+import BAAPreferences from '../../../common/model/BAAPreferences.js';
+import chargeToString from '../../../common/view/chargeToString.js';
 
 export default class SymbolAccessibleListNode extends AccessibleListNode {
   public constructor( model: BAAModel, visibleProperty: TReadOnlyProperty<boolean> ) {
@@ -44,7 +47,8 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
       ],
       ( protonCount: number, atomicNumberPattern: string ) => {
         return StringUtils.fillIn( atomicNumberPattern, { value: protonCount } );
-      } );
+      }
+    );
 
     const massNumberListItemProperty = new DerivedStringProperty(
       [
@@ -53,27 +57,32 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
       ],
       ( massNumber: number, massNumberPattern: string ) => {
         return StringUtils.fillIn( massNumberPattern, { value: massNumber } );
-      } );
+      }
+    );
 
     const chargeListItemProperty = new DerivedStringProperty(
       [
         model.atom.chargeProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty
+        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty,
+        BAAPreferences.instance.chargeNotationProperty
       ],
-      ( charge: number, chargePattern: string ) => {
-        return StringUtils.fillIn( chargePattern, { value: Math.abs( charge ), sign: charge > 0 ? '+' : charge === 0 ? '' : '\u2212' } );
+      ( charge: number, chargePattern: string ) => StringUtils.fillIn( chargePattern, {
+          value: chargeToString( charge )
+      } )
+    );
 
-      } );
-
-    super( [
-      symbolListItemProperty,
-      atomicNumberListItemProperty,
-      massNumberListItemProperty,
-      chargeListItemProperty
-    ], {
-      visibleProperty: visibleProperty,
-      leadingParagraphStringProperty: BuildAnAtomStrings.a11y.symbolScreen.symbol.leadingParagraphStringProperty
-    } );
+    super(
+      [
+        symbolListItemProperty,
+        atomicNumberListItemProperty,
+        massNumberListItemProperty,
+        chargeListItemProperty
+      ],
+      {
+        visibleProperty: visibleProperty,
+        leadingParagraphStringProperty: BuildAnAtomStrings.a11y.symbolScreen.symbol.leadingParagraphStringProperty
+      }
+    );
   }
 }
 

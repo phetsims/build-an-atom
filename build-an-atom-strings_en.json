@@ -416,7 +416,7 @@
             "value": "Mass number {{value}} in upper left."
           },
           "charge": {
-            "value": "Charge {{value}}{{sign}} in upper right."
+            "value": "Charge {{value}} in upper right."
           }
         }
       }
