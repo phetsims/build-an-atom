@@ -153,9 +153,6 @@
         },
         "selectChemicalSymbol": {
           "value": "Select chemical symbol"
-        },
-        "gameOptions": {
-          "value": "Game Options"
         }
       },
       "accordionAccessibleContextResponse": {

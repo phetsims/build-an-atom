@@ -69,7 +69,6 @@ type StringsType = {
         'periodicTableHeadingStringProperty': LocalizedStringProperty;
         'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
         'selectChemicalSymbolStringProperty': LocalizedStringProperty;
-        'gameOptionsStringProperty': LocalizedStringProperty;
       };
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;

@@ -55,7 +55,6 @@ a11y:
       periodicTableHeading: Periodic Table Navigation
       navigateThroughTableDescription: Select chemical symbol with arrow keys or W, A, S, or D keys.
       selectChemicalSymbol: Select chemical symbol
-      gameOptions: Game Options
     accordionAccessibleContextResponse:
       expanded: "expanded"
       collapsed: "collapsed"
