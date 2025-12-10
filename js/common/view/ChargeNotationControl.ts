@@ -18,7 +18,6 @@ import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BAAPreferencesNode from './BAAPreferencesNode.js';
 
 const FONT_SIZE = 18;
 const TEXT_FONT = new PhetFont( FONT_SIZE );
@@ -85,4 +84,4 @@ class ChargeNotationControl extends PreferencesControl {
 }
 
 export default ChargeNotationControl;
-buildAnAtom.register( 'BAAPreferencesNode', BAAPreferencesNode );
+buildAnAtom.register( 'ChargeNotationControl', ChargeNotationControl );
