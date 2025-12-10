@@ -78,7 +78,9 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
           } ),
           soundPlayerIndex: index,
           phetioDocumentation: gameButtonsPhetIoDocumentation[ index ],
-          accessibleHelpText: gameButtonsAccessibleHelpTexts[ index ]
+          accessibleHelpText: gameButtonsAccessibleHelpTexts[ index ],
+          bestTimeForScoreProperty: level.bestTimeProperty,
+          bestTimeVisibleProperty: level.bestTimeVisibleProperty
         }
       } );
     } );

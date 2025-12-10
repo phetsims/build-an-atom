@@ -17,6 +17,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
+import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeSetFactory, { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import GameModel from './GameModel.js';
@@ -34,6 +35,7 @@ class GameLevel extends PhetioObject {
 
   public readonly bestScoreProperty: Property<number>;
   public readonly bestTimeProperty: Property<number>;
+  public readonly bestTimeVisibleProperty: Property<boolean>;
 
   // Whether the time for this game a new best time.
   public isNewBestTimeProperty: Property<boolean>;
@@ -91,6 +93,12 @@ class GameLevel extends PhetioObject {
       units: 's'
     } );
 
+    this.bestTimeVisibleProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'bestTimeVisibleProperty' ),
+        phetioDocumentation: 'Whether the best time should be visible in the UI.',
+      phetioFeatured: true
+    } );
+
     this.isNewBestTimeProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isNewBestTimeProperty' ),
       phetioDocumentation: 'Whether the time for this level is a new best time.',
@@ -101,6 +109,7 @@ class GameLevel extends PhetioObject {
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
+    this.bestTimeVisibleProperty.reset();
   }
 
   /**
@@ -114,17 +123,8 @@ class GameLevel extends PhetioObject {
    * Ends the level, updating the best score and time if the score is a perfect score.
    */
   public endLevel( score: number, time: number ): void {
-    this.bestScoreProperty.value = Math.max( this.bestScoreProperty.value, score );
-
-    this.isNewBestTimeProperty.value = false;
-
-    // Register best times only if the score is a perfect score.
-    if ( this.isPerfectScore( score ) &&
-         ( this.bestTimeProperty.value === 0 || time < this.bestTimeProperty.value ) ) {
-      this.bestTimeProperty.value = time;
-      this.isNewBestTimeProperty.value = true;
-    }
-
+   this.isNewBestTimeProperty.value = LevelSelectionButton.tryUpdateScoreAndBestTime( score, time,
+     this.bestScoreProperty, this.bestTimeProperty );
   }
 
   /**
