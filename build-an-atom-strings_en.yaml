@@ -1,6 +1,4 @@
 build-an-atom.title: "Build an Atom"
-positive: "Positive"
-negative: "Negative"
 ion: "Ion"
 stableSlashUnstable: "Nuclear Stability"
 symbol: "Symbol"
@@ -28,7 +26,6 @@ neutronsColonPattern: "Neutrons: {0}"
 electrons: "Electrons"
 isIt: "Is it:"
 protons: "Protons"
-show: "Show"
 chooseYourGame: "Choose Your Level!"
 gamesInfoTitle: "Levels"
 chargeNotation: "Charge Notation"
@@ -56,22 +53,18 @@ a11y:
       cancelMovement: Cancel movement
       cancelMovementDescription: Cancel movement with Escape key.
       periodicTableHeading: Periodic Table Navigation
-      navigateThroughTable: Navigate through table
       navigateThroughTableDescription: Select chemical symbol with arrow keys or W, A, S, or D keys.
       selectChemicalSymbol: Select chemical symbol
       gameOptions: Game Options
-      checkAnswer: Check answer with Option plus C key.
     accordionAccessibleContextResponse:
       expanded: "expanded"
       collapsed: "collapsed"
     particles:
-      accessibleHeading: Particles
       particleAddedTo: |-
         { $particle } added to { $location }. Now { $count ->
          [one]{ $count } { $particle }
          *[other] { $count } { $particles }
         } in total.
-      accessibleName: "{{particle}}, in {{location}}"
       particleReturnedToBucket: |-
         { $particle } returned to bucket.
     buckets:
@@ -110,9 +103,6 @@ a11y:
         *[other] { $neutrons } Neutrons
         }.
       nucleusInfoEmpty: Nucleus empty.
-      protons: Protons
-      neutrons: Neutrons
-      protonsAndNeutrons: Protons and Neutrons
       shellInfoFull: |-
         Inner shell contains
         { $inner ->
@@ -223,8 +213,6 @@ a11y:
         accessibleHelpText: Use WASD keys to select element on Periodic Table. Then look for the radio buttons, Neutral Atom or Ion, to complete your answer.
         cellAriaDescription: "Selected element"
         accessibleParagraph: Is the selected element a neutral atom or ion?
-        neutralAtom: Neutral Atom
-        ion: Ion
       chemicalSymbol:
         accessibleName: Chemical Symbol
         accessibleHelpText: Set values for each area of Chemical Symbol. Then check your answer.
@@ -245,7 +233,6 @@ a11y:
           massNumber: "{ $mass } in upper left."
           charge: "{ $charge } in upper right."
       checkButton:
-        accessibleName: Check Answer
         accessibleContextResponses:
           correctFirstTry: Awesome! You earned 2 points.
           correctSecondTry: Good! You earned 1 point.

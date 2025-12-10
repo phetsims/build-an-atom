@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
-import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -28,8 +28,6 @@ const addToMapIfDefined = ( key: string, path: string ) => {
 };
 
 addToMapIfDefined( 'build_an_atom_title', 'build-an-atom.titleStringProperty' );
-addToMapIfDefined( 'positive', 'positiveStringProperty' );
-addToMapIfDefined( 'negative', 'negativeStringProperty' );
 addToMapIfDefined( 'ion', 'ionStringProperty' );
 addToMapIfDefined( 'stableSlashUnstable', 'stableSlashUnstableStringProperty' );
 addToMapIfDefined( 'symbol', 'symbolStringProperty' );
@@ -54,7 +52,6 @@ addToMapIfDefined( 'neutronsColon', 'neutronsColonStringProperty' );
 addToMapIfDefined( 'electrons', 'electronsStringProperty' );
 addToMapIfDefined( 'isIt', 'isItStringProperty' );
 addToMapIfDefined( 'protons', 'protonsStringProperty' );
-addToMapIfDefined( 'show', 'showStringProperty' );
 addToMapIfDefined( 'chooseYourGame', 'chooseYourGameStringProperty' );
 addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'chargeNotation', 'chargeNotationStringProperty' );
@@ -71,14 +68,11 @@ addToMapIfDefined( 'a11y_common_keyboardHelpContent_returnToBucketDescription', 
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_cancelMovement', 'a11y.common.keyboardHelpContent.cancelMovementStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_cancelMovementDescription', 'a11y.common.keyboardHelpContent.cancelMovementDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_periodicTableHeading', 'a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTable', 'a11y.common.keyboardHelpContent.navigateThroughTableStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectChemicalSymbol', 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' );
 addToMapIfDefined( 'a11y_common_keyboardHelpContent_gameOptions', 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_checkAnswer', 'a11y.common.keyboardHelpContent.checkAnswerStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
-addToMapIfDefined( 'a11y_common_particles_accessibleHeading', 'a11y.common.particles.accessibleHeadingStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_particleAddedTo', 'a11y.common.particles.particleAddedToStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_particleReturnedToBucket', 'a11y.common.particles.particleReturnedToBucketStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_bucketEmpty', 'a11y.common.buckets.bucketEmptyStringProperty' );
@@ -93,9 +87,6 @@ addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoFull', 'a11y.c
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoProtons', 'a11y.common.atomAccessibleListNode.nucleusInfoProtonsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoNeutrons', 'a11y.common.atomAccessibleListNode.nucleusInfoNeutronsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' );
-addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protons', 'a11y.common.atomAccessibleListNode.protonsStringProperty' );
-addToMapIfDefined( 'a11y_common_atomAccessibleListNode_neutrons', 'a11y.common.atomAccessibleListNode.neutronsStringProperty' );
-addToMapIfDefined( 'a11y_common_atomAccessibleListNode_protonsAndNeutrons', 'a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_shellInfoFull', 'a11y.common.atomAccessibleListNode.shellInfoFullStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_cloudInfoFull', 'a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty' );
 addToMapIfDefined( 'a11y_common_atomAccessibleListNode_shellInfoEmpty', 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' );
@@ -144,8 +135,6 @@ addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleName', 'a
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleHelpText', 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_cellAriaDescription', 'a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleParagraph', 'a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty' );
-addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_neutralAtom', 'a11y.gameScreen.components.periodicTable.neutralAtomStringProperty' );
-addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_ion', 'a11y.gameScreen.components.periodicTable.ionStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleName', 'a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleHelpText', 'a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_upperLeft_accessibleName', 'a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty' );
@@ -160,7 +149,6 @@ addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_atomicNumber', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumberStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_massNumber', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumberStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleListNode_charge', 'a11y.gameScreen.components.chemicalSymbol.accessibleListNode.chargeStringProperty' );
-addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleName', 'a11y.gameScreen.components.checkButton.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctFirstTry', 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctSecondTry', 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctSecondTryStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_checkButton_accessibleContextResponses_incorrectFirstTry', 'a11y.gameScreen.components.checkButton.accessibleContextResponses.incorrectFirstTryStringProperty' );
@@ -224,8 +212,6 @@ const BuildAnAtomFluent = {
   "build-an-atom": {
     titleStringProperty: _.get( BuildAnAtomStrings, 'build-an-atom.titleStringProperty' )
   },
-  positiveStringProperty: _.get( BuildAnAtomStrings, 'positiveStringProperty' ),
-  negativeStringProperty: _.get( BuildAnAtomStrings, 'negativeStringProperty' ),
   ionStringProperty: _.get( BuildAnAtomStrings, 'ionStringProperty' ),
   stableSlashUnstableStringProperty: _.get( BuildAnAtomStrings, 'stableSlashUnstableStringProperty' ),
   symbolStringProperty: _.get( BuildAnAtomStrings, 'symbolStringProperty' ),
@@ -253,7 +239,6 @@ const BuildAnAtomFluent = {
   electronsStringProperty: _.get( BuildAnAtomStrings, 'electronsStringProperty' ),
   isItStringProperty: _.get( BuildAnAtomStrings, 'isItStringProperty' ),
   protonsStringProperty: _.get( BuildAnAtomStrings, 'protonsStringProperty' ),
-  showStringProperty: _.get( BuildAnAtomStrings, 'showStringProperty' ),
   chooseYourGameStringProperty: _.get( BuildAnAtomStrings, 'chooseYourGameStringProperty' ),
   gamesInfoTitleStringProperty: _.get( BuildAnAtomStrings, 'gamesInfoTitleStringProperty' ),
   chargeNotationStringProperty: _.get( BuildAnAtomStrings, 'chargeNotationStringProperty' ),
@@ -280,20 +265,16 @@ const BuildAnAtomFluent = {
         cancelMovementStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_cancelMovement', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.cancelMovementStringProperty' ) ),
         cancelMovementDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_cancelMovementDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.cancelMovementDescriptionStringProperty' ) ),
         periodicTableHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_periodicTableHeading', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty' ) ),
-        navigateThroughTableStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTable', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableStringProperty' ) ),
         navigateThroughTableDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' ) ),
         selectChemicalSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbol', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' ) ),
-        gameOptionsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_gameOptions', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' ) ),
-        checkAnswerStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_checkAnswer', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.checkAnswerStringProperty' ) )
+        gameOptionsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_gameOptions', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.gameOptionsStringProperty' ) )
       },
       accordionAccessibleContextResponse: {
         expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
         collapsedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_collapsed', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' ) )
       },
       particles: {
-        accessibleHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_particles_accessibleHeading', _.get( BuildAnAtomStrings, 'a11y.common.particles.accessibleHeadingStringProperty' ) ),
         particleAddedTo: new FluentPattern<{ count: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, location: FluentVariable, particle: FluentVariable, particles: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleAddedTo', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleAddedToStringProperty' ), [{"name":"count","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"location"},{"name":"particle"},{"name":"particles"}] ),
-        accessibleNameStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.particles.accessibleNameStringProperty' ),
         particleReturnedToBucket: new FluentPattern<{ particle: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleReturnedToBucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleReturnedToBucketStringProperty' ), [{"name":"particle"}] )
       },
       buckets: {
@@ -311,9 +292,6 @@ const BuildAnAtomFluent = {
         nucleusInfoProtons: new FluentPattern<{ protons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoProtons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoProtonsStringProperty' ), [{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
         nucleusInfoNeutrons: new FluentPattern<{ neutrons: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoNeutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoNeutronsStringProperty' ), [{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
         nucleusInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty' ) ),
-        protonsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_protons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.protonsStringProperty' ) ),
-        neutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_neutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.neutronsStringProperty' ) ),
-        protonsAndNeutronsStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_protonsAndNeutrons', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.protonsAndNeutronsStringProperty' ) ),
         shellInfoFull: new FluentPattern<{ inner: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, outer: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_shellInfoFull', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.shellInfoFullStringProperty' ), [{"name":"inner","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"outer","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
         cloudInfoFull: new FluentPattern<{ value: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_cloudInfoFull', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoFullStringProperty' ), [{"name":"value","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]}] ),
         shellInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_shellInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' ) ),
@@ -411,9 +389,7 @@ const BuildAnAtomFluent = {
           accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleNameStringProperty' ) ),
           accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' ) ),
           cellAriaDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_cellAriaDescription', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty' ) ),
-          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty' ) ),
-          neutralAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_neutralAtom', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.neutralAtomStringProperty' ) ),
-          ionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_ion', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.ionStringProperty' ) )
+          accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty' ) )
         },
         chemicalSymbol: {
           accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_chemicalSymbol_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty' ) ),
@@ -440,7 +416,6 @@ const BuildAnAtomFluent = {
           }
         },
         checkButton: {
-          accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_checkButton_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.checkButton.accessibleNameStringProperty' ) ),
           accessibleContextResponses: {
             correctFirstTryStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctFirstTry', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctFirstTryStringProperty' ) ),
             correctSecondTryStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_checkButton_accessibleContextResponses_correctSecondTry', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.checkButton.accessibleContextResponses.correctSecondTryStringProperty' ) ),

@@ -2,12 +2,6 @@
   "build-an-atom.title": {
     "value": "Build an Atom"
   },
-  "positive": {
-    "value": "Positive"
-  },
-  "negative": {
-    "value": "Negative"
-  },
   "ion": {
     "value": "Ion"
   },
@@ -89,9 +83,6 @@
   "protons": {
     "value": "Protons"
   },
-  "show": {
-    "value": "Show"
-  },
   "chooseYourGame": {
     "value": "Choose Your Level!"
   },
@@ -157,9 +148,6 @@
         "periodicTableHeading": {
           "value": "Periodic Table Navigation"
         },
-        "navigateThroughTable": {
-          "value": "Navigate through table"
-        },
         "navigateThroughTableDescription": {
           "value": "Select chemical symbol with arrow keys or W, A, S, or D keys."
         },
@@ -168,9 +156,6 @@
         },
         "gameOptions": {
           "value": "Game Options"
-        },
-        "checkAnswer": {
-          "value": "Check answer with Option plus C key."
         }
       },
       "accordionAccessibleContextResponse": {
@@ -182,14 +167,8 @@
         }
       },
       "particles": {
-        "accessibleHeading": {
-          "value": "Particles"
-        },
         "particleAddedTo": {
           "value": "{ $particle } added to { $location }. Now { $count ->\n [one]{ $count } { $particle }\n *[other] { $count } { $particles }\n} in total."
-        },
-        "accessibleName": {
-          "value": "{{particle}}, in {{location}}"
         },
         "particleReturnedToBucket": {
           "value": "{ $particle } returned to bucket."
@@ -233,15 +212,6 @@
         },
         "nucleusInfoEmpty": {
           "value": "Nucleus empty."
-        },
-        "protons": {
-          "value": "Protons"
-        },
-        "neutrons": {
-          "value": "Neutrons"
-        },
-        "protonsAndNeutrons": {
-          "value": "Protons and Neutrons"
         },
         "shellInfoFull": {
           "value": "Inner shell contains\n{ $inner ->\n[one]{ $inner } Electron\n*[other] { $inner } Electrons\n}\n and outer shell contains\n{ $outer ->\n[one]{ $outer } Electron\n*[other] { $outer } Electrons\n}."
@@ -454,12 +424,6 @@
           },
           "accessibleParagraph": {
             "value": "Is the selected element a neutral atom or ion?"
-          },
-          "neutralAtom": {
-            "value": "Neutral Atom"
-          },
-          "ion": {
-            "value": "Ion"
           }
         },
         "chemicalSymbol": {
@@ -515,9 +479,6 @@
           }
         },
         "checkButton": {
-          "accessibleName": {
-            "value": "Check Answer"
-          },
           "accessibleContextResponses": {
             "correctFirstTry": {
               "value": "Awesome! You earned 2 points."

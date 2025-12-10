@@ -15,8 +15,6 @@ type StringsType = {
   'build-an-atom': {
     'titleStringProperty': LocalizedStringProperty;
   };
-  'positiveStringProperty': LocalizedStringProperty;
-  'negativeStringProperty': LocalizedStringProperty;
   'ionStringProperty': LocalizedStringProperty;
   'stableSlashUnstableStringProperty': LocalizedStringProperty;
   'symbolStringProperty': LocalizedStringProperty;
@@ -44,7 +42,6 @@ type StringsType = {
   'electronsStringProperty': LocalizedStringProperty;
   'isItStringProperty': LocalizedStringProperty;
   'protonsStringProperty': LocalizedStringProperty;
-  'showStringProperty': LocalizedStringProperty;
   'chooseYourGameStringProperty': LocalizedStringProperty;
   'gamesInfoTitleStringProperty': LocalizedStringProperty;
   'chargeNotationStringProperty': LocalizedStringProperty;
@@ -70,20 +67,16 @@ type StringsType = {
         'cancelMovementStringProperty': LocalizedStringProperty;
         'cancelMovementDescriptionStringProperty': LocalizedStringProperty;
         'periodicTableHeadingStringProperty': LocalizedStringProperty;
-        'navigateThroughTableStringProperty': LocalizedStringProperty;
         'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
         'selectChemicalSymbolStringProperty': LocalizedStringProperty;
         'gameOptionsStringProperty': LocalizedStringProperty;
-        'checkAnswerStringProperty': LocalizedStringProperty;
       };
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;
       };
       'particles': {
-        'accessibleHeadingStringProperty': LocalizedStringProperty;
         'particleAddedToStringProperty': LocalizedStringProperty;
-        'accessibleNameStringProperty': LocalizedStringProperty;
         'particleReturnedToBucketStringProperty': LocalizedStringProperty;
       };
       'buckets': {
@@ -101,9 +94,6 @@ type StringsType = {
         'nucleusInfoProtonsStringProperty': LocalizedStringProperty;
         'nucleusInfoNeutronsStringProperty': LocalizedStringProperty;
         'nucleusInfoEmptyStringProperty': LocalizedStringProperty;
-        'protonsStringProperty': LocalizedStringProperty;
-        'neutronsStringProperty': LocalizedStringProperty;
-        'protonsAndNeutronsStringProperty': LocalizedStringProperty;
         'shellInfoFullStringProperty': LocalizedStringProperty;
         'cloudInfoFullStringProperty': LocalizedStringProperty;
         'shellInfoEmptyStringProperty': LocalizedStringProperty;
@@ -202,8 +192,6 @@ type StringsType = {
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
           'cellAriaDescriptionStringProperty': LocalizedStringProperty;
           'accessibleParagraphStringProperty': LocalizedStringProperty;
-          'neutralAtomStringProperty': LocalizedStringProperty;
-          'ionStringProperty': LocalizedStringProperty;
         };
         'chemicalSymbol': {
           'accessibleNameStringProperty': LocalizedStringProperty;
@@ -230,7 +218,6 @@ type StringsType = {
           }
         };
         'checkButton': {
-          'accessibleNameStringProperty': LocalizedStringProperty;
           'accessibleContextResponses': {
             'correctFirstTryStringProperty': LocalizedStringProperty;
             'correctSecondTryStringProperty': LocalizedStringProperty;
