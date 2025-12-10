@@ -11,7 +11,7 @@ import KeyboardHelpIconFactory from '../../../../scenery-phet/js/keyboard/help/K
 import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
-import CheckButton from '../../../../vegas/js/buttons/CheckButton.js';
+import GameShortcutsKeyboardHelpSection from '../../../../vegas/js/keyboard/GameShortcutsKeyboardHelpSection.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ParticleNavigationHelpSection from '../../common/view/ParticleNavigationHelpSection.js';
@@ -20,12 +20,7 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
 
   public constructor() {
 
-    const gameOptionsKeyboardHelpSection = new KeyboardHelpSection(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.gameOptionsStringProperty,
-      [
-        KeyboardHelpSectionRow.fromHotkeyData( CheckButton.CHECK_ANSWER_HOTKEY_DATA )
-      ]
-    );
+    const gameShortcutsKeyboardHelpSection = new GameShortcutsKeyboardHelpSection();
 
     const periodicTableNavigationHelpSection = new KeyboardHelpSection(
       BuildAnAtomStrings.a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty,
@@ -40,7 +35,7 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
 
     // sections in the left column
     const leftSections = [
-      gameOptionsKeyboardHelpSection,
+      gameShortcutsKeyboardHelpSection,
       periodicTableNavigationHelpSection,
       new ParticleNavigationHelpSection()
     ];
