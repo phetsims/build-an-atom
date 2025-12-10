@@ -200,6 +200,9 @@
         },
         "accessibleParagraph": {
           "value": "Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. \n  Once grabbed use W or S key to change location or delete to return to bucket."
+        },
+        "nucleusContains": {
+          "value": "{ $nucleonState ->\n  [full] { a11y_common_atomAccessibleListNode_nucleusInfoFull }\n  [protons] { a11y_common_atomAccessibleListNode_nucleusInfoProtons }\n  [neutrons] { a11y_common_atomAccessibleListNode_nucleusInfoNeutrons }\n  *[empty] { a11y_common_atomAccessibleListNode_nucleusInfoEmpty }\n}"
         }
       },
       "noElementContextResponse": {

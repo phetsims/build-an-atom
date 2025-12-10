@@ -149,50 +149,15 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
     atom: TReadOnlyNumberAtom | NumberAtom,
     viewProperties: AtomViewProperties
   ) {
-    const nucleusFullProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusInfoFull.createProperty( {
+    const nucleusContainsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusContains.createProperty( {
+      nucleonState: new DerivedProperty( [ atom.protonCountProperty, atom.neutronCountProperty ], ( protons, neutrons ) => {
+        return ( protons > 0 && neutrons > 0 ) ? 'full' :
+               ( protons > 0 ) ? 'protons' :
+               ( neutrons > 0 ) ? 'neutrons' : 'empty';
+      } ),
       protons: atom.protonCountProperty,
       neutrons: atom.neutronCountProperty
     } );
-    const nucleusProtonsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusInfoProtons.createProperty( {
-      protons: atom.protonCountProperty
-    } );
-    const nucleusNeutronsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusInfoNeutrons.createProperty( {
-      neutrons: atom.neutronCountProperty
-    } );
-    const nucleusContainsProperty = new DerivedStringProperty(
-      [
-        atom.protonCountProperty,
-        atom.neutronCountProperty,
-        nucleusFullProperty,
-        nucleusProtonsProperty,
-        nucleusNeutronsProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.nucleusInfoEmptyStringProperty
-      ],
-      (
-        protons: number,
-        neutrons: number,
-        nucleusInfoFullString: string,
-        nucleusInfoProtons: string,
-        nucleusInfoNeutrons: string,
-        nucleusInfoEmpty: string
-      ) => {
-        if ( protons > 0 ) {
-          if ( neutrons > 0 ) {
-            return nucleusInfoFullString;
-          }
-          else {
-            return nucleusInfoProtons;
-          }
-        }
-        else {
-          if ( neutrons > 0 ) {
-            return nucleusInfoNeutrons;
-          }
-          else {
-            return nucleusInfoEmpty;
-          }
-        }
-      } );
 
     const innerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.min( 2, electrons ) );
     const outerElectronCountProperty = new DerivedProperty( [ atom.electronCountProperty ], electrons => Math.max( 0, electrons - 2 ) );

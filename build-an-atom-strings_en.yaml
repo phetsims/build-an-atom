@@ -117,6 +117,19 @@ a11y:
         Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
           Once grabbed use W or S key to change location or delete to return to bucket.
 
+      # Description of the particles in the nucleus, with different forms
+      # depending on which particles are present.
+      #   full - both protons and neutrons present
+      #   protons - only protons present
+      #   neutrons - only neutrons present
+      #   empty - neither present
+      nucleusContains:
+        select_nucleonState:
+          full: "{ a11y.common.atomAccessibleListNode.nucleusInfoFull }"
+          protons: "{ a11y.common.atomAccessibleListNode.nucleusInfoProtons }"
+          neutrons: "{ a11y.common.atomAccessibleListNode.nucleusInfoNeutrons }"
+          empty: "{ a11y.common.atomAccessibleListNode.nucleusInfoEmpty }"
+
     noElementContextResponse: "Your Built Atom is not an element yet."
     elementNameCheckbox:
       accessibleName: "Element Name"

@@ -90,6 +90,7 @@ type StringsType = {
         'shellInfoEmptyStringProperty': LocalizedStringProperty;
         'cloudInfoEmptyStringProperty': LocalizedStringProperty;
         'accessibleParagraphStringProperty': LocalizedStringProperty;
+        'nucleusContainsStringProperty': LocalizedStringProperty;
       };
       'noElementContextResponseStringProperty': LocalizedStringProperty;
       'elementNameCheckbox': {
