@@ -23,12 +23,12 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
     const gameShortcutsKeyboardHelpSection = new GameShortcutsKeyboardHelpSection();
 
     const periodicTableNavigationHelpSection = new KeyboardHelpSection(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty,
+      BuildAnAtomStrings.keyboardHelpContent.periodicTableHeadingStringProperty,
       [
         KeyboardHelpSectionRow.labelWithIcon(
-          BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty,
+          BuildAnAtomStrings.keyboardHelpContent.selectChemicalSymbolStringProperty,
           KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon(), {
-            labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty
+            labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.navigateThroughTableDescriptionStringProperty
           } )
       ]
     );

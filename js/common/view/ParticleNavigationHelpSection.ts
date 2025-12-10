@@ -20,39 +20,39 @@ export default class ParticleNavigationHelpSection extends KeyboardHelpSection {
   public constructor( options?: KeyboardHelpSectionOptions ) {
 
     const grabOrRelease = KeyboardHelpSectionRow.labelWithIcon(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.grabOrReleaseStringProperty,
+      BuildAnAtomStrings.keyboardHelpContent.grabOrReleaseStringProperty,
       KeyboardHelpIconFactory.spaceOrEnter(), {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.grabOrReleaseDescriptionStringProperty
+        labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.grabOrReleaseDescriptionStringProperty
       } );
 
     const selectParticle = KeyboardHelpSectionRow.labelWithIconList(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectParticleInAtomStringProperty,
+      BuildAnAtomStrings.keyboardHelpContent.selectParticleInAtomStringProperty,
       [ KeyboardHelpIconFactory.upDownOrWSKeysRowIcon() ], {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectParticleInAtomDescriptionStringProperty
+        labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.selectParticleInAtomDescriptionStringProperty
       } );
 
     const moveParticle = KeyboardHelpSectionRow.labelWithIconList(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.moveGrabbedParticleStringProperty,
+      BuildAnAtomStrings.keyboardHelpContent.moveGrabbedParticleStringProperty,
       [ KeyboardHelpIconFactory.upDownOrWSKeysRowIcon() ], {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.moveGrabbedParticleDescriptionStringProperty
+        labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.moveGrabbedParticleDescriptionStringProperty
       } );
 
     const returnToBucket = KeyboardHelpSectionRow.labelWithIconList(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.returnToBucketStringProperty,
+      BuildAnAtomStrings.keyboardHelpContent.returnToBucketStringProperty,
       [ TextKeyNode.delete(), TextKeyNode.backspace() ], {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.returnToBucketDescriptionStringProperty
+        labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.returnToBucketDescriptionStringProperty
       } );
 
     const cancelMovement = KeyboardHelpSectionRow.labelWithIcon(
-      BuildAnAtomStrings.a11y.common.keyboardHelpContent.cancelMovementStringProperty,
+      BuildAnAtomStrings.keyboardHelpContent.cancelMovementStringProperty,
       TextKeyNode.esc(), {
-        labelInnerContent: BuildAnAtomStrings.a11y.common.keyboardHelpContent.cancelMovementDescriptionStringProperty
+        labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.cancelMovementDescriptionStringProperty
       } );
 
     // all rows contained in a left aligned vbox
     const rows = [ grabOrRelease, selectParticle, moveParticle, returnToBucket, cancelMovement ];
 
-    super( BuildAnAtomStrings.a11y.common.keyboardHelpContent.particleNavigationHeadingStringProperty, rows, options );
+    super( BuildAnAtomStrings.keyboardHelpContent.particleNavigationHeadingStringProperty, rows, options );
   }
 }
 
