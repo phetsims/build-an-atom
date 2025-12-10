@@ -158,13 +158,6 @@
   },
   "a11y": {
     "common": {
-  "preferences": {
-    "chargeNotationSelectorLabel": {
-      "value": "Choose sign convention for charges in chemical symbol."
-    }
-  },
-  "a11y": {
-    "common": {
       "keyboardHelpContent": {
         "particleNavigationHeading": {
           "value": "Particle Navigation"

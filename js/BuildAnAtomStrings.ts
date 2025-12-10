@@ -49,6 +49,23 @@ type StringsType = {
   'level2DescriptionPatternStringProperty': LocalizedStringProperty;
   'level3DescriptionPatternStringProperty': LocalizedStringProperty;
   'level4DescriptionPatternStringProperty': LocalizedStringProperty;
+  'keyboardHelpContent': {
+    'particleNavigationHeadingStringProperty': LocalizedStringProperty;
+    'grabOrReleaseStringProperty': LocalizedStringProperty;
+    'grabOrReleaseDescriptionStringProperty': LocalizedStringProperty;
+    'selectParticleInAtomStringProperty': LocalizedStringProperty;
+    'selectParticleInAtomDescriptionStringProperty': LocalizedStringProperty;
+    'moveGrabbedParticleStringProperty': LocalizedStringProperty;
+    'moveGrabbedParticleDescriptionStringProperty': LocalizedStringProperty;
+    'returnToBucketStringProperty': LocalizedStringProperty;
+    'returnToBucketDescriptionStringProperty': LocalizedStringProperty;
+    'cancelMovementStringProperty': LocalizedStringProperty;
+    'cancelMovementDescriptionStringProperty': LocalizedStringProperty;
+    'periodicTableHeadingStringProperty': LocalizedStringProperty;
+    'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
+    'selectChemicalSymbolStringProperty': LocalizedStringProperty;
+    'gameOptionsStringProperty': LocalizedStringProperty;
+  };
   'preferences': {
     'chargeNotationSelectorLabelStringProperty': LocalizedStringProperty;
   };
