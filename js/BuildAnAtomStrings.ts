@@ -52,41 +52,16 @@ type StringsType = {
   'keyboardHelpContent': {
     'particleNavigationHeadingStringProperty': LocalizedStringProperty;
     'grabOrReleaseStringProperty': LocalizedStringProperty;
-    'grabOrReleaseDescriptionStringProperty': LocalizedStringProperty;
     'selectParticleInAtomStringProperty': LocalizedStringProperty;
-    'selectParticleInAtomDescriptionStringProperty': LocalizedStringProperty;
     'moveGrabbedParticleStringProperty': LocalizedStringProperty;
-    'moveGrabbedParticleDescriptionStringProperty': LocalizedStringProperty;
     'returnToBucketStringProperty': LocalizedStringProperty;
-    'returnToBucketDescriptionStringProperty': LocalizedStringProperty;
     'cancelMovementStringProperty': LocalizedStringProperty;
-    'cancelMovementDescriptionStringProperty': LocalizedStringProperty;
-    'periodicTableHeadingStringProperty': LocalizedStringProperty;
-    'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
-    'selectChemicalSymbolStringProperty': LocalizedStringProperty;
-    'gameOptionsStringProperty': LocalizedStringProperty;
   };
   'preferences': {
     'chargeNotationSelectorLabelStringProperty': LocalizedStringProperty;
   };
   'a11y': {
     'common': {
-      'keyboardHelpContent': {
-        'particleNavigationHeadingStringProperty': LocalizedStringProperty;
-        'grabOrReleaseStringProperty': LocalizedStringProperty;
-        'grabOrReleaseDescriptionStringProperty': LocalizedStringProperty;
-        'selectParticleInAtomStringProperty': LocalizedStringProperty;
-        'selectParticleInAtomDescriptionStringProperty': LocalizedStringProperty;
-        'moveGrabbedParticleStringProperty': LocalizedStringProperty;
-        'moveGrabbedParticleDescriptionStringProperty': LocalizedStringProperty;
-        'returnToBucketStringProperty': LocalizedStringProperty;
-        'returnToBucketDescriptionStringProperty': LocalizedStringProperty;
-        'cancelMovementStringProperty': LocalizedStringProperty;
-        'cancelMovementDescriptionStringProperty': LocalizedStringProperty;
-        'periodicTableHeadingStringProperty': LocalizedStringProperty;
-        'navigateThroughTableDescriptionStringProperty': LocalizedStringProperty;
-        'selectChemicalSymbolStringProperty': LocalizedStringProperty;
-      };
       'accordionAccessibleContextResponse': {
         'expandedStringProperty': LocalizedStringProperty;
         'collapsedStringProperty': LocalizedStringProperty;

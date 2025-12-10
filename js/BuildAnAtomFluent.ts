@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
+import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -57,34 +57,11 @@ addToMapIfDefined( 'gamesInfoTitle', 'gamesInfoTitleStringProperty' );
 addToMapIfDefined( 'chargeNotation', 'chargeNotationStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_particleNavigationHeading', 'keyboardHelpContent.particleNavigationHeadingStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_grabOrRelease', 'keyboardHelpContent.grabOrReleaseStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_grabOrReleaseDescription', 'keyboardHelpContent.grabOrReleaseDescriptionStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_selectParticleInAtom', 'keyboardHelpContent.selectParticleInAtomStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_selectParticleInAtomDescription', 'keyboardHelpContent.selectParticleInAtomDescriptionStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_moveGrabbedParticle', 'keyboardHelpContent.moveGrabbedParticleStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_moveGrabbedParticleDescription', 'keyboardHelpContent.moveGrabbedParticleDescriptionStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_returnToBucket', 'keyboardHelpContent.returnToBucketStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_returnToBucketDescription', 'keyboardHelpContent.returnToBucketDescriptionStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_cancelMovement', 'keyboardHelpContent.cancelMovementStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_cancelMovementDescription', 'keyboardHelpContent.cancelMovementDescriptionStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_periodicTableHeading', 'keyboardHelpContent.periodicTableHeadingStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_navigateThroughTableDescription', 'keyboardHelpContent.navigateThroughTableDescriptionStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_selectChemicalSymbol', 'keyboardHelpContent.selectChemicalSymbolStringProperty' );
-addToMapIfDefined( 'keyboardHelpContent_gameOptions', 'keyboardHelpContent.gameOptionsStringProperty' );
 addToMapIfDefined( 'preferences_chargeNotationSelectorLabel', 'preferences.chargeNotationSelectorLabelStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_particleNavigationHeading', 'a11y.common.keyboardHelpContent.particleNavigationHeadingStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_grabOrRelease', 'a11y.common.keyboardHelpContent.grabOrReleaseStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_grabOrReleaseDescription', 'a11y.common.keyboardHelpContent.grabOrReleaseDescriptionStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectParticleInAtom', 'a11y.common.keyboardHelpContent.selectParticleInAtomStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectParticleInAtomDescription', 'a11y.common.keyboardHelpContent.selectParticleInAtomDescriptionStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_moveGrabbedParticle', 'a11y.common.keyboardHelpContent.moveGrabbedParticleStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_moveGrabbedParticleDescription', 'a11y.common.keyboardHelpContent.moveGrabbedParticleDescriptionStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_returnToBucket', 'a11y.common.keyboardHelpContent.returnToBucketStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_returnToBucketDescription', 'a11y.common.keyboardHelpContent.returnToBucketDescriptionStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_cancelMovement', 'a11y.common.keyboardHelpContent.cancelMovementStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_cancelMovementDescription', 'a11y.common.keyboardHelpContent.cancelMovementDescriptionStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_periodicTableHeading', 'a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' );
-addToMapIfDefined( 'a11y_common_keyboardHelpContent_selectChemicalSymbol', 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
 addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_particleAddedTo', 'a11y.common.particles.particleAddedToStringProperty' );
@@ -263,19 +240,10 @@ const BuildAnAtomFluent = {
   keyboardHelpContent: {
     particleNavigationHeadingStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.particleNavigationHeadingStringProperty' ),
     grabOrReleaseStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.grabOrReleaseStringProperty' ),
-    grabOrReleaseDescriptionStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.grabOrReleaseDescriptionStringProperty' ),
     selectParticleInAtomStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.selectParticleInAtomStringProperty' ),
-    selectParticleInAtomDescriptionStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.selectParticleInAtomDescriptionStringProperty' ),
     moveGrabbedParticleStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.moveGrabbedParticleStringProperty' ),
-    moveGrabbedParticleDescriptionStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.moveGrabbedParticleDescriptionStringProperty' ),
     returnToBucketStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.returnToBucketStringProperty' ),
-    returnToBucketDescriptionStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.returnToBucketDescriptionStringProperty' ),
-    cancelMovementStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.cancelMovementStringProperty' ),
-    cancelMovementDescriptionStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.cancelMovementDescriptionStringProperty' ),
-    periodicTableHeadingStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.periodicTableHeadingStringProperty' ),
-    navigateThroughTableDescriptionStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.navigateThroughTableDescriptionStringProperty' ),
-    selectChemicalSymbolStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.selectChemicalSymbolStringProperty' ),
-    gameOptionsStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.gameOptionsStringProperty' )
+    cancelMovementStringProperty: _.get( BuildAnAtomStrings, 'keyboardHelpContent.cancelMovementStringProperty' )
   },
   _comment_0: new FluentComment( {"comment":"Preferences","associatedKey":"preferences"} ),
   preferences: {
@@ -283,22 +251,6 @@ const BuildAnAtomFluent = {
   },
   a11y: {
     common: {
-      keyboardHelpContent: {
-        particleNavigationHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_particleNavigationHeading', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.particleNavigationHeadingStringProperty' ) ),
-        grabOrReleaseStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_grabOrRelease', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.grabOrReleaseStringProperty' ) ),
-        grabOrReleaseDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_grabOrReleaseDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.grabOrReleaseDescriptionStringProperty' ) ),
-        selectParticleInAtomStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectParticleInAtom', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectParticleInAtomStringProperty' ) ),
-        selectParticleInAtomDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectParticleInAtomDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectParticleInAtomDescriptionStringProperty' ) ),
-        moveGrabbedParticleStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_moveGrabbedParticle', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.moveGrabbedParticleStringProperty' ) ),
-        moveGrabbedParticleDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_moveGrabbedParticleDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.moveGrabbedParticleDescriptionStringProperty' ) ),
-        returnToBucketStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_returnToBucket', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.returnToBucketStringProperty' ) ),
-        returnToBucketDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_returnToBucketDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.returnToBucketDescriptionStringProperty' ) ),
-        cancelMovementStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_cancelMovement', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.cancelMovementStringProperty' ) ),
-        cancelMovementDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_cancelMovementDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.cancelMovementDescriptionStringProperty' ) ),
-        periodicTableHeadingStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_periodicTableHeading', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.periodicTableHeadingStringProperty' ) ),
-        navigateThroughTableDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_navigateThroughTableDescription', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.navigateThroughTableDescriptionStringProperty' ) ),
-        selectChemicalSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_keyboardHelpContent_selectChemicalSymbol', _.get( BuildAnAtomStrings, 'a11y.common.keyboardHelpContent.selectChemicalSymbolStringProperty' ) )
-      },
       accordionAccessibleContextResponse: {
         expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
         collapsedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_collapsed', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' ) )

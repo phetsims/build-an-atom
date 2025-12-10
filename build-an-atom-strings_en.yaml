@@ -37,19 +37,10 @@ level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
 keyboardHelpContent:
   particleNavigationHeading: Particle Navigation
   grabOrRelease: Grab or Release
-  grabOrReleaseDescription: Grab or release particle with Space or Enter keys.
   selectParticleInAtom: Select particle in atom
-  selectParticleInAtomDescription: Select particle in atom with Up and Down arrow keys or W and S keys.
   moveGrabbedParticle: Move grabbed particle
-  moveGrabbedParticleDescription: Move grabbed particle with Up and Down arrow keys or W and S keys.
   returnToBucket: Return grabbed particle to bucket
-  returnToBucketDescription: Return grabbed particle to bucket with Delete or Backspace keys.
   cancelMovement: Cancel movement
-  cancelMovementDescription: Cancel movement with Escape key.
-  periodicTableHeading: Periodic Table Navigation
-  navigateThroughTableDescription: Select chemical symbol with arrow keys or W, A, S, or D keys.
-  selectChemicalSymbol: Select chemical symbol
-  gameOptions: Game Options
 
 # Preferences
 preferences:
@@ -57,20 +48,6 @@ preferences:
 
 a11y:
   common:
-    keyboardHelpContent:
-      particleNavigationHeading: Particle Navigation
-      grabOrRelease: Grab or Release
-      grabOrReleaseDescription: Grab or release particle with Space or Enter keys.
-      selectParticleInAtom: Select particle in atom
-      selectParticleInAtomDescription: Select particle in atom with Up and Down arrow keys or W and S keys.
-      moveGrabbedParticle: Move grabbed particle
-      moveGrabbedParticleDescription: Move grabbed particle with Up and Down arrow keys or W and S keys.
-      returnToBucket: Return grabbed particle to bucket
-      returnToBucketDescription: Return grabbed particle to bucket with Delete or Backspace keys.
-      cancelMovement: Cancel movement
-      cancelMovementDescription: Cancel movement with Escape key.
-      periodicTableHeading: Periodic Table Navigation
-      selectChemicalSymbol: Select chemical symbol
     accordionAccessibleContextResponse:
       expanded: "expanded"
       collapsed: "collapsed"

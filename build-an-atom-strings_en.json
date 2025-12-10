@@ -111,44 +111,17 @@
     "grabOrRelease": {
       "value": "Grab or Release"
     },
-    "grabOrReleaseDescription": {
-      "value": "Grab or release particle with Space or Enter keys."
-    },
     "selectParticleInAtom": {
       "value": "Select particle in atom"
-    },
-    "selectParticleInAtomDescription": {
-      "value": "Select particle in atom with Up and Down arrow keys or W and S keys."
     },
     "moveGrabbedParticle": {
       "value": "Move grabbed particle"
     },
-    "moveGrabbedParticleDescription": {
-      "value": "Move grabbed particle with Up and Down arrow keys or W and S keys."
-    },
     "returnToBucket": {
       "value": "Return grabbed particle to bucket"
     },
-    "returnToBucketDescription": {
-      "value": "Return grabbed particle to bucket with Delete or Backspace keys."
-    },
     "cancelMovement": {
       "value": "Cancel movement"
-    },
-    "cancelMovementDescription": {
-      "value": "Cancel movement with Escape key."
-    },
-    "periodicTableHeading": {
-      "value": "Periodic Table Navigation"
-    },
-    "navigateThroughTableDescription": {
-      "value": "Select chemical symbol with arrow keys or W, A, S, or D keys."
-    },
-    "selectChemicalSymbol": {
-      "value": "Select chemical symbol"
-    },
-    "gameOptions": {
-      "value": "Game Options"
     }
   },
   "preferences": {
@@ -158,50 +131,6 @@
   },
   "a11y": {
     "common": {
-      "keyboardHelpContent": {
-        "particleNavigationHeading": {
-          "value": "Particle Navigation"
-        },
-        "grabOrRelease": {
-          "value": "Grab or Release"
-        },
-        "grabOrReleaseDescription": {
-          "value": "Grab or release particle with Space or Enter keys."
-        },
-        "selectParticleInAtom": {
-          "value": "Select particle in atom"
-        },
-        "selectParticleInAtomDescription": {
-          "value": "Select particle in atom with Up and Down arrow keys or W and S keys."
-        },
-        "moveGrabbedParticle": {
-          "value": "Move grabbed particle"
-        },
-        "moveGrabbedParticleDescription": {
-          "value": "Move grabbed particle with Up and Down arrow keys or W and S keys."
-        },
-        "returnToBucket": {
-          "value": "Return grabbed particle to bucket"
-        },
-        "returnToBucketDescription": {
-          "value": "Return grabbed particle to bucket with Delete or Backspace keys."
-        },
-        "cancelMovement": {
-          "value": "Cancel movement"
-        },
-        "cancelMovementDescription": {
-          "value": "Cancel movement with Escape key."
-        },
-        "periodicTableHeading": {
-          "value": "Periodic Table Navigation"
-        },
-        "navigateThroughTableDescription": {
-          "value": "Select chemical symbol with arrow keys or W, A, S, or D keys."
-        },
-        "selectChemicalSymbol": {
-          "value": "Select chemical symbol"
-        }
-      },
       "accordionAccessibleContextResponse": {
         "expanded": {
           "value": "expanded"

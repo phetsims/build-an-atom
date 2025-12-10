@@ -348,31 +348,31 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
   public static readonly GRAB_OR_RELEASE_HOTKEY_DATA = new HotkeyData( {
     keys: [ 'space', 'enter' ],
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.grabOrReleaseStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.grabOrReleaseStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly SELECT_HOTKEY_DATA = new HotkeyData( {
     keys: NAVIGATION_KEYS,
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectParticleInAtomStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.selectParticleInAtomStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly MOVE_HOTKEY_DATA = new HotkeyData( {
     keys: NAVIGATION_KEYS,
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.moveGrabbedParticleStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.moveGrabbedParticleStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly RETURN_TO_BUCKET_HOTKEY_DATA = new HotkeyData( {
     keys: [ 'delete', 'backspace' ],
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.returnToBucketStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.returnToBucketStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly CANCEL_MOVEMENT_HOTKEY_DATA = new HotkeyData( {
     keys: [ 'escape' ],
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.cancelMovementStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.cancelMovementStringProperty,
     repoName: buildAnAtom.name
   } );
 }
