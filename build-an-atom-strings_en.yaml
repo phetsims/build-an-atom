@@ -70,7 +70,6 @@ a11y:
       cancelMovement: Cancel movement
       cancelMovementDescription: Cancel movement with Escape key.
       periodicTableHeading: Periodic Table Navigation
-      navigateThroughTableDescription: Select chemical symbol with arrow keys or W, A, S, or D keys.
       selectChemicalSymbol: Select chemical symbol
     accordionAccessibleContextResponse:
       expanded: "expanded"

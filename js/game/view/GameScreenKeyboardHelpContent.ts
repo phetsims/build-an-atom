@@ -7,36 +7,20 @@
  */
 
 import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
-import KeyboardHelpIconFactory from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpIconFactory.js';
-import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
-import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
+import PeriodicTableControlsKeyboardHelpSection from '../../../../shred/js/view/PeriodicTableControlsKeyboardHelpSection.js';
 import GameShortcutsKeyboardHelpSection from '../../../../vegas/js/keyboard/GameShortcutsKeyboardHelpSection.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import ParticleNavigationHelpSection from '../../common/view/ParticleNavigationHelpSection.js';
 
 export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
   public constructor() {
 
-    const gameShortcutsKeyboardHelpSection = new GameShortcutsKeyboardHelpSection();
-
-    const periodicTableNavigationHelpSection = new KeyboardHelpSection(
-      BuildAnAtomStrings.keyboardHelpContent.periodicTableHeadingStringProperty,
-      [
-        KeyboardHelpSectionRow.labelWithIcon(
-          BuildAnAtomStrings.keyboardHelpContent.selectChemicalSymbolStringProperty,
-          KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon(), {
-            labelInnerContent: BuildAnAtomStrings.keyboardHelpContent.navigateThroughTableDescriptionStringProperty
-          } )
-      ]
-    );
-
     // sections in the left column
     const leftSections = [
-      gameShortcutsKeyboardHelpSection,
-      periodicTableNavigationHelpSection,
+      new GameShortcutsKeyboardHelpSection(),
+      new PeriodicTableControlsKeyboardHelpSection(),
       new ParticleNavigationHelpSection()
     ];
 

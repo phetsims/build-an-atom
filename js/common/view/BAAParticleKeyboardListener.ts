@@ -12,6 +12,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import isResettingAllProperty from '../../../../scenery-phet/js/isResettingAllProperty.js';
+import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -23,6 +24,7 @@ import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
+import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAParticle from '../model/BAAParticle.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
@@ -32,7 +34,9 @@ type ParticleLocationInformation = {
   responseProperty: TReadOnlyProperty<string>;
 };
 
-const NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowRight', 'arrowLeft', 'arrowDown', 'arrowUp', 'w', 'a', 's', 'd' ];
+const NEXT_NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowRight', 'arrowDown', 'd', 's' ];
+const PREVIOUS_NAVIGATION_KEYS: OneKeyStroke[] = [ 'arrowLeft', 'arrowUp', 'a', 'w' ];
+const NAVIGATION_KEYS: OneKeyStroke[] = [ ...NEXT_NAVIGATION_KEYS, ...PREVIOUS_NAVIGATION_KEYS ];
 
 class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
@@ -110,25 +114,25 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     let isParticleBeingRemovedFromAtomViaAltInput = false;
 
     super( {
-      keys: [
+      keyStringProperties: [
 
         // Support both space and enter for "action" keys.
-        'space', 'enter',
+        ...BAAParticleKeyboardListener.GRAB_OR_RELEASE_HOTKEY_DATA.keyStringProperties,
 
         // Navigation keys for moving focus or moving particles, depending on state.
-        ...NAVIGATION_KEYS,
+        ...BAAParticleKeyboardListener.SELECT_HOTKEY_DATA.keyStringProperties,
 
         // Delete and backspace for removing the particle from the atom, escape for canceling the interaction.
-        'delete', 'backspace', 'escape'
+        ...BAAParticleKeyboardListener.RETURN_TO_BUCKET_HOTKEY_DATA.keyStringProperties,
+        ...BAAParticleKeyboardListener.CANCEL_MOVEMENT_HOTKEY_DATA.keyStringProperties
       ],
       fireOnDown: false,
       fire: ( event, keysPressed ) => {
-
         if ( particle.containerProperty.value === atom ) {
 
           // This particle is in the atom.  If the user presses space or enter, extract it from the atom and position
           // it just below the nucleus.
-          if ( keysPressed === 'space' || keysPressed === 'enter' ) {
+          if ( BAAParticleKeyboardListener.GRAB_OR_RELEASE_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
             isParticleBeingRemovedFromAtomViaAltInput = true;
 
             // This particle is now being controlled by the user via keyboard interaction, so mark it as such.  This
@@ -151,14 +155,12 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
           }
-          else if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
-                    keysPressed === 'd' || keysPressed === 's' ) {
+          else if ( NEXT_NAVIGATION_KEYS.includes( keysPressed ) ) {
 
             // Move the focus to the next item in the designed focus order.
             shiftFocus( particleView, 'forward' );
           }
-          else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ||
-                    keysPressed === 'a' || keysPressed === 'w' ) {
+          else if ( PREVIOUS_NAVIGATION_KEYS.includes( keysPressed ) ) {
 
             // Move the focus to the previous item in the designed focus order.
             shiftFocus( particleView, 'backward' );
@@ -169,7 +171,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
           // This particle is outside the atom and is being controlled by the user via keyboard interaction.  Handle
           // the various different key presses below.
 
-          if ( keysPressed === 'space' || keysPressed === 'enter' ) {
+          if ( BAAParticleKeyboardListener.GRAB_OR_RELEASE_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
 
             // Release the particle from the user's control and let the chips (or the particle in this case) fall
             // where they may (the model code should move it into the atom or back to a homeBucket).
@@ -235,14 +237,12 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               }
             }
 
-            if ( keysPressed === 'arrowRight' || keysPressed === 'arrowDown' ||
-                 keysPressed === 'd' || keysPressed === 's' ) {
+            if ( NEXT_NAVIGATION_KEYS.includes( keysPressed ) ) {
 
               // Select the next position offset, wrapping if needed.
               offsetIndex = ( offsetIndex + 1 ) % altInputAtomOffsets.length;
             }
-            else if ( keysPressed === 'arrowLeft' || keysPressed === 'arrowUp' ||
-                      keysPressed === 'a' || keysPressed === 'w' ) {
+            else if ( PREVIOUS_NAVIGATION_KEYS.includes( keysPressed ) ) {
 
               // Select the previous position offset, wrapping if needed.
               offsetIndex = ( offsetIndex - 1 + altInputAtomOffsets.length ) % altInputAtomOffsets.length;
@@ -252,7 +252,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             );
             particleView.addAccessibleObjectResponse( objectResponses[ offsetIndex ], { alertBehavior: 'queue' } );
           }
-          else if ( keysPressed === 'delete' || keysPressed === 'backspace' ) {
+          else if ( BAAParticleKeyboardListener.RETURN_TO_BUCKET_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
 
             returnParticleToBucket( particle );
 
@@ -272,7 +272,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               shiftFocus( null, 'forward' );
             }
           }
-          else if ( keysPressed === 'escape' ) {
+          else if ( BAAParticleKeyboardListener.CANCEL_MOVEMENT_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
 
             // The escape key is used to cancel the drag operation and return the particle to its origin.
 
@@ -345,6 +345,36 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
       }
     } );
   }
+
+  public static readonly GRAB_OR_RELEASE_HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'space', 'enter' ],
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.grabOrReleaseStringProperty,
+    repoName: buildAnAtom.name
+  } );
+
+  public static readonly SELECT_HOTKEY_DATA = new HotkeyData( {
+    keys: NAVIGATION_KEYS,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.selectParticleInAtomStringProperty,
+    repoName: buildAnAtom.name
+  } );
+
+  public static readonly MOVE_HOTKEY_DATA = new HotkeyData( {
+    keys: NAVIGATION_KEYS,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.moveGrabbedParticleStringProperty,
+    repoName: buildAnAtom.name
+  } );
+
+  public static readonly RETURN_TO_BUCKET_HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'delete', 'backspace' ],
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.returnToBucketStringProperty,
+    repoName: buildAnAtom.name
+  } );
+
+  public static readonly CANCEL_MOVEMENT_HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'escape' ],
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.a11y.common.keyboardHelpContent.cancelMovementStringProperty,
+    repoName: buildAnAtom.name
+  } );
 }
 
 buildAnAtom.register( 'BAAParticleKeyboardListener', BAAParticleKeyboardListener );
