@@ -11,7 +11,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
-import Multilink from '../../../../axon/js/Multilink.js';
+import Multilink, { UnknownMultilink } from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
@@ -31,7 +31,6 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
-import BAAConstants from '../../common/BAAConstants.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
 import chargeToString from '../../common/view/chargeToString.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -59,6 +58,7 @@ class InteractiveSymbolNode extends VBox {
   public readonly protonCountProperty: NumberProperty;
   public readonly massNumberProperty: NumberProperty;
   public readonly chargeProperty: NumberProperty;
+  private readonly disposeInteractiveSymbolNode: () => void;
 
   private options: SelfOptions;
 
@@ -70,8 +70,7 @@ class InteractiveSymbolNode extends VBox {
       isChargeInteractive: false,
       showAtomName: true,
       showArrowButtonsProperty: new BooleanProperty( false ),
-      spacing: 10,
-      isDisposable: false
+      spacing: 10
     }, providedOptions );
 
     const contentNodes: Node[] = [];
@@ -102,20 +101,20 @@ class InteractiveSymbolNode extends VBox {
       phetioFeatured: true
     } );
 
+    let updateLocalProtonCountProperty: ( ( value: number ) => void ) | null = null;
     if ( !options.isProtonCountInteractive ) {
-      numberAtom.protonCountProperty.link( protonCount => {
-        protonCountProperty.value = protonCount;
-      } );
+      updateLocalProtonCountProperty = protonCount => { protonCountProperty.value = protonCount; };
+      numberAtom.protonCountProperty.link( updateLocalProtonCountProperty );
     }
+    let updateLocalMassNumberProperty: ( ( value: number ) => void ) | null = null;
     if ( !options.isMassNumberInteractive ) {
-      numberAtom.massNumberProperty.link( massNumber => {
-        massNumberProperty.value = massNumber;
-      } );
+      updateLocalMassNumberProperty = massNumber => { massNumberProperty.value = massNumber; };
+      numberAtom.massNumberProperty.link( updateLocalMassNumberProperty );
     }
+    let updateLocalChargeProperty: ( ( value: number ) => void ) | null = null;
     if ( !options.isChargeInteractive ) {
-      numberAtom.chargeProperty.link( charge => {
-        chargeProperty.value = charge;
-      } );
+      updateLocalChargeProperty = charge => { chargeProperty.value = charge; };
+      numberAtom.chargeProperty.link( updateLocalChargeProperty );
     }
 
     const createDynamicHelpText = ( accessibleHelpText: TReadOnlyProperty<string> ) => {
@@ -254,6 +253,7 @@ class InteractiveSymbolNode extends VBox {
     }
 
     // Add the charge display, either interactive or not.
+    let chargeDisplayMultilink: UnknownMultilink | null = null;
     if ( options.isChargeInteractive ) {
       symbolBox.addChild( new BAANumberSpinner(
         chargeProperty,
@@ -280,7 +280,7 @@ class InteractiveSymbolNode extends VBox {
       } );
       symbolBox.addChild( chargeDisplay );
 
-      Multilink.multilink(
+      chargeDisplayMultilink = Multilink.multilink(
         [ chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
         charge => {
           displayedTextProperty.value = chargeToString( charge );
@@ -309,12 +309,32 @@ class InteractiveSymbolNode extends VBox {
     this.protonCountProperty = protonCountProperty;
     this.massNumberProperty = massNumberProperty;
     this.chargeProperty = chargeProperty;
+
+    this.disposeInteractiveSymbolNode = () => {
+      if ( updateLocalProtonCountProperty ) {
+        numberAtom.protonCountProperty.unlink( updateLocalProtonCountProperty );
+        updateLocalProtonCountProperty = null;
+      }
+      if ( updateLocalMassNumberProperty ) {
+        numberAtom.massNumberProperty.unlink( updateLocalMassNumberProperty );
+        updateLocalMassNumberProperty = null;
+      }
+      if ( updateLocalChargeProperty ) {
+        numberAtom.chargeProperty.unlink( updateLocalChargeProperty );
+        updateLocalChargeProperty = null;
+      }
+      chargeDisplayMultilink?.dispose();
+    };
   }
 
   public reset(): void {
     this.options.isProtonCountInteractive && this.protonCountProperty.reset();
     this.options.isMassNumberInteractive && this.massNumberProperty.reset();
     this.options.isChargeInteractive && this.chargeProperty.reset();
+  }
+
+  public override dispose(): void {
+    super.dispose();
   }
 }
 
