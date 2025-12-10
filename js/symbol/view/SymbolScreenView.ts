@@ -17,7 +17,7 @@ import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import BAASymbolNode from './BAASymbolNode.js';
 import SymbolAccessibleListNode from './description/SymbolAccessibleListNode.js';
-import SymbolScreenSummaryContentNode from './SymbolScreenSummaryContentNode.js';
+import SymbolScreenSummaryContentNode from './description/SymbolScreenSummaryContentNode.js';
 
 class SymbolScreenView extends BAAScreenView {
 

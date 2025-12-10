@@ -23,8 +23,8 @@ import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
-import AtomScreenSummaryContentNode from './AtomScreenSummaryContentNode.js';
 import ChargeComparisonDisplay from './ChargeComparisonDisplay.js';
+import AtomScreenSummaryContentNode from './description/AtomScreenSummaryContentNode.js';
 import MassNumberDisplay from './MassNumberDisplay.js';
 
 class AtomScreenView extends BAAScreenView {

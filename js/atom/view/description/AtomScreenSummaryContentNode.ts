@@ -5,11 +5,11 @@
  * @author Agustín Vallejo
  */
 
-import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
-import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
-import BAAModel from '../../common/model/BAAModel.js';
+import ScreenSummaryContent from '../../../../../joist/js/ScreenSummaryContent.js';
+import buildAnAtom from '../../../buildAnAtom.js';
+import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
+import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
+import BAAModel from '../../../common/model/BAAModel.js';
 
 export default class AtomScreenSummaryContentNode extends ScreenSummaryContent {
   public constructor( model: BAAModel ) {
