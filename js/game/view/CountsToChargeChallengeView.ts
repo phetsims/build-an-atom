@@ -97,7 +97,7 @@ class CountsToChargeChallengeView extends ChallengeView {
     const chargeTextProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.chargeProperty ],
       ( charge: number ) => {
-        return `${this.challenge.challengeType}<br> Net Charge: ${BAAConstants.chargeToStringSignAfterValue( charge )}`;
+        return `${this.challenge.challengeType}<br> Net Charge: ${BAAConstants.chargeToStringSignBeforeValue( charge )}`;
       }
     );
     return new RichText( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );

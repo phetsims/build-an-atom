@@ -16,6 +16,8 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
+import BAAPreferences from '../../common/model/BAAPreferences.js';
+import chargeToString from '../../common/view/chargeToString.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import ToSymbolChallenge from '../model/ToSymbolChallenge.js';
 import ChallengeView from './ChallengeView.js';
@@ -75,13 +77,13 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
           symbol: AtomIdentifier.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
-          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'counts-to-symbol-charge' ) {
       this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
         BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolCharge.correctAnswerParagraph.format( {
-          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'counts-to-symbol-mass-number' ) {
@@ -97,13 +99,13 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
           symbol: AtomIdentifier.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
           mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
-          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'schematic-to-symbol-charge' ) {
       this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
         BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolCharge.correctAnswerParagraph.format( {
-          charge: BAAConstants.chargeToStringSignAfterValue( this.challenge.correctAnswerAtom.chargeProperty.value )
+          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
         } );
     }
     else if ( challengeType === 'schematic-to-symbol-mass-number' ) {
@@ -143,13 +145,13 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
               !this.challenge.isMassNumberConfigurable ) {
 
       // Add the text node for the net charge, since that is the only configurable property.
-      const protonCountTextProperty = new DerivedStringProperty(
-        [ this.challenge.correctAnswerAtom.chargeProperty ],
+      const chargeTextProperty = new DerivedStringProperty(
+        [ this.challenge.correctAnswerAtom.chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
         ( charge: number ) => {
-          return `${this.challenge.challengeType}<br> Net Charge: ${BAAConstants.chargeToStringSignAfterValue( charge )}`;
+          return `${this.challenge.challengeType}<br> Net Charge: ${chargeToString( charge )}`;
         }
       );
-      answerNode = new RichText( protonCountTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
+      answerNode = new RichText( chargeTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
     }
     else if ( this.challenge.isMassNumberConfigurable &&
               !this.challenge.isProtonCountConfigurable &&
