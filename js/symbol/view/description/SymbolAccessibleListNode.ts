@@ -11,7 +11,7 @@ import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
-import ShredStrings from '../../../../../shred/js/ShredStrings.js';
+import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import BAAModel from '../../../common/model/BAAModel.js';
@@ -21,21 +21,25 @@ import chargeToString from '../../../common/view/chargeToString.js';
 export default class SymbolAccessibleListNode extends AccessibleListNode {
   public constructor( model: BAAModel, visibleProperty: TReadOnlyProperty<boolean> ) {
 
+    const spokenSymbolStringProperty = ShredFluent.a11y.spokenSymbol.createProperty( {
+      symbol: model.atom.protonCountProperty.derived( count => {
+        return AtomIdentifier.getSymbol( count ).split( '' ).join( ' ' );
+      } )
+    } );
+
     const symbolListItemProperty = new DerivedStringProperty(
       [
         model.atom.protonCountProperty,
         BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty,
-        ShredStrings.a11y.spokenSymbolStringProperty
+        spokenSymbolStringProperty,
+        BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty
       ],
       (
         protonCount: number,
         symbolPattern: string,
-        noSymbolString: string,
-        upperString: string
+        spokenSymbol: string,
+        noSymbolString: string
       ) => {
-        const symbol = AtomIdentifier.getSymbol( protonCount );
-        const spokenSymbol = StringUtils.fillIn( upperString, { symbol: symbol.split( '' ).join( ' ' ) } );
         return StringUtils.fillIn( symbolPattern, { symbol: protonCount > 0 ? spokenSymbol : noSymbolString } );
       }
     );
