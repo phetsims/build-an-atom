@@ -110,7 +110,7 @@ class BAANumberSpinner extends NumberSpinner {
 
     // Update the help text based on whether the spinner is enabled.
     this.enabledProperty.link( enabled => {
-      this.accessibleHelpText = enabled ? options.accessibleHelpText : '';
+      this.accessibleHelpText = enabled ? options.accessibleHelpText : null;
     } );
 
     numberProperty.link( number => {
