@@ -290,7 +290,6 @@ type StringsType = {
       }
     };
     'preferences': {
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'signFirst': {
         'accessibleNameStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;

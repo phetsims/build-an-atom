@@ -44,7 +44,8 @@ class ChargeNotationControl extends PreferencesControl {
         value: 'signLast',
         createNode: () => new Text( `n${MathSymbols.PLUS_MINUS}`, RADIO_BUTTON_LABEL_OPTIONS ),
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.preferences.signLast.accessibleNameStringProperty
+          accessibleName: BuildAnAtomStrings.a11y.preferences.signLast.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.preferences.signLast.accessibleHelpTextStringProperty
         },
         tandemName: 'signLastRadioButton'
       },
@@ -52,7 +53,8 @@ class ChargeNotationControl extends PreferencesControl {
         value: 'signFirst',
         createNode: () => new Text( `${MathSymbols.PLUS_MINUS}n`, RADIO_BUTTON_LABEL_OPTIONS ),
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.preferences.signFirst.accessibleNameStringProperty
+          accessibleName: BuildAnAtomStrings.a11y.preferences.signFirst.accessibleNameStringProperty,
+          accessibleHelpText: BuildAnAtomStrings.a11y.preferences.signFirst.accessibleHelpTextStringProperty
         },
         tandemName: 'signFirstRadioButton'
       }

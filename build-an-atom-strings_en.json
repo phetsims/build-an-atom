@@ -619,9 +619,6 @@
       }
     },
     "preferences": {
-      "accessibleHelpText": {
-        "value": "Choose sign convention for charges."
-      },
       "signFirst": {
         "accessibleName": {
           "value": "Sign First"

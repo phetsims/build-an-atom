@@ -348,7 +348,6 @@ a11y:
           Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
            Once grabbed use W or S key to change location or delete to return to bucket.
   preferences:
-    accessibleHelpText: "Choose sign convention for charges."
     signFirst:
       accessibleName: "Sign First"
       accessibleHelpText: "number last"

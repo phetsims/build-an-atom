@@ -183,7 +183,6 @@ addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_accessibleParag
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_correctAnswerParagraph', 'a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_accessibleHelpText', 'a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToSchematic_builtAtomHelpText', 'a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_preferences_accessibleHelpText', 'a11y.preferences.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_preferences_signFirst_accessibleName', 'a11y.preferences.signFirst.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_preferences_signFirst_accessibleHelpText', 'a11y.preferences.signFirst.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_preferences_signLast_accessibleName', 'a11y.preferences.signLast.accessibleNameStringProperty' );
@@ -481,7 +480,6 @@ const BuildAnAtomFluent = {
     },
     _comment_0: new FluentComment( {"comment":"Preferences","associatedKey":"preferences"} ),
     preferences: {
-      accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.preferences.accessibleHelpTextStringProperty' ) ),
       signFirst: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_signFirst_accessibleName', _.get( BuildAnAtomStrings, 'a11y.preferences.signFirst.accessibleNameStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_preferences_signFirst_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.preferences.signFirst.accessibleHelpTextStringProperty' ) )
