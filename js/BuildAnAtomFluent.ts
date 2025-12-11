@@ -62,8 +62,6 @@ addToMapIfDefined( 'keyboardHelpContent_moveGrabbedParticle', 'keyboardHelpConte
 addToMapIfDefined( 'keyboardHelpContent_returnToBucket', 'keyboardHelpContent.returnToBucketStringProperty' );
 addToMapIfDefined( 'keyboardHelpContent_cancelMovement', 'keyboardHelpContent.cancelMovementStringProperty' );
 addToMapIfDefined( 'preferences_chargeNotationSelectorLabel', 'preferences.chargeNotationSelectorLabelStringProperty' );
-addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_expanded', 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' );
-addToMapIfDefined( 'a11y_common_accordionAccessibleContextResponse_collapsed', 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_particleAddedTo', 'a11y.common.particles.particleAddedToStringProperty' );
 addToMapIfDefined( 'a11y_common_particles_particleReturnedToBucket', 'a11y.common.particles.particleReturnedToBucketStringProperty' );
 addToMapIfDefined( 'a11y_common_buckets_bucketEmpty', 'a11y.common.buckets.bucketEmptyStringProperty' );
@@ -251,10 +249,6 @@ const BuildAnAtomFluent = {
   },
   a11y: {
     common: {
-      accordionAccessibleContextResponse: {
-        expandedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_expanded', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.expandedStringProperty' ) ),
-        collapsedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_accordionAccessibleContextResponse_collapsed', _.get( BuildAnAtomStrings, 'a11y.common.accordionAccessibleContextResponse.collapsedStringProperty' ) )
-      },
       particles: {
         particleAddedTo: new FluentPattern<{ count: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, location: FluentVariable, particle: FluentVariable, particles: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleAddedTo', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleAddedToStringProperty' ), [{"name":"count","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"location"},{"name":"particle"},{"name":"particles"}] ),
         particleReturnedToBucket: new FluentPattern<{ particle: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleReturnedToBucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleReturnedToBucketStringProperty' ), [{"name":"particle"}] )
@@ -279,6 +273,12 @@ const BuildAnAtomFluent = {
         shellInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_shellInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty' ) ),
         cloudInfoEmptyStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_cloudInfoEmpty', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty' ) ),
         accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty' ) ),
+        _comment_0: new FluentComment( {"comment":"Description of the particles in the nucleus, with different forms","associatedKey":"nucleusContains"} ),
+        _comment_1: new FluentComment( {"comment":"depending on which particles are present.","associatedKey":"nucleusContains"} ),
+        _comment_2: new FluentComment( {"comment":"full - both protons and neutrons present","associatedKey":"nucleusContains"} ),
+        _comment_3: new FluentComment( {"comment":"protons - only protons present","associatedKey":"nucleusContains"} ),
+        _comment_4: new FluentComment( {"comment":"neutrons - only neutrons present","associatedKey":"nucleusContains"} ),
+        _comment_5: new FluentComment( {"comment":"empty - neither present","associatedKey":"nucleusContains"} ),
         nucleusContains: new FluentPattern<{ neutrons: number | 'one' | number | 'other' | number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other' | number | 'one' | number | 'other'>, nucleonState: 'full' | 'protons' | 'neutrons' | 'empty' | TReadOnlyProperty<'full' | 'protons' | 'neutrons' | 'empty'>, protons: number | 'one' | number | 'other' | number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other' | number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusContains', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusContainsStringProperty' ), [{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"},{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"nucleonState","variants":["full","protons","neutrons","empty"]},{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"},{"type":"number","value":"one"},{"type":"number","value":"other"}]}] )
       },
       noElementContextResponseStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_noElementContextResponse', _.get( BuildAnAtomStrings, 'a11y.common.noElementContextResponseStringProperty' ) ),

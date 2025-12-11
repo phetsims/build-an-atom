@@ -62,10 +62,6 @@ type StringsType = {
   };
   'a11y': {
     'common': {
-      'accordionAccessibleContextResponse': {
-        'expandedStringProperty': LocalizedStringProperty;
-        'collapsedStringProperty': LocalizedStringProperty;
-      };
       'particles': {
         'particleAddedToStringProperty': LocalizedStringProperty;
         'particleReturnedToBucketStringProperty': LocalizedStringProperty;

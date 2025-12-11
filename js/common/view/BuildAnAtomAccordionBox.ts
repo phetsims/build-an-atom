@@ -12,7 +12,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import Node from '../../../../scenery/js/nodes/Node.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 export type BuildAnAtomAccordionBoxOptions = SelfOptions & AccordionBoxOptions;
@@ -21,10 +20,7 @@ class BuildAnAtomAccordionBox extends AccordionBox {
 
   public constructor( contentNode: Node, providedOptions?: BuildAnAtomAccordionBoxOptions ) {
 
-    const options = optionize<BuildAnAtomAccordionBoxOptions, SelfOptions, AccordionBoxOptions>()( {
-      accessibleContextResponseExpanded: BuildAnAtomStrings.a11y.common.accordionAccessibleContextResponse.expandedStringProperty,
-      accessibleContextResponseCollapsed: BuildAnAtomStrings.a11y.common.accordionAccessibleContextResponse.collapsedStringProperty
-    }, providedOptions );
+    const options = optionize<BuildAnAtomAccordionBoxOptions, SelfOptions, AccordionBoxOptions>()( {}, providedOptions );
 
     super( contentNode, options );
   }

@@ -131,14 +131,6 @@
   },
   "a11y": {
     "common": {
-      "accordionAccessibleContextResponse": {
-        "expanded": {
-          "value": "expanded"
-        },
-        "collapsed": {
-          "value": "collapsed"
-        }
-      },
       "particles": {
         "particleAddedTo": {
           "value": "{ $particle } added to { $location }. Now { $count ->\n [one]{ $count } { $particle }\n *[other] { $count } { $particles }\n} in total."

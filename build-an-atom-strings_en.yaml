@@ -48,9 +48,6 @@ preferences:
 
 a11y:
   common:
-    accordionAccessibleContextResponse:
-      expanded: "expanded"
-      collapsed: "collapsed"
     particles:
       particleAddedTo: |-
         { $particle } added to { $location }. Now { $count ->
