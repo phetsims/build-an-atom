@@ -10,7 +10,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
@@ -139,17 +138,6 @@ class InteractiveSchematicAtom extends Node {
       bucketEmptyProperty: TReadOnlyProperty<boolean>
     ): void => {
 
-      // Help text that's visible when bucket is empty
-      const bucketEmptyAccessibleHelpTextProperty = new DerivedStringProperty(
-        [
-          bucketEmptyProperty,
-          BuildAnAtomStrings.a11y.common.buckets.emptyHelpTextStringProperty
-        ],
-        ( bucketEmpty: boolean, emptyHelpText: string ) => {
-          return bucketEmpty ? emptyHelpText : '';
-        }
-      );
-
       const bucketFront = new BucketFront( bucket, modelViewTransform, {
         labelNode: new Text( bucket.captionText, {
           font: new PhetFont( 20 ),
@@ -164,8 +152,7 @@ class InteractiveSchematicAtom extends Node {
 
         // pdom
         tagName: 'button',
-        accessibleName: particleTypeStringProperty,
-        accessibleHelpText: bucketEmptyAccessibleHelpTextProperty
+        accessibleName: particleTypeStringProperty
       } );
 
       // When bucket is empty, or when the game has made them non-interactive, set aria-disabled.
@@ -174,6 +161,7 @@ class InteractiveSchematicAtom extends Node {
         this.enabledProperty
       ], ( empty: boolean, enabled: boolean ) => {
         bucketFront.setPDOMAttribute( 'aria-disabled', empty || !enabled );
+        bucketFront.accessibleHelpText = empty ? BuildAnAtomStrings.a11y.common.buckets.emptyHelpTextStringProperty : null;
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
