@@ -219,7 +219,8 @@ class BAAScreenView extends ScreenView {
 
     this.pdomControlAreaNode.pdomOrder = [
       checkboxGroup,
-      electronModelControl
+      electronModelControl,
+      resetAllButton
     ];
   }
 
