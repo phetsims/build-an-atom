@@ -347,8 +347,6 @@ a11y:
   preferences:
     signFirst:
       accessibleName: "Sign First"
-      accessibleHelpText: "number last"
     signLast:
       accessibleName: "Sign Last"
-      accessibleHelpText: "number first"
 

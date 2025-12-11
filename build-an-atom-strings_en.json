@@ -614,17 +614,11 @@
       "signFirst": {
         "accessibleName": {
           "value": "Sign First"
-        },
-        "accessibleHelpText": {
-          "value": "number last"
         }
       },
       "signLast": {
         "accessibleName": {
           "value": "Sign Last"
-        },
-        "accessibleHelpText": {
-          "value": "number first"
         }
       }
     }

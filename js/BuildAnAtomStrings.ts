@@ -288,11 +288,9 @@ type StringsType = {
     'preferences': {
       'signFirst': {
         'accessibleNameStringProperty': LocalizedStringProperty;
-        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
       'signLast': {
         'accessibleNameStringProperty': LocalizedStringProperty;
-        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     }
   }
