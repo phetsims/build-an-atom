@@ -29,7 +29,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
@@ -96,10 +95,10 @@ class BAAScreenView extends ScreenView {
     const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
       [
         model.atom.protonCountProperty,
-        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
+        BuildAnAtomFluent.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
         this.viewProperties.elementNameVisibleProperty,
-        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty,
-        BuildAnAtomStrings.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty,
+        BuildAnAtomFluent.a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty,
+        BuildAnAtomFluent.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty,
         ShredStrings.a11y.spokenSymbolStringProperty // needed to update spoken symbol
       ],
       (
@@ -151,7 +150,7 @@ class BAAScreenView extends ScreenView {
         tandem: tandem.createTandem( 'periodicTableAccordionBox' ),
         phetioFeatured: true,
 
-        accessibleName: BuildAnAtomStrings.a11y.common.periodicTable.accessibleNameStringProperty
+        accessibleName: BuildAnAtomFluent.a11y.common.periodicTable.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
 

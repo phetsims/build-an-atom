@@ -13,7 +13,7 @@ import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/Acc
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import buildAnAtom from '../../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAModel from '../../../common/model/BAAModel.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
@@ -30,9 +30,9 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
     const symbolListItemProperty = new DerivedStringProperty(
       [
         model.atom.protonCountProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty,
+        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty,
         spokenSymbolStringProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty
+        BuildAnAtomFluent.a11y.symbolScreen.symbol.noSymbolStringProperty
       ],
       (
         protonCount: number,
@@ -47,7 +47,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
     const atomicNumberListItemProperty = new DerivedStringProperty(
       [
         model.atom.protonCountProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.atomicNumberStringProperty
+        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.atomicNumberStringProperty
       ],
       ( protonCount: number, atomicNumberPattern: string ) => {
         return StringUtils.fillIn( atomicNumberPattern, { value: protonCount } );
@@ -57,7 +57,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
     const massNumberListItemProperty = new DerivedStringProperty(
       [
         model.atom.massNumberProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.massNumberStringProperty
+        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.massNumberStringProperty
       ],
       ( massNumber: number, massNumberPattern: string ) => {
         return StringUtils.fillIn( massNumberPattern, { value: massNumber } );
@@ -67,7 +67,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
     const chargeListItemProperty = new DerivedStringProperty(
       [
         model.atom.chargeProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty,
+        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty,
         BAAPreferences.instance.chargeNotationProperty
       ],
       ( charge: number, chargePattern: string ) => StringUtils.fillIn( chargePattern, {
@@ -84,7 +84,7 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
       ],
       {
         visibleProperty: visibleProperty,
-        leadingParagraphStringProperty: BuildAnAtomStrings.a11y.symbolScreen.symbol.leadingParagraphStringProperty
+        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.symbolScreen.symbol.leadingParagraphStringProperty
       }
     );
   }

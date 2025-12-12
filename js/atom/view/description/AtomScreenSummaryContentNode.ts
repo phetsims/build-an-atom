@@ -8,7 +8,6 @@
 import ScreenSummaryContent from '../../../../../joist/js/ScreenSummaryContent.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import BAAModel from '../../../common/model/BAAModel.js';
 
 export default class AtomScreenSummaryContentNode extends ScreenSummaryContent {
@@ -22,9 +21,9 @@ export default class AtomScreenSummaryContentNode extends ScreenSummaryContent {
 
     super( {
       currentDetailsContent: currentDetailsStringProperty,
-      playAreaContent: BuildAnAtomStrings.a11y.atomScreen.screenSummary.playAreaStringProperty,
-      controlAreaContent: BuildAnAtomStrings.a11y.common.screenSummary.controlAreaStringProperty,
-      interactionHintContent: BuildAnAtomStrings.a11y.common.screenSummary.interactionHintStringProperty
+      playAreaContent: BuildAnAtomFluent.a11y.atomScreen.screenSummary.playAreaStringProperty,
+      controlAreaContent: BuildAnAtomFluent.a11y.common.screenSummary.controlAreaStringProperty,
+      interactionHintContent: BuildAnAtomFluent.a11y.common.screenSummary.interactionHintStringProperty
     } );
   }
 }

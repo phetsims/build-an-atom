@@ -21,7 +21,6 @@ import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/descr
 import ElectronShellDepiction from '../../../../../shred/js/view/ElectronShellDepiction.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 
 class AtomDescriberAccessibleListNode extends Node {
   public constructor(
@@ -53,7 +52,7 @@ class AtomDescriberAccessibleListNode extends Node {
           ]
         } )
       ],
-      accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.builtAtomStringProperty
+      accessibleHeading: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.builtAtomStringProperty
     } );
   }
 
@@ -63,8 +62,8 @@ class AtomDescriberAccessibleListNode extends Node {
     return new DerivedStringProperty(
       [
         protonCountProperty,
-        BuildAnAtomStrings.a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
-        BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
+        BuildAnAtomFluent.a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
+        BuildAnAtomFluent.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protonCount: number,
@@ -89,10 +88,10 @@ class AtomDescriberAccessibleListNode extends Node {
       [
         protonCountProperty,
         chargeProperty,
-        BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.neutralAtomStringProperty,
-        BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.positiveIonStringProperty,
-        BuildAnAtomStrings.a11y.common.neutralAtomIonCheckbox.negativeIonStringProperty,
-        BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
+        BuildAnAtomFluent.a11y.common.neutralAtomIonCheckbox.neutralAtomStringProperty,
+        BuildAnAtomFluent.a11y.common.neutralAtomIonCheckbox.positiveIonStringProperty,
+        BuildAnAtomFluent.a11y.common.neutralAtomIonCheckbox.negativeIonStringProperty,
+        BuildAnAtomFluent.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protons: number,
@@ -120,10 +119,10 @@ class AtomDescriberAccessibleListNode extends Node {
       [
         protonCountProperty,
         isStableProperty,
-        BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty,
-        BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.stableStringProperty,
-        BuildAnAtomStrings.a11y.common.nuclearStabilityCheckbox.unstableStringProperty,
-        BuildAnAtomStrings.a11y.common.noElementContextResponseStringProperty
+        BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty,
+        BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.stableStringProperty,
+        BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.unstableStringProperty,
+        BuildAnAtomFluent.a11y.common.noElementContextResponseStringProperty
       ],
       (
         protons: number,
@@ -174,8 +173,8 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
         BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoFull.createProperty( {
           value: atom.electronCountProperty
         } ),
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
-        BuildAnAtomStrings.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
+        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
+        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
       ],
       (
         electronModel: ElectronShellDepiction,
@@ -197,8 +196,8 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
     const shellsOrCloudStringProperty = new DerivedStringProperty(
       [
         viewProperties.electronModelProperty,
-        BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameShellsStringProperty,
-        BuildAnAtomStrings.a11y.common.modelToggle.accessibleNameCloudStringProperty
+        BuildAnAtomFluent.a11y.common.modelToggle.accessibleNameShellsStringProperty,
+        BuildAnAtomFluent.a11y.common.modelToggle.accessibleNameCloudStringProperty
       ],
       (
         electronModel: ElectronShellDepiction,
@@ -254,7 +253,7 @@ class CheckboxesAccessibleListNode extends AccessibleListNode {
       { stringProperty: neutralOrIonListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.neutralAtomOrIonVisibleProperty ) },
       { stringProperty: stabilityListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.nuclearStabilityVisibleProperty ) }
     ], {
-      leadingParagraphStringProperty: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
+      leadingParagraphStringProperty: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
       leadingParagraphVisibleProperty: hasProtonsProperty
     } );
   }

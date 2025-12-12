@@ -11,7 +11,6 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
@@ -51,7 +50,7 @@ class SymbolScreenView extends BAAScreenView {
       // phet-io
       tandem: tandem.createTandem( 'symbolAccordionBox' ),
 
-      accessibleName: BuildAnAtomStrings.a11y.symbolScreen.symbol.accessibleNameStringProperty
+      accessibleName: BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleNameStringProperty
     } );
     this.accordionBoxes.addChild( this.symbolAccordionBox );
 

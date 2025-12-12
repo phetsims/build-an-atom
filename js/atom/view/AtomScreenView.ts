@@ -16,7 +16,6 @@ import { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
@@ -70,7 +69,7 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.netCharge.accessibleNameStringProperty
+        accessibleName: BuildAnAtomFluent.a11y.atomScreen.netCharge.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.netChargeAccordionBox );
@@ -79,7 +78,7 @@ class AtomScreenView extends BAAScreenView {
     const massNumberAccessibleParagraphProperty = new DerivedStringProperty(
       [
         model.atom.massNumberProperty,
-        BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleParagraphStringProperty
+        BuildAnAtomFluent.a11y.atomScreen.massNumber.accessibleParagraphStringProperty
       ],
       (
         massNumber: number,
@@ -110,7 +109,7 @@ class AtomScreenView extends BAAScreenView {
         phetioFeatured: true,
         minWidth: this.periodicTableAccordionBox.width,
 
-        accessibleName: BuildAnAtomStrings.a11y.atomScreen.massNumber.accessibleNameStringProperty
+        accessibleName: BuildAnAtomFluent.a11y.atomScreen.massNumber.accessibleNameStringProperty
       }, BAAConstants.ACCORDION_BOX_OPTIONS )
     );
     this.accordionBoxes.addChild( this.massNumberAccordionBox );

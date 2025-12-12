@@ -17,7 +17,7 @@ import { ChargeNotation } from '../../../../shred/js/model/ChargeNotation.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 
 const FONT_SIZE = 18;
 const TEXT_FONT = new PhetFont( FONT_SIZE );
@@ -29,12 +29,12 @@ class ChargeNotationControl extends PreferencesControl {
 
   public constructor( chargeNotationProperty: StringUnionProperty<ChargeNotation>, tandem: Tandem ) {
 
-    const labelText = new Text( BuildAnAtomStrings.chargeNotationStringProperty, {
+    const labelText = new Text( BuildAnAtomFluent.chargeNotationStringProperty, {
       font: LABEL_FONT,
       maxWidth: 360
     } );
 
-    const descriptionText = new RichText( BuildAnAtomStrings.preferences.chargeNotationSelectorLabelStringProperty, {
+    const descriptionText = new RichText( BuildAnAtomFluent.preferences.chargeNotationSelectorLabelStringProperty, {
       font: DESCRIPTION_FONT,
       lineWrap: 'stretch' as const
     } );
@@ -44,7 +44,7 @@ class ChargeNotationControl extends PreferencesControl {
         value: 'signLast',
         createNode: () => new Text( `n${MathSymbols.PLUS_MINUS}`, RADIO_BUTTON_LABEL_OPTIONS ),
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.preferences.signLast.accessibleNameStringProperty
+          accessibleName: BuildAnAtomFluent.a11y.preferences.signLast.accessibleNameStringProperty
         },
         tandemName: 'signLastRadioButton'
       },
@@ -52,7 +52,7 @@ class ChargeNotationControl extends PreferencesControl {
         value: 'signFirst',
         createNode: () => new Text( `${MathSymbols.PLUS_MINUS}n`, RADIO_BUTTON_LABEL_OPTIONS ),
         options: {
-          accessibleName: BuildAnAtomStrings.a11y.preferences.signFirst.accessibleNameStringProperty
+          accessibleName: BuildAnAtomFluent.a11y.preferences.signFirst.accessibleNameStringProperty
         },
         tandemName: 'signFirstRadioButton'
       }

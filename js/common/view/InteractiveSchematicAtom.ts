@@ -42,7 +42,6 @@ import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepic
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAModel from '../model/BAAModel.js';
 import BAAParticle, { BAAParticleType } from '../model/BAAParticle.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
@@ -100,13 +99,13 @@ class InteractiveSchematicAtom extends Node {
       particleDragBounds: Bounds2.EVERYTHING,
       phetioVisiblePropertyInstrumented: false,
 
-      bucketsAccessibleParagraph: BuildAnAtomStrings.a11y.common.buckets.accessibleHelpTextStringProperty,
+      bucketsAccessibleParagraph: BuildAnAtomFluent.a11y.common.buckets.accessibleHelpTextStringProperty,
 
       atomNodeOptions: {
         enabledProperty: providedOptions.enabledProperty,
-        accessibleHeading: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
+        accessibleHeading: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
         phetioVisiblePropertyInstrumented: false,
-        particlesAccessibleParagraph: BuildAnAtomStrings.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty,
+        particlesAccessibleParagraph: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty,
         tandem: providedOptions.tandem.createTandem( 'atomNode' )
       },
       isDisposable: false
@@ -122,7 +121,7 @@ class InteractiveSchematicAtom extends Node {
 
     // variable needed for bucket creation
     const bucketFrontLayer = new Node( {
-      accessibleHeading: BuildAnAtomStrings.a11y.common.buckets.accessibleHeadingStringProperty,
+      accessibleHeading: BuildAnAtomFluent.a11y.common.buckets.accessibleHeadingStringProperty,
       children: [
         new Node( {
           accessibleParagraph: options.bucketsAccessibleParagraph,
@@ -162,7 +161,7 @@ class InteractiveSchematicAtom extends Node {
         this.enabledProperty
       ], ( empty: boolean, enabled: boolean ) => {
         bucketFront.setPDOMAttribute( 'aria-disabled', empty || !enabled );
-        bucketFront.accessibleHelpText = empty ? BuildAnAtomStrings.a11y.common.buckets.emptyHelpTextStringProperty : null;
+        bucketFront.accessibleHelpText = empty ? BuildAnAtomFluent.a11y.common.buckets.emptyHelpTextStringProperty : null;
       } );
 
       // Create a focus highlight for the bucket that is extended on top so that it can include the particles.  The
@@ -279,19 +278,19 @@ class InteractiveSchematicAtom extends Node {
     model.protonBucketParticleCountProperty.lazyLink( ( protons: number ) => {
       if ( protons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
-          BuildAnAtomStrings.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
     model.neutronBucketParticleCountProperty.lazyLink( ( neutrons: number ) => {
       if ( neutrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
-          BuildAnAtomStrings.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
     model.electronBucketParticleCountProperty.lazyLink( ( electrons: number ) => {
       if ( electrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
-          BuildAnAtomStrings.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
       }
     } );
 
