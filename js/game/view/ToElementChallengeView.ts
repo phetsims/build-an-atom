@@ -178,9 +178,13 @@ class ToElementChallengeView extends ChallengeView {
       }
     );
     const neutralOrIonStringProperty = new DerivedStringProperty(
-      [ this.challenge.correctAnswerAtom.chargeProperty ],
-      ( charge: number ) => {
-        return charge === 0 ? 'neutral atom' : 'ion';
+      [
+        this.challenge.correctAnswerAtom.chargeProperty,
+        BuildAnAtomFluent.neutralAtomStringProperty,
+        BuildAnAtomFluent.ionStringProperty
+      ],
+      ( charge: number, neutralAtom: string, ion: string ) => {
+        return charge === 0 ? neutralAtom : ion;
       }
     );
     const correctAnswerParagraphPattern = this.challenge.challengeType === 'counts-to-element' ?
