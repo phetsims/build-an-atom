@@ -257,15 +257,12 @@ a11y:
         accessibleHelpText: Set Mass Number value. Then check your answer.
 
       countsToSymbolAll:
-        accessibleParagraph: Use Particle Counts to create the Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: Element is { $name }, symbol  { $symbol }. { $protons } in lower left, { $mass } in upper left, and { $charge } in upper right."
 
       countsToSymbolCharge:
-        accessibleParagraph: Use Particle Counts to determine what value belongs in upper right of Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: { $charge } in upper right of Chemical Symbol."
 
       countsToSymbolMassNumber:
-        accessibleParagraph: Use Particle Counts to determine what value belongs in upper left of Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: { $mass } in upper left of Chemical Symbol."
 
       schematicToElement:
@@ -295,6 +292,13 @@ a11y:
       schematicToSymbolProtonCount:
         accessibleParagraph: Use Built Atom to determine what value belongs in bottom left of Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: { $protons } in lower left of Chemical Symbol."
+
+      countsToSymbol:
+        accessibleParagraph:
+          select_config:
+            all: Use Built Atom to create the Chemical Symbol.
+            charge: Use Particle Counts to determine what value belongs in upper right of Chemical Symbol.
+            massNumber: Use Particle Counts to determine what value belongs in upper left of Chemical Symbol.
 
       symbolToCounts:
         accessibleParagraph: Use Chemical Symbol to determine the number of Protons, Neutrons, and Electrons.

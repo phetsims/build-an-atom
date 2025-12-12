@@ -272,6 +272,9 @@ type StringsType = {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
+        'countsToSymbol': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
+        };
         'symbolToCounts': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;

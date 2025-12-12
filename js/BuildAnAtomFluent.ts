@@ -174,6 +174,7 @@ addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolMassNumber_acces
 addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolMassNumber_correctAnswerParagraph', 'a11y.gameScreen.challenges.schematicToSymbolMassNumber.correctAnswerParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolProtonCount_accessibleParagraph', 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_schematicToSymbolProtonCount_correctAnswerParagraph', 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.correctAnswerParagraphStringProperty' );
+addToMapIfDefined( 'a11y_gameScreen_challenges_countsToSymbol_accessibleParagraph', 'a11y.gameScreen.challenges.countsToSymbol.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToCounts_accessibleParagraph', 'a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToCounts_correctAnswerParagraph', 'a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraphStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_challenges_symbolToCounts_accessibleHelpText', 'a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty' );
@@ -462,6 +463,9 @@ const BuildAnAtomFluent = {
         schematicToSymbolProtonCount: {
           accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToSymbolProtonCount_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty' ) ),
           correctAnswerParagraph: new FluentPattern<{ protons: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_schematicToSymbolProtonCount_correctAnswerParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.schematicToSymbolProtonCount.correctAnswerParagraphStringProperty' ), [{"name":"protons"}] )
+        },
+        countsToSymbol: {
+          accessibleParagraph: new FluentPattern<{ config: 'all' | 'charge' | 'massNumber' | TReadOnlyProperty<'all' | 'charge' | 'massNumber'> }>( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_countsToSymbol_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.countsToSymbol.accessibleParagraphStringProperty' ), [{"name":"config","variants":["all","charge","massNumber"]}] )
         },
         symbolToCounts: {
           accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_challenges_symbolToCounts_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty' ) ),

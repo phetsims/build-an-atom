@@ -7,8 +7,6 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
@@ -34,39 +32,19 @@ class CountsToSymbolChallengeView extends ToSymbolChallengeView {
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
     // Determine which specific challenge type this is based on the configurable flags
-    // TODO: Change for select pattern? https://github.com/phetsims/build-an-atom/issues/449
-    const accessibleParagraphStringProperty: TReadOnlyProperty<string> = new DerivedProperty(
-      [
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolAll.accessibleParagraphStringProperty,
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolCharge.accessibleParagraphStringProperty,
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolMassNumber.accessibleParagraphStringProperty
-      ],
-      ( countsToSymbolAll: string,
-        countsToSymbolCharge: string,
-        countsToSymbolMassNumber: string
-      ) => {
-        if ( countsToSymbolChallenge.isProtonCountConfigurable &&
-             countsToSymbolChallenge.isMassNumberConfigurable &&
-             countsToSymbolChallenge.isChargeConfigurable ) {
-          return countsToSymbolAll;
-        }
-        else if ( countsToSymbolChallenge.isChargeConfigurable &&
-                  !countsToSymbolChallenge.isProtonCountConfigurable &&
-                  !countsToSymbolChallenge.isMassNumberConfigurable ) {
-          return countsToSymbolCharge;
-        }
-        else if ( countsToSymbolChallenge.isMassNumberConfigurable &&
-                  !countsToSymbolChallenge.isProtonCountConfigurable &&
-                  !countsToSymbolChallenge.isChargeConfigurable ) {
-          return countsToSymbolMassNumber;
-        }
-        else {
-          return ''; // Fallback for any other configuration
-        }
-      }
-    );
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbol.accessibleParagraph.createProperty( {
 
-    this.accessibleParagraphNode.accessibleParagraph = accessibleParagraphStringProperty;
+      config: ( countsToSymbolChallenge.isProtonCountConfigurable &&
+                countsToSymbolChallenge.isMassNumberConfigurable &&
+                countsToSymbolChallenge.isChargeConfigurable ) ? 'all' :
+
+              ( countsToSymbolChallenge.isChargeConfigurable &&
+                !countsToSymbolChallenge.isProtonCountConfigurable &&
+                !countsToSymbolChallenge.isMassNumberConfigurable ) ? 'charge' :
+
+                // Assumes no other cases. Create a fallback string if you need to.
+              'massNumber'
+    } );
 
     // pdom order
     this.challengeNodesPDOMOrder = [
