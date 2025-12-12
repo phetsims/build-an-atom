@@ -142,6 +142,9 @@ class ToElementChallengeView extends ChallengeView {
       }
     );
 
+    // If the user focuses on the radio button group without having made a selection, select "neutral" by default.
+    // This was part of the accessibility design, to avoid having an empty radio button group, which
+    // might make sense for visual users, but not for screen reader users.
     neutralOrIonRadioButtonGroup.addInputListener( {
       focusin: () => {
         if ( this.neutralOrIonProperty.value === 'noSelection' ) {
