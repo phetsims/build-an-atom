@@ -29,6 +29,7 @@ import BucketHole from '../../../../scenery-phet/js/bucket/BucketHole.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import { PDOMValueType } from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
+import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import { PressListenerEvent } from '../../../../scenery/js/listeners/PressListener.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -198,8 +199,9 @@ class InteractiveSchematicAtom extends Node {
 
       // Add a listener for alt-input that will be fired when the user presses enter or space while the bucket has
       // focus.  This will extract a particle from the bucket and add it to the atom.
-      bucketFront.addInputListener( {
-        click: () => {
+      bucketFront.addInputListener( new KeyboardListener( {
+        fireOnClick: true,
+        fire: () => {
           const particle = bucket.extractClosestParticle( model.atom.positionProperty.value );
           if ( particle !== null ) {
 
@@ -237,7 +239,7 @@ class InteractiveSchematicAtom extends Node {
             this.hasBucketInteractionOccurredProperty.value = true;
           }
         }
-      } );
+      } ) );
 
       // Keep track of the bucket front views so that we can set focus on them later when needed.
       this.mapBucketsToViews.set( bucket, bucketFront );
