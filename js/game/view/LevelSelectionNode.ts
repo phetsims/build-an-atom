@@ -21,7 +21,6 @@ import LevelSelectionScreenNode, { LevelSelectionScreenNodeOptions } from '../..
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -57,10 +56,10 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
     ];
 
     const gameButtonsAccessibleHelpTexts = [
-      BuildAnAtomStrings.a11y.gameScreen.gameButtons.level1AccessibleHelpTextStringProperty,
-      BuildAnAtomStrings.a11y.gameScreen.gameButtons.level2AccessibleHelpTextStringProperty,
-      BuildAnAtomStrings.a11y.gameScreen.gameButtons.level3AccessibleHelpTextStringProperty,
-      BuildAnAtomStrings.a11y.gameScreen.gameButtons.level4AccessibleHelpTextStringProperty
+      BuildAnAtomFluent.a11y.gameScreen.gameButtons.level1AccessibleHelpTextStringProperty,
+      BuildAnAtomFluent.a11y.gameScreen.gameButtons.level2AccessibleHelpTextStringProperty,
+      BuildAnAtomFluent.a11y.gameScreen.gameButtons.level3AccessibleHelpTextStringProperty,
+      BuildAnAtomFluent.a11y.gameScreen.gameButtons.level4AccessibleHelpTextStringProperty
     ];
 
     const buttonItems: LevelSelectionButtonGroupItem[] = [];

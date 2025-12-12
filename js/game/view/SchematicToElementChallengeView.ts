@@ -13,7 +13,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
@@ -59,7 +59,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty;
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToElement.accessibleParagraphStringProperty;
 
     // Assign challenge specific components to the a11y view
     this.challengeNodesPDOMOrder = [

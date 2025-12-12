@@ -15,7 +15,6 @@ import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ParticleCountsAccessibleListNode from '../../../../shred/js/view/description/ParticleCountsAccessibleListNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 
 // constants
 const MAX_WIDTH = 200;
@@ -27,7 +26,7 @@ class ParticleCountsNode extends VBox {
     super( {
       spacing: 30,
       align: 'left',
-      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToElement.accessibleHeadingStringProperty
+      accessibleHeading: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToElement.accessibleHeadingStringProperty
     } );
 
     const font = new PhetFont( 24 );

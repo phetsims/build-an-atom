@@ -20,7 +20,6 @@ import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -80,8 +79,8 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
       tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
-        accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
+        accessibleName: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
         enabledProperty: this.challenge.isAnswerInteractiveProperty
       } );
     this.interactiveAnswerNode.addChild( new HBox( {
@@ -96,7 +95,7 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToMassNumber.accessibleParagraphStringProperty;
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToMassNumber.accessibleParagraphStringProperty;
 
     // Set up the correct answer accessible paragraph such that it will update on changes to the mass number and on
     // changes to the pattern string from which it is built.

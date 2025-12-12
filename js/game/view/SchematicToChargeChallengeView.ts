@@ -21,7 +21,6 @@ import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -84,8 +83,8 @@ class SchematicToChargeChallengeView extends ChallengeView {
         showPlusForPositive: true,
         signAfterValueProperty: new BooleanProperty( false ),
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
-        accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+        accessibleName: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
         enabledProperty: this.challenge.isAnswerInteractiveProperty
       } );
     this.interactiveAnswerNode.addChild( new HBox( {
@@ -100,7 +99,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToCharge.accessibleParagraphStringProperty;
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToCharge.accessibleParagraphStringProperty;
 
     // Set up the correct answer accessible paragraph such that it will update on changes to the charge and on changes
     // to the pattern string from which it is built.

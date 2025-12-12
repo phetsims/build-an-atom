@@ -15,7 +15,6 @@ import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/Acc
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../../BuildAnAtomStrings.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
 
@@ -39,7 +38,7 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
     const symbolStringProperty = new DerivedStringProperty(
       [
         protonCountProperty,
-        BuildAnAtomStrings.a11y.symbolScreen.symbol.noSymbolStringProperty
+        BuildAnAtomFluent.a11y.symbolScreen.symbol.noSymbolStringProperty
       ],
       ( protonCount: number, noSymbol: string ) => {
         if ( protonCount === 0 ) {
@@ -78,7 +77,7 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
         } )
       ],
       {
-        leadingParagraphStringProperty: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty
+        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty
       }
     );
   }

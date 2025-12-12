@@ -17,7 +17,6 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToMassNumberChallenge from '../model/CountsToMassNumberChallenge.js';
@@ -54,8 +53,8 @@ class CountsToMassNumberChallengeView extends ChallengeView {
       tandem.createTandem( 'massNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
-        accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
+        accessibleName: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.accessibleHelpTextStringProperty,
         enabledProperty: this.challenge.isAnswerInteractiveProperty
       } );
     this.interactiveAnswerNode.addChild( new HBox( {
@@ -71,7 +70,7 @@ class CountsToMassNumberChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleParagraphStringProperty;
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.accessibleParagraphStringProperty;
 
     // Set up the correct answer accessible paragraph such that it will update on changes to the mass and on changes
     // to the pattern string from which it is built.

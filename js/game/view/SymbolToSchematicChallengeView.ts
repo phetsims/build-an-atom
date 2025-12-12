@@ -22,7 +22,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
@@ -58,13 +57,13 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // Create and add the interactive schematic atom.
     const atomViewProperties = AtomViewProperties.everythingOffAtomViewProperties;
     this.interactiveSchematicAtom = new InteractiveSchematicAtom( challenge.submittedAnswerModel, modelViewTransform, {
-      bucketsAccessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty,
+      bucketsAccessibleParagraph: BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.accessibleHelpTextStringProperty,
       enabledProperty: this.challenge.isAnswerInteractiveProperty,
       atomNodeOptions: {
         atomViewProperties: atomViewProperties,
         atomDescriber: new AtomDescriberAccessibleListNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
         tandem: Tandem.OPT_OUT,
-        particlesAccessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty
+        particlesAccessibleParagraph: BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty
       },
       tandem: tandem.createTandem( 'interactiveSchematicAtom' ),
       scale: 0.95 // Scale down the atom to fit well in the challenge view, value empirically determined.
@@ -131,7 +130,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     // Accessible Paragraphs for the description of the challenge. This is a child node for consistency with the correct
     // answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty;
+      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty;
 
     // Set up the correct answer accessible paragraph such that it will update on changes to the correct answer atom's
     // properties and on changes to the pattern string from which it is built.

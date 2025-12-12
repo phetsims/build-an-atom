@@ -20,7 +20,6 @@ import Font from '../../../../scenery/js/util/Font.js';
 import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
 import ChallengeView from './ChallengeView.js';
@@ -52,7 +51,7 @@ class InteractiveParticleCountsNode extends Node {
     super( options );
 
     this.accessibleHelpText = ChallengeView.createDynamicHelpText(
-      BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty,
+      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToCounts.accessibleHelpTextStringProperty,
       options.showArrowButtonsProperty
     );
 

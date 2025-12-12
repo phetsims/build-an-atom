@@ -26,7 +26,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom, { NeutralOrIon, neutralOrIonValues } from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
@@ -79,13 +78,13 @@ class ToElementChallengeView extends ChallengeView {
 
         // Accessibility features and descriptions
         accessibleRoleDescription: 'navigable',
-        accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
+        accessibleName: BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.accessibleNameStringProperty,
         accessibleHelpText: ChallengeView.createDynamicHelpText(
-          BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
+          BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
           this.challenge.isAnswerInteractiveProperty
         ),
         accessibleVisible: true,
-        cellAriaRoleDescription: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
+        cellAriaRoleDescription: BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
       } ) );
     this.interactiveAnswerNode.addChild( this.periodicTable );
     this.challenge.isAnswerInteractiveProperty.link( isInteractive => {
@@ -103,7 +102,7 @@ class ToElementChallengeView extends ChallengeView {
     const neutralVersusIonPrompt = new Text( BuildAnAtomFluent.isItStringProperty, {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH,
-      accessibleParagraph: BuildAnAtomStrings.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
+      accessibleParagraph: BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
     } );
 
     const neutralOrIonRadioButtonGroup = new AquaRadioButtonGroup(

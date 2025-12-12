@@ -15,7 +15,6 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import SymbolToCountsChallenge from '../model/SymbolToCountsChallenge.js';
 import ChallengeView from './ChallengeView.js';
@@ -54,7 +53,7 @@ class SymbolToCountsChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty;
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty;
 
     // Set up the correct answer accessible paragraph.
     this.correctAnswerAccessibleParagraphNode.accessibleParagraph =

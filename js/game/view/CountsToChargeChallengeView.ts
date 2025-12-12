@@ -18,7 +18,6 @@ import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import CountsToChargeChallenge from '../model/CountsToChargeChallenge.js';
@@ -57,8 +56,8 @@ class CountsToChargeChallengeView extends ChallengeView {
         getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
         maxValue: 99,
         minValue: -99,
-        accessibleName: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
-        accessibleHelpText: BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
+        accessibleName: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.accessibleHelpTextStringProperty,
         enabledProperty: this.challenge.isAnswerInteractiveProperty
       } );
     this.interactiveAnswerNode.addChild( new HBox( {
@@ -87,7 +86,7 @@ class CountsToChargeChallengeView extends ChallengeView {
 
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
-    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty;
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty;
 
     // pdom order
     this.challengeNodesPDOMOrder = [

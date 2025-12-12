@@ -16,7 +16,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
 import SchematicToSymbolChallenge from '../model/SchematicToSymbolChallenge.js';
@@ -63,12 +63,13 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
     // Determine which specific challenge type this is based on the configurable flags
+    // TODO: Change for select pattern? https://github.com/phetsims/build-an-atom/issues/449
     const accessibleParagraphStringProperty: TReadOnlyProperty<string> = new DerivedProperty(
       [
-        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolAll.accessibleParagraphStringProperty,
-        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolCharge.accessibleParagraphStringProperty,
-        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolMassNumber.accessibleParagraphStringProperty,
-        BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolAll.accessibleParagraphStringProperty,
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolCharge.accessibleParagraphStringProperty,
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolMassNumber.accessibleParagraphStringProperty,
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty
       ],
       (
         schematicToSymbolAll: string,

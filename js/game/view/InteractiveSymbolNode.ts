@@ -29,7 +29,7 @@ import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
 import chargeToString from '../../common/view/chargeToString.js';
@@ -140,7 +140,7 @@ class InteractiveSymbolNode extends VBox {
       accessibleVisible: true,
       accessibleHelpText: new DerivedStringProperty(
         [
-          BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty,
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleHelpTextStringProperty,
           options.showArrowButtonsProperty
         ],
         ( helpText: string, showArrows: boolean ) => {
@@ -207,9 +207,9 @@ class InteractiveSymbolNode extends VBox {
           getTextColor: () => BAAColors.protonColorProperty,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: SYMBOL_BOX_HEIGHT - NUMBER_INSET - interactiveNumberCenterYOffset,
-          accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
+          accessibleName: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleNameStringProperty,
           accessibleHelpText: createDynamicHelpText(
-            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty
+            BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.lowerLeft.accessibleHelpTextStringProperty
           ),
           enabledProperty: options.showArrowButtonsProperty
         }
@@ -234,9 +234,9 @@ class InteractiveSymbolNode extends VBox {
           maxValue: 99,
           left: NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
-          accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
+          accessibleName: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleNameStringProperty,
           accessibleHelpText: createDynamicHelpText(
-            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty
+            BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.upperLeft.accessibleHelpTextStringProperty
           ),
           enabledProperty: options.showArrowButtonsProperty
         }
@@ -264,9 +264,9 @@ class InteractiveSymbolNode extends VBox {
           right: SYMBOL_BOX_WIDTH - NUMBER_ENTRY_NODE_SIDE_INSET,
           centerY: NUMBER_INSET + interactiveNumberCenterYOffset,
           getTextColor: ShredConstants.CHARGE_TEXT_COLOR,
-          accessibleName: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
+          accessibleName: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleNameStringProperty,
           accessibleHelpText: createDynamicHelpText(
-            BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty
+            BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.upperRight.accessibleHelpTextStringProperty
           ),
           enabledProperty: options.showArrowButtonsProperty
         }
@@ -301,7 +301,7 @@ class InteractiveSymbolNode extends VBox {
         descriptionListNode,
         ...contentNodes
       ],
-      accessibleHeading: BuildAnAtomStrings.a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty,
+      accessibleHeading: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty,
       accessibleHeadingIncrement: 2
     }, options ) );
 
