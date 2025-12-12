@@ -167,6 +167,27 @@ class ToElementChallengeView extends ChallengeView {
       this.checkButton.pickable = neutralOrIon !== 'noSelection';
     } );
 
+    // Handle both 'counts-to-element' and 'schematic-to-element' challenge types
+    const elementSymbolProperty = new DerivedStringProperty(
+      [ this.challenge.correctAnswerAtom.protonCountProperty ],
+      ( protonCount: number ) => {
+        return AtomIdentifier.getSpokenSymbol( protonCount );
+      }
+    );
+    const neutralOrIonStringProperty = new DerivedStringProperty(
+      [ this.challenge.correctAnswerAtom.chargeProperty ],
+      ( charge: number ) => {
+        return charge === 0 ? 'neutral atom' : 'ion';
+      }
+    );
+    const correctAnswerParagraphPattern = this.challenge.challengeType === 'counts-to-element' ?
+      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToElement.correctAnswerParagraph :
+      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToElement.correctAnswerParagraph;
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph = correctAnswerParagraphPattern.createProperty( {
+      symbol: elementSymbolProperty,
+      neutralOrIon: neutralOrIonStringProperty
+    } );
+
     //--------------------------- Layout -------------------------------------
 
     this.periodicTable.right = layoutBounds.width - INSET;
@@ -186,7 +207,6 @@ class ToElementChallengeView extends ChallengeView {
       ...this.getAnswerNodesPDOMOrder()
     ];
   }
-
 
   public override checkAnswer(): void {
     const userSubmittedAnswer = new AnswerAtom( {
@@ -209,27 +229,11 @@ class ToElementChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
+
+    // Set the local properties to match the correct answer.  This will update the periodic table selection and the
+    // neutral/ion radio button group as well as the accessible paragraph.
     this.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
     this.neutralOrIonProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value === 0 ? 'neutral' : 'ion';
-
-    const elementSymbol = AtomIdentifier.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value );
-    const neutralOrIonString = this.challenge.correctAnswerAtom.chargeProperty.value === 0 ? 'neutral atom' : 'ion';
-
-    // Handle both 'counts-to-element' and 'schematic-to-element' challenge types
-    if ( this.challenge.challengeType === 'counts-to-element' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToElement.correctAnswerParagraph.format( {
-          symbol: elementSymbol,
-          neutralOrIon: neutralOrIonString
-        } );
-    }
-    else if ( this.challenge.challengeType === 'schematic-to-element' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToElement.correctAnswerParagraph.format( {
-          symbol: elementSymbol,
-          neutralOrIon: neutralOrIonString
-        } );
-    }
   }
 
   public override createAnswerNode(): Node {

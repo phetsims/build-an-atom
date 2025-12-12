@@ -51,6 +51,71 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
     // position empirically determined to match the design
     this.interactiveSymbolNode.centerX = layoutBounds.width * 0.745;
     this.interactiveSymbolNode.centerY = layoutBounds.height * 0.54;
+
+    // Set up the correct answer accessible paragraph.
+    const challengeType = this.challenge.challengeType;
+    const elementNameProperty = new DerivedStringProperty(
+      [ this.challenge.correctAnswerAtom.protonCountProperty ],
+      protonCount => AtomIdentifier.getName( protonCount ).value
+    );
+    const spokenSymbolProperty = new DerivedStringProperty(
+      [ this.challenge.correctAnswerAtom.protonCountProperty ],
+      protonCount => AtomIdentifier.getSpokenSymbol( protonCount )
+    );
+    const chargeStringProperty = new DerivedStringProperty(
+      [ this.challenge.correctAnswerAtom.chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
+      charge => chargeToString( charge )
+    );
+    if ( challengeType === 'counts-to-symbol-all' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolAll.correctAnswerParagraph.createProperty( {
+          protons: this.challenge.correctAnswerAtom.protonCountProperty,
+          symbol: spokenSymbolProperty,
+          name: elementNameProperty,
+          mass: this.challenge.correctAnswerAtom.massNumberProperty,
+          charge: chargeStringProperty
+        } );
+    }
+    else if ( challengeType === 'counts-to-symbol-charge' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolCharge.correctAnswerParagraph.createProperty( {
+          charge: chargeStringProperty
+        } );
+    }
+    else if ( challengeType === 'counts-to-symbol-mass-number' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolMassNumber.correctAnswerParagraph.createProperty( {
+          mass: this.challenge.correctAnswerAtom.massNumberProperty
+        } );
+    }
+    else if ( challengeType === 'schematic-to-symbol-all' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolAll.correctAnswerParagraph.createProperty( {
+          protons: this.challenge.correctAnswerAtom.protonCountProperty,
+          symbol: spokenSymbolProperty,
+          name: elementNameProperty,
+          mass: this.challenge.correctAnswerAtom.massNumberProperty,
+          charge: chargeStringProperty
+        } );
+    }
+    else if ( challengeType === 'schematic-to-symbol-charge' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolCharge.correctAnswerParagraph.createProperty( {
+          charge: chargeStringProperty
+        } );
+    }
+    else if ( challengeType === 'schematic-to-symbol-mass-number' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolMassNumber.correctAnswerParagraph.createProperty( {
+          mass: this.challenge.correctAnswerAtom.massNumberProperty
+        } );
+    }
+    else if ( challengeType === 'schematic-to-symbol-proton-count' ) {
+      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolProtonCount.correctAnswerParagraph.createProperty( {
+          protons: this.challenge.correctAnswerAtom.protonCountProperty
+        } );
+    }
   }
 
   public override checkAnswer(): void {
@@ -63,63 +128,12 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
   }
 
   public override displayCorrectAnswer(): void {
+
+    // Update the interactive symbol node to reflect the correct answer.  This will trigger updates to the symbol
+    // display and the correct answer paragraph.
     this.interactiveSymbolNode.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
     this.interactiveSymbolNode.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
     this.interactiveSymbolNode.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
-
-    // Handle different challenge types
-    const challengeType = this.challenge.challengeType;
-
-    if ( challengeType === 'counts-to-symbol-all' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolAll.correctAnswerParagraph.format( {
-          protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
-          symbol: AtomIdentifier.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
-          name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
-          mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
-          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
-        } );
-    }
-    else if ( challengeType === 'counts-to-symbol-charge' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolCharge.correctAnswerParagraph.format( {
-          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
-        } );
-    }
-    else if ( challengeType === 'counts-to-symbol-mass-number' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.countsToSymbolMassNumber.correctAnswerParagraph.format( {
-          mass: this.challenge.correctAnswerAtom.massNumberProperty.value
-        } );
-    }
-    else if ( challengeType === 'schematic-to-symbol-all' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolAll.correctAnswerParagraph.format( {
-          protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
-          symbol: AtomIdentifier.getSpokenSymbol( this.challenge.correctAnswerAtom.protonCountProperty.value ),
-          name: AtomIdentifier.getName( this.challenge.correctAnswerAtom.protonCountProperty.value ),
-          mass: this.challenge.correctAnswerAtom.massNumberProperty.value,
-          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
-        } );
-    }
-    else if ( challengeType === 'schematic-to-symbol-charge' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolCharge.correctAnswerParagraph.format( {
-          charge: chargeToString( this.challenge.correctAnswerAtom.chargeProperty.value )
-        } );
-    }
-    else if ( challengeType === 'schematic-to-symbol-mass-number' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolMassNumber.correctAnswerParagraph.format( {
-          mass: this.challenge.correctAnswerAtom.massNumberProperty.value
-        } );
-    }
-    else if ( challengeType === 'schematic-to-symbol-proton-count' ) {
-      this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolProtonCount.correctAnswerParagraph.format( {
-          protons: this.challenge.correctAnswerAtom.protonCountProperty.value
-        } );
-    }
   }
 
   public override reset(): void {

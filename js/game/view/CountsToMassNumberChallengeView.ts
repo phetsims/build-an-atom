@@ -73,6 +73,13 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.countsToMassNumber.accessibleParagraphStringProperty;
 
+    // Set up the correct answer accessible paragraph such that it will update on changes to the mass and on changes
+    // to the pattern string from which it is built.
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.correctAnswerParagraph.createProperty( {
+        mass: this.massNumberProperty
+      } );
+
     // pdom order
     this.challengeNodesPDOMOrder = [
 
@@ -97,12 +104,10 @@ class CountsToMassNumberChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
 
-    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToMassNumber.correctAnswerParagraph.format( {
-        mass: this.challenge.correctAnswerAtom.massNumberProperty.value
-      } );
+    // Set the mass number property to the correct answer's mass number.  This will trigger updates to the spinner and
+    // the answer node.
+    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
   }
 
   public override reset(): void {

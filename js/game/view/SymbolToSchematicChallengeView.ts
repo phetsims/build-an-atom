@@ -133,6 +133,28 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     this.accessibleParagraphNode.accessibleParagraph =
       BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToSchematic.accessibleParagraphStringProperty;
 
+    // Set up the correct answer accessible paragraph such that it will update on changes to the correct answer atom's
+    // properties and on changes to the pattern string from which it is built.
+    const innerElectronsProperty = new DerivedProperty(
+      [ this.challenge.correctAnswerAtom.electronCountProperty ],
+      ( electrons: number ) => {
+        return Math.min( 2, electrons );
+      }
+    );
+    const outerElectronsProperty = new DerivedProperty(
+      [ this.challenge.correctAnswerAtom.electronCountProperty ],
+      ( electrons: number ) => {
+        return Math.max( 0, electrons - 2 );
+      }
+    );
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraph.createProperty( {
+        protons: this.challenge.correctAnswerAtom.protonCountProperty,
+        neutrons: this.challenge.correctAnswerAtom.neutronCountProperty,
+        inner: innerElectronsProperty,
+        outer: outerElectronsProperty
+      } );
+
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
@@ -158,19 +180,10 @@ class SymbolToSchematicChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
+
+    // Set the user's submitted answer to match the correct answer, so that it is displayed.  This will update the UI
+    // automatically because of data bindings.
     this.challenge.submittedAnswerModel.setAtomConfiguration( this.challenge.correctAnswerAtom );
-
-    const electronCount = this.challenge.correctAnswerAtom.electronCountProperty.value;
-    const innerElectrons = Math.min( 2, electronCount );
-    const outerElectrons = Math.max( 0, electronCount - 2 );
-
-    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.correctAnswerParagraph.format( {
-        protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
-        neutrons: this.challenge.correctAnswerAtom.neutronCountProperty.value,
-        inner: innerElectrons,
-        outer: outerElectrons
-      } );
   }
 
   public override createAnswerNode(): Node {

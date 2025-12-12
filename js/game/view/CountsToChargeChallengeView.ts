@@ -72,6 +72,19 @@ class CountsToChargeChallengeView extends ChallengeView {
     particleCountsNode.centerX = layoutBounds.width * 0.3;
     particleCountsNode.centerY = layoutBounds.height * 0.5;
 
+    // Set up the correct answer accessible paragraph such that it will update on changes to the charge and on changes
+    // to the pattern string from which it is built.
+    const chargeAnswerStringProperty = new DerivedStringProperty(
+      [ this.chargeProperty ],
+      ( charge: number ) => {
+        return BAAConstants.chargeToStringSignBeforeValue( charge );
+      }
+    );
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.correctAnswerParagraph.createProperty( {
+        charge: chargeAnswerStringProperty
+      } );
+
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.countsToCharge.accessibleParagraphStringProperty;
@@ -113,12 +126,10 @@ class CountsToChargeChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
 
-    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToCharge.correctAnswerParagraph.format( {
-        charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
-      } );
+    // Update the charge property to reflect the correct answer.  This will trigger updates to the spinner and the
+    // correct answer paragraph.
+    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
   }
 }
 

@@ -98,6 +98,13 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToMassNumber.accessibleParagraphStringProperty;
 
+    // Set up the correct answer accessible paragraph such that it will update on changes to the mass number and on
+    // changes to the pattern string from which it is built.
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToMassNumber.correctAnswerParagraph.createProperty( {
+        mass: this.challenge.correctAnswerAtom.massNumberProperty
+      } );
+
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
@@ -121,12 +128,10 @@ class SchematicToMassNumberChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
 
-    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToMassNumber.correctAnswerParagraph.format( {
-        mass: this.challenge.correctAnswerAtom.massNumberProperty.value
-      } );
+    // Update the mass number property to reflect the correct answer.  This will trigger updates to the spinner and the
+    // correct answer paragraph.
+    this.massNumberProperty.value = this.challenge.correctAnswerAtom.massNumberProperty.value;
   }
 
   public override reset(): void {

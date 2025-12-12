@@ -102,6 +102,19 @@ class SchematicToChargeChallengeView extends ChallengeView {
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.schematicToCharge.accessibleParagraphStringProperty;
 
+    // Set up the correct answer accessible paragraph such that it will update on changes to the charge and on changes
+    // to the pattern string from which it is built.
+    const chargeAnswerStringProperty = new DerivedStringProperty(
+      [ this.chargeProperty ],
+      ( charge: number ) => {
+        return BAAConstants.chargeToStringSignBeforeValue( charge );
+      }
+    );
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToCharge.correctAnswerParagraph.createProperty( {
+        charge: chargeAnswerStringProperty
+      } );
+
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
@@ -130,12 +143,10 @@ class SchematicToChargeChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
-    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
 
-    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToCharge.correctAnswerParagraph.format( {
-        charge: BAAConstants.chargeToStringSignBeforeValue( this.challenge.correctAnswerAtom.chargeProperty.value )
-      } );
+    // Set the charge property to the correct answer so that it is displayed in the spinner and in the accessible
+    // paragraph.
+    this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
   }
 
   public override createAnswerNode(): Node {

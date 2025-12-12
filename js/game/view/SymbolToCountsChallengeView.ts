@@ -56,6 +56,14 @@ class SymbolToCountsChallengeView extends ChallengeView {
     // Made a child node for consistency with the correct answer paragraph.
     this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomStrings.a11y.gameScreen.challenges.symbolToCounts.accessibleParagraphStringProperty;
 
+    // Set up the correct answer accessible paragraph.
+    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
+      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraph.createProperty( {
+        protons: this.challenge.correctAnswerAtom.protonCountProperty,
+        neutrons: this.challenge.correctAnswerAtom.neutronCountProperty,
+        electrons: this.challenge.correctAnswerAtom.electronCountProperty
+      } );
+
     // pdom order
     this.challengeNodesPDOMOrder = [
       ...this.getChallengeNodesPDOMOrder(),
@@ -73,16 +81,11 @@ class SymbolToCountsChallengeView extends ChallengeView {
   }
 
   public override displayCorrectAnswer(): void {
+
+    // Set the interactive particle counts to the correct answer values.  This will trigger the UI to update accordingly.
     this.interactiveParticleCountsNode.submittedAnswerAtom.protonCountProperty.value = this.challenge.correctAnswerAtom.protonCountProperty.value;
     this.interactiveParticleCountsNode.submittedAnswerAtom.neutronCountProperty.value = this.challenge.correctAnswerAtom.neutronCountProperty.value;
     this.interactiveParticleCountsNode.submittedAnswerAtom.electronCountProperty.value = this.challenge.correctAnswerAtom.electronCountProperty.value;
-
-    this.correctAnswerAccessibleParagraphNode.accessibleParagraph =
-      BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToCounts.correctAnswerParagraph.format( {
-        protons: this.challenge.correctAnswerAtom.protonCountProperty.value,
-        neutrons: this.challenge.correctAnswerAtom.neutronCountProperty.value,
-        electrons: this.challenge.correctAnswerAtom.electronCountProperty.value
-      } );
   }
 
   public override reset(): void {
