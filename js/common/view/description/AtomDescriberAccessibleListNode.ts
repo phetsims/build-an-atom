@@ -57,7 +57,7 @@ class AtomDescriberAccessibleListNode extends Node {
     } );
   }
 
-  public static createElementNameContextResponse(
+  public static createElementNameSentence(
     protonCountProperty: TReadOnlyProperty<number>
   ): TReadOnlyProperty<string> {
     return new DerivedStringProperty(
@@ -81,7 +81,7 @@ class AtomDescriberAccessibleListNode extends Node {
     );
   }
 
-  public static createNeutralOrIonContextResponse(
+  public static createNeutralOrIonSentence(
     protonCountProperty: TReadOnlyProperty<number>,
     chargeProperty: TReadOnlyProperty<number>
   ): TReadOnlyProperty<string> {
@@ -112,7 +112,7 @@ class AtomDescriberAccessibleListNode extends Node {
     );
   }
 
-  public static createStabilityContextResponse(
+  public static createStabilitySentence(
     protonCountProperty: TReadOnlyProperty<number>,
     isStableProperty: TReadOnlyProperty<boolean>
   ): TReadOnlyProperty<string> {
@@ -229,16 +229,16 @@ class CheckboxesAccessibleListNode extends AccessibleListNode {
     viewProperties: AtomViewProperties
   ) {
 
-    const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameContextResponse(
+    const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameSentence(
       atom.protonCountProperty
     );
 
-    const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonContextResponse(
+    const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonSentence(
       atom.protonCountProperty,
       atom.chargeProperty
     );
 
-    const stabilityListItemProperty = AtomDescriberAccessibleListNode.createStabilityContextResponse(
+    const stabilityListItemProperty = AtomDescriberAccessibleListNode.createStabilitySentence(
       atom.protonCountProperty,
       atom.nucleusStableProperty
     );
