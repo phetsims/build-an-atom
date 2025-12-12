@@ -233,15 +233,12 @@ type StringsType = {
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
         };
         'countsToSymbolAll': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'countsToSymbolCharge': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'countsToSymbolMassNumber': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'schematicToElement': {
@@ -257,20 +254,19 @@ type StringsType = {
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'schematicToSymbolAll': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'schematicToSymbolCharge': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'schematicToSymbolMassNumber': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
         };
         'schematicToSymbolProtonCount': {
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
           'correctAnswerParagraphStringProperty': LocalizedStringProperty;
+        };
+        'schematicToSymbol': {
+          'accessibleParagraphStringProperty': LocalizedStringProperty;
         };
         'countsToSymbol': {
           'accessibleParagraphStringProperty': LocalizedStringProperty;

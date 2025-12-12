@@ -278,20 +278,24 @@ a11y:
         correctAnswerParagraph: "Correct Answer: Mass number is { $mass }."
 
       schematicToSymbolAll:
-        accessibleParagraph: Use Built Atom to create the Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: Element is { $name }, symbol  { $symbol }. { $protons } in lower left, { $mass } in upper left, and { $charge } in upper right."
 
       schematicToSymbolCharge:
-        accessibleParagraph: Use Built Atom to determine what value belongs in upper right of Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: { $charge } in upper right of Chemical Symbol."
 
       schematicToSymbolMassNumber:
-        accessibleParagraph: Use Built Atom to determine what value belongs in upper left of Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: { $mass } in upper left of Chemical Symbol."
 
       schematicToSymbolProtonCount:
-        accessibleParagraph: Use Built Atom to determine what value belongs in bottom left of Chemical Symbol.
         correctAnswerParagraph: "Correct Answer: { $protons } in lower left of Chemical Symbol."
+
+      schematicToSymbol:
+        accessibleParagraph:
+          select_config:
+            all: Use Built Atom to create the Chemical Symbol.
+            protonCount: Use Built Atom to determine what value belongs in bottom left of Chemical Symbol.
+            charge: Use Built Atom to determine what value belongs in upper right of Chemical Symbol.
+            massNumber: Use Built Atom to determine what value belongs in upper left of Chemical Symbol.
 
       countsToSymbol:
         accessibleParagraph:

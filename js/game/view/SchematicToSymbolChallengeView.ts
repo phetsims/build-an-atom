@@ -8,8 +8,6 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -63,47 +61,23 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     // Accessible Paragraphs for the description of the challenge.
     // Made a child node for consistency with the correct answer paragraph.
     // Determine which specific challenge type this is based on the configurable flags
-    // TODO: Change for select pattern? https://github.com/phetsims/build-an-atom/issues/449
-    const accessibleParagraphStringProperty: TReadOnlyProperty<string> = new DerivedProperty(
-      [
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolAll.accessibleParagraphStringProperty,
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolCharge.accessibleParagraphStringProperty,
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolMassNumber.accessibleParagraphStringProperty,
-        BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbolProtonCount.accessibleParagraphStringProperty
-      ],
-      (
-        schematicToSymbolAll: string,
-        schematicToSymbolCharge: string,
-        schematicToSymbolMassNumber: string,
-        schematicToSymbolProtonCount: string
-      ) => {
-        if ( schematicToSymbolChallenge.isProtonCountConfigurable &&
-             schematicToSymbolChallenge.isMassNumberConfigurable &&
-             schematicToSymbolChallenge.isChargeConfigurable ) {
-          return schematicToSymbolAll;
-        }
-        else if ( schematicToSymbolChallenge.isChargeConfigurable &&
-                  !schematicToSymbolChallenge.isProtonCountConfigurable &&
-                  !schematicToSymbolChallenge.isMassNumberConfigurable ) {
-          return schematicToSymbolCharge;
-        }
-        else if ( schematicToSymbolChallenge.isMassNumberConfigurable &&
-                  !schematicToSymbolChallenge.isProtonCountConfigurable &&
-                  !schematicToSymbolChallenge.isChargeConfigurable ) {
-          return schematicToSymbolMassNumber;
-        }
-        else if ( schematicToSymbolChallenge.isProtonCountConfigurable &&
-                  !schematicToSymbolChallenge.isMassNumberConfigurable &&
-                  !schematicToSymbolChallenge.isChargeConfigurable ) {
-          return schematicToSymbolProtonCount;
-        }
-        else {
-          return ''; // Fallback for any other configuration
-        }
-      }
-    );
+    this.accessibleParagraphNode.accessibleParagraph = BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToSymbol.accessibleParagraph.createProperty( {
 
-    this.accessibleParagraphNode.accessibleParagraph = accessibleParagraphStringProperty;
+      config: ( schematicToSymbolChallenge.isProtonCountConfigurable &&
+                schematicToSymbolChallenge.isMassNumberConfigurable &&
+                schematicToSymbolChallenge.isChargeConfigurable ) ? 'all' :
+
+              ( schematicToSymbolChallenge.isChargeConfigurable &&
+                !schematicToSymbolChallenge.isProtonCountConfigurable &&
+                !schematicToSymbolChallenge.isMassNumberConfigurable ) ? 'charge' :
+
+              ( schematicToSymbolChallenge.isMassNumberConfigurable &&
+                !schematicToSymbolChallenge.isProtonCountConfigurable &&
+                !schematicToSymbolChallenge.isChargeConfigurable ) ? 'massNumber' :
+
+                // Assumes no other cases. Create a fallback string if you need to.
+              'protonCount'
+    } );
 
     // pdom order
     this.challengeNodesPDOMOrder = [
