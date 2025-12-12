@@ -9,7 +9,6 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -38,16 +37,9 @@ class AtomScreenView extends BAAScreenView {
       screenSummaryContent: new AtomScreenSummaryContentNode( model )
     } );
 
-    const absoluteChargeProperty = new DerivedStringProperty( [ model.atom.chargeProperty ], charge => Math.abs( charge ).toString() );
-    const chargeSignProperty = new DerivedStringProperty( [ model.atom.chargeProperty ], charge => {
-      return charge < 0 ? MathSymbols.MINUS :
-             charge > 0 ? MathSymbols.PLUS : '';
-    } );
-
     const netChargeAccessibleParagraphProperty = BuildAnAtomFluent.a11y.atomScreen.netCharge.accessibleParagraph.createProperty(
       {
-        charge: absoluteChargeProperty,
-        sign: chargeSignProperty,
+        charge: model.atom.chargeProperty.derived( charge => BAAConstants.chargeToStringSignBeforeValue( charge ) ),
         protons: model.atom.protonCountProperty,
         electrons: model.atom.electronCountProperty
       }
