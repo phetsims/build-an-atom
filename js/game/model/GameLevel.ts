@@ -17,7 +17,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
-import LevelSelectionButton from '../../../../vegas/js/LevelSelectionButton.js';
+import GameUtils from '../../../../vegas/js/GameUtils.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeSetFactory, { ChallengeDescriptor } from './ChallengeSetFactory.js';
 import GameModel from './GameModel.js';
@@ -95,7 +95,7 @@ class GameLevel extends PhetioObject {
 
     this.bestTimeVisibleProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'bestTimeVisibleProperty' ),
-        phetioDocumentation: 'Whether the best time should be visible in the UI.',
+      phetioDocumentation: 'Whether the best time should be visible in the UI.',
       phetioFeatured: true
     } );
 
@@ -123,8 +123,8 @@ class GameLevel extends PhetioObject {
    * Ends the level, updating the best score and time if the score is a perfect score.
    */
   public endLevel( score: number, time: number ): void {
-   this.isNewBestTimeProperty.value = LevelSelectionButton.tryUpdateScoreAndBestTime( score, time,
-     this.bestScoreProperty, this.bestTimeProperty );
+    this.isNewBestTimeProperty.value = GameUtils.updateScoreAndBestTime( score, time,
+      this.bestScoreProperty, this.bestTimeProperty );
   }
 
   /**
