@@ -160,9 +160,14 @@ a11y:
       accessibleHelpText: "Choose representation for region outside nucleus."
     periodicTable:
       accessibleName: "Periodic Table"
-      accessibleParagraphHighlighted: "Your Built Atom is {{symbol}} located in row {{row}}, column {{column}}."
-      accessibleParagraphHighlightedWithName: "Your Built Atom is {{symbol}}, {{name}}, located in row {{row}}, column {{column}}."
+      accessibleParagraphHighlighted: "Your Built Atom is { $symbol } located in row { $row }, column { $column }."
+      accessibleParagraphHighlightedWithName: "Your Built Atom is { $symbol }, { $name }, located in row { $row }, column { $column }."
       accessibleParagraphNoSymbol: "Your Built Atom is not an element yet."
+      accessibleParagraphPattern:
+        select_pattern:
+          withName: "{a11y.common.periodicTable.accessibleParagraphHighlightedWithName}"
+          withoutName: "{a11y.common.periodicTable.accessibleParagraphHighlighted}"
+          noSymbol: "{a11y.common.periodicTable.accessibleParagraphNoSymbol}"
     screenSummary:
       controlArea: "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
       currentDetails: |-

@@ -9,19 +9,17 @@
  * @author Aadish Gupta
  */
 
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
@@ -92,44 +90,25 @@ class BAAScreenView extends ScreenView {
       tandem: tandem.createTandem( 'particleCountDisplay' )
     } );
 
-    const periodicTableAccessibleParagraphProperty = new DerivedStringProperty(
-      [
-        model.atom.protonCountProperty,
-        BuildAnAtomFluent.a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty,
-        this.viewProperties.elementNameVisibleProperty,
-        BuildAnAtomFluent.a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty,
-        BuildAnAtomFluent.a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty,
-        ShredStrings.a11y.spokenSymbolStringProperty // needed to update spoken symbol
-      ],
-      (
-        protonCount: number,
-        highlightedString: string,
-        elementNameVisible: boolean,
-        highlightedNameString: string,
-        noSymbolString: string
-      ) => {
-        if ( protonCount === 0 ) {
-          return noSymbolString;
-        }
-        else if ( !elementNameVisible ) {
-          const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
-          return StringUtils.fillIn( highlightedString, {
-            symbol: AtomIdentifier.getSpokenSymbol( protonCount ),
-            row: elementCoordinates.y + 1,
-            column: elementCoordinates.x + 1
-          } );
-        }
-        else {
-          const elementCoordinates = PeriodicTableNode.protonCountToCoordinates( protonCount );
-          return StringUtils.fillIn( highlightedNameString, {
-            name: AtomIdentifier.getName( protonCount ),
-            symbol: AtomIdentifier.getSpokenSymbol( protonCount ),
-            row: elementCoordinates.y + 1,
-            column: elementCoordinates.x + 1
-          } );
-        }
-      }
-    );
+    const periodicTableAccessibleParagraphProperty = BuildAnAtomFluent.a11y.common
+      .periodicTable.accessibleParagraphPattern.createProperty( {
+        name: model.atom.protonCountProperty.derived( count => AtomIdentifier.getName( count ).value ),
+        symbol: model.atom.protonCountProperty.derived( count => AtomIdentifier.getSpokenSymbol( count ) ),
+        row: model.atom.protonCountProperty.derived( count => {
+          const coordinates = PeriodicTableNode.protonCountToCoordinates( count );
+          return coordinates.y + 1;
+        } ),
+        column: model.atom.protonCountProperty.derived( count => {
+          const coordinates = PeriodicTableNode.protonCountToCoordinates( count );
+          return coordinates.x + 1;
+        } ),
+        pattern: new DerivedProperty(
+          [ model.atom.protonCountProperty, this.viewProperties.elementNameVisibleProperty ],
+          ( protonCount: number, elementNameVisible: boolean ) => {
+            return protonCount === 0 ? 'noSymbol' :
+              ( elementNameVisible ? 'withName' : 'withoutName' );
+          } )
+      } );
 
     // Add the periodic table display.
     const periodicTableAndSymbol = new PeriodicTableAndSymbol( model.atom.protonCountProperty, {

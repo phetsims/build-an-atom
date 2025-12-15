@@ -104,7 +104,10 @@ addToMapIfDefined( 'a11y_common_modelToggle_accessibleNameShells', 'a11y.common.
 addToMapIfDefined( 'a11y_common_modelToggle_accessibleNameCloud', 'a11y.common.modelToggle.accessibleNameCloudStringProperty' );
 addToMapIfDefined( 'a11y_common_modelToggle_accessibleHelpText', 'a11y.common.modelToggle.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_common_periodicTable_accessibleName', 'a11y.common.periodicTable.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_common_periodicTable_accessibleParagraphHighlighted', 'a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty' );
+addToMapIfDefined( 'a11y_common_periodicTable_accessibleParagraphHighlightedWithName', 'a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty' );
 addToMapIfDefined( 'a11y_common_periodicTable_accessibleParagraphNoSymbol', 'a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty' );
+addToMapIfDefined( 'a11y_common_periodicTable_accessibleParagraphPattern', 'a11y.common.periodicTable.accessibleParagraphPatternStringProperty' );
 addToMapIfDefined( 'a11y_common_screenSummary_controlArea', 'a11y.common.screenSummary.controlAreaStringProperty' );
 addToMapIfDefined( 'a11y_common_screenSummary_currentDetails', 'a11y.common.screenSummary.currentDetailsStringProperty' );
 addToMapIfDefined( 'a11y_common_screenSummary_interactionHint', 'a11y.common.screenSummary.interactionHintStringProperty' );
@@ -312,9 +315,10 @@ const BuildAnAtomFluent = {
       },
       periodicTable: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleNameStringProperty' ) ),
-        accessibleParagraphHighlightedStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty' ),
-        accessibleParagraphHighlightedWithNameStringProperty: _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty' ),
-        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty' ) )
+        accessibleParagraphHighlighted: new FluentPattern<{ column: FluentVariable, row: FluentVariable, symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleParagraphHighlighted', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphHighlightedStringProperty' ), [{"name":"column"},{"name":"row"},{"name":"symbol"}] ),
+        accessibleParagraphHighlightedWithName: new FluentPattern<{ column: FluentVariable, name: FluentVariable, row: FluentVariable, symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleParagraphHighlightedWithName', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphHighlightedWithNameStringProperty' ), [{"name":"column"},{"name":"name"},{"name":"row"},{"name":"symbol"}] ),
+        accessibleParagraphNoSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleParagraphNoSymbol', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphNoSymbolStringProperty' ) ),
+        accessibleParagraphPattern: new FluentPattern<{ column: FluentVariable, name: FluentVariable, pattern: 'withName' | 'withoutName' | 'noSymbol' | TReadOnlyProperty<'withName' | 'withoutName' | 'noSymbol'>, row: FluentVariable, symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_periodicTable_accessibleParagraphPattern', _.get( BuildAnAtomStrings, 'a11y.common.periodicTable.accessibleParagraphPatternStringProperty' ), [{"name":"column"},{"name":"name"},{"name":"pattern","variants":["withName","withoutName","noSymbol"]},{"name":"row"},{"name":"symbol"}] )
       },
       screenSummary: {
         controlAreaStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_screenSummary_controlArea', _.get( BuildAnAtomStrings, 'a11y.common.screenSummary.controlAreaStringProperty' ) ),

@@ -122,6 +122,7 @@ type StringsType = {
         'accessibleParagraphHighlightedStringProperty': LocalizedStringProperty;
         'accessibleParagraphHighlightedWithNameStringProperty': LocalizedStringProperty;
         'accessibleParagraphNoSymbolStringProperty': LocalizedStringProperty;
+        'accessibleParagraphPatternStringProperty': LocalizedStringProperty;
       };
       'screenSummary': {
         'controlAreaStringProperty': LocalizedStringProperty;

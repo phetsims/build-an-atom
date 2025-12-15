@@ -269,13 +269,16 @@
           "value": "Periodic Table"
         },
         "accessibleParagraphHighlighted": {
-          "value": "Your Built Atom is {{symbol}} located in row {{row}}, column {{column}}."
+          "value": "Your Built Atom is { $symbol } located in row { $row }, column { $column }."
         },
         "accessibleParagraphHighlightedWithName": {
-          "value": "Your Built Atom is {{symbol}}, {{name}}, located in row {{row}}, column {{column}}."
+          "value": "Your Built Atom is { $symbol }, { $name }, located in row { $row }, column { $column }."
         },
         "accessibleParagraphNoSymbol": {
           "value": "Your Built Atom is not an element yet."
+        },
+        "accessibleParagraphPattern": {
+          "value": "{ $pattern ->\n  [withName] { a11y_common_periodicTable_accessibleParagraphHighlightedWithName }\n  [withoutName] { a11y_common_periodicTable_accessibleParagraphHighlighted }\n  *[noSymbol] { a11y_common_periodicTable_accessibleParagraphNoSymbol }\n}"
         }
       },
       "screenSummary": {
