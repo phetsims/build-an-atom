@@ -45,6 +45,8 @@ preferences.chargeNotationSelectorLabel: "Choose sign convention for charges in 
 
 a11y:
   common:
+    # Some of the description for particles and buckets live in shred, because they are re-used in other sims
+    # The following ones are BAA specific, or at least designed for BAA.
     particles:
       particleAddedTo: |-
         { $particle } added to { $location }. Now { $count ->
@@ -62,7 +64,7 @@ a11y:
           Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 
           Press space to release.
     atomAccessibleListNode:
-      atomStateLeadingParagraph: "In {$model} view:"
+      atomStateLeadingParagraph: "In { $model } view:"
       checkboxesListLeadingParagraph: "You have created:"
       accessibleHeading: Your Built Atom
       builtAtom: Built Atom
@@ -124,12 +126,17 @@ a11y:
           neutrons: "{ a11y.common.atomAccessibleListNode.nucleusInfoNeutrons }"
           empty: "{ a11y.common.atomAccessibleListNode.nucleusInfoEmpty }"
 
+    # Common response when an atom is not yet an element
     noElementContextResponse: "Your Built Atom is not an element yet."
+
+    # CHECKBOXES
     elementNameCheckbox:
       accessibleName: "Element Name"
       accessibleHelpText: "Build atoms with or without Element Name shown."
       accessibleContextResponseChecked: "{ $name }."
       accessibleContextResponseUnchecked: "Element Name hidden."
+
+      # Using the selector pattern to print a response based on whether the atom has an element name
       contextResponseSelector:
         select_hasName:
           true: "{ a11y.common.elementNameCheckbox.accessibleContextResponseChecked }"
@@ -153,6 +160,8 @@ a11y:
         select_hasNucleus:
           true: "{ a11y.common.nuclearStabilityCheckbox.accessibleContextResponseChecked }"
           false: "{ a11y.common.noElementContextResponse }"
+
+
     modelToggle:
       accessibleName: "Model Options"
       accessibleNameShells: "Shells"
@@ -228,7 +237,7 @@ a11y:
       periodicTable:
         accessibleName: Periodic Table
         accessibleHelpText: Use WASD keys to select element on Periodic Table. Then look for the radio buttons, Neutral Atom or Ion, to complete your answer.
-        cellAriaDescription: "Selected element"
+        cellAriaDescription: Selected element
         accessibleParagraph: Is the selected element a neutral atom or ion?
       chemicalSymbol:
         accessibleName: Chemical Symbol
@@ -367,6 +376,8 @@ a11y:
         builtAtomHelpText: |-
           Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
            Once grabbed use W or S key to change location or delete to return to bucket.
+          
+
   preferences:
     signFirst:
       accessibleName: "Sign First"
