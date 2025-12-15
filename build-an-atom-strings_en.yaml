@@ -128,8 +128,12 @@ a11y:
     elementNameCheckbox:
       accessibleName: "Element Name"
       accessibleHelpText: "Build atoms with or without Element Name shown."
-      accessibleContextResponseChecked: "{{name}}."
+      accessibleContextResponseChecked: "{ $name }."
       accessibleContextResponseUnchecked: "Element Name hidden."
+      contextResponseSelector:
+        select_hasName:
+          true: "{ a11y.common.elementNameCheckbox.accessibleContextResponseChecked }"
+          false: "{ a11y.common.noElementContextResponse }"
     neutralAtomIonCheckbox:
       accessibleName: "Neutral Atom or Ion"
       accessibleHelpText: "Build atoms with or without charge state shown."
@@ -140,10 +144,15 @@ a11y:
     nuclearStabilityCheckbox:
       accessibleName: "Nuclear Stability"
       accessibleHelpText: "Build atoms with or without Nuclear Stability shown."
-      accessibleContextResponseChecked: "{{stability}} nucleus."
+      accessibleContextResponseChecked:
+        select_isStable:
+          true: "Stable nucleus."
+          false: "Unstable nucleus."
       accessibleContextResponseUnchecked: "Nuclear Stability hidden."
-      stable: "Stable"
-      unstable: "Unstable"
+      hasNucleusSelector:
+        select_hasNucleus:
+          true: "{ a11y.common.nuclearStabilityCheckbox.accessibleContextResponseChecked }"
+          false: "{ a11y.common.noElementContextResponse }"
     modelToggle:
       accessibleName: "Model Options"
       accessibleNameShells: "Shells"

@@ -9,7 +9,6 @@
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
-import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
@@ -59,25 +58,10 @@ class AtomDescriberAccessibleListNode extends Node {
   public static createElementNameSentence(
     protonCountProperty: TReadOnlyProperty<number>
   ): TReadOnlyProperty<string> {
-    return new DerivedStringProperty(
-      [
-        protonCountProperty,
-        BuildAnAtomFluent.a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty,
-        BuildAnAtomFluent.a11y.common.noElementContextResponseStringProperty
-      ],
-      (
-        protonCount: number,
-        checkedStringPattern: string,
-        noElementString: string
-      ) => {
-        if ( protonCount > 0 ) {
-          return StringUtils.fillIn( checkedStringPattern, { name: AtomIdentifier.getName( protonCount ).value } );
-        }
-        else {
-          return noElementString;
-        }
-      }
-    );
+    return BuildAnAtomFluent.a11y.common.elementNameCheckbox.contextResponseSelector.createProperty( {
+      hasName: protonCountProperty.derived( count => count > 0 ? 'true' : 'false' ),
+      name: protonCountProperty.derived( count => AtomIdentifier.getName( count ).value )
+    } );
   }
 
   public static createNeutralOrIonSentence(
@@ -115,31 +99,10 @@ class AtomDescriberAccessibleListNode extends Node {
     protonCountProperty: TReadOnlyProperty<number>,
     isStableProperty: TReadOnlyProperty<boolean>
   ): TReadOnlyProperty<string> {
-    return new DerivedStringProperty(
-      [
-        protonCountProperty,
-        isStableProperty,
-        BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseCheckedStringProperty,
-        BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.stableStringProperty,
-        BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.unstableStringProperty,
-        BuildAnAtomFluent.a11y.common.noElementContextResponseStringProperty
-      ],
-      (
-        protons: number,
-        isStable: boolean,
-        nucleusStabilityPattern: string,
-        stableString: string,
-        unstableString: string,
-        noElementString: string
-      ) => {
-        if ( protons > 0 ) {
-          return StringUtils.fillIn( nucleusStabilityPattern, { stability: isStable ? stableString : unstableString } );
-        }
-        else {
-          return noElementString;
-        }
-      }
-    );
+    return BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.hasNucleusSelector.createProperty( {
+      hasNucleus: protonCountProperty.derived( count => count > 0 ? 'true' : 'false' ),
+      isStable: isStableProperty.derived( stable => stable ? 'true' : 'false' )
+    } );
   }
 }
 

@@ -94,6 +94,7 @@ type StringsType = {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
         'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
         'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
+        'contextResponseSelectorStringProperty': LocalizedStringProperty;
       };
       'neutralAtomIonCheckbox': {
         'accessibleNameStringProperty': LocalizedStringProperty;
@@ -108,8 +109,7 @@ type StringsType = {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
         'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
         'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
-        'stableStringProperty': LocalizedStringProperty;
-        'unstableStringProperty': LocalizedStringProperty;
+        'hasNucleusSelectorStringProperty': LocalizedStringProperty;
       };
       'modelToggle': {
         'accessibleNameStringProperty': LocalizedStringProperty;

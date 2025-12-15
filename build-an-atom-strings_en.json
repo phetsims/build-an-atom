@@ -204,10 +204,13 @@
           "value": "Build atoms with or without Element Name shown."
         },
         "accessibleContextResponseChecked": {
-          "value": "{{name}}."
+          "value": "{ $name }."
         },
         "accessibleContextResponseUnchecked": {
           "value": "Element Name hidden."
+        },
+        "contextResponseSelector": {
+          "value": "{ $hasName ->\n  [true] { a11y_common_elementNameCheckbox_accessibleContextResponseChecked }\n  *[false] { a11y_common_noElementContextResponse }\n}"
         }
       },
       "neutralAtomIonCheckbox": {
@@ -238,16 +241,13 @@
           "value": "Build atoms with or without Nuclear Stability shown."
         },
         "accessibleContextResponseChecked": {
-          "value": "{{stability}} nucleus."
+          "value": "{ $isStable ->\n  [true] Stable nucleus.\n  *[false] Unstable nucleus.\n}"
         },
         "accessibleContextResponseUnchecked": {
           "value": "Nuclear Stability hidden."
         },
-        "stable": {
-          "value": "Stable"
-        },
-        "unstable": {
-          "value": "Unstable"
+        "hasNucleusSelector": {
+          "value": "{ $hasNucleus ->\n  [true] { a11y_common_nuclearStabilityCheckbox_accessibleContextResponseChecked }\n  *[false] { a11y_common_noElementContextResponse }\n}"
         }
       },
       "modelToggle": {
