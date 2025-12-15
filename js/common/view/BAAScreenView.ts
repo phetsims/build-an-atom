@@ -92,13 +92,15 @@ class BAAScreenView extends ScreenView {
 
     const periodicTableAccessibleParagraphProperty = BuildAnAtomFluent.a11y.common
       .periodicTable.accessibleParagraphPattern.createProperty( {
-        name: model.atom.protonCountProperty.derived( count => AtomIdentifier.getName( count ).value ),
+        name: AtomIdentifier.createDynamicNameProperty( model.atom.protonCountProperty ),
         symbol: model.atom.protonCountProperty.derived( count => AtomIdentifier.getSpokenSymbol( count ) ),
         row: model.atom.protonCountProperty.derived( count => {
+          if ( count === 0 ) { return ''; } // Returning empty when no protons. The pattern 'noSymbol' will prevent this to be used
           const coordinates = PeriodicTableNode.protonCountToCoordinates( count );
           return coordinates.y + 1;
         } ),
         column: model.atom.protonCountProperty.derived( count => {
+          if ( count === 0 ) { return ''; } // Returning empty when no protons. The pattern 'noSymbol' will prevent this to be used
           const coordinates = PeriodicTableNode.protonCountToCoordinates( count );
           return coordinates.x + 1;
         } ),

@@ -60,7 +60,7 @@ class AtomDescriberAccessibleListNode extends Node {
   ): TReadOnlyProperty<string> {
     return BuildAnAtomFluent.a11y.common.elementNameCheckbox.contextResponseSelector.createProperty( {
       hasName: protonCountProperty.derived( count => count > 0 ? 'true' : 'false' ),
-      name: protonCountProperty.derived( count => AtomIdentifier.getName( count ).value )
+      name: AtomIdentifier.createDynamicNameProperty( protonCountProperty )
     } );
   }
 

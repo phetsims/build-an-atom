@@ -10,7 +10,6 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import Multilink, { UnknownMultilink } from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
@@ -174,15 +173,7 @@ class InteractiveSymbolNode extends VBox {
     // Add the element caption if the option is enabled.
     if ( options.showAtomName ) {
 
-      // Create a DynamicProperty for the current element string, which will be updated based on the proton count but
-      // may also be updated if the locale changes.
-      const currentElementStringProperty = new Property( AtomIdentifier.getName( 0 ), { reentrant: true } );
-      const elementDynamicStringProperty = new DynamicProperty<string, number, TReadOnlyProperty<string>>( currentElementStringProperty );
-
-      // Update the element name based on the proton count.
-      protonCountProperty.link( protonCount => {
-        currentElementStringProperty.value = AtomIdentifier.getName( protonCount );
-      } );
+      const elementDynamicStringProperty = AtomIdentifier.createDynamicNameProperty( protonCountProperty );
 
       const elementCaption = new Text( elementDynamicStringProperty, {
         font: new PhetFont( 40 ),

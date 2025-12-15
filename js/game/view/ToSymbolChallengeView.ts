@@ -54,10 +54,8 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
 
     // Set up the correct answer accessible paragraph.
     const challengeType = this.challenge.challengeType;
-    const elementNameProperty = new DerivedStringProperty(
-      [ this.challenge.correctAnswerAtom.protonCountProperty ],
-      protonCount => AtomIdentifier.getName( protonCount ).value
-    );
+    const elementNameProperty = AtomIdentifier.createDynamicNameProperty(
+      this.challenge.correctAnswerAtom.protonCountProperty );
     const spokenSymbolProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.protonCountProperty ],
       protonCount => AtomIdentifier.getSpokenSymbol( protonCount )
