@@ -6,14 +6,11 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ShredFluent from '../../../../shred/js/ShredFluent.js';
-import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import ParticleView, { ParticleViewOptions } from '../../../../shred/js/view/ParticleView.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
@@ -42,29 +39,15 @@ export default class BAAParticleView extends ParticleView {
       type: particle.type
     } );
 
-    this.locationNameProperty = new Property<ParticleLocations>( '' );
+    this.locationNameProperty = new Property<ParticleLocations>( 'bucket' );
 
-    this.accessibleName = new DerivedStringProperty(
-      [
-        particle.isDraggingProperty,
-        particleTypeStringProperty,
-        this.locationNameProperty,
-        ShredStrings.a11y.particles.accessibleNameStringProperty
-      ],
-      ( isDragging: boolean, particleType: string, location: ParticleLocations, accessibleName: string ) => {
-        if ( isDragging ) {
-          return particleType;
-        }
-        else if ( location !== '' ) {
-          return StringUtils.fillIn( accessibleName, {
-            particle: particleType,
-            location: ShredFluent.a11y.particles.locationCapitalized.format( { location: location } )
-          } );
-        }
-        else {
-          return particleType;
-        }
-      } );
+    this.accessibleName = ShredFluent.a11y.particles.accessibleName.createProperty( {
+      pattern: particle.isDraggingProperty.derived( dragging => !dragging ? 'withLocation' : 'withoutLocation' ),
+      particle: particleTypeStringProperty,
+      location: ShredFluent.a11y.particles.locationCapitalized.createProperty( {
+        location: this.locationNameProperty
+      } )
+    } );
   }
 }
 
