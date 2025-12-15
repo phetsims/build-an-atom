@@ -6,6 +6,7 @@
  * @author Agustín Vallejo
  */
 
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
@@ -13,6 +14,8 @@ import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAModel from '../../../common/model/BAAModel.js';
+import BAAPreferences from '../../../common/model/BAAPreferences.js';
+import chargeToString from '../../../common/view/chargeToString.js';
 
 export default class SymbolAccessibleListNode extends AccessibleListNode {
   public constructor( model: BAAModel, visibleProperty: TReadOnlyProperty<boolean> ) {
@@ -38,11 +41,12 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
         value: model.atom.massNumberProperty
       } );
 
-
-    // TODO: How to make this listen to BAAPreferences.instance.chargeNotationProperty?  https://github.com/phetsims/build-an-atom/issues/449
     const chargeListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
       .accessibleListNode.charge.createProperty( {
-        value: model.atom.chargeProperty
+        value: new DerivedProperty(
+          [ model.atom.chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
+          ( charge: number ) => chargeToString( charge )
+        )
       } );
 
     super(
