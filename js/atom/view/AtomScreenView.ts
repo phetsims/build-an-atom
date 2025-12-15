@@ -6,9 +6,7 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
@@ -75,18 +73,9 @@ class AtomScreenView extends BAAScreenView {
     this.accordionBoxes.addChild( this.netChargeAccordionBox );
     this.netChargeAccordionBox.addLinkedElement( model.atom.chargeProperty );
 
-    const massNumberAccessibleParagraphProperty = new DerivedStringProperty(
-      [
-        model.atom.massNumberProperty,
-        BuildAnAtomFluent.a11y.atomScreen.massNumber.accessibleParagraphStringProperty
-      ],
-      (
-        massNumber: number,
-        accessibleParagraphString: string
-      ) => {
-        return StringUtils.fillIn( accessibleParagraphString, { value: massNumber } );
-      }
-    );
+    const massNumberAccessibleParagraphProperty = BuildAnAtomFluent.a11y.atomScreen.massNumber.accessibleParagraph.createProperty( {
+        value: model.atom.massNumberProperty
+      } );
 
     // Add the mass indicator.
     const massNumberDisplay = new MassNumberDisplay(

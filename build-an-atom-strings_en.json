@@ -314,7 +314,7 @@
           "value": "Mass Number"
         },
         "accessibleParagraph": {
-          "value": "Your Built Atom has a Mass Number of {{value}}."
+          "value": "Your Built Atom has a Mass Number of { $value }."
         }
       }
     },
@@ -341,17 +341,20 @@
         },
         "accessibleListNode": {
           "symbol": {
-            "value": "{{symbol}} in center."
+            "value": "{ $symbol } in center."
           },
           "atomicNumber": {
-            "value": "Atomic number {{value}} in lower left."
+            "value": "Atomic number { $value } in lower left."
           },
           "massNumber": {
-            "value": "Mass number {{value}} in upper left."
+            "value": "Mass number { $value } in upper left."
           },
           "charge": {
-            "value": "Charge {{value}} in upper right."
+            "value": "Charge { $value } in upper right."
           }
+        },
+        "symbolSelector": {
+          "value": "{ $hasSymbol ->\n  [true] { a11y_symbolScreen_symbol_accessibleListNode_symbol }\n  *[false] { a11y_symbolScreen_symbol_noSymbol }\n}"
         }
       }
     },

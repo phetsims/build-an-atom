@@ -161,7 +161,8 @@ type StringsType = {
           'atomicNumberStringProperty': LocalizedStringProperty;
           'massNumberStringProperty': LocalizedStringProperty;
           'chargeStringProperty': LocalizedStringProperty;
-        }
+        };
+        'symbolSelectorStringProperty': LocalizedStringProperty;
       }
     };
     'gameScreen': {

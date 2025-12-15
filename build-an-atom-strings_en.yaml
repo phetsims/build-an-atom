@@ -181,7 +181,7 @@ a11y:
                           }.
     massNumber:
       accessibleName: "Mass Number"
-      accessibleParagraph: "Your Built Atom has a Mass Number of {{value}}."
+      accessibleParagraph: "Your Built Atom has a Mass Number of { $value }."
   symbolScreen:
     screenSummary:
       playArea: |-
@@ -194,10 +194,14 @@ a11y:
       accessibleName: "Chemical Symbol"
       noSymbol: "No symbol"
       accessibleListNode:
-        symbol: "{{symbol}} in center."
-        atomicNumber: "Atomic number {{value}} in lower left."
-        massNumber: "Mass number {{value}} in upper left."
-        charge: "Charge {{value}} in upper right."
+        symbol: "{ $symbol } in center."
+        atomicNumber: "Atomic number { $value } in lower left."
+        massNumber: "Mass number { $value } in upper left."
+        charge: "Charge { $value } in upper right."
+      symbolSelector:
+        select_hasSymbol:
+          true: "{ a11y.symbolScreen.symbol.accessibleListNode.symbol }"
+          false: "{ a11y.symbolScreen.symbol.noSymbol }"
   gameScreen:
     screenIcon:
       accessibleHelpText: "Test your knowledge of atomic structure."

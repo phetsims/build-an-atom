@@ -111,11 +111,17 @@ addToMapIfDefined( 'a11y_atomScreen_screenIcon_accessibleHelpText', 'a11y.atomSc
 addToMapIfDefined( 'a11y_atomScreen_netCharge_accessibleName', 'a11y.atomScreen.netCharge.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_netCharge_accessibleParagraph', 'a11y.atomScreen.netCharge.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_atomScreen_massNumber_accessibleName', 'a11y.atomScreen.massNumber.accessibleNameStringProperty' );
+addToMapIfDefined( 'a11y_atomScreen_massNumber_accessibleParagraph', 'a11y.atomScreen.massNumber.accessibleParagraphStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_screenSummary_playArea', 'a11y.symbolScreen.screenSummary.playAreaStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_screenIcon_accessibleHelpText', 'a11y.symbolScreen.screenIcon.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_symbol_leadingParagraph', 'a11y.symbolScreen.symbol.leadingParagraphStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_symbol_accessibleName', 'a11y.symbolScreen.symbol.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_symbolScreen_symbol_noSymbol', 'a11y.symbolScreen.symbol.noSymbolStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_accessibleListNode_symbol', 'a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_accessibleListNode_atomicNumber', 'a11y.symbolScreen.symbol.accessibleListNode.atomicNumberStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_accessibleListNode_massNumber', 'a11y.symbolScreen.symbol.accessibleListNode.massNumberStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_accessibleListNode_charge', 'a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty' );
+addToMapIfDefined( 'a11y_symbolScreen_symbol_symbolSelector', 'a11y.symbolScreen.symbol.symbolSelectorStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_screenIcon_accessibleHelpText', 'a11y.gameScreen.screenIcon.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level1AccessibleHelpText', 'a11y.gameScreen.gameButtons.level1AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level2AccessibleHelpText', 'a11y.gameScreen.gameButtons.level2AccessibleHelpTextStringProperty' );
@@ -327,7 +333,7 @@ const BuildAnAtomFluent = {
       },
       massNumber: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_atomScreen_massNumber_accessibleName', _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleNameStringProperty' ) ),
-        accessibleParagraphStringProperty: _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleParagraphStringProperty' )
+        accessibleParagraph: new FluentPattern<{ value: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_atomScreen_massNumber_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.atomScreen.massNumber.accessibleParagraphStringProperty' ), [{"name":"value"}] )
       }
     },
     symbolScreen: {
@@ -342,11 +348,12 @@ const BuildAnAtomFluent = {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_accessibleName', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleNameStringProperty' ) ),
         noSymbolStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_noSymbol', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.noSymbolStringProperty' ) ),
         accessibleListNode: {
-          symbolStringProperty: _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty' ),
-          atomicNumberStringProperty: _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.atomicNumberStringProperty' ),
-          massNumberStringProperty: _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.massNumberStringProperty' ),
-          chargeStringProperty: _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty' )
-        }
+          symbol: new FluentPattern<{ symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_accessibleListNode_symbol', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty' ), [{"name":"symbol"}] ),
+          atomicNumber: new FluentPattern<{ value: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_accessibleListNode_atomicNumber', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.atomicNumberStringProperty' ), [{"name":"value"}] ),
+          massNumber: new FluentPattern<{ value: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_accessibleListNode_massNumber', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.massNumberStringProperty' ), [{"name":"value"}] ),
+          charge: new FluentPattern<{ value: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_accessibleListNode_charge', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty' ), [{"name":"value"}] )
+        },
+        symbolSelector: new FluentPattern<{ hasSymbol: 'true' | 'false' | TReadOnlyProperty<'true' | 'false'>, symbol: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_symbolScreen_symbol_symbolSelector', _.get( BuildAnAtomStrings, 'a11y.symbolScreen.symbol.symbolSelectorStringProperty' ), [{"name":"hasSymbol","variants":["true","false"]},{"name":"symbol"}] )
       }
     },
     gameScreen: {

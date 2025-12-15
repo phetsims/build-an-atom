@@ -6,17 +6,13 @@
  * @author Agustín Vallejo
  */
 
-import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
-import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAModel from '../../../common/model/BAAModel.js';
-import BAAPreferences from '../../../common/model/BAAPreferences.js';
-import chargeToString from '../../../common/view/chargeToString.js';
 
 export default class SymbolAccessibleListNode extends AccessibleListNode {
   public constructor( model: BAAModel, visibleProperty: TReadOnlyProperty<boolean> ) {
@@ -27,53 +23,27 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
       } )
     } );
 
-    const symbolListItemProperty = new DerivedStringProperty(
-      [
-        model.atom.protonCountProperty,
-        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.symbolStringProperty,
-        spokenSymbolStringProperty,
-        BuildAnAtomFluent.a11y.symbolScreen.symbol.noSymbolStringProperty
-      ],
-      (
-        protonCount: number,
-        symbolPattern: string,
-        spokenSymbol: string,
-        noSymbolString: string
-      ) => {
-        return StringUtils.fillIn( symbolPattern, { symbol: protonCount > 0 ? spokenSymbol : noSymbolString } );
-      }
-    );
+    const symbolListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol.symbolSelector.createProperty( {
+      hasSymbol: model.atom.protonCountProperty.derived( count => count > 0 ? 'true' : 'false' ),
+      symbol: spokenSymbolStringProperty
+    } );
 
-    const atomicNumberListItemProperty = new DerivedStringProperty(
-      [
-        model.atom.protonCountProperty,
-        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.atomicNumberStringProperty
-      ],
-      ( protonCount: number, atomicNumberPattern: string ) => {
-        return StringUtils.fillIn( atomicNumberPattern, { value: protonCount } );
-      }
-    );
+    const atomicNumberListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
+      .accessibleListNode.atomicNumber.createProperty( {
+        value: model.atom.protonCountProperty
+      } );
 
-    const massNumberListItemProperty = new DerivedStringProperty(
-      [
-        model.atom.massNumberProperty,
-        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.massNumberStringProperty
-      ],
-      ( massNumber: number, massNumberPattern: string ) => {
-        return StringUtils.fillIn( massNumberPattern, { value: massNumber } );
-      }
-    );
+    const massNumberListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
+      .accessibleListNode.massNumber.createProperty( {
+        value: model.atom.massNumberProperty
+      } );
 
-    const chargeListItemProperty = new DerivedStringProperty(
-      [
-        model.atom.chargeProperty,
-        BuildAnAtomFluent.a11y.symbolScreen.symbol.accessibleListNode.chargeStringProperty,
-        BAAPreferences.instance.chargeNotationProperty
-      ],
-      ( charge: number, chargePattern: string ) => StringUtils.fillIn( chargePattern, {
-          value: chargeToString( charge )
-      } )
-    );
+
+    // TODO: How to make this listen to BAAPreferences.instance.chargeNotationProperty?  https://github.com/phetsims/build-an-atom/issues/449
+    const chargeListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
+      .accessibleListNode.charge.createProperty( {
+        value: model.atom.chargeProperty
+      } );
 
     super(
       [
