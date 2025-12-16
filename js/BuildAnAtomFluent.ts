@@ -5,12 +5,12 @@
 /* eslint-disable */
 /* @formatter:off */
 
-import {TReadOnlyProperty} from '../../axon/js/TReadOnlyProperty.js';
-import FluentComment from '../../chipper/js/browser/FluentComment.js';
+import { TReadOnlyProperty } from '../../axon/js/TReadOnlyProperty.js';
+import type { FluentVariable } from '../../chipper/js/browser/FluentPattern.js';
+import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
 import FluentConstant from '../../chipper/js/browser/FluentConstant.js';
 import FluentContainer from '../../chipper/js/browser/FluentContainer.js';
-import type {FluentVariable} from '../../chipper/js/browser/FluentPattern.js';
-import FluentPattern from '../../chipper/js/browser/FluentPattern.js';
+import FluentComment from '../../chipper/js/browser/FluentComment.js';
 import buildAnAtom from './buildAnAtom.js';
 import BuildAnAtomStrings from './BuildAnAtomStrings.js';
 
@@ -252,6 +252,8 @@ const BuildAnAtomFluent = {
   },
   a11y: {
     common: {
+      _comment_0: new FluentComment( {"comment":"Some of the description for particles and buckets live in shred, because they are re-used in other sims","associatedKey":"particles"} ),
+      _comment_1: new FluentComment( {"comment":"The following ones are BAA specific, or at least designed for BAA.","associatedKey":"particles"} ),
       particles: {
         particleAddedTo: new FluentPattern<{ count: number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other'>, location: FluentVariable, particle: FluentVariable, particles: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleAddedTo', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleAddedToStringProperty' ), [{"name":"count","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"location"},{"name":"particle"},{"name":"particles"}] ),
         particleReturnedToBucket: new FluentPattern<{ particle: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_particles_particleReturnedToBucket', _.get( BuildAnAtomStrings, 'a11y.common.particles.particleReturnedToBucketStringProperty' ), [{"name":"particle"}] )
@@ -284,12 +286,15 @@ const BuildAnAtomFluent = {
         _comment_5: new FluentComment( {"comment":"empty - neither present","associatedKey":"nucleusContains"} ),
         nucleusContains: new FluentPattern<{ neutrons: number | 'one' | number | 'other' | number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other' | number | 'one' | number | 'other'>, nucleonState: 'full' | 'protons' | 'neutrons' | 'empty' | TReadOnlyProperty<'full' | 'protons' | 'neutrons' | 'empty'>, protons: number | 'one' | number | 'other' | number | 'one' | number | 'other' | TReadOnlyProperty<number | 'one' | number | 'other' | number | 'one' | number | 'other'> }>( fluentSupport.bundleProperty, 'a11y_common_atomAccessibleListNode_nucleusContains', _.get( BuildAnAtomStrings, 'a11y.common.atomAccessibleListNode.nucleusContainsStringProperty' ), [{"name":"neutrons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"},{"type":"number","value":"one"},{"type":"number","value":"other"}]},{"name":"nucleonState","variants":["full","protons","neutrons","empty"]},{"name":"protons","variants":[{"type":"number","value":"one"},{"type":"number","value":"other"},{"type":"number","value":"one"},{"type":"number","value":"other"}]}] )
       },
+      _comment_2: new FluentComment( {"comment":"Common response when an atom is not yet an element","associatedKey":"noElementContextResponse"} ),
       noElementContextResponseStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_noElementContextResponse', _.get( BuildAnAtomStrings, 'a11y.common.noElementContextResponseStringProperty' ) ),
+      _comment_3: new FluentComment( {"comment":"CHECKBOXES","associatedKey":"elementNameCheckbox"} ),
       elementNameCheckbox: {
         accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleName', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleNameStringProperty' ) ),
         accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty' ) ),
         accessibleContextResponseChecked: new FluentPattern<{ name: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleContextResponseChecked', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleContextResponseCheckedStringProperty' ), [{"name":"name"}] ),
         accessibleContextResponseUncheckedStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_accessibleContextResponseUnchecked', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty' ) ),
+        _comment_0: new FluentComment( {"comment":"Using the selector pattern to print a response based on whether the atom has an element name","associatedKey":"contextResponseSelector"} ),
         contextResponseSelector: new FluentPattern<{ hasName: 'true' | 'false' | TReadOnlyProperty<'true' | 'false'>, name: FluentVariable }>( fluentSupport.bundleProperty, 'a11y_common_elementNameCheckbox_contextResponseSelector', _.get( BuildAnAtomStrings, 'a11y.common.elementNameCheckbox.contextResponseSelectorStringProperty' ), [{"name":"hasName","variants":["true","false"]},{"name":"name"}] )
       },
       neutralAtomIonCheckbox: {

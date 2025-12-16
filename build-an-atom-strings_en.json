@@ -151,7 +151,7 @@
       },
       "atomAccessibleListNode": {
         "atomStateLeadingParagraph": {
-          "value": "In {$model} view:"
+          "value": "In { $model } view:"
         },
         "checkboxesListLeadingParagraph": {
           "value": "You have created:"
