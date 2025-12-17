@@ -35,7 +35,7 @@ import ChallengeView from './ChallengeView.js';
 const TITLE_FONT = new PhetFont( 30 );
 const INSET = 10;
 const CELL_DIMENSION = 25;
-const MAX_WIDTH = 90; // empirically determined for long strings
+const MAX_WIDTH = 110; // empirically determined for long strings
 
 class ToElementChallengeView extends ChallengeView {
 
