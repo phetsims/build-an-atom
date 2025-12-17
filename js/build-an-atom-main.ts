@@ -11,13 +11,13 @@ import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import AtomScreen from './atom/AtomScreen.js';
-import BuildAnAtomStrings from './BuildAnAtomStrings.js';
+import BuildAnAtomFluent from './BuildAnAtomFluent.js';
 import BAAPreferences from './common/model/BAAPreferences.js';
 import BAAPreferencesNode from './common/view/BAAPreferencesNode.js';
 import GameScreen from './game/GameScreen.js';
 import SymbolScreen from './symbol/SymbolScreen.js';
 
-const buildAnAtomTitleStringProperty = BuildAnAtomStrings[ 'build-an-atom' ].titleStringProperty;
+const buildAnAtomTitleStringProperty = BuildAnAtomFluent[ 'build-an-atom' ].titleStringProperty;
 
 // root tandem
 const tandem = Tandem.ROOT;
