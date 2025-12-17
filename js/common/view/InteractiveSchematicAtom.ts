@@ -36,7 +36,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Particle from '../../../../shred/js/model/Particle.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import ShredFluent from '../../../../shred/js/ShredFluent.js';
-import ShredStrings from '../../../../shred/js/ShredStrings.js';
 import AtomNode, { AtomNodeOptions } from '../../../../shred/js/view/AtomNode.js';
 import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepiction.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
@@ -66,9 +65,9 @@ export type ParticleLocations = 'nucleus' | 'innerShell' | 'outerShell' | 'cloud
 
 // constants
 const PARTICLE_TO_PLURAL = new Map<BAAParticleType, TReadOnlyProperty<string>>( [
-  [ 'proton', ShredStrings.a11y.particles.protonsStringProperty ],
-  [ 'neutron', ShredStrings.a11y.particles.neutronsStringProperty ],
-  [ 'electron', ShredStrings.a11y.particles.electronsStringProperty ]
+  [ 'proton', ShredFluent.a11y.particles.protonsStringProperty ],
+  [ 'neutron', ShredFluent.a11y.particles.neutronsStringProperty ],
+  [ 'electron', ShredFluent.a11y.particles.electronsStringProperty ]
 ] );
 
 // Define the position where a particle will be initially placed when pulled from a bucket using alt-input.
@@ -228,10 +227,10 @@ class InteractiveSchematicAtom extends Node {
 
             // Handle focus for the case where an electron is released back into the cloud.
             if ( electronModelProperty.value === 'cloud' ) {
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
             }
             else {
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
             }
 
             // Indicate that the user has interacted with the buckets.
@@ -344,13 +343,13 @@ class InteractiveSchematicAtom extends Node {
 
           // Now that it's accessibleVisible we can announce the grab.
           particleView.addAccessibleObjectResponse(
-            ShredStrings.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
+            ShredFluent.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
           );
         }
         else {
           // Emitting the response from the atom since sometimes released particles are invisible before the response
           this.addAccessibleObjectResponse(
-            ShredStrings.a11y.releasedStringProperty, { alertBehavior: 'queue' }
+            ShredFluent.a11y.releasedStringProperty, { alertBehavior: 'queue' }
           );
         }
       } );

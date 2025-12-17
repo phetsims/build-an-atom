@@ -17,7 +17,7 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
-import ShredStrings from '../../../../shred/js/ShredStrings.js';
+import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -69,7 +69,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem.createTandem( 'protonCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
-        accessibleName: ShredStrings.a11y.particles.protonsStringProperty,
+        accessibleName: ShredFluent.a11y.particles.protonsStringProperty,
         enabledProperty: options.showArrowButtonsProperty
       } );
     const protonRowNode = new HBox( {
@@ -85,7 +85,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem.createTandem( 'neutronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
-        accessibleName: ShredStrings.a11y.particles.neutronsStringProperty,
+        accessibleName: ShredFluent.a11y.particles.neutronsStringProperty,
         enabledProperty: options.showArrowButtonsProperty
       } );
     const neutronRowNode = new HBox( {
@@ -102,7 +102,7 @@ class InteractiveParticleCountsNode extends Node {
       tandem.createTandem( 'electronCountNumberSpinner' ), {
         minValue: 0,
         maxValue: 99,
-        accessibleName: ShredStrings.a11y.particles.electronsStringProperty,
+        accessibleName: ShredFluent.a11y.particles.electronsStringProperty,
         enabledProperty: options.showArrowButtonsProperty
       } );
     const electronRowNode = new HBox( {

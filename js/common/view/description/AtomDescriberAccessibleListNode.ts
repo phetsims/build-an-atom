@@ -14,7 +14,7 @@ import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/NumberAtom.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
-import ShredStrings from '../../../../../shred/js/ShredStrings.js';
+import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import AtomViewProperties from '../../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/description/ParticleCountsAccessibleListNode.js';
 import ElectronShellDepiction from '../../../../../shred/js/view/ElectronShellDepiction.js';
@@ -31,7 +31,7 @@ class AtomDescriberAccessibleListNode extends Node {
         new AtomStateAccessibleListNode( atom, viewProperties ),
         new CheckboxesAccessibleListNode( atom, viewProperties ),
         new Node( {
-          accessibleHeading: ShredStrings.a11y.particleCounts.accessibleHeadingStringProperty,
+          accessibleHeading: ShredFluent.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
             new ParticleCountsAccessibleListNode( atom )
           ]
@@ -45,7 +45,7 @@ class AtomDescriberAccessibleListNode extends Node {
       children: [
         new AtomStateAccessibleListNode( atom, AtomViewProperties.everythingOffAtomViewProperties ),
         new Node( {
-          accessibleHeading: ShredStrings.a11y.particleCounts.accessibleHeadingStringProperty,
+          accessibleHeading: ShredFluent.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
             new ParticleCountsAccessibleListNode( atom )
           ]

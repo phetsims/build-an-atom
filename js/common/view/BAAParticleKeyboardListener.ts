@@ -17,7 +17,7 @@ import { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
-import ShredStrings from '../../../../shred/js/ShredStrings.js';
+import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ElectronCloudView from '../../../../shred/js/view/ElectronCloudView.js';
 import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepiction.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
@@ -74,15 +74,15 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
     const outsideAtomOffset = new Vector2( -65, -155 );
 
     const altInputAtomForShellMode: ParticleLocationInformation[] = [
-      { offset: belowNucleusOffset, responseProperty: ShredStrings.a11y.particles.overNucleusStringProperty },
-      { offset: innerShellOffset, responseProperty: ShredStrings.a11y.particles.overInnerShellStringProperty },
-      { offset: outerShellOffset, responseProperty: ShredStrings.a11y.particles.overOuterShellStringProperty },
-      { offset: outsideAtomOffset, responseProperty: ShredStrings.a11y.particles.nearBucketsStringProperty }
+      { offset: belowNucleusOffset, responseProperty: ShredFluent.a11y.particles.overNucleusStringProperty },
+      { offset: innerShellOffset, responseProperty: ShredFluent.a11y.particles.overInnerShellStringProperty },
+      { offset: outerShellOffset, responseProperty: ShredFluent.a11y.particles.overOuterShellStringProperty },
+      { offset: outsideAtomOffset, responseProperty: ShredFluent.a11y.particles.nearBucketsStringProperty }
     ];
 
     const altInputAtomForCloudMode: ParticleLocationInformation[] = [
-      { offset: belowNucleusOffset, responseProperty: ShredStrings.a11y.particles.overAtomStringProperty },
-      { offset: outsideAtomOffset, responseProperty: ShredStrings.a11y.particles.nearBucketsStringProperty }
+      { offset: belowNucleusOffset, responseProperty: ShredFluent.a11y.particles.overAtomStringProperty },
+      { offset: outsideAtomOffset, responseProperty: ShredFluent.a11y.particles.nearBucketsStringProperty }
     ];
 
     // for sound generation
@@ -147,10 +147,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // Handle focus for the case where an electron is released back into the cloud.
             if ( electronModelProperty.value === 'cloud' ) {
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
             }
             else {
-              particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
             }
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
@@ -295,10 +295,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               }
 
               if ( electronModelProperty.value === 'cloud' ) {
-                particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+                particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
               }
               else {
-                particleView.addAccessibleObjectResponse( ShredStrings.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+                particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
               }
               particle.isDraggingProperty.value = false;
               releaseSoundPlayer.play();
