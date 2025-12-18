@@ -286,7 +286,7 @@
           "value": "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
         },
         "currentDetails": {
-          "value": "Currently, your built atom has { $value ->\n  [one] { $value } particle\n  *[other] { $value } particles\n  }."
+          "value": "Currently, Your Built Atom has { $value ->\n  [one] { $value } particle\n  *[other] { $value } particles\n  }."
         },
         "interactionHint": {
           "value": "Add particles to build your atom."
