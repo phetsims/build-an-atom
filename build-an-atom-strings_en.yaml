@@ -180,7 +180,7 @@ a11y:
     screenSummary:
       controlArea: "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
       currentDetails: |-
-        Currently, your built atom has { $value ->
+        Currently, Your Built Atom has { $value ->
           [one] { $value } particle
           *[other] { $value } particles
           }.
