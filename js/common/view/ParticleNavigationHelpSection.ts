@@ -8,7 +8,7 @@
 import KeyboardHelpSection, { KeyboardHelpSectionOptions } from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 
 /**
@@ -26,7 +26,7 @@ export default class ParticleNavigationHelpSection extends KeyboardHelpSection {
     // all rows contained in a left aligned vbox
     const rows = [ grabOrRelease, selectParticle, moveParticle, returnToBucket, cancelMovement ];
 
-    super( BuildAnAtomStrings.keyboardHelpContent.particleNavigationHeadingStringProperty, rows, options );
+    super( BuildAnAtomFluent.keyboardHelpContent.particleNavigationHeadingStringProperty, rows, options );
   }
 }
 

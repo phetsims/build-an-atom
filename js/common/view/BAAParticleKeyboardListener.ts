@@ -24,7 +24,7 @@ import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import BuildAnAtomStrings from '../../BuildAnAtomStrings.js';
+import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAParticle from '../model/BAAParticle.js';
 
 type FocusUpdateDirection = 'forward' | 'backward';
@@ -348,31 +348,31 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
   public static readonly GRAB_OR_RELEASE_HOTKEY_DATA = new HotkeyData( {
     keys: [ 'space', 'enter' ],
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.grabOrReleaseStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomFluent.keyboardHelpContent.grabOrReleaseStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly SELECT_HOTKEY_DATA = new HotkeyData( {
     keys: NAVIGATION_KEYS,
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.selectParticleInAtomStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomFluent.keyboardHelpContent.selectParticleInAtomStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly MOVE_HOTKEY_DATA = new HotkeyData( {
     keys: NAVIGATION_KEYS,
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.moveGrabbedParticleStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomFluent.keyboardHelpContent.moveGrabbedParticleStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly RETURN_TO_BUCKET_HOTKEY_DATA = new HotkeyData( {
     keys: [ 'delete', 'backspace' ],
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.returnToBucketStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomFluent.keyboardHelpContent.returnToBucketStringProperty,
     repoName: buildAnAtom.name
   } );
 
   public static readonly CANCEL_MOVEMENT_HOTKEY_DATA = new HotkeyData( {
     keys: [ 'escape' ],
-    keyboardHelpDialogLabelStringProperty: BuildAnAtomStrings.keyboardHelpContent.cancelMovementStringProperty,
+    keyboardHelpDialogLabelStringProperty: BuildAnAtomFluent.keyboardHelpContent.cancelMovementStringProperty,
     repoName: buildAnAtom.name
   } );
 }
