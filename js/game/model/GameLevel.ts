@@ -142,6 +142,11 @@ class GameLevel extends PhetioObject {
         this.bestTimeProperty
       );
     }
+    else {
+      if ( score > this.bestScoreProperty.value ) {
+        this.bestScoreProperty.value = score;
+      }
+    }
   }
 
   /**
