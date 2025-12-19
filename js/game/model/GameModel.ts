@@ -288,6 +288,7 @@ class GameModel implements TModel {
 
     const level = this.levelProperty.value!;
     affirm( level, 'Cannot start the level if no level is selected' );
+    level.startLevel();
 
     // Set the challenge back to the first one.
     this.challengeNumberProperty.reset();

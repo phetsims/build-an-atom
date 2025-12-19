@@ -69,11 +69,15 @@ class GameLevel extends PhetioObject {
     this.levelIndex = levelNumber - 1;
 
     const levelDescriptionTandem = options.tandem.createTandem( 'levelDescriptionStringProperty' );
-    this.levelDescriptionStringProperty = new PatternStringProperty( options.levelDescriptionPatternProperty, {
-      levelNumber: levelNumber
-    }, {
-      tandem: levelDescriptionTandem
-    } );
+    this.levelDescriptionStringProperty = new PatternStringProperty(
+      options.levelDescriptionPatternProperty,
+      {
+        levelNumber: levelNumber
+      },
+      {
+        tandem: levelDescriptionTandem
+      }
+    );
 
     this.generateChallengeDescriptors();
 
@@ -120,11 +124,24 @@ class GameLevel extends PhetioObject {
   }
 
   /**
+   * Starts the level, resetting any necessary state.
+   */
+  public startLevel(): void {
+    this.isNewBestTimeProperty.value = false;
+  }
+
+  /**
    * Ends the level, updating the best score and time if the score is a perfect score.
    */
   public endLevel( score: number, time: number ): void {
-    this.isNewBestTimeProperty.value = GameUtils.updateScoreAndBestTime( score, time,
-      this.bestScoreProperty, this.bestTimeProperty );
+    if ( this.model.timerEnabledProperty.value ) {
+      this.isNewBestTimeProperty.value = GameUtils.updateScoreAndBestTime(
+        score,
+        time,
+        this.bestScoreProperty,
+        this.bestTimeProperty
+      );
+    }
   }
 
   /**
