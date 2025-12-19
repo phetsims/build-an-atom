@@ -19,7 +19,7 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import GameUtils from '../../../../vegas/js/GameUtils.js';
 import buildAnAtom from '../../buildAnAtom.js';
-import ChallengeSetFactory, { ChallengeDescriptor } from './ChallengeSetFactory.js';
+import ChallengeDescriptorSetFactory, { ChallengeDescriptor } from './ChallengeDescriptorSetFactory.js';
 import GameModel from './GameModel.js';
 
 type SelfOptions = {
@@ -120,7 +120,7 @@ class GameLevel extends PhetioObject {
    * Generates a new set of challenge descriptors for this level. This is called whenever the level is restarted.
    */
   public generateChallengeDescriptors(): void {
-    this.challengeDescriptors = ChallengeSetFactory.createChallengeDescriptorSet( this.levelIndex, this.model );
+    this.challengeDescriptors = ChallengeDescriptorSetFactory.createSet( this.levelIndex, this.model );
   }
 
   /**

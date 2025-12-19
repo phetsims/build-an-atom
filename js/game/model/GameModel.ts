@@ -35,7 +35,7 @@ import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import AnswerAtom from './AnswerAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
-import { ChallengeDescriptor } from './ChallengeSetFactory.js';
+import { ChallengeDescriptor } from './ChallengeDescriptorSetFactory.js';
 import { ChallengeType } from './ChallengeType.js';
 import CountsToChargeChallenge from './CountsToChargeChallenge.js';
 import CountsToElementChallenge from './CountsToElementChallenge.js';

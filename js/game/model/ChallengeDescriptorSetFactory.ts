@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ChallengeSetFactory is used to generate a list of challenges for use in a game.
+ * ChallengeDescriptorSetFactory is used to generate a list of challenge descriptors for use in a game.
  *
  * @author John Blanco (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
@@ -30,13 +30,13 @@ export type ChallengeDescriptor = {
   atomValue: NumberAtom;
 };
 
-export default class ChallengeSetFactory {
+export default class ChallengeDescriptorSetFactory {
 
   /**
    * For a given Game Level, create a set of challenge descriptors that can be used to obtain and configure the
    * challenges that will be presented to the user.
    */
-  public static createChallengeDescriptorSet( levelIndex: number, model: GameModel ): ChallengeDescriptor[] {
+  public static createSet( levelIndex: number, model: GameModel ): ChallengeDescriptor[] {
 
     // Get a list of the challenge names that are valid for this level.
     const validChallengeNames = LEVEL_CHALLENGE_NAMES[ levelIndex ];
@@ -140,4 +140,4 @@ export default class ChallengeSetFactory {
   }
 }
 
-buildAnAtom.register( 'ChallengeSetFactory', ChallengeSetFactory );
+buildAnAtom.register( 'ChallengeDescriptorSetFactory', ChallengeDescriptorSetFactory );
