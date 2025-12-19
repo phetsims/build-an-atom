@@ -259,9 +259,6 @@ class GameModel implements TModel {
       if ( level ) {
         this.startLevel();
       }
-      else {
-        this.startOver();
-      }
     } );
 
     isSettingPhetioStateProperty.link( isSettingPhetioState => {

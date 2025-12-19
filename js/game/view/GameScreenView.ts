@@ -192,7 +192,7 @@ class GameScreenView extends ScreenView {
           gameModel.timer.elapsedTimeProperty.value,
           level.bestTimeProperty.value === 0 ? null : level.bestTimeProperty.value,
           level.isNewBestTimeProperty.value,
-          () => { gameModel.levelProperty.reset(); }, {
+          () => { gameModel.startOver(); }, {
             centerX: this.layoutBounds.width / 2,
             centerY: this.layoutBounds.height / 2,
             levelVisible: false,
