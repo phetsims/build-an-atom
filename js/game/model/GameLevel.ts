@@ -117,21 +117,22 @@ class GameLevel extends PhetioObject {
   }
 
   /**
-   * Generates a new set of challenge descriptors for this level. This is called whenever the level is restarted.
+   * Generate a new set of challenge descriptors for this level.
    */
   public generateChallengeDescriptors(): void {
+    console.log( 'generateChallengeDescriptors called' );
     this.challengeDescriptors = ChallengeDescriptorSetFactory.createSet( this.levelIndex, this.model );
   }
 
   /**
-   * Starts the level, resetting any necessary state.
+   * Start the level, resetting any necessary state.
    */
   public startLevel(): void {
     this.isNewBestTimeProperty.value = false;
   }
 
   /**
-   * Ends the level, updating the best score and time if the score is a perfect score.
+   * End the level, updating the best score and time if the score is a perfect score.
    */
   public endLevel( score: number, time: number ): void {
     if ( this.model.timerEnabledProperty.value ) {
@@ -150,8 +151,8 @@ class GameLevel extends PhetioObject {
   }
 
   /**
-   * Gets the number of points in a perfect score for this level.
-   * A perfect score is obtained when the user balances every challenge correctly on the first attempt.
+   * Get the number of points in a perfect score for this level. A perfect score is obtained when the user balances
+   * every challenge correctly on the first attempt.
    */
   public getPerfectScore(): number {
     return GameModel.CHALLENGES_PER_LEVEL * GameModel.POINTS_FIRST_ATTEMPT;
