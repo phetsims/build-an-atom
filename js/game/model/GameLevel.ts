@@ -120,7 +120,6 @@ class GameLevel extends PhetioObject {
    * Generate a new set of challenge descriptors for this level.
    */
   public generateChallengeDescriptors(): void {
-    console.log( 'generateChallengeDescriptors called' );
     this.challengeDescriptors = ChallengeDescriptorSetFactory.createSet( this.levelIndex, this.model );
   }
 
