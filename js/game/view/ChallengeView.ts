@@ -172,9 +172,7 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
     this.answerButtons.push( this.checkButton );
 
     this.nextButton = new NextButton( combineOptions<TextPushButtonOptions>( {
-      listener: () => {
-        challenge.next();
-      },
+      listener: () => challenge.next(),
       tandem: tandem.createTandem( 'nextButton' )
     }, COMMON_BUTTON_OPTIONS ) );
     this.addChild( this.nextButton );
