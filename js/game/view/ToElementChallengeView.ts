@@ -85,20 +85,21 @@ class ToElementChallengeView extends ChallengeView {
         ),
         accessibleVisible: true,
         cellAriaRoleDescription: BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty
-      } ) );
+      }
+    ) );
     this.interactiveAnswerNode.addChild( this.periodicTable );
     this.challenge.isAnswerInteractiveProperty.link( isInteractive => {
       this.periodicTable.enabled = isInteractive;
     } );
 
-    // Challenge title
+    // challenge title
     const challengeTitle = new Text( BuildAnAtomFluent.findTheElementStringProperty, {
       font: TITLE_FONT,
       maxWidth: this.periodicTable.width * 0.9
     } );
     this.challengePresentationNode.addChild( challengeTitle );
 
-    // Neutral atom versus ion question.
+    // neutral atom versus ion question
     const neutralVersusIonPrompt = new Text( BuildAnAtomFluent.isItStringProperty, {
       font: new PhetFont( 24 ),
       maxWidth: MAX_WIDTH,
@@ -187,8 +188,8 @@ class ToElementChallengeView extends ChallengeView {
       }
     );
     const correctAnswerParagraphPattern = this.challenge.challengeType === 'counts-to-element' ?
-      BuildAnAtomFluent.a11y.gameScreen.challenges.countsToElement.correctAnswerParagraph :
-      BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToElement.correctAnswerParagraph;
+                                          BuildAnAtomFluent.a11y.gameScreen.challenges.countsToElement.correctAnswerParagraph :
+                                          BuildAnAtomFluent.a11y.gameScreen.challenges.schematicToElement.correctAnswerParagraph;
     this.correctAnswerAccessibleParagraphNode.accessibleParagraph = correctAnswerParagraphPattern.createProperty( {
       symbol: elementSymbolProperty,
       neutralOrIon: neutralOrIonStringProperty
