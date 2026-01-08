@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * Base class for challenge views.  This type adds the titles, buttons, and the feedback node, and controls the

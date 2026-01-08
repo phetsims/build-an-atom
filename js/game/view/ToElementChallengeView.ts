@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * Base type for views of challenges where the user is asked to identify the element on the periodic table and then
