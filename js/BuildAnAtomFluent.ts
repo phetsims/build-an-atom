@@ -133,7 +133,6 @@ addToMapIfDefined( 'a11y_gameScreen_gameButtons_level1AccessibleHelpText', 'a11y
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level2AccessibleHelpText', 'a11y.gameScreen.gameButtons.level2AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level3AccessibleHelpText', 'a11y.gameScreen.gameButtons.level3AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level4AccessibleHelpText', 'a11y.gameScreen.gameButtons.level4AccessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleName', 'a11y.gameScreen.components.periodicTable.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleHelpText', 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_cellAriaDescription', 'a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleParagraph', 'a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty' );
@@ -380,7 +379,6 @@ const BuildAnAtomFluent = {
       },
       components: {
         periodicTable: {
-          accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleNameStringProperty' ) ),
           accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' ) ),
           cellAriaDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_cellAriaDescription', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty' ) ),
           accessibleParagraphStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleParagraph', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty' ) )

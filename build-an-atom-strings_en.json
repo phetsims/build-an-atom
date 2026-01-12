@@ -383,9 +383,6 @@
       },
       "components": {
         "periodicTable": {
-          "accessibleName": {
-            "value": "Periodic Table"
-          },
           "accessibleHelpText": {
             "value": "Use WASD keys to select element on Periodic Table. Then look for the radio buttons, Neutral Atom or Ion, to complete your answer."
           },
