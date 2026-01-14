@@ -101,13 +101,7 @@ class ToElementChallengeView extends ChallengeView {
     } );
     this.challengePresentationNode.addChild( challengeTitle );
 
-    // neutral atom versus ion question
-    const neutralVersusIonPrompt = new Text( BuildAnAtomFluent.isItStringProperty, {
-      font: new PhetFont( 24 ),
-      maxWidth: MAX_WIDTH,
-      accessibleParagraph: BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.accessibleParagraphStringProperty
-    } );
-
+    // Create the "Neutral Atom vs. Ion" question as a radio button group.
     const neutralOrIonRadioButtonGroup = new AquaRadioButtonGroup(
       this.neutralOrIonProperty,
       [
@@ -146,9 +140,9 @@ class ToElementChallengeView extends ChallengeView {
       }
     );
 
-    // If the user focuses on the radio button group without having made a selection, select "neutral" by default.
-    // This was part of the accessibility design, to avoid having an empty radio button group, which
-    // might make sense for visual users, but not for screen reader users.
+    // If the user focuses on the radio button group without having made a selection, select "neutral" by default. This
+    // was part of the accessibility design, to avoid having an empty radio button group, which might make sense for
+    // visual users, but not for screen reader users.
     neutralOrIonRadioButtonGroup.addInputListener( {
       focusin: () => {
         if ( this.neutralOrIonProperty.value === 'noSelection' ) {
@@ -158,7 +152,7 @@ class ToElementChallengeView extends ChallengeView {
     } );
 
     this.neutralOrIonQuestion = new HBox( {
-      children: [ neutralVersusIonPrompt, neutralOrIonRadioButtonGroup ],
+      children: [ neutralOrIonRadioButtonGroup ],
       spacing: 10
     } );
     this.interactiveAnswerNode.addChild( this.neutralOrIonQuestion );
