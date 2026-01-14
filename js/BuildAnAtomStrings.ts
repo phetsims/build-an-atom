@@ -182,6 +182,10 @@ type StringsType = {
           'cellAriaDescriptionStringProperty': LocalizedStringProperty;
           'accessibleParagraphStringProperty': LocalizedStringProperty;
         };
+        'neutralOrIonRadioButtons': {
+          'accessibleNameStringProperty': LocalizedStringProperty;
+          'accessibleHelpTextStringProperty': LocalizedStringProperty;
+        };
         'chemicalSymbol': {
           'accessibleNameStringProperty': LocalizedStringProperty;
           'accessibleHelpTextStringProperty': LocalizedStringProperty;

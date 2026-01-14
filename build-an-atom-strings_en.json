@@ -393,6 +393,14 @@
             "value": "Is the selected element a neutral atom or ion?"
           }
         },
+        "neutralOrIonRadioButtons": {
+          "accessibleName": {
+            "value": "Choose Neutral Atom or Ion"
+          },
+          "accessibleHelpText": {
+            "value": "Select whether the specified atom is a neutral atom or ion. Then check your answer."
+          }
+        },
         "chemicalSymbol": {
           "accessibleName": {
             "value": "Chemical Symbol"

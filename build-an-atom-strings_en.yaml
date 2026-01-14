@@ -238,6 +238,9 @@ a11y:
         accessibleHelpText: Use WASD keys to select element on Periodic Table. Then look for the radio buttons, Neutral Atom or Ion, to complete your answer.
         cellAriaDescription: Selected element
         accessibleParagraph: Is the selected element a neutral atom or ion?
+      neutralOrIonRadioButtons:
+        accessibleName: Choose Neutral Atom or Ion
+        accessibleHelpText: Select whether the specified atom is a neutral atom or ion. Then check your answer.
       chemicalSymbol:
         accessibleName: Chemical Symbol
         accessibleHelpText: Set values for each area of Chemical Symbol. Then check your answer.

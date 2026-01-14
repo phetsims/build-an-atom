@@ -7,9 +7,11 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import { PropertyLinkListener } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
@@ -27,6 +29,7 @@ import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom, { NeutralOrIon, neutralOrIonValues } from '../model/AnswerAtom.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
+import { GameState } from '../model/GameModel.js';
 import ChallengeView from './ChallengeView.js';
 
 // constants
@@ -62,13 +65,20 @@ class ToElementChallengeView extends ChallengeView {
       phetioFeatured: true
     } );
 
+    // Hook up a listener that will reset the flag for providing full activation context responses in the periodic table
+    // when a new level starts.  This is done only once, even if there are multiple ToElementChallengeView instances.
+    if ( !countsToElementChallenge.model.gameStateProperty.hasListener( ToElementChallengeView.resetResponseFlagWhenLevelStarts ) ) {
+      countsToElementChallenge.model.gameStateProperty.lazyLink( ToElementChallengeView.resetResponseFlagWhenLevelStarts );
+    }
+
     // Periodic table
     this.periodicTable = new PeriodicTableNode( this.protonCountProperty, {
       interactiveMax: 118,
       cellDimension: CELL_DIMENSION,
       enabledCellColor: new LinearGradient( 0, 0, 0, CELL_DIMENSION ).addColorStop( 0, 'white' ).addColorStop( 1, 'rgb( 240, 240, 240 )' ),
       selectedCellColor: 'yellow',
-      scale: 1.02,
+      scale: 1.02, // empirically determined to match design
+      provideFullActivationContextResponseProperty: ToElementChallengeView.provideFullActivationContextResponseProperty,
       tandem: Tandem.OPT_OUT,
 
       // Accessibility features and descriptions
@@ -124,6 +134,8 @@ class ToElementChallengeView extends ChallengeView {
         tandem: tandem.createTandem( 'neutralOrIonRadioButtonGroup' ),
         enabledProperty: this.challenge.isAnswerInteractiveProperty,
         disabledOpacity: 1,
+        accessibleName: BuildAnAtomFluent.a11y.gameScreen.components.neutralOrIonRadioButtons.accessibleNameStringProperty,
+        accessibleHelpText: BuildAnAtomFluent.a11y.gameScreen.components.neutralOrIonRadioButtons.accessibleHelpTextStringProperty,
         radioButtonOptions: {
           radius: 8,
           phetioVisiblePropertyInstrumented: false
@@ -250,6 +262,17 @@ class ToElementChallengeView extends ChallengeView {
     return new RichText( elementAndIonStringProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 
+  // A flag for whether full activation context responses should be provided when the periodic table is activated via
+  // alt-input.  This is used to avoid repeating a fairly long response for every appearance of the interactive periodic
+  // table in a game challenge.
+  private static provideFullActivationContextResponseProperty = new BooleanProperty( true );
+
+  // Resets the flag when a new level starts.
+  private static resetResponseFlagWhenLevelStarts: PropertyLinkListener<GameState> = ( gameState, oldGameState ) => {
+    if ( gameState === 'presentingChallenge' && oldGameState === 'levelSelection' ) {
+      ToElementChallengeView.provideFullActivationContextResponseProperty.reset();
+    }
+  };
 }
 
 buildAnAtom.register( 'ToElementChallengeView', ToElementChallengeView );
