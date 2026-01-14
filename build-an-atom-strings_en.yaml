@@ -240,7 +240,7 @@ a11y:
         accessibleParagraph: Is the selected element a neutral atom or ion?
       neutralOrIonRadioButtons:
         accessibleName: Choose Neutral Atom or Ion
-        accessibleHelpText: Select whether the specified atom is a neutral atom or ion. Then check your answer.
+        accessibleHelpText: Select whether the selected element is a neutral atom or ion. Then check your answer.
       chemicalSymbol:
         accessibleName: Chemical Symbol
         accessibleHelpText: Set values for each area of Chemical Symbol. Then check your answer.
