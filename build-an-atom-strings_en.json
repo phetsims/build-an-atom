@@ -104,26 +104,30 @@
   "level4DescriptionPattern": {
     "value": "<b>Level {{levelNumber}}:</b> Mixed review"
   },
-  "keyboardHelpContent.particleNavigationHeading": {
-    "value": "Particle Navigation"
+  "keyboardHelpContent": {
+    "particleNavigationHeading": {
+      "value": "Particle Navigation"
+    },
+    "grabOrRelease": {
+      "value": "Grab or Release"
+    },
+    "selectParticleInAtom": {
+      "value": "Select particle in atom"
+    },
+    "moveGrabbedParticle": {
+      "value": "Move grabbed particle"
+    },
+    "returnToBucket": {
+      "value": "Return grabbed particle to bucket"
+    },
+    "cancelMovement": {
+      "value": "Cancel movement"
+    }
   },
-  "keyboardHelpContent.grabOrRelease": {
-    "value": "Grab or Release"
-  },
-  "keyboardHelpContent.selectParticleInAtom": {
-    "value": "Select particle in atom"
-  },
-  "keyboardHelpContent.moveGrabbedParticle": {
-    "value": "Move grabbed particle"
-  },
-  "keyboardHelpContent.returnToBucket": {
-    "value": "Return grabbed particle to bucket"
-  },
-  "keyboardHelpContent.cancelMovement": {
-    "value": "Cancel movement"
-  },
-  "preferences.chargeNotationSelectorLabel": {
-    "value": "Choose sign convention for charges in chemical symbol."
+  "preferences": {
+    "chargeNotationSelectorLabel": {
+      "value": "Choose sign convention for charges in chemical symbol."
+    }
   },
   "a11y": {
     "common": {

@@ -34,14 +34,16 @@ level2DescriptionPattern: "<b>Level {{levelNumber}}:</b> Calculate mass or charg
 level3DescriptionPattern: "<b>Level {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
 level4DescriptionPattern: "<b>Level {{levelNumber}}:</b> Mixed review"
 
-keyboardHelpContent.particleNavigationHeading: Particle Navigation
-keyboardHelpContent.grabOrRelease: Grab or Release
-keyboardHelpContent.selectParticleInAtom: Select particle in atom
-keyboardHelpContent.moveGrabbedParticle: Move grabbed particle
-keyboardHelpContent.returnToBucket: Return grabbed particle to bucket
-keyboardHelpContent.cancelMovement: Cancel movement
+keyboardHelpContent:
+  particleNavigationHeading: Particle Navigation
+  grabOrRelease: Grab or Release
+  selectParticleInAtom: Select particle in atom
+  moveGrabbedParticle: Move grabbed particle
+  returnToBucket: Return grabbed particle to bucket
+  cancelMovement: Cancel movement
 
-preferences.chargeNotationSelectorLabel: "Choose sign convention for charges in chemical symbol."
+preferences:
+  chargeNotationSelectorLabel: "Choose sign convention for charges in chemical symbol."
 
 a11y:
   common:
