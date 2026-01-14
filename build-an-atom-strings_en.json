@@ -392,9 +392,6 @@
           },
           "cellAriaDescription": {
             "value": "Selected element"
-          },
-          "accessibleParagraph": {
-            "value": "Is the selected element a neutral atom or ion?"
           }
         },
         "neutralOrIonRadioButtons": {

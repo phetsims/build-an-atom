@@ -180,7 +180,6 @@ type StringsType = {
         'periodicTable': {
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
           'cellAriaDescriptionStringProperty': LocalizedStringProperty;
-          'accessibleParagraphStringProperty': LocalizedStringProperty;
         };
         'neutralOrIonRadioButtons': {
           'accessibleNameStringProperty': LocalizedStringProperty;
