@@ -82,7 +82,6 @@ class ToElementChallengeView extends ChallengeView {
       tandem: Tandem.OPT_OUT,
 
       // Accessibility features and descriptions
-      // TODO: This is going to be different, see https://github.com/phetsims/build-an-atom/issues/471
       accessibleHelpText: ChallengeView.createDynamicHelpText(
         BuildAnAtomFluent.a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty,
         this.challenge.isAnswerInteractiveProperty
