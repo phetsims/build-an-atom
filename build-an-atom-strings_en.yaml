@@ -1,34 +1,34 @@
-build-an-atom.title: "Build an Atom"
-ion: "Ion"
-stableSlashUnstable: "Nuclear Stability"
-symbol: "Symbol"
+build-an-atom.title: Build an Atom
+ion: Ion
+stableSlashUnstable: Nuclear Stability
+symbol: Symbol
 findTheElement: "Find the element:"
-massNumber: "Mass Number"
-atom: "Atom"
-netCharge: "Net Charge"
-element: "Element Name"
+massNumber: Mass Number
+atom: Atom
+netCharge: Net Charge
+element: Element Name
 model: "Model:"
-shells: "Shells"
-cloud: "Cloud"
-whatIsTheMassNumber: "What is the<br>mass number?<br>"
-whatIsTheTotalCharge: "What is the<br>total charge?<br>"
+shells: Shells
+cloud: Cloud
+whatIsTheMassNumber: What is the<br>mass number?<br>
+whatIsTheTotalCharge: What is the<br>total charge?<br>
 electronsColon: "Electrons:"
 electronsColonPattern: "Electrons: {0}"
-game: "Game"
-neutralAtom: "Neutral Atom"
-neutralSlashIon: "Neutral Atom or Ion"
-neutrons: "Neutrons"
-periodicTable: "Periodic Table"
+game: Game
+neutralAtom: Neutral Atom
+neutralSlashIon: Neutral Atom or Ion
+neutrons: Neutrons
+periodicTable: Periodic Table
 protonsColon: "Protons:"
 protonsColonPattern: "Protons: {0}"
 neutronsColon: "Neutrons:"
 neutronsColonPattern: "Neutrons: {0}"
-electrons: "Electrons"
+electrons: Electrons
 isIt: "Is it:"
-protons: "Protons"
-chooseYourGame: "Choose Your Level!"
-gamesInfoTitle: "Levels"
-chargeNotation: "Charge Notation"
+protons: Protons
+chooseYourGame: Choose Your Level!
+gamesInfoTitle: Levels
+chargeNotation: Charge Notation
 level1DescriptionPattern: "<b>Level {{levelNumber}}:</b> Identify elements based on subatomic particles <br>"
 level2DescriptionPattern: "<b>Level {{levelNumber}}:</b> Calculate mass or charge <br>"
 level3DescriptionPattern: "<b>Level {{levelNumber}}:</b> Fill in missing chemical symbol information <br>"
@@ -43,10 +43,11 @@ keyboardHelpContent:
   cancelMovement: Cancel movement
 
 preferences:
-  chargeNotationSelectorLabel: "Choose sign convention for charges in chemical symbol."
+  chargeNotationSelectorLabel: Choose sign convention for charges in chemical symbol.
 
 a11y:
   common:
+
     # Some of the description for particles and buckets live in shred, because they are re-used in other sims
     # The following ones are BAA specific, or at least designed for BAA.
     particles:
@@ -129,14 +130,14 @@ a11y:
           empty: "{ a11y.common.atomAccessibleListNode.nucleusInfoEmpty }"
 
     # Common response when an atom is not yet an element
-    noElementContextResponse: "Your Built Atom is not an element yet."
+    noElementContextResponse: Your Built Atom is not an element yet.
 
     # CHECKBOXES
     elementNameCheckbox:
-      accessibleName: "Element Name"
-      accessibleHelpText: "Build atoms with or without Element Name shown."
+      accessibleName: Element Name
+      accessibleHelpText: Build atoms with or without Element Name shown.
       accessibleContextResponseChecked: "{ $name }."
-      accessibleContextResponseUnchecked: "Element Name hidden."
+      accessibleContextResponseUnchecked: Element Name hidden.
 
       # Using the selector pattern to print a response based on whether the atom has an element name
       contextResponseSelector:
@@ -144,58 +145,57 @@ a11y:
           true: "{ a11y.common.elementNameCheckbox.accessibleContextResponseChecked }"
           false: "{ a11y.common.noElementContextResponse }"
     neutralAtomIonCheckbox:
-      accessibleName: "Neutral Atom or Ion"
-      accessibleHelpText: "Build atoms with or without charge state shown."
-      accessibleContextResponseUnchecked: "Charge state hidden."
-      neutralAtom: "Neutral Atom."
-      positiveIon: "Positive Ion."
-      negativeIon: "Negative Ion."
+      accessibleName: Neutral Atom or Ion
+      accessibleHelpText: Build atoms with or without charge state shown.
+      accessibleContextResponseUnchecked: Charge state hidden.
+      neutralAtom: Neutral Atom.
+      positiveIon: Positive Ion.
+      negativeIon: Negative Ion.
     nuclearStabilityCheckbox:
-      accessibleName: "Nuclear Stability"
-      accessibleHelpText: "Build atoms with or without Nuclear Stability shown."
+      accessibleName: Nuclear Stability
+      accessibleHelpText: Build atoms with or without Nuclear Stability shown.
       accessibleContextResponseChecked:
         select_isStable:
-          true: "Stable nucleus."
-          false: "Unstable nucleus."
-      accessibleContextResponseUnchecked: "Nuclear Stability hidden."
+          true: Stable nucleus.
+          false: Unstable nucleus.
+      accessibleContextResponseUnchecked: Nuclear Stability hidden.
       hasNucleusSelector:
         select_hasNucleus:
           true: "{ a11y.common.nuclearStabilityCheckbox.accessibleContextResponseChecked }"
           false: "{ a11y.common.noElementContextResponse }"
 
-
     modelToggle:
-      accessibleName: "Model Options"
-      accessibleNameShells: "Shells"
-      accessibleNameCloud: "Cloud"
-      accessibleHelpText: "Choose representation for region outside nucleus."
+      accessibleName: Model Options
+      accessibleNameShells: Shells
+      accessibleNameCloud: Cloud
+      accessibleHelpText: Choose representation for region outside nucleus.
     periodicTable:
-      accessibleName: "Periodic Table"
+      accessibleName: Periodic Table
       accessibleParagraphHighlighted: "Your Built Atom is { $symbol } located in row { $row }, column { $column }."
       accessibleParagraphHighlightedWithName: "Your Built Atom is { $symbol }, { $name }, located in row { $row }, column { $column }."
-      accessibleParagraphNoSymbol: "Your Built Atom is not an element yet."
+      accessibleParagraphNoSymbol: Your Built Atom is not an element yet.
       accessibleParagraphPattern:
         select_pattern:
           withName: "{a11y.common.periodicTable.accessibleParagraphHighlightedWithName}"
           withoutName: "{a11y.common.periodicTable.accessibleParagraphHighlighted}"
           noSymbol: "{a11y.common.periodicTable.accessibleParagraphNoSymbol}"
     screenSummary:
-      controlArea: "You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over."
+      controlArea: You can turn on labels for element name, charge state, or nuclear stability, and select atom model type. Reset sim to start over.
       currentDetails: |-
         Currently, Your Built Atom has { $value ->
           [one] { $value } particle
           *[other] { $value } particles
           }.
-      interactionHint: "Add particles to build your atom."
+      interactionHint: Add particles to build your atom.
   atomScreen:
     screenSummary:
       playArea: |-
         There is an interactive atom that you build by grabbing protons, neutrons, and electrons from their buckets.
           As you build, you can track the number of added particles and explore how they influence element identity, charge, and mass.
     screenIcon:
-      accessibleHelpText: "Build atoms to see how particles determine mass, charge, and element identity."
+      accessibleHelpText: Build atoms to see how particles determine mass, charge, and element identity.
     netCharge:
-      accessibleName: "Net Charge"
+      accessibleName: Net Charge
       accessibleParagraph: |-
         Your Built Atom has a Net Charge of {$charge}. There { $protons -> 
                           [one] is { $protons } positive charge
@@ -205,19 +205,19 @@ a11y:
                           *[other] { $electrons } negative charges
                           }.
     massNumber:
-      accessibleName: "Mass Number"
-      accessibleParagraph: "Your Built Atom has a Mass Number of { $value }."
+      accessibleName: Mass Number
+      accessibleParagraph: Your Built Atom has a Mass Number of { $value }.
   symbolScreen:
     screenSummary:
       playArea: |-
         There is an interactive atom that you build by grabbing protons, neutrons, and electrons from their buckets. 
           As you build, you can track the number of added particles and explore how they influence element identity and chemical symbol information.
     screenIcon:
-      accessibleHelpText: "Relate element symbols to particle counts."
+      accessibleHelpText: Relate element symbols to particle counts.
     symbol:
       leadingParagraph: "Your Built Atom is represented as:"
-      accessibleName: "Chemical Symbol"
-      noSymbol: "No symbol"
+      accessibleName: Chemical Symbol
+      noSymbol: No symbol
       accessibleListNode:
         symbol: "{ $symbol } in center."
         atomicNumber: "Atomic number { $value } in lower left."
@@ -229,7 +229,7 @@ a11y:
           false: "{ a11y.symbolScreen.symbol.noSymbol }"
   gameScreen:
     screenIcon:
-      accessibleHelpText: "Test your knowledge of atomic structure."
+      accessibleHelpText: Test your knowledge of atomic structure.
     gameButtons:
       level1AccessibleHelpText: Identify elements based on subatomic particles.
       level2AccessibleHelpText: Calculate mass or charge.
@@ -380,11 +380,9 @@ a11y:
         builtAtomHelpText: |-
           Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. 
            Once grabbed use W or S key to change location or delete to return to bucket.
-          
-
   preferences:
     signFirst:
-      accessibleName: "Sign First"
+      accessibleName: Sign First
     signLast:
-      accessibleName: "Sign Last"
+      accessibleName: Sign Last
 
