@@ -237,11 +237,10 @@ a11y:
       level4AccessibleHelpText: Mixed review.
     components:
       periodicTable:
-        accessibleHelpText: Look for button to activate the Periodic Table. Once activated, use WASD keys to select element on Periodic Table. Then look for the radio buttons, Neutral Atom or Ion, to complete your answer.
-        cellAriaDescription: Selected element
+        accessibleHelpText: Look for button to activate the Periodic Table. Once activated, use WASD keys to select element on Periodic Table. 
       neutralOrIonRadioButtons:
-        accessibleName: Choose Neutral Atom or Ion
-        accessibleHelpText: Select whether the selected element is a neutral atom or ion. Then check your answer.
+        accessibleName: Is it a Neutral Atom or Ion?
+        accessibleHelpText: Choose whether the selected element is a neutral atom or ion. Then check your answer.
       chemicalSymbol:
         accessibleName: Chemical Symbol
         accessibleHelpText: Set values for each area of Chemical Symbol. Then check your answer.
