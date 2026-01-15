@@ -389,6 +389,9 @@
         "periodicTable": {
           "accessibleHelpText": {
             "value": "Look for button to activate the Periodic Table. Once activated, use WASD keys to select element on Periodic Table."
+          },
+          "cellAriaDescription": {
+            "value": "Selected element"
           }
         },
         "neutralOrIonRadioButtons": {

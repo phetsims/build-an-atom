@@ -179,6 +179,7 @@ type StringsType = {
       'components': {
         'periodicTable': {
           'accessibleHelpTextStringProperty': LocalizedStringProperty;
+          'cellAriaDescriptionStringProperty': LocalizedStringProperty;
         };
         'neutralOrIonRadioButtons': {
           'accessibleNameStringProperty': LocalizedStringProperty;
