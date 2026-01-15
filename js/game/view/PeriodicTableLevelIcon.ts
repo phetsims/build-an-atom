@@ -20,12 +20,12 @@ export default class PeriodicTableLevelIcon extends Node {
 
     // Encompassing the periodic table with a node to use clipping.
     const periodicTableNode = new Node( {
-      children: [ new PeriodicTableNode(
-        new NumberProperty( 11 ),
-        {
-          selectedCellColor: 'yellow'
-        }
-      ) ],
+      children: [
+        new PeriodicTableNode( new NumberProperty( 11 ), {
+          selectedCellColor: 'yellow',
+          accessibleVisible: false
+        } )
+      ],
       clipArea: new Shape().rect( 0, 50, 150, 75 ) // In screen coords, which are roughly pixels.
     } );
 
