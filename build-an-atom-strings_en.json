@@ -388,18 +388,15 @@
       "components": {
         "periodicTable": {
           "accessibleHelpText": {
-            "value": "Look for button to activate the Periodic Table. Once activated, use WASD keys to select element on Periodic Table. Then look for the radio buttons, Neutral Atom or Ion, to complete your answer."
-          },
-          "cellAriaDescription": {
-            "value": "Selected element"
+            "value": "Look for button to activate the Periodic Table. Once activated, use WASD keys to select element on Periodic Table."
           }
         },
         "neutralOrIonRadioButtons": {
           "accessibleName": {
-            "value": "Choose Neutral Atom or Ion"
+            "value": "Is it a Neutral Atom or Ion?"
           },
           "accessibleHelpText": {
-            "value": "Select whether the selected element is a neutral atom or ion. Then check your answer."
+            "value": "Choose whether the selected element is a neutral atom or ion. Then check your answer."
           }
         },
         "chemicalSymbol": {

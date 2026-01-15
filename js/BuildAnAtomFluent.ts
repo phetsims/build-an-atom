@@ -134,7 +134,6 @@ addToMapIfDefined( 'a11y_gameScreen_gameButtons_level2AccessibleHelpText', 'a11y
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level3AccessibleHelpText', 'a11y.gameScreen.gameButtons.level3AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_gameButtons_level4AccessibleHelpText', 'a11y.gameScreen.gameButtons.level4AccessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_accessibleHelpText', 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' );
-addToMapIfDefined( 'a11y_gameScreen_components_periodicTable_cellAriaDescription', 'a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_neutralOrIonRadioButtons_accessibleName', 'a11y.gameScreen.components.neutralOrIonRadioButtons.accessibleNameStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_neutralOrIonRadioButtons_accessibleHelpText', 'a11y.gameScreen.components.neutralOrIonRadioButtons.accessibleHelpTextStringProperty' );
 addToMapIfDefined( 'a11y_gameScreen_components_chemicalSymbol_accessibleName', 'a11y.gameScreen.components.chemicalSymbol.accessibleNameStringProperty' );
@@ -380,8 +379,7 @@ const BuildAnAtomFluent = {
       },
       components: {
         periodicTable: {
-          accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' ) ),
-          cellAriaDescriptionStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_cellAriaDescription', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.cellAriaDescriptionStringProperty' ) )
+          accessibleHelpTextStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_periodicTable_accessibleHelpText', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.periodicTable.accessibleHelpTextStringProperty' ) )
         },
         neutralOrIonRadioButtons: {
           accessibleNameStringProperty: new FluentConstant( fluentSupport.bundleProperty, 'a11y_gameScreen_components_neutralOrIonRadioButtons_accessibleName', _.get( BuildAnAtomStrings, 'a11y.gameScreen.components.neutralOrIonRadioButtons.accessibleNameStringProperty' ) ),
