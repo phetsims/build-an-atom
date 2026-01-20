@@ -134,6 +134,12 @@ class GameLevel extends PhetioObject {
    * End the level, updating the best score and time if the score is a perfect score.
    */
   public endLevel( score: number, time: number ): void {
+
+    // If the user's score has improved, the previous best time is no longer valid.
+    if ( score > this.bestScoreProperty.value ) {
+      this.bestTimeProperty.reset();
+    }
+
     if ( this.model.timerEnabledProperty.value ) {
       this.isNewBestTimeProperty.value = GameUtils.updateScoreAndBestTime(
         score,
