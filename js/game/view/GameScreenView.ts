@@ -66,6 +66,10 @@ class GameScreenView extends ScreenView {
       {
         tandem: tandem.createTandem( 'levelSelectionNode' ),
         accessibleIncludeOptionsDescription: true,
+        visibleProperty: new DerivedProperty(
+          [ gameModel.gameStateProperty ],
+          gameState => gameState === 'levelSelection'
+        ),
         visiblePropertyOptions: {
           phetioReadOnly: true
         }
@@ -152,15 +156,7 @@ class GameScreenView extends ScreenView {
       // Clear any level completed nodes that may be on the screen.
       this.removeLevelCompletedNodes();
 
-      if ( gameState === 'levelSelection' ) {
-        this.levelSelectionNode.visible = false;
-        this.removeLevelCompletedNodes();
-
-        this.levelSelectionNode.visible = true;
-      }
-      else if ( gameState === 'levelCompleted' ) {
-        this.levelSelectionNode.visible = false;
-        this.levelSelectionNode.visible = false;
+      if ( gameState === 'levelCompleted' ) {
 
         this.rewardScreenNode.visible = true;
 
@@ -207,14 +203,16 @@ class GameScreenView extends ScreenView {
         this.levelCompletedNode.visible = true;
         this.levelCompletedNode.handleShow();
       }
-      else {
-        this.levelSelectionNode.visible = false;
+      else if ( gameState !== 'levelSelection' ) {
+
         this.rewardScreenNode.visible = false;
 
         // The game is in the middle of presenting a challenge to the user, so pass the state change to the challenge
         // view.  This will perform updates like showing the feedback nodes, updating button states, etc.
-        affirm( this.activeChallengeView || isSettingPhetioStateProperty.value,
-          `activeChallengeView should be defined in this game state: ${gameState}` );
+        affirm(
+          this.activeChallengeView || isSettingPhetioStateProperty.value,
+          `activeChallengeView should be defined in this game state: ${gameState}`
+        );
         if ( this.activeChallengeView ) {
           this.activeChallengeView.handleStateChange( gameState );
         }
