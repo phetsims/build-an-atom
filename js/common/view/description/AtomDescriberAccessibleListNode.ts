@@ -184,7 +184,6 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
   }
 }
 
-
 class CheckboxesAccessibleListNode extends AccessibleListNode {
   public constructor(
     atom: ParticleAtom,
@@ -211,14 +210,27 @@ class CheckboxesAccessibleListNode extends AccessibleListNode {
       return DerivedProperty.and( [ visibleProperty, hasProtonsProperty ] );
     };
 
-    super( [
-      { stringProperty: elementNameListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.elementNameVisibleProperty ) },
-      { stringProperty: neutralOrIonListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.neutralAtomOrIonVisibleProperty ) },
-      { stringProperty: stabilityListItemProperty, visibleProperty: visibleAndHasProtons( viewProperties.nuclearStabilityVisibleProperty ) }
-    ], {
-      leadingParagraphStringProperty: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
-      leadingParagraphVisibleProperty: hasProtonsProperty
-    } );
+    const elementNameVisibleProperty = visibleAndHasProtons( viewProperties.elementNameVisibleProperty );
+    const neutralAtomOrIonVisibleProperty = visibleAndHasProtons( viewProperties.neutralAtomOrIonVisibleProperty );
+    const nuclearStabilityVisibleProperty = visibleAndHasProtons( viewProperties.nuclearStabilityVisibleProperty );
+
+    const oneOrMoreItemsVisibleProperty = DerivedProperty.or( [
+      elementNameVisibleProperty,
+      neutralAtomOrIonVisibleProperty,
+      nuclearStabilityVisibleProperty
+    ] );
+
+    super(
+      [
+        { stringProperty: elementNameListItemProperty, visibleProperty: elementNameVisibleProperty },
+        { stringProperty: neutralOrIonListItemProperty, visibleProperty: neutralAtomOrIonVisibleProperty },
+        { stringProperty: stabilityListItemProperty, visibleProperty: nuclearStabilityVisibleProperty }
+      ],
+      {
+        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
+        leadingParagraphVisibleProperty: oneOrMoreItemsVisibleProperty
+      }
+    );
   }
 }
 
