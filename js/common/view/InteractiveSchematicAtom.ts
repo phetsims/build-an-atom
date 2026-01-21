@@ -227,10 +227,10 @@ class InteractiveSchematicAtom extends Node {
 
             // Handle focus for the case where an electron is released back into the cloud.
             if ( electronModelProperty.value === 'cloud' ) {
-              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty );
             }
             else {
-              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty );
             }
 
             // Indicate that the user has interacted with the buckets.
@@ -277,19 +277,19 @@ class InteractiveSchematicAtom extends Node {
     model.protonBucketParticleCountProperty.lazyLink( ( protons: number ) => {
       if ( protons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.protonBucket )!.addAccessibleContextResponse(
-          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty );
       }
     } );
     model.neutronBucketParticleCountProperty.lazyLink( ( neutrons: number ) => {
       if ( neutrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.neutronBucket )!.addAccessibleContextResponse(
-          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty );
       }
     } );
     model.electronBucketParticleCountProperty.lazyLink( ( electrons: number ) => {
       if ( electrons === 0 && !model.resetting ) {
         this.mapBucketsToViews.get( model.electronBucket )!.addAccessibleContextResponse(
-          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty, { alertBehavior: 'queue' } );
+          BuildAnAtomFluent.a11y.common.buckets.bucketEmptyStringProperty );
       }
     } );
 
@@ -343,13 +343,13 @@ class InteractiveSchematicAtom extends Node {
 
           // Now that it's accessibleVisible we can announce the grab.
           particleView.addAccessibleObjectResponse(
-            ShredFluent.a11y.grabbedStringProperty, { alertBehavior: 'queue' }
+            ShredFluent.a11y.grabbedStringProperty
           );
         }
         else {
           // Emitting the response from the atom since sometimes released particles are invisible before the response
           this.addAccessibleObjectResponse(
-            ShredFluent.a11y.releasedStringProperty, { alertBehavior: 'queue' }
+            ShredFluent.a11y.releasedStringProperty
           );
         }
       } );
@@ -415,7 +415,7 @@ class InteractiveSchematicAtom extends Node {
             contextResponse = BuildAnAtomFluent.a11y.common.particles.particleReturnedToBucket.format( {
               particle: ShredFluent.a11y.particles.type.format( { type: particle.type } )
             } );
-            this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+            this.addAccessibleContextResponse( contextResponse );
           }
         }
         else if ( newContainer === model.atom ) {
@@ -449,7 +449,7 @@ class InteractiveSchematicAtom extends Node {
               } )
             } );
 
-            this.addAccessibleContextResponse( contextResponse, { alertBehavior: 'queue' } );
+            this.addAccessibleContextResponse( contextResponse );
           }
         }
       } );

@@ -147,10 +147,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
 
             // Handle focus for the case where an electron is released back into the cloud.
             if ( electronModelProperty.value === 'cloud' ) {
-              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty );
             }
             else {
-              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+              particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty );
             }
 
             isParticleBeingRemovedFromAtomViaAltInput = false;
@@ -250,7 +250,7 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
             particle.setPositionAndDestination(
               atom.positionProperty.value.plus( altInputAtomOffsets[ offsetIndex ] )
             );
-            particleView.addAccessibleObjectResponse( objectResponses[ offsetIndex ], { alertBehavior: 'queue' } );
+            particleView.addAccessibleObjectResponse( objectResponses[ offsetIndex ] );
           }
           else if ( BAAParticleKeyboardListener.RETURN_TO_BUCKET_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
 
@@ -295,10 +295,10 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
               }
 
               if ( electronModelProperty.value === 'cloud' ) {
-                particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty, { alertBehavior: 'queue' } );
+                particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overAtomStringProperty );
               }
               else {
-                particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty, { alertBehavior: 'queue' } );
+                particleView.addAccessibleObjectResponse( ShredFluent.a11y.particles.overNucleusStringProperty );
               }
               particle.isDraggingProperty.value = false;
               releaseSoundPlayer.play();
