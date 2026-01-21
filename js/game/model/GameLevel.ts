@@ -91,7 +91,7 @@ class GameLevel extends PhetioObject {
     this.bestTimeProperty = new NumberProperty( 0, {
       numberType: 'Integer',
       tandem: options.tandem.createTandem( 'bestTimeProperty' ),
-      phetioDocumentation: 'Best time for a level with a perfect score.',
+      phetioDocumentation: 'Best time for the highest score.',
       phetioFeatured: true,
       phetioReadOnly: true,
       units: 's'
