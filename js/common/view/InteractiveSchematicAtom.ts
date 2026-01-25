@@ -1,4 +1,4 @@
-// Copyright 2014-2025, University of Colorado Boulder
+// Copyright 2014-2026, University of Colorado Boulder
 
 /**
  * InteractiveSchematicAtom is a scenery Node that depicts an interactive atom where the user can add subatomic
