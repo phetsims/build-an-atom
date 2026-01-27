@@ -11,7 +11,7 @@ Instructions:
 
 For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/blob/main/doc/release-notes.md
 -->
-## 1.9 (in progress)
+## 1.9
 
 ### New Features
 * Alt input
