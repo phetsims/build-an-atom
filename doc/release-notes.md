@@ -11,18 +11,22 @@ Instructions:
 
 For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/blob/main/doc/release-notes.md
 -->
-## 1.9
+
+## 1.9 (TODO - fill in date, publication on hold, see https://github.com/phetsims/build-an-atom/issues/481)
 
 ### New Features
-* Alt input
-* Core description
+* Alternative Input
+* Interactive Highlights: see _Preferences > Visual > Interactive Highlights_
+* Core Description
+* Preference for Charge Sign Position: see _Preferences > Simulation > Charge Notation_
+
+### Bug Fixes
+* Tracking of "best times" in the Game screen has been fixed. Best times are now recorded and displayed correctly.
 
 ### Other Changes
-* For the `Model` radiobutton group, the word `Orbits` was replaced with `Shells`
-* On the Game screen, the levels will now be referred to as `Levels` not `Games`
-
-
-
+* In the "Atom" and "Symbol" screens, in the selector for the electron model (labeled "Model"), the word "Orbits" was 
+  replaced with "Shells".
+* On the Game screen, the levels will now be referred to as "Levels" not "Games".
 
 ## 1.8  (2025-08-27)
 
