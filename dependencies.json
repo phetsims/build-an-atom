@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.8.4-rc.2 Mon Feb 02 2026 16:38:25 GMT-0500 (Eastern Standard Time)",
+  "comment": "# build-an-atom 1.8.4 Fri Feb 06 2026 14:06:54 GMT-0500 (Eastern Standard Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "23497c7f74e76151ed96c6a75ab4461235fe759b",
+    "sha": "522fcd09ebbee339282df8fe5e8a318bb8a330fc",
     "branch": "1.8"
   },
   "chipper": {
