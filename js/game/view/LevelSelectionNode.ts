@@ -79,7 +79,7 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
           phetioDocumentation: gameButtonsPhetIoDocumentation[ index ],
           accessibleHelpText: gameButtonsAccessibleHelpTexts[ index ],
           bestTimeForScoreProperty: level.bestTimeProperty,
-          bestTimeVisibleProperty: level.bestTimeVisibleProperty
+          bestTimeVisibleProperty: gameModel.timerEnabledProperty
         }
       } );
     } );

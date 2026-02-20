@@ -35,7 +35,6 @@ class GameLevel extends PhetioObject {
 
   public readonly bestScoreProperty: Property<number>;
   public readonly bestTimeProperty: Property<number>;
-  public readonly bestTimeVisibleProperty: Property<boolean>;
 
   // Whether the time for this game a new best time.
   public isNewBestTimeProperty: Property<boolean>;
@@ -97,11 +96,6 @@ class GameLevel extends PhetioObject {
       units: 's'
     } );
 
-    this.bestTimeVisibleProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'bestTimeVisibleProperty' ),
-      phetioDocumentation: 'Whether the best time should be visible in the UI.',
-      phetioFeatured: true
-    } );
 
     this.isNewBestTimeProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isNewBestTimeProperty' ),
@@ -113,7 +107,6 @@ class GameLevel extends PhetioObject {
   public reset(): void {
     this.bestScoreProperty.reset();
     this.bestTimeProperty.reset();
-    this.bestTimeVisibleProperty.reset();
   }
 
   /**

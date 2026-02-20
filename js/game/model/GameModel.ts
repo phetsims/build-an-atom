@@ -232,11 +232,6 @@ class GameModel implements TModel {
       phetioFeatured: true
     } );
 
-    this.timerEnabledProperty.lazyLink( timerEnabled => {
-      for ( let i = 0; i < this.levels.length; i++ ) {
-        this.levels[ i ].bestTimeVisibleProperty.value = timerEnabled;
-      }
-    } );
 
     this.attemptsProperty = new NumberProperty( 0, {
       numberType: 'Integer',
