@@ -116,7 +116,8 @@ class BAAScreenView extends ScreenView {
     const periodicTableAndSymbol = new PeriodicTableAndSymbol( model.atom.protonCountProperty, {
       pickable: false,
       scale: 0.55, // Scale empirically determined to match layout in design doc.
-      accessibleParagraph: periodicTableAccessibleParagraphProperty
+      accessibleParagraph: periodicTableAccessibleParagraphProperty,
+      accessibleHeading: null
     } );
     this.periodicTableAccordionBox = new BuildAnAtomAccordionBox(
       periodicTableAndSymbol,

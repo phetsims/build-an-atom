@@ -8,20 +8,22 @@
 
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
-import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
+import PeriodicTableNode, { PeriodicTableNodeOptions } from '../../../../shred/js/view/PeriodicTableNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
 const SYMBOL_WIDTH_PROPORTION = 0.2;
 const SYMBOL_ASPECT_RATIO = 1.0; // Width/height.
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  periodicTableNodeOptions?: PeriodicTableNodeOptions;
+};
 
 export type PeriodicTableAndSymbolOptions = SelfOptions & NodeOptions;
 
@@ -31,16 +33,17 @@ class PeriodicTableAndSymbol extends Node {
                       providedOptions: PeriodicTableAndSymbolOptions ) {
 
     const options = optionize<PeriodicTableAndSymbolOptions, SelfOptions, NodeOptions>()( {
+      periodicTableNodeOptions: {},
       isDisposable: false
     }, providedOptions );
 
     super( options );
 
     // Create and add the periodic table.
-    const periodicTable = new PeriodicTableNode( protonCountProperty, {
+    const periodicTable = new PeriodicTableNode( protonCountProperty, combineOptions<PeriodicTableNodeOptions>( {
       interactiveMax: 0,
       disabledCellColor: 'white'
-    } );
+    }, options.periodicTableNodeOptions ) );
     this.addChild( periodicTable );
 
     // Create and add the symbol, which only shows a bigger version of the selected element symbol.
