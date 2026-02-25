@@ -4,7 +4,7 @@
  * SelectedChallenge is the model for the selected challenge in the game. It contains information about the challenge
  * type, the correct answer atom, and the submitted answer atom.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Property from '../../../../axon/js/Property.js';

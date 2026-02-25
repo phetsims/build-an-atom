@@ -2,7 +2,7 @@
 /**
  * Main content node for the summary section of the first screen of the Build an Atom simulation.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import ScreenSummaryContent from '../../../../../joist/js/ScreenSummaryContent.js';

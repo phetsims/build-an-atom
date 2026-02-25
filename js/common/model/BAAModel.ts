@@ -5,7 +5,7 @@
  * buckets that contain subatomic particles that can be dragged into the atom.
  *
  * @author John Blanco (PhET Interactive Simulations)
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

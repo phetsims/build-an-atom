@@ -3,7 +3,7 @@
 /**
  * Button icon for the Advanced Symbol Level on the Game Screen.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';

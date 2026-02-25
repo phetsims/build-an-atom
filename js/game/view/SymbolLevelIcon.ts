@@ -3,7 +3,7 @@
 /**
  * Button icon for the Symbol Level on the Game Screen.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';

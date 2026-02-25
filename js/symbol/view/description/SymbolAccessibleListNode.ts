@@ -3,7 +3,7 @@
 /**
  * AccessibleListNode displays the information on the symbol accordion box.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';

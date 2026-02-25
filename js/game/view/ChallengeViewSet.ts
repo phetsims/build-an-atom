@@ -3,7 +3,7 @@
 /**
  * Set that stores and controls all the ChallengeViews from the game.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';

@@ -3,7 +3,7 @@
 /**
  * Button icon for the Mass and Charge Level on the Game Screen.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Property from '../../../../axon/js/Property.js';

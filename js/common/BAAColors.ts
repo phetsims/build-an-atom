@@ -3,7 +3,7 @@
 /**
  * BAAColors defines the color profile for this sim.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Color from '../../../scenery/js/util/Color.js';

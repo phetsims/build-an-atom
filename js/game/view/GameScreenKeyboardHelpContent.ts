@@ -3,7 +3,7 @@
 /**
  * GameScreenKeyboardHelpContent is the content for the keyboard-help dialog in screen 3.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';

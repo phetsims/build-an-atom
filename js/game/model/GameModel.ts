@@ -9,7 +9,7 @@
  *    Challenge - a single challenge in a level, which consists of a question and an answer
  *
  * @author John Blanco (PhET Interactive Simulations)
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';

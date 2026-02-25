@@ -5,7 +5,7 @@
  * game to check between a correct answer and a submitted answer by the user, as well to support the neutral or ion
  * selection.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';

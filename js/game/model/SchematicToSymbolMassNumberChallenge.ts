@@ -4,7 +4,7 @@
  * Class for game challenge where the user sees a Schematic Atom and has to fill in the Atomic Mass value in the Atom
  * Symbol.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';

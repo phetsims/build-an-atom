@@ -5,7 +5,7 @@
  *
  * Normally this should be named BAAAccordionBox, but that's too many A's to be readable.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';

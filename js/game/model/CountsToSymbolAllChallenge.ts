@@ -5,7 +5,7 @@
  * that often appears in the periodic table, including: proton count (aka the atomic number), mass number, and net
  * charge.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  * @author John Blanco (PhET Interactive Simulations)
  */
 

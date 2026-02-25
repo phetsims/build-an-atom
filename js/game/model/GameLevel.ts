@@ -3,7 +3,7 @@
 /**
  * GameLevel is the base class for a level in the Game screen.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';

@@ -3,7 +3,7 @@
 /**
  * Class for the Counts to Symbol challenge where the user has to fill in the Atomic Mass number for an atom symbol.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';

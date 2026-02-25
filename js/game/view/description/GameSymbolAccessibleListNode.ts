@@ -3,7 +3,7 @@
  * Descriptions for the atom view checkboxes.
  * This file is a collection of methods for creating natural language descriptions of the state of the atom view.
  *
- * @author Agustín Vallejo
+ * @author Agustín Vallejo (PhET Interactive Simulations)
  */
 
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
