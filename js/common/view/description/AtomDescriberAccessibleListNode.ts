@@ -9,7 +9,7 @@
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
-import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/NumberAtom.js';
@@ -106,7 +106,7 @@ class AtomDescriberAccessibleListNode extends Node {
   }
 }
 
-class AtomStateAccessibleListNode extends AccessibleListNode {
+class AtomStateAccessibleListNode extends Node {
   public constructor(
     atom: TReadOnlyNumberAtom | NumberAtom,
     viewProperties: AtomViewProperties
@@ -175,16 +175,19 @@ class AtomStateAccessibleListNode extends AccessibleListNode {
         model: shellsOrCloudStringProperty
       } );
 
-    super( [
-      nucleusContainsProperty,
-      electronsStateProperty
-    ], {
-      leadingParagraphStringProperty: leadingParagraphStringProperty
+    super( {
+      accessibleTemplate: AccessibleList.createTemplate( {
+        listItems: [
+          nucleusContainsProperty,
+          electronsStateProperty
+        ],
+        leadingParagraphStringProperty: leadingParagraphStringProperty
+      } )
     } );
   }
 }
 
-class CheckboxesAccessibleListNode extends AccessibleListNode {
+class CheckboxesAccessibleListNode extends Node {
   public constructor(
     atom: ParticleAtom,
     viewProperties: AtomViewProperties
@@ -220,17 +223,17 @@ class CheckboxesAccessibleListNode extends AccessibleListNode {
       nuclearStabilityVisibleProperty
     ] );
 
-    super(
-      [
-        { stringProperty: elementNameListItemProperty, visibleProperty: elementNameVisibleProperty },
-        { stringProperty: neutralOrIonListItemProperty, visibleProperty: neutralAtomOrIonVisibleProperty },
-        { stringProperty: stabilityListItemProperty, visibleProperty: nuclearStabilityVisibleProperty }
-      ],
-      {
+    super( {
+      accessibleTemplate: AccessibleList.createTemplate( {
+        listItems: [
+          { stringProperty: elementNameListItemProperty, visibleProperty: elementNameVisibleProperty },
+          { stringProperty: neutralOrIonListItemProperty, visibleProperty: neutralAtomOrIonVisibleProperty },
+          { stringProperty: stabilityListItemProperty, visibleProperty: nuclearStabilityVisibleProperty }
+        ],
         leadingParagraphStringProperty: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
         leadingParagraphVisibleProperty: oneOrMoreItemsVisibleProperty
-      }
-    );
+      } )
+    } );
   }
 }
 

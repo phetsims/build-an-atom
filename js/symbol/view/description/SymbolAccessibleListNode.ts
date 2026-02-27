@@ -8,7 +8,8 @@
 
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
-import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
+import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import buildAnAtom from '../../../buildAnAtom.js';
@@ -17,7 +18,7 @@ import BAAModel from '../../../common/model/BAAModel.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
 
-export default class SymbolAccessibleListNode extends AccessibleListNode {
+export default class SymbolAccessibleListNode extends Node {
   public constructor( model: BAAModel, visibleProperty: TReadOnlyProperty<boolean> ) {
 
     const spokenSymbolStringProperty = ShredFluent.a11y.spokenSymbol.createProperty( {
@@ -49,18 +50,18 @@ export default class SymbolAccessibleListNode extends AccessibleListNode {
         )
       } );
 
-    super(
-      [
-        symbolListItemProperty,
-        atomicNumberListItemProperty,
-        massNumberListItemProperty,
-        chargeListItemProperty
-      ],
-      {
+    super( {
+      accessibleTemplate: AccessibleList.createTemplate( {
+        listItems: [
+          symbolListItemProperty,
+          atomicNumberListItemProperty,
+          massNumberListItemProperty,
+          chargeListItemProperty
+        ],
         visibleProperty: visibleProperty,
         leadingParagraphStringProperty: BuildAnAtomFluent.a11y.symbolScreen.symbol.leadingParagraphStringProperty
-      }
-    );
+      } )
+    } );
   }
 }
 

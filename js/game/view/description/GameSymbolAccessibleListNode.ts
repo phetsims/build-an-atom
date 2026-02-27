@@ -9,14 +9,15 @@
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
-import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
+import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
 
-class GameSymbolAccessibleListNode extends AccessibleListNode {
+class GameSymbolAccessibleListNode extends Node {
   public constructor(
     protonCountProperty: TReadOnlyProperty<number>,
     massNumberProperty: TReadOnlyProperty<number>,
@@ -45,31 +46,31 @@ class GameSymbolAccessibleListNode extends AccessibleListNode {
       ( charge: number ) => chargeToString( charge )
     );
 
-    super(
-      [
-        {
-          stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {
-            name: elementDynamicStringProperty
+    super( {
+      accessibleTemplate: AccessibleList.createTemplate( {
+        listItems: [
+          {
+            stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {
+              name: elementDynamicStringProperty
+            } ),
+            visibleProperty: DerivedProperty.valueNotEqualsConstant( protonCountProperty, 0 )
+          },
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbol.createProperty( {
+            symbol: symbolStringProperty
           } ),
-          visibleProperty: DerivedProperty.valueNotEqualsConstant( protonCountProperty, 0 )
-        },
-        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbol.createProperty( {
-          symbol: symbolStringProperty
-        } ),
-        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumber.createProperty( {
-          protons: protonCountProperty
-        } ),
-        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumber.createProperty( {
-          mass: massNumberProperty
-        } ),
-        BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.charge.createProperty( {
-          charge: chargeStringProperty
-        } )
-      ],
-      {
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumber.createProperty( {
+            protons: protonCountProperty
+          } ),
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumber.createProperty( {
+            mass: massNumberProperty
+          } ),
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.charge.createProperty( {
+            charge: chargeStringProperty
+          } )
+        ],
         leadingParagraphStringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty
-      }
-    );
+      } )
+    } );
   }
 }
 
