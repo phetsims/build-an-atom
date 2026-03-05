@@ -17,7 +17,7 @@
     "branch": "1.8"
   },
   "chipper": {
-    "sha": "f430eeda42844614f8761885b4f9b9adc37d1121",
+    "sha": "f36700845915ce017c9059a8b374b0a2cd50920a",
     "branch": "HEAD"
   },
   "dot": {
@@ -69,7 +69,7 @@
     "branch": "HEAD"
   },
   "scenery-phet": {
-    "sha": "c13192583e82db5378939660fe7a64985808edf9",
+    "sha": "357a8e401404aa567c93573a518f6be04f0c8d1d",
     "branch": "HEAD"
   },
   "sherpa": {
