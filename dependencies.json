@@ -65,7 +65,7 @@
     "branch": "main"
   },
   "scenery": {
-    "sha": "bab3bab90e7a588014ad7206fcaf1e03f8ae999d",
+    "sha": "b451279f9d64eb9aae0d04d0af932f2b4ff8e072",
     "branch": "mouseFocusLiteral"
   },
   "scenery-phet": {
@@ -85,7 +85,7 @@
     "branch": "main"
   },
   "sun": {
-    "sha": "0b763f6cb5532690ecd7c797212ca27adf52dd4f",
+    "sha": "02ef7f5bbabd0b3cb5cff4990c74f5af3b1ce195",
     "branch": "mouseFocusLiteral"
   },
   "tambo": {
