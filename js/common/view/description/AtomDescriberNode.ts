@@ -15,7 +15,6 @@ import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
 import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/NumberAtom.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
-import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import AtomViewProperties from '../../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountsDescriptionNode from '../../../../../shred/js/view/description/ParticleCountsDescriptionNode.js';
 import ElectronShellDepiction from '../../../../../shred/js/view/ElectronShellDepiction.js';
