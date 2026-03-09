@@ -42,7 +42,7 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     this.challengePresentationNode.addChild( schematicAtomNode );
 
     schematicAtomNode.addChild(
-      AtomDescriptionNode.createNonInteractiveAtomListNode( schematicToSymbolChallenge.correctAnswerAtom )
+      AtomDescriptionNode.createNonInteractiveAtomDescriptionNode( schematicToSymbolChallenge.correctAnswerAtom )
     );
 
 

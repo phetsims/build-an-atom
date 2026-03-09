@@ -28,8 +28,8 @@ class AtomDescriptionNode extends Node {
   ) {
     super( {
       children: [
-        new AtomStateAccessibleListNode( atom, viewProperties ),
-        new CheckboxesAccessibleListNode( atom, viewProperties ),
+        new AtomStateAccessibleDescriptionNode( atom, viewProperties ),
+        new CheckboxesAccessibleDescriptionNode( atom, viewProperties ),
         new Node( {
           children: [
             new ParticleCountsDescriptionNode( atom )
@@ -39,10 +39,10 @@ class AtomDescriptionNode extends Node {
     } );
   }
 
-  public static createNonInteractiveAtomListNode( atom: NumberAtom ): Node {
+  public static createNonInteractiveAtomDescriptionNode( atom: NumberAtom ): Node {
     return new Node( {
       children: [
-        new AtomStateAccessibleListNode( atom, AtomViewProperties.everythingOffAtomViewProperties ),
+        new AtomStateAccessibleDescriptionNode( atom, AtomViewProperties.everythingOffAtomViewProperties ),
         new Node( {
           children: [
             new ParticleCountsDescriptionNode( atom )
@@ -104,7 +104,7 @@ class AtomDescriptionNode extends Node {
   }
 }
 
-class AtomStateAccessibleListNode extends Node {
+class AtomStateAccessibleDescriptionNode extends Node {
   public constructor(
     atom: TReadOnlyNumberAtom | NumberAtom,
     viewProperties: AtomViewProperties
@@ -185,7 +185,7 @@ class AtomStateAccessibleListNode extends Node {
   }
 }
 
-class CheckboxesAccessibleListNode extends Node {
+class CheckboxesAccessibleDescriptionNode extends Node {
   public constructor(
     atom: ParticleAtom,
     viewProperties: AtomViewProperties

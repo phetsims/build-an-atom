@@ -60,7 +60,7 @@ class SchematicToChargeChallengeView extends ChallengeView {
     this.challengePresentationNode.addChild( schematicAtomNode );
 
     schematicAtomNode.addChild(
-      AtomDescriptionNode.createNonInteractiveAtomListNode( schematicToChargeChallenge.correctAnswerAtom )
+      AtomDescriptionNode.createNonInteractiveAtomDescriptionNode( schematicToChargeChallenge.correctAnswerAtom )
     );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.
