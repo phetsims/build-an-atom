@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
+
 /**
- * Descriptions for the atom view checkboxes.
- * This file is a collection of methods for creating natural language descriptions of the state of the atom view.
+ * This file implements accessible descriptions for the chemical symbol information in the game screen.
  *
  * @author Agustín Vallejo (PhET Interactive Simulations)
  */
@@ -17,7 +17,7 @@ import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
 
-class GameSymbolAccessibleListNode extends Node {
+class GameSymbolDescriptionNode extends Node {
   public constructor(
     protonCountProperty: TReadOnlyProperty<number>,
     massNumberProperty: TReadOnlyProperty<number>,
@@ -74,6 +74,6 @@ class GameSymbolAccessibleListNode extends Node {
   }
 }
 
-buildAnAtom.register( 'GameSymbolAccessibleListNode', GameSymbolAccessibleListNode );
+buildAnAtom.register( 'GameSymbolDescriptionNode', GameSymbolDescriptionNode );
 
-export default GameSymbolAccessibleListNode;
+export default GameSymbolDescriptionNode;

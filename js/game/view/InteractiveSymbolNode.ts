@@ -33,7 +33,7 @@ import BAAColors from '../../common/BAAColors.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
 import chargeToString from '../../common/view/chargeToString.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
-import GameSymbolAccessibleListNode from './description/GameSymbolAccessibleListNode.js';
+import GameSymbolDescriptionNode from './description/GameSymbolDescriptionNode.js';
 
 // constants
 const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
@@ -281,7 +281,7 @@ class InteractiveSymbolNode extends VBox {
       );
     }
 
-    const descriptionListNode = new GameSymbolAccessibleListNode(
+    const descriptionListNode = new GameSymbolDescriptionNode(
       protonCountProperty,
       massNumberProperty,
       chargeProperty
