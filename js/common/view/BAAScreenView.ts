@@ -31,7 +31,7 @@ import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
 import AtomAppearanceCheckboxGroup from './AtomAppearanceCheckboxGroup.js';
 import BuildAnAtomAccordionBox, { BuildAnAtomAccordionBoxOptions } from './BuildAnAtomAccordionBox.js';
-import AtomDescriberNode from './description/AtomDescriberNode.js';
+import AtomDescriptionNode from './description/AtomDescriptionNode.js';
 import ElectronModelControl from './ElectronModelControl.js';
 import InteractiveSchematicAtom from './InteractiveSchematicAtom.js';
 
@@ -77,7 +77,7 @@ class BAAScreenView extends ScreenView {
     const interactiveAtomNode = new InteractiveSchematicAtom( model, modelViewTransform, {
       atomNodeOptions: {
         atomViewProperties: this.viewProperties,
-        atomDescriber: new AtomDescriberNode( model.atom, this.viewProperties )
+        atomDescriber: new AtomDescriptionNode( model.atom, this.viewProperties )
       },
       tandem: tandem.createTandem( 'interactiveAtomNode' ),
       phetioFeatured: true

@@ -23,7 +23,7 @@ import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
-import AtomDescriberNode from '../../common/view/description/AtomDescriberNode.js';
+import AtomDescriptionNode from '../../common/view/description/AtomDescriptionNode.js';
 import InteractiveSchematicAtom from '../../common/view/InteractiveSchematicAtom.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import SymbolToSchematicChallenge from '../model/SymbolToSchematicChallenge.js';
@@ -61,7 +61,7 @@ class SymbolToSchematicChallengeView extends ChallengeView {
       enabledProperty: this.challenge.isAnswerInteractiveProperty,
       atomNodeOptions: {
         atomViewProperties: atomViewProperties,
-        atomDescriber: new AtomDescriberNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
+        atomDescriber: new AtomDescriptionNode( challenge.submittedAnswerModel.atom, atomViewProperties ),
         tandem: Tandem.OPT_OUT,
         particlesAccessibleParagraph: BuildAnAtomFluent.a11y.gameScreen.challenges.symbolToSchematic.builtAtomHelpTextStringProperty
       },
