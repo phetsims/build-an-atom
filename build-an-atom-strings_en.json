@@ -153,7 +153,7 @@
           "value": "Look for Protons, Neutrons, and Electrons buttons to grab a particle. \n  Once grabbed, use W or S key to move particle to specific location in Your Built Atom. \n  Press space to release."
         }
       },
-      "atomAccessibleListNode": {
+      "atomAccessibleList": {
         "atomStateLeadingParagraph": {
           "value": "In { $model } view:"
         },
@@ -194,7 +194,7 @@
           "value": "Look for Protons, Neutrons, and Electrons in Your Built Atom to grab. \n  Once grabbed use W or S key to change location or delete to return to bucket."
         },
         "nucleusContains": {
-          "value": "{ $nucleonState ->\n  [full] { a11y_common_atomAccessibleListNode_nucleusInfoFull }\n  [protons] { a11y_common_atomAccessibleListNode_nucleusInfoProtons }\n  [neutrons] { a11y_common_atomAccessibleListNode_nucleusInfoNeutrons }\n  *[empty] { a11y_common_atomAccessibleListNode_nucleusInfoEmpty }\n}"
+          "value": "{ $nucleonState ->\n  [full] { a11y_common_atomAccessibleList_nucleusInfoFull }\n  [protons] { a11y_common_atomAccessibleList_nucleusInfoProtons }\n  [neutrons] { a11y_common_atomAccessibleList_nucleusInfoNeutrons }\n  *[empty] { a11y_common_atomAccessibleList_nucleusInfoEmpty }\n}"
         }
       },
       "noElementContextResponse": {
@@ -346,7 +346,7 @@
         "noSymbol": {
           "value": "No symbol"
         },
-        "accessibleListNode": {
+        "accessibleList": {
           "symbol": {
             "value": "{ $symbol } in center."
           },
@@ -361,7 +361,7 @@
           }
         },
         "symbolSelector": {
-          "value": "{ $hasSymbol ->\n  [true] { a11y_symbolScreen_symbol_accessibleListNode_symbol }\n  *[false] { a11y_symbolScreen_symbol_noSymbol }\n}"
+          "value": "{ $hasSymbol ->\n  [true] { a11y_symbolScreen_symbol_accessibleList_symbol }\n  *[false] { a11y_symbolScreen_symbol_noSymbol }\n}"
         }
       }
     },
@@ -433,7 +433,7 @@
               "value": "Set value displayed in lower left of Chemical Symbol. Then check your answer."
             }
           },
-          "accessibleListNode": {
+          "accessibleList": {
             "leadingParagraph": {
               "value": "Particles are represented as:"
             },

@@ -50,25 +50,25 @@ class GameSymbolAccessibleListNode extends Node {
       accessibleTemplate: AccessibleList.createTemplateProperty( {
         listItems: [
           {
-            stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {
+            stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleList.name.createProperty( {
               name: elementDynamicStringProperty
             } ),
             visibleProperty: DerivedProperty.valueNotEqualsConstant( protonCountProperty, 0 )
           },
-          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.symbol.createProperty( {
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleList.symbol.createProperty( {
             symbol: symbolStringProperty
           } ),
-          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.atomicNumber.createProperty( {
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleList.atomicNumber.createProperty( {
             protons: protonCountProperty
           } ),
-          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.massNumber.createProperty( {
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleList.massNumber.createProperty( {
             mass: massNumberProperty
           } ),
-          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.charge.createProperty( {
+          BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleList.charge.createProperty( {
             charge: chargeStringProperty
           } )
         ],
-        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.leadingParagraphStringProperty
+        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleList.leadingParagraphStringProperty
       } )
     } );
   }

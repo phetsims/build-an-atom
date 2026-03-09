@@ -72,7 +72,7 @@ type StringsType = {
         'accessibleHeadingStringProperty': LocalizedStringProperty;
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
       };
-      'atomAccessibleListNode': {
+      'atomAccessibleList': {
         'atomStateLeadingParagraphStringProperty': LocalizedStringProperty;
         'checkboxesListLeadingParagraphStringProperty': LocalizedStringProperty;
         'accessibleHeadingStringProperty': LocalizedStringProperty;
@@ -157,7 +157,7 @@ type StringsType = {
         'leadingParagraphStringProperty': LocalizedStringProperty;
         'accessibleNameStringProperty': LocalizedStringProperty;
         'noSymbolStringProperty': LocalizedStringProperty;
-        'accessibleListNode': {
+        'accessibleList': {
           'symbolStringProperty': LocalizedStringProperty;
           'atomicNumberStringProperty': LocalizedStringProperty;
           'massNumberStringProperty': LocalizedStringProperty;
@@ -200,7 +200,7 @@ type StringsType = {
             'accessibleNameStringProperty': LocalizedStringProperty;
             'accessibleHelpTextStringProperty': LocalizedStringProperty;
           };
-          'accessibleListNode': {
+          'accessibleList': {
             'leadingParagraphStringProperty': LocalizedStringProperty;
             'nameStringProperty': LocalizedStringProperty;
             'symbolStringProperty': LocalizedStringProperty;

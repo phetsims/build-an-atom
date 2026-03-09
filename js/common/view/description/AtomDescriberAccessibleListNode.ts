@@ -51,7 +51,7 @@ class AtomDescriberAccessibleListNode extends Node {
           ]
         } )
       ],
-      accessibleHeading: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.builtAtomStringProperty
+      accessibleHeading: BuildAnAtomFluent.a11y.common.atomAccessibleList.builtAtomStringProperty
     } );
   }
 
@@ -111,7 +111,7 @@ class AtomStateAccessibleListNode extends Node {
     atom: TReadOnlyNumberAtom | NumberAtom,
     viewProperties: AtomViewProperties
   ) {
-    const nucleusContainsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleListNode.nucleusContains.createProperty( {
+    const nucleusContainsProperty = BuildAnAtomFluent.a11y.common.atomAccessibleList.nucleusContains.createProperty( {
       nucleonState: new DerivedProperty( [ atom.protonCountProperty, atom.neutronCountProperty ], ( protons, neutrons ) => {
         return ( protons > 0 && neutrons > 0 ) ? 'full' :
                ( protons > 0 ) ? 'protons' :
@@ -129,15 +129,15 @@ class AtomStateAccessibleListNode extends Node {
         viewProperties.electronModelProperty,
         atom.electronCountProperty,
         // Shell contains N Electrons
-        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoFull.createProperty( {
+        BuildAnAtomFluent.a11y.common.atomAccessibleList.shellInfoFull.createProperty( {
           inner: innerElectronCountProperty, outer: outerElectronCountProperty
         } ),
         // Cloud contains N Electrons
-        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoFull.createProperty( {
+        BuildAnAtomFluent.a11y.common.atomAccessibleList.cloudInfoFull.createProperty( {
           value: atom.electronCountProperty
         } ),
-        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.shellInfoEmptyStringProperty,
-        BuildAnAtomFluent.a11y.common.atomAccessibleListNode.cloudInfoEmptyStringProperty
+        BuildAnAtomFluent.a11y.common.atomAccessibleList.shellInfoEmptyStringProperty,
+        BuildAnAtomFluent.a11y.common.atomAccessibleList.cloudInfoEmptyStringProperty
       ],
       (
         electronModel: ElectronShellDepiction,
@@ -171,7 +171,7 @@ class AtomStateAccessibleListNode extends Node {
       } );
 
     const leadingParagraphStringProperty =
-      BuildAnAtomFluent.a11y.common.atomAccessibleListNode.atomStateLeadingParagraph.createProperty( {
+      BuildAnAtomFluent.a11y.common.atomAccessibleList.atomStateLeadingParagraph.createProperty( {
         model: shellsOrCloudStringProperty
       } );
 
@@ -230,7 +230,7 @@ class CheckboxesAccessibleListNode extends Node {
           { stringProperty: neutralOrIonListItemProperty, visibleProperty: neutralAtomOrIonVisibleProperty },
           { stringProperty: stabilityListItemProperty, visibleProperty: nuclearStabilityVisibleProperty }
         ],
-        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.checkboxesListLeadingParagraphStringProperty,
+        leadingParagraphStringProperty: BuildAnAtomFluent.a11y.common.atomAccessibleList.checkboxesListLeadingParagraphStringProperty,
         leadingParagraphVisibleProperty: oneOrMoreItemsVisibleProperty
       } )
     } );

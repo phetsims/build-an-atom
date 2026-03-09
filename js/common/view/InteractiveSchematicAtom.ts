@@ -102,9 +102,9 @@ class InteractiveSchematicAtom extends Node {
 
       atomNodeOptions: {
         enabledProperty: providedOptions.enabledProperty,
-        accessibleHeading: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.accessibleHeadingStringProperty,
+        accessibleHeading: BuildAnAtomFluent.a11y.common.atomAccessibleList.accessibleHeadingStringProperty,
         phetioVisiblePropertyInstrumented: false,
-        particlesAccessibleParagraph: BuildAnAtomFluent.a11y.common.atomAccessibleListNode.accessibleParagraphStringProperty,
+        particlesAccessibleParagraph: BuildAnAtomFluent.a11y.common.atomAccessibleList.accessibleParagraphStringProperty,
         tandem: providedOptions.tandem.createTandem( 'atomNode' )
       },
       isDisposable: false

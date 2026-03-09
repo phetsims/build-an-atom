@@ -66,7 +66,7 @@ a11y:
         Look for Protons, Neutrons, and Electrons buttons to grab a particle. 
           Once grabbed, use W or S key to move particle to specific location in Your Built Atom. 
           Press space to release.
-    atomAccessibleListNode:
+    atomAccessibleList:
       atomStateLeadingParagraph: "In { $model } view:"
       checkboxesListLeadingParagraph: "You have created:"
       accessibleHeading: Your Built Atom
@@ -124,10 +124,10 @@ a11y:
       #   empty - neither present
       nucleusContains:
         select_nucleonState:
-          full: "{ a11y.common.atomAccessibleListNode.nucleusInfoFull }"
-          protons: "{ a11y.common.atomAccessibleListNode.nucleusInfoProtons }"
-          neutrons: "{ a11y.common.atomAccessibleListNode.nucleusInfoNeutrons }"
-          empty: "{ a11y.common.atomAccessibleListNode.nucleusInfoEmpty }"
+          full: "{ a11y.common.atomAccessibleList.nucleusInfoFull }"
+          protons: "{ a11y.common.atomAccessibleList.nucleusInfoProtons }"
+          neutrons: "{ a11y.common.atomAccessibleList.nucleusInfoNeutrons }"
+          empty: "{ a11y.common.atomAccessibleList.nucleusInfoEmpty }"
 
     # Common response when an atom is not yet an element
     noElementContextResponse: Your Built Atom is not an element yet.
@@ -218,14 +218,14 @@ a11y:
       leadingParagraph: "Your Built Atom is represented as:"
       accessibleName: Chemical Symbol
       noSymbol: No symbol
-      accessibleListNode:
+      accessibleList:
         symbol: "{ $symbol } in center."
         atomicNumber: "Atomic number { $value } in lower left."
         massNumber: "Mass number { $value } in upper left."
         charge: "Charge { $value } in upper right."
       symbolSelector:
         select_hasSymbol:
-          true: "{ a11y.symbolScreen.symbol.accessibleListNode.symbol }"
+          true: "{ a11y.symbolScreen.symbol.accessibleList.symbol }"
           false: "{ a11y.symbolScreen.symbol.noSymbol }"
   gameScreen:
     screenIcon:
@@ -254,7 +254,7 @@ a11y:
         lowerLeft:
           accessibleName: Lower Left
           accessibleHelpText: Set value displayed in lower left of Chemical Symbol. Then check your answer.
-        accessibleListNode:
+        accessibleList:
           leadingParagraph: "Particles are represented as:"
           name: "{ $name }."
           symbol: "{ $symbol } in center."

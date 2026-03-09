@@ -33,17 +33,17 @@ export default class SymbolAccessibleListNode extends Node {
     } );
 
     const atomicNumberListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
-      .accessibleListNode.atomicNumber.createProperty( {
+      .accessibleList.atomicNumber.createProperty( {
         value: model.atom.protonCountProperty
       } );
 
     const massNumberListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
-      .accessibleListNode.massNumber.createProperty( {
+      .accessibleList.massNumber.createProperty( {
         value: model.atom.massNumberProperty
       } );
 
     const chargeListItemProperty = BuildAnAtomFluent.a11y.symbolScreen.symbol
-      .accessibleListNode.charge.createProperty( {
+      .accessibleList.charge.createProperty( {
         value: new DerivedProperty(
           [ model.atom.chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
           ( charge: number ) => chargeToString( charge )
