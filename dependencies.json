@@ -13,11 +13,11 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "46cf467afd16958c2a98e5e17d82051802fa2b6b",
+    "sha": "acfe2af2fd5ed79e22765ce034298c0a61e003e1",
     "branch": "1.8"
   },
   "chipper": {
-    "sha": "f36700845915ce017c9059a8b374b0a2cd50920a",
+    "sha": "df3b2d40392bb0e7d289634b6ffafac060e371b3",
     "branch": "HEAD"
   },
   "dot": {
