@@ -15,7 +15,7 @@ import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
 import BuildAnAtomAccordionBox from '../../common/view/BuildAnAtomAccordionBox.js';
 import BAASymbolNode from './BAASymbolNode.js';
-import SymbolAccessibleListNode from './description/SymbolAccessibleListNode.js';
+import SymbolDescriptionNode from './description/SymbolDescriptionNode.js';
 import SymbolScreenSummaryContentNode from './description/SymbolScreenSummaryContentNode.js';
 
 class SymbolScreenView extends BAAScreenView {
@@ -68,7 +68,7 @@ class SymbolScreenView extends BAAScreenView {
     this.symbolAccordionBox.top = this.periodicTableAccordionBox.top + this.periodicTableAccordionBox.height + 10;
     this.symbolAccordionBox.left = this.periodicTableAccordionBox.left;
 
-    symbolNode.addChild( new SymbolAccessibleListNode( model, this.symbolAccordionBox.expandedProperty ) );
+    symbolNode.addChild( new SymbolDescriptionNode( model, this.symbolAccordionBox.expandedProperty ) );
   }
 
   public override reset(): void {

@@ -18,7 +18,7 @@ import BAAModel from '../../../common/model/BAAModel.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
 
-export default class SymbolAccessibleListNode extends Node {
+export default class SymbolDescriptionNode extends Node {
   public constructor( model: BAAModel, visibleProperty: TReadOnlyProperty<boolean> ) {
 
     const spokenSymbolStringProperty = ShredFluent.a11y.spokenSymbol.createProperty( {
@@ -65,4 +65,4 @@ export default class SymbolAccessibleListNode extends Node {
   }
 }
 
-buildAnAtom.register( 'SymbolAccessibleListNode', SymbolAccessibleListNode );
+buildAnAtom.register( 'SymbolDescriptionNode', SymbolDescriptionNode );
