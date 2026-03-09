@@ -105,6 +105,6 @@ The core description implementation required the addition of many strings to the
 strings had to be dynamic so that they would update as the state of the sim changes. Heavy use of Fluent was used in the
 strings file to support these strings. These strings are added to nodes in the scene graph using a11y-related options
 such as `accessibleName`, `accessibleHelpText`, `accessibleParagraph`, etc. Classes was created with a set of static
-methods to help generate these strings, such as `AtomDescriberAccessibleListNode` and `SymbolAccessibleListNode`. This
+methods to help generate these strings, such as `AtomDescriberNode` and `SymbolAccessibleListNode`. This
 follows a pattern used elsewhere in the PhET codebase for core description, which enables much of the string creation
 logic to be centralized in one place.

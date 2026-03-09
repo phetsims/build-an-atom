@@ -16,7 +16,7 @@ import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js'
 import VerticalCheckboxGroup, { VerticalCheckboxGroupItem, VerticalCheckboxGroupOptions } from '../../../../sun/js/VerticalCheckboxGroup.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
-import AtomDescriberAccessibleListNode from './description/AtomDescriberAccessibleListNode.js';
+import AtomDescriberNode from './description/AtomDescriberNode.js';
 
 const LABEL_FONT = new PhetFont( 12 );
 const LABEL_MAX_WIDTH = 180;
@@ -52,7 +52,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleName: BuildAnAtomFluent.a11y.common.elementNameCheckbox.accessibleNameStringProperty,
           accessibleHelpText: BuildAnAtomFluent.a11y.common.elementNameCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomFluent.a11y.common.elementNameCheckbox.accessibleContextResponseUncheckedStringProperty,
-          accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createElementNameSentence(
+          accessibleContextResponseChecked: AtomDescriberNode.createElementNameSentence(
             atom.protonCountProperty
           )
         }
@@ -65,7 +65,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleName: BuildAnAtomFluent.a11y.common.neutralAtomIonCheckbox.accessibleNameStringProperty,
           accessibleHelpText: BuildAnAtomFluent.a11y.common.neutralAtomIonCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomFluent.a11y.common.neutralAtomIonCheckbox.accessibleContextResponseUncheckedStringProperty,
-          accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createNeutralOrIonSentence(
+          accessibleContextResponseChecked: AtomDescriberNode.createNeutralOrIonSentence(
             atom.protonCountProperty,
             atom.chargeProperty
           )
@@ -79,7 +79,7 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
           accessibleName: BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.accessibleNameStringProperty,
           accessibleHelpText: BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.accessibleHelpTextStringProperty,
           accessibleContextResponseUnchecked: BuildAnAtomFluent.a11y.common.nuclearStabilityCheckbox.accessibleContextResponseUncheckedStringProperty,
-          accessibleContextResponseChecked: AtomDescriberAccessibleListNode.createStabilitySentence(
+          accessibleContextResponseChecked: AtomDescriberNode.createStabilitySentence(
             atom.protonCountProperty,
             atom.nucleusStableProperty
           )

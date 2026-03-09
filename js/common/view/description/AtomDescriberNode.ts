@@ -22,7 +22,7 @@ import ElectronShellDepiction from '../../../../../shred/js/view/ElectronShellDe
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 
-class AtomDescriberAccessibleListNode extends Node {
+class AtomDescriberNode extends Node {
   public constructor(
     atom: ParticleAtom,
     viewProperties: AtomViewProperties
@@ -194,16 +194,16 @@ class CheckboxesAccessibleListNode extends Node {
     viewProperties: AtomViewProperties
   ) {
 
-    const elementNameListItemProperty = AtomDescriberAccessibleListNode.createElementNameSentence(
+    const elementNameListItemProperty = AtomDescriberNode.createElementNameSentence(
       atom.protonCountProperty
     );
 
-    const neutralOrIonListItemProperty = AtomDescriberAccessibleListNode.createNeutralOrIonSentence(
+    const neutralOrIonListItemProperty = AtomDescriberNode.createNeutralOrIonSentence(
       atom.protonCountProperty,
       atom.chargeProperty
     );
 
-    const stabilityListItemProperty = AtomDescriberAccessibleListNode.createStabilitySentence(
+    const stabilityListItemProperty = AtomDescriberNode.createStabilitySentence(
       atom.protonCountProperty,
       atom.nucleusStableProperty
     );
@@ -238,6 +238,6 @@ class CheckboxesAccessibleListNode extends Node {
   }
 }
 
-buildAnAtom.register( 'AtomDescriberAccessibleListNode', AtomDescriberAccessibleListNode );
+buildAnAtom.register( 'AtomDescriberNode', AtomDescriberNode );
 
-export default AtomDescriberAccessibleListNode;
+export default AtomDescriberNode;

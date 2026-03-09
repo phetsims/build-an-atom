@@ -15,7 +15,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
-import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
+import AtomDescriberNode from '../../common/view/description/AtomDescriberNode.js';
 import SchematicToElementChallenge from '../model/SchematicToElementChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToElementChallengeView from './ToElementChallengeView.js';
@@ -42,7 +42,7 @@ class SchematicToElementChallengeView extends ToElementChallengeView {
     this.challengePresentationNode.addChild( schematicAtomNode );
 
     schematicAtomNode.addChild(
-      AtomDescriberAccessibleListNode.createNonInteractiveAtomListNode( schematicToElementChallenge.correctAnswerAtom )
+      AtomDescriberNode.createNonInteractiveAtomListNode( schematicToElementChallenge.correctAnswerAtom )
     );
 
     // Add the particle count indicator.  The width is empirically determined to match the layout in the design doc.

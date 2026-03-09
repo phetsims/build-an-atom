@@ -16,7 +16,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
-import AtomDescriberAccessibleListNode from '../../common/view/description/AtomDescriberAccessibleListNode.js';
+import AtomDescriberNode from '../../common/view/description/AtomDescriberNode.js';
 import SchematicToSymbolChallenge from '../model/SchematicToSymbolChallenge.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
 import ToSymbolChallengeView from './ToSymbolChallengeView.js';
@@ -42,7 +42,7 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     this.challengePresentationNode.addChild( schematicAtomNode );
 
     schematicAtomNode.addChild(
-      AtomDescriberAccessibleListNode.createNonInteractiveAtomListNode( schematicToSymbolChallenge.correctAnswerAtom )
+      AtomDescriberNode.createNonInteractiveAtomListNode( schematicToSymbolChallenge.correctAnswerAtom )
     );
 
 
