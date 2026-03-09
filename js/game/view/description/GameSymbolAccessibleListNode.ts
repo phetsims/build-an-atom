@@ -47,7 +47,7 @@ class GameSymbolAccessibleListNode extends Node {
     );
 
     super( {
-      accessibleTemplate: AccessibleList.createTemplate( {
+      accessibleTemplate: AccessibleList.createTemplateProperty( {
         listItems: [
           {
             stringProperty: BuildAnAtomFluent.a11y.gameScreen.components.chemicalSymbol.accessibleListNode.name.createProperty( {

@@ -51,7 +51,7 @@ export default class SymbolAccessibleListNode extends Node {
       } );
 
     super( {
-      accessibleTemplate: AccessibleList.createTemplate( {
+      accessibleTemplate: AccessibleList.createTemplateProperty( {
         listItems: [
           symbolListItemProperty,
           atomicNumberListItemProperty,

@@ -176,7 +176,7 @@ class AtomStateAccessibleListNode extends Node {
       } );
 
     super( {
-      accessibleTemplate: AccessibleList.createTemplate( {
+      accessibleTemplate: AccessibleList.createTemplateProperty( {
         listItems: [
           nucleusContainsProperty,
           electronsStateProperty
@@ -224,7 +224,7 @@ class CheckboxesAccessibleListNode extends Node {
     ] );
 
     super( {
-      accessibleTemplate: AccessibleList.createTemplate( {
+      accessibleTemplate: AccessibleList.createTemplateProperty( {
         listItems: [
           { stringProperty: elementNameListItemProperty, visibleProperty: elementNameVisibleProperty },
           { stringProperty: neutralOrIonListItemProperty, visibleProperty: neutralAtomOrIonVisibleProperty },
