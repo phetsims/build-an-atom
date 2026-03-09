@@ -17,7 +17,7 @@ import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/N
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import ShredFluent from '../../../../../shred/js/ShredFluent.js';
 import AtomViewProperties from '../../../../../shred/js/view/AtomViewProperties.js';
-import ParticleCountsAccessibleListNode from '../../../../../shred/js/view/description/ParticleCountsAccessibleListNode.js';
+import ParticleCountsDescriptionNode from '../../../../../shred/js/view/description/ParticleCountsDescriptionNode.js';
 import ElectronShellDepiction from '../../../../../shred/js/view/ElectronShellDepiction.js';
 import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
@@ -34,7 +34,7 @@ class AtomDescriberNode extends Node {
         new Node( {
           accessibleHeading: ShredFluent.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
-            new ParticleCountsAccessibleListNode( atom )
+            new ParticleCountsDescriptionNode( atom )
           ]
         } )
       ]
@@ -48,7 +48,7 @@ class AtomDescriberNode extends Node {
         new Node( {
           accessibleHeading: ShredFluent.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
-            new ParticleCountsAccessibleListNode( atom )
+            new ParticleCountsDescriptionNode( atom )
           ]
         } )
       ],
