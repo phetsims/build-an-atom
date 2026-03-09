@@ -32,7 +32,6 @@ class AtomDescriberNode extends Node {
         new AtomStateAccessibleListNode( atom, viewProperties ),
         new CheckboxesAccessibleListNode( atom, viewProperties ),
         new Node( {
-          accessibleHeading: ShredFluent.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
             new ParticleCountsDescriptionNode( atom )
           ]
@@ -46,7 +45,6 @@ class AtomDescriberNode extends Node {
       children: [
         new AtomStateAccessibleListNode( atom, AtomViewProperties.everythingOffAtomViewProperties ),
         new Node( {
-          accessibleHeading: ShredFluent.a11y.particleCounts.accessibleHeadingStringProperty,
           children: [
             new ParticleCountsDescriptionNode( atom )
           ]
