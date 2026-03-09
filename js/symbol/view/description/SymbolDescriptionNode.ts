@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * AccessibleListNode displays the information on the symbol accordion box.
+ * A Node that contains accessible descriptions with the information on the symbol accordion box.
  *
  * @author Agustín Vallejo (PhET Interactive Simulations)
  */
