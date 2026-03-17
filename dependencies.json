@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "d49ce3f336e2e5bae10532642051ec7e460273b1",
+    "sha": "b84f9c49dc0e82aafdeed58d076800098608e3a8",
     "branch": "1.8"
   },
   "chipper": {
@@ -33,7 +33,7 @@
     "branch": "HEAD"
   },
   "perennial-alias": {
-    "sha": "9642f1cbcf4bd113d6ea90d9582dd780ef9165db",
+    "sha": "f3a19f299c04a40d6be33bcc12d6fb5cdb90f189",
     "branch": "HEAD"
   },
   "phet-core": {
