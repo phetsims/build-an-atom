@@ -15,7 +15,6 @@ import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import PeriodicTableNode, { PeriodicTableNodeOptions } from '../../../../shred/js/view/PeriodicTableNode.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
 const SYMBOL_WIDTH_PROPORTION = 0.2;
@@ -79,7 +78,5 @@ class PeriodicTableAndSymbol extends Node {
     periodicTable.left = 0;
   }
 }
-
-buildAnAtom.register( 'PeriodicTableAndSymbol', PeriodicTableAndSymbol );
 
 export default PeriodicTableAndSymbol;

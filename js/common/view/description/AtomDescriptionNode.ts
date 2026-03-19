@@ -18,7 +18,6 @@ import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import AtomViewProperties from '../../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountsDescriptionNode from '../../../../../shred/js/view/description/ParticleCountsDescriptionNode.js';
 import ElectronShellDepiction from '../../../../../shred/js/view/ElectronShellDepiction.js';
-import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 
 class AtomDescriptionNode extends Node {
@@ -234,7 +233,5 @@ class CheckboxesAccessibleDescriptionNode extends Node {
     } );
   }
 }
-
-buildAnAtom.register( 'AtomDescriptionNode', AtomDescriptionNode );
 
 export default AtomDescriptionNode;

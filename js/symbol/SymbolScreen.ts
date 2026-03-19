@@ -8,7 +8,6 @@
 
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomFluent from '../BuildAnAtomFluent.js';
 import BAAColors from '../common/BAAColors.js';
 import BAAModel from '../common/model/BAAModel.js';
@@ -34,5 +33,4 @@ class SymbolScreen extends Screen<BAAModel, SymbolScreenView> {
   }
 }
 
-buildAnAtom.register( 'SymbolScreen', SymbolScreen );
 export default SymbolScreen;

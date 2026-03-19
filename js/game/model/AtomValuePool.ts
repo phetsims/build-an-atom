@@ -10,7 +10,6 @@
 
 import Random from '../../../../dot/js/Random.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 class AtomValuePool {
   private remainingAtomValues: NumberAtom[];
@@ -265,5 +264,4 @@ const CHALLENGE_POOLS: NumberAtom[][] = [
   ]
 ];
 
-buildAnAtom.register( 'AtomValuePool', AtomValuePool );
 export default AtomValuePool;

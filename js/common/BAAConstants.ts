@@ -14,7 +14,6 @@ import { RichTextOptions } from '../../../scenery/js/nodes/RichText.js';
 import Color from '../../../scenery/js/util/Color.js';
 import ShredConstants from '../../../shred/js/ShredConstants.js';
 import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
-import buildAnAtom from '../buildAnAtom.js';
 
 class BAAConstants {
 
@@ -65,7 +64,5 @@ class BAAConstants {
   // Vertical offset used in SchematicTo* challenges for the atom node
   public static readonly ATOM_VERTICAL_OFFSET = 20;
 }
-
-buildAnAtom.register( 'BAAConstants', BAAConstants );
 
 export default BAAConstants;

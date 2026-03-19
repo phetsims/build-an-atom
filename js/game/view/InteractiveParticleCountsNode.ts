@@ -18,7 +18,6 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
 import ShredFluent from '../../../../shred/js/ShredFluent.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import AnswerAtom from '../model/AnswerAtom.js';
 import BAANumberSpinner from './BAANumberSpinner.js';
@@ -124,7 +123,5 @@ class InteractiveParticleCountsNode extends Node {
     this.submittedAnswerAtom.electronCountProperty.reset();
   }
 }
-
-buildAnAtom.register( 'InteractiveParticleCountsNode', InteractiveParticleCountsNode );
 
 export default InteractiveParticleCountsNode;

@@ -13,7 +13,6 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import SymbolToCountsChallenge from '../model/SymbolToCountsChallenge.js';
@@ -106,7 +105,5 @@ class SymbolToCountsChallengeView extends ChallengeView {
     return new RichText( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
-
-buildAnAtom.register( 'SymbolToCountsChallengeView', SymbolToCountsChallengeView );
 
 export default SymbolToCountsChallengeView;

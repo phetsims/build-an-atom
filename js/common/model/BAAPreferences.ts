@@ -10,7 +10,6 @@
 import StringUnionProperty from '../../../../axon/js/StringUnionProperty.js';
 import { ChargeNotation, ChargeNotationValues } from '../../../../shred/js/model/ChargeNotation.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
 
 export default class BAAPreferences {
@@ -36,5 +35,3 @@ export default class BAAPreferences {
     );
   }
 }
-
-buildAnAtom.register( 'BAAPreferences', BAAPreferences );

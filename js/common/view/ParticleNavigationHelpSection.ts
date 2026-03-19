@@ -7,7 +7,6 @@
 
 import KeyboardHelpSection, { KeyboardHelpSectionOptions } from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAParticleKeyboardListener from './BAAParticleKeyboardListener.js';
 
@@ -29,5 +28,3 @@ export default class ParticleNavigationHelpSection extends KeyboardHelpSection {
     super( BuildAnAtomFluent.keyboardHelpContent.particleNavigationHeadingStringProperty, rows, options );
   }
 }
-
-buildAnAtom.register( 'ParticleNavigationHelpSection', ParticleNavigationHelpSection );

@@ -24,7 +24,6 @@ import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom, { NeutralOrIon, neutralOrIonValues } from '../model/AnswerAtom.js';
@@ -267,7 +266,5 @@ class ToElementChallengeView extends ChallengeView {
     }
   };
 }
-
-buildAnAtom.register( 'ToElementChallengeView', ToElementChallengeView );
 
 export default ToElementChallengeView;

@@ -19,7 +19,6 @@ import FiniteStatusBar from '../../../../vegas/js/FiniteStatusBar.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
 import LevelCompletedNode from '../../../../vegas/js/LevelCompletedNode.js';
 import RewardScreenNode from '../../../../vegas/js/RewardScreenNode.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import GameModel from '../model/GameModel.js';
@@ -305,5 +304,4 @@ class GameScreenView extends ScreenView {
   }
 }
 
-buildAnAtom.register( 'GameScreenView', GameScreenView );
 export default GameScreenView;

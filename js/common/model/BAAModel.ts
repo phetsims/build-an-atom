@@ -26,7 +26,6 @@ import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../BAAColors.js';
 import BAAQueryParameters from '../BAAQueryParameters.js';
@@ -438,7 +437,5 @@ class BAAModel {
   public static readonly MAX_CHARGE = Math.max( MAX_PROTONS, MAX_ELECTRONS );
   public static readonly NUMBER_OF_NUCLEON_LAYERS = NUMBER_OF_NUCLEON_LAYERS;
 }
-
-buildAnAtom.register( 'BAAModel', BAAModel );
 
 export default BAAModel;

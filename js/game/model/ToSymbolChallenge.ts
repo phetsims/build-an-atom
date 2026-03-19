@@ -10,7 +10,6 @@
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
@@ -49,7 +48,5 @@ abstract class ToSymbolChallenge extends BAAGameChallenge {
     this.isChargeConfigurable = options.isChargeConfigurable;
   }
 }
-
-buildAnAtom.register( 'ToSymbolChallenge', ToSymbolChallenge );
 
 export default ToSymbolChallenge;

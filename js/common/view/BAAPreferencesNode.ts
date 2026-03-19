@@ -9,7 +9,6 @@
 
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAPreferences from '../model/BAAPreferences.js';
 import ChargeNotationControl from './ChargeNotationControl.js';
 
@@ -31,5 +30,3 @@ export default class BAAPreferencesNode extends VBox {
     } );
   }
 }
-
-buildAnAtom.register( 'BAAPreferencesNode', BAAPreferencesNode );

@@ -8,7 +8,6 @@
  */
 
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAPreferences from '../model/BAAPreferences.js';
 
 const chargeToString = ( charge: number ): string => {
@@ -22,4 +21,3 @@ const chargeToString = ( charge: number ): string => {
 };
 
 export default chargeToString;
-buildAnAtom.register( 'chargeToString', chargeToString );

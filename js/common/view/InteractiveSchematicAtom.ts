@@ -39,7 +39,6 @@ import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import AtomNode, { AtomNodeOptions } from '../../../../shred/js/view/AtomNode.js';
 import ElectronShellDepiction from '../../../../shred/js/view/ElectronShellDepiction.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAModel from '../model/BAAModel.js';
 import BAAParticle, { BAAParticleType } from '../model/BAAParticle.js';
@@ -541,5 +540,4 @@ class InteractiveSchematicAtom extends Node {
   }
 }
 
-buildAnAtom.register( 'InteractiveSchematicAtom', InteractiveSchematicAtom );
 export default InteractiveSchematicAtom;

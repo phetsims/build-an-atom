@@ -7,7 +7,6 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from './ChallengeType.js';
 import CountsToSymbolChallenge from './CountsToSymbolChallenge.js';
 import GameModel from './GameModel.js';
@@ -23,7 +22,5 @@ class CountsToSymbolChargeChallenge extends CountsToSymbolChallenge {
     } );
   }
 }
-
-buildAnAtom.register( 'CountsToSymbolChargeChallenge', CountsToSymbolChargeChallenge );
 
 export default CountsToSymbolChargeChallenge;

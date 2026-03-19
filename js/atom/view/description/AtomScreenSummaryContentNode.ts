@@ -6,7 +6,6 @@
  */
 
 import ScreenSummaryContent from '../../../../../joist/js/ScreenSummaryContent.js';
-import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAModel from '../../../common/model/BAAModel.js';
 
@@ -27,5 +26,3 @@ export default class AtomScreenSummaryContentNode extends ScreenSummaryContent {
     } );
   }
 }
-
-buildAnAtom.register( 'AtomScreenSummaryContentNode', AtomScreenSummaryContentNode );

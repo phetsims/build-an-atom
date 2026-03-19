@@ -9,7 +9,6 @@
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import CountsToSymbolChallenge from '../model/CountsToSymbolChallenge.js';
 import ParticleCountsNode from './ParticleCountsNode.js';
@@ -56,7 +55,5 @@ class CountsToSymbolChallengeView extends ToSymbolChallengeView {
     ];
   }
 }
-
-buildAnAtom.register( 'CountsToSymbolChallengeView', CountsToSymbolChallengeView );
 
 export default CountsToSymbolChallengeView;

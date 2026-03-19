@@ -25,7 +25,6 @@ import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import PeriodicTableAndSymbol from '../../atom/view/PeriodicTableAndSymbol.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAModel from '../model/BAAModel.js';
@@ -211,5 +210,4 @@ class BAAScreenView extends ScreenView {
   }
 }
 
-buildAnAtom.register( 'BAAScreenView', BAAScreenView );
 export default BAAScreenView;

@@ -13,7 +13,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriptionNode from '../../common/view/description/AtomDescriptionNode.js';
@@ -88,7 +87,5 @@ class SchematicToSymbolChallengeView extends ToSymbolChallengeView {
     ];
   }
 }
-
-buildAnAtom.register( 'SchematicToSymbolChallengeView', SchematicToSymbolChallengeView );
 
 export default SchematicToSymbolChallengeView;

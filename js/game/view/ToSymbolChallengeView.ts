@@ -13,7 +13,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
@@ -191,7 +190,5 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
   }
 
 }
-
-buildAnAtom.register( 'ToSymbolChallengeView', ToSymbolChallengeView );
 
 export default ToSymbolChallengeView;

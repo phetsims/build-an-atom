@@ -17,7 +17,6 @@ import AtomNode from '../../../../shred/js/view/AtomNode.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleView from '../../../../shred/js/view/ParticleView.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import { BAAParticleType } from '../../common/model/BAAParticle.js';
 
 class NonInteractiveSchematicAtomNode extends Node {
@@ -103,7 +102,5 @@ class NonInteractiveSchematicAtomNode extends Node {
     );
   }
 }
-
-buildAnAtom.register( 'NonInteractiveSchematicAtomNode', NonInteractiveSchematicAtomNode );
 
 export default NonInteractiveSchematicAtomNode;

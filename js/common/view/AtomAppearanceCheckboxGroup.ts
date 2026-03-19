@@ -14,7 +14,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import VerticalCheckboxGroup, { VerticalCheckboxGroupItem, VerticalCheckboxGroupOptions } from '../../../../sun/js/VerticalCheckboxGroup.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import AtomDescriptionNode from './description/AtomDescriptionNode.js';
 
@@ -91,5 +90,4 @@ class AtomAppearanceCheckboxGroup extends VerticalCheckboxGroup {
   }
 }
 
-buildAnAtom.register( 'AtomAppearanceCheckboxGroup', AtomAppearanceCheckboxGroup );
 export default AtomAppearanceCheckboxGroup;

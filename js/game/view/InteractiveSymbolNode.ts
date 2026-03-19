@@ -27,7 +27,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
@@ -328,7 +327,5 @@ class InteractiveSymbolNode extends VBox {
     super.dispose();
   }
 }
-
-buildAnAtom.register( 'InteractiveSymbolNode', InteractiveSymbolNode );
 
 export default InteractiveSymbolNode;

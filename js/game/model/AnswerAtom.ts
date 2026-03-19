@@ -11,7 +11,6 @@
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import NumberAtom, { NumberAtomOptions } from '../../../../shred/js/model/NumberAtom.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 export const neutralOrIonValues = [ 'neutral', 'ion', 'noSelection' ] as const;
 export type NeutralOrIon = typeof neutralOrIonValues[number];
@@ -78,7 +77,5 @@ class AnswerAtom extends NumberAtom {
     this.neutralOrIon = 'noSelection';
   }
 }
-
-buildAnAtom.register( 'AnswerAtom', AnswerAtom );
 
 export default AnswerAtom;

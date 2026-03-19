@@ -12,7 +12,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAModel from '../../common/model/BAAModel.js';
@@ -112,5 +111,4 @@ class AtomScreenView extends BAAScreenView {
   }
 }
 
-buildAnAtom.register( 'AtomScreenView', AtomScreenView );
 export default AtomScreenView;

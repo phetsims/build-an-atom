@@ -12,7 +12,6 @@ import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomNameUtils from '../../../../../shred/js/AtomNameUtils.js';
-import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
@@ -73,7 +72,5 @@ class GameSymbolDescriptionNode extends Node {
     } );
   }
 }
-
-buildAnAtom.register( 'GameSymbolDescriptionNode', GameSymbolDescriptionNode );
 
 export default GameSymbolDescriptionNode;

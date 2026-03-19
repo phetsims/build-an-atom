@@ -301,6 +301,4 @@ type StringsType = {
 
 const BuildAnAtomStrings = getStringModule( 'BUILD_AN_ATOM' ) as StringsType;
 
-buildAnAtom.register( 'BuildAnAtomStrings', BuildAnAtomStrings );
-
 export default BuildAnAtomStrings;

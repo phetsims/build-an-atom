@@ -12,7 +12,6 @@ import AccessibleList from '../../../../../scenery-phet/js/accessibility/Accessi
 import Node from '../../../../../scenery/js/nodes/Node.js';
 import AtomNameUtils from '../../../../../shred/js/AtomNameUtils.js';
 import ShredFluent from '../../../../../shred/js/ShredFluent.js';
-import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAModel from '../../../common/model/BAAModel.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
@@ -64,5 +63,3 @@ export default class SymbolDescriptionNode extends Node {
     } );
   }
 }
-
-buildAnAtom.register( 'SymbolDescriptionNode', SymbolDescriptionNode );

@@ -14,7 +14,6 @@ import AtomInfoUtils from '../../../../shred/js/AtomInfoUtils.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import RewardNode from '../../../../vegas/js/RewardNode.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 
@@ -77,5 +76,4 @@ class BAARewardNode extends RewardNode {
   }
 }
 
-buildAnAtom.register( 'BAARewardNode', BAARewardNode );
 export default BAARewardNode;

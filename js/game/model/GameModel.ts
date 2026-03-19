@@ -29,7 +29,6 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
 import GameTimer from '../../../../vegas/js/GameTimer.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAQueryParameters from '../../common/BAAQueryParameters.js';
@@ -459,5 +458,4 @@ class GameModel implements TModel {
   }
 }
 
-buildAnAtom.register( 'GameModel', GameModel );
 export default GameModel;

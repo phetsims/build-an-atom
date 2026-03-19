@@ -12,7 +12,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 export default class PeriodicTableLevelIcon extends Node {
 
@@ -40,5 +39,3 @@ export default class PeriodicTableLevelIcon extends Node {
     );
   }
 }
-
-buildAnAtom.register( 'PeriodicTableLevelIcon', PeriodicTableLevelIcon );

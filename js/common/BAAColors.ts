@@ -53,6 +53,4 @@ class BAAColors {
   } );
 }
 
-buildAnAtom.register( 'BAAColors', BAAColors );
-
 export default BAAColors;

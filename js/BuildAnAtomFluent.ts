@@ -502,5 +502,3 @@ const BuildAnAtomFluent = {
 };
 
 export default BuildAnAtomFluent;
-
-buildAnAtom.register('BuildAnAtomFluent', BuildAnAtomFluent);

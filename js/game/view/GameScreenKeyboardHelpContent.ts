@@ -10,7 +10,6 @@ import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboar
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import PeriodicTableControlsKeyboardHelpSection from '../../../../shred/js/view/PeriodicTableControlsKeyboardHelpSection.js';
 import GameShortcutsKeyboardHelpSection from '../../../../vegas/js/keyboard/GameShortcutsKeyboardHelpSection.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import ParticleNavigationHelpSection from '../../common/view/ParticleNavigationHelpSection.js';
 
 export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
@@ -36,5 +35,3 @@ export default class GameScreenKeyboardHelpContent extends TwoColumnKeyboardHelp
     } );
   }
 }
-
-buildAnAtom.register( 'GameScreenKeyboardHelpContent', GameScreenKeyboardHelpContent );

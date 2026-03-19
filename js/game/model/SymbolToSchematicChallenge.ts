@@ -9,7 +9,6 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeType } from './ChallengeType.js';
@@ -38,7 +37,5 @@ class SymbolToSchematicChallenge extends BAAGameChallenge {
     this.submittedAnswerModel.step( dt );
   }
 }
-
-buildAnAtom.register( 'SymbolToSchematicChallenge', SymbolToSchematicChallenge );
 
 export default SymbolToSchematicChallenge;

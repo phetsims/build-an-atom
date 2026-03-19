@@ -12,7 +12,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
 const SYMBOL_BOX_WIDTH = 275; // In screen coords, which are roughly pixels.
@@ -51,5 +50,3 @@ export default class AdvancedSymbolLevelIcon extends Node {
     );
   }
 }
-
-buildAnAtom.register( 'AdvancedSymbolLevelIcon', AdvancedSymbolLevelIcon );

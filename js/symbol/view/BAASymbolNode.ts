@@ -12,7 +12,6 @@ import Image from '../../../../scenery/js/nodes/Image.js';
 import { TReadOnlyNumberAtom } from '../../../../shred/js/model/NumberAtom.js';
 import SymbolNode, { SymbolNodeOptions } from '../../../../shred/js/view/SymbolNode.js';
 import scale_png from '../../../images/scale_png.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 
@@ -53,7 +52,5 @@ class BAASymbolNode extends SymbolNode {
     }
   }
 }
-
-buildAnAtom.register( 'BAASymbolNode', BAASymbolNode );
 
 export default BAASymbolNode;

@@ -14,7 +14,6 @@ import SphereBucket from '../../../../phetcommon/js/model/SphereBucket.js';
 import GrabReleaseCueNode from '../../../../scenery-phet/js/accessibility/nodes/GrabReleaseCueNode.js';
 import BucketFront from '../../../../scenery-phet/js/bucket/BucketFront.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAParticle from '../model/BAAParticle.js';
 
 class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
@@ -94,7 +93,5 @@ class BucketGrabReleaseCueNode extends GrabReleaseCueNode {
     } );
   }
 }
-
-buildAnAtom.register( 'BucketGrabReleaseCueNode', BucketGrabReleaseCueNode );
 
 export default BucketGrabReleaseCueNode;

@@ -9,7 +9,6 @@
 import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
 import { ChargeNotationValues } from '../../../shred/js/model/ChargeNotation.js';
 import getGameLevelsSchema from '../../../vegas/js/getGameLevelsSchema.js';
-import buildAnAtom from '../buildAnAtom.js';
 import BAAConstants from './BAAConstants.js';
 
 const BAAQueryParameters = QueryStringMachine.getAll( {
@@ -54,7 +53,5 @@ const BAAQueryParameters = QueryStringMachine.getAll( {
   }
 
 } );
-
-buildAnAtom.register( 'BAAQueryParameters', BAAQueryParameters );
 
 export default BAAQueryParameters;
