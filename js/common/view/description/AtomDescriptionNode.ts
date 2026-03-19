@@ -12,7 +12,7 @@ import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
-import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../../shred/js/AtomNameUtils.js';
 import NumberAtom, { TReadOnlyNumberAtom } from '../../../../../shred/js/model/NumberAtom.js';
 import ParticleAtom from '../../../../../shred/js/model/ParticleAtom.js';
 import AtomViewProperties from '../../../../../shred/js/view/AtomViewProperties.js';
@@ -58,7 +58,7 @@ class AtomDescriptionNode extends Node {
   ): TReadOnlyProperty<string> {
     return BuildAnAtomFluent.a11y.common.elementNameCheckbox.contextResponseSelector.createProperty( {
       hasName: protonCountProperty.derived( count => count > 0 ? 'true' : 'false' ),
-      name: AtomIdentifier.createDynamicNameProperty( protonCountProperty )
+      name: AtomNameUtils.createDynamicNameProperty( protonCountProperty )
     } );
   }
 

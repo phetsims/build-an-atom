@@ -13,7 +13,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import PeriodicTableNode, { PeriodicTableNodeOptions } from '../../../../shred/js/view/PeriodicTableNode.js';
 import buildAnAtom from '../../buildAnAtom.js';
 
@@ -63,7 +63,7 @@ class PeriodicTableAndSymbol extends Node {
     // Add the text that represents the chosen element.
     protonCountProperty.link( protonCount => {
       symbolRectangle.removeAllChildren();
-      const symbolText = new Text( AtomIdentifier.getSymbol( protonCount ), {
+      const symbolText = new Text( AtomNameUtils.getSymbol( protonCount ), {
         font: new PhetFont( { size: 48, weight: 'bold' } )
       } );
       symbolText.scale( Math.min( Math.min( symbolRectangle.width * 0.8 / symbolText.width, symbolRectangle.height * 0.8 / symbolText.height ), 1 ) );

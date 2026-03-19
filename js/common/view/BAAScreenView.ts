@@ -18,7 +18,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js';
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
@@ -92,8 +92,8 @@ class BAAScreenView extends ScreenView {
 
     const periodicTableAccessibleParagraphProperty = BuildAnAtomFluent.a11y.common
       .periodicTable.accessibleParagraphPattern.createProperty( {
-        name: AtomIdentifier.createDynamicNameProperty( model.atom.protonCountProperty ),
-        symbol: model.atom.protonCountProperty.derived( count => AtomIdentifier.getSpokenSymbol( count ) ),
+        name: AtomNameUtils.createDynamicNameProperty( model.atom.protonCountProperty ),
+        symbol: model.atom.protonCountProperty.derived( count => AtomNameUtils.getSpokenSymbol( count ) ),
         row: model.atom.protonCountProperty.derived( count => {
           if ( count === 0 ) { return ''; } // Returning empty when no protons. The pattern 'noSymbol' will prevent this to be used
           const coordinates = PeriodicTableNode.protonCountToCoordinates( count );
