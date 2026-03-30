@@ -9,7 +9,6 @@
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAModel from '../../common/model/BAAModel.js';
 import BAAScreenView from '../../common/view/BAAScreenView.js';
@@ -77,5 +76,4 @@ class SymbolScreenView extends BAAScreenView {
   }
 }
 
-buildAnAtom.register( 'SymbolScreenView', SymbolScreenView );
 export default SymbolScreenView;

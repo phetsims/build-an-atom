@@ -13,7 +13,6 @@ import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import InteractiveSymbolNode from '../../game/view/InteractiveSymbolNode.js';
 import NonInteractiveSchematicAtomNode from './NonInteractiveSchematicAtomNode.js';
@@ -88,5 +87,3 @@ export default class GameScreenIcon extends ScreenIcon {
     );
   }
 }
-
-buildAnAtom.register( 'GameScreenIcon', GameScreenIcon );

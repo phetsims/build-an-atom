@@ -7,7 +7,6 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 import ToSymbolChallenge, { ToSymbolChallengeOptions } from './ToSymbolChallenge.js';
@@ -18,7 +17,5 @@ class CountsToSymbolChallenge extends ToSymbolChallenge {
     super( buildAnAtomGameModel, challengeType, options );
   }
 }
-
-buildAnAtom.register( 'CountsToSymbolChallenge', CountsToSymbolChallenge );
 
 export default CountsToSymbolChallenge;

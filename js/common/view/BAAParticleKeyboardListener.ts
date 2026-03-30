@@ -377,5 +377,4 @@ class BAAParticleKeyboardListener extends KeyboardListener<OneKeyStroke[]> {
   } );
 }
 
-buildAnAtom.register( 'BAAParticleKeyboardListener', BAAParticleKeyboardListener );
 export default BAAParticleKeyboardListener;

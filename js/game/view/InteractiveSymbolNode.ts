@@ -24,10 +24,9 @@ import VBox, { VBoxOptions } from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
@@ -155,7 +154,7 @@ class InteractiveSymbolNode extends VBox {
     // Add the chemical symbol, e.g. "He" or "Na".
     const chemicalSymbolStringProperty = new DerivedStringProperty(
       [ protonCountProperty ],
-      protonCount => protonCount > 0 ? AtomIdentifier.getSymbol( protonCount ) : ''
+      protonCount => protonCount > 0 ? AtomNameUtils.getSymbol( protonCount ) : ''
     );
 
     const symbolText = new Text( chemicalSymbolStringProperty, {
@@ -173,7 +172,7 @@ class InteractiveSymbolNode extends VBox {
     // Add the element caption if the option is enabled.
     if ( options.showAtomName ) {
 
-      const elementDynamicStringProperty = AtomIdentifier.createDynamicNameProperty( protonCountProperty );
+      const elementDynamicStringProperty = AtomNameUtils.createDynamicNameProperty( protonCountProperty );
 
       const elementCaption = new Text( elementDynamicStringProperty, {
         font: new PhetFont( 40 ),
@@ -328,7 +327,5 @@ class InteractiveSymbolNode extends VBox {
     super.dispose();
   }
 }
-
-buildAnAtom.register( 'InteractiveSymbolNode', InteractiveSymbolNode );
 
 export default InteractiveSymbolNode;

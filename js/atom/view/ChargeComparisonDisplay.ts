@@ -13,7 +13,6 @@ import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import ParticleAtom from '../../../../shred/js/model/ParticleAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAModel from '../../common/model/BAAModel.js';
 
@@ -143,5 +142,4 @@ class ChargeComparisonDisplay extends Node {
   }
 }
 
-buildAnAtom.register( 'ChargeComparisonDisplay', ChargeComparisonDisplay );
 export default ChargeComparisonDisplay;

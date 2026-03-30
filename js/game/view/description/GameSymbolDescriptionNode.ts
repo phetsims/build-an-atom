@@ -11,8 +11,7 @@ import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
-import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
-import buildAnAtom from '../../../buildAnAtom.js';
+import AtomNameUtils from '../../../../../shred/js/AtomNameUtils.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
 import chargeToString from '../../../common/view/chargeToString.js';
@@ -24,7 +23,7 @@ class GameSymbolDescriptionNode extends Node {
     chargeProperty: TReadOnlyProperty<number>
   ) {
 
-    const elementDynamicStringProperty = AtomIdentifier.createDynamicNameProperty( protonCountProperty );
+    const elementDynamicStringProperty = AtomNameUtils.createDynamicNameProperty( protonCountProperty );
 
     const symbolStringProperty = new DerivedStringProperty(
       [
@@ -36,7 +35,7 @@ class GameSymbolDescriptionNode extends Node {
           return noSymbol;
         }
         else {
-          return AtomIdentifier.getSpokenSymbol( protonCount, true );
+          return AtomNameUtils.getSpokenSymbol( protonCount, true );
         }
       }
     );
@@ -73,7 +72,5 @@ class GameSymbolDescriptionNode extends Node {
     } );
   }
 }
-
-buildAnAtom.register( 'GameSymbolDescriptionNode', GameSymbolDescriptionNode );
 
 export default GameSymbolDescriptionNode;

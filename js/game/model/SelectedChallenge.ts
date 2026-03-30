@@ -11,7 +11,6 @@ import Property from '../../../../axon/js/Property.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
 
 export default class SelectedChallenge extends PhetioObject {
@@ -47,5 +46,3 @@ export default class SelectedChallenge extends PhetioObject {
     this.submittedAnswerAtom.reset();
   }
 }
-
-buildAnAtom.register( 'SelectedChallenge', SelectedChallenge );

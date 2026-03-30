@@ -19,7 +19,6 @@ import GameInfoDialog from '../../../../vegas/js/GameInfoDialog.js';
 import LevelSelectionButtonGroup, { LevelSelectionButtonGroupItem } from '../../../../vegas/js/LevelSelectionButtonGroup.js';
 import LevelSelectionScreenNode, { LevelSelectionScreenNodeOptions } from '../../../../vegas/js/LevelSelectionScreenNode.js';
 import ScoreDisplayStars from '../../../../vegas/js/ScoreDisplayStars.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAConstants from '../../common/BAAConstants.js';
@@ -182,7 +181,5 @@ class LevelSelectionNode extends LevelSelectionScreenNode {
     ];
   }
 }
-
-buildAnAtom.register( 'LevelSelectionNode', LevelSelectionNode );
 
 export default LevelSelectionNode;

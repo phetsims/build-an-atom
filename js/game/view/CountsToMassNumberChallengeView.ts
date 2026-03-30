@@ -15,7 +15,6 @@ import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -121,7 +120,5 @@ class CountsToMassNumberChallengeView extends ChallengeView {
     return new RichText( massNumberTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
-
-buildAnAtom.register( 'CountsToMassNumberChallengeView', CountsToMassNumberChallengeView );
 
 export default CountsToMassNumberChallengeView;

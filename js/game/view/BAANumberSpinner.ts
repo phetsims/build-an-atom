@@ -15,7 +15,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
 import NumberSpinner, { NumberSpinnerOptions } from '../../../../sun/js/NumberSpinner.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
 
@@ -118,7 +117,5 @@ class BAANumberSpinner extends NumberSpinner {
     } );
   }
 }
-
-buildAnAtom.register( 'BAANumberSpinner', BAANumberSpinner );
 
 export default BAANumberSpinner;

@@ -8,7 +8,6 @@
 
 import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import ParticleNavigationHelpSection from './ParticleNavigationHelpSection.js';
 
 export default class BAAKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
@@ -30,5 +29,3 @@ export default class BAAKeyboardHelpContent extends TwoColumnKeyboardHelpContent
     } );
   }
 }
-
-buildAnAtom.register( 'BAAKeyboardHelpContent', BAAKeyboardHelpContent );

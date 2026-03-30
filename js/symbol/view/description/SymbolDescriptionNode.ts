@@ -10,9 +10,8 @@ import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import AccessibleList from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
-import AtomIdentifier from '../../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../../shred/js/AtomNameUtils.js';
 import ShredFluent from '../../../../../shred/js/ShredFluent.js';
-import buildAnAtom from '../../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../../BuildAnAtomFluent.js';
 import BAAModel from '../../../common/model/BAAModel.js';
 import BAAPreferences from '../../../common/model/BAAPreferences.js';
@@ -23,7 +22,7 @@ export default class SymbolDescriptionNode extends Node {
 
     const spokenSymbolStringProperty = ShredFluent.a11y.spokenSymbol.createProperty( {
       symbol: model.atom.protonCountProperty.derived( count => {
-        return AtomIdentifier.getSymbol( count ).split( '' ).join( ' ' );
+        return AtomNameUtils.getSymbol( count ).split( '' ).join( ' ' );
       } )
     } );
 
@@ -64,5 +63,3 @@ export default class SymbolDescriptionNode extends Node {
     } );
   }
 }
-
-buildAnAtom.register( 'SymbolDescriptionNode', SymbolDescriptionNode );

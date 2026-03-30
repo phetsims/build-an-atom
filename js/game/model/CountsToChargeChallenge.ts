@@ -8,7 +8,6 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from './BAAGameChallenge.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
@@ -20,7 +19,5 @@ class CountsToChargeChallenge extends BAAGameChallenge {
   }
 
 }
-
-buildAnAtom.register( 'CountsToChargeChallenge', CountsToChargeChallenge );
 
 export default CountsToChargeChallenge;

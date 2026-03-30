@@ -29,7 +29,6 @@ import NextButton from '../../../../vegas/js/buttons/NextButton.js';
 import ShowAnswerButton from '../../../../vegas/js/buttons/ShowAnswerButton.js';
 import TryAgainButton from '../../../../vegas/js/buttons/TryAgainButton.js';
 import GameAudioPlayer from '../../../../vegas/js/GameAudioPlayer.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAColors from '../../common/BAAColors.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
@@ -364,7 +363,5 @@ abstract class ChallengeView<TChallenge extends BAAGameChallenge = BAAGameChalle
   }
 
 }
-
-buildAnAtom.register( 'ChallengeView', ChallengeView );
 
 export default ChallengeView;

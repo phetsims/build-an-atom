@@ -9,7 +9,6 @@
 
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
 import AtomValuePool from './AtomValuePool.js';
 import { ChallengeType } from './ChallengeType.js';
@@ -139,5 +138,3 @@ export default class ChallengeDescriptorSetFactory {
     ].includes( type );
   }
 }
-
-buildAnAtom.register( 'ChallengeDescriptorSetFactory', ChallengeDescriptorSetFactory );

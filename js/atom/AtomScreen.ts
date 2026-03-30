@@ -8,7 +8,6 @@
 
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomFluent from '../BuildAnAtomFluent.js';
 import BAAModel from '../common/model/BAAModel.js';
 import BAAKeyboardHelpContent from '../common/view/BAAKeyboardHelpContent.js';
@@ -35,5 +34,4 @@ class AtomScreen extends Screen<BAAModel, AtomScreenView> {
   }
 }
 
-buildAnAtom.register( 'AtomScreen', AtomScreen );
 export default AtomScreen;

@@ -18,7 +18,6 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import GameUtils from '../../../../vegas/js/GameUtils.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import ChallengeDescriptorSetFactory, { ChallengeDescriptor } from './ChallengeDescriptorSetFactory.js';
 import GameModel from './GameModel.js';
 
@@ -178,5 +177,4 @@ class GameLevel extends PhetioObject {
   } );
 }
 
-buildAnAtom.register( 'GameLevel', GameLevel );
 export default GameLevel;

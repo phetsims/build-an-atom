@@ -10,11 +10,10 @@
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import FaceNode from '../../../../scenery-phet/js/FaceNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import AtomInfoUtils from '../../../../shred/js/AtomInfoUtils.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import RewardNode from '../../../../vegas/js/RewardNode.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import InteractiveSymbolNode from './InteractiveSymbolNode.js';
 
@@ -54,7 +53,7 @@ class BAARewardNode extends RewardNode {
     const protonCount = 1 + dotRandom.nextInt( 18 ); // Limit to Argon, since that's as high as translations go.
     return new NumberAtom( {
       protonCount: protonCount,
-      neutronCount: AtomIdentifier.getNumNeutronsInMostCommonIsotope( protonCount ),
+      neutronCount: AtomInfoUtils.getNumNeutronsInMostCommonIsotope( protonCount ),
       electronCount: protonCount
     } );
   }
@@ -77,5 +76,4 @@ class BAARewardNode extends RewardNode {
   }
 }
 
-buildAnAtom.register( 'BAARewardNode', BAARewardNode );
 export default BAARewardNode;

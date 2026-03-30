@@ -14,7 +14,6 @@ import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import AnswerAtom from './AnswerAtom.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
@@ -92,7 +91,5 @@ abstract class BAAGameChallenge extends PhetioObject {
     documentation: 'A challenge used in the game.'
   } );
 }
-
-buildAnAtom.register( 'BAAGameChallenge', BAAGameChallenge );
 
 export default BAAGameChallenge;

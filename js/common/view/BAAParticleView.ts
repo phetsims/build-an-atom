@@ -12,7 +12,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ShredFluent from '../../../../shred/js/ShredFluent.js';
 import ParticleView, { ParticleViewOptions } from '../../../../shred/js/view/ParticleView.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAConstants from '../BAAConstants.js';
 import BAAParticle from '../model/BAAParticle.js';
 import { ParticleLocations } from './InteractiveSchematicAtom.js';
@@ -50,5 +49,3 @@ export default class BAAParticleView extends ParticleView {
     } );
   }
 }
-
-buildAnAtom.register( 'BAAParticleView', BAAParticleView );

@@ -17,7 +17,6 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import scale_png from '../../../images/scale_png.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 // constants
 const WIDTH = 122; // In screen coords, which are roughly pixels, empirically determined.
@@ -78,7 +77,5 @@ class MassNumberDisplay extends Node {
     } );
   }
 }
-
-buildAnAtom.register( 'MassNumberDisplay', MassNumberDisplay );
 
 export default MassNumberDisplay;

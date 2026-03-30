@@ -19,12 +19,11 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import PeriodicTableNode from '../../../../shred/js/view/PeriodicTableNode.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUnionIO from '../../../../tandem/js/types/StringUnionIO.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom, { NeutralOrIon, neutralOrIonValues } from '../model/AnswerAtom.js';
@@ -171,7 +170,7 @@ class ToElementChallengeView extends ChallengeView {
     const elementSymbolProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.protonCountProperty ],
       ( protonCount: number ) => {
-        return AtomIdentifier.getSpokenSymbol( protonCount );
+        return AtomNameUtils.getSpokenSymbol( protonCount );
       }
     );
     const neutralOrIonStringProperty = new DerivedStringProperty(
@@ -247,7 +246,7 @@ class ToElementChallengeView extends ChallengeView {
         this.challenge.correctAnswerAtom.chargeProperty
       ],
       ( protonCount: number, charge: number ) => {
-        const elementSymbol = AtomIdentifier.getSymbol( protonCount );
+        const elementSymbol = AtomNameUtils.getSymbol( protonCount );
         const ionString = charge === 0 ? 'Neutral Atom' : 'Ion';
         return `${this.challenge.challengeType}<br> ${elementSymbol}, ${ionString}`;
       }
@@ -267,7 +266,5 @@ class ToElementChallengeView extends ChallengeView {
     }
   };
 }
-
-buildAnAtom.register( 'ToElementChallengeView', ToElementChallengeView );
 
 export default ToElementChallengeView;

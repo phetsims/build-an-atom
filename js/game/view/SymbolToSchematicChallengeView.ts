@@ -20,7 +20,6 @@ import AtomViewProperties from '../../../../shred/js/view/AtomViewProperties.js'
 import ParticleCountDisplay from '../../../../shred/js/view/ParticleCountDisplay.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AtomDescriptionNode from '../../common/view/description/AtomDescriptionNode.js';
@@ -200,7 +199,5 @@ class SymbolToSchematicChallengeView extends ChallengeView {
     return new RichText( answerTextProperty, BAAConstants.SHOW_ANSWER_TEXT_OPTIONS );
   }
 }
-
-buildAnAtom.register( 'SymbolToSchematicChallengeView', SymbolToSchematicChallengeView );
 
 export default SymbolToSchematicChallengeView;

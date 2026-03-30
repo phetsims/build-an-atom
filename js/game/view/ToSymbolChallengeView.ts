@@ -11,9 +11,8 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import AtomIdentifier from '../../../../shred/js/AtomIdentifier.js';
+import AtomNameUtils from '../../../../shred/js/AtomNameUtils.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import BAAPreferences from '../../common/model/BAAPreferences.js';
@@ -54,11 +53,11 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
 
     // Set up the correct answer accessible paragraph.
     const challengeType = this.challenge.challengeType;
-    const elementNameProperty = AtomIdentifier.createDynamicNameProperty(
+    const elementNameProperty = AtomNameUtils.createDynamicNameProperty(
       this.challenge.correctAnswerAtom.protonCountProperty );
     const spokenSymbolProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.protonCountProperty ],
-      protonCount => AtomIdentifier.getSpokenSymbol( protonCount )
+      protonCount => AtomNameUtils.getSpokenSymbol( protonCount )
     );
     const chargeStringProperty = new DerivedStringProperty(
       [ this.challenge.correctAnswerAtom.chargeProperty, BAAPreferences.instance.chargeNotationProperty ],
@@ -191,7 +190,5 @@ class ToSymbolChallengeView extends ChallengeView<ToSymbolChallenge> {
   }
 
 }
-
-buildAnAtom.register( 'ToSymbolChallengeView', ToSymbolChallengeView );
 
 export default ToSymbolChallengeView;

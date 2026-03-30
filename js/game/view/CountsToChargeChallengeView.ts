@@ -16,7 +16,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import ShredConstants from '../../../../shred/js/ShredConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 import BAAConstants from '../../common/BAAConstants.js';
 import AnswerAtom from '../model/AnswerAtom.js';
@@ -131,7 +130,5 @@ class CountsToChargeChallengeView extends ChallengeView {
     this.chargeProperty.value = this.challenge.correctAnswerAtom.chargeProperty.value;
   }
 }
-
-buildAnAtom.register( 'CountsToChargeChallengeView', CountsToChargeChallengeView );
 
 export default CountsToChargeChallengeView;

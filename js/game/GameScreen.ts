@@ -8,7 +8,6 @@
 
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import buildAnAtom from '../buildAnAtom.js';
 import BuildAnAtomFluent from '../BuildAnAtomFluent.js';
 import BAAColors from '../common/BAAColors.js';
 import GameModel from './model/GameModel.js';
@@ -35,5 +34,4 @@ class GameScreen extends Screen<GameModel, GameScreenView> {
   }
 }
 
-buildAnAtom.register( 'GameScreen', GameScreen );
 export default GameScreen;

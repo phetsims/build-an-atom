@@ -12,7 +12,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import MassNumberDisplay from '../../atom/view/MassNumberDisplay.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import ChargeMeter from '../../common/view/ChargeMeter.js';
 
 export default class MassAndChargeLevelIcon extends Node {
@@ -57,5 +56,3 @@ export default class MassAndChargeLevelIcon extends Node {
     );
   }
 }
-
-buildAnAtom.register( 'MassAndChargeLevelIcon', MassAndChargeLevelIcon );

@@ -11,7 +11,6 @@ import ScreenIcon from '../../../../joist/js/ScreenIcon.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import NonInteractiveSchematicAtomNode from '../../game/view/NonInteractiveSchematicAtomNode.js';
 
 export default class AtomScreenIcon extends ScreenIcon {
@@ -37,5 +36,3 @@ export default class AtomScreenIcon extends ScreenIcon {
     );
   }
 }
-
-buildAnAtom.register( 'AtomScreenIcon', AtomScreenIcon );

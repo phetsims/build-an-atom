@@ -10,7 +10,6 @@ import ScreenIcon, { MINIMUM_HOME_SCREEN_ICON_SIZE } from '../../../../joist/js/
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import NumberAtom from '../../../../shred/js/model/NumberAtom.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAColors from '../../common/BAAColors.js';
 import InteractiveSymbolNode from '../../game/view/InteractiveSymbolNode.js';
 
@@ -49,5 +48,3 @@ export default class SymbolScreenIcon extends ScreenIcon {
     );
   }
 }
-
-buildAnAtom.register( 'SymbolScreenIcon', SymbolScreenIcon );

@@ -8,7 +8,6 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import { ChallengeType } from './ChallengeType.js';
 import GameModel from './GameModel.js';
 import SchematicToSymbolChallenge from './SchematicToSymbolChallenge.js';
@@ -24,7 +23,5 @@ class SchematicToSymbolMassNumberChallenge extends SchematicToSymbolChallenge {
     } );
   }
 }
-
-buildAnAtom.register( 'SchematicToSymbolMassNumberChallenge', SchematicToSymbolMassNumberChallenge );
 
 export default SchematicToSymbolMassNumberChallenge;

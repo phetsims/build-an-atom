@@ -9,7 +9,6 @@
 import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import Particle, { ParticleOptions } from '../../../../shred/js/model/Particle.js';
-import buildAnAtom from '../../buildAnAtom.js';
 
 export type BAAParticleType = 'proton' | 'neutron' | 'electron';
 
@@ -26,5 +25,3 @@ export default class BAAParticle extends Particle {
   public override get type(): BAAParticleType { return this.typeProperty.value; }
 
 }
-
-buildAnAtom.register( 'BAAParticle', BAAParticle );

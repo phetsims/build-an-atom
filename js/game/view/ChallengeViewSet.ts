@@ -9,7 +9,6 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BAAGameChallenge from '../model/BAAGameChallenge.js';
 import CountsToChargeChallenge from '../model/CountsToChargeChallenge.js';
 import CountsToElementChallenge from '../model/CountsToElementChallenge.js';
@@ -130,5 +129,4 @@ class ChallengeViewSet {
 }
 
 
-buildAnAtom.register( 'ChallengeViewSet', ChallengeViewSet );
 export default ChallengeViewSet;

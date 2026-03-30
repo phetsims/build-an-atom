@@ -16,7 +16,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import { ChargeNotation } from '../../../../shred/js/model/ChargeNotation.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import buildAnAtom from '../../buildAnAtom.js';
 import BuildAnAtomFluent from '../../BuildAnAtomFluent.js';
 
 const FONT_SIZE = 18;
@@ -84,4 +83,3 @@ class ChargeNotationControl extends PreferencesControl {
 }
 
 export default ChargeNotationControl;
-buildAnAtom.register( 'ChargeNotationControl', ChargeNotationControl );
