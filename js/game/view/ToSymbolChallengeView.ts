@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * Base type for views of challenges where the user is asked to configure an interactive symbol (basically like a cell

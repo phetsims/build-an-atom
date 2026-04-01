@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * Base class for the challenges used in the Build an Atom game. The general approach is that an atom is presented in

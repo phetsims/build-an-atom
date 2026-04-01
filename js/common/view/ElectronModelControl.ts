@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * ElectronModelControl is a panel with a title and a radio button group that allows the user to select - i.e. control -

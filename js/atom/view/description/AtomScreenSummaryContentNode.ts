@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 /**
  * Main content node for the summary section of the first screen of the Build an Atom simulation.
  *

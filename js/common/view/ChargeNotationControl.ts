@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * ChargeNotationControl is the user interface for controlling the "charge notation" preference for the Build an Atom

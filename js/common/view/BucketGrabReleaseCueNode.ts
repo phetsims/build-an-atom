@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * BucketGrabReleaseCueNode is a GrabReleaseCueNode for the buckets in Build An Atom.  This is used for alt-input, and

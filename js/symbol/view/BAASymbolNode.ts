@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * Node that adds an image of a scale and a charge meter to the left and right side of the symbol node, respectively.

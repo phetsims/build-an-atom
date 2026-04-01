@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * Class for the Counts to Symbol challenge where the user has to fill in the Atomic Mass number for an atom symbol.

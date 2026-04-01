@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * Challenge where the user is presented with a set of counts for protons, neutrons, and electrons, and must determine

@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * Model of an atom that represents the atom as a set of particle counts as well as the charge. This is used in the

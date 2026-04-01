@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * SymbolToSchematicChallengeView is a view for game challenges where the user is presented with a chemical symbol

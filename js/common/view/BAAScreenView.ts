@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * ScreenView that presents an interactive atom on the left side with buckets of particles underneath and controls for

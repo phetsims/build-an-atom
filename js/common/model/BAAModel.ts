@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * BAAModel is the main model class for the screens in this sim that have a single interactive atom and a set of

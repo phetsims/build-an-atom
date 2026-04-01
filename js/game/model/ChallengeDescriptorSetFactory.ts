@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * ChallengeDescriptorSetFactory is used to generate a list of challenge descriptors for use in a game.

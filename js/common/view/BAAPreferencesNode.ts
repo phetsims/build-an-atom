@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * BAAPreferencesNode is the user interface for sim-specific preferences, accessed via the "Simulation" tab of the

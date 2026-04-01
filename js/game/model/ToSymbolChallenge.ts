@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * ToSymbolChallenge is a base class for challenges in the Build an Atom game where the user must answer the challenge

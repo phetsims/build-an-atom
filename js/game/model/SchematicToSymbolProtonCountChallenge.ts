@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * Class for game challenge where the user sees a Schematic Atom and has to fill in the Proton Count value in the Atom

@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * Node that takes a NumberAtom and displays a set of counts for the various subatomic particles. This is generally used
