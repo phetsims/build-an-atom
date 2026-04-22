@@ -1,5 +1,5 @@
 {
-  "comment": "# build-an-atom 1.9.1 Fri Apr 10 2026 17:34:16 GMT-0400 (Eastern Daylight Time)",
+  "comment": "# build-an-atom 1.9.1 Wed Apr 22 2026 15:51:17 GMT-0500 (Colombia Standard Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "build-an-atom": {
-    "sha": "69c91a50862cc48a3e6f92c219516d1fd88b5f2a",
+    "sha": "eb2d935a4177c0e8e9c15d1a159d4ddbd81134d2",
     "branch": "1.9"
   },
   "chipper": {
@@ -77,8 +77,8 @@
     "branch": "HEAD"
   },
   "shred": {
-    "sha": "c0d1f5df032a919ffaad60d719f1b9af0bebb555",
-    "branch": "HEAD"
+    "sha": "fa857e5af3c37c4481783626ac12c516fc475f8c",
+    "branch": "build-an-atom-1.9"
   },
   "studio": {
     "sha": "48279c0a5b20f59072bdad8b8cfbd20c76193141",
