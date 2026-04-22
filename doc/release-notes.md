@@ -12,7 +12,7 @@ Instructions:
 For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/blob/main/doc/release-notes.md
 -->
 
-## 1.9 (TODO - fill in date, publication on hold, see https://github.com/phetsims/build-an-atom/issues/481)
+## 1.9 (2026-04-10)
 
 ### New Features
 * Alternative Input
