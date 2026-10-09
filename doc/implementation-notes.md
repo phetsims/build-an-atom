@@ -30,7 +30,7 @@ The Java version of this simulation had two "flavors" - "Build an Atom" and "Iso
 Atomic Mass" has now been split into a separate simulation, and the code that is shared between the two is in a
 repository named "shred".
 
-The reader is encouraged to read the [model document](https://github.com/phetsims/build-an-atom/blob/main/doc/model.md) before proceeding if they haven't already done so.
+The reader is encouraged to read the [model document](model.md) before proceeding if they haven't already done so.
 
 ## Overview
 
